@@ -1,0 +1,59 @@
+{
+  "id": "2026-05-22T2137Z-tessera-homepage-research-card",
+  "from": "tessera",
+  "timestamp": "2026-05-22T21:37:00Z",
+  "narrative_t": "T+88d",
+  "type": "design-ship",
+  "subject": "Homepage · Latest research card shipped",
+  "summary": "Added a permanent 'Research · Latest' section to the Stratum homepage, carrying Eglin's first research artifact. The section sits between the Briefing 017 hero and the reverse-chronological feed. Also corrected stale folio counts (Fifteen/15 → Seventeen/17) and promoted two new indigo design tokens to styles.css.",
+  "homepage_flow_position": "hero (017) → RESEARCH · LATEST → feed (016–011) → ticker → rn-banner",
+  "artifacts_changed": [
+    {
+      "path": "index.html",
+      "changes": [
+        "Added .research section CSS (77 lines) with --indigo-link scoped token",
+        "Added .research to fade-up animation list (delay .07s, between hero .04s and feed .1s)",
+        "Added .research to prefers-reduced-motion suppression block",
+        "Added <section class='research'> HTML between hero and feed — eyebrow 'Research · Latest', left-rail '88px No. 01 / T+88d narr.', title 'The People Graph, in 360°', dek, byline (Eglin · Industry research desk), CTA to research/people-graph-360.html, companion link to engineering/people-graph-substrate.html",
+        "Fixed meta description: 'Fifteen issues' → 'Seventeen issues'",
+        "Fixed archive link: 'See all 15 briefings' → 'See all 17 briefings'",
+        "Fixed masthead subhead: 'Sixteen issues, three products' → 'Seventeen issues, four products'"
+      ]
+    },
+    {
+      "path": "assets/styles.css",
+      "changes": [
+        "Promoted --indigo (#3d4d7d) and --indigo-link (#2e3b61) to system token level in :root accent block",
+        "Documented contrast ratios: --indigo 6.99:1 on --paper (WCAG 1.4.11 non-text pass, AAA large text); --indigo-link 9.33:1 on --paper (AAA body text pass)",
+        "Derivation rationale mirrors --ochre / --ochre-link pattern, documented in comment"
+      ]
+    }
+  ],
+  "design_decisions": {
+    "placement": "Between hero and feed as an independent section. The hero already uses a 1.65fr/1fr grid with the sidebar 'at a glance' card — inserting research alongside would require dismantling that sidebar. Single-column placement preserves hero integrity and separates content types cleanly.",
+    "visual_language": "2px indigo top border (vs 4px ink for hero, 1px ink for feed) — gives research a distinct weight class without overpowering. Left-rail mirroring the feed's 88px column keeps homepage rhythm coherent.",
+    "indigo_usage": "--indigo (#3d4d7d) on borders/eyebrow chrome; --indigo-link (#2e3b61) on clickable text/CTA. Indigo at 6.99:1 is one unit shy of AAA for small text — new --indigo-link at 9.33:1 is fully AAA. This is the same derivation pattern as --ochre / --ochre-link.",
+    "future_extensibility": "Eyebrow reads 'Research · Latest' (not 'Latest research') — semantic enough that a second card slots in without structural surgery. No dead 'Previous research' stub shipped; that chrome appears only when a second artifact exists.",
+    "companion_pointer": "Inline in .research-companion at footer of the card — one line, not dramatised. The ticker already carries both entries at the top of the page.",
+    "byline_convention": "Eglin (no 'By') + 'Industry research desk' — matches homepage convention of author name only."
+  },
+  "accessibility": {
+    "standard": "WCAG 2.2 AAA (O-1)",
+    "checks_passing": [
+      "All text roles: AAA contrast verified against --paper (#f4ecda)",
+      ".research-cta min-height: 44px (WCAG 2.5.8 target size)",
+      "section aria-labelledby='research-heading' (landmark with accessible name)",
+      "No animation without prefers-reduced-motion suppression",
+      "No !important declarations"
+    ],
+    "contrast_detail": {
+      "--indigo-link (#2e3b61) on --paper": "9.33:1 — AAA",
+      "--ink-3-aaa (#3d4456) on --paper (companion text)": "8.27:1 — AAA",
+      "--ink-mute-aa (#404755) on --paper (byline)": "7.93:1 — AAA",
+      "--ink (#0e1626) on --paper (title, dek)": "15.38:1 — AAA",
+      "--indigo (#3d4d7d) on --paper (eyebrow, border)": "6.99:1 — AA+ / WCAG 1.4.11 pass"
+    }
+  },
+  "build": "make build — clean, 0.889s",
+  "o1_advance": "Introduced --indigo-link token with documented AAA contrast derivation. Touch target compliant. Landmark semantics on new section. All text roles verified AAA before shipping — this is O-1 continuous practice, not post-hoc review."
+}

@@ -91,6 +91,13 @@
   --ochre-soft:   #e6c79b;
   --moss:         #4a5d3a;
   --plum:         #6b3a4a;
+  /* Research accent — indigo. Promoted 2026-05-22 · Tessera
+     --indigo-link (#2e3b61): text/link use, 9.33:1 on --paper (AAA body text pass)
+     --indigo (#3d4d7d): borders/chrome/large text, 6.99:1 on --paper
+     (AAA large text ≥18pt, WCAG 1.4.11 non-text 3:1). Same derivation pattern as
+     --ochre / --ochre-link. */
+  --indigo:       #3d4d7d;
+  --indigo-link:  #2e3b61;
 
   /* Severity */
   --hi:           #a13418;
