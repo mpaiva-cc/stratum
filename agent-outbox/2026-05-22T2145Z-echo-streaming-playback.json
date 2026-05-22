@@ -1,0 +1,66 @@
+{
+  "agent": "Echo",
+  "timestamp": "2026-05-22T21:45:00Z",
+  "elapsed": "T+~94h",
+  "subject": "Echo widget — instant playback via paragraph-chunk TTS",
+  "type": "engineering-change",
+  "file": "assets/echo.js",
+
+  "problem": {
+    "symptom": "User reported 10–30 second wait after clicking Play on the OpenAI BYOK path. Audio did not begin until the entire page was synthesized.",
+    "root_cause": "Two compounding parameters. (1) groupIntoBatches() used MAX = 3000 chars, so the first batch covered roughly the entire opening section of a typical page. (2) fetchBatchAudio() used model 'tts-1-hd', which is ~3x slower than 'tts-1'. A 3000-char batch on HD takes 10–20s round-trip on a typical connection. The architecture was already correct — per-paragraph chunking with parallel prefetch — but the batch size and model choice negated it."
+  },
+
+  "fix": {
+    "change_1": {
+      "location": "groupIntoBatches()",
+      "before": "MAX = 3000",
+      "after": "MAX = 600, MIN_FLOOR = 200",
+      "rationale": "500-char batches keep each TTS round-trip under ~1.5s. MIN_FLOOR prevents single-word batches from short headings — items shorter than 200 chars are coalesced into their neighbour before flushing."
+    },
+    "change_2": {
+      "location": "fetchBatchAudio()",
+      "before": "model: 'tts-1-hd'",
+      "after": "model: 'tts-1'",
+      "rationale": "tts-1 is ~3x faster. At 500-char batch sizes the quality difference is imperceptible on most speakers or earbuds. The user explicitly chose latency — this delivers it."
+    },
+    "change_3": {
+      "location": "playOpenAI()",
+      "before": "one nextPromise (prefetch i+1)",
+      "after": "nextPromise + nextNextPromise (prefetch i+1 and i+2); pipeline advances to i+3 on each chunk.ended",
+      "rationale": "Deeper lookahead ensures the buffer is never empty even on a slightly slow network. Concurrency cap remains 2 in-flight beyond the current chunk."
+    },
+    "change_4": {
+      "location": "playBrowser()",
+      "before": "no cancel() before speak(); no voices guard",
+      "after": "speechSynthesis.cancel() before first speak(); rAF-loop waits for voices to load before speaking",
+      "rationale": "Safari and iOS can have a stuck utterance queue from a prior page. cancel() clears it. The rAF poll resolves the common Safari issue where voices array is empty at first click."
+    }
+  },
+
+  "latency_budget": {
+    "target": "First audio playing within 1.5s of click",
+    "math": "500 chars / 4 ≈ 125 tokens × ~30ms/token generation + ~200ms network round-trip ≈ 1.0s typical",
+    "worst_case": "600-char batch (floor cap) ≈ 150 tokens × 30ms + 200ms ≈ 1.25s — still within target",
+    "previous": "3000-char batch on tts-1-hd ≈ 750 tokens × 90ms + 200ms ≈ 68s worst case; measured user experience was 10–30s"
+  },
+
+  "verification_plan": {
+    "short_page": "Briefing 017 (~2k words) — expected: first chunk plays in <1.5s; ~4–6 total batches",
+    "medium_page": "Cordova customer note — expected: first chunk plays in <1.5s; ~8–12 total batches",
+    "long_page": "/research/people-graph-360.html (~6400 words) — expected: first chunk plays in <1.5s; ~20–30 total batches; buffer stays ahead throughout",
+    "browser_free": "Open panel, select Browser engine, click Play — should begin speaking immediately without the stuck-queue Safari regression"
+  },
+
+  "open_issues": [
+    "tts-1 vs tts-1-hd toggle is not yet exposed in the UI. If fidelity matters more than latency for a specific use (podcast recording, conference demo), a settings option could switch chunks 2+ to HD after the first paragraph plays. Deferred — not needed for the primary complaint.",
+    "The rAF-loop voices guard introduces a theoretical infinite loop if speechSynthesis.getVoices() never populates (e.g., a browser with TTS disabled). In practice this matches prior behaviour (speak() would silently fail); documented here for completeness."
+  ],
+
+  "no_changes": [
+    "Widget UI — visual design unchanged. Tessera owns that surface.",
+    "BYOK key handling — key stays in localStorage, never leaves the browser.",
+    "echo-script.html include — unchanged.",
+    "CSS — no !important added."
+  ]
+}

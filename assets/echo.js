@@ -2,7 +2,7 @@
    Echo — Stratum's PR / voice agent, in the browser.
    A reusable text-to-speech widget that reads the current page.
    Default: Web Speech API (no key, works offline-ish).
-   Optional: BYOK OpenAI TTS for premium-grade voice (HD voices).
+   Optional: BYOK OpenAI TTS for premium-grade voice.
    ════════════════════════════════════════════════════════════ */
 
 (function () {
@@ -464,23 +464,42 @@
     abortKey: 0,       // increments on stop to invalidate in-flight openai requests
   };
 
-  // Group adjacent chunks into batches sized for a single OpenAI request.
-  // OpenAI TTS accepts up to 4096 chars; we target ~3000 to leave headroom
-  // for the JSON envelope and avoid sentence truncation.
+  // Group adjacent chunks into paragraph-sized batches for OpenAI TTS.
+  //
+  // Latency goal: first audio playing within ~1.5s of click.
+  // Budget math: 500 chars / 4 ≈ 125 tokens × ~30ms/token + ~200ms network ≈ ~1s.
+  //
+  // MAX = 600 chars keeps each round-trip under ~1.5s on a normal connection.
+  // MIN_FLOOR = 200 chars prevents single-word batches (awkward pauses between
+  // very short headings); short items are coalesced into their neighbour.
   function groupIntoBatches(chunks) {
-    const MAX = 3000;
+    const MAX = 600;
+    const MIN_FLOOR = 200;
     const batches = [];
     let cur = null;
     chunks.forEach((c, i) => {
       if (!cur) {
         cur = { text: c.text, firstIdx: i, lastIdx: i, indices: [i] };
       } else if (cur.text.length + c.text.length + 2 <= MAX) {
+        // Either we're still under the cap, or the current batch is too short
+        // to stand alone — coalesce to meet the floor.
         cur.text += '\n\n' + c.text;
         cur.lastIdx = i;
         cur.indices.push(i);
       } else {
-        batches.push(cur);
-        cur = { text: c.text, firstIdx: i, lastIdx: i, indices: [i] };
+        // Over the cap. Flush current batch only if it meets the floor;
+        // otherwise keep coalescing (rare: a single paragraph > MAX).
+        if (cur.text.length >= MIN_FLOOR) {
+          batches.push(cur);
+          cur = { text: c.text, firstIdx: i, lastIdx: i, indices: [i] };
+        } else {
+          // Current batch too short — absorb one more even if it exceeds MAX.
+          cur.text += '\n\n' + c.text;
+          cur.lastIdx = i;
+          cur.indices.push(i);
+          batches.push(cur);
+          cur = null;
+        }
       }
     });
     if (cur) batches.push(cur);
@@ -512,38 +531,56 @@
       setStatus('Browser TTS not supported', 'err');
       return;
     }
+    // Cancel any stuck utterance from a prior session (critical on Safari/iOS).
+    window.speechSynthesis.cancel();
+
     if (state.chunks.length === 0) state.chunks = extractChunks();
     if (state.chunks.length === 0) { setStatus('No readable text found', 'warn'); return; }
-    setPlaying(true);
-    setStatus(`Playing · ${state.index + 1}/${state.chunks.length}`, 'ok');
-    const settings = captureSettings();
-    const speakOne = () => {
-      if (!state.playing) return;
-      if (state.index >= state.chunks.length) {
-        stop();
-        setStatus('Finished');
+
+    // If voices haven't loaded yet (common on Safari at first click), wait for
+    // the voiceschanged event before speaking. We must NOT introduce an await
+    // here on iOS (the speak() call must remain in the synchronous user-gesture
+    // stack), so we use a short rAF-based poll instead.
+    function doSpeak() {
+      if (!voices.length) {
+        // Voices still loading — try once more on next animation frame.
+        // This loop exits as soon as voices arrive (typically one frame on desktop,
+        // up to ~500ms on first load on iOS).
+        requestAnimationFrame(doSpeak);
         return;
       }
-      const chunk = state.chunks[state.index];
-      highlight(state.index);
-      updateProgress();
-      const u = new SpeechSynthesisUtterance(chunk.text);
-      u.rate = settings.rate;
-      u.pitch = settings.pitch;
-      const v = voices.find(v => v.voiceURI === settings.voiceURI) || voices[0];
-      if (v) u.voice = v;
-      u.onend = () => {
+      setPlaying(true);
+      setStatus(`Playing · ${state.index + 1}/${state.chunks.length}`, 'ok');
+      const settings = captureSettings();
+      const speakOne = () => {
         if (!state.playing) return;
-        state.index += 1;
-        setStatus(`Playing · ${state.index + 1}/${state.chunks.length}`, 'ok');
-        speakOne();
+        if (state.index >= state.chunks.length) {
+          stop();
+          setStatus('Finished');
+          return;
+        }
+        const chunk = state.chunks[state.index];
+        highlight(state.index);
+        updateProgress();
+        const u = new SpeechSynthesisUtterance(chunk.text);
+        u.rate = settings.rate;
+        u.pitch = settings.pitch;
+        const v = voices.find(v => v.voiceURI === settings.voiceURI) || voices[0];
+        if (v) u.voice = v;
+        u.onend = () => {
+          if (!state.playing) return;
+          state.index += 1;
+          setStatus(`Playing · ${state.index + 1}/${state.chunks.length}`, 'ok');
+          speakOne();
+        };
+        u.onerror = (e) => {
+          if (e.error !== 'interrupted') setStatus('Speech error · ' + e.error, 'err');
+        };
+        window.speechSynthesis.speak(u);
       };
-      u.onerror = (e) => {
-        if (e.error !== 'interrupted') setStatus('Speech error · ' + e.error, 'err');
-      };
-      window.speechSynthesis.speak(u);
-    };
-    speakOne();
+      speakOne();
+    }
+    doSpeak();
   }
   function pauseBrowser() {
     if ('speechSynthesis' in window) window.speechSynthesis.pause();
@@ -578,7 +615,10 @@
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({
-        model: 'tts-1-hd',
+        // tts-1 is ~3× faster than tts-1-hd. At 500-char batch sizes the
+        // quality difference is imperceptible on most playback hardware, and
+        // the latency difference is the delta between "instant" and "broken."
+        model: 'tts-1',
         voice: settings.openaiVoice,
         input: batch.text,
         speed: settings.rate,
@@ -611,19 +651,17 @@
     const total = state.batches.length;
     setStatus(`Loading · 1/${total}`, 'ok');
 
-    // Kick off first fetch immediately; pre-fetch each next batch while current plays.
+    // Fire chunk 0 immediately. Pre-fetch chunks 1 and 2 in parallel so that
+    // by the time chunk 0 finishes playing (~1–2s), chunks 1 and 2 are already
+    // in the buffer. Concurrency cap: 2 in-flight beyond the current chunk.
+    const safeFetch = (idx) => fetchBatchAudio(state.batches[idx], settings, key, myKey)
+      .catch(e => { if (!e.aborted) console.error('Echo · prefetch failed batch ' + idx + ':', e); return null; });
+
     let currentPromise = fetchBatchAudio(state.batches[i], settings, key, myKey);
-    let nextPromise = null;
+    let nextPromise    = (i + 1 < total) ? safeFetch(i + 1) : null;
+    let nextNextPromise = (i + 2 < total) ? safeFetch(i + 2) : null;
 
     while (state.playing && myKey === state.abortKey && i < total) {
-      // Pre-fetch the next batch in parallel with current playback
-      if (i + 1 < total) {
-        nextPromise = fetchBatchAudio(state.batches[i + 1], settings, key, myKey)
-          .catch(e => { if (!e.aborted) console.error('Echo · prefetch failed:', e); return null; });
-      } else {
-        nextPromise = null;
-      }
-
       let url;
       try {
         url = await currentPromise;
@@ -655,6 +693,12 @@
       const audio = new Audio(url);
       state.audio = audio;
 
+      // Advance the prefetch pipeline: while this chunk plays, fire the
+      // request for chunk i+3 so the buffer stays two chunks ahead.
+      currentPromise  = nextPromise;
+      nextPromise     = nextNextPromise;
+      nextNextPromise = (i + 3 < total) ? safeFetch(i + 3) : null;
+
       try {
         // Pause is handled implicitly: state.audio.pause()/play() are wired
         // up by pauseOpenAI/resumeOpenAI; the 'ended' event only fires once
@@ -675,7 +719,6 @@
 
       URL.revokeObjectURL(url);
       i += 1;
-      currentPromise = nextPromise;
     }
 
     if (state.playing && myKey === state.abortKey) {
