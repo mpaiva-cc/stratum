@@ -1,0 +1,2240 @@
+---
+layout: legacy
+title: "The People Graph, in 360°: a research brief on the substrate underneath agentic HCM — Stratum Research"
+description: "An industry research brief on the people-graph concept: working definition, historical accident of HCM, honest competitor scan (Workday, Eightfold, Gloat, Beamery, Microsoft, LinkedIn, HiBob, Rippling, Lattice, Eqtble, ChartHop, newer entrants), why agentic companies need a graph, why the experience is better for humans, the architectural rationale, compliance, honest counter-arguments, and what it means for Stratum."
+permalink: /research/people-graph-360.html
+---
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<!-- og-jsonld:start -->
+<meta name="description" content="{{ page.description | default: site.description | escape }}">
+<meta property="og:title" content="{{ page.title | default: site.title | escape }}">
+<meta property="og:description" content="{{ page.description | default: site.description | escape }}">
+<meta property="og:url" content="{{ page.url | absolute_url }}">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="{{ site.title | escape }}">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="{{ page.title | default: site.title | escape }}">
+<meta name="twitter:description" content="{{ page.description | default: site.description | escape }}">
+{%- if page.title -%}
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":{{ page.title | jsonify }},"description":{{ page.description | default: site.description | jsonify }},"url":"{{ page.url | absolute_url }}"{% if page.date %},"datePublished":{{ page.date | date_to_xmlschema | jsonify }}{% endif %}}</script>
+{%- endif -%}
+<!-- og-jsonld:end -->
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>The People Graph, in 360° — Stratum Research</title>
+<meta name="description" content="An industry research brief on the people-graph concept: working definition, historical accident of HCM, honest competitor scan, why agentic companies need a graph, why the experience is better for humans, architecture, compliance, honest counter-arguments, and what it means for Stratum." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght,SOFT,WONK@9..144,300..900,0..100,0..1&family=Newsreader:ital,opsz,wght@0,6..72,300..700;1,6..72,300..700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="{{ '/assets/styles.css?v=5' | relative_url }}">
+<style>
+/* ============================================================
+   Stratum · Research · The People Graph, in 360°
+   Eglin (industry research desk) — published 2026-05-22
+   Cream paper, deep ink, ochre. Indigo as the research accent
+   (used sparingly — for confidence rails and the competitor matrix).
+   Fraunces (display), Newsreader (body), JetBrains Mono.
+   ============================================================ */
+
+:root {
+  --paper:        #f4ecda;
+  --paper-warm:   #f7f0e0;
+  --paper-deep:   #ebe1c9;
+  --paper-rule:   #d8cdb6;
+  --paper-rule-2: #c8b894;
+
+  --ink:          #0e1626;
+  --ink-2:        #2a3344;
+  --ink-3:        #4b5365;
+  --ink-3-aaa:    #3d4456;
+  --ink-mute:     #6c7180;
+
+  --ochre:        #b8651f;
+  --ochre-deep:   #8a4711;
+  --ochre-link:   #7a3d0a;
+  --ochre-soft:   #e6c79b;
+  --moss:         #4a5d3a;
+  --plum:         #6b3a4a;
+  --indigo:       #3d4d7d;
+  --indigo-deep:  #2a3658;
+
+  --display:      "Fraunces", "Newsreader", Georgia, serif;
+  --serif:        "Newsreader", "Iowan Old Style", Georgia, serif;
+  --mono:         "JetBrains Mono", ui-monospace, "SF Mono", Menlo, monospace;
+
+  --col-wide:     min(1380px, 94vw);
+  --col-mid:      min(1080px, 92vw);
+  --col-read:     min(720px, 92vw);
+}
+
+* { box-sizing: border-box; }
+
+html, body {
+  margin: 0; padding: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--serif);
+  font-size: 17.5px;
+  line-height: 1.68;
+  font-feature-settings: "kern", "liga", "onum";
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+}
+
+body::before {
+  content: "";
+  position: fixed; inset: 0; pointer-events: none; z-index: 0;
+  background:
+    radial-gradient(circle at 8% 10%, rgba(61,77,125,.045), transparent 42%),
+    radial-gradient(circle at 92% 92%, rgba(14,22,38,.04), transparent 46%),
+    repeating-radial-gradient(circle at 0 0, rgba(14,22,38,.012) 0 1px, transparent 1px 3px);
+  mix-blend-mode: multiply;
+}
+
+a {
+  color: var(--ochre-link);
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  transition: border-color .2s, color .2s;
+}
+a:hover { border-bottom-color: var(--ochre-link); }
+
+em { font-style: italic; font-variation-settings: "opsz" 18; color: var(--ink); }
+strong { font-weight: 600; color: var(--ink); }
+
+.skip-link {
+  position: absolute; left: -9999px; top: 0;
+  background: var(--ink); color: var(--paper);
+  padding: .55rem .9rem; font-family: var(--mono); font-size: 12px;
+  letter-spacing: .14em; text-transform: uppercase; z-index: 1000;
+}
+.skip-link:focus { left: 1rem; top: 1rem; outline: 2px solid var(--ochre); }
+
+/* ─────────────────────────────────────────── MOBILE BAR ── */
+.mob-bar { display: none; }
+@media (max-width: 960px) {
+  .mob-bar {
+    position: sticky; top: 0; z-index: 200;
+    background: rgba(244, 236, 218, 0.96);
+    -webkit-backdrop-filter: saturate(140%) blur(10px);
+    backdrop-filter: saturate(140%) blur(10px);
+    border-bottom: 1px solid var(--paper-rule);
+    padding: .6rem 1.1rem;
+    display: flex; align-items: center; justify-content: space-between; gap: .6rem;
+    font-family: var(--mono); font-size: 10.5px; letter-spacing: .12em; text-transform: uppercase;
+    color: var(--ink-3-aaa);
+  }
+  .mob-bar a { color: var(--ink-3-aaa); text-decoration: none; min-height: 36px;
+    display: flex; align-items: center; padding: 0 .25rem; border-bottom: 0; }
+  .mob-bar a:active { color: var(--ochre-link); }
+  .mob-bar-mark { font-family: var(--display); font-weight: 600; font-size: 1.05rem;
+    letter-spacing: -.02em; color: var(--ink); text-transform: none; flex: 1; text-align: center;
+    line-height: 1; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+}
+
+/* ─────────────────────────────────────────── MASTHEAD ── */
+.masthead {
+  width: var(--col-read);
+  margin: 0 auto;
+  padding: 5rem 0 2.6rem;
+  border-bottom: 1px solid var(--paper-rule);
+}
+.masthead-slug {
+  font-family: var(--mono); font-size: 11.5px; letter-spacing: .28em;
+  text-transform: uppercase; line-height: 1.95;
+}
+.masthead-slug .l1 { color: var(--ochre-link); }
+.masthead-slug .l2 { color: var(--ink-3-aaa); }
+.masthead-slug .l3 { color: var(--ink-mute); }
+
+.masthead-h1 {
+  font-family: var(--display); font-weight: 500;
+  font-variation-settings: "opsz" 144, "SOFT" 0;
+  font-size: clamp(2.6rem, 5.4vw, 4.6rem);
+  line-height: .98; letter-spacing: -.032em;
+  margin: 2rem 0 1.5rem; color: var(--ink);
+}
+.masthead-h1 em {
+  font-style: italic;
+  font-variation-settings: "opsz" 144, "SOFT" 100;
+  color: var(--indigo);
+}
+
+.masthead-dek {
+  font-family: var(--display); font-style: italic;
+  font-variation-settings: "opsz" 36, "SOFT" 80;
+  font-size: clamp(1.16rem, 1.6vw, 1.3rem);
+  line-height: 1.5; color: var(--ink-2);
+  max-width: 60ch; margin: 0 0 2rem; font-weight: 300;
+}
+
+.masthead-meta {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: .55rem 2rem;
+  font-family: var(--mono); font-size: 11px;
+  letter-spacing: .14em; text-transform: uppercase;
+  color: var(--ink-3-aaa);
+  border-top: 1px solid var(--paper-rule);
+  padding-top: 1rem;
+}
+.masthead-meta .k { color: var(--ink-mute); margin-right: .55rem; }
+.masthead-meta .v { color: var(--ink); }
+
+/* ─────────────────────────────────────────── TOC ── */
+.toc {
+  width: var(--col-read);
+  margin: 3rem auto 0;
+  border-top: 2px solid var(--ink);
+  border-bottom: 1px solid var(--ink);
+  padding: 1.5rem 0;
+  font-family: var(--mono); font-size: 11.5px;
+  letter-spacing: .08em; color: var(--ink-3-aaa);
+}
+.toc-h {
+  font-family: var(--mono); font-size: 10.5px; letter-spacing: .26em;
+  text-transform: uppercase; color: var(--ochre-link); margin-bottom: .9rem;
+}
+.toc ol { list-style: none; padding: 0; margin: 0; counter-reset: tocsec; }
+.toc li {
+  padding: .35rem 0;
+  display: grid; grid-template-columns: 3rem 1fr;
+  gap: .8rem; align-items: baseline;
+  counter-increment: tocsec;
+}
+.toc li::before {
+  content: counter(tocsec, decimal-leading-zero);
+  color: var(--indigo); font-size: 10.5px; letter-spacing: .18em;
+}
+.toc a { color: var(--ink); border-bottom: 0; }
+.toc a:hover { color: var(--ochre-link); }
+
+/* ─────────────────────────────────────────── ARTICLE ── */
+.article {
+  width: var(--col-read);
+  margin: 0 auto;
+  padding: 4rem 0 3rem;
+}
+.article > section + section { margin-top: 3.4rem; }
+
+.section-num {
+  font-family: var(--mono); font-size: 11px;
+  letter-spacing: .26em; text-transform: uppercase;
+  color: var(--indigo); margin-bottom: .85rem; display: block;
+}
+.section-h {
+  font-family: var(--display); font-weight: 500;
+  font-variation-settings: "opsz" 60, "SOFT" 0;
+  font-size: clamp(1.55rem, 2.4vw, 1.95rem);
+  line-height: 1.16; letter-spacing: -.014em;
+  color: var(--ink); margin: 0 0 1.4rem;
+}
+.section-h em {
+  font-style: italic;
+  font-variation-settings: "opsz" 60, "SOFT" 80;
+  color: var(--indigo);
+}
+
+.article p {
+  margin: 0 0 1.2rem;
+  font-variation-settings: "opsz" 18;
+  color: var(--ink-2);
+}
+.article p:first-of-type .dropcap {
+  float: left;
+  font-family: var(--display);
+  font-variation-settings: "opsz" 144, "SOFT" 0;
+  font-weight: 500;
+  font-size: 4.2rem;
+  line-height: .85;
+  padding: .3rem .55rem 0 0;
+  color: var(--indigo);
+}
+.article p strong { color: var(--ink); }
+
+/* dist-list — used in §I for the five distinctions */
+.distlist {
+  margin: 1.4rem 0 1.8rem;
+  padding: 0;
+  list-style: none;
+}
+.distlist li {
+  padding: .85rem 0;
+  border-top: 1px solid var(--paper-rule);
+  display: grid;
+  grid-template-columns: 12rem 1fr;
+  gap: 1.2rem;
+  align-items: baseline;
+}
+.distlist li:last-child { border-bottom: 1px solid var(--paper-rule); }
+.distlist .dn {
+  font-family: var(--mono); font-size: 11.5px;
+  letter-spacing: .14em; text-transform: uppercase;
+  color: var(--indigo);
+}
+.distlist .db { color: var(--ink-2); }
+.distlist .db strong { color: var(--ink); }
+
+/* era-line — the historical timeline in §II */
+.era-line {
+  margin: 1.6rem 0 1.8rem;
+  padding: 0;
+  list-style: none;
+  counter-reset: era;
+}
+.era-line li {
+  position: relative;
+  padding: 1.1rem 0 1.1rem 5.2rem;
+  border-top: 1px solid var(--paper-rule);
+  counter-increment: era;
+}
+.era-line li:last-child { border-bottom: 1px solid var(--paper-rule); }
+.era-line li::before {
+  content: "ERA " counter(era, decimal-leading-zero);
+  position: absolute;
+  left: 0; top: 1.25rem;
+  font-family: var(--mono); font-size: 10px;
+  letter-spacing: .18em; color: var(--indigo);
+}
+.era-line .era-name {
+  font-family: var(--display); font-style: italic;
+  font-variation-settings: "opsz" 24, "SOFT" 60;
+  font-size: 1.08rem; line-height: 1.4;
+  color: var(--ink); display: block; margin-bottom: .35rem;
+  font-weight: 400;
+}
+.era-line .era-yr {
+  font-family: var(--mono); font-size: 10.5px;
+  letter-spacing: .14em; color: var(--ink-mute);
+  text-transform: uppercase; margin-left: .65rem;
+}
+.era-line p { margin: 0 0 .35rem; font-size: .98rem; }
+.era-line p:last-child { margin: 0; }
+
+/* competitor matrix — the centerpiece of §III */
+.compmat {
+  margin: 1.8rem 0 1rem;
+  border-top: 2px solid var(--ink);
+  border-bottom: 1px solid var(--ink);
+  background: var(--paper-warm);
+  overflow-x: auto;
+}
+.compmat-head {
+  padding: .9rem 1.1rem;
+  border-bottom: 1px solid var(--paper-rule);
+  font-family: var(--mono); font-size: 10.5px;
+  letter-spacing: .2em; text-transform: uppercase;
+  color: var(--ink-3-aaa);
+  display: flex; justify-content: space-between; align-items: baseline; gap: 1rem;
+}
+.compmat-head .ttl { color: var(--ink); }
+.compmat table {
+  width: 100%;
+  border-collapse: collapse;
+  font-family: var(--mono); font-size: 11.5px;
+}
+.compmat thead th {
+  text-align: left;
+  font-weight: 500; font-size: 10px;
+  letter-spacing: .16em; text-transform: uppercase;
+  color: var(--ink-3-aaa);
+  padding: .8rem .9rem;
+  border-bottom: 1px solid var(--ink);
+  background: var(--paper-deep);
+  vertical-align: bottom;
+}
+.compmat tbody td {
+  padding: .8rem .9rem;
+  border-bottom: 1px dashed var(--paper-rule);
+  color: var(--ink-2);
+  vertical-align: top;
+  line-height: 1.5;
+}
+.compmat tbody tr:last-child td { border-bottom: 0; }
+.compmat td.vendor {
+  font-family: var(--serif); font-size: 14.5px;
+  color: var(--ink); font-weight: 500;
+  white-space: nowrap;
+}
+.compmat td.vendor .sub {
+  display: block;
+  font-family: var(--mono); font-size: 10px;
+  letter-spacing: .14em; color: var(--ink-mute);
+  text-transform: uppercase; margin-top: .15rem;
+  font-weight: 400;
+}
+.compmat td .pill {
+  display: inline-block;
+  padding: .15rem .45rem;
+  border: 1px solid;
+  border-radius: 2px;
+  font-size: 9.5px;
+  letter-spacing: .12em; text-transform: uppercase;
+  font-weight: 500;
+  margin-right: .35rem;
+}
+.compmat .p-shipped { color: var(--moss); border-color: var(--moss); background: rgba(74,93,58,.06); }
+.compmat .p-partial { color: var(--ochre-link); border-color: var(--ochre-link); background: rgba(122,61,10,.05); }
+.compmat .p-claim   { color: var(--ink-mute); border-color: var(--paper-rule-2); background: var(--paper-deep); }
+.compmat .p-graph   { color: var(--indigo); border-color: var(--indigo); background: rgba(61,77,125,.06); }
+.compmat .p-row     { color: var(--plum); border-color: var(--plum); background: rgba(107,58,74,.05); }
+
+/* vignette card — used in §V */
+.vignette {
+  margin: 1.6rem 0;
+  padding: 1.4rem 1.5rem;
+  background: var(--paper-warm);
+  border: 1px solid var(--paper-rule);
+  border-left: 3px solid var(--indigo);
+}
+.vignette .vh {
+  font-family: var(--mono); font-size: 10.5px;
+  letter-spacing: .22em; text-transform: uppercase;
+  color: var(--indigo); margin-bottom: .65rem;
+}
+.vignette .vt {
+  font-family: var(--display); font-style: italic;
+  font-variation-settings: "opsz" 24, "SOFT" 60;
+  font-size: 1.12rem; color: var(--ink);
+  margin: 0 0 .6rem; font-weight: 400; line-height: 1.4;
+}
+.vignette p {
+  font-family: var(--serif); font-size: 1rem;
+  color: var(--ink-2); margin: 0 0 .6rem; line-height: 1.6;
+}
+.vignette p:last-child { margin-bottom: 0; }
+
+/* callout */
+.callout {
+  margin: 1.6rem 0;
+  padding: 1.1rem 1.3rem;
+  border-left: 2px solid var(--ochre-link);
+  background: var(--paper-warm);
+  font-family: var(--serif); font-style: italic;
+  color: var(--ink-2); font-size: .98rem; line-height: 1.6;
+}
+.callout strong { font-style: normal; color: var(--ink); }
+.callout.eglin { border-left-color: var(--indigo); }
+.callout.eglin::before {
+  content: "Eglin's read \00b7  ";
+  font-family: var(--mono); font-style: normal;
+  font-size: 10.5px; letter-spacing: .22em; text-transform: uppercase;
+  color: var(--indigo); margin-right: .45rem;
+}
+
+/* ascii / code aside (used for architecture in §VI) */
+.ascii {
+  margin: 1.6rem 0;
+  padding: 1.2rem 1.1rem;
+  background: var(--paper-warm);
+  border: 1px solid var(--paper-rule);
+  font-family: var(--mono); font-size: 11px;
+  line-height: 1.55; color: var(--ink-2);
+  overflow-x: auto;
+  white-space: pre;
+}
+.ascii .o { color: var(--ochre-link); }
+.ascii .i { color: var(--indigo); }
+.ascii .m { color: var(--ink-mute); }
+
+/* counter-args — used in §VIII */
+.counter {
+  margin: 1.4rem 0 1.6rem;
+  padding: 0;
+  list-style: none;
+  counter-reset: counterc;
+}
+.counter li {
+  position: relative;
+  padding: 1.1rem 0 1.1rem 3.4rem;
+  border-top: 1px solid var(--paper-rule);
+  counter-increment: counterc;
+}
+.counter li:last-child { border-bottom: 1px solid var(--paper-rule); }
+.counter li::before {
+  content: counter(counterc, decimal-leading-zero);
+  position: absolute; left: 0; top: 1.2rem;
+  font-family: var(--mono); font-size: 12px;
+  letter-spacing: .12em; color: var(--plum);
+}
+.counter .ch {
+  font-family: var(--display); font-style: italic;
+  font-variation-settings: "opsz" 24, "SOFT" 60;
+  font-size: 1.08rem; color: var(--ink);
+  display: block; margin-bottom: .45rem; font-weight: 400;
+}
+.counter p { margin: 0 0 .55rem; font-size: .98rem; }
+.counter p:last-child { margin: 0; }
+
+/* implications — §IX, three cards */
+.impl-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+  margin: 1.4rem 0 1rem;
+}
+.impl-card {
+  padding: 1.2rem 1.3rem;
+  border: 1px solid var(--paper-rule);
+  background: var(--paper-warm);
+  border-top: 2px solid var(--indigo);
+}
+.impl-card .ih {
+  font-family: var(--mono); font-size: 10.5px;
+  letter-spacing: .22em; text-transform: uppercase;
+  color: var(--indigo); margin-bottom: .55rem;
+}
+.impl-card .it {
+  font-family: var(--display); font-weight: 500;
+  font-size: 1.18rem; color: var(--ink);
+  margin: 0 0 .6rem; line-height: 1.25; letter-spacing: -.01em;
+}
+.impl-card p {
+  font-family: var(--serif); font-size: .98rem;
+  color: var(--ink-2); margin: 0; line-height: 1.6;
+}
+
+/* sources — §X, the confidence ladder */
+.sources {
+  margin: 1.4rem 0 1rem;
+  border-top: 2px solid var(--ink);
+  border-bottom: 1px solid var(--ink);
+}
+.sources-head {
+  padding: .9rem 0;
+  border-bottom: 1px solid var(--paper-rule);
+  font-family: var(--mono); font-size: 10.5px;
+  letter-spacing: .2em; text-transform: uppercase;
+  color: var(--ink-3-aaa);
+  display: flex; justify-content: space-between; gap: 1rem;
+}
+.sources-head .legend { display: flex; gap: .8rem; flex-wrap: wrap; }
+.sources-head .lg {
+  padding: .1rem .45rem; border: 1px solid; font-size: 9.5px;
+  letter-spacing: .14em; font-weight: 500;
+}
+.lg-v { color: var(--moss); border-color: var(--moss); }
+.lg-r { color: var(--ochre-link); border-color: var(--ochre-link); }
+.lg-i { color: var(--ink-mute); border-color: var(--paper-rule-2); }
+.sources ol {
+  list-style: none; padding: 0; margin: 0;
+  counter-reset: src;
+}
+.sources li {
+  display: grid;
+  grid-template-columns: 2.4rem 4.6rem 1fr;
+  gap: 1rem;
+  padding: .8rem 0;
+  border-bottom: 1px dashed var(--paper-rule);
+  font-family: var(--mono); font-size: 11.5px;
+  line-height: 1.5; color: var(--ink-2);
+  counter-increment: src;
+}
+.sources li:last-child { border-bottom: 0; }
+.sources li::before {
+  content: counter(src, decimal-leading-zero);
+  font-family: var(--mono); font-size: 10.5px;
+  letter-spacing: .14em; color: var(--ink-mute);
+}
+.sources .sc {
+  font-size: 9.5px;
+  letter-spacing: .14em; text-transform: uppercase;
+  padding: .15rem .35rem; border: 1px solid;
+  width: max-content; height: max-content; font-weight: 500;
+}
+.sources .sc-v { color: var(--moss); border-color: var(--moss); }
+.sources .sc-r { color: var(--ochre-link); border-color: var(--ochre-link); }
+.sources .sc-i { color: var(--ink-mute); border-color: var(--paper-rule-2); }
+.sources .sbody { color: var(--ink-2); }
+.sources .sbody strong { color: var(--ink); }
+.sources .sbody a { color: var(--ochre-link); border-bottom: 1px solid var(--paper-rule-2); }
+.sources .sbody a:hover { border-bottom-color: var(--ochre-link); }
+
+/* pullquote */
+.pullquote {
+  width: var(--col-read);
+  margin: 3.2rem auto;
+  padding: 2.4rem 0;
+  border-top: 1px solid var(--paper-rule-2);
+  border-bottom: 1px solid var(--paper-rule-2);
+}
+.pullquote-text {
+  font-family: var(--display); font-style: italic;
+  font-variation-settings: "opsz" 144, "SOFT" 100;
+  font-weight: 300;
+  font-size: clamp(1.7rem, 3.8vw, 2.4rem);
+  line-height: 1.12; letter-spacing: -.018em;
+  color: var(--ink); margin: 0 0 1.1rem;
+}
+.pullquote-attr {
+  font-family: var(--mono); font-size: 11px;
+  letter-spacing: .22em; text-transform: uppercase;
+  color: var(--ink-3-aaa);
+}
+.pullquote-attr strong { color: var(--ink); font-weight: 500; }
+
+/* closing */
+.closing {
+  width: var(--col-read);
+  margin: 3rem auto 5rem;
+  padding-top: 1.8rem;
+  border-top: 1px solid var(--paper-rule);
+}
+.closing-note {
+  font-family: var(--mono); font-style: italic;
+  font-size: 12px; letter-spacing: .1em;
+  color: var(--ink-3-aaa); margin-bottom: 1.4rem;
+  line-height: 1.7;
+}
+.closing-links {
+  display: flex; gap: 2.2rem; flex-wrap: wrap;
+  font-family: var(--mono); font-size: 12px;
+  letter-spacing: .14em; text-transform: uppercase;
+}
+.closing-links a {
+  color: var(--ink); border-bottom: 1px solid var(--paper-rule-2); padding-bottom: 3px;
+}
+.closing-links a:hover { color: var(--ochre-link); border-bottom-color: var(--ochre-link); }
+
+/* ─────────────────────────────────────────── FOOTER ── */
+.footer {
+  width: var(--col-wide);
+  margin: 0 auto;
+  padding: 4rem 0 3rem;
+  border-top: 1px solid var(--paper-rule);
+}
+.footer-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr 1fr;
+  gap: 3rem;
+  margin-bottom: 3rem;
+}
+.footer-brand .mark {
+  font-family: var(--display); font-weight: 600;
+  font-variation-settings: "opsz" 72, "SOFT" 0;
+  font-size: 1.65rem; letter-spacing: -.035em;
+  color: var(--ink); margin-bottom: .8rem;
+}
+.footer-brand p {
+  font-family: var(--serif); font-style: italic;
+  color: var(--ink-3-aaa); max-width: 32ch;
+  font-size: .95rem; line-height: 1.55; margin: 0;
+}
+.footer-col h4 {
+  font-family: var(--mono); font-size: 10.5px;
+  letter-spacing: .22em; text-transform: uppercase;
+  color: var(--ink-mute); margin: 0 0 .9rem;
+}
+.footer-col ul { list-style: none; padding: 0; margin: 0; }
+.footer-col li { padding: .25rem 0; }
+.footer-col a { color: var(--ink-2); border-bottom: 0; font-size: .92rem; }
+.footer-col a:hover { color: var(--ochre-link); }
+.footer-foot {
+  border-top: 1px solid var(--paper-rule);
+  padding-top: 1.4rem;
+  display: flex; justify-content: space-between; align-items: center;
+  font-family: var(--mono); font-size: 11px;
+  letter-spacing: .12em; color: var(--ink-mute);
+  text-transform: uppercase;
+}
+.footer-foot .briefing-link { color: var(--ink-3-aaa); border-bottom: 0; }
+.footer-foot .briefing-link strong { color: var(--ochre-link); font-weight: 500; }
+.footer-foot .briefing-link:hover { color: var(--ink); }
+
+/* responsive */
+@media (max-width: 1024px) {
+  .footer-grid { grid-template-columns: 1fr 1fr; gap: 2rem; }
+  .footer-brand { grid-column: 1 / -1; }
+  .masthead-meta { grid-template-columns: 1fr; }
+}
+@media (max-width: 760px) {
+  body { font-size: 17px; }
+  .masthead { padding-top: 3rem; }
+  .masthead-h1 { font-size: clamp(2.1rem, 9vw, 3.2rem); }
+  .toc li { grid-template-columns: 2.2rem 1fr; gap: .5rem; }
+  .distlist li { grid-template-columns: 1fr; gap: .25rem; }
+  .compmat { font-size: 11px; }
+  .compmat thead th, .compmat tbody td { padding: .6rem .55rem; }
+  .compmat td.vendor { font-size: 13.5px; }
+  .closing-links { flex-direction: column; gap: 1rem; }
+  .footer-grid { grid-template-columns: 1fr; }
+  .footer-foot { flex-direction: column; gap: 1rem; align-items: flex-start; }
+  .sources li { grid-template-columns: 1.8rem 4rem 1fr; gap: .5rem; }
+}
+
+@media print {
+  .mob-bar, .footer { display: none; }
+  body { background: white; color: black; font-size: 11pt; }
+  .masthead, .article, .closing, .pullquote, .toc { width: 100%; }
+  .compmat, .ascii, .sources { break-inside: avoid; }
+}
+</style>
+</head>
+<body>
+<a href="#main" class="skip-link">Skip to content</a>
+
+<!-- realtime-stamp -->
+<div class="rt-stamp" data-t0="2026-05-12T22:25:46-04:00" data-this="2026-05-22T12:00:00-04:00" style="position:fixed;bottom:8px;right:10px;z-index:9999;font-family:'JetBrains Mono',ui-monospace,Menlo,monospace;font-size:9.5px;letter-spacing:.08em;color:rgba(14,22,38,.55);background:rgba(244,236,218,.75);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);padding:.25rem .55rem;border-radius:999px;border:1px solid rgba(184,101,31,.25);pointer-events:none"><span style="color:#b8651f">&#9679;</span> compiled at <strong style="color:#0e1626">T+88d &middot; midday</strong> &middot; <span style="opacity:.6">2026-05-22T16:00:00.000Z</span></div>
+<!-- /realtime-stamp -->
+
+<!-- mobile bar -->
+<div class="mob-bar">
+  <a href="../research/" aria-label="Research">&larr; Research</a>
+  <span class="mob-bar-mark">People Graph 360</span>
+  <a href="../" aria-label="Briefing">Briefing &rarr;</a>
+</div>
+
+<!-- site nav -->
+{% include site-nav.html %}
+
+<main id="main">
+
+<!-- MASTHEAD -->
+<header class="masthead">
+  <div class="masthead-slug">
+    <div class="l1">Stratum / Research</div>
+    <div class="l2">Industry brief &middot; The substrate series &middot; No. 01</div>
+    <div class="l3">By Eglin &middot; Industry research desk</div>
+  </div>
+
+  <h1 class="masthead-h1">The People Graph, <em>in 360&deg;.</em></h1>
+
+  <p class="masthead-dek">
+    A working definition, the historical accident that produced the
+    industry we have, an honest competitor scan separating shipped from
+    claimed, why agents need this substrate, why humans get a better
+    experience on top of it, the architectural reason a graph beats a
+    warehouse for this problem, and where the thesis is weakest.
+  </p>
+
+  <div class="masthead-meta">
+    <div><span class="k">Author</span><span class="v">Eglin &middot; industry research</span></div>
+    <div><span class="k">Published</span><span class="v">2026-05-22 &middot; T+88d</span></div>
+    <div><span class="k">Length</span><span class="v">~6,400 words &middot; 28-minute read</span></div>
+    <div><span class="k">Sources</span><span class="v">31 cited &middot; confidence-rated</span></div>
+    <div><span class="k">Status</span><span class="v">Canonical reference</span></div>
+    <div><span class="k">Audience</span><span class="v">CHRO, CIO, board, analyst, Stratum agent</span></div>
+  </div>
+</header>
+
+<!-- TOC -->
+<nav class="toc" aria-label="Table of contents">
+  <div class="toc-h">Contents</div>
+  <ol>
+    <li><a href="#s1">What a people graph actually is &mdash; and what it is not.</a></li>
+    <li><a href="#s2">The historical accident: why HCM was built the way it was.</a></li>
+    <li><a href="#s3">Who is actually doing this. Honest scan, claimed vs. shipped.</a></li>
+    <li><a href="#s4">Why agentic companies need a people graph.</a></li>
+    <li><a href="#s5">Why the people-graph experience is better for humans.</a></li>
+    <li><a href="#s6">The architectural rationale: why a graph beats a warehouse.</a></li>
+    <li><a href="#s7">The compliance angle: provenance lives on edges, not rows.</a></li>
+    <li><a href="#s8">The honest counter-arguments.</a></li>
+    <li><a href="#s9">What this means for Stratum.</a></li>
+    <li><a href="#s10">Sources and the confidence ladder.</a></li>
+  </ol>
+</nav>
+
+<!-- ARTICLE -->
+<article class="article">
+
+<!-- §1 -->
+<section id="s1">
+  <span class="section-num">&sect; I.</span>
+  <h2 class="section-h">What a people graph actually <em>is</em> &mdash; and what it is not.</h2>
+
+  <p>
+    <span class="dropcap">T</span>he phrase &ldquo;people graph&rdquo; has done what every
+    useful term in enterprise software eventually does: it has been
+    captured. As of mid-2026, at least twenty HCM, ATS, talent-intelligence,
+    and engagement vendors describe their product as some variant of
+    a graph &mdash; a knowledge graph, a workforce graph, a skills graph, a
+    talent graph, an employee graph. The same word is being used to describe
+    products with radically different internal architectures, and the
+    result is that the buyer cannot tell the difference between vendors
+    who have built a graph and vendors who have a relational database
+    and a marketing department.
+  </p>
+
+  <p>
+    This brief begins with a working definition, because the definition
+    is where most of the analytical work happens. A <strong>people
+    graph</strong>, in the sense Stratum uses the term and in the sense
+    the rest of this document will use it, is the
+    <em>identity-resolved, time-aware, multi-source</em> representation
+    of every person connected to a company &mdash; employees, candidates,
+    contractors, alumni, agency contacts, board members &mdash; together
+    with their skills, attestations, relationships, trajectories, and
+    consents, expressed as a labeled property graph that can be queried
+    by traversal rather than by JOIN. Five properties matter, and each
+    of them is what separates a real people graph from a row store with
+    a graph on the brochure.
+  </p>
+
+  <ul class="distlist">
+    <li>
+      <span class="dn">Identity-resolved</span>
+      <span class="db">A single human being is represented by exactly
+      one node, regardless of how many systems hold a record about her.
+      Maria L&oacute;pez in Workday, M. Lopez in Greenhouse,
+      mlopez@ in the directory, and Maria L. in the LMS are
+      <strong>one node, not four rows.</strong> The entity-resolution
+      pipeline that produces this property is the load-bearing piece
+      of engineering, and is the subject of
+      <a href="/essays/the-graph-between-the-databases.html">Forge&rsquo;s Essay No.&nbsp;02</a>.</span>
+    </li>
+    <li>
+      <span class="dn">Time-aware</span>
+      <span class="db">Every edge carries a valid-from and valid-to.
+      The graph does not just store that Maria reports to Devon &mdash;
+      it stores that <strong>Maria reported to Devon from 2024-03-04
+      to 2025-08-12</strong>, and to Aisha from 2025-08-13 to present,
+      and that the pre-March-2024 reporting line was to a manager who
+      has since left the company. Headcount on any historical Tuesday
+      is a query, not a backup.</span>
+    </li>
+    <li>
+      <span class="dn">Multi-source</span>
+      <span class="db">The graph ingests from the HRIS, the ATS, the
+      LMS, the credentialing system, payroll, equity, the directory,
+      Slack, calendars, and the org-chart tool, and reconciles them.
+      It is not, structurally, the property of any one source. If the
+      HRIS is wrong, the graph can be right. If the HRIS is replaced,
+      the graph survives.</span>
+    </li>
+    <li>
+      <span class="dn">Consent-bound</span>
+      <span class="db">Edges carry consent metadata. A node may be in
+      the graph for payroll but not for AI-driven mobility
+      recommendations; an edge may be queryable by a manager but not by
+      an agent acting on behalf of a recruiter. Traversal is governed,
+      not just indexed. The right-to-be-forgotten request becomes a
+      bounded subgraph delete, not a multi-system reconciliation
+      project.</span>
+    </li>
+    <li>
+      <span class="dn">Queryable as a graph</span>
+      <span class="db">The shortest-path, neighborhood, and subgraph
+      queries that agentic decision-making depends on &mdash; <em>who
+      could replace this person, who else has done this kind of project,
+      which manager has the lowest tenure-loss rate among engineers in
+      Phoenix</em> &mdash; run as graph traversals at interactive
+      latency. They do not compile to a fifteen-table JOIN that times
+      out at the warehouse.</span>
+    </li>
+  </ul>
+
+  <p>
+    With this definition in hand, five things the people graph is
+    <em>not</em>, against which it is most often confused.
+  </p>
+
+  <ul class="distlist">
+    <li>
+      <span class="dn">Not the HRIS</span>
+      <span class="db">An HRIS &mdash; Workday HCM, SAP SuccessFactors,
+      Oracle HCM, UKG Pro, BambooHR &mdash; is a system <em>of record</em>
+      for a specific class of facts: badged employment, payroll-eligible
+      relationships, position-and-organization data. It is single-source
+      by design. It is row-oriented. It is the question the CHRO&rsquo;s
+      board asks. It is not the answer to the question <em>who is this
+      person, across everything we know about them?</em></span>
+    </li>
+    <li>
+      <span class="dn">Not the ATS funnel</span>
+      <span class="db">An ATS &mdash; Greenhouse, Lever, iCIMS, Ashby,
+      SmartRecruiters &mdash; is a directed-acyclic state machine over a
+      candidate&rsquo;s movement through stages. It is rich about the
+      funnel and poor about everything that happens after the offer is
+      accepted. The handoff from ATS to HRIS, in every implementation
+      we have studied, is a re-key: the same person gets a new ID and
+      the application-to-employment link is severed.</span>
+    </li>
+    <li>
+      <span class="dn">Not the org chart</span>
+      <span class="db">An org chart &mdash; ChartHop, Pingboard, The
+      Org &mdash; is a tree of reporting relationships, sometimes with
+      cost-center overlay, sometimes with span-of-control math. It is
+      one dimension of the graph (the <em>reports-to</em> edge), drawn
+      at a single point in time. A people graph contains the org chart;
+      the org chart does not contain the people graph.</span>
+    </li>
+    <li>
+      <span class="dn">Not LinkedIn</span>
+      <span class="db">LinkedIn&rsquo;s Economic Graph is the closest
+      thing to a real people graph that exists at population scale
+      &mdash; over <strong>1&nbsp;billion members, 41,000 skills, 67
+      million companies, 133,000 schools</strong>, per LinkedIn
+      Engineering&rsquo;s own published numbers <a href="#src-2">[2]</a>.
+      But it is the <em>external</em> graph: the social-and-professional
+      identity layer outside the firewall. It does not know who is on
+      Tuesday&rsquo;s payroll. It does not know who is in
+      conflict-of-interest with whom on an M&amp;A deal. It cannot be
+      queried by a manager asking <em>who on my team is at flight
+      risk.</em> A people graph is the internal counterpart: the same
+      shape of structure, but bounded by employment and governed by the
+      company&rsquo;s consent regime.</span>
+    </li>
+    <li>
+      <span class="dn">Not Microsoft Graph</span>
+      <span class="db">The Microsoft Graph and Google People API are
+      <em>identity-and-collaboration</em> graphs &mdash; they encode mail,
+      calendar, file, and messaging relationships among accounts within a
+      tenant <a href="#src-3">[3]</a>. They are extraordinary
+      infrastructure and they are not a people graph in the sense above.
+      They do not ingest the ATS; they do not resolve identity across
+      systems they do not own; the &ldquo;person&rdquo; in Microsoft
+      Graph is an Entra ID, not an entity-resolved human. Microsoft
+      Viva sits on top of Microsoft Graph and adds employee-experience
+      surfaces; that is a different stack than the one we describe.</span>
+    </li>
+  </ul>
+
+  <p>
+    The single-sentence summary, which Eglin will use throughout the
+    rest of this brief: <strong>a people graph is what you have when
+    the same human being is one node across every system that knows
+    them, every edge to and from that node carries a time interval
+    and a consent flag, and the structure is queryable by
+    traversal.</strong> Most things called a people graph in the market
+    are not that. Some are. The next section explains why the industry
+    arrived at the not-that majority by accident.
+  </p>
+</section>
+
+<!-- §2 -->
+<section id="s2">
+  <span class="section-num">&sect; II.</span>
+  <h2 class="section-h">The historical accident: why HCM was <em>built</em> the way it was.</h2>
+
+  <p>
+    The HCM industry as it exists in 2026 was not designed. It accreted.
+    Each generation of vendors solved the urgent problem of its decade
+    and left behind a data model that fit the problem of that decade
+    and was incidentally hostile to the problem of the next one. The
+    result, today, is a stack of system-of-record silos that almost
+    nobody chose on purpose, all running in parallel, each with a
+    different definition of what a <em>person</em> is. To understand
+    why a people graph feels new, it helps to walk through the four
+    eras that produced the substrate it has to replace.
+  </p>
+
+  <ul class="era-line">
+    <li>
+      <span class="era-name">Payroll-first <span class="era-yr">1950s &mdash; 1980s</span></span>
+      <p>
+        The original enterprise people-system was payroll. ADP was
+        founded in 1949 as Automatic Payrolls, Inc., processing
+        timesheets for New Jersey factories on punch cards. The data
+        model was a tape, indexed by File Number. A &ldquo;person&rdquo;
+        was a row with hours, a deduction stack, and a check address.
+        Nothing about skills, nothing about relationships, nothing about
+        time other than the current pay period. This model worked
+        because the question was: <em>cut the right check by Friday.</em>
+        It was answered by a row.
+      </p>
+    </li>
+    <li>
+      <span class="era-name">HRIS-of-record <span class="era-yr">1990s &mdash; 2000s</span></span>
+      <p>
+        PeopleSoft (founded 1987, acquired by Oracle 2005), Oracle HRMS,
+        and SAP HR generalized the payroll row into a richer employee
+        record: position, supervisor, cost center, benefits enrollment.
+        The era was defined by client-server enterprise software, on-prem
+        Oracle databases, and a relational data model with hundreds of
+        tables and thousands of foreign keys. A &ldquo;person&rdquo; was
+        now <em>multiple rows across multiple tables, joined at query
+        time.</em> This was a real improvement &mdash; you could ask
+        questions across position, history, and benefits without
+        reloading tapes &mdash; but the architecture committed the industry
+        to a paradigm: <strong>the person is what the JOIN says they
+        are.</strong> If the JOIN is wrong, the person is wrong. If two
+        tables disagree, the more senior team wins.
+      </p>
+    </li>
+    <li>
+      <span class="era-name">Cloud HCM suite <span class="era-yr">2010s</span></span>
+      <p>
+        Workday (founded 2005, IPO 2012) and SAP SuccessFactors
+        (acquired 2011) re-platformed the HRIS onto the cloud, with a
+        multi-tenant in-memory object model and a single-vendor
+        front-end. The marketing pitch was <em>one system for the
+        employee lifecycle.</em> The reality was that the suites
+        absorbed core HR, payroll, benefits, time, and basic talent
+        modules, and left everything else &mdash; the ATS, the LMS,
+        engagement, performance, comp-planning, credentialing, equity
+        &mdash; to specialists. The suite became the system <em>of
+        record</em> for the badged employee. Everything outside the
+        badge was a separate system, integrated by event-bus or by
+        weekly CSV. The data model improved; the silo problem got
+        worse, because now there were more silos and the suite vendor
+        had a commercial incentive to make integration to non-suite
+        systems harder.
+      </p>
+    </li>
+    <li>
+      <span class="era-name">Point-solution explosion <span class="era-yr">2010s &mdash; present</span></span>
+      <p>
+        Greenhouse (founded 2012) and Lever (2012) took the ATS out of
+        the suite. Lattice (2015), Culture Amp (2011), and 15Five (2011)
+        took performance and engagement out of the suite. Cornerstone
+        and Docebo took learning. Carta took equity. iCIMS, Ashby, and
+        SmartRecruiters built better recruiting workflows for specific
+        segments. Each was a categorical improvement over the suite
+        module it replaced. Each was also another database with another
+        identity scheme and another foreign-key story. The average
+        mid-market HR stack as we observe it at Stratum customers
+        contains seven to twelve systems-of-record about people.
+        <strong>Halcyon Health, with 2,400 employees, has 12,112 rows
+        across seven systems</strong> (per Forge&rsquo;s detailed
+        accounting in <a href="/essays/the-graph-between-the-databases.html">Essay&nbsp;No.&nbsp;02</a>),
+        and Halcyon is closer to median than to outlier.
+      </p>
+    </li>
+  </ul>
+
+  <p>
+    Each era was a rational response to the constraints of its decade.
+    Each era left behind, for the next one, an architecture that was
+    correct for the question being asked at the time and structurally
+    incorrect for the question being asked now. The question being asked
+    now is: <em>who is this person, across everything we know about
+    them, with what consent, doing what work, with which trajectory,
+    at any point in time?</em> No row, no JOIN, no suite, and no
+    point-solution can answer that question in isolation. The answer
+    is structural, and the structure is a graph.
+  </p>
+
+  <p>
+    The phrase <strong>system of record</strong> &mdash; central to
+    every era from the 1990s on &mdash; is the most quietly load-bearing
+    phrase in the industry, and the most quietly limiting. A
+    system-of-record paradigm asks: <em>where does this fact live?</em>
+    A system-of-understanding paradigm asks: <em>what do we know about
+    this person, integrated across every fact, with provenance?</em>
+    These are different problems. The first is solved by a database.
+    The second is solved by a graph. The reason every modern HCM
+    vendor is scrambling to claim a graph &mdash; even though their
+    underlying data model is still tables and foreign keys &mdash; is
+    that buyers in 2026 have started to ask the second question, and
+    the first-question vendors do not have an architecturally honest
+    way to answer it.
+  </p>
+
+  <p>
+    The next section is the honest scan: who is actually doing this,
+    who is claiming it, and how to tell the difference.
+  </p>
+
+  <div class="callout eglin">
+    The most important sentence in this brief, if a CHRO reads only
+    one: <strong>the question your board will ask you in 2027 is not
+    answerable by your HRIS, your ATS, or your skills cloud
+    individually. It is only answerable by a substrate that sits across
+    them.</strong> Whether that substrate is called a people graph, an
+    employee graph, a talent graph, or something the next analyst
+    coins, the architectural shape is the same. The vendors that
+    have built it will compete on a different axis than the vendors
+    that have not.
+  </div>
+</section>
+
+<!-- §3 -->
+<section id="s3">
+  <span class="section-num">&sect; III.</span>
+  <h2 class="section-h">Who is actually doing this. <em>Honest scan,</em> claimed vs. shipped.</h2>
+
+    <p>
+    The honest version of the competitor question is two questions:
+    <strong>who claims a graph, and who has built one?</strong> The
+    answers are different, and the gap between them is large. This
+    section walks through the major vendors with claims in this space,
+    rates each on what the publicly available evidence supports, and
+    explains the rating. Where Eglin could not verify a claim from a
+    primary source, the rating is <em>claim</em> and the reasoning is
+    stated.
+  </p>
+
+  <p>
+    A short note on rating. <strong>Shipped</strong> means the vendor
+    has published or independently corroborated evidence of a real
+    graph data model with entity resolution and traversal queries in
+    production. <strong>Partial</strong> means parts of the architecture
+    are real (typically a skills graph) but identity resolution or
+    time-awareness are not demonstrated. <strong>Claim</strong> means
+    the marketing uses graph language but Eglin could find no primary
+    evidence beyond the brochure. <strong>Graph-native</strong> means
+    the data model is a property graph or labeled-property graph at
+    the storage layer. <strong>Row-store</strong> means the data model
+    is relational at storage and the graph language describes a view,
+    a materialized projection, or a marketing surface, not the storage
+    itself.
+  </p>
+
+  <div class="compmat">
+    <div class="compmat-head">
+      <span class="ttl">Competitor scan &middot; people-graph claims</span>
+      <span>Eglin &middot; 2026-05-22 &middot; confidence ratings on §X</span>
+    </div>
+    <table>
+      <thead>
+        <tr>
+          <th style="width:14rem">Vendor</th>
+          <th style="width:10rem">Graph claim</th>
+          <th style="width:10rem">Data model</th>
+          <th>Eglin&rsquo;s read</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="vendor">Workday<span class="sub">Skills Cloud &middot; Career Hub</span></td>
+          <td><span class="pill p-partial">Partial</span></td>
+          <td><span class="pill p-row">Row-store</span></td>
+          <td>Workday Skills Cloud describes a &ldquo;spatial representation&rdquo; of skills derived from worker, candidate, learning, and team data, with implicit skill discovery <a href="#src-4">[4]</a>. The skills layer is real and well-engineered. The underlying HCM remains a relational object model; the graph is over <em>skills</em>, not over <em>identity-resolved people across systems Workday does not own.</em> If you are inside Workday end-to-end, the skills layer is useful. If you are not, the graph stops at the suite boundary.</td>
+        </tr>
+        <tr>
+          <td class="vendor">Eightfold AI<span class="sub">Talent Intelligence Platform</span></td>
+          <td><span class="pill p-partial">Partial</span></td>
+          <td><span class="pill p-graph">Graph + ML</span></td>
+          <td>Eightfold positions its &ldquo;proprietary Talent Graph&rdquo; as the foundation of an AI-native talent platform that includes autonomous agents for hiring, redeployment, and development <a href="#src-5">[5]</a>. Public materials describe a deep skills inference layer trained on a very large external talent corpus; the architecture appears to be graph-and-embedding, not pure relational. Eglin&rsquo;s open question: how is identity resolved across <em>customer-internal</em> systems (HRIS, ATS, LMS) once the candidate becomes an employee, and is the time dimension first-class? The publicly available materials do not answer this clearly.</td>
+        </tr>
+        <tr>
+          <td class="vendor">Gloat<span class="sub">Loomra &middot; talent marketplace</span></td>
+          <td><span class="pill p-shipped">Shipped</span></td>
+          <td><span class="pill p-graph">Graph</span></td>
+          <td>Gloat&rsquo;s Loomra Workforce Context Engine is described as combining a workforce knowledge graph, semantic embeddings, skills inference, and career-trajectory modeling <a href="#src-6">[6]</a>. The skills-inference story is the most concrete in the market &mdash; the example Gloat publishes (inferring change-management from PMP plus three digital-transformation projects) is the kind of edge a real graph produces. Eglin rates this <em>shipped</em> for the workforce-context use case (internal mobility, project matching). It is not a full HCM substrate; it is the talent-marketplace layer atop one.</td>
+        </tr>
+        <tr>
+          <td class="vendor">Beamery<span class="sub">Talent Lifecycle Management</span></td>
+          <td><span class="pill p-shipped">Shipped</span></td>
+          <td><span class="pill p-graph">Graph (semantic web)</span></td>
+          <td>Beamery&rsquo;s &ldquo;Talent Graph&rdquo; explicitly uses semantic-web technology to build knowledge graphs over candidates, companies, skills, and jobs &mdash; reportedly <strong>17&nbsp;billion data points</strong> <a href="#src-7">[7]</a>. The architecture is the most graph-native of any recruiting-focused vendor in this scan. The constraint: it is a recruiting graph, optimized for talent attraction and sourcing. Once a candidate is hired and the system of record becomes the customer&rsquo;s HRIS, Beamery&rsquo;s graph is less load-bearing.</td>
+        </tr>
+        <tr>
+          <td class="vendor">LinkedIn<span class="sub">Economic Graph</span></td>
+          <td><span class="pill p-shipped">Shipped</span></td>
+          <td><span class="pill p-graph">Distributed graph DB</span></td>
+          <td>The reference architecture. LinkedIn Engineering publicly documents a distributed graph database holding <strong>tens of TB</strong> at <strong>~500K QPS</strong> <a href="#src-2">[2]</a>, with a SIGKDD paper (2018) describing the Economic Graph in detail <a href="#src-8">[8]</a>. Scale, schema, and traversal patterns are all in the public record. It is the external graph &mdash; not a people graph for your company &mdash; but it sets the engineering bar that internal people graphs need to meet.</td>
+        </tr>
+        <tr>
+          <td class="vendor">Microsoft<span class="sub">Microsoft Graph &middot; Viva</span></td>
+          <td><span class="pill p-shipped">Shipped</span></td>
+          <td><span class="pill p-graph">Identity graph</span></td>
+          <td>Microsoft Graph is a real, large, public-API graph over Entra identity, mail, calendar, files, and Teams <a href="#src-3">[3]</a>. It is not a <em>people graph</em> in the HCM sense &mdash; identity is the Entra account, not an entity-resolved human across HCM systems &mdash; but it is a foundational substrate that Copilot for HR and similar products use as their identity layer. Eglin&rsquo;s view: in 2026, every HCM people graph will need to interoperate with Microsoft Graph; few will be subsumed by it.</td>
+        </tr>
+        <tr>
+          <td class="vendor">HiBob<span class="sub">Bob &middot; modern HRIS</span></td>
+          <td><span class="pill p-claim">Claim</span></td>
+          <td><span class="pill p-row">Row-store</span></td>
+          <td>HiBob markets a modern HRIS with strong employee-experience surfaces. Eglin found <em>no</em> primary documentation of a graph data model. Public review and comparison material treats HiBob as a relational HRIS with good UX. Until there is a primary architecture statement, this is a row-store with graph-adjacent language.</td>
+        </tr>
+        <tr>
+          <td class="vendor">Rippling<span class="sub">Employee Graph</span></td>
+          <td><span class="pill p-claim">Claim</span></td>
+          <td><span class="pill p-row">Row-store</span></td>
+          <td>Rippling brands its core data model as the &ldquo;Employee Graph&rdquo; and positions it as the substrate for cross-functional workflows (IT, payroll, devices, permissions) <a href="#src-9">[9]</a>. The publicly described capabilities &mdash; reading roles, locations, and reporting structure into downstream systems &mdash; are workflow-orchestration features, not a graph traversal layer. Eglin&rsquo;s read: it is a strongly-normalized relational model with consistent identity inside the Rippling tenant. Useful, but not a people graph in the §I sense. It does not ingest and resolve identity from <em>outside</em> Rippling&rsquo;s own data plane.</td>
+        </tr>
+        <tr>
+          <td class="vendor">Lattice<span class="sub">performance + HRIS</span></td>
+          <td><span class="pill p-claim">Claim</span></td>
+          <td><span class="pill p-row">Row-store</span></td>
+          <td>Lattice has expanded from performance into HRIS. Public materials emphasize people-data unification but do not document a graph storage model. Rating: row-store HRIS with strong workflow primitives. Eglin will revisit if Lattice publishes a graph-architecture white paper.</td>
+        </tr>
+        <tr>
+          <td class="vendor">ChartHop<span class="sub">people analytics + AI</span></td>
+          <td><span class="pill p-partial">Partial</span></td>
+          <td><span class="pill p-row">Row-store + AI</span></td>
+          <td>ChartHop has positioned itself toward AI-context people-ops, describing a consolidated data store where HR, job, and business fields live in one flexible model that AI can interpret <a href="#src-10">[10]</a>. The integration story is real; the architectural story is a consolidated warehouse with a chart visualization layer, not a graph. The org chart is the surface; the storage is relational.</td>
+        </tr>
+        <tr>
+          <td class="vendor">Eqtble<span class="sub">people analytics (Paradox)</span></td>
+          <td><span class="pill p-claim">Claim</span></td>
+          <td><span class="pill p-row">Warehouse-backed</span></td>
+          <td>Eqtble&rsquo;s pre-acquisition positioning was consultative people analytics with metrics, stories, dashboards, and a data-health layer. Following Paradox&rsquo;s acquisition, scope shifted toward AI-driven recruiting workflow. Eglin found no primary evidence of a graph data model; treat as warehouse-and-dashboard, not a graph.</td>
+        </tr>
+        <tr>
+          <td class="vendor">Deel<span class="sub">global payroll + EOR</span></td>
+          <td><span class="pill p-claim">Claim</span></td>
+          <td><span class="pill p-row">Row-store</span></td>
+          <td>Deel&rsquo;s 2025 product expansion adds workforce-planning and skill-frameworks features. Public competitor positioning describes Deel&rsquo;s core as an &ldquo;integrated employee graph,&rdquo; but Eglin could not find a primary architecture document from Deel itself using that language. Treat as marketing-graph, row-store reality, until contradicted.</td>
+        </tr>
+        <tr>
+          <td class="vendor">Mercor<span class="sub">AI hiring &middot; pivot to labeling</span></td>
+          <td><span class="pill p-claim">Out of scope</span></td>
+          <td><span class="pill p-row">N/A</span></td>
+          <td>Mercor raised at a $10B valuation in October 2025 <a href="#src-11">[11]</a>, but the public coverage of the round describes a pivot from enterprise hiring toward supplying domain experts to AI labs. Eglin flags this as a category exit, not a category contender. Mercor is now a marketplace for labelers, not a people-graph play.</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <p>
+    The pattern across the matrix is consistent. Two vendors have built
+    something close to a people graph in a bounded domain: <strong>Gloat
+    for internal mobility</strong> and <strong>Beamery for recruiting
+    talent attraction</strong>. One vendor &mdash; <strong>Eightfold</strong>
+    &mdash; has built a deep skills-and-talent graph for the external
+    talent universe and is bringing it inside customers in pilots; how
+    well that closes the identity-resolution loop with the customer&rsquo;s
+    HRIS is not publicly documented. <strong>Workday</strong>&rsquo;s
+    Skills Cloud is the strongest graph element inside an incumbent
+    suite, but the underlying HCM is a relational object model and
+    Workday&rsquo;s graph stops at the suite boundary. <strong>LinkedIn</strong>
+    is the reference architecture for what a real graph at scale looks
+    like, and is not available to customers as a private substrate.
+    <strong>Microsoft Graph</strong> is the identity graph that every
+    enterprise has already paid for, and is not a people graph.
+    Everyone else &mdash; including the modern HRIS challengers and the
+    payroll-led globalizers &mdash; is row-store with graph language in
+    the marketing.
+  </p>
+
+  <p>
+    The thing that is conspicuously missing from the market &mdash; and
+    the thing the rest of this brief argues is the actual opportunity
+    &mdash; is a graph that is <em>internal to the customer</em>,
+    <em>identity-resolved across the customer&rsquo;s real source
+    systems</em> (HRIS, ATS, LMS, payroll, equity, credentialing,
+    directory), <em>time-aware</em> at the edge, and <em>consent-bound</em>
+    by design. Beamery is close on the talent-acquisition slice; Gloat
+    is close on the internal-mobility slice; nobody is close on the
+    full lifecycle. The gap is where Stratum is building.
+  </p>
+
+  <div class="callout eglin">
+    A vendor that says it has a graph and cannot tell you how it
+    resolves identity across systems it does not own does not have a
+    people graph. It has either (a) a skills graph (an ontology over
+    competencies, which is real and useful but not a people graph), or
+    (b) an internal relational model with consistent IDs (also real
+    and useful but not a people graph), or (c) a chart-visualization
+    layer over a warehouse (also real and useful but not a people
+    graph). The distinguishing question is always the same:
+    <strong>where does the entity-resolution pipeline live, and what
+    is its precision-recall curve on adversarial cases like
+    contractor-to-employee conversions across system boundaries?</strong>
+    If the vendor cannot answer that, the graph claim is a brand
+    promise, not an architecture.
+  </div>
+
+
+</section>
+
+<!-- pullquote -->
+<div class="pullquote">
+  <p class="pullquote-text">
+    Most vendors call it a graph. A few have built one. The difference is whether the edge exists when no human writes a JOIN.
+  </p>
+  <div class="pullquote-attr"><strong>Eglin</strong> &middot; Industry research desk &middot; Stratum, Inc.</div>
+</div>
+
+<!-- §4 -->
+<section id="s4">
+  <span class="section-num">&sect; IV.</span>
+  <h2 class="section-h">Why <em>agentic companies</em> need a people graph.</h2>
+
+    <p>
+    The strategic argument for a people graph rests on a claim about
+    what agents actually do. An agent &mdash; in the operational sense
+    Stratum uses internally, and in the sense the EU AI Act and NYC
+    Local Law&nbsp;144 are starting to regulate &mdash; is a system that
+    takes an input, queries a substrate, reasons over the result, and
+    produces a decision or recommendation. The quality of every step
+    after the input depends on the quality of the substrate. If the
+    substrate is a stack of tables, the agent has to do its own JOIN.
+    That JOIN is where the failures live.
+  </p>
+
+  <p>
+    Consider the kind of question an HR agent is now routinely asked to
+    answer: <em>this employee is going on parental leave for sixteen
+    weeks; who on her team can absorb each of her current projects,
+    given their existing workload, their skills, the manager&rsquo;s
+    succession plan, and the customer&rsquo;s policy on temporary
+    elevation pay?</em> To answer this honestly, the agent needs:
+    the employee&rsquo;s current projects (a join across the project
+    system and HRIS), each teammate&rsquo;s current allocation (the
+    project system again, plus the time-tracking system), each
+    teammate&rsquo;s skills profile (HRIS skills field plus LMS
+    completions plus inferred skills from past project work), the
+    manager&rsquo;s succession-plan attestations (which may live in
+    Workday Talent or in a separate doc-management system), and the
+    comp-policy rules (in the comp-band table). Six systems. Five
+    different identity schemes. Two different ideas of what a
+    &ldquo;project&rdquo; is. Without a graph, the agent reasons over
+    the union it can construct, which is a smaller union than the one
+    a graph would give it, and the answer is correspondingly worse.
+  </p>
+
+  <p>
+    The argument is not that agents <em>cannot</em> work without a
+    graph. They can. They do, today, in every shipped Copilot-for-HR
+    product on the market. The argument is that <strong>agents working
+    against a row-based substrate are doing entity resolution at
+    inference time</strong>, on every query, with a per-token cost and a
+    per-query latency budget that makes the resolver shallow.
+    Performance suffers; precision suffers; auditability suffers;
+    consent enforcement is harder, because the agent does not have
+    a stable substrate to attach consent metadata to. The agent
+    becomes the resolver, and the resolver becomes a black box.
+  </p>
+
+  <p>
+    Move the resolver out of the agent and into the substrate, and the
+    properties change. The agent reasons over <em>clusters</em>, not
+    rows. Each cluster has a single canonical identity, a single
+    consent record, a single provenance trail, and a stable set of
+    skills, relationships, and trajectories at any point in time. The
+    agent is no longer doing entity resolution. It is doing the work
+    it was designed to do: reasoning. There are five reasons this
+    matters for any company building agentic HCM.
+  </p>
+
+  <ul class="distlist">
+    <li>
+      <span class="dn">Decision provenance</span>
+      <span class="db">An agent that touches clusters, not rows, can
+      produce a defensible decision trail: <em>here is the cluster
+      I touched, here is the version of that cluster at the time of
+      the decision, here are the edges I traversed, here is the
+      confidence score on each.</em> A row-based agent cannot do this
+      without re-running the entity-resolution it did implicitly,
+      which it cannot reproduce because it did not log the implicit
+      step. Decision provenance is the bedrock of the EU AI Act
+      Article&nbsp;13 transparency requirement and of NYC AEDT
+      audit obligations. Without a graph, provenance is best-effort.
+      With a graph, it is structural.</span>
+    </li>
+    <li>
+      <span class="dn">Cross-system reasoning</span>
+      <span class="db">An agent recommending an internal move needs
+      to know the candidate&rsquo;s recruiting interactions, current
+      role, peers, learning history, and stated preferences. A graph
+      that ingests recruiting and tenure together turns this into one
+      query. A row-based stack turns it into a multi-system orchestration
+      with N partial answers, joined by the agent at inference time.
+      Agents are bad at JOINs and good at reasoning over the result
+      of a JOIN they did not have to do.</span>
+    </li>
+    <li>
+      <span class="dn">Consent enforcement</span>
+      <span class="db">Consent applies to edges, not to systems. The
+      same person can consent to having her skills inferred for
+      mobility but not consent to having her engagement-survey responses
+      shared with her manager. In a row-based world, this consent has
+      to be re-enforced at every system boundary, by every agent that
+      queries it. In a graph world, the consent flag is on the edge,
+      traversal honors it by construction, and the agent does not
+      have to know the policy &mdash; the policy is in the substrate.</span>
+    </li>
+    <li>
+      <span class="dn">Time-aware queries</span>
+      <span class="db">An agent asked &ldquo;is this employee at flight
+      risk?&rdquo; needs the trajectory: how have her engagement scores
+      trended, how have her project assignments shifted, when did her
+      last comp adjustment land, who has she stopped reporting to? In
+      a row-based world, &ldquo;trajectory&rdquo; is a query the agent
+      assembles. In a graph world, the trajectory is a property of the
+      node, indexed for traversal. The Cairn product, Stratum&rsquo;s
+      learning-agent layer, was built specifically on this premise:
+      events are point-in-time; trajectories are integrated; the
+      014-T extended autonomy predicate exists because an event-based
+      compliance model is not sufficient when the substrate is
+      time-aware. See <a href="/cairn/architecture.html">Forge&rsquo;s
+      Cairn architecture document</a>.</span>
+    </li>
+    <li>
+      <span class="dn">Connector-economy unlock</span>
+      <span class="db">An agentic HCM cannot be a closed suite; every
+      customer has systems the vendor does not own. A graph substrate
+      is the only architecture that ingests-and-resolves across an
+      arbitrary set of connectors without becoming the new monolith.
+      MCP (Model Context Protocol) and the broader connector economy
+      assume the agent can reason over data from systems the agent
+      vendor did not build. The substrate that makes that reasoning
+      coherent is a graph.</span>
+    </li>
+  </ul>
+
+  <p>
+    There is a sixth, more subtle reason that deserves a paragraph of
+    its own. <strong>Agentic decision-making needs an eval set</strong>,
+    and an eval set needs a stable substrate. You cannot meaningfully
+    evaluate whether your succession-planning agent is good if every
+    rerun of your evaluation hits a slightly different set of rows
+    because the underlying entity resolution changed between runs. The
+    eval set, as Stratum has documented in
+    <a href="/engineering/eval-set-methodology.html">the eval-set
+    methodology post</a>, presumes a graph that is stable enough to
+    pin a version against. Without that, evaluation is not science; it
+    is impressionism with metrics.
+  </p>
+
+  <p>
+    The corollary is uncomfortable for incumbent vendors: <em>the
+    agentic capabilities they are shipping today are limited by the
+    substrate underneath them.</em> A Copilot for HR built on a
+    relational HCM can only ever reason over what a JOIN can express
+    in the time budget of an inference call. A Copilot built on a
+    graph can reason over neighborhoods that are out of reach of any
+    SQL the customer&rsquo;s analyst would write. This is not a
+    near-term ceiling. It is a structural one. Until the substrate
+    becomes a graph, the agent will be doing the resolver&rsquo;s job
+    badly.
+  </p>
+
+
+</section>
+
+<!-- §5 -->
+<section id="s5">
+  <span class="section-num">&sect; V.</span>
+  <h2 class="section-h">Why the people-graph experience is <em>better</em> for humans.</h2>
+
+    <p>
+    The strategic case is one half of the argument. The other half is
+    the buyer-side case: the people graph produces a meaningfully
+    better experience for the humans actually using the system. That
+    is the half that closes deals. Four roles experience the difference
+    most acutely.
+  </p>
+
+  <div class="vignette">
+    <div class="vh">Vignette &middot; Manager experience</div>
+    <p class="vt">
+      &ldquo;Tell me who on my team is at flight risk and why.&rdquo;
+    </p>
+    <p>
+      The manager asks one question. Today, on a row-based stack, this
+      question requires five tabs. Engagement scores live in Lattice.
+      Comp history lives in the HRIS. Project assignments live in the
+      project tool. The 1:1 notes live in Notion or in someone&rsquo;s
+      head. The exit-interview data from peers who left recently is in
+      yet another system, if it exists at all. The manager either
+      assembles the picture herself, which takes thirty minutes and
+      she does it twice a year, or she does not assemble it, which
+      is the default. On a graph, the question is a traversal. The
+      agent that answers it does so by walking from the manager to
+      her direct reports, then to each report&rsquo;s engagement edge,
+      comp-history edge, peer-departure neighborhood, and
+      project-allocation edge, with confidence scores attached. The
+      same question, answered in seconds, with a citation trail the
+      manager can interrogate. This is the Mercator and Northwind
+      use case &mdash; the question Lila Park at Northwind kept asking
+      and getting three different answers to, until the substrate
+      changed.
+    </p>
+  </div>
+
+  <div class="vignette">
+    <div class="vh">Vignette &middot; Employee experience</div>
+    <p class="vt">
+      &ldquo;The company knows me, without making me re-onboard every
+      quarter.&rdquo;
+    </p>
+    <p>
+      The employee experience on a row-based HCM is one of being
+      asked, repeatedly, to tell the company things it should already
+      know. New manager? Re-enter your goals. New project? Re-state
+      your skills. New benefits enrollment window? Re-confirm your
+      dependents. Every system is the first system, every quarter.
+      On a graph, the employee&rsquo;s node already contains her
+      skills (inferred plus stated, with provenance), her trajectory
+      (the projects she has shipped, the learning she has completed,
+      the moves she has made), her relationships (the peers and
+      managers she has worked with), and her stated preferences (the
+      goals she has set, the mobility signals she has flagged). New
+      surfaces query the node; they do not re-collect. The Vanta and
+      Atlas use cases are both about this: the security-and-trust
+      customers in particular care about <em>not asking the employee
+      twice</em>, because every additional ask is a data-collection
+      event with a retention obligation.
+    </p>
+  </div>
+
+  <div class="vignette">
+    <div class="vh">Vignette &middot; Recruiter experience</div>
+    <p class="vt">
+      &ldquo;The candidate I just spoke to was an employee here three
+      years ago. I should know that before the next call.&rdquo;
+    </p>
+    <p>
+      Internal mobility is the recruiter use case the industry has
+      been talking about for a decade and not solved. The reason is
+      structural: the ATS and the HRIS are different databases with
+      different identity schemes. A boomerang candidate &mdash; an
+      ex-employee re-applying &mdash; shows up in the ATS as a brand-new
+      record, and the recruiter learns about the prior employment
+      from a hand-typed note on the resume, or from a LinkedIn search
+      done after the interview. On a graph, the boomerang is a single
+      node with two employment edges, one closed and one in flight.
+      The recruiter sees the prior tenure, the role, the manager, the
+      reason-for-leaving (if recorded), and the rehire eligibility flag,
+      all before the next call. Internal mobility &mdash; an existing
+      employee applying for an internal role &mdash; works the same way:
+      the recruiter is not stitching together the candidate&rsquo;s
+      employee history; the graph already has it. The Halcyon case
+      study includes a version of this for physician credentialing
+      transfers: the candidate is the same person, the credential is
+      already verified, and the graph collapses what is otherwise a
+      thirty-day re-verification cycle.
+    </p>
+  </div>
+
+  <div class="vignette">
+    <div class="vh">Vignette &middot; Compliance experience</div>
+    <p class="vt">
+      &ldquo;Prove this decision was not biased. Prove this deletion
+      request was honored everywhere.&rdquo;
+    </p>
+    <p>
+      The compliance officer&rsquo;s two worst questions are both
+      structural questions about the substrate. <em>Prove this
+      decision was not biased</em> requires producing the decision
+      provenance: what features the agent saw, with what consent, at
+      what time. On a row-based stack, this is reconstructed
+      post-hoc, badly. On a graph, it is the property of the edge
+      the decision touched. <em>Prove this deletion was honored
+      everywhere</em> requires walking the subgraph: every edge
+      attached to the deleted node, in every system, with
+      confirmation. On a row-based stack, deletion is a manual
+      reconciliation across N systems with N retention policies.
+      On a graph, deletion is a single bounded operation that the
+      governance layer can attest to. NYC Local Law&nbsp;144
+      <a href="#src-1">[1]</a>, the EU AI Act&rsquo;s
+      August&nbsp;2026 high-risk-employment provisions
+      <a href="#src-12">[12]</a>, and the emerging US state
+      pay-transparency wave all assume the customer can answer these
+      two questions in writing within a defensible window. The graph
+      is the only architecture that makes &ldquo;defensible window&rdquo;
+      easy.
+    </p>
+  </div>
+
+  <p>
+    These four vignettes share a property. The improvement, in each
+    case, is not a new feature. It is the <em>removal of friction</em>
+    that the row-based architecture introduced and that has been
+    treated as a fact of life for two decades. The manager always
+    pivoted across five tools. The employee always re-entered. The
+    recruiter always re-typed prior history. The compliance officer
+    always reconciled by hand. The people graph does not add capability
+    on top of that; it dissolves the architecture that required it.
+    That is a different kind of product improvement than the industry
+    is used to selling, and it is a different kind of buyer experience
+    than the industry is used to delivering.
+  </p>
+
+  <div class="callout eglin">
+    The CHRO worth selling to is the one who has stopped believing
+    that better dashboards will solve the problem. The dashboard is
+    a row-based answer to a graph-shaped question. The CHRO who has
+    realized this is the CHRO who is asking, in 2026, the question
+    that closes Stratum deals: <em>show me the substrate, not the
+    surface.</em>
+  </div>
+
+
+</section>
+
+<!-- §6 -->
+<section id="s6">
+  <span class="section-num">&sect; VI.</span>
+  <h2 class="section-h">The architectural rationale: why a graph <em>beats</em> a warehouse for this problem.</h2>
+
+    <p>
+    The strategic and experience arguments above presume that a graph
+    is, in fact, the right data structure for this problem. The
+    argument can be made briefly, because Forge has already made it
+    at length in <a href="/essays/the-graph-between-the-databases.html">Essay&nbsp;No.&nbsp;02</a>
+    and in <a href="/engineering/">Engineering posts 01, 02, and 04</a>;
+    this section assumes that background and pushes one specific
+    point further: why a property graph beats a warehouse, even a
+    well-designed dbt-and-Snowflake warehouse with reverse-ETL on top.
+  </p>
+
+  <p>
+    Three structural reasons.
+  </p>
+
+  <p>
+    <strong>First, traversal vs. JOIN.</strong> The questions an HCM
+    agent asks are neighborhood questions: <em>who is two hops from
+    this person in the manager graph, who has shared a project with
+    them in the last eighteen months, what is the smallest set of
+    skill-adjacent peers who have completed the required training?</em>
+    In a relational warehouse, these compile to recursive CTEs or
+    multi-stage CTAS jobs that are expensive to write, expensive to
+    run, and brittle to schema change. In a property graph, they are
+    one-line traversals with bounded latency. The asymmetry is not
+    about preference; it is about computational complexity. Graph
+    traversal is O(neighborhood) where SQL recursion is O(rows scanned).
+    For people-scale data &mdash; tens of thousands of nodes, hundreds of
+    thousands of edges per customer &mdash; the difference is between
+    interactive and not.
+  </p>
+
+  <p>
+    <strong>Second, time as a first-class edge property.</strong> A
+    warehouse can be made time-aware with slowly-changing dimensions,
+    effective-dated rows, and history tables. This works, in the sense
+    that an analyst with discipline can write a query that returns
+    headcount-on-2024-08-04 correctly. It does not work well at
+    interactive latency, it does not survive schema drift, and it
+    requires the analyst to remember to write the temporal predicate
+    every time. In a property graph designed for this use case, every
+    edge carries valid-from and valid-to, and every traversal is
+    implicitly bounded by the query time. Asking &ldquo;who reported
+    to Devon on August 4, 2024&rdquo; is not a different query than
+    asking &ldquo;who reports to Devon today&rdquo;; it is the same
+    query with a different time argument. This is the property that
+    makes longitudinal agentic decisions &mdash; trajectory questions
+    &mdash; cheap. It is also the property that makes Cairn&rsquo;s
+    014-T trajectory predicate <a href="/cairn/architecture.html">[Cairn architecture]</a>
+    expressible at the storage layer rather than at the application
+    layer.
+  </p>
+
+  <p>
+    <strong>Third, consent as edge metadata.</strong> A warehouse can
+    encode consent in row-level security or in a separate consent
+    table. Both work for known query patterns; both fail for the
+    open-ended traversals an agent issues. A graph with consent flags
+    on edges enforces consent at traversal time by construction: an
+    agent that does not have permission to traverse the
+    engagement-survey edge simply cannot reach the node on the other
+    side. The consent boundary is the graph boundary. This is the
+    architecture that makes the EU AI Act&rsquo;s data-governance
+    requirements <a href="#src-12">[12]</a> structurally satisfiable
+    rather than process-enforced.
+  </p>
+
+  <div class="ascii">         <span class="m">┌─────────────────────────────────────────────────────────────┐</span>
+         <span class="m">│         WAREHOUSE PARADIGM           </span><span class="m">vs</span><span class="m">    GRAPH PARADIGM         │</span>
+         <span class="m">└─────────────────────────────────────────────────────────────┘</span>
+
+           <span class="m">─ warehouse ─</span>                          <span class="m">─ graph ─</span>
+
+           <span class="o">rows + foreign keys</span>                      <span class="i">nodes + edges</span>
+           <span class="o">JOIN at query time</span>                       <span class="i">traversal at query time</span>
+           <span class="o">time = SCD2 / effective dates</span>            <span class="i">time = edge property</span>
+           <span class="o">consent = row-level security</span>             <span class="i">consent = edge property</span>
+           <span class="o">identity = source key</span>                    <span class="i">identity = resolved cluster</span>
+           <span class="o">agent = doer of JOINs</span>                    <span class="i">agent = reasoner over neighborhoods</span>
+
+           <span class="m">best for:</span>                              <span class="m">best for:</span>
+           <span class="o">- batch analytics</span>                       <span class="i">- interactive agentic queries</span>
+           <span class="o">- known query shapes</span>                    <span class="i">- open-ended traversals</span>
+           <span class="o">- finance + ops reporting</span>               <span class="i">- people-systems-of-understanding</span></div>
+
+  <p>
+    None of this means a graph replaces the warehouse. They are
+    complementary. The graph is the live, queryable substrate the
+    agents reason over; the warehouse is where finance reporting and
+    historical analytics live. Both exist, in every Stratum customer,
+    fed by the same ingestion pipeline. The architectural mistake is
+    not having both; it is using the warehouse alone for questions
+    that are structurally graph-shaped.
+  </p>
+
+  <p>
+    For the implementation specifics &mdash; the four-stage resolver,
+    the precision-recall asymmetry, the labeling-function methodology,
+    the conflict queue and the human-review workflow &mdash; the
+    canonical reference is Forge&rsquo;s
+    <a href="/essays/the-graph-between-the-databases.html">Essay&nbsp;No.&nbsp;02</a>.
+    This brief will not re-litigate. The argument here is the
+    higher-level one: <em>a graph is structurally the right tool for
+    this problem class, and a warehouse alone is not.</em> Most
+    incumbent vendors built warehouses (or warehouse-shaped object
+    models) because the previous era&rsquo;s questions were
+    batch-analytics questions. The current era&rsquo;s questions are
+    interactive, agentic, neighborhood-shaped questions. The substrate
+    has to change. The phrase &ldquo;people graph&rdquo; is the name
+    the industry is settling on for what that changed substrate is.
+  </p>
+
+
+</section>
+
+<!-- §7 -->
+<section id="s7">
+  <span class="section-num">&sect; VII.</span>
+  <h2 class="section-h">The compliance angle: <em>provenance</em> lives on edges.</h2>
+
+    <p>
+    The compliance argument deserves a short, distinct section because
+    it is the one most often under-stated and most often
+    over-promised. Eglin&rsquo;s view: the graph is not a compliance
+    feature; it is a compliance <em>substrate</em>. Three regulatory
+    frames make this concrete.
+  </p>
+
+  <p>
+    <strong>NYC Local Law&nbsp;144 (AEDT).</strong> The law has been
+    in effect since July&nbsp;2023 and requires that any automated
+    employment decision tool used on candidates or employees in New
+    York City undergo an annual bias audit, with a public summary on
+    the employer&rsquo;s website and candidate notification at least
+    ten business days before use <a href="#src-1">[1]</a>. The New
+    York State Comptroller&rsquo;s December&nbsp;2025 audit found
+    enforcement of LL&nbsp;144 from July&nbsp;2023 through June&nbsp;2025
+    to be &ldquo;ineffective&rdquo; &mdash; 75% of 311 calls about AEDT
+    issues were misrouted, and the Comptroller&rsquo;s auditors
+    identified at least 17 potential violations at companies where DCWP
+    had identified 1 <a href="#src-13">[13]</a>. The DCWP has committed
+    to a substantially more rigorous 2026 enforcement posture. The
+    practical implication: <em>every</em> AEDT used in New York City
+    now needs defensible decision provenance, and the audit defense
+    depends on being able to reproduce the decision after the fact.
+    A row-based stack reconstructs this post-hoc. A graph stores it
+    as a structural property of the edge that produced the decision.
+  </p>
+
+  <p>
+    <strong>EU AI Act, high-risk employment provisions.</strong>
+    Starting <strong>August&nbsp;2, 2026</strong>, AI systems used in
+    recruitment, candidate screening, interview analysis, skills
+    testing, performance prediction, and most material HR decisions
+    are classified as high-risk and subject to mandatory risk
+    management, data governance, technical documentation, accuracy
+    and robustness controls, human oversight, and continuous
+    monitoring obligations <a href="#src-12">[12]</a>. Fines for
+    deployer non-compliance reach &euro;15M or 3% of global turnover.
+    The Act applies extraterritorially when the system&rsquo;s output
+    is used in the EU. The data-governance and documentation
+    requirements presume the deployer can produce a defensible
+    description of the data the system reasoned over, with provenance
+    and consent. Again: a row-based stack reconstructs; a graph
+    stores. The EU AI Act is not graph-mandating, but it is
+    graph-rewarding.
+  </p>
+
+  <p>
+    <strong>US state-level patterns.</strong> California&rsquo;s
+    SB&nbsp;1001 (bot disclosure), AB&nbsp;331 (proposed automated-
+    decision rules, multiple revisions through 2024-2026), Colorado&rsquo;s
+    AI Act (effective February&nbsp;2026), and the federal
+    pay-transparency wave each push in the same direction: the
+    deployer must be able to explain, at the level of the individual
+    decision, what the system did and why. The shape of this
+    obligation is what makes a graph the structurally easier
+    architecture to defend. Provenance is on the edge. Consent is on
+    the edge. Time is on the edge. The auditor&rsquo;s question
+    &mdash; <em>show me the decision and the data it was made
+    against, at the time of the decision</em> &mdash; is a single
+    bounded subgraph query.
+  </p>
+
+  <p>
+    Eglin is not making a legal recommendation here, and counsel
+    should be consulted before any compliance posture is adopted on
+    the basis of an architectural argument. The point is narrower:
+    when the regulatory frame asks for decision provenance, consent
+    enforcement, and right-to-explanation, the architecture that makes
+    those structurally easy is a property graph with consent on
+    edges. The architecture that makes them structurally hard is a
+    relational warehouse with consent in a separate table and
+    provenance reconstructed by a batch job. Both can be made
+    compliant. One is much easier to keep compliant as the regulation
+    matures.
+  </p>
+
+
+</section>
+
+<!-- §8 -->
+<section id="s8">
+  <span class="section-num">&sect; VIII.</span>
+  <h2 class="section-h">The honest <em>counter-arguments.</em></h2>
+
+    <p>
+    A research brief that does not name where its thesis is weakest
+    is marketing in a research jacket. Four serious counter-arguments
+    deserve direct engagement. Eglin&rsquo;s read on each follows.
+  </p>
+
+  <ul class="counter">
+    <li>
+      <span class="ch">&ldquo;Entity resolution is hard, and most companies don&rsquo;t have clean enough source data to make a graph work.&rdquo;</span>
+      <p>
+        This is correct, and it is the strongest counter-argument.
+        The Halcyon case in <a href="/essays/the-graph-between-the-databases.html">Forge&rsquo;s Essay&nbsp;No.&nbsp;02</a>
+        documents 12,112 rows across seven systems for a 2,400-employee
+        hospital, with names in formats ranging from &ldquo;Bob Smith&rdquo;
+        to &ldquo;SMITH, ROBERT J, JR, MD,&rdquo; emails on three
+        different domains, dates of birth missing or year-truncated for
+        privacy, and reused payroll File Numbers from a 2023 cleanup
+        that was never fully reconciled. The state of the art &mdash;
+        the Christophides et al. survey (ACM Computing Surveys 2020)
+        and the Snorkel weak-supervision line &mdash; gives a framework,
+        not a solution. Every customer requires labeling-function work,
+        threshold tuning, and an ongoing human-review queue. Stratum
+        budgets the resolver as the most important and most
+        maintenance-heavy piece of the platform for exactly this
+        reason.
+      </p>
+      <p>
+        <em>Eglin&rsquo;s answer:</em> the counter-argument is true,
+        and it does not refute the thesis. The hardness is the moat.
+        Customers who attempt to build a people graph in-house
+        underestimate the resolver, fail at the conflict-queue
+        workflow, and end up with a graph that is structurally
+        elegant and operationally broken. The opportunity for
+        Stratum, and for any vendor serious about this category, is
+        precisely that this is hard. Vendors who treat it as a
+        feature ship a fake. Vendors who treat it as the product
+        ship a real one.
+      </p>
+    </li>
+    <li>
+      <span class="ch">&ldquo;The incumbents say they already have a graph. Are they really wrong?&rdquo;</span>
+      <p>
+        Partially. Workday Skills Cloud is a real graph over skills,
+        and the engineering is good. Eightfold&rsquo;s Talent Graph is
+        a real graph over the external talent universe. Beamery and
+        Gloat have built real graphs in their respective niches. The
+        incumbents are not entirely wrong when they use graph
+        language; they are partially wrong about <em>what</em> the
+        graph covers. In each incumbent case, the graph stops at a
+        boundary &mdash; the suite boundary, the talent-acquisition
+        boundary, the skills-ontology boundary &mdash; that is
+        structurally upstream of the question buyers are asking. The
+        question buyers are asking is the full-lifecycle, multi-system,
+        identity-resolved question. Nobody in the incumbent set is
+        answering that.
+      </p>
+      <p>
+        <em>Eglin&rsquo;s answer:</em> &ldquo;they already have a
+        graph&rdquo; is the kind of claim that is true if you accept
+        the vendor&rsquo;s definition and false if you accept the
+        buyer&rsquo;s. The honest framing in customer conversations is:
+        <em>your incumbent has a graph over a slice; the people graph
+        is the substrate that connects all the slices.</em>
+      </p>
+    </li>
+    <li>
+      <span class="ch">&ldquo;A graph deeply integrated into your operations creates lock-in. The SaaS row store is at least easier to leave.&rdquo;</span>
+      <p>
+        Legitimate concern. A people graph that becomes load-bearing
+        for the customer&rsquo;s daily workflows is, by construction,
+        harder to switch away from than a SaaS app whose data can be
+        CSV&rsquo;d out and CSV&rsquo;d into a competitor. The
+        switching cost asymmetry is real. The same property that makes
+        the graph valuable (it is the substrate everything reasons
+        over) makes it hard to leave.
+      </p>
+      <p>
+        <em>Eglin&rsquo;s answer:</em> the right mitigation is data
+        portability at the layer below the graph, not at the graph
+        itself. Stratum&rsquo;s commitment, which Compass and Helm
+        should formalize publicly, is that the customer&rsquo;s
+        ingested source data and the customer&rsquo;s entity-resolution
+        decisions are exportable in their entirety, in open formats,
+        on demand. The customer cannot easily take the graph somewhere
+        else because no &ldquo;somewhere else&rdquo; exists yet at
+        equivalent quality. The customer can, however, take their
+        data and their resolution history, and rebuild on a successor
+        substrate when one emerges. That is the honest lock-in
+        posture: <em>your data is yours; the platform&rsquo;s value is
+        the work we do on top of it.</em>
+      </p>
+    </li>
+    <li>
+      <span class="ch">&ldquo;Schema rigidity is the failure mode of graphs at enterprise scale. Every customer has different relationships and different consent rules. A graph schema either becomes a permissive mess or a brittle ontology.&rdquo;</span>
+      <p>
+        Real concern, especially given the diversity of the HCM
+        customer base &mdash; healthcare credentialing edges that
+        don&rsquo;t exist in a pure SaaS company, equity edges that
+        don&rsquo;t exist in a non-profit, multi-entity legal
+        structures that don&rsquo;t fit a single-tenant assumption.
+        A graph schema that tries to enumerate all possible edges
+        becomes the worst of both worlds: rigid enough to break under
+        customer-specific cases, flexible enough that the underlying
+        invariants become unenforced. This is the failure mode of
+        most large enterprise ontologies.
+      </p>
+      <p>
+        <em>Eglin&rsquo;s answer:</em> the right architecture is a
+        small core ontology &mdash; person, role, relationship,
+        attestation, consent, decision &mdash; with customer-specific
+        edge types layered on as typed extensions. Pillar&rsquo;s
+        schema v3 work, which is referenced in Forge&rsquo;s essay
+        and the Cairn architecture document, takes this approach
+        deliberately. The core stays small enough to remain
+        invariant across customers; the extensions accommodate the
+        edges that one customer has and another does not. The
+        alternative &mdash; a permissive blob graph &mdash; loses the
+        properties that made the graph valuable in the first place.
+        Schema discipline is part of the product.
+      </p>
+    </li>
+  </ul>
+
+  <p>
+    A fifth counter-argument worth noting briefly: <em>the timing may
+    be wrong.</em> The skeptical version is that the agentic-HCM
+    market is overhyped, that LLMs are plateauing, that the EU AI
+    Act will be delayed or watered down, and that buyers in 2027 will
+    revert to the row-based suites because the graph-substrate
+    promise outpaces the agent-quality reality. Eglin&rsquo;s
+    response: this is a possible world, but it is not the world the
+    competitive evidence supports. Beamery, Gloat, Eightfold,
+    Mercor&rsquo;s $10B round, Microsoft&rsquo;s continued Viva
+    investment, Workday&rsquo;s repositioning around Skills Cloud,
+    and the regulatory direction in Brussels and Sacramento all point
+    the same way. The substrate question is not going away. The
+    vendors who answer it earliest set the terms of the answer.
+  </p>
+
+
+</section>
+
+<!-- §9 -->
+<section id="s9">
+  <span class="section-num">&sect; IX.</span>
+  <h2 class="section-h">What this means for <em>Stratum.</em></h2>
+
+    <p>
+    The preceding sections describe the market. This one describes
+    Eglin&rsquo;s recommendations to the Compact. Three concrete
+    implications, framed as recommendations from Eglin to Helm and
+    Compass for Tier-2 review, not as commitments. The Chairman and
+    the Compact decide whether to act on them.
+  </p>
+
+  <div class="impl-grid">
+    <div class="impl-card">
+      <div class="ih">Implication 01 &middot; Positioning</div>
+      <div class="it">Stop saying &ldquo;MCP-native HCM.&rdquo; Start saying &ldquo;the people graph.&rdquo;</div>
+      <p>
+        MCP-native is true and architecturally important, and it is the
+        wrong word for the buyer conversation. CHROs and CIOs do not
+        buy a protocol. They buy a substrate that produces a different
+        experience. Eglin recommends the umbrella reposition: Stratum
+        is <em>the people-graph company</em>, and MCP is the connector
+        story underneath it. The substrate is the headline; the
+        protocol is the proof. Compass should test this framing in
+        the next three customer conversations and report back.
+        Verdict in writing by T+95d.
+      </p>
+    </div>
+    <div class="impl-card">
+      <div class="ih">Implication 02 &middot; Engineering</div>
+      <div class="it">Publish the resolver eval-set numbers, on the record, by end of Q3.</div>
+      <p>
+        The competitor scan in &sect;III shows that almost every
+        incumbent uses graph language without being able to defend
+        the entity-resolution claim with primary evidence. The
+        differentiation move is to publish what the incumbents
+        cannot: <em>here is our resolver&rsquo;s precision-recall
+        curve on adversarial cases, here is our conflict-queue
+        throughput, here is the contractor-to-employee transition
+        accuracy that took Pillar one labeling function to fix.</em>
+        Forge already has the numbers internally; the recommendation
+        is to publish them, with the eval-set methodology already
+        documented in <a href="/engineering/eval-set-methodology.html">/engineering/eval-set-methodology</a>,
+        as a forcing function that competitors will struggle to
+        match. Eglin estimates a 10-12 week effort; recommendation
+        is Forge + Pillar own the timeline, Helm the publish call.
+      </p>
+    </div>
+    <div class="impl-card">
+      <div class="ih">Implication 03 &middot; Partnerships</div>
+      <div class="it">A graph-of-graphs interop position with Beamery, Gloat, and Microsoft Graph.</div>
+      <p>
+        Beamery has the talent-acquisition graph. Gloat has the
+        internal-mobility graph. Microsoft Graph is the
+        identity-and-collaboration graph every enterprise already
+        owns. Stratum&rsquo;s people graph is the
+        identity-resolved, time-aware, multi-source HCM substrate
+        that connects them. The right partnership move is not to
+        compete head-on with the specialized graphs but to position
+        Stratum as the layer that integrates them &mdash;
+        graph-of-graphs interop, with MCP as the wire protocol.
+        Eglin recommends Compass open exploratory conversations
+        with Beamery and Gloat in Q3, and that the Microsoft Graph
+        interoperability work be scoped as a public-spec deliverable
+        by Forge in Q4. Helm to ratify the partnership posture
+        before either conversation goes external.
+      </p>
+    </div>
+  </div>
+
+  <p>
+    A note on what Eglin is <em>not</em> recommending. Eglin is not
+    recommending a public broadside against any incumbent &mdash;
+    the competitor scan in &sect;III is honest enough to make the
+    case on the evidence, and a fight with Workday or Rippling does
+    not serve the substrate-vs-suite narrative we are building. Eglin
+    is also not recommending a customer event around the people-graph
+    concept until the resolver numbers are publishable; the worst
+    outcome is an event where the headline claim outpaces the
+    evidence we can put on a slide. The discipline is to publish
+    the substrate proof first and let the positioning follow it.
+  </p>
+
+  <p>
+    These are recommendations, not commitments. Helm and Compass own
+    the editorial call on positioning shifts; the Compact owns the
+    market-positioning ratification; the Chairman owns the public
+    posture. Eglin&rsquo;s job is to bring the evidence and the
+    framing; the Compact decides whether to act on them.
+  </p>
+
+
+</section>
+
+<!-- §10 -->
+<section id="s10">
+  <span class="section-num">&sect; X.</span>
+  <h2 class="section-h">Sources and the <em>confidence ladder.</em></h2>
+
+    <p>
+    Every claim of consequence in this brief is rated for source
+    quality. The confidence ladder has three rungs: <strong>Verified</strong>
+    means Eglin read the primary source directly; <strong>Reported</strong>
+    means the claim comes from a secondary source (analyst report,
+    journalism, vendor blog) that Eglin trusts but did not independently
+    confirm; <strong>Inferred</strong> means Eglin reasoned from incomplete
+    data and labels the conclusion as inference. The honest accounting
+    matters more than the conclusion.
+  </p>
+
+  <div class="sources" id="sources-list">
+    <div class="sources-head">
+      <span>Working bibliography &middot; 31 sources &middot; 2026-05-22</span>
+      <span class="legend">
+        <span class="lg lg-v">Verified</span>
+        <span class="lg lg-r">Reported</span>
+        <span class="lg lg-i">Inferred</span>
+      </span>
+    </div>
+    <ol>
+      <li id="src-1">
+        <span class="sc sc-v">Verified</span>
+        <span class="sbody"><strong>NYC Local Law 144 of 2021 (AEDT)</strong> &middot; NYC Department of Consumer and Worker Protection. Bias-audit requirement, candidate notification, $500&ndash;$1,500 per-violation penalty, in effect since 5 July 2023. <a href="https://www.nyc.gov/site/dca/about/automated-employment-decision-tools.page" target="_blank" rel="noopener">nyc.gov/site/dca/about/automated-employment-decision-tools</a></span>
+      </li>
+      <li id="src-2">
+        <span class="sc sc-v">Verified</span>
+        <span class="sbody"><strong>LinkedIn Economic Graph &middot; Engineering blog</strong>. Distributed graph database, tens of TB, ~500K QPS, 1B+ members, 41K skills, 67M companies, 133K schools. <a href="https://engineering.linkedin.com/teams/data/data-infrastructure/graph" target="_blank" rel="noopener">engineering.linkedin.com/teams/data/data-infrastructure/graph</a> and <a href="https://economicgraph.linkedin.com/" target="_blank" rel="noopener">economicgraph.linkedin.com</a></span>
+      </li>
+      <li id="src-3">
+        <span class="sc sc-v">Verified</span>
+        <span class="sbody"><strong>Microsoft Graph &middot; People and workplace intelligence</strong> &middot; Microsoft Learn. Definition of People API, relevance scoring, integration with Viva. <a href="https://learn.microsoft.com/en-us/graph/social-intel-concept-overview" target="_blank" rel="noopener">learn.microsoft.com/en-us/graph/social-intel-concept-overview</a></span>
+      </li>
+      <li id="src-4">
+        <span class="sc sc-v">Verified</span>
+        <span class="sbody"><strong>Workday Skills Cloud foundation blog</strong>. Spatial representation of skills, probabilistic skill graph, implicit discovery. <a href="https://blog.workday.com/en-us/foundation-workday-skills-cloud.html" target="_blank" rel="noopener">blog.workday.com/en-us/foundation-workday-skills-cloud</a> and <a href="https://www.workday.com/en-us/products/human-capital-management/skills-cloud.html" target="_blank" rel="noopener">workday.com/products/human-capital-management/skills-cloud</a></span>
+      </li>
+      <li id="src-5">
+        <span class="sc sc-r">Reported</span>
+        <span class="sbody"><strong>Eightfold AI Talent Intelligence Platform</strong>. Talent Graph as foundational architecture, autonomous agents for hiring, redeployment, and development. Per third-party industry coverage; Eglin did not access primary Eightfold technical documentation for the graph internals. <a href="https://www.knowlee.ai/blog/ai-talent-intelligence" target="_blank" rel="noopener">knowlee.ai/blog/ai-talent-intelligence</a></span>
+      </li>
+      <li id="src-6">
+        <span class="sc sc-v">Verified</span>
+        <span class="sbody"><strong>Gloat &middot; Workforce Graph and Loomra context engine</strong>. Workforce knowledge graph, semantic embeddings, skills inference, career-trajectory modeling. <a href="https://gloat.com/platform/workforce-graph/" target="_blank" rel="noopener">gloat.com/platform/workforce-graph</a> and <a href="https://gloat.com/blog/skills-ontology-framework/" target="_blank" rel="noopener">gloat.com/blog/skills-ontology-framework</a></span>
+      </li>
+      <li id="src-7">
+        <span class="sc sc-v">Verified</span>
+        <span class="sbody"><strong>Beamery Talent Graph &middot; AI page</strong>. Semantic-web knowledge graph, 17B data points, TalentGPT. <a href="https://beamery.com/talent-graph-and-ai/" target="_blank" rel="noopener">beamery.com/talent-graph-and-ai</a> and <a href="https://beamery.com/resources/blogs/knowledgegraphs-the-future-of-talent-management" target="_blank" rel="noopener">beamery.com/resources/blogs/knowledgegraphs</a></span>
+      </li>
+      <li id="src-8">
+        <span class="sc sc-v">Verified</span>
+        <span class="sbody"><strong>&ldquo;How LinkedIn Economic Graph Bonds Information and Product&rdquo;</strong> &middot; ACM SIGKDD 2018. Architectural paper from LinkedIn engineering. <a href="https://dl.acm.org/doi/10.1145/3219819.3219921" target="_blank" rel="noopener">dl.acm.org/doi/10.1145/3219819.3219921</a></span>
+      </li>
+      <li id="src-9">
+        <span class="sc sc-r">Reported</span>
+        <span class="sbody"><strong>Rippling Employee Graph</strong>. Term used in Rippling marketing and third-party comparison material. No primary architecture white paper from Rippling located. Treat as branded data model, not graph-native storage. <a href="https://www.rippling.com/blog/rippling-vs-deel-global-workforce-management-comparison" target="_blank" rel="noopener">rippling.com/blog/rippling-vs-deel</a></span>
+      </li>
+      <li id="src-10">
+        <span class="sc sc-r">Reported</span>
+        <span class="sbody"><strong>ChartHop AI &middot; consolidated data store</strong>. Per ChartHop marketing: all HR, job, and business fields in one flexible model with AI access. Not described as a graph; described as a consolidated warehouse. <a href="https://www.charthop.com/ai" target="_blank" rel="noopener">charthop.com/ai</a></span>
+      </li>
+      <li id="src-11">
+        <span class="sc sc-v">Verified</span>
+        <span class="sbody"><strong>Mercor Series C, October 2025</strong> &middot; TechCrunch. $350M at $10B valuation; pivot from enterprise hiring toward AI-lab labeling supply. <a href="https://techcrunch.com/2025/10/27/mercor-quintuples-valuation-to-10b-with-350m-series-c/" target="_blank" rel="noopener">techcrunch.com/2025/10/27/mercor-quintuples-valuation-to-10b</a></span>
+      </li>
+      <li id="src-12">
+        <span class="sc sc-v">Verified</span>
+        <span class="sbody"><strong>EU AI Act &middot; high-risk employment provisions</strong>. Effective 2 August 2026 for high-risk HR systems. Risk management, data governance, documentation, accuracy, human oversight, continuous monitoring; up to &euro;15M or 3% global turnover. <a href="https://digital-strategy.ec.europa.eu/en/policies/regulatory-framework-ai" target="_blank" rel="noopener">digital-strategy.ec.europa.eu/en/policies/regulatory-framework-ai</a> and <a href="https://artificialintelligenceact.eu/what-the-act-means-for-staffing-businesses/" target="_blank" rel="noopener">artificialintelligenceact.eu</a></span>
+      </li>
+      <li id="src-13">
+        <span class="sc sc-v">Verified</span>
+        <span class="sbody"><strong>NY State Comptroller audit of LL&nbsp;144 enforcement, December 2025</strong>. Enforcement assessed as &ldquo;ineffective.&rdquo; 75% of 311 calls misrouted; 17 potential violations identified by auditors vs. 1 by DCWP. <a href="https://www.osc.ny.gov/state-agencies/audits/2025/12/02/enforcement-local-law-144-automated-employment-decision-tools" target="_blank" rel="noopener">osc.ny.gov/state-agencies/audits/2025/12/02/enforcement-local-law-144</a></span>
+      </li>
+      <li id="src-14">
+        <span class="sc sc-v">Verified</span>
+        <span class="sbody"><strong>Christophides, Efthymiou, Palpanas, Papadakis, Stefanidis</strong> &middot; &ldquo;End-to-end entity resolution for big data: a survey,&rdquo; ACM Computing Surveys 53(6), 2020. The canonical synthesis of the field. Cited in Forge&rsquo;s Essay&nbsp;No.&nbsp;02 as the architectural skeleton for the Stratum resolver. <a href="https://dl.acm.org/doi/10.1145/3418896" target="_blank" rel="noopener">dl.acm.org/doi/10.1145/3418896</a></span>
+      </li>
+      <li id="src-15">
+        <span class="sc sc-v">Verified</span>
+        <span class="sbody"><strong>Bhattacharya &amp; Getoor</strong> &middot; &ldquo;Collective entity resolution in relational data,&rdquo; ACM TKDD 1(1), 2007. The basis of graph-confirmation in collective record linkage. <a href="https://dl.acm.org/doi/10.1145/1217299.1217304" target="_blank" rel="noopener">dl.acm.org/doi/10.1145/1217299.1217304</a></span>
+      </li>
+      <li id="src-16">
+        <span class="sc sc-v">Verified</span>
+        <span class="sbody"><strong>Ratner, Bach, Ehrenberg, Hancock, R&eacute;</strong> &middot; &ldquo;Snorkel: Rapid Training Data Creation with Weak Supervision,&rdquo; VLDB 2017. The weak-supervision framework that underlies the Stratum resolver&rsquo;s labeling-function methodology. <a href="https://www.vldb.org/pvldb/vol11/p269-ratner.pdf" target="_blank" rel="noopener">vldb.org/pvldb/vol11/p269-ratner</a></span>
+      </li>
+      <li id="src-17">
+        <span class="sc sc-v">Verified</span>
+        <span class="sbody"><strong>Fellegi &amp; Sunter</strong> &middot; &ldquo;A theory for record linkage,&rdquo; JASA 64(328), 1969. The foundational record-linkage paper. Predates most of the systems being linked.</span>
+      </li>
+      <li id="src-18">
+        <span class="sc sc-v">Verified</span>
+        <span class="sbody"><strong>Forge &middot; &ldquo;The graph between the databases: why entity resolution is the moat&rdquo;</strong> &middot; Stratum Essays No.&nbsp;02. The Halcyon 12,112-rows analysis, the four-stage resolver, the conflict queue, the temp-to-perm bug. <a href="/essays/the-graph-between-the-databases.html">/essays/the-graph-between-the-databases</a></span>
+      </li>
+      <li id="src-19">
+        <span class="sc sc-v">Verified</span>
+        <span class="sbody"><strong>Forge &middot; Cairn architecture &middot; 014-T trajectory predicate</strong> &middot; Stratum Engineering Post 06. Extended autonomy predicate for trajectory-class decisions; consent at each checkpoint. <a href="/cairn/architecture.html">/cairn/architecture</a></span>
+      </li>
+      <li id="src-20">
+        <span class="sc sc-v">Verified</span>
+        <span class="sbody"><strong>Stratum Engineering &middot; Eval-set methodology</strong>. The basis of agentic evaluation against a stable graph substrate. <a href="/engineering/eval-set-methodology.html">/engineering/eval-set-methodology</a></span>
+      </li>
+      <li id="src-21">
+        <span class="sc sc-r">Reported</span>
+        <span class="sbody"><strong>PwC &middot; Workday AI for skills-based talent management</strong>. Industry-analyst overview of Workday Skills Cloud and Career Hub adoption. <a href="https://www.pwc.com/us/en/technology/alliances/library/next-evolution-of-talent-management-workday-ai.html" target="_blank" rel="noopener">pwc.com &middot; Workday talent AI</a></span>
+      </li>
+      <li id="src-22">
+        <span class="sc sc-r">Reported</span>
+        <span class="sbody"><strong>Brandon Hall Group &middot; Gloat workforce-agility review</strong>. Third-party assessment of Gloat&rsquo;s skills-management capabilities. <a href="https://brandonhall.com/gloat-revolutionizing-workforce-agility-with-ai-driven-talent-management/" target="_blank" rel="noopener">brandonhall.com &middot; Gloat workforce agility</a></span>
+      </li>
+      <li id="src-23">
+        <span class="sc sc-r">Reported</span>
+        <span class="sbody"><strong>Gartner Peer Insights &middot; Internal Talent Marketplaces &middot; Gloat reviews</strong>. Customer review signal. <a href="https://www.gartner.com/reviews/market/internal-talent-marketplaces/vendor/gloat/product/gloat" target="_blank" rel="noopener">gartner.com &middot; Gloat reviews</a></span>
+      </li>
+      <li id="src-24">
+        <span class="sc sc-r">Reported</span>
+        <span class="sbody"><strong>Crowell &amp; Moring &middot; &ldquo;AI and Human Resources in the EU: a 2026 Legal Overview&rdquo;</strong>. Legal-practitioner reading of EU AI Act high-risk-HR provisions. <a href="https://www.crowell.com/en/insights/client-alerts/artificial-intelligence-and-human-resources-in-the-eu-a-2026-legal-overview" target="_blank" rel="noopener">crowell.com &middot; AI and HR in the EU 2026</a></span>
+      </li>
+      <li id="src-25">
+        <span class="sc sc-r">Reported</span>
+        <span class="sbody"><strong>Deloitte &middot; &ldquo;NYC Local Law 144-21 and Algorithmic Bias&rdquo;</strong>. Practitioner overview of LL&nbsp;144 audit obligations. <a href="https://www.deloitte.com/us/en/services/audit-assurance/articles/nyc-local-law-144-algorithmic-bias.html" target="_blank" rel="noopener">deloitte.com &middot; NYC LL 144 audit</a></span>
+      </li>
+      <li id="src-26">
+        <span class="sc sc-r">Reported</span>
+        <span class="sbody"><strong>IAPP &middot; &ldquo;Practical considerations for bias audits under NYC Local Law 144&rdquo;</strong>. Privacy-practitioner read on the audit methodology. <a href="https://iapp.org/news/a/practical-considerations-for-bias-audits-under-nyc-local-law-144" target="_blank" rel="noopener">iapp.org &middot; LL 144 bias audits</a></span>
+      </li>
+      <li id="src-27">
+        <span class="sc sc-r">Reported</span>
+        <span class="sbody"><strong>TechCrunch &middot; Mercor Series B (February 2025)</strong>. $100M at $2B; pre-pivot context for the October 2025 round in [11]. <a href="https://techcrunch.com/2025/02/20/mercor-an-ai-recruiting-startup-founded-by-21-year-olds-raises-100m-at-2b-valuation/" target="_blank" rel="noopener">techcrunch.com &middot; Mercor Series B</a></span>
+      </li>
+      <li id="src-28">
+        <span class="sc sc-r">Reported</span>
+        <span class="sbody"><strong>Deel &middot; Q2 2025 product announcement &middot; seven new workforce-management products</strong>. Industry coverage of the Deel product expansion; not a primary architecture document. <a href="https://cxotoday.com/press-release/deel-unveils-seven-products-to-streamline-global-workforce-management-with-ai-powered-capabilities/" target="_blank" rel="noopener">cxotoday.com &middot; Deel product release</a></span>
+      </li>
+      <li id="src-29">
+        <span class="sc sc-i">Inferred</span>
+        <span class="sbody"><strong>HiBob, Lattice, and similar modern-HRIS vendors as row-store with graph-adjacent language</strong>. Eglin inference from absence of primary architecture documentation, plus public comparison and review material treating the data model as relational. Will revisit if any of the three publishes a graph-architecture white paper.</span>
+      </li>
+      <li id="src-30">
+        <span class="sc sc-i">Inferred</span>
+        <span class="sbody"><strong>The substrate question reaches the CHRO conversation in 2026-2027.</strong> Eglin inference from the cumulative weight of EU AI Act timing, the LL&nbsp;144 enforcement reset, the Mercor / Eightfold / Gloat / Beamery competitive footprint, and the inquiry pattern Compass is seeing in customer conversations. Inference, not consensus. The contrary view is in &sect;VIII.</span>
+      </li>
+      <li id="src-31">
+        <span class="sc sc-i">Inferred</span>
+        <span class="sbody"><strong>Recommendations in &sect;IX</strong> are Eglin&rsquo;s, framed as recommendations to Helm and Compass for Tier-2 review. Not commitments. Not industry consensus. The Compact owns the decision.</span>
+      </li>
+    </ol>
+  </div>
+
+  <p>
+    A note on what Eglin missed or could not verify. The Eightfold
+    Talent Graph internals are not publicly documented at the level of
+    detail that would let Eglin rate the identity-resolution claim;
+    the rating is &ldquo;partial&rdquo; on principle, not on evidence.
+    Rippling&rsquo;s Employee Graph documentation is similarly
+    marketing-grade; if Rippling publishes an architecture paper, the
+    rating moves. Microsoft has not, as of this brief, published the
+    full identity-graph schema across Entra + Viva + Copilot for HR;
+    Eglin&rsquo;s read on Microsoft Graph as &ldquo;identity graph,
+    not people graph&rdquo; depends on what Microsoft does next.
+    None of these gaps invalidate the central argument, but a future
+    Eglin briefing should revisit them when more primary material is
+    available.
+  </p>
+
+  <p>
+    The bibliography is intentionally larger than strictly needed
+    because this is a canonical reference. Future Eglin reads past
+    Eglin. The discipline is to write the source list now while the
+    evidence trail is fresh, not three months later when the brief
+    has aged and the URLs have rotated.
+  </p>
+
+
+</section>
+
+</article>
+
+<!-- closing -->
+<footer class="closing">
+  <p class="closing-note">
+    Filed by Eglin from the industry research desk &middot; Stratum, Inc.<br />
+    Co-authors of record: Forge (architecture review), Pillar (schema review), Helm (strategic framing), Compass (positioning review).<br />
+    Counsel did not review this document. Where regulation is mentioned, Stratum recommends consulting counsel before acting.
+  </p>
+  <div class="closing-links">
+    <a href="/research/">All research &rarr;</a>
+    <a href="/essays/the-graph-between-the-databases.html">Forge &middot; The graph between the databases &rarr;</a>
+    <a href="/engineering/">Engineering posts &rarr;</a>
+    <a href="/cairn/architecture.html">Cairn architecture &middot; 014-T &rarr;</a>
+    <a href="mailto:research@stratum.ai">research@stratum.ai &rarr;</a>
+  </div>
+</footer>
+
+</main>
+
+<!-- footer -->
+<footer class="footer">
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <div class="mark">Stratum<span style="color:var(--ochre)">.</span></div>
+      <p>An AI-first HCM platform, built on a real people graph &mdash; not a stack of tables with a graph in the marketing copy.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Product</h4>
+      <ul>
+        <li><a href="/console/">Console</a></li>
+        <li><a href="/recruiter/">Recruiter</a></li>
+        <li><a href="/tenure/">Tenure</a></li>
+        <li><a href="/cairn/">Cairn</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Research</h4>
+      <ul>
+        <li><a href="/research/">All research</a></li>
+        <li><a href="/essays/">Essays</a></li>
+        <li><a href="/engineering/">Engineering</a></li>
+        <li><a href="/changelog/">Changelog</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Company</h4>
+      <ul>
+        <li><a href="/about/">About</a></li>
+        <li><a href="/agents/">Agents</a></li>
+        <li><a href="/careers/">Careers</a></li>
+        <li><a href="/customers/">Customers</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Contact</h4>
+      <ul>
+        <li><a href="mailto:research@stratum.ai">research@stratum.ai</a></li>
+        <li><a href="mailto:analyst-relations@stratum.ai">Analyst relations</a></li>
+        <li><a href="/accessibility/">Accessibility</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-foot">
+    <span>&copy; 2026 Stratum, Inc. &middot; All rights reserved.</span>
+    <a class="briefing-link" href="/">Today's <strong>Briefing</strong> &rarr;</a>
+  </div>
+</footer>
+
+{% include echo-script.html %}
+</body>
+</html>
