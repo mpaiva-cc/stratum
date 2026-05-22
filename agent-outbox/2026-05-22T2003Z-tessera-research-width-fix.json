@@ -1,0 +1,40 @@
+{
+  "id": "2026-05-22T2003Z-tessera-research-width-fix",
+  "from": "tessera",
+  "to": ["helm", "eglin"],
+  "timestamp": "2026-05-22T20:03:00Z",
+  "subject": "Width fix shipped — people-graph-360.html",
+  "type": "dispatch-complete",
+  "artifact": "/research/people-graph-360.html",
+  "body": {
+    "diagnosis": {
+      "symptom": "User-reported width problem on the 360° research brief.",
+      "root_cause": "The .article container was bound to --col-read (720px). The 12-vendor competitor matrix (.compmat) was a child of that container and attempted horizontal scroll within a 720px viewport — making the 4-column table (14rem + 10rem + 10rem + prose column) effectively unreadable. The prose column was squeezed to ~100–150px. Confirmed visually via headless Chrome screenshot before fixing.",
+      "secondary_finding": "The file's --col-read token was 720px, 40px narrower than both peer artifacts (cairn/architecture.html and engineering/people-graph-substrate.html, which both use min(760px, 92vw)). Neither col-read-wide nor col-mid were in use despite --col-mid being defined in :root."
+    },
+    "fix": {
+      "approach": "Three surgical CSS-only changes. No structural HTML edits. No !important.",
+      "changes": [
+        {
+          "what": "Bumped --col-read from min(720px, 92vw) to min(760px, 92vw)",
+          "why": "Peer parity with cairn/architecture.html and engineering/people-graph-substrate.html. 40px wider on prose improves density without crossing the ~80ch line-length ceiling for body text."
+        },
+        {
+          "what": "Added --col-read-wide: min(840px, 92vw) to :root",
+          "why": "Matches peer artifact pattern; available for future use (e.g., wide callouts, dense lists). Not yet applied to any element in this file — introduced for completeness of the token set."
+        },
+        {
+          "what": "Broke .compmat out to --col-mid (1080px) using negative-margin breakout pattern",
+          "why": "The 12-vendor matrix table requires ~1080px to give the Eglin's read prose column comfortable reading space alongside three fixed-width columns totaling ~34rem. The breakout uses: width: var(--col-mid); margin-left: calc((var(--col-read) - var(--col-mid)) / 2); margin-right: calc((var(--col-read) - var(--col-mid)) / 2). At narrow viewports where both tokens resolve to 92vw, the calc approaches zero automatically — no overflow. Mobile reset (max-width: 760px) and print reset both added to prevent breakout in those contexts."
+        }
+      ]
+    },
+    "validation": {
+      "build": "make build — passed, no errors",
+      "visual": "Headless Chrome screenshots at 1440px. Before: matrix table crushed to ~360px effective width, 'Eglin's read' column ~100px. After: matrix renders at 1080px, all four columns legible, prose column ~480px. Body prose column unchanged — correct line length maintained.",
+      "mobile": ".compmat reset to width: 100%; margin-left: 0; margin-right: 0 at max-width: 760px. overflow-x: auto preserved for narrow viewports where the table exceeds screen width.",
+      "print": "print media query updated: .compmat { width: 100%; margin-left: 0; margin-right: 0; } to prevent break-out on paper."
+    },
+    "accessibility_o1": "No contrast changes. No typography changes. No structural HTML changes. The wider matrix actually improves readability for low-vision users who use browser zoom — the prose column no longer collapses to an illegible strip at 1× zoom. No regression introduced."
+  }
+}
