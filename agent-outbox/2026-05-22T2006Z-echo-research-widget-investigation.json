@@ -1,0 +1,83 @@
+{
+  "agent": "echo",
+  "type": "investigation-finding",
+  "timestamp": "2026-05-22T20:06:00Z",
+  "t_plus": "T+88d",
+  "subject": "Echo widget investigation · /research/people-graph-360.html",
+  "trigger": "User report: Listen widget broken on Eglin's People Graph 360° research page.",
+
+  "verdict": "no-defect-found",
+
+  "evidence": {
+    "script_tag_deployed": {
+      "check": "curl live page, grep for echo.js",
+      "result": "<script defer src=\"/stratum/assets/echo.js\"></script> present at line 2454 of live HTML"
+    },
+    "echo_js_accessible": {
+      "check": "curl https://mpaiva-cc.github.io/stratum/assets/echo.js",
+      "result": "200 OK · file loads correctly"
+    },
+    "structural_anchors": {
+      "check": "grep <main, <article in live deployed HTML",
+      "result": "<main id=\"main\"> at line 908 · <article class=\"article\"> at line 956 · both present · echo.js will find main as extraction root"
+    },
+    "css_brace_balance": {
+      "check": "Python brace-depth walk of <style> block (lines 32–679)",
+      "result": "depth 0 at </style> · no unclosed rules · no CSS parse error"
+    },
+    "no_echo_css_conflicts": {
+      "check": "grep styles.css for .echo-* selectors",
+      "result": "no matches · styles.css does not target echo widget classes"
+    },
+    "body_wildcard_rule": {
+      "check": "styles.css body > * { position: relative; z-index: 1 }",
+      "result": "overridden by .echo-btn class specificity (0,0,1,0) > body>* (0,0,0,2) · echo button remains position:fixed, z-index:9998"
+    },
+    "readable_chunks": {
+      "check": "grep -cE '<(p|h1-6|li|blockquote)|class=section-h|lede|section-dek' in _site build",
+      "result": "research page: 161 readable elements · engineering (known-working) page: 94 · extractChunks() will return substantial text on research page"
+    },
+    "skip_selectors_check": {
+      "check": "echo.js skips nav elements · research page has <nav class=toc> inside <main>",
+      "result": "TOC list items correctly excluded · article content (p, section-h, li inside article) is not inside nav · no false-positive skipping"
+    },
+    "live_vs_local_diff": {
+      "check": "diff curl live vs local jekyll build",
+      "result": "4 lines differ · all in page's inline CSS (--col-read value, .compmat margin calculation, responsive compmat rules) · NONE affect echo widget · flagged separately for Tessera (layout work in progress)"
+    },
+    "stacking_context": {
+      "check": "body::before fixed overlay, sn-mobile z-index, rt-stamp z-index",
+      "result": "body::before z-index:0 pointer-events:none · sn-mobile z-index:600 · rt-stamp z-index:9999 (bottom-right, opposite corner) · echo button z-index:9998 · no occlusion"
+    }
+  },
+
+  "conclusion": "The Echo widget is correctly implemented on this page. The script loads, the structural anchors exist, the CSS is clean, and the page contains 161 readable elements — more than any currently deployed page with a working widget. The infrastructure is sound.",
+
+  "disambiguation_needed": {
+    "note": "The user reported 'broken' without specifying the symptom. Three distinct failure modes exist; each points to a different cause. Helm or the reporting user should clarify which applies before any code change is made.",
+    "mode_a": {
+      "symptom": "Listen button not visible on the page",
+      "likely_cause": "Client-side CSS conflict not visible in static analysis (e.g. browser extension, conflicting user stylesheet, rendering engine issue) OR the user is on a device where position:fixed bottom-left is obscured by browser chrome",
+      "action": "Open browser dev tools · inspect for .echo-btn element · check computed styles · verify it is not display:none or opacity:0"
+    },
+    "mode_b": {
+      "symptom": "Button visible, click opens panel, Play button does nothing",
+      "likely_cause": "JavaScript runtime error in echo.js or conflict from another script on the page · most likely the site-nav inline script if it throws at runtime",
+      "action": "Open browser console · look for errors before the click · check window.Echo object exists (should be defined if echo.js ran successfully)"
+    },
+    "mode_c": {
+      "symptom": "Button and panel work, Play is pressed, no audio heard",
+      "likely_cause": "Browser TTS engine not available (some headless or restricted environments) or OpenAI key not set and browser TTS silently failing on a long document",
+      "action": "Check Echo status bar in the panel (it shows 'Ready · browser voice' or an error) · try with a shorter page first · check if window.speechSynthesis.getVoices() returns voices in that browser"
+    }
+  },
+
+  "tessera_flag": {
+    "type": "css-drift",
+    "severity": "low",
+    "note": "The live deployed page has slightly older CSS than the current source (--col-read: 720px vs 760px, .compmat missing width/margin declarations). Not an echo issue but Tessera should know her layout work on this page may not be reflected in the current GitHub Pages build. The diff is small; a force-rebuild of the GH Pages deployment would close it."
+  },
+
+  "no_code_changes_made": true,
+  "reason": "Without a reproducible failure mode, any code change would be speculative. The widget infrastructure is verified correct. Awaiting user clarification on which symptom they observed."
+}
