@@ -1,0 +1,42 @@
+{
+  "type": "publish",
+  "ts": "2026-05-21T11:55:00Z",
+  "agent": "tessera",
+  "title": "Sentiment marks rebuilt (Option A SVG) + tab bar icon-above-label fix",
+  "summary": "Replaced incoherent Unicode sentiment glyphs (◎/◌/○) with three custom 24×24 SVG components — Sentiment / on (filled disc + ring), Sentiment / middle (ring + inner dot), Sentiment / off (ring only) — all at consistent 1.75px stroke, token-bound to ink-3-aaa (default) and ochre-link (selected). Selected-state affordance added: 2px ochre-link bottom border on active cell, label shifts to ink. Applied to App 04 (On track selected) and App 07 (Energized selected). Tab bar fixed across all 13 app screens: reordered to icon-on-top, label-below; added missing Home label on App 01; swapped Tasks double-checkmark (checks) for list-check icon (three rows with tick marks, reads as task list not completed). Inheritance model discrepancy noted: tab bars were plain frames, not component instances — fix applied directly to all 13 frames plus the source component.",
+  "artifacts": {
+    "sentimentComponents": [
+      { "name": "Sentiment / on", "id": "15:8679", "state": "default", "stroke": "ink-3-aaa (VariableID:1:11)" },
+      { "name": "Sentiment / middle", "id": "15:8682", "state": "default", "stroke": "ink-3-aaa (VariableID:1:11)" },
+      { "name": "Sentiment / off", "id": "15:8685", "state": "default", "stroke": "ink-3-aaa (VariableID:1:11)" },
+      { "name": "Sentiment / on · selected", "id": "15:8687", "state": "selected", "stroke": "ochre-link (VariableID:1:14)" },
+      { "name": "Sentiment / middle · selected", "id": "15:8690", "state": "selected", "stroke": "ochre-link (VariableID:1:14)" },
+      { "name": "Sentiment / off · selected", "id": "15:8693", "state": "selected", "stroke": "ochre-link (VariableID:1:14)" }
+    ],
+    "sentimentScreens": [
+      { "screen": "App 04 · Day 7 · Footing pulse (12:6903)", "row": "Check-in emoji row (12:6919)", "selected": "On track", "selectedAffordance": "2px ochre-link bottom border + ink label" },
+      { "screen": "App 07 · Year 1 · Anniversary (12:7090)", "row": "Sentiment check (12:7108)", "selected": "Energized", "selectedAffordance": "2px ochre-link bottom border + ink label" }
+    ],
+    "tabBarFix": {
+      "screensFixed": 13,
+      "tabBarIds": ["12:6774","12:6826","12:6886","12:6952","12:7010","12:7073","12:7120","12:7180","12:7235","12:7279","12:7337","12:7384","12:7449"],
+      "changes": [
+        "Reordered all tab cells: icon first (index 0), label second (index 1)",
+        "Added missing Home label to App 01 Tab/home (was icon-only, height 40px)",
+        "Normalized all tab cell heights to 49px, itemSpacing to 4px (Spacing/xs)",
+        "Swapped Tasks icon: checks (double-checkmark) → list-check (3-row list with ticks)"
+      ],
+      "inheritanceNote": "Tab bars are plain FRAME nodes, not instances of component 12:6655. Fix applied directly to all 13 frames. Source component also fixed as canonical reference."
+    }
+  },
+  "accessibility": {
+    "contrastPairs": [
+      { "pair": "ochre-link #7a3d0a on paper-warm #f7f0e0", "ratio": "~7.0:1", "level": "AAA" },
+      { "pair": "ink-3-aaa #3d4456 on paper-warm #f7f0e0", "ratio": "~8.1:1", "level": "AAA" },
+      { "pair": "ink #0e1626 on paper-warm #f7f0e0", "ratio": "~15.2:1", "level": "AAA" },
+      { "pair": "ochre-link bottom border stroke (non-text) on paper-warm", "ratio": ">3:1 (SC 1.4.11)", "level": "AA non-text" }
+    ],
+    "targetSize": "Sentiment option cells 110-120px wide × 72-80px tall — well above 44pt AAA comfort threshold",
+    "o1Status": "advanced — incoherent set replaced with token-bound SVG set at AAA contrast; selected-state affordance adds non-colour differentiation"
+  }
+}

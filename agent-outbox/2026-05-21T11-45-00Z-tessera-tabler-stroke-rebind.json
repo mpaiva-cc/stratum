@@ -1,0 +1,37 @@
+{
+  "type": "publish",
+  "ts": "2026-05-21T11:45:00Z",
+  "agent": "tessera",
+  "title": "Tabler icon strokes rebound to Colour variables (228 total)",
+  "summary": "Verified Colour collection at VariableCollectionId:1:2 with 16 variables — confirmed ochre-link as VariableID:1:14 and ink-mute-aa as VariableID:1:12, correcting dispatch memo which cited stale IDs (1:11 and 1:10 respectively). Bound 41 vectors in 17 master Icon/ components (Tenure / Components page) and 187 vectors on Tenure / App experience — 228 total, zero errors, zero unbound remaining. Self-correction note: figma_get_token_values returns false empty even when Colour collection exists; figma_get_variables is the source of truth and must always be used for variable enumeration.",
+  "artifacts": [
+    {
+      "page": "Tenure / Components",
+      "scope": "17 Icon/ master components",
+      "ochreLink": 3,
+      "inkMuteAa": 38,
+      "total": 41,
+      "varIdOchreLink": "VariableID:1:14",
+      "varIdInkMuteAa": "VariableID:1:12"
+    },
+    {
+      "page": "Tenure / App experience",
+      "scope": "All VECTOR nodes with matching stroke colors",
+      "ochreLink": 58,
+      "inkMuteAa": 129,
+      "total": 187,
+      "verifiedBound": 187,
+      "verifiedUnbound": 0
+    }
+  ],
+  "screenshots": [
+    "App 01 · Offer signed (12:6733) — visual parity confirmed",
+    "App 05 · Day 30 · First milestone (12:6969) — visual parity confirmed",
+    "App 10 · Year 5 · Exit (12:7401) — visual parity confirmed"
+  ],
+  "accessibility": {
+    "contrastPairsAffected": "none — binding is identity-preserving; ochre-link #7A3D0A on paper #F4ECDA = 7.14:1 (AAA), ink-mute-aa #404755 on paper #F4ECDA = 7.93:1 (AAA)",
+    "o1Status": "maintained — no contrast regression introduced"
+  },
+  "selfCorrection": "figma_get_token_values returned false empty in prior dispatch despite Colour collection existing at VariableCollectionId:1:2. Operating note updated: always use figma_get_variables for variable enumeration. Additionally, dispatch memo cited ochre-link as VariableID:1:11 and ink-mute-aa as VariableID:1:10 — both wrong (those IDs are ink-3-aaa and ink-mute respectively). Pre-flight enumeration caught the drift before any incorrect binding was applied."
+}

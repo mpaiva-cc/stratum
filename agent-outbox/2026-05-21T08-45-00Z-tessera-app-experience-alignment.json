@@ -1,0 +1,15 @@
+{
+  "ts": "2026-05-21T08:45:00Z",
+  "from": "tessera",
+  "type": "publish",
+  "title": "App experience: 13-composition vertical rhythm fixed (52→80px gaps)",
+  "summary": "All 12 inter-frame gaps on the Tenure / App experience page were 52px instead of the canonical 80px; top padding was 40px instead of 80px; rt-stamp tail was unanchored at 18px. Recomputed Y positions for all 13 compositions using y = 80 + (i × 1162), set rt-stamp at Spacing/2xl (32px) below the final frame with matching 32px section tail, and resized the section to 15192px. Every gap now reads 80px, confirmed by re-read audit and full-section screenshot.",
+  "figma": {
+    "file": "STRATUM",
+    "page": "Tenure / App experience",
+    "section": "12:6730",
+    "framesModified": 13,
+    "rtStamp": "12:7466"
+  },
+  "accessibility": "No contrast pairs touched. No colour changes. O-1 status unchanged."
+}

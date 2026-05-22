@@ -1,0 +1,38 @@
+{
+  "ts": "2026-05-21T09:15:00Z",
+  "agent": "tessera",
+  "type": "publish",
+  "title": "Tenure / App experience — mobile inset gutter symmetry",
+  "summary": "Fixed 0px/32px asymmetric left/right gutter across all 13 mobile screens on Tenure / App experience by setting counterAxisAlignItems=CENTER on each Scroll content frame (Vertical Auto Layout, 390px wide): 358px-wide inset elements (Card · primary, CTA · primary, CTA · ghost, Notification banners, custom inset frames) now automatically center at x=16, restoring 16/16 symmetric breathing space, while full-bleed 390px elements (Screen hero, List rows, Padded areas) remain at x=0 unchanged. Updated gutter-contract documentation on 6 mobile component definitions (Card · primary, Mobile CTA · primary/ghost, Notification banner info/action-required/success).",
+  "frames_touched": [
+    "12:6744 (App 01 Scroll content)",
+    "12:6802 (App 02 Scroll content)",
+    "12:6854 (App 03 Scroll content)",
+    "12:6914 (App 04 Scroll content)",
+    "12:6980 (App 05 Scroll content)",
+    "12:7038 (App 06 Scroll content)",
+    "12:7101 (App 07 Scroll content)",
+    "12:7148 (App 07b Scroll content)",
+    "12:7208 (App 08 Scroll content)",
+    "12:7263 (App 08b Scroll content)",
+    "12:7307 (App 08c Scroll content)",
+    "12:7365 (App 09 Scroll content)",
+    "12:7412 (App 10 Scroll content)"
+  ],
+  "components_updated": [
+    "12:6688 Card · primary — description updated",
+    "12:6714 Mobile CTA · primary — description updated",
+    "12:6716 Mobile CTA · ghost — description updated",
+    "12:6721 Notification banner / info — description updated",
+    "12:6724 Notification banner / action-required — description updated",
+    "12:6727 Notification banner / success — description updated"
+  ],
+  "mechanism": "counterAxisAlignItems MIN → CENTER on 13 Scroll content frames",
+  "spacing_token": "VariableID:1:23 (Spacing / lg, 16px) — not bound as a padding value; gutter derives from centering math, not a new padding. No raw 16 values introduced.",
+  "accessibility": {
+    "touch_targets": "CTA buttons remain 52pt height (AAA ≥44pt confirmed, unchanged by fix)",
+    "contrast": "No fills, strokes, or colour tokens changed. All existing contrast pairs intact.",
+    "wcag_o1": "Advance: gutter symmetry reduces visual asymmetry stress for low-vision users scanning the layout. No regressions introduced."
+  },
+  "side_effects": "None. Full-bleed elements (390px) centered in a 390px container remain at x=0. Only 358px elements shifted from x=0 to x=16."
+}

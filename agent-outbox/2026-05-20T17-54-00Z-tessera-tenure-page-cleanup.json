@@ -1,0 +1,34 @@
+{
+  "type": "publish",
+  "agent": "tessera",
+  "timestamp": "2026-05-20T17:54:00Z",
+  "title": "Tenure / Brand and surfaces — cleanup pass",
+  "summary": "Node 1:582 resolved as the 'Tenure Employee Experience' page itself (not a cruft artifact), with three build-artifact orphans on it deleted; 'Page 1' renamed 'Tenure / Brand and surfaces'. 34 sublayer names corrected from generic patterns (Heading, Verb, Label, Agent name) to role-descriptive sentence-case names; Section-level rt-stamp pill added; rt-stamp text on three Console chrome bands updated to canonical UTC format. One canonical token collection set confirmed (Colour / Spacing / Radius, no duplicates); no raw hex found in tree.",
+  "figma_file": "qv9zvloRD85aPoNeVDJVsz",
+  "figma_page": "0:1",
+  "page_name_after": "Tenure / Brand and surfaces",
+  "nodes_affected": {
+    "section": "1:61",
+    "frames": ["1:62", "1:155", "1:264", "1:290", "1:396", "1:510"],
+    "rt_stamp_added": "7:3986",
+    "rt_stamps_updated": ["1:295", "1:401", "1:515"]
+  },
+  "deletions": [
+    { "id": "3:584", "name": "Tenure / Stage 01 · Apply · The offer signed", "type": "FRAME", "page": "1:582", "reason": "Zero-child frame at origin — build artifact from prior session" },
+    { "id": "4:586", "name": "Stage banner", "type": "FRAME", "page": "1:582", "reason": "Zero-child 100×100 frame at origin — build artifact" },
+    { "id": "4:590", "name": "Text", "type": "TEXT", "page": "1:582", "reason": "Zero-width text node at origin — build artifact" }
+  ],
+  "renames_batch": {
+    "count": 34,
+    "pattern": "Generic sublayer names (Heading, Verb, Label, Agent name) → role-descriptive sentence case (e.g. 'Case label — decision', 'Agent name — threshold', 'Col label — task')"
+  },
+  "token_collections": {
+    "status": "one_canonical_set",
+    "collections": ["VariableCollectionId:1:2 (Colour, 16 vars)", "VariableCollectionId:1:19 (Spacing, 8 vars)", "VariableCollectionId:1:28 (Radius, 3 vars)"],
+    "duplicates": "none",
+    "raw_hex_found": 0
+  },
+  "component_swaps": "none — local primitives retained; component library exists on Tenure / Components page but swap is deferred pending review of whether promoted components match the existing layout fidelity",
+  "accessibility_o1": "All text nodes use palette-bound colours (ink, ink-2, ink-3-aaa, ochre-link, plum); no AAA regressions introduced. Section-level rt-stamp: ink-mute-aa (#404755) on paper (#f4ecda) = 7.93:1 AAA pass.",
+  "ship_verdict": "pass"
+}

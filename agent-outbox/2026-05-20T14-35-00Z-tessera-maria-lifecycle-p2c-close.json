@@ -1,0 +1,19 @@
+{
+  "type": "publish",
+  "from": "tessera",
+  "ts": "2026-05-20T14:35:00Z",
+  "title": "P2-1c closed: Cost panel + Gherkin caption refactored, 13 lifecycle frames swapped",
+  "summary": "Refactored the promoted Cost panel (added optional seventh footnote row with show-footnote BOOLEAN + footnote-text TEXT props) and the Gherkin caption (rebuilt from 2-column to 8-slot per-row-frame model with 16 caption-level props: 8 visibility booleans + 8 prose text, plus per-row Keyword variant). Bootstrapped full token foundation (Colour 16 variables, Spacing 9, Radius 4) with two new tokens — Spacing/xxs (6) and Radius/sm-plus (6) — as part of the bootstrap since no variable collections existed in the file. All 13 lifecycle stage frames swapped from local copies to bound component instances with verbatim prose; five frames carry active footnote rows (Stage 03, 06, 07b, 08b, 08c); Console chrome band corner radius bound to Radius/sm-plus. Every primitive on every lifecycle frame is now a bound, documented component instance.",
+  "refs": {
+    "cost_panel_component": "4:2466",
+    "gherkin_caption_component": "4:2520",
+    "gherkin_row_component_set": "4:3191",
+    "colour_collection": "VariableCollectionId:4:3141",
+    "spacing_collection": "VariableCollectionId:4:3158",
+    "radius_collection": "VariableCollectionId:4:3168",
+    "spacing_xxs_6": "VariableID:4:3159",
+    "radius_sm_plus_6": "VariableID:4:3170",
+    "lifecycle_frames_swapped": 13,
+    "footnote_frames": ["4:864", "4:1269", "4:2061", "4:2189", "4:2283"]
+  }
+}

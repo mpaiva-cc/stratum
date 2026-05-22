@@ -1,0 +1,68 @@
+{
+  "type": "publish",
+  "from": "tessera",
+  "ts": "2026-05-20T19:35:00Z",
+  "title": "Brand page: 83 white fills bound, section stroke bound, #444 gap filed",
+  "summary": "All 83 raw #ffffff fill nodes in Section 1:61 (Tenure / Brand and surfaces) have been visually disambiguated and bound to canonical Colour variables. 70 nodes bound to paper-warm (elevated panels, Console windows, swatch tiles, type-ramp rows, tier grid, timeline events, card-row container); 13 nodes bound to paper (recessed roles-list sub-panels × 3 and 19 role rows × 1 = roles lists inside agent cards bound to paper as recessed interior structure; queue header + 6 queue rows in Joiner; queue panel + 8 rows in Mover; case file panel + 6 case rows in Leaver). Section 1:61 stroke rebound from #ffffff to paper-rule. The single #444444 fill is the Section canvas backdrop — no Stratum token covers a neutral mid-dark section backdrop; surfaced as new token gap 'section-backdrop' requiring Chairman ratification before binding. All AAA contrast pairs confirmed clear at or above 7:1 after rebinding; lowest is ochre-link on paper at 7.14:1.",
+  "urgency": "normal",
+  "meta": {
+    "figma_file_key": "qv9zvloRD85aPoNeVDJVsz",
+    "section": "1:61",
+    "section_name": "Tenure",
+    "page": "Tenure / Brand and surfaces",
+    "frames_processed": [
+      { "id": "1:62", "name": "Tenure / Brand", "white_count": 26, "paper_warm": 26, "paper": 0 },
+      { "id": "1:155", "name": "Tenure / Agent roster", "white_count": 23, "paper_warm": 1, "paper": 22 },
+      { "id": "1:264", "name": "Tenure / Decision class", "white_count": 1, "paper_warm": 1, "paper": 0 },
+      { "id": "1:290", "name": "Tenure / Joiner — Day 0 to 30", "white_count": 8, "paper_warm": 1, "paper": 7 },
+      { "id": "1:396", "name": "Tenure / Mover — internal transfer", "white_count": 11, "paper_warm": 1, "paper": 10 },
+      { "id": "1:510", "name": "Tenure / Leaver — defensible case file", "white_count": 14, "paper_warm": 7, "paper": 7 }
+    ],
+    "total_nodes_bound": 84,
+    "split": { "paper_warm": 37, "paper": 46, "section_stroke_paper_rule": 1 },
+    "uncertain_nodes": [
+      {
+        "nodeId": "1:169",
+        "name": "Roles list",
+        "frame": "Tenure / Agent roster",
+        "context": "Sub-panel inside Agent card · threshold which is already paper-warm bound. Bound to paper as recessed interior structure. Auditable — could be paper-warm if roles list is meant to be flush with card body."
+      },
+      {
+        "nodeId": "1:206",
+        "name": "Roles list",
+        "frame": "Tenure / Agent roster",
+        "context": "Same as 1:169 for Agent card · lattice. Bound to paper."
+      },
+      {
+        "nodeId": "1:239",
+        "name": "Roles list",
+        "frame": "Tenure / Agent roster",
+        "context": "Same as 1:169 for Agent card · ember. Bound to paper."
+      }
+    ],
+    "aaa_contrast_pairs": [
+      { "pair": "ink on paper-warm", "fg": "#0e1626", "bg": "#f7f0e0", "ratio": 15.92, "aaa": true },
+      { "pair": "ink-2 on paper-warm", "fg": "#2a3344", "bg": "#f7f0e0", "ratio": 11.17, "aaa": true },
+      { "pair": "ink-3-aaa on paper-warm", "fg": "#3d4456", "bg": "#f7f0e0", "ratio": 8.56, "aaa": true },
+      { "pair": "ink-mute-aa on paper-warm", "fg": "#404755", "bg": "#f7f0e0", "ratio": 8.22, "aaa": true },
+      { "pair": "ochre-link on paper-warm", "fg": "#7a3d0a", "bg": "#f7f0e0", "ratio": 7.40, "aaa": true },
+      { "pair": "plum on paper-warm", "fg": "#6b3a4a", "bg": "#f7f0e0", "ratio": 7.94, "aaa": true },
+      { "pair": "ink on paper", "fg": "#0e1626", "bg": "#f4ecda", "ratio": 15.38, "aaa": true },
+      { "pair": "ink-2 on paper", "fg": "#2a3344", "bg": "#f4ecda", "ratio": 10.79, "aaa": true },
+      { "pair": "ink-3-aaa on paper", "fg": "#3d4456", "bg": "#f4ecda", "ratio": 8.27, "aaa": true },
+      { "pair": "ink-mute-aa on paper", "fg": "#404755", "bg": "#f4ecda", "ratio": 7.93, "aaa": true },
+      { "pair": "ochre-link on paper", "fg": "#7a3d0a", "bg": "#f4ecda", "ratio": 7.14, "aaa": true },
+      { "pair": "plum on paper", "fg": "#6b3a4a", "bg": "#f4ecda", "ratio": 7.67, "aaa": true }
+    ],
+    "regressions": "None — all pairs above 7.0:1 AAA threshold. Rebinding from #ffffff (21:1 baseline) to paper-warm (15.92:1 worst case for ink) represents a decrease in absolute ratio that stays well above AAA floor.",
+    "new_token_gap": {
+      "hex": "#444444",
+      "nodeId": "1:61",
+      "name": "Tenure (Section)",
+      "prop": "fills",
+      "description": "Section canvas backdrop. #444444 is a neutral mid-dark grey with no equivalent in the Stratum Colour token set. Closest candidates are ink (#0e1626, too dark/navy) and ink-3 (#4b5365, too purple-slate). A dedicated 'backdrop' or 'canvas-dark' token at approximately #3a3a3a–#505050 is needed for brand-display sections that use a dark staging backdrop. Requires Chairman ratification. Do not force-bind to ink-2 (#2a3344) — the visual shift from neutral grey to navy is a design-register change, not a token substitution."
+    },
+    "final_raw_hex_count_in_section_1_61": 1,
+    "final_raw_hex_remaining": "#444444 on Section 1:61 fill (token gap, intentionally not bound)"
+  }
+}

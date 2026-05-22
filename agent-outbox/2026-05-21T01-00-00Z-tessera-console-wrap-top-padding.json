@@ -1,0 +1,51 @@
+{
+  "ts": "2026-05-21T01:00:00Z",
+  "agent": "tessera",
+  "type": "publish",
+  "title": "Console wrap: 32px top padding applied to 12 stage frames",
+  "summary": "Applied paddingTop = 32 (Spacing / 2xl, VariableID:1:25) to the Console wrap layer in all 12 stage frames that had top padding of 0, giving the Console chrome band the cream breathing room the Chairman requested. Stages 07b, 08b, 08c also received right/bottom/left = 32 (all four sides were 0, a secondary inconsistency). Stage 01's Console wrap was already at 32px top but had raw pixel values on all sides — variable binding applied retroactively.",
+  "artifact": {
+    "page": "Tenure / Employee experience",
+    "section": "2:583",
+    "wrapElement": "Console wrap (FRAME) — the cream/paper container that holds Console inner + chrome band; immediate child of each stage frame",
+    "rationale": "paddingTop = 0 caused the dark Console chrome band to sit flush against the top of the cream Console wrap interior. Adding 32px top padding creates the cream gap between the wrap edge and the chrome band. Stage 01 (4:608) was the reference — already at 32px, visually correct.",
+    "framesChanged": 12,
+    "frameDetails": [
+      { "stage": "Stage 02", "consoleWrapId": "4:740", "paddingBefore": { "top": 0, "right": 32, "bottom": 32, "left": 32 }, "paddingAfter": { "top": 32, "right": 32, "bottom": 32, "left": 32 }, "sidesFixed": ["top"] },
+      { "stage": "Stage 03", "consoleWrapId": "4:881", "paddingBefore": { "top": 0, "right": 32, "bottom": 32, "left": 32 }, "paddingAfter": { "top": 32, "right": 32, "bottom": 32, "left": 32 }, "sidesFixed": ["top"] },
+      { "stage": "Stage 04", "consoleWrapId": "4:1028", "paddingBefore": { "top": 0, "right": 32, "bottom": 32, "left": 32 }, "paddingAfter": { "top": 32, "right": 32, "bottom": 32, "left": 32 }, "sidesFixed": ["top"] },
+      { "stage": "Stage 05", "consoleWrapId": "4:1157", "paddingBefore": { "top": 0, "right": 32, "bottom": 32, "left": 32 }, "paddingAfter": { "top": 32, "right": 32, "bottom": 32, "left": 32 }, "sidesFixed": ["top"] },
+      { "stage": "Stage 06", "consoleWrapId": "4:1286", "paddingBefore": { "top": 0, "right": 32, "bottom": 32, "left": 32 }, "paddingAfter": { "top": 32, "right": 32, "bottom": 32, "left": 32 }, "sidesFixed": ["top"] },
+      { "stage": "Stage 07", "consoleWrapId": "4:1427", "paddingBefore": { "top": 0, "right": 32, "bottom": 32, "left": 32 }, "paddingAfter": { "top": 32, "right": 32, "bottom": 32, "left": 32 }, "sidesFixed": ["top"] },
+      { "stage": "Stage 07b", "consoleWrapId": "4:2078", "paddingBefore": { "top": 0, "right": 0, "bottom": 0, "left": 0 }, "paddingAfter": { "top": 32, "right": 32, "bottom": 32, "left": 32 }, "sidesFixed": ["top", "right", "bottom", "left"], "note": "all four sides were 0 — full restore to system standard" },
+      { "stage": "Stage 08", "consoleWrapId": "4:1547", "paddingBefore": { "top": 0, "right": 32, "bottom": 32, "left": 32 }, "paddingAfter": { "top": 32, "right": 32, "bottom": 32, "left": 32 }, "sidesFixed": ["top"] },
+      { "stage": "Stage 08b", "consoleWrapId": "4:2206", "paddingBefore": { "top": 0, "right": 0, "bottom": 0, "left": 0 }, "paddingAfter": { "top": 32, "right": 32, "bottom": 32, "left": 32 }, "sidesFixed": ["top", "right", "bottom", "left"], "note": "all four sides were 0 — full restore to system standard" },
+      { "stage": "Stage 08c", "consoleWrapId": "4:2300", "paddingBefore": { "top": 0, "right": 0, "bottom": 0, "left": 0 }, "paddingAfter": { "top": 32, "right": 32, "bottom": 32, "left": 32 }, "sidesFixed": ["top", "right", "bottom", "left"], "note": "all four sides were 0 — full restore to system standard" },
+      { "stage": "Stage 09", "consoleWrapId": "4:1673", "paddingBefore": { "top": 0, "right": 32, "bottom": 32, "left": 32 }, "paddingAfter": { "top": 32, "right": 32, "bottom": 32, "left": 32 }, "sidesFixed": ["top"] },
+      { "stage": "Stage 10", "consoleWrapId": "4:1793", "paddingBefore": { "top": 0, "right": 32, "bottom": 32, "left": 32 }, "paddingAfter": { "top": 32, "right": 32, "bottom": 32, "left": 32 }, "sidesFixed": ["top"] }
+    ],
+    "stage01Retrofix": {
+      "consoleWrapId": "4:608",
+      "note": "paddingTop was already 32px (correct), but all four sides had raw pixel values with no variable binding. Variable binding applied retroactively for token discipline.",
+      "boundVariable": "Spacing / 2xl (VariableID:1:25)"
+    },
+    "brandPageExtension": false,
+    "brandPageReason": "Brand page frames (1:290, 1:396, 1:510) use a different architecture — Console chrome (stubbed) + Console viewport, no dark outer wrap. The Chairman's instruction specifically targets the dark-surround pattern. Brand page frames are out of scope."
+  },
+  "tokenBinding": {
+    "variable": "Spacing / 2xl",
+    "variableId": "VariableID:1:25",
+    "value": 32,
+    "method": "setBoundVariable('paddingTop', variable) — no raw pixel values set",
+    "sidesFullyBound": ["Stage 07b", "Stage 08b", "Stage 08c", "Stage 01 (retrofix)"]
+  },
+  "sideEffects": "No wrap required re-growing. Console wraps use HUG vertical sizing — adding paddingTop expands the wrap height naturally without overflow. No clipping observed in post-fix screenshots.",
+  "tokenGaps": "None. Spacing / 2xl (32) was already in the catalogue.",
+  "accessibilityNote": "No contrast pairs changed. AAA standing objective not applicable to this spacing change.",
+  "screenshotsValidated": [
+    "Stage 01 (4:591) — reference state, confirmed chrome bar breathing room",
+    "Stage 02 (4:723) — primary fix target, chrome bar has 32px cream above it",
+    "Stage 05 (4:1140) — mid-lifecycle sample, uniform application confirmed",
+    "Stage 07b (4:2061) — all-sides fix sample, uniform application confirmed"
+  ]
+}

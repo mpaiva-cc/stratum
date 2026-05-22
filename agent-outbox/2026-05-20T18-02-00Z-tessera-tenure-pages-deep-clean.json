@@ -1,0 +1,51 @@
+{
+  "type": "publish",
+  "from": "tessera",
+  "ts": "2026-05-20T18:02:00Z",
+  "title": "Tenure Figma deep-clean: 445 fonts rebound, 182 fills/strokes bound, AAA moss-text fix, layer order fixed",
+  "summary": "Full structural audit of both Tenure Figma pages. Layer list on Employee experience page reordered to canonical scroll sequence (01→07b→08→08b→08c→09→10 corrected). 445 Inter text nodes rebound to Text / caption mono (JetBrains Mono 12px); 116 fills and 21 strokes on Employee experience page bound to canonical Colour variables; 2 fills and 1 stroke on Brand and surfaces page similarly bound. AAA fix: 43 moss-fill TEXT nodes (✓ status glyphs + 'SEND AS WRITTEN' label) rebound from Colour/moss (#4a5d3a, 6.12:1 — AAA fail) to Colour/ochre link (#7a3d0a, 7.14:1 — AAA pass). All 13 promoted component instances (Stage banner, Console chrome band, Gherkin caption, Cost panel) confirmed intact across all stage frames; all 13 cost panel footnote configurations confirmed correct. Token gap logged: brand page contains 83 #ffffff and 1 #444444 fills not in Stratum palette — requires dedicated brand-page remediation pass.",
+  "urgency": "normal",
+  "meta": {
+    "figma_file_key": "qv9zvloRD85aPoNeVDJVsz",
+    "pages": {
+      "employee_experience": "1:582",
+      "brand_and_surfaces": "0:1"
+    },
+    "sections": {
+      "employee_experience": "2:583",
+      "brand_and_surfaces": "1:61"
+    },
+    "changes": {
+      "page_rename": "Tenure Employee Experience → Tenure / Employee experience",
+      "layer_reorder": "07b/08b/08c moved from children indices 13-15 to canonical positions 7/9/10",
+      "font_rebind": "445 Inter nodes → Text / caption mono (JetBrains Mono 12px)",
+      "fill_bind_employee_experience": "116 fills bound to Colour variables",
+      "stroke_bind_employee_experience": "21 strokes bound to Colour variables",
+      "fill_bind_brand": "2 fills bound to Colour variables",
+      "stroke_bind_brand": "1 stroke bound to Colour variables",
+      "aaa_fix_moss_text": "43 TEXT nodes rebound from Colour/moss (VariableID:1:17, #4a5d3a, 6.12:1 FAIL) to Colour/ochre link (VariableID:1:14, #7a3d0a, 7.14:1 PASS) — ✓ status glyphs across all 13 stage frames + 'SEND AS WRITTEN' label",
+      "rt_stamp_employee_experience": "rt · 2026-05-20 18:02 UTC · deep-clean",
+      "rt_stamp_brand": "rt · 2026-05-20 18:02 UTC · deep-clean (renamed to sentence case)"
+    },
+    "confirmed_intact": {
+      "promoted_components": "All 13 stage frames × 4 component types = 52 promoted instances confirmed",
+      "cost_panel_footnotes": "All 13 correct (03/06/07b/08b/08c show-footnote=true; others false)",
+      "gherkin_slots": "13 frames configured correctly (7 rows on 01/07/07b/08/08b/08c; 8 rows on others)",
+      "plum_borders": "12 freestanding plum-stroke rows across 11 stage frames confirmed",
+      "section_structure": "1 Section on each page, no floating frames"
+    },
+    "aaa_contrast_pairs": [
+      "caption mono / body text on paper: ink (#0e1626) on paper (#f4ecda) = 15.4:1 AAA",
+      "caption mono on ink panel: paper-rule (#d8cdb6) on ink (#0e1626) = 9.93:1 AAA",
+      "status glyphs (✓) on paper: ochre-link (#7a3d0a) on paper (#f4ecda) = 7.14:1 AAA",
+      "plum chip text on paper: plum (#6b3a4a) on paper (#f4ecda) = 7.67:1 AAA",
+      "DECIDE/SUGGEST chip text: ink-3-aaa (#3d4456) on paper (#f4ecda) = 8.27:1 AAA",
+      "RECOMMEND chip text: ochre-link (#7a3d0a) on paper (#f4ecda) = 7.14:1 AAA"
+    ],
+    "token_gaps": [
+      "#ffffff (83 nodes on brand page) — not in Stratum palette; requires brand-page remediation pass with visual validation",
+      "#444444 (1 node on brand page) — not in Stratum palette; likely a legacy Section fill"
+    ],
+    "deferred_swap_resolution": "Brand page six showcase frames contain zero component instances (all raw primitives) — swap N/A, documented"
+  }
+}

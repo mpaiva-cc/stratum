@@ -1,0 +1,77 @@
+{
+  "ts": "2026-05-21T11:20:00Z",
+  "agent": "tessera",
+  "type": "publish",
+  "title": "Tenure / App experience — Tabler Icons migration across 13 mobile screens",
+  "summary": "Promoted 17 Tabler Icons (MIT) as named components in the Tenure / Components > Mobile > Icons sub-section, replacing all hand-built Unicode and rectangle-based icons across the mobile experience. Swapped 52 tab-bar icons (Home/Tasks/People/Profile × 13 screens), 13 chevron-right list-row affordances, 3 arrow-up-right external-nav affordances, and 6 task-completion check glyphs. All stroke colours use canonical Stratum hex values: ochre-link #7a3d0a (7.14:1 AAA on paper) for active/interactive icons, ink-mute-aa #404755 (7.93:1 AAA on paper) for inactive/decorative icons. Status-bar icons (cellular, wifi, battery) kept as iOS-canonical vectors per scope decision.",
+  "components_created": [
+    { "name": "Icon / home", "id": "15:8158", "tabler": "home", "default_stroke": "ink-mute-aa #404755" },
+    { "name": "Icon / checks", "id": "15:8162", "tabler": "checks", "default_stroke": "ink-mute-aa #404755" },
+    { "name": "Icon / users", "id": "15:8168", "tabler": "users", "default_stroke": "ink-mute-aa #404755" },
+    { "name": "Icon / user-circle", "id": "15:8173", "tabler": "user-circle", "default_stroke": "ink-mute-aa #404755" },
+    { "name": "Icon / chevron-right", "id": "15:8176", "tabler": "chevron-right", "default_stroke": "ochre-link #7a3d0a" },
+    { "name": "Icon / arrow-up-right", "id": "15:8180", "tabler": "arrow-up-right", "default_stroke": "ochre-link #7a3d0a" },
+    { "name": "Icon / calendar", "id": "15:8188", "tabler": "calendar", "default_stroke": "ink-mute-aa #404755" },
+    { "name": "Icon / check", "id": "15:8191", "tabler": "check", "default_stroke": "ink-mute-aa #404755" },
+    { "name": "Icon / chevron-down", "id": "15:8194", "tabler": "chevron-down", "default_stroke": "ink-mute-aa #404755" },
+    { "name": "Icon / chevron-up", "id": "15:8197", "tabler": "chevron-up", "default_stroke": "ink-mute-aa #404755" },
+    { "name": "Icon / clock", "id": "15:8201", "tabler": "clock", "default_stroke": "ink-mute-aa #404755" },
+    { "name": "Icon / bell", "id": "15:8205", "tabler": "bell", "default_stroke": "ink-mute-aa #404755" },
+    { "name": "Icon / file-text", "id": "15:8212", "tabler": "file-text", "default_stroke": "ink-mute-aa #404755" },
+    { "name": "Icon / lock", "id": "15:8217", "tabler": "lock", "default_stroke": "ink-mute-aa #404755" },
+    { "name": "Icon / eye", "id": "15:8221", "tabler": "eye", "default_stroke": "ink-mute-aa #404755" },
+    { "name": "Icon / plus", "id": "15:8225", "tabler": "plus", "default_stroke": "ink-mute-aa #404755" },
+    { "name": "Icon / minus", "id": "15:8228", "tabler": "minus", "default_stroke": "ink-mute-aa #404755" }
+  ],
+  "components_updated": [
+    "12:6655 App tab bar — 4 tabs swapped to Tabler SVGs (home active ochre-link, checks/users/user-circle inactive ink-mute-aa)",
+    "12:6694 List row / navigation — Chevron right replaced with Tabler chevron-right 24×24 ochre-link",
+    "12:6699 List row / status — Arrow upright replaced with Tabler arrow-up-right 24×24 ochre-link",
+    "12:6704 List row / action — Chevron right replaced with Tabler chevron-right 24×24 ochre-link"
+  ],
+  "screens_affected": [
+    "12:6733 App 01 · Offer signed",
+    "12:6791 App 02 · Day -14 · Runway",
+    "12:6843 App 03 · Day 0 · First key",
+    "12:6903 App 04 · Day 7 · Footing pulse",
+    "12:6969 App 05 · Day 30 · First milestone",
+    "12:7027 App 06 · Day 90 · Team move",
+    "12:7090 App 07 · Year 1 · Anniversary",
+    "12:7137 App 07b · Performance review",
+    "12:7197 App 08 · Year 2 · Parental leave",
+    "12:7252 App 08b · Aisha reviews Ember's draft",
+    "12:7296 App 08c · Return from leave",
+    "12:7354 App 09 · Year 3 · Ember moment",
+    "12:7401 App 10 · Year 5 · Exit"
+  ],
+  "icon_swap_summary": {
+    "tab_bar_icons": "52 (13 screens × 4 tabs)",
+    "chevron_right_list_rows": 13,
+    "arrow_up_right_list_rows": 3,
+    "checks_completion_glyphs": 6,
+    "total": 74
+  },
+  "attribution": "Tabler Icons MIT — https://tabler.io/icons — outline variant, 24×24 viewBox, stroke-width 2, stroke-linecap round, stroke-linejoin round. Attribution string in component section: 'Icons · Tabler Icons MIT — https://tabler.io/icons · outline, 24×24, stroke 2px round'.",
+  "status_bar_disposition": "iOS-canonical status bar icons (cellular bars, wifi arc, battery rectangle) kept unchanged. These represent OS chrome, not app content. Switching to Tabler would break the iPhone fiction — Tabler is not an OS icon set. Decision: keep as-is.",
+  "sentiment_marks_disposition": "Fraunces ◎ ◌ ○ glyphs in App 04 Check-in emoji row and App 07 Sentiment check kept unchanged. These are editorial typographic sentiment indicators, not iconographic UI controls. Tabler circle-dot/circle-dashed/circle would read as UI state toggles, not as affect gradations. Keeping the Fraunces glyphs preserves the editorial register. Noted as a judgment call.",
+  "em_dash_disposition": "JetBrains Mono em-dash (—) in compensation/rating/paycheck rows kept unchanged. These are textual 'no-data-yet' placeholders in the typography system, not icons.",
+  "accessibility": {
+    "contrast_pairs": [
+      "ochre-link #7a3d0a on paper #f4ecda: 7.14:1 AAA (active tab icons, list-row chevrons) — SC 1.4.11 non-text ≥3:1 ✓, SC 1.4.3 text ≥7:1 AAA ✓",
+      "ink-mute-aa #404755 on paper #f4ecda: 7.93:1 AAA (inactive tab icons, content icons) — SC 1.4.11 ✓, SC 1.4.3 AAA ✓",
+      "ochre-link #7a3d0a on paper-warm #f7f0e0: ~7.0:1 AAA (tab bar background is paper-warm) — SC 1.4.11 ✓",
+      "ink-mute-aa #404755 on paper-warm #f7f0e0: ~7.6:1 AAA — SC 1.4.11 ✓"
+    ],
+    "touch_targets": "Icon components are 24×24px per SC 2.5.8 minimum. List-row touch targets are 64×390pt (far exceeds 44pt AAA). Tab cells are 83×97pt. All icons meet or exceed SC 2.5.8.",
+    "non_text_contrast": "All icon strokes pass SC 1.4.11 (≥3:1 on their respective backgrounds) — ochre-link and ink-mute-aa both clear 7:1 which is above the 3:1 floor.",
+    "wcag_o1": "This dispatch advances O-1: (1) Tabler SVG paths are VECTOR nodes with defined stroke semantics — more reliable for screen-reader accessibility tooling than Unicode text characters whose announced names are typographic, not semantic. (2) Consistent 24×24 icon sizing across all 13 screens eliminates the 81×24 and 173×24 oversized tab icon frames that would confuse touch-target computation. (3) AAA contrast preserved on both active (ochre-link 7.14:1) and inactive (ink-mute-aa 7.93:1) stroke colours. (4) All icon frames named descriptively (Tabler home, Tabler checks, etc.) rather than generic 'Frame' — improves layer-tree accessibility for design handoff."
+  },
+  "token_gaps": [
+    "No Colour variable collection exists in STRATUM Figma file — icon stroke colours applied as raw hex values matching canonical palette tokens. Pre-existing gap. All raw hexes exactly match: ochre-link #7a3d0a, ink-mute-aa #404755. Gap: 'Bootstrap Colour variable collection from tenure/index.html :root block' — out of scope for this dispatch, surfaced for next token sprint."
+  ],
+  "side_effects": [
+    "Task completion glyph (173×24 '/ \\' two-rectangle frame) replaced with 24×24 Tabler checks — layout parent rows now have 149px of new whitespace at the trailing edge where the oversized frame was. This is correct; the checks icon is 24×24, which is the intended size. The 173×24 was an oversized artifact from the hand-built approach.",
+    "Chevron frames grew from 16×16 to 24×24 — each was offset by -4px in both axes to maintain visual center. No layout shifts detected in screenshots."
+  ],
+  "ship_verdict": "The icon system now reads consistently across all 13 screens. One icon family. One set of semantics. One stroke weight. Typography-grade restraint: no filled icons, no color noise. The tab bar and list rows are the most-seen surfaces in the mobile experience — both are now clean."
+}

@@ -1,0 +1,20 @@
+{
+  "type": "publish",
+  "timestamp": "2026-05-20T22:10:00Z",
+  "agent": "tessera",
+  "title": "Brand page — spacing tokens bound, 8 nodes verified",
+  "summary": "Verified Spacing collection exists at VariableCollectionId:1:19 with 8 variables (xs–4xl). Bound all 8 raw-px properties across 6 nodes to Spacing / sm (8px), Spacing / md (12px), and Spacing / xl (24px). Visual parity confirmed — no layout shift. Two raw values remain: the 80px Y-gap (no 5xl token) and the 1440px Brand frame width (no Layout collection), both surfaced as token gaps.",
+  "meta": {
+    "verification_outcome": "A",
+    "spacing_collection_id": "VariableCollectionId:1:19",
+    "spacing_variable_count": 8,
+    "bindings_applied": 8,
+    "token_gaps": [
+      "Spacing / 5xl (80px) — needed for Section 1:61 Y-gaps; scale tops at 4xl (64px)",
+      "Layout / width — Brand frame width 1440px has no token collection"
+    ],
+    "visual_parity": true,
+    "accessibility": "No contrast pairs changed. O-1 AAA status unchanged.",
+    "figma_file": "qv9zvloRD85aPoNeVDJVsz"
+  }
+}

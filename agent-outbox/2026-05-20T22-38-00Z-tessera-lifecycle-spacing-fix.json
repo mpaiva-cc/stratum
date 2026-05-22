@@ -1,0 +1,24 @@
+{
+  "ts": "2026-05-20T22:38:00Z",
+  "agent": "tessera",
+  "type": "publish",
+  "title": "Lifecycle page: 80px rhythm gap applied to all 15 stage frames",
+  "summary": "Applied 80px vertical gap between all 15 children of Section 2:583 (Tenure / Employee experience), eliminating the dark-band bleed where cost-panel bottoms touched stage banners. Section resized from 17000 to 17962px; rt-stamp pill repositioned to Y=17857. First pass validated — rhythm break confirmed in post-change screenshot.",
+  "artifact": {
+    "section": "2:583",
+    "sectionName": "Tenure / Employee experience",
+    "page": "Tenure / Employee experience",
+    "framesAdjusted": 15,
+    "gapApplied": 80,
+    "topPadding": 80,
+    "bottomPadding": 80,
+    "sectionHeightBefore": 17000,
+    "sectionHeightAfter": 17962,
+    "rtStampNewY": 17857
+  },
+  "tokenGaps": [
+    "Spacing / 5xl (80) not in collection — 80px gap applied as raw value. Gap already logged in prior brand-page pass. Spacing collection currently tops at 4xl (64). Token gap persists until Chairman ratifies 5xl (80) and 6xl (96)."
+  ],
+  "accessibilityNote": "No colour pairs changed. AAA audit not applicable to Y-gap changes.",
+  "iterationCount": 1
+}

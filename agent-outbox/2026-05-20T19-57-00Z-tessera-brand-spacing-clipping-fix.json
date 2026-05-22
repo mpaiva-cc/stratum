@@ -1,0 +1,16 @@
+{
+  "ts": "2026-05-20T19:57:00Z",
+  "from": "tessera",
+  "type": "publish",
+  "title": "Tenure / Brand spacing normalised and clipping audit complete",
+  "summary": "Widened Brand frame from 1200 to 1440px to align with all other Section frames; re-stacked all six frames at consistent 80px vertical rhythm after content reflow from itemSpacing fixes; disabled dormant clipsContent on 9 HUG containers (wordmark, agent list, colour swatches, type ramp, 3 agent cards, card row, tier grid) while preserving deliberate viewport clipping on the three Console surface frames (Joiner, Mover, Leaver), renamed to 'Console viewport — joiner/mover/leaver' for clarity.",
+  "refs": {
+    "section": "1:61",
+    "figma_file": "qv9zvloRD85aPoNeVDJVsz"
+  },
+  "open_follow_up": [
+    "Spacing token collection (Spacing/xs through Spacing/section-pad) needs to be created in Figma — permission blocked in this dispatch. Chairman approval needed to allow figma_setup_design_tokens in auto mode.",
+    "Brand Agent list itemSpacing=12 and Type ramp itemSpacing=12 are raw pixel values, not token-bound. Awaiting Spacing collection creation.",
+    "Agent cards (threshold 432, lattice/ember 379) have inconsistent heights — Threshold has a longer Roles list (8 items vs 6). Decision: leave HUG-driven, document as content-driven variance, not a layout bug."
+  ]
+}

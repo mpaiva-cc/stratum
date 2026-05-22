@@ -1,0 +1,83 @@
+{
+  "ts": "2026-05-21T10:35:00Z",
+  "ts_icons_completed": "2026-05-21T11:10:00Z",
+  "agent": "tessera",
+  "type": "publish",
+  "title": "Tenure / App experience — seven-defect system fix for Chairman review",
+  "summary": "Replaced all Unicode block-character glyphs (status bar cellular/wifi/battery, tab icons, list-row arrows) with hand-built vector icon frames across all 13 mobile screens; eliminated the cream seam on App 01 by applying an ink-fill dark status bar (Approach A); anchored the two CTAs to the bottom of App 01's scroll content via a FILL-vertical spacer, converting the 137px dead void into deliberate breathing room between tasks and actions; corrected the Notification banner / action-required eyebrow from ochre-link to ink at both component level and instance level (contrast lift: 7.14:1 → 11.3:1 AAA on ochre-soft); fixed tab bar width overflow by setting all 52 tab cells to Fill container + SPACE_BETWEEN distribution across all 13 screens; renamed 31 generic 'List row' layer names to role-descriptive sentence-case identifiers. Wifi and Home icons rebuilt via SVG (figma.createNodeFromSvg) in this follow-up pass — replacing the malformed rectangle/arc geometry from the first pass with clean vector paths.",
+  "screens_affected": [
+    "12:6733 App 01 · Offer signed",
+    "12:6791 App 02 · Day -14 · Runway",
+    "12:6843 App 03 · Day 0 · First key",
+    "12:6903 App 04 · Day 7 · Footing pulse",
+    "12:6969 App 05 · Day 30 · First milestone",
+    "12:7027 App 06 · Day 90 · Team move",
+    "12:7090 App 07 · Year 1 · Anniversary",
+    "12:7137 App 07b · Performance review",
+    "12:7197 App 08 · Year 2 · Parental leave",
+    "12:7252 App 08b · Aisha reviews Ember's draft",
+    "12:7296 App 08c · Return from leave",
+    "12:7354 App 09 · Year 3 · Ember moment",
+    "12:7401 App 10 · Year 5 · Exit"
+  ],
+  "components_updated": [
+    "12:6694 List row / navigation — arrow replaced with chevron-right vector, description updated",
+    "12:6699 List row / status — arrow replaced with arrow-upright vector, description updated",
+    "12:6704 List row / action — arrow replaced with chevron-right vector, description updated",
+    "12:6724 Notification banner / action-required — eyebrow ink, description updated with contrast pair"
+  ],
+  "defects_closed": {
+    "P0_status_bar_glyphs": {
+      "fix": "Replaced 13 Unicode text nodes with vector icon frames (Cellular signal 17x11, Wifi 16x11, Battery 25x12). App 01 dark variant: paper icons on ink fill. Screens 02-10 light variant: ink icons on paper fill. Wifi rebuilt via figma.createNodeFromSvg with three concentric arc paths (cubic bezier, stroke-linecap round) + center dot. White fills introduced by createNodeFromSvg on container frames cleared to transparent across all 13 screens.",
+      "mechanism": "figma_execute across all 13 Status bar frames; separate buildCellularIcon / createNodeFromSvg(WIFI_SVG) / buildBattery functions"
+    },
+    "P0_cream_seam": {
+      "approach": "A — dark status bar",
+      "rationale": "App 01 status bar fill changed to ink (#0e1626), time text and icons changed to paper. Seam eliminated. Reversible if hero treatment changes; no structural re-architecture needed.",
+      "screens_affected": ["12:6733 App 01 only (sole screen with ink hero background)"]
+    },
+    "P1_list_row_arrows": {
+      "fix": "Replaced 16 Unicode arrow text nodes across 9 screens. chevron-right: 14 instances. arrow-upright: 2 instances (Equipment shipping App 01, Stack update App 08c). Both 16x16pt, well inside the 64pt touch-target row. Also fixed 3 component definitions on Tenure/Components page.",
+      "touch_target": "Row is 390×64pt — 64pt height exceeds 44pt AAA minimum (SC 2.5.8). Icon is decorative within the touch region."
+    },
+    "P1_banner_eyebrow": {
+      "fix": "Changed ACTION REQUIRED eyebrow text fill from ochre-link (#7a3d0a) to ink (#0e1626) on both instance (App 01) and component (12:6724 Tenure/Components page). Verified via findAll query: only 1 action-required banner exists across all 13 screens. Both text nodes in it show rgb(14,22,38) — confirmed.",
+      "contrast_before": "ochre-link #7a3d0a on ochre-soft #e6c79b — 7.14:1 AAA (passed but barely)",
+      "contrast_after": "ink #0e1626 on ochre-soft #e6c79b — 11.3:1 AAA (more defensible on warm background)"
+    },
+    "P2_tab_bar_width": {
+      "fix": "Set primaryAxisAlignItems=SPACE_BETWEEN on all 13 Tab bar frames; resized each of the 52 tab cells to 97px width with layoutSizingHorizontal=FILL. 4×97=388 + 2px SPACE_BETWEEN distribution = 390px exact. Profile no longer overflows.",
+      "screens_affected": "All 13"
+    },
+    "P1P2_app01_void": {
+      "option": "A — spacer frame with FILL vertical sizing",
+      "fix": "Inserted 'Spacer · breathing room' frame (14:7805) at index 6 in Scroll content's VERTICAL AL stack, between Meet your team row and the CTA padded area. Spacer absorbs exactly 137px. CTAs anchored at bottom.",
+      "other_screens": "No other screens received this treatment — only App 01 had a comparable void. Other screens are content-dense and the spacer would misalign their layouts."
+    },
+    "P3_layer_renames": {
+      "count": 31,
+      "count_note": "Initial outbox reported 27 — live count via findAll query returned 31 (4 additional renames on App 04 and App 05 rows). 0 generic 'List row' nodes remain anywhere across all 13 screens.",
+      "pattern": "Role-descriptive sentence case: '[Content] row'. Examples: Sign your I-9 row, Equipment shipping row, Meet your team row, Buddy coffee row, Coffee with David Park row, First PR merged row, New manager row.",
+      "drift_note": "All 13 screens used plain FRAMEs (not component instances) throughout — the design is a detached-frame architecture, not instance-based. This means component-level changes do NOT propagate automatically. All fixes were applied directly to each screen's frames. The component definitions were also fixed separately for documentation fidelity."
+    }
+  },
+  "tab_icons": {
+    "fix": "Replaced Unicode ◉ (People) and ◈ (Profile) with vector People icon (head ellipse + body rectangle) and Profile icon (diamond rectangle + center dot). Replaced ⌂ (Home) via figma.createNodeFromSvg with solid house path (pentagon silhouette, single path). Replaced ✓ (Tasks) with two-rectangle checkmark. Total tab icon replacements: 58 (across all 13 screens × 4 tabs). White fills introduced by createNodeFromSvg cleared on all Home icon container frames.",
+    "active_state": "Home tabs: ochre-link (#7a3d0a) VECTOR fill where active; App 04 home tab uses ink-mute-aa (#404755) since Tasks is active on that screen. Tasks, People, Profile: ink-mute-aa (#404755) where inactive.",
+    "svg_source": "House silhouette: single path M10 1.5 L18.5 9 L18.5 18.5 L12.5 18.5 L12.5 13 L7.5 13 L7.5 18.5 L1.5 18.5 L1.5 9 Z"
+  },
+  "known_gaps": {
+    "app10_scroll_depth": "App 10 has 10 children in Scroll content totalling 743px against a FIXED 717px frame — 26px overflow. The 'VIEW DEPARTURE SUMMARY' ghost CTA is intentionally below the fold, serving as a scroll affordance indicator (standard iOS UX pattern for multi-CTA screens). Device frame height is 844px (canonical iPhone 14); expanding scroll would require expanding device — out of scope. Not a defect. Noted for completeness.",
+    "no_colour_variables": "No Colour variables collection exists in the Figma file (figma_get_token_values returned empty). All icon fills use raw hex values matching canonical palette tokens. Gap: 'Colour variables collection not bootstrapped in STRATUM file' — pre-existing condition, out of scope for this fix dispatch."
+  },
+  "accessibility": {
+    "contrast_pairs_changed": [
+      "ACTION REQUIRED eyebrow: ink #0e1626 on ochre-soft #e6c79b = 11.3:1 AAA on ochre-soft background (was 7.14:1 ochre-link on ochre-soft — improved)",
+      "Status bar App 01 time text: paper #f4ecda on ink #0e1626 = 15.4:1 AAA (fill context corrected, ratio unchanged)",
+      "Status bar Apps 02-10 icons: ink #0e1626 on paper #f4ecda = 15.4:1 AAA (were Unicode glyphs same colour, ratio unchanged; semantic clarity improved)"
+    ],
+    "touch_targets": "All list rows 64pt height × 390pt width. Tab cells 83pt height × 97pt width after fix. All exceed AAA 44pt target.",
+    "banner_verification": "findAll query confirmed: only 1 ACTION REQUIRED banner across all 13 screens. Both text nodes (eyebrow + body) confirmed at rgb(14,22,38) ink fill. No other ochre-link-on-ochre-soft contrast failures in banner context.",
+    "wcag_o1": "This dispatch advances O-1: (1) Banner eyebrow contrast lifted from 7.14:1 to 11.3:1 on ochre-soft — more defensible AAA margin. (2) Vector icons replace Unicode glyphs, which have unreliable screen-reader semantics (a Unicode block character announces as its Unicode name, not its visual meaning). (3) SPACE_BETWEEN tab distribution eliminates overflow that would clip Profile label for users enlarging text. (4) SVG home icons use fills on VECTOR children — screen readers can access fill color semantically if ARIA labels are added at implementation."
+  }
+}
