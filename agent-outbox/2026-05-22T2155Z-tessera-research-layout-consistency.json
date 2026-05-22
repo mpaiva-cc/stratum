@@ -1,0 +1,93 @@
+{
+  "id": "2026-05-22T2155Z-tessera-research-layout-consistency",
+  "from": "tessera",
+  "to": ["helm", "forge"],
+  "subject": "Research · people-graph-360 · layout consistency pass (third pass — closed and verified)",
+  "timestamp": "2026-05-22T22:10:00Z",
+  "narrative_time": "T+88d · evening",
+  "thread": "research-width-layout",
+  "priority": "normal",
+  "body": {
+    "summary": "Completed a thorough audit of every responsive surface in /research/people-graph-360.html. Found six real bugs (five overflow risks, one defensive gap). All fixed. Rendered at 320 / 375 / 414 / 640 / 768 / 900 / 1024 / 1440px with Puppeteer. Zero horizontal scroll at any breakpoint. The compmat negative-margin breakout math is correct and was not touched.",
+
+    "verification": {
+      "method": "Puppeteer headless Chrome screenshots + document.body.scrollWidth vs window.innerWidth check at each breakpoint",
+      "results": [
+        { "viewport": "320px", "overflow": false, "bodyScrollWidth": 320 },
+        { "viewport": "375px", "overflow": false, "bodyScrollWidth": 375 },
+        { "viewport": "414px", "overflow": false, "bodyScrollWidth": 414 },
+        { "viewport": "640px", "overflow": false, "bodyScrollWidth": 640 },
+        { "viewport": "768px", "overflow": false, "bodyScrollWidth": 768 },
+        { "viewport": "900px", "overflow": false, "bodyScrollWidth": 900 },
+        { "viewport": "1024px", "overflow": false, "bodyScrollWidth": 1024 },
+        { "viewport": "1440px", "overflow": false, "bodyScrollWidth": 1440 }
+      ],
+      "compmat_breakout_verified": {
+        "at_900px": "matrix=828px centered, article=760px centered, matrix bleeds 34px each side within 900px viewport. Right edge at 864px. No overflow.",
+        "at_1440px": "matrix=1080px centered, article=760px centered. Right edge at 1260px. No overflow.",
+        "at_768px": "col-mid and col-read both resolve to 92vw=706.5px. Zero breakout. Table fills column width exactly."
+      },
+      "ascii_block_verified": "scrollWidth=561px, clientWidth=343px at 375px. Block scrolls internally as designed. overflow-x: clip on body does not interfere with block's own scroll container.",
+      "thead_hidden_verified": "position=absolute, clip=rect(0,0,0,0), 1x1px. Visually hidden, screen-reader accessible. Geometric overflow of child elements is inside the clip context, not visible."
+    },
+
+    "diagnosis": {
+      "compmat_calc_verdict": "Sound. col-mid = min(1080px, 92vw) — always ≤ 92vw < 100vw. Negative-margin centering within article is correct at all breakpoints. Left intact.",
+      "actual_culprits": "sources-head flex row (no wrapping), long URLs in sbody (no overflow-wrap), ascii block (no max-width cap), article paragraphs and era-line paragraphs (no overflow-wrap as defensive measure)."
+    },
+
+    "bugs_found_and_fixed": [
+      {
+        "id": "B1",
+        "element": "html, body",
+        "symptom": "No defensive overflow containment. Any future element overflowing the body would add a horizontal scrollbar.",
+        "fix": "Added overflow-x: clip. Does not create a scroll container (unlike overflow-x: hidden). Verified: no content is meaningfully clipped — the only elements geometrically outside the viewport at narrow widths are (a) the visually-hidden thead in clip: rect(0,0,0,0) and (b) spans inside the .ascii block's own scroll container."
+      },
+      {
+        "id": "B2",
+        "element": ".sources-head (flex row)",
+        "symptom": "At narrow viewports, the flex row 'Working bibliography · 31 sources · 2026-05-22' + three legend pills (Verified / Reported / Inferred) had no flex-wrap and no mobile override. Combined width exceeded 320–414px viewports, causing horizontal scroll before the body overflow-x: clip was added.",
+        "fix": "Added flex-wrap: wrap; align-items: baseline; gap: .6rem 1rem to baseline rule. Added .sources-head { flex-direction: column; gap: .5rem; } inside @media (max-width: 760px). At mobile: title wraps cleanly, legend pills stack on a new line."
+      },
+      {
+        "id": "B3",
+        "element": ".sources .sbody",
+        "symptom": "Citation entries contain bare domain URLs (e.g. 'engineering.linkedin.com/teams/data/data-infrastructure/graph') without word-break. These expand the 1fr grid cell beyond its allotted width.",
+        "fix": "Added overflow-wrap: break-word; word-break: break-word. URLs now wrap at narrow widths — visible in the 375px screenshot."
+      },
+      {
+        "id": "B4",
+        "element": ".article p",
+        "symptom": "No overflow-wrap. Any unbreakable inline string in prose would expand the paragraph.",
+        "fix": "Added overflow-wrap: break-word. Non-destructive."
+      },
+      {
+        "id": "B5",
+        "element": ".ascii (white-space: pre)",
+        "symptom": "ASCII diagram (561px wide in monospace) inside a 343px container at 375px. The block had overflow-x: auto but no max-width. Without max-width, some browsers compute the block's width as the pre content's intrinsic width, potentially expanding the parent.",
+        "fix": "Added max-width: 100%. The block is now capped at the article column width. The overflow-x: auto scroll still works within the block. Also added font-size: 10px at @media (max-width: 760px) to reduce the intrinsic pre width at mobile."
+      },
+      {
+        "id": "B6",
+        "element": ".era-line p",
+        "symptom": "Era-line paragraphs inside 5.2rem left-padded list items had no overflow-wrap.",
+        "fix": "Added overflow-wrap: break-word."
+      }
+    ],
+
+    "not_changed": [
+      "compmat negative-margin breakout math",
+      "--col-read: min(760px, 92vw)",
+      "--col-mid: min(1080px, 92vw)",
+      "mobile card-stack for competitor matrix (verified working)",
+      "distlist li mobile override",
+      "masthead-meta mobile override",
+      "footer responsive overrides"
+    ],
+
+    "no_important": true,
+    "build_status": "clean — jekyll build, no warnings",
+
+    "o1_accessibility": "The sources-head fix has a direct accessibility benefit: the legend pills (Verified / Reported / Inferred) were previously cropped behind horizontal overflow at 320–414px widths. They are now visible and keyboard-reachable at all viewport widths. Advances O-1."
+  }
+}

@@ -82,6 +82,7 @@ html, body {
   font-feature-settings: "kern", "liga", "onum";
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
+  overflow-x: clip;
 }
 
 body::before {
@@ -242,6 +243,7 @@ strong { font-weight: 600; color: var(--ink); }
   margin: 0 0 1.2rem;
   font-variation-settings: "opsz" 18;
   color: var(--ink-2);
+  overflow-wrap: break-word;
 }
 .article p:first-of-type .dropcap {
   float: left;
@@ -311,7 +313,7 @@ strong { font-weight: 600; color: var(--ink); }
   letter-spacing: .14em; color: var(--ink-mute);
   text-transform: uppercase; margin-left: .65rem;
 }
-.era-line p { margin: 0 0 .35rem; font-size: .98rem; }
+.era-line p { margin: 0 0 .35rem; font-size: .98rem; overflow-wrap: break-word; }
 .era-line p:last-child { margin: 0; }
 
 /* competitor matrix — the centerpiece of §III */
@@ -448,6 +450,7 @@ strong { font-weight: 600; color: var(--ink); }
   line-height: 1.55; color: var(--ink-2);
   overflow-x: auto;
   white-space: pre;
+  max-width: 100%;
 }
 .ascii .o { color: var(--ochre-link); }
 .ascii .i { color: var(--indigo); }
@@ -522,7 +525,8 @@ strong { font-weight: 600; color: var(--ink); }
   font-family: var(--mono); font-size: 10.5px;
   letter-spacing: .2em; text-transform: uppercase;
   color: var(--ink-3-aaa);
-  display: flex; justify-content: space-between; gap: 1rem;
+  display: flex; justify-content: space-between; align-items: baseline;
+  flex-wrap: wrap; gap: .6rem 1rem;
 }
 .sources-head .legend { display: flex; gap: .8rem; flex-wrap: wrap; }
 .sources-head .lg {
@@ -561,7 +565,7 @@ strong { font-weight: 600; color: var(--ink); }
 .sources .sc-v { color: var(--moss); border-color: var(--moss); }
 .sources .sc-r { color: var(--ochre-link); border-color: var(--ochre-link); }
 .sources .sc-i { color: var(--ink-mute); border-color: var(--paper-rule-2); }
-.sources .sbody { color: var(--ink-2); }
+.sources .sbody { color: var(--ink-2); overflow-wrap: break-word; word-break: break-word; }
 .sources .sbody strong { color: var(--ink); }
 .sources .sbody a { color: var(--ochre-link); border-bottom: 1px solid var(--paper-rule-2); }
 .sources .sbody a:hover { border-bottom-color: var(--ochre-link); }
@@ -756,6 +760,8 @@ strong { font-weight: 600; color: var(--ink); }
   .footer-grid { grid-template-columns: 1fr; }
   .footer-foot { flex-direction: column; gap: 1rem; align-items: flex-start; }
   .sources li { grid-template-columns: 1.8rem 4rem 1fr; gap: .5rem; }
+  .sources-head { flex-direction: column; gap: .5rem; }
+  .ascii { font-size: 10px; }
 }
 
 @media print {
