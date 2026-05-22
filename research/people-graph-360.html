@@ -669,9 +669,89 @@ strong { font-weight: 600; color: var(--ink); }
   .masthead-h1 { font-size: clamp(2.1rem, 9vw, 3.2rem); }
   .toc li { grid-template-columns: 2.2rem 1fr; gap: .5rem; }
   .distlist li { grid-template-columns: 1fr; gap: .25rem; }
-  .compmat { font-size: 11px; width: 100%; margin-left: 0; margin-right: 0; }
-  .compmat thead th, .compmat tbody td { padding: .6rem .55rem; }
-  .compmat td.vendor { font-size: 13.5px; }
+
+  /* Competitor matrix — collapse to stacked cards on mobile.
+     Each row becomes a card: vendor name, then a pill row
+     (claim + model), then the prose read labelled inline. */
+  .compmat {
+    width: 100%;
+    margin-left: 0;
+    margin-right: 0;
+    overflow-x: visible;
+    background: var(--paper-warm);
+  }
+  .compmat-head {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: .35rem;
+    font-size: 9.5px;
+    padding: .85rem 1rem;
+  }
+  .compmat table { display: block; font-size: inherit; }
+  .compmat thead {
+    position: absolute;
+    width: 1px; height: 1px;
+    margin: -1px; padding: 0;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    border: 0;
+    white-space: nowrap;
+  }
+  .compmat tbody { display: block; }
+  .compmat tbody tr {
+    display: block;
+    padding: 1.1rem 1rem 1.2rem;
+    border-bottom: 1px solid var(--paper-rule);
+  }
+  .compmat tbody tr:last-child { border-bottom: 0; }
+  .compmat tbody td {
+    display: block;
+    padding: 0;
+    border: 0;
+    line-height: 1.5;
+  }
+  .compmat td.vendor {
+    font-size: 16px;
+    white-space: normal;
+    margin-bottom: .75rem;
+  }
+  .compmat td.vendor .sub {
+    margin-top: .2rem;
+    font-size: 9.5px;
+  }
+  /* pill cells (claim + model) sit on one row */
+  .compmat tbody tr > td:nth-child(2),
+  .compmat tbody tr > td:nth-child(3) {
+    display: inline-block;
+    width: auto;
+    margin: 0 .4rem .55rem 0;
+  }
+  .compmat tbody tr > td:nth-child(2) .pill,
+  .compmat tbody tr > td:nth-child(3) .pill {
+    margin-right: 0;
+  }
+  /* prose read — labelled, full width, serif body */
+  .compmat tbody td:last-child {
+    display: block;
+    margin-top: .35rem;
+    padding-top: .8rem;
+    border-top: 1px dashed var(--paper-rule);
+    font-family: var(--serif);
+    font-size: 15px;
+    line-height: 1.55;
+    color: var(--ink-2);
+  }
+  .compmat tbody td:last-child::before {
+    content: "Eglin's read";
+    display: block;
+    font-family: var(--mono);
+    font-size: 9.5px;
+    letter-spacing: .2em;
+    text-transform: uppercase;
+    color: var(--ink-3-aaa);
+    margin-bottom: .45rem;
+  }
+
   .closing-links { flex-direction: column; gap: 1rem; }
   .footer-grid { grid-template-columns: 1fr; }
   .footer-foot { flex-direction: column; gap: 1rem; align-items: flex-start; }
