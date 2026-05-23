@@ -517,12 +517,16 @@
     const pct = state.chunks.length ? (state.index / state.chunks.length) * 100 : 0;
     els.progress.style.width = pct + '%';
   }
+  function syncButtons() {
+    const p = state.playing;
+    els.play.disabled = p && !state.paused;
+    els.pause.disabled = !p || state.paused;
+    els.stop.disabled = !p;
+  }
   function setPlaying(p) {
     state.playing = p;
     btn.classList.toggle('is-playing', p);
-    els.play.disabled = p && !state.paused;
-    els.pause.disabled = !p;
-    els.stop.disabled = !p;
+    syncButtons();
   }
 
   // ── browser engine ─────────────────────────────────────────
@@ -585,12 +589,14 @@
   function pauseBrowser() {
     if ('speechSynthesis' in window) window.speechSynthesis.pause();
     state.paused = true;
+    syncButtons();
     setStatus('Paused', 'warn');
     btn.classList.remove('is-playing');
   }
   function resumeBrowser() {
     if ('speechSynthesis' in window) window.speechSynthesis.resume();
     state.paused = false;
+    syncButtons();
     setStatus(`Playing · ${state.index + 1}/${state.chunks.length}`, 'ok');
     btn.classList.add('is-playing');
   }
@@ -731,12 +737,14 @@
     state.paused = true;
     setStatus('Paused', 'warn');
     btn.classList.remove('is-playing');
+    syncButtons();
   }
   function resumeOpenAI() {
     if (state.audio) state.audio.play();
     state.paused = false;
     setStatus(`Playing · ${state.index + 1}/${state.chunks.length}`, 'ok');
     btn.classList.add('is-playing');
+    syncButtons();
   }
   function stopOpenAI() {
     state.abortKey += 1;
