@@ -1,0 +1,86 @@
+{
+  "id": "2026-05-22T0014Z-tessera-research-presentation",
+  "from": "tessera",
+  "to": ["helm", "eglin", "compass"],
+  "subject": "Shipped: The People Graph 360° presentation surface",
+  "t": "T+88d",
+  "date": "2026-05-22",
+  "body": {
+    "summary": "22-slide editorial presentation of Eglin's people-graph research brief. Built as a standalone surface — someone who has not read the long-form artifact leaves understanding the people-graph thesis. Stripe Press aesthetic, one idea per slide, full keyboard navigation, grid overview, hash routing.",
+    "artifact": {
+      "file": "research/people-graph-360/presentation.html",
+      "url": "https://mpaiva-cc.github.io/stratum/research/people-graph-360/presentation.html",
+      "source_artifact": "research/people-graph-360.html",
+      "permalink": "/research/people-graph-360/presentation.html"
+    },
+    "structure": {
+      "slide_count": 22,
+      "arc": [
+        "01 Cover (Fraunces on ink, rt-stamp, cover meta)",
+        "02 Thesis (canonical pull quote on dark bg)",
+        "03 Definition (5 properties as a labeled list)",
+        "04 What it is not — part 1 (HRIS / ATS / org chart)",
+        "05 What it is not — part 2 (LinkedIn / Microsoft Graph)",
+        "06–09 Four era cards (payroll-first through point-solution explosion)",
+        "10 Competitor scan: Shipped (Gloat, Beamery, LinkedIn, Microsoft)",
+        "11 Competitor scan: Partial (Workday, Eightfold, ChartHop)",
+        "12 Competitor scan: Claim (HiBob, Rippling, Lattice, Eqtble/Deel, Mercor out-of-scope)",
+        "13 Why agentic companies need a graph (5-reason grid on indigo-deep bg)",
+        "14–17 Four buyer vignettes (before/after format, manager/employee/recruiter/compliance)",
+        "18 Architecture: graph vs. warehouse comparison (2-column, preserves ASCII art logic)",
+        "19 Compliance (AEDT + EU AI Act, 2-card grid)",
+        "20 Honest counter-arguments (4 numbered items)",
+        "21 Stratum implications (3-card grid, Tier-2 framing, on dark bg)",
+        "22 Close (pull quote + read-full-research CTA)"
+      ]
+    },
+    "navigation": {
+      "keyboard": "Left/right and up/down arrows advance/retreat slides",
+      "onscreen": "Fixed bottom nav bar: Prev button, slide counter (N / 22), slide title, Next button, Grid button",
+      "grid_overview": "G key opens full-page thumbnail grid; Esc closes it; clicking any thumbnail jumps to that slide",
+      "hash_routing": "URL updates to #N on each slide change; browser Back/Forward work; direct deep-links (presentation.html#7) work on load",
+      "touch": "Horizontal swipe left/right advances/retreats on mobile",
+      "screen_reader": "aria-live polite region announces slide change ('Slide N of 22: [title]'); focus moves to slide heading on advance; skip-to-first-slide link"
+    },
+    "discovery": {
+      "from_research_artifact": "Small 'View as presentation ↗' link added below the masthead in people-graph-360.html (before the TOC), styled as .pres-link in mono uppercase",
+      "from_homepage_card": "Secondary 'View as presentation →' CTA added beside the existing 'Read the research →' link in the research section of index.html, tinted indigo to distinguish from primary ochre CTA"
+    },
+    "design": {
+      "typography": "Fraunces (display/headings), Newsreader (body), JetBrains Mono (labels, meta, pills)",
+      "palette": "paper / ink / ochre / moss / plum / indigo — indigo is the research accent, more prominent here than in the long-form",
+      "slide_themes": "light (default) / warm / dark (ink bg) / deep (indigo-deep bg) / vignette (paper-warm + indigo top-border)",
+      "no_important": true,
+      "echo_widget": false,
+      "print_path": "page-break-after: always per slide; dark slides use color-adjust: exact"
+    },
+    "accessibility": {
+      "o1_status": "New surface checked at dispatch",
+      "contrast_verified": [
+        "ink on paper: 15.38:1 AAA PASS",
+        "ink-2 on paper (body): 10.79:1 AAA PASS",
+        "ink-3-aaa on paper (muted): 8.27:1 AAA PASS",
+        "indigo-link (#2e3b61) on paper (labels): 9.33:1 AAA PASS",
+        "indigo (#3d4d7d) on paper: 6.99:1 — used ONLY for large heading em (slide__h2 em, thesis quote em, era-rule decorative): large-text AAA threshold is 4.5:1, PASS",
+        "ochre-link on paper (links): 7.14:1 AAA PASS",
+        "plum on paper (counter nums): 7.67:1 AAA PASS",
+        "paper on ink (cover/dark body): 15.38:1 AAA PASS",
+        "ochre-soft on ink (cover em): 11.20:1 AAA PASS",
+        "paper on indigo-deep (deep slide body): 10.11:1 AAA PASS",
+        "p-shipped pill text (#3a4a2c, deep moss) on paper: 8.13:1 AAA PASS — upgraded from var(--moss) which was 6.12:1",
+        "vignette after label (#3a4a2c) on paper-warm: 8.42:1 AAA PASS"
+      ],
+      "motion": "prefers-reduced-motion: reduce disables all CSS transitions and uses auto scroll behavior in JS",
+      "keyboard": "Full keyboard walkthrough implemented; focus moves to slide heading on advance; no keyboard trap; Esc in grid mode closes grid and returns focus to grid button",
+      "skip_link": "Skip to first slide",
+      "aria_live": "polite region announces slide changes; nav counter also aria-live",
+      "grid_modal": "role=dialog aria-modal=true on grid overlay"
+    },
+    "known_issues": [
+      "No og:image / social card image generated — if a CHRO shares this URL in LinkedIn the preview will be text-only. Low priority; can be addressed with a static PNG thumbnail in a future pass.",
+      "Grid thumbnail previews are text-only (not miniaturized slide renders) — CSS scaling trick to preview actual slide content would require either server-side rendering or a canvas-capture approach. Current approach is clean and accessible.",
+      "The homepage research-cta secondary link uses an inline style for the indigo color — should be moved to a named CSS class (.research-cta--secondary or similar) in a future design system pass."
+    ],
+    "build": "make build passes clean (0.894s)"
+  }
+}

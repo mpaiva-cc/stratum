@@ -1,0 +1,2075 @@
+---
+layout: legacy
+title: "The People Graph, in 360° — Presentation — Stratum Research"
+description: "A 22-slide walkthrough of the people-graph thesis: working definition, 70-year HCM history, 12-vendor competitor scan, why agents need a graph, four buyer vignettes, architecture, compliance, and what it means for Stratum."
+permalink: /research/people-graph-360/presentation.html
+---
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>The People Graph, in 360° — Presentation — Stratum Research</title>
+<meta name="description" content="A 22-slide walkthrough of the people-graph thesis: working definition, 70-year HCM history, 12-vendor competitor scan, why agents need a graph, four buyer vignettes, architecture, compliance, and what it means for Stratum." />
+
+<!-- Social / OG -->
+<meta property="og:title" content="The People Graph, in 360° — Presentation" />
+<meta property="og:description" content="A 22-slide walkthrough of the people-graph thesis. Eglin, Stratum Research, 2026-05-22." />
+<meta property="og:url" content="https://mpaiva-cc.github.io/stratum/research/people-graph-360/presentation.html" />
+<meta property="og:type" content="article" />
+<meta property="og:site_name" content="Stratum Research" />
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:title" content="The People Graph, in 360° — Presentation" />
+<meta name="twitter:description" content="A 22-slide walkthrough of the people-graph thesis. Eglin, Stratum Research, 2026-05-22." />
+
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"PresentationDigitalDocument","headline":"The People Graph, in 360° — Presentation","description":"A 22-slide walkthrough of the people-graph thesis.","url":"https://mpaiva-cc.github.io/stratum/research/people-graph-360/presentation.html","datePublished":"2026-05-22","author":{"@type":"Person","name":"Eglin"},"publisher":{"@type":"Organization","name":"Stratum, Inc."}}</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght,SOFT,WONK@9..144,300..900,0..100,0..1&family=Newsreader:ital,opsz,wght@0,6..72,300..700;1,6..72,300..700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet" />
+
+<style>
+/* ============================================================
+   Stratum · Research · People Graph 360° · Presentation
+   Tessera · 2026-05-22 · T+88d
+   22 slides · editorial-grade · Fraunces / Newsreader / JetBrains Mono
+   Palette: paper / ink / ochre / moss / plum / indigo
+   ============================================================ */
+
+/* ── TOKENS ── */
+:root {
+  --paper:        #f4ecda;
+  --paper-warm:   #f7f0e0;
+  --paper-deep:   #ebe1c9;
+  --paper-rule:   #d8cdb6;
+  --paper-rule-2: #c8b894;
+
+  --ink:          #0e1626;
+  --ink-2:        #2a3344;
+  --ink-3:        #4b5365;
+  --ink-3-aaa:    #3d4456;
+  --ink-mute:     #6c7180;
+
+  --ochre:        #b8651f;
+  --ochre-deep:   #8a4711;
+  --ochre-link:   #7a3d0a;
+  --ochre-soft:   #e6c79b;
+  --moss:         #4a5d3a;
+  --plum:         #6b3a4a;
+  --indigo:       #3d4d7d;
+  --indigo-deep:  #2a3658;
+  --indigo-link:  #2e3b61;  /* 9.33:1 on paper — AAA body text */
+
+  --display:      "Fraunces", "Newsreader", Georgia, serif;
+  --serif:        "Newsreader", "Iowan Old Style", Georgia, serif;
+  --mono:         "JetBrains Mono", ui-monospace, "SF Mono", Menlo, monospace;
+
+  /* Dynamic viewport height — Safari mobile URL bar fix */
+  --slide-h: 100dvh;
+}
+@supports not (height: 100dvh) {
+  :root { --slide-h: 100vh; }
+}
+
+/* ── RESET + BASE ── */
+*, *::before, *::after { box-sizing: border-box; }
+
+html {
+  scroll-behavior: smooth;
+  background: var(--ink);
+}
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+}
+
+body {
+  margin: 0; padding: 0;
+  background: var(--ink);
+  color: var(--ink);
+  font-family: var(--serif);
+  font-size: 17px;
+  line-height: 1.6;
+  font-feature-settings: "kern", "liga", "onum";
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: clip;
+}
+
+/* ── SKIP LINK ── */
+.skip-link {
+  position: absolute; left: -9999px; top: 0;
+  background: var(--ink); color: var(--paper);
+  padding: .55rem .9rem;
+  font-family: var(--mono); font-size: 12px;
+  letter-spacing: .14em; text-transform: uppercase;
+  z-index: 10000;
+}
+.skip-link:focus { left: 1rem; top: 1rem; outline: 2px solid var(--ochre); }
+
+/* ── ARIA LIVE REGION ── */
+.sr-only {
+  position: absolute;
+  width: 1px; height: 1px;
+  margin: -1px; padding: 0;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* ── DECK WRAPPER ── */
+.deck {
+  position: relative;
+  width: 100%;
+}
+
+/* ── SLIDE BASE ── */
+.slide {
+  position: relative;
+  width: 100%;
+  min-height: var(--slide-h);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background: var(--paper);
+  overflow: hidden;
+  outline: none;
+}
+
+/* Slide-level focus ring — keyboard nav only */
+.slide:focus-visible {
+  outline: 3px solid var(--ochre);
+  outline-offset: -3px;
+}
+
+/* Ambient ink texture — same as source artifact */
+.slide::before {
+  content: "";
+  position: absolute; inset: 0; pointer-events: none; z-index: 0;
+  background:
+    radial-gradient(circle at 8% 10%, rgba(61,77,125,.04), transparent 48%),
+    radial-gradient(circle at 92% 92%, rgba(14,22,38,.035), transparent 52%);
+  mix-blend-mode: multiply;
+}
+
+/* Every slide child sits above the texture */
+.slide > * { position: relative; z-index: 1; }
+
+/* ── SLIDE VARIANTS ── */
+.slide--cover {
+  background: var(--ink);
+  color: var(--paper);
+}
+.slide--cover::before {
+  background:
+    radial-gradient(circle at 15% 20%, rgba(61,77,125,.25), transparent 55%),
+    radial-gradient(circle at 85% 80%, rgba(184,101,31,.12), transparent 50%);
+  mix-blend-mode: screen;
+}
+
+.slide--dark {
+  background: var(--ink);
+  color: var(--paper);
+}
+.slide--deep {
+  background: var(--indigo-deep);
+  color: var(--paper);
+}
+.slide--warm {
+  background: var(--paper-warm);
+}
+.slide--vignette {
+  background: var(--paper-warm);
+  border-top: 3px solid var(--indigo);
+}
+
+/* ── SLIDE INNER ── */
+.slide__inner {
+  width: min(900px, 88vw);
+  margin: 0 auto;
+  padding: 5vh 0;
+}
+
+.slide--cover .slide__inner,
+.slide--dark .slide__inner,
+.slide--deep .slide__inner {
+  width: min(900px, 88vw);
+}
+
+/* ── SLIDE CHROME (number + title for header context) ── */
+.slide__num {
+  font-family: var(--mono);
+  font-size: 10.5px;
+  letter-spacing: .28em;
+  text-transform: uppercase;
+  color: var(--indigo-link);
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+}
+.slide--cover .slide__num,
+.slide--dark .slide__num,
+.slide--deep .slide__num {
+  color: rgba(244,236,218,.5);
+}
+
+/* ── HEADINGS ── */
+.slide__h1 {
+  font-family: var(--display);
+  font-weight: 500;
+  font-variation-settings: "opsz" 144, "SOFT" 0;
+  font-size: clamp(3rem, 6vw, 5.2rem);
+  line-height: .96;
+  letter-spacing: -.03em;
+  margin: 0 0 1.8rem;
+  color: var(--paper);
+}
+.slide__h1 em {
+  font-style: italic;
+  font-variation-settings: "opsz" 144, "SOFT" 100;
+  color: var(--ochre-soft);
+}
+
+.slide__h2 {
+  font-family: var(--display);
+  font-weight: 500;
+  font-variation-settings: "opsz" 72, "SOFT" 0;
+  font-size: clamp(1.8rem, 3.4vw, 2.8rem);
+  line-height: 1.06;
+  letter-spacing: -.022em;
+  margin: 0 0 1.4rem;
+  color: var(--ink);
+}
+.slide__h2 em {
+  font-style: italic;
+  font-variation-settings: "opsz" 72, "SOFT" 80;
+  color: var(--indigo);
+}
+.slide--dark .slide__h2,
+.slide--deep .slide__h2 {
+  color: var(--paper);
+}
+.slide--dark .slide__h2 em,
+.slide--deep .slide__h2 em {
+  color: var(--ochre-soft);
+}
+
+.slide__h3 {
+  font-family: var(--display);
+  font-weight: 500;
+  font-variation-settings: "opsz" 48, "SOFT" 0;
+  font-size: clamp(1.35rem, 2.5vw, 1.9rem);
+  line-height: 1.14;
+  letter-spacing: -.016em;
+  margin: 0 0 .9rem;
+  color: var(--ink);
+}
+.slide__h3 em {
+  font-style: italic;
+  font-variation-settings: "opsz" 48, "SOFT" 80;
+  color: var(--indigo);
+}
+
+/* ── BODY TEXT ── */
+.slide__body {
+  font-family: var(--serif);
+  font-size: clamp(1rem, 1.6vw, 1.15rem);
+  line-height: 1.64;
+  color: var(--ink-2);
+  margin: 0 0 1.2rem;
+  max-width: 68ch;
+}
+.slide__body:last-child { margin-bottom: 0; }
+.slide__body strong { color: var(--ink); }
+.slide--dark .slide__body,
+.slide--deep .slide__body {
+  color: rgba(244,236,218,.85);
+}
+.slide--dark .slide__body strong,
+.slide--deep .slide__body strong {
+  color: var(--paper);
+}
+
+/* ── COVER META ── */
+.cover__slug {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: .3em;
+  text-transform: uppercase;
+  color: rgba(244,236,218,.5);
+  margin-bottom: 2.6rem;
+  line-height: 1.9;
+}
+.cover__slug .l1 { color: var(--ochre-soft); }
+
+.cover__dek {
+  font-family: var(--display);
+  font-style: italic;
+  font-variation-settings: "opsz" 36, "SOFT" 80;
+  font-size: clamp(1.1rem, 1.7vw, 1.3rem);
+  line-height: 1.52;
+  color: rgba(244,236,218,.75);
+  max-width: 62ch;
+  margin: 0 0 2.8rem;
+  font-weight: 300;
+}
+
+.cover__meta {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  color: rgba(244,236,218,.45);
+  display: flex;
+  flex-wrap: wrap;
+  gap: .6rem 2.4rem;
+  border-top: 1px solid rgba(244,236,218,.14);
+  padding-top: 1.2rem;
+}
+.cover__meta .k { color: rgba(244,236,218,.3); margin-right: .45rem; }
+.cover__meta .v { color: rgba(244,236,218,.65); }
+
+/* rt-stamp — cover only */
+.rt-stamp--cover {
+  font-family: var(--mono);
+  font-size: 9.5px;
+  letter-spacing: .08em;
+  color: rgba(244,236,218,.35);
+  background: rgba(14,22,38,.3);
+  padding: .22rem .55rem;
+  border-radius: 999px;
+  border: 1px solid rgba(184,101,31,.2);
+  display: inline-flex;
+  align-items: center;
+  gap: .45rem;
+  margin-top: 1.6rem;
+  width: max-content;
+}
+.rt-stamp--cover .dot { color: var(--ochre); }
+
+/* ── THESIS SLIDE ── */
+.thesis__quote {
+  font-family: var(--display);
+  font-style: italic;
+  font-variation-settings: "opsz" 144, "SOFT" 100;
+  font-weight: 300;
+  font-size: clamp(1.65rem, 3.5vw, 2.6rem);
+  line-height: 1.16;
+  letter-spacing: -.02em;
+  color: var(--ink);
+  margin: 0 0 1.6rem;
+}
+.thesis__quote em {
+  color: var(--indigo);
+  font-variation-settings: "opsz" 144, "SOFT" 100;
+}
+.thesis__attr {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: .22em;
+  text-transform: uppercase;
+  color: var(--ink-3-aaa);
+}
+.thesis__attr strong { color: var(--ink); font-weight: 500; }
+
+/* ── DEFINITION GRID ── */
+.deflist {
+  list-style: none;
+  padding: 0; margin: 1rem 0 0;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0;
+}
+.deflist__item {
+  display: grid;
+  grid-template-columns: 12rem 1fr;
+  gap: 1.2rem;
+  align-items: baseline;
+  padding: .85rem 0;
+  border-top: 1px solid var(--paper-rule);
+}
+.deflist__item:last-child { border-bottom: 1px solid var(--paper-rule); }
+.deflist__label {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: var(--indigo-link);
+}
+.deflist__body {
+  font-family: var(--serif);
+  font-size: clamp(.95rem, 1.4vw, 1.05rem);
+  line-height: 1.6;
+  color: var(--ink-2);
+}
+.deflist__body strong { color: var(--ink); }
+
+/* ── ERA CARD ── */
+.era-badge {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: .22em;
+  text-transform: uppercase;
+  color: var(--indigo-link);
+  margin-bottom: .8rem;
+  display: block;
+}
+.era-title {
+  font-family: var(--display);
+  font-style: italic;
+  font-variation-settings: "opsz" 48, "SOFT" 60;
+  font-size: clamp(1.6rem, 2.8vw, 2.2rem);
+  color: var(--ink);
+  margin: 0 0 .5rem;
+  font-weight: 400;
+  line-height: 1.15;
+}
+.era-years {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: .16em;
+  color: var(--ink-mute);
+  text-transform: uppercase;
+  margin-bottom: 1.4rem;
+  display: block;
+}
+.era-rule {
+  width: 3rem;
+  height: 2px;
+  background: var(--indigo);
+  margin-bottom: 1.4rem;
+}
+
+/* ── COMPETITOR MATRIX SLIDES ── */
+.compgroup {
+  font-family: var(--mono);
+  font-size: 10.5px;
+  letter-spacing: .28em;
+  text-transform: uppercase;
+  color: var(--ochre-link);
+  margin-bottom: 1.2rem;
+}
+
+.vendor-list {
+  list-style: none;
+  padding: 0; margin: 0;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0;
+}
+.vendor-item {
+  display: grid;
+  grid-template-columns: 9rem 8rem 1fr;
+  gap: 1rem;
+  padding: .85rem 0;
+  border-top: 1px solid var(--paper-rule);
+  align-items: baseline;
+}
+.vendor-item:last-child { border-bottom: 1px solid var(--paper-rule); }
+.vendor-name {
+  font-family: var(--serif);
+  font-size: 1rem;
+  color: var(--ink);
+  font-weight: 500;
+}
+.vendor-name .vsub {
+  display: block;
+  font-family: var(--mono);
+  font-size: 9.5px;
+  letter-spacing: .12em;
+  color: var(--ink-mute);
+  text-transform: uppercase;
+  margin-top: .15rem;
+  font-weight: 400;
+}
+.vendor-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .3rem;
+  align-items: flex-start;
+}
+.pill {
+  display: inline-block;
+  padding: .12rem .4rem;
+  border: 1px solid;
+  border-radius: 2px;
+  font-family: var(--mono);
+  font-size: 9.5px;
+  letter-spacing: .11em;
+  text-transform: uppercase;
+  font-weight: 500;
+}
+.p-shipped { color: #3a4a2c; border-color: #3a4a2c; background: rgba(58,74,44,.07); }
+.p-partial  { color: var(--ochre-link); border-color: var(--ochre-link); background: rgba(122,61,10,.05); }
+.p-claim    { color: var(--ink-3-aaa); border-color: var(--paper-rule-2); background: var(--paper-deep); }
+.p-graph    { color: var(--indigo-link); border-color: var(--indigo); background: rgba(61,77,125,.06); }
+.p-row      { color: var(--plum); border-color: var(--plum); background: rgba(107,58,74,.05); }
+.p-scope    { color: var(--ink-mute); border-color: var(--paper-rule); background: var(--paper-deep); }
+
+.vendor-read {
+  font-family: var(--serif);
+  font-size: clamp(.88rem, 1.3vw, .97rem);
+  line-height: 1.55;
+  color: var(--ink-2);
+}
+
+/* ── REASONS LIST (why agents need graph) ── */
+.reasons {
+  list-style: none;
+  padding: 0; margin: 0;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+.reason {
+  padding: 1rem 1.1rem;
+  background: var(--paper-warm);
+  border: 1px solid var(--paper-rule);
+  border-top: 2px solid var(--indigo);
+}
+.reason__label {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: .22em;
+  text-transform: uppercase;
+  color: var(--indigo-link);
+  margin-bottom: .5rem;
+}
+.reason__body {
+  font-family: var(--serif);
+  font-size: clamp(.9rem, 1.3vw, .97rem);
+  color: var(--ink-2);
+  line-height: 1.55;
+  margin: 0;
+}
+.reason__body strong { color: var(--ink); }
+
+/* ── VIGNETTE SLIDE ── */
+.vignette__role {
+  font-family: var(--mono);
+  font-size: 10.5px;
+  letter-spacing: .26em;
+  text-transform: uppercase;
+  color: var(--indigo-link);
+  margin-bottom: .7rem;
+}
+.vignette__prompt {
+  font-family: var(--display);
+  font-style: italic;
+  font-variation-settings: "opsz" 48, "SOFT" 80;
+  font-size: clamp(1.3rem, 2.4vw, 1.8rem);
+  color: var(--ink);
+  margin: 0 0 1.3rem;
+  font-weight: 400;
+  line-height: 1.25;
+  max-width: 56ch;
+}
+.vignette__border {
+  width: 3rem;
+  height: 2px;
+  background: var(--indigo);
+  margin-bottom: 1.3rem;
+}
+.vignette__before,
+.vignette__after {
+  padding: .9rem 1.1rem;
+  font-family: var(--serif);
+  font-size: clamp(.9rem, 1.3vw, 1rem);
+  line-height: 1.58;
+  color: var(--ink-2);
+  border: 1px solid var(--paper-rule);
+}
+.vignette__before { background: var(--paper-deep); margin-bottom: .5rem; }
+.vignette__after  { background: var(--paper-warm); border-left: 3px solid var(--moss); }
+.vignette__label {
+  font-family: var(--mono);
+  font-size: 9.5px;
+  letter-spacing: .2em;
+  text-transform: uppercase;
+  display: block;
+  margin-bottom: .4rem;
+}
+.vignette__before .vignette__label { color: var(--plum); }
+.vignette__after .vignette__label  { color: #3a4a2c; }
+
+/* ── ARCHITECTURE ASCII ── */
+.arch-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.2rem;
+  margin-top: 1rem;
+}
+.arch-col__head {
+  font-family: var(--mono);
+  font-size: 10.5px;
+  letter-spacing: .22em;
+  text-transform: uppercase;
+  padding: .6rem .9rem;
+  margin-bottom: .5rem;
+}
+.arch-col__head--warehouse {
+  color: var(--plum);
+  background: rgba(107,58,74,.06);
+  border: 1px solid var(--plum);
+  border-radius: 2px;
+}
+.arch-col__head--graph {
+  color: var(--indigo-link);
+  background: rgba(61,77,125,.06);
+  border: 1px solid var(--indigo);
+  border-radius: 2px;
+}
+.arch-rows {
+  list-style: none;
+  padding: 0; margin: 0;
+}
+.arch-rows li {
+  font-family: var(--mono);
+  font-size: clamp(9.5px, 1.2vw, 11.5px);
+  line-height: 1.7;
+  color: var(--ink-2);
+  padding: .3rem 0;
+  border-bottom: 1px dashed var(--paper-rule);
+}
+.arch-rows li:last-child { border-bottom: 0; }
+.arch-rows--warehouse li { color: var(--plum); }
+.arch-rows--graph     li { color: var(--indigo-link); }
+.arch-rows li strong  { color: var(--ink); }
+.arch-note {
+  font-family: var(--mono);
+  font-size: 10.5px;
+  letter-spacing: .1em;
+  color: var(--ink-3-aaa);
+  margin-top: 1rem;
+  line-height: 1.55;
+}
+
+/* ── COMPLIANCE SLIDE ── */
+.compliance-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+.compliance-card {
+  padding: 1.1rem 1.2rem;
+  border: 1px solid var(--paper-rule);
+  background: var(--paper-warm);
+  border-top: 2px solid var(--indigo);
+}
+.compliance-card__label {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: .22em;
+  text-transform: uppercase;
+  color: var(--indigo-link);
+  margin-bottom: .5rem;
+}
+.compliance-card__title {
+  font-family: var(--display);
+  font-weight: 500;
+  font-size: 1.05rem;
+  color: var(--ink);
+  margin: 0 0 .55rem;
+  line-height: 1.25;
+}
+.compliance-card__body {
+  font-family: var(--serif);
+  font-size: clamp(.88rem, 1.3vw, .97rem);
+  color: var(--ink-2);
+  margin: 0;
+  line-height: 1.55;
+}
+.compliance-card__body strong { color: var(--ink); }
+
+/* ── COUNTER-ARGS ── */
+.counterargs {
+  list-style: none;
+  padding: 0; margin: 0;
+  counter-reset: counterc;
+}
+.counterarg {
+  position: relative;
+  padding: .85rem 0 .85rem 3.2rem;
+  border-top: 1px solid var(--paper-rule);
+  counter-increment: counterc;
+}
+.counterarg:last-child { border-bottom: 1px solid var(--paper-rule); }
+.counterarg::before {
+  content: counter(counterc, decimal-leading-zero);
+  position: absolute; left: 0; top: 1rem;
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: .12em;
+  color: var(--plum);
+}
+.counterarg__claim {
+  font-family: var(--display);
+  font-style: italic;
+  font-variation-settings: "opsz" 24, "SOFT" 60;
+  font-size: clamp(.95rem, 1.5vw, 1.05rem);
+  color: var(--ink);
+  display: block;
+  margin-bottom: .35rem;
+  font-weight: 400;
+  line-height: 1.38;
+}
+.counterarg__answer {
+  font-family: var(--serif);
+  font-size: clamp(.88rem, 1.3vw, .97rem);
+  color: var(--ink-2);
+  margin: 0;
+  line-height: 1.55;
+}
+.counterarg__answer strong { color: var(--ink); }
+
+/* ── IMPLICATIONS ── */
+.impl-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: .9rem;
+  margin-top: 1rem;
+}
+.impl-card {
+  padding: 1.1rem 1.2rem;
+  border: 1px solid var(--paper-rule);
+  background: var(--paper-warm);
+  border-top: 2px solid var(--indigo);
+}
+.impl-card__num {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: .22em;
+  text-transform: uppercase;
+  color: var(--indigo-link);
+  margin-bottom: .5rem;
+}
+.impl-card__title {
+  font-family: var(--display);
+  font-weight: 500;
+  font-size: clamp(.95rem, 1.4vw, 1.08rem);
+  color: var(--ink);
+  margin: 0 0 .55rem;
+  line-height: 1.22;
+}
+.impl-card__body {
+  font-family: var(--serif);
+  font-size: clamp(.85rem, 1.2vw, .93rem);
+  color: var(--ink-2);
+  margin: 0;
+  line-height: 1.55;
+}
+
+/* ── CLOSE / PULL-QUOTE SLIDE ── */
+.close__quote {
+  font-family: var(--display);
+  font-style: italic;
+  font-variation-settings: "opsz" 144, "SOFT" 100;
+  font-weight: 300;
+  font-size: clamp(1.9rem, 4.5vw, 3.2rem);
+  line-height: 1.1;
+  letter-spacing: -.02em;
+  color: var(--paper);
+  margin: 0 0 1.8rem;
+  max-width: 22ch;
+}
+.close__attr {
+  font-family: var(--mono);
+  font-size: 11.5px;
+  letter-spacing: .22em;
+  text-transform: uppercase;
+  color: rgba(244,236,218,.55);
+  margin-bottom: 2.4rem;
+}
+.close__attr strong { color: rgba(244,236,218,.8); font-weight: 500; }
+.close__cta {
+  display: inline-block;
+  font-family: var(--mono);
+  font-size: 12px;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  color: var(--paper);
+  border-bottom: 1px solid var(--ochre-soft);
+  text-decoration: none;
+  padding-bottom: 2px;
+  transition: color .2s, border-color .2s;
+}
+.close__cta:hover {
+  color: var(--ochre-soft);
+  border-bottom-color: var(--ochre-soft);
+}
+
+/* ── NAV CHROME ── */
+.nav-bar {
+  position: fixed;
+  bottom: 0; left: 0; right: 0;
+  z-index: 500;
+  display: flex;
+  align-items: stretch;
+  justify-content: space-between;
+  background: rgba(14,22,38,.9);
+  -webkit-backdrop-filter: saturate(150%) blur(12px);
+  backdrop-filter: saturate(150%) blur(12px);
+  border-top: 1px solid rgba(244,236,218,.08);
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: .12em;
+}
+.nav-bar__btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: .9rem 1.4rem;
+  color: rgba(244,236,218,.7);
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  transition: color .15s;
+  min-width: 5rem;
+  text-align: center;
+}
+.nav-bar__btn:hover { color: var(--paper); }
+.nav-bar__btn:disabled { opacity: .28; cursor: default; }
+.nav-bar__btn:focus-visible {
+  outline: 2px solid var(--ochre);
+  outline-offset: -2px;
+}
+.nav-bar__counter {
+  display: flex;
+  align-items: center;
+  color: rgba(244,236,218,.5);
+  font-size: 11px;
+  letter-spacing: .12em;
+  padding: 0 1rem;
+  user-select: none;
+  gap: .5rem;
+}
+.nav-bar__counter .sep { opacity: .35; }
+.nav-bar__title {
+  display: flex;
+  align-items: center;
+  color: rgba(244,236,218,.4);
+  font-size: 10.5px;
+  letter-spacing: .1em;
+  flex: 1;
+  padding: 0 1rem;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+.nav-bar__grid-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: .9rem 1.2rem;
+  color: rgba(244,236,218,.5);
+  font-family: var(--mono);
+  font-size: 10.5px;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  transition: color .15s;
+  border-left: 1px solid rgba(244,236,218,.08);
+}
+.nav-bar__grid-btn:hover { color: var(--paper); }
+.nav-bar__grid-btn:focus-visible {
+  outline: 2px solid var(--ochre);
+  outline-offset: -2px;
+}
+
+/* ── GRID OVERVIEW ── */
+.grid-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 400;
+  background: rgba(14,22,38,.96);
+  -webkit-backdrop-filter: saturate(120%) blur(4px);
+  backdrop-filter: saturate(120%) blur(4px);
+  display: none;
+  flex-direction: column;
+  overflow-y: auto;
+}
+.grid-overlay.is-open { display: flex; }
+.grid-overlay__header {
+  padding: 1.2rem 2rem .8rem;
+  border-bottom: 1px solid rgba(244,236,218,.1);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  color: rgba(244,236,218,.5);
+  position: sticky;
+  top: 0;
+  background: rgba(14,22,38,.97);
+  z-index: 10;
+}
+.grid-overlay__close {
+  background: none;
+  border: 1px solid rgba(244,236,218,.2);
+  color: rgba(244,236,218,.7);
+  cursor: pointer;
+  padding: .4rem .8rem;
+  font-family: var(--mono);
+  font-size: 10.5px;
+  letter-spacing: .16em;
+  text-transform: uppercase;
+  transition: color .15s, border-color .15s;
+  border-radius: 2px;
+}
+.grid-overlay__close:hover { color: var(--paper); border-color: rgba(244,236,218,.5); }
+.grid-overlay__close:focus-visible { outline: 2px solid var(--ochre); outline-offset: 2px; }
+.grid-overlay__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 1.2rem;
+  padding: 1.6rem 2rem 6rem;
+}
+.grid-thumb {
+  cursor: pointer;
+  border: 1px solid rgba(244,236,218,.12);
+  border-radius: 2px;
+  overflow: hidden;
+  transition: border-color .15s, transform .12s;
+  background: var(--ink-2);
+}
+.grid-thumb:hover { border-color: var(--ochre); transform: translateY(-2px); }
+.grid-thumb:focus-visible { outline: 2px solid var(--ochre); outline-offset: 2px; }
+.grid-thumb.is-active { border-color: var(--ochre); border-width: 2px; }
+.grid-thumb__preview {
+  aspect-ratio: 16 / 9;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--paper-deep);
+  padding: 1rem;
+  overflow: hidden;
+}
+.grid-thumb__preview--dark { background: var(--ink); }
+.grid-thumb__preview--deep { background: var(--indigo-deep); }
+.grid-thumb__preview--warm { background: var(--paper-warm); }
+.grid-thumb__preview--vignette { background: var(--paper-warm); border-top: 3px solid var(--indigo); }
+.grid-thumb__num {
+  font-family: var(--mono);
+  font-size: 9.5px;
+  letter-spacing: .16em;
+  color: rgba(244,236,218,.5);
+  padding: .4rem .7rem;
+  background: rgba(14,22,38,.85);
+  border-top: 1px solid rgba(244,236,218,.08);
+}
+.grid-thumb__label {
+  font-family: var(--display);
+  font-size: clamp(.55rem, 1.5vw, .8rem);
+  color: var(--ink);
+  text-align: center;
+  line-height: 1.25;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+.grid-thumb__preview--dark .grid-thumb__label,
+.grid-thumb__preview--deep .grid-thumb__label { color: var(--paper); }
+
+/* ── SECTION BREAK SLIDE ── */
+.section-break__num {
+  font-family: var(--mono);
+  font-size: 10.5px;
+  letter-spacing: .3em;
+  text-transform: uppercase;
+  color: rgba(244,236,218,.4);
+  margin-bottom: 1.2rem;
+}
+.section-break__h {
+  font-family: var(--display);
+  font-weight: 500;
+  font-variation-settings: "opsz" 72, "SOFT" 0;
+  font-size: clamp(2.4rem, 5vw, 4rem);
+  line-height: 1.0;
+  letter-spacing: -.03em;
+  color: var(--paper);
+  margin: 0;
+}
+.section-break__h em {
+  font-style: italic;
+  font-variation-settings: "opsz" 72, "SOFT" 100;
+  color: var(--ochre-soft);
+}
+
+/* ── TRANSITIONS ── */
+.slide {
+  opacity: 1;
+  transition: opacity .3s ease;
+}
+.slide.is-leaving {
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* Disable all transitions for reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .slide,
+  .slide.is-leaving,
+  .grid-thumb,
+  .nav-bar__btn,
+  .close__cta {
+    transition: none;
+  }
+}
+
+/* ── PRINT ── */
+@media print {
+  .nav-bar,
+  .grid-overlay { display: none; }
+
+  html { background: white; }
+  body { background: white; font-size: 11pt; }
+
+  .slide {
+    min-height: 0;
+    height: auto;
+    page-break-after: always;
+    padding: 1.5cm;
+    break-after: page;
+  }
+  .slide:last-child { page-break-after: auto; break-after: auto; }
+  .slide--cover { background: var(--ink); color-adjust: exact; -webkit-print-color-adjust: exact; }
+  .slide--dark  { background: var(--ink); color-adjust: exact; -webkit-print-color-adjust: exact; }
+  .slide--deep  { background: var(--indigo-deep); color-adjust: exact; -webkit-print-color-adjust: exact; }
+  .slide__inner { padding: 0; }
+}
+
+/* ── MOBILE / RESPONSIVE ── */
+@media (max-width: 760px) {
+  .slide {
+    min-height: var(--slide-h);
+    justify-content: flex-start;
+    padding-top: 3.5rem;
+    padding-bottom: 4.5rem;
+  }
+  .slide__inner { padding: 2vh 0 2vh; }
+
+  .deflist__item { grid-template-columns: 1fr; gap: .2rem; }
+  .deflist__label { font-size: 10px; }
+
+  .vendor-item { grid-template-columns: 1fr; gap: .3rem; }
+  .vendor-pills { margin: .2rem 0; }
+
+  .reasons { grid-template-columns: 1fr; }
+  .compliance-grid { grid-template-columns: 1fr; }
+  .impl-grid { grid-template-columns: 1fr; }
+  .arch-container { grid-template-columns: 1fr; }
+
+  .slide__h1 { font-size: clamp(2.2rem, 9vw, 3.6rem); }
+  .slide__h2 { font-size: clamp(1.5rem, 5vw, 2.2rem); }
+  .thesis__quote { font-size: clamp(1.4rem, 6vw, 2.2rem); }
+  .close__quote { font-size: clamp(1.5rem, 6vw, 2.4rem); }
+
+  .nav-bar__title { display: none; }
+  .grid-overlay__grid { grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: .8rem; padding: 1rem 1rem 5rem; }
+}
+</style>
+</head>
+<body>
+<a href="#slide-1" class="skip-link">Skip to first slide</a>
+
+<!-- Aria live region for slide announcements -->
+<div id="slide-announce" class="sr-only" aria-live="polite" aria-atomic="true"></div>
+
+<!-- ══════════════════════════════════════ GRID OVERVIEW ══ -->
+<div class="grid-overlay" id="grid-overlay" role="dialog" aria-modal="true" aria-label="Slide overview">
+  <div class="grid-overlay__header">
+    <span>Overview &middot; 22 slides</span>
+    <button class="grid-overlay__close" id="grid-close" type="button">Close <kbd>Esc</kbd></button>
+  </div>
+  <div class="grid-overlay__grid" id="grid-container" role="list">
+    <!-- Thumbnails injected by JS -->
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════ DECK ══ -->
+<main class="deck" id="main" aria-label="Presentation: The People Graph, in 360°">
+
+<!-- ─────────────────────────────────────────── SLIDE 01 · COVER ── -->
+<section class="slide slide--cover" id="slide-1" tabindex="-1" aria-label="Slide 1 of 22: Cover" data-title="Cover" data-theme="dark">
+  <div class="slide__inner">
+
+    <div class="cover__slug">
+      <div class="l1">Stratum / Research / The Substrate Series / No. 01</div>
+      <div>By Eglin &middot; Industry research desk</div>
+    </div>
+
+    <h1 class="slide__h1">The People Graph,<br /><em>in 360&deg;.</em></h1>
+
+    <p class="cover__dek">
+      What it is, who has actually built one, why agentic companies
+      can&rsquo;t operate without it, and what separates a real graph
+      from a relational database with a marketing department.
+    </p>
+
+    <div class="cover__meta">
+      <div><span class="k">Author</span><span class="v">Eglin &middot; industry research</span></div>
+      <div><span class="k">Published</span><span class="v">2026-05-22 &middot; T+88d</span></div>
+      <div><span class="k">Scope</span><span class="v">22 slides &middot; stands alone</span></div>
+      <div><span class="k">Audience</span><span class="v">CHRO, CIO, board, analyst, Stratum agent</span></div>
+    </div>
+
+    <!-- rt-stamp cover only -->
+    <div class="rt-stamp--cover" aria-label="Compiled at T+88d, 2026-05-22">
+      <span class="dot" aria-hidden="true">&#9679;</span>
+      compiled at <strong>T+88d &middot; 2026-05-22</strong>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ─────────────────────────────────────────── SLIDE 02 · THESIS ── -->
+<section class="slide slide--dark" id="slide-2" tabindex="-1" aria-label="Slide 2 of 22: Thesis" data-title="Thesis" data-theme="dark">
+  <div class="slide__inner">
+
+    <div class="slide__num">02 &middot; Thesis</div>
+
+    <blockquote class="thesis__quote">
+      &ldquo;Most vendors call it a graph. A few have built one.
+      The difference is whether the <em>edge exists</em> when no
+      human writes a JOIN.&rdquo;
+    </blockquote>
+
+    <div class="thesis__attr">
+      <strong>Eglin</strong> &middot; Industry research desk &middot; Stratum, Inc. &middot; 2026-05-22
+    </div>
+
+    <p class="slide__body" style="margin-top:2rem;max-width:60ch;">
+      This presentation walks the full case: definition, 70 years of
+      historical accident, an honest 12-vendor scan, why agents need
+      a graph, four buyer vignettes, the architectural argument,
+      compliance, honest counter-arguments, and what it means for Stratum.
+    </p>
+
+  </div>
+</section>
+
+
+<!-- ─────────────────────────────────────────── SLIDE 03 · DEFINITION ── -->
+<section class="slide" id="slide-3" tabindex="-1" aria-label="Slide 3 of 22: What a people graph is" data-title="What a people graph is" data-theme="light">
+  <div class="slide__inner">
+
+    <div class="slide__num" style="color:var(--indigo-link)">03 &middot; Definition</div>
+
+    <h2 class="slide__h2">What a people graph <em>actually is.</em></h2>
+
+    <p class="slide__body">
+      The <strong>identity-resolved, time-aware, multi-source</strong> representation
+      of every person connected to a company &mdash; employees, candidates,
+      contractors, alumni &mdash; together with their skills, attestations,
+      relationships, trajectories, and consents, expressed as a labeled property
+      graph queryable by traversal. Five properties matter.
+    </p>
+
+    <ul class="deflist" aria-label="Five properties of a people graph">
+      <li class="deflist__item">
+        <span class="deflist__label">Identity-resolved</span>
+        <span class="deflist__body">One human = one node, across every system that holds a record about her. Maria in Workday, M. Lopez in Greenhouse, mlopez@ in the directory &mdash; <strong>one node, not four rows.</strong></span>
+      </li>
+      <li class="deflist__item">
+        <span class="deflist__label">Time-aware</span>
+        <span class="deflist__body">Every edge carries a valid-from and valid-to. Headcount on any historical Tuesday is a <strong>query, not a backup.</strong></span>
+      </li>
+      <li class="deflist__item">
+        <span class="deflist__label">Multi-source</span>
+        <span class="deflist__body">Ingests from HRIS, ATS, LMS, payroll, equity, directory. If the HRIS is replaced, <strong>the graph survives.</strong></span>
+      </li>
+      <li class="deflist__item">
+        <span class="deflist__label">Consent-bound</span>
+        <span class="deflist__body">Edges carry consent metadata. Traversal is <strong>governed, not just indexed.</strong></span>
+      </li>
+      <li class="deflist__item">
+        <span class="deflist__label">Queryable as a graph</span>
+        <span class="deflist__body">Shortest-path, neighborhood, and subgraph queries run as <strong>graph traversals at interactive latency</strong> &mdash; not fifteen-table JOINs.</span>
+      </li>
+    </ul>
+
+  </div>
+</section>
+
+
+<!-- ─────────────────────────────────────────── SLIDE 04 · NOT THIS (1 of 2) ── -->
+<section class="slide slide--warm" id="slide-4" tabindex="-1" aria-label="Slide 4 of 22: What it is not — part one" data-title="What it is not (1 of 2)" data-theme="warm">
+  <div class="slide__inner">
+
+    <div class="slide__num" style="color:var(--indigo-link)">04 &middot; What it is not &middot; part 1</div>
+
+    <h2 class="slide__h2">Not the HRIS. Not the ATS. Not the org chart.</h2>
+
+    <ul class="deflist" aria-label="Three things a people graph is not — first group">
+      <li class="deflist__item">
+        <span class="deflist__label">Not the HRIS</span>
+        <span class="deflist__body">An HRIS (Workday, SuccessFactors, Oracle HCM) is a system <em>of record</em> for badged employment, payroll, and position data. Single-source by design. It is not the answer to <em>who is this person, across everything we know about them?</em></span>
+      </li>
+      <li class="deflist__item">
+        <span class="deflist__label">Not the ATS funnel</span>
+        <span class="deflist__body">An ATS (Greenhouse, Lever, iCIMS) is a directed-acyclic state machine over a candidate&rsquo;s movement through stages. Rich about the funnel; poor about everything after the offer. The ATS&rarr;HRIS handoff, in every implementation studied, is a re-key: the same person gets a new ID and the application-to-employment link is severed.</span>
+      </li>
+      <li class="deflist__item">
+        <span class="deflist__label">Not the org chart</span>
+        <span class="deflist__body">An org chart (ChartHop, Pingboard) is one dimension of the graph &mdash; the <em>reports-to</em> edge &mdash; drawn at a single point in time. <strong>A people graph contains the org chart. The org chart does not contain the people graph.</strong></span>
+      </li>
+    </ul>
+
+  </div>
+</section>
+
+
+<!-- ─────────────────────────────────────────── SLIDE 05 · NOT THIS (2 of 2) ── -->
+<section class="slide slide--warm" id="slide-5" tabindex="-1" aria-label="Slide 5 of 22: What it is not — part two" data-title="What it is not (2 of 2)" data-theme="warm">
+  <div class="slide__inner">
+
+    <div class="slide__num" style="color:var(--indigo-link)">05 &middot; What it is not &middot; part 2</div>
+
+    <h2 class="slide__h2">Not LinkedIn. Not Microsoft Graph.</h2>
+
+    <ul class="deflist" aria-label="Two more things a people graph is not">
+      <li class="deflist__item">
+        <span class="deflist__label">Not LinkedIn</span>
+        <span class="deflist__body">LinkedIn&rsquo;s Economic Graph is the closest thing to a real people graph at population scale &mdash; 1&nbsp;billion members, 41,000 skills, 67&nbsp;million companies. But it is the <em>external</em> graph. It does not know who is on Tuesday&rsquo;s payroll. It cannot be queried by a manager asking <em>who on my team is at flight risk.</em> A people graph is the internal counterpart: same structure, bounded by employment, governed by the company&rsquo;s consent regime.</span>
+      </li>
+      <li class="deflist__item">
+        <span class="deflist__label">Not Microsoft Graph</span>
+        <span class="deflist__body">Microsoft Graph is an identity-and-collaboration graph over mail, calendar, files, and Teams. The &ldquo;person&rdquo; in Microsoft Graph is an Entra ID, not an entity-resolved human across HCM systems. In 2026, every HCM people graph will need to <em>interoperate</em> with Microsoft Graph; few will be subsumed by it.</span>
+      </li>
+    </ul>
+
+    <p class="slide__body" style="margin-top:1rem;font-style:italic;color:var(--ink-3-aaa);font-family:var(--display);font-size:.98rem;font-variation-settings:'opsz' 18, 'SOFT' 60;">
+      The single-sentence summary: a people graph is what you have when the same human being is one node across every system that knows them, every edge carries a time interval and a consent flag, and the structure is queryable by traversal.
+    </p>
+
+  </div>
+</section>
+
+
+<!-- ─────────────────────────────────────────── SLIDE 06 · ERA 01 ── -->
+<section class="slide" id="slide-6" tabindex="-1" aria-label="Slide 6 of 22: Era 01 — Payroll-first" data-title="Era 01 · Payroll-first" data-theme="light">
+  <div class="slide__inner">
+
+    <div class="slide__num" style="color:var(--indigo-link)">06 &middot; The historical accident &middot; era 01 of 04</div>
+
+    <span class="era-badge">Era 01</span>
+    <h2 class="era-title">Payroll-first.</h2>
+    <span class="era-years">1950s &mdash; 1980s</span>
+    <div class="era-rule" aria-hidden="true"></div>
+
+    <p class="slide__body">
+      ADP was founded in 1949 as Automatic Payrolls, Inc., processing timesheets on punch cards.
+      The data model was a tape, indexed by File Number. A &ldquo;person&rdquo; was a row with
+      hours, a deduction stack, and a check address.
+    </p>
+    <p class="slide__body">
+      Nothing about skills. Nothing about relationships. Nothing about time other than the
+      current pay period. This model worked because the question was:
+      <strong><em>cut the right check by Friday.</em></strong> It was answered by a row.
+    </p>
+    <p class="slide__body">
+      Every architectural decision made in this era optimized for payroll throughput. The
+      row model was the right answer to the question being asked. It was also the founding
+      accident that the next 70 years would build on top of.
+    </p>
+
+  </div>
+</section>
+
+
+<!-- ─────────────────────────────────────────── SLIDE 07 · ERA 02 ── -->
+<section class="slide slide--warm" id="slide-7" tabindex="-1" aria-label="Slide 7 of 22: Era 02 — HRIS of record" data-title="Era 02 · HRIS of record" data-theme="warm">
+  <div class="slide__inner">
+
+    <div class="slide__num" style="color:var(--indigo-link)">07 &middot; The historical accident &middot; era 02 of 04</div>
+
+    <span class="era-badge">Era 02</span>
+    <h2 class="era-title">HRIS-of-record.</h2>
+    <span class="era-years">1990s &mdash; 2000s</span>
+    <div class="era-rule" aria-hidden="true"></div>
+
+    <p class="slide__body">
+      PeopleSoft, Oracle HRMS, and SAP HR generalized the payroll row into a richer employee
+      record: position, supervisor, cost center, benefits enrollment. Hundreds of tables,
+      thousands of foreign keys. A &ldquo;person&rdquo; was now <em>multiple rows across
+      multiple tables, joined at query time.</em>
+    </p>
+    <p class="slide__body">
+      A real improvement &mdash; you could ask questions across position, history, and benefits &mdash;
+      but it committed the industry to a paradigm: <strong>the person is what the JOIN says
+      they are.</strong> If the JOIN is wrong, the person is wrong. If two tables disagree,
+      the more senior team wins.
+    </p>
+
+  </div>
+</section>
+
+
+<!-- ─────────────────────────────────────────── SLIDE 08 · ERA 03 ── -->
+<section class="slide" id="slide-8" tabindex="-1" aria-label="Slide 8 of 22: Era 03 — Cloud HCM suite" data-title="Era 03 · Cloud HCM suite" data-theme="light">
+  <div class="slide__inner">
+
+    <div class="slide__num" style="color:var(--indigo-link)">08 &middot; The historical accident &middot; era 03 of 04</div>
+
+    <span class="era-badge">Era 03</span>
+    <h2 class="era-title">Cloud HCM suite.</h2>
+    <span class="era-years">2010s</span>
+    <div class="era-rule" aria-hidden="true"></div>
+
+    <p class="slide__body">
+      Workday (IPO 2012) and SAP SuccessFactors (acquired 2011) re-platformed the HRIS onto
+      the cloud. The marketing pitch was <em>one system for the employee lifecycle.</em>
+    </p>
+    <p class="slide__body">
+      The reality: the suites absorbed core HR, payroll, benefits, time, and basic talent
+      modules &mdash; and left everything else (ATS, LMS, engagement, performance, equity)
+      to specialists. The suite became the system of record for the badged employee.
+      Everything outside the badge was a separate system, integrated by event-bus or
+      by weekly CSV.
+    </p>
+    <p class="slide__body">
+      The data model improved. The silo problem got <strong>worse</strong>, because now
+      there were more silos and the suite vendor had a commercial incentive to make
+      integration to non-suite systems harder.
+    </p>
+
+  </div>
+</section>
+
+
+<!-- ─────────────────────────────────────────── SLIDE 09 · ERA 04 ── -->
+<section class="slide slide--warm" id="slide-9" tabindex="-1" aria-label="Slide 9 of 22: Era 04 — Point-solution explosion" data-title="Era 04 · Point-solution explosion" data-theme="warm">
+  <div class="slide__inner">
+
+    <div class="slide__num" style="color:var(--indigo-link)">09 &middot; The historical accident &middot; era 04 of 04</div>
+
+    <span class="era-badge">Era 04</span>
+    <h2 class="era-title">Point-solution explosion.</h2>
+    <span class="era-years">2010s &mdash; present</span>
+    <div class="era-rule" aria-hidden="true"></div>
+
+    <p class="slide__body">
+      Greenhouse took the ATS out of the suite. Lattice took performance and engagement.
+      Cornerstone took learning. Carta took equity. Each was a categorical improvement over
+      the suite module it replaced. Each was also another database with another identity
+      scheme. The average mid-market HR stack: <strong>7 to 12 systems-of-record about
+      people.</strong>
+    </p>
+    <p class="slide__body">
+      Halcyon Health, with 2,400 employees, has <strong>12,112 rows across seven
+      systems</strong> (Forge&rsquo;s Essay No.&nbsp;02). Halcyon is closer to median
+      than to outlier.
+    </p>
+    <p class="slide__body" style="font-style:italic;color:var(--ink-3-aaa);font-family:var(--display);font-variation-settings:'opsz' 18, 'SOFT' 60;">
+      Each era left behind an architecture correct for its decade and structurally incorrect
+      for the next one. The question being asked now is only answerable by a graph.
+    </p>
+
+  </div>
+</section>
+
+
+<!-- ─────────────────────────────────────────── SLIDE 10 · COMPETITOR SCAN — SHIPPED ── -->
+<section class="slide" id="slide-10" tabindex="-1" aria-label="Slide 10 of 22: Competitor scan — Shipped" data-title="Competitor scan · Shipped" data-theme="light">
+  <div class="slide__inner">
+
+    <div class="slide__num" style="color:var(--indigo-link)">10 &middot; Who is doing this &middot; shipped</div>
+
+    <h2 class="slide__h2">12 vendors. <em>Shipped vs. claimed.</em></h2>
+
+    <p class="slide__body" style="margin-bottom:1rem;">
+      <strong>Shipped</strong> means primary-source evidence of a real graph data model with entity resolution and traversal in production.
+      <strong>Partial</strong> means parts are real but identity resolution or time-awareness are not demonstrated.
+      <strong>Claim</strong> means graph language in the marketing; no primary evidence beyond the brochure.
+    </p>
+
+    <div class="compgroup">Shipped &mdash; 4 vendors</div>
+
+    <ul class="vendor-list" aria-label="Vendors with shipped graph capabilities">
+      <li class="vendor-item">
+        <span class="vendor-name">Gloat <span class="vsub">Loomra &middot; talent marketplace</span></span>
+        <div class="vendor-pills"><span class="pill p-shipped">Shipped</span><span class="pill p-graph">Graph</span></div>
+        <span class="vendor-read">Workforce knowledge graph, semantic embeddings, skills inference. Eglin rates <em>shipped</em> for the workforce-context use case. Not a full HCM substrate; the talent-marketplace layer atop one.</span>
+      </li>
+      <li class="vendor-item">
+        <span class="vendor-name">Beamery <span class="vsub">Talent Lifecycle Management</span></span>
+        <div class="vendor-pills"><span class="pill p-shipped">Shipped</span><span class="pill p-graph">Semantic web</span></div>
+        <span class="vendor-read">Explicit semantic-web knowledge graph, reportedly 17&nbsp;billion data points. Most graph-native of any recruiting-focused vendor. Constraint: it is a <em>recruiting</em> graph; once hired, the customer&rsquo;s HRIS takes over.</span>
+      </li>
+      <li class="vendor-item">
+        <span class="vendor-name">LinkedIn <span class="vsub">Economic Graph</span></span>
+        <div class="vendor-pills"><span class="pill p-shipped">Shipped</span><span class="pill p-graph">Distributed graph DB</span></div>
+        <span class="vendor-read">The reference architecture. Tens of TB, ~500K QPS, documented in a 2018 SIGKDD paper. The <em>external</em> graph &mdash; not a people graph for your company &mdash; but sets the engineering bar.</span>
+      </li>
+      <li class="vendor-item">
+        <span class="vendor-name">Microsoft <span class="vsub">Graph &middot; Viva</span></span>
+        <div class="vendor-pills"><span class="pill p-shipped">Shipped</span><span class="pill p-graph">Identity graph</span></div>
+        <span class="vendor-read">Real, large, public-API graph over Entra identity, mail, calendar, files, Teams. Not a people graph in the HCM sense &mdash; identity is the Entra account, not an entity-resolved human &mdash; but a foundational substrate every HCM graph will need to interoperate with.</span>
+      </li>
+    </ul>
+
+  </div>
+</section>
+
+
+<!-- ─────────────────────────────────────────── SLIDE 11 · COMPETITOR SCAN — PARTIAL ── -->
+<section class="slide slide--warm" id="slide-11" tabindex="-1" aria-label="Slide 11 of 22: Competitor scan — Partial" data-title="Competitor scan · Partial" data-theme="warm">
+  <div class="slide__inner">
+
+    <div class="slide__num" style="color:var(--indigo-link)">11 &middot; Who is doing this &middot; partial</div>
+
+    <h2 class="slide__h2">Parts of the architecture <em>are real.</em></h2>
+
+    <div class="compgroup" style="margin-top:1rem;">Partial &mdash; 3 vendors</div>
+
+    <ul class="vendor-list" aria-label="Vendors with partial graph capabilities">
+      <li class="vendor-item">
+        <span class="vendor-name">Workday <span class="vsub">Skills Cloud &middot; Career Hub</span></span>
+        <div class="vendor-pills"><span class="pill p-partial">Partial</span><span class="pill p-row">Row-store</span></div>
+        <span class="vendor-read">The skills layer is real and well-engineered &mdash; a spatial representation of skills with implicit skill discovery. The underlying HCM remains a relational object model. <strong>If you are inside Workday end-to-end, the skills layer is useful. The graph stops at the suite boundary.</strong></span>
+      </li>
+      <li class="vendor-item">
+        <span class="vendor-name">Eightfold AI <span class="vsub">Talent Intelligence Platform</span></span>
+        <div class="vendor-pills"><span class="pill p-partial">Partial</span><span class="pill p-graph">Graph + ML</span></div>
+        <span class="vendor-read">Deep skills-inference layer trained on a very large external talent corpus; architecture appears graph-and-embedding. Eglin&rsquo;s open question: how is identity resolved across <em>customer-internal</em> systems once the candidate becomes an employee? Publicly available materials do not answer this clearly.</span>
+      </li>
+      <li class="vendor-item">
+        <span class="vendor-name">ChartHop <span class="vsub">People analytics + AI</span></span>
+        <div class="vendor-pills"><span class="pill p-partial">Partial</span><span class="pill p-row">Row-store + AI</span></div>
+        <span class="vendor-read">Consolidated data store where HR, job, and business fields live in one flexible model. The integration story is real; the architecture is a consolidated warehouse with a chart visualization layer, not a graph.</span>
+      </li>
+    </ul>
+
+  </div>
+</section>
+
+
+<!-- ─────────────────────────────────────────── SLIDE 12 · COMPETITOR SCAN — CLAIM ── -->
+<section class="slide" id="slide-12" tabindex="-1" aria-label="Slide 12 of 22: Competitor scan — Claim" data-title="Competitor scan · Claim" data-theme="light">
+  <div class="slide__inner">
+
+    <div class="slide__num" style="color:var(--indigo-link)">12 &middot; Who is doing this &middot; claimed</div>
+
+    <h2 class="slide__h2">Graph language. <em>No primary evidence.</em></h2>
+
+    <div class="compgroup" style="margin-top:1rem;">Claim &mdash; 5 vendors &middot; 1 out of scope</div>
+
+    <ul class="vendor-list" aria-label="Vendors with only a graph claim">
+      <li class="vendor-item">
+        <span class="vendor-name">HiBob <span class="vsub">Bob &middot; modern HRIS</span></span>
+        <div class="vendor-pills"><span class="pill p-claim">Claim</span><span class="pill p-row">Row-store</span></div>
+        <span class="vendor-read">No primary documentation of a graph data model found. Row-store HRIS with strong UX.</span>
+      </li>
+      <li class="vendor-item">
+        <span class="vendor-name">Rippling <span class="vsub">Employee Graph</span></span>
+        <div class="vendor-pills"><span class="pill p-claim">Claim</span><span class="pill p-row">Row-store</span></div>
+        <span class="vendor-read">The &ldquo;Employee Graph&rdquo; branding describes workflow-orchestration features, not a graph traversal layer. Strongly-normalized relational model with consistent identity <em>inside</em> the Rippling tenant &mdash; useful, but does not resolve identity from <em>outside</em> Rippling&rsquo;s data plane.</span>
+      </li>
+      <li class="vendor-item">
+        <span class="vendor-name">Lattice <span class="vsub">Performance + HRIS</span></span>
+        <div class="vendor-pills"><span class="pill p-claim">Claim</span><span class="pill p-row">Row-store</span></div>
+        <span class="vendor-read">Row-store HRIS with strong workflow primitives. No graph storage model documented.</span>
+      </li>
+      <li class="vendor-item">
+        <span class="vendor-name">Eqtble / Deel <span class="vsub">Analytics &middot; Global payroll</span></span>
+        <div class="vendor-pills"><span class="pill p-claim">Claim</span><span class="pill p-row">Warehouse-backed</span></div>
+        <span class="vendor-read">Both use graph-adjacent language in marketing; no primary architecture documents found. Warehouse-and-dashboard reality in both cases.</span>
+      </li>
+      <li class="vendor-item">
+        <span class="vendor-name">Mercor <span class="vsub">AI hiring &rarr; labeling pivot</span></span>
+        <div class="vendor-pills"><span class="pill p-scope">Out of scope</span></div>
+        <span class="vendor-read">Raised at $10B in Oct 2025, then pivoted from enterprise hiring to supplying domain experts to AI labs. A category exit, not a contender.</span>
+      </li>
+    </ul>
+
+  </div>
+</section>
+
+
+<!-- ─────────────────────────────────────────── SLIDE 13 · WHY AGENTS NEED THIS ── -->
+<section class="slide slide--deep" id="slide-13" tabindex="-1" aria-label="Slide 13 of 22: Why agentic companies need a people graph" data-title="Why agents need a graph" data-theme="deep">
+  <div class="slide__inner">
+
+    <div class="slide__num">13 &middot; The strategic argument</div>
+
+    <h2 class="slide__h2">Why <em>agentic companies</em> need a people graph.</h2>
+
+    <p class="slide__body">
+      An agent queries a substrate, reasons over the result, and produces a decision.
+      <strong>The quality of every step depends on the quality of the substrate.</strong>
+      If the substrate is a stack of tables, the agent has to do its own JOIN. That JOIN
+      is where the failures live.
+    </p>
+
+    <ul class="reasons" aria-label="Five reasons agentic companies need a people graph">
+      <li class="reason">
+        <div class="reason__label">Decision provenance</div>
+        <p class="reason__body">An agent that touches clusters, not rows, produces a <strong>defensible decision trail</strong> &mdash; the bedrock of EU AI Act Article 13 and NYC AEDT audit obligations. Without a graph, provenance is best-effort.</p>
+      </li>
+      <li class="reason">
+        <div class="reason__label">Cross-system reasoning</div>
+        <p class="reason__body">An internal mobility recommendation requires recruiting interactions, current role, peers, learning history, and stated preferences. A graph turns this into <strong>one query</strong>. A row-based stack turns it into multi-system orchestration with N partial answers.</p>
+      </li>
+      <li class="reason">
+        <div class="reason__label">Consent enforcement</div>
+        <p class="reason__body">Consent applies to <em>edges</em>, not systems. In a graph, the consent flag is on the edge; traversal honors it by construction. <strong>The agent does not have to know the policy &mdash; the policy is in the substrate.</strong></p>
+      </li>
+      <li class="reason">
+        <div class="reason__label">Time-aware queries</div>
+        <p class="reason__body">Flight-risk analysis needs trajectory: engagement trend, project-assignment shifts, comp-adjustment timing. In a graph, <strong>trajectory is a property of the node</strong>, indexed for traversal.</p>
+      </li>
+      <li class="reason">
+        <div class="reason__label">Connector-economy unlock</div>
+        <p class="reason__body">MCP and the broader connector economy assume the agent reasons over data from systems the agent vendor did not build. <strong>The substrate that makes that reasoning coherent is a graph.</strong></p>
+      </li>
+    </ul>
+
+  </div>
+</section>
+
+
+<!-- ─────────────────────────────────────────── SLIDE 14 · VIGNETTE — MANAGER ── -->
+<section class="slide slide--vignette" id="slide-14" tabindex="-1" aria-label="Slide 14 of 22: Vignette — Manager experience" data-title="Vignette · Manager" data-theme="vignette">
+  <div class="slide__inner">
+
+    <div class="slide__num" style="color:var(--indigo-link)">14 &middot; Why humans get a better experience &middot; vignette 1 of 4</div>
+
+    <div class="vignette__role">Manager experience</div>
+    <h2 class="vignette__prompt">
+      &ldquo;Tell me who on my team is at flight risk and why.&rdquo;
+    </h2>
+    <div class="vignette__border" aria-hidden="true"></div>
+
+    <div class="vignette__before">
+      <span class="vignette__label">Row-based stack</span>
+      Engagement scores in Lattice. Comp history in the HRIS. Project assignments in the
+      project tool. 1:1 notes in Notion. Exit-interview data in yet another system, if it
+      exists at all. The manager assembles the picture herself &mdash; thirty minutes, twice
+      a year, or she does not assemble it at all.
+    </div>
+    <div class="vignette__after">
+      <span class="vignette__label">People graph</span>
+      One question, one traversal. The agent walks from the manager to each direct report,
+      then to each report&rsquo;s engagement edge, comp-history edge, peer-departure
+      neighborhood, and project-allocation edge &mdash; with confidence scores and a
+      citation trail the manager can interrogate. Same question, answered in seconds.
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ─────────────────────────────────────────── SLIDE 15 · VIGNETTE — EMPLOYEE ── -->
+<section class="slide slide--vignette" id="slide-15" tabindex="-1" aria-label="Slide 15 of 22: Vignette — Employee experience" data-title="Vignette · Employee" data-theme="vignette">
+  <div class="slide__inner">
+
+    <div class="slide__num" style="color:var(--indigo-link)">15 &middot; Why humans get a better experience &middot; vignette 2 of 4</div>
+
+    <div class="vignette__role">Employee experience</div>
+    <h2 class="vignette__prompt">
+      &ldquo;The company knows me, without making me re-onboard every quarter.&rdquo;
+    </h2>
+    <div class="vignette__border" aria-hidden="true"></div>
+
+    <div class="vignette__before">
+      <span class="vignette__label">Row-based stack</span>
+      New manager? Re-enter your goals. New project? Re-state your skills. New benefits
+      window? Re-confirm your dependents. Every system is the first system, every quarter.
+      The employee experience on a row-based HCM is one of being asked, repeatedly, to
+      tell the company things it should already know.
+    </div>
+    <div class="vignette__after">
+      <span class="vignette__label">People graph</span>
+      The employee&rsquo;s node already contains her skills (inferred + stated, with
+      provenance), trajectory (projects shipped, learning completed, moves made),
+      relationships (peers and managers worked with), and stated preferences.
+      New surfaces query the node; they do not re-collect.
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ─────────────────────────────────────────── SLIDE 16 · VIGNETTE — RECRUITER ── -->
+<section class="slide slide--vignette" id="slide-16" tabindex="-1" aria-label="Slide 16 of 22: Vignette — Recruiter experience" data-title="Vignette · Recruiter" data-theme="vignette">
+  <div class="slide__inner">
+
+    <div class="slide__num" style="color:var(--indigo-link)">16 &middot; Why humans get a better experience &middot; vignette 3 of 4</div>
+
+    <div class="vignette__role">Recruiter experience</div>
+    <h2 class="vignette__prompt">
+      &ldquo;The candidate I just spoke to was an employee here three years ago. I should know that before the next call.&rdquo;
+    </h2>
+    <div class="vignette__border" aria-hidden="true"></div>
+
+    <div class="vignette__before">
+      <span class="vignette__label">Row-based stack</span>
+      A boomerang candidate shows up in the ATS as a brand-new record. The recruiter learns
+      about prior employment from a hand-typed note on the resume, or from a LinkedIn search
+      done after the interview. The ATS and HRIS are different databases with different
+      identity schemes &mdash; the structural reason internal mobility has been unsolved for
+      a decade.
+    </div>
+    <div class="vignette__after">
+      <span class="vignette__label">People graph</span>
+      The boomerang is a single node with two employment edges, one closed and one in flight.
+      The recruiter sees the prior tenure, role, manager, reason-for-leaving, and rehire
+      eligibility &mdash; all before the next call. No stitching. No guessing.
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ─────────────────────────────────────────── SLIDE 17 · VIGNETTE — COMPLIANCE ── -->
+<section class="slide slide--vignette" id="slide-17" tabindex="-1" aria-label="Slide 17 of 22: Vignette — Compliance experience" data-title="Vignette · Compliance" data-theme="vignette">
+  <div class="slide__inner">
+
+    <div class="slide__num" style="color:var(--indigo-link)">17 &middot; Why humans get a better experience &middot; vignette 4 of 4</div>
+
+    <div class="vignette__role">Compliance experience</div>
+    <h2 class="vignette__prompt">
+      &ldquo;Prove this decision was not biased. Prove this deletion request was honored everywhere.&rdquo;
+    </h2>
+    <div class="vignette__border" aria-hidden="true"></div>
+
+    <div class="vignette__before">
+      <span class="vignette__label">Row-based stack</span>
+      Decision provenance is reconstructed post-hoc, badly. Deletion is a manual
+      reconciliation across N systems with N retention policies. Neither question is
+      answerable in a defensible window without heroic manual effort.
+    </div>
+    <div class="vignette__after">
+      <span class="vignette__label">People graph</span>
+      Decision provenance is a structural property of the edge the decision touched.
+      Deletion is a bounded subgraph delete &mdash; every edge attached to the deleted
+      node, in every system, with confirmation. The auditor&rsquo;s question is a
+      single bounded subgraph query.
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ─────────────────────────────────────────── SLIDE 18 · ARCHITECTURE ── -->
+<section class="slide" id="slide-18" tabindex="-1" aria-label="Slide 18 of 22: Architecture — why a graph beats a warehouse" data-title="Architecture · Graph vs. warehouse" data-theme="light">
+  <div class="slide__inner">
+
+    <div class="slide__num" style="color:var(--indigo-link)">18 &middot; The architectural rationale</div>
+
+    <h2 class="slide__h2">Why a graph <em>beats a warehouse</em> for this problem.</h2>
+
+    <div class="arch-container" aria-label="Comparison: warehouse paradigm versus graph paradigm">
+      <div>
+        <div class="arch-col__head arch-col__head--warehouse">Warehouse paradigm</div>
+        <ul class="arch-rows arch-rows--warehouse" aria-label="Warehouse characteristics">
+          <li>Rows + foreign keys</li>
+          <li>JOIN at query time</li>
+          <li>Time = SCD2 / effective dates</li>
+          <li>Consent = row-level security</li>
+          <li>Identity = source key</li>
+          <li>Agent = doer of JOINs</li>
+          <li style="color:var(--ink-mute);font-size:10px;">Best for: batch analytics, known query shapes, finance + ops reporting</li>
+        </ul>
+      </div>
+      <div>
+        <div class="arch-col__head arch-col__head--graph">Graph paradigm</div>
+        <ul class="arch-rows arch-rows--graph" aria-label="Graph characteristics">
+          <li>Nodes + edges</li>
+          <li>Traversal at query time</li>
+          <li>Time = edge property</li>
+          <li>Consent = edge property</li>
+          <li>Identity = resolved cluster</li>
+          <li>Agent = reasoner over neighborhoods</li>
+          <li style="color:var(--ink-mute);font-size:10px;">Best for: interactive agentic queries, open-ended traversals, people-systems-of-understanding</li>
+        </ul>
+      </div>
+    </div>
+
+    <p class="arch-note">
+      The graph does not replace the warehouse. Both exist, in every Stratum customer, fed by the same ingestion pipeline.
+      The architectural mistake is using the warehouse alone for questions that are structurally graph-shaped.
+      &mdash; See Forge&rsquo;s <a href="../../engineering/people-graph-substrate.html" style="color:var(--indigo-link);border-bottom:1px solid var(--indigo);">Engineering Post / people-graph-substrate</a> for the implementation specifics.
+    </p>
+
+  </div>
+</section>
+
+
+<!-- ─────────────────────────────────────────── SLIDE 19 · COMPLIANCE ── -->
+<section class="slide slide--warm" id="slide-19" tabindex="-1" aria-label="Slide 19 of 22: Compliance — provenance lives on edges" data-title="Compliance · Provenance on edges" data-theme="warm">
+  <div class="slide__inner">
+
+    <div class="slide__num" style="color:var(--indigo-link)">19 &middot; Compliance</div>
+
+    <h2 class="slide__h2">Provenance lives <em>on edges,</em> not on rows.</h2>
+
+    <p class="slide__body">
+      The graph is not a compliance feature. It is a compliance <strong>substrate</strong>.
+      Three regulatory frames make this concrete.
+    </p>
+
+    <div class="compliance-grid" role="list" aria-label="Three regulatory frameworks">
+      <div class="compliance-card" role="listitem">
+        <div class="compliance-card__label">NYC Local Law 144 (AEDT)</div>
+        <div class="compliance-card__title">Annual bias audit required. Candidate notification 10 days before use.</div>
+        <p class="compliance-card__body">
+          In effect since July 2023. The NY State Comptroller&rsquo;s Dec 2025 audit
+          found enforcement &ldquo;ineffective&rdquo; &mdash; 75% of 311 calls misrouted;
+          17 potential violations found by auditors vs. 1 by DCWP.
+          <strong>2026 enforcement posture is substantially more rigorous.</strong>
+          Decision provenance must be defensible and reproducible.
+          A graph stores it as a structural property of the edge.
+        </p>
+      </div>
+      <div class="compliance-card" role="listitem">
+        <div class="compliance-card__label">EU AI Act · High-risk HR</div>
+        <div class="compliance-card__title">Effective August 2, 2026. Fines up to €15M or 3% of global turnover.</div>
+        <p class="compliance-card__body">
+          Mandatory risk management, data governance, documentation, human oversight, and
+          continuous monitoring for AI systems used in recruitment, screening, performance
+          prediction, and most material HR decisions. Applies extraterritorially.
+          <strong>The data-governance requirements presume you can produce a defensible
+          description of the data the system reasoned over, with provenance and consent.</strong>
+          A row-based stack reconstructs. A graph stores.
+        </p>
+      </div>
+    </div>
+
+    <p class="slide__body" style="margin-top:1rem;font-size:.92rem;color:var(--ink-3-aaa);">
+      US state patterns (California SB 1001, AB 331, Colorado AI Act, the pay-transparency wave)
+      push the same direction: the deployer must explain the individual decision. Provenance,
+      consent, and time are all on the edge. The auditor&rsquo;s question is a bounded subgraph query.
+    </p>
+
+  </div>
+</section>
+
+
+<!-- ─────────────────────────────────────────── SLIDE 20 · COUNTER-ARGUMENTS ── -->
+<section class="slide" id="slide-20" tabindex="-1" aria-label="Slide 20 of 22: Honest counter-arguments" data-title="Honest counter-arguments" data-theme="light">
+  <div class="slide__inner">
+
+    <div class="slide__num" style="color:var(--indigo-link)">20 &middot; Where the thesis is weakest</div>
+
+    <h2 class="slide__h2">The honest <em>counter-arguments.</em></h2>
+
+    <p class="slide__body" style="margin-bottom:1rem;">A research brief that does not name where its thesis is weakest is marketing in a research jacket.</p>
+
+    <ul class="counterargs" aria-label="Four honest counter-arguments">
+      <li class="counterarg">
+        <span class="counterarg__claim">&ldquo;Entity resolution is hard, and most companies don&rsquo;t have clean enough source data to make a graph work.&rdquo;</span>
+        <p class="counterarg__answer">This is correct, and it is the strongest counter-argument. The hardness is also the moat. <strong>Vendors who treat it as a feature ship a fake. Vendors who treat it as the product ship a real one.</strong></p>
+      </li>
+      <li class="counterarg">
+        <span class="counterarg__claim">&ldquo;The incumbents say they already have a graph. Are they really wrong?&rdquo;</span>
+        <p class="counterarg__answer">Partially. Each incumbent graph stops at a boundary &mdash; the suite boundary, the talent-acquisition boundary, the skills-ontology boundary &mdash; that is structurally upstream of the question buyers are asking. <strong>Your incumbent has a graph over a slice; the people graph is the substrate that connects all the slices.</strong></p>
+      </li>
+      <li class="counterarg">
+        <span class="counterarg__claim">&ldquo;A deeply integrated graph creates lock-in. The row store is at least easier to leave.&rdquo;</span>
+        <p class="counterarg__answer">Legitimate. The right mitigation is data portability at the layer below the graph: <strong>the customer&rsquo;s ingested source data and entity-resolution decisions are exportable, in open formats, on demand.</strong></p>
+      </li>
+      <li class="counterarg">
+        <span class="counterarg__claim">&ldquo;Schema rigidity is the failure mode of graphs at enterprise scale.&rdquo;</span>
+        <p class="counterarg__answer">Real concern. The right architecture: a small core ontology (person, role, relationship, attestation, consent, decision) with customer-specific edge types as typed extensions. <strong>Schema discipline is part of the product.</strong></p>
+      </li>
+    </ul>
+
+  </div>
+</section>
+
+
+<!-- ─────────────────────────────────────────── SLIDE 21 · STRATUM IMPLICATIONS ── -->
+<section class="slide slide--dark" id="slide-21" tabindex="-1" aria-label="Slide 21 of 22: What this means for Stratum" data-title="What this means for Stratum" data-theme="dark">
+  <div class="slide__inner">
+
+    <div class="slide__num">21 &middot; What this means for Stratum</div>
+
+    <h2 class="slide__h2">Three Tier-2 <em>implications.</em></h2>
+
+    <p class="slide__body" style="margin-bottom:1.4rem;">
+      Eglin&rsquo;s recommendations to Helm and Compass for Tier-2 review. Not commitments &mdash; the Compact decides.
+    </p>
+
+    <div class="impl-grid" role="list" aria-label="Three implications for Stratum">
+      <div class="impl-card" role="listitem">
+        <div class="impl-card__num">Implication 01 &middot; Positioning</div>
+        <div class="impl-card__title">Stop saying &ldquo;MCP-native HCM.&rdquo; Start saying &ldquo;the people graph.&rdquo;</div>
+        <p class="impl-card__body">CHROs and CIOs do not buy a protocol. They buy a substrate that produces a different experience. MCP is the connector story underneath; the people graph is the headline.</p>
+      </div>
+      <div class="impl-card" role="listitem">
+        <div class="impl-card__num">Implication 02 &middot; Engineering</div>
+        <div class="impl-card__title">Publish the resolver eval-set numbers, on the record, by end of Q3.</div>
+        <p class="impl-card__body">The differentiation move is to publish what the incumbents cannot: precision-recall curve on adversarial cases, conflict-queue throughput, contractor-to-employee transition accuracy. Forge already has the numbers.</p>
+      </div>
+      <div class="impl-card" role="listitem">
+        <div class="impl-card__num">Implication 03 &middot; Partnerships</div>
+        <div class="impl-card__title">A graph-of-graphs interop position with Beamery, Gloat, and Microsoft Graph.</div>
+        <p class="impl-card__body">Don&rsquo;t compete head-on with the specialized graphs. Position Stratum as the layer that integrates them &mdash; graph-of-graphs interop, with MCP as the wire protocol.</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ─────────────────────────────────────────── SLIDE 22 · CLOSE ── -->
+<section class="slide slide--cover" id="slide-22" tabindex="-1" aria-label="Slide 22 of 22: Close" data-title="Close" data-theme="dark">
+  <div class="slide__inner">
+
+    <div class="slide__num">22 &middot; Close</div>
+
+    <blockquote class="close__quote">
+      &ldquo;Most vendors call it a graph. A few have built one. The difference is whether
+      the edge exists when no human writes a JOIN.&rdquo;
+    </blockquote>
+
+    <div class="close__attr">
+      <strong>Eglin</strong> &middot; Industry research desk &middot; Stratum, Inc. &middot; 2026-05-22
+    </div>
+
+    <a href="../people-graph-360.html" class="close__cta">
+      Read the full research &#8594; The People Graph, in 360&deg;
+    </a>
+
+  </div>
+</section>
+
+</main>
+
+<!-- ══════════════════════════════════════ NAV BAR ══ -->
+<nav class="nav-bar" aria-label="Slide navigation">
+  <button class="nav-bar__btn" id="prev-btn" type="button" aria-label="Previous slide" disabled>&#8592; Prev</button>
+  <div class="nav-bar__counter" aria-live="polite" aria-atomic="true">
+    <span id="counter-current">1</span>
+    <span class="sep">/</span>
+    <span id="counter-total">22</span>
+  </div>
+  <div class="nav-bar__title" aria-hidden="true" id="nav-title">Cover</div>
+  <button class="nav-bar__btn" id="next-btn" type="button" aria-label="Next slide">Next &#8593;</button>
+  <button class="nav-bar__grid-btn" id="grid-btn" type="button" aria-label="Open slide overview (G)">Grid</button>
+</nav>
+
+<!-- ══════════════════════════════════════ JS ══ -->
+<script>
+(function () {
+  'use strict';
+
+  /* ── Constants ── */
+  var TOTAL = 22;
+  var current = 1;
+  var gridOpen = false;
+  var prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  /* ── DOM refs ── */
+  var slides     = Array.from(document.querySelectorAll('.slide'));
+  var prevBtn    = document.getElementById('prev-btn');
+  var nextBtn    = document.getElementById('next-btn');
+  var gridBtn    = document.getElementById('grid-btn');
+  var gridOverlay = document.getElementById('grid-overlay');
+  var gridClose  = document.getElementById('grid-close');
+  var gridContainer = document.getElementById('grid-container');
+  var counterCurrent = document.getElementById('counter-current');
+  var counterTotal   = document.getElementById('counter-total');
+  var navTitle   = document.getElementById('nav-title');
+  var announcer  = document.getElementById('slide-announce');
+
+  counterTotal.textContent = String(TOTAL);
+
+  /* ── Build grid thumbnails ── */
+  slides.forEach(function (slide, i) {
+    var num   = i + 1;
+    var title = slide.dataset.title || ('Slide ' + num);
+    var theme = slide.dataset.theme || 'light';
+
+    var themeClass = {
+      dark:     'grid-thumb__preview--dark',
+      deep:     'grid-thumb__preview--deep',
+      warm:     'grid-thumb__preview--warm',
+      vignette: 'grid-thumb__preview--vignette',
+      light:    ''
+    }[theme] || '';
+
+    var btn = document.createElement('button');
+    btn.type = 'button';
+    btn.className = 'grid-thumb' + (num === 1 ? ' is-active' : '');
+    btn.setAttribute('aria-label', 'Go to slide ' + num + ': ' + title);
+    btn.setAttribute('role', 'listitem');
+    btn.dataset.slide = String(num);
+
+    btn.innerHTML =
+      '<div class="grid-thumb__preview ' + themeClass + '">' +
+        '<span class="grid-thumb__label">' + escapeHtml(title) + '</span>' +
+      '</div>' +
+      '<div class="grid-thumb__num">' + String(num).padStart(2,'0') + ' / ' + TOTAL + '</div>';
+
+    btn.addEventListener('click', function () {
+      goTo(num);
+      closeGrid();
+    });
+
+    gridContainer.appendChild(btn);
+  });
+
+  /* ── Utility: escape HTML ── */
+  function escapeHtml(s) {
+    return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+  }
+
+  /* ── Show a slide (no-flash, hash-sync) ── */
+  function goTo(n, skipHistory) {
+    n = Math.max(1, Math.min(TOTAL, n));
+    if (n === current && skipHistory !== 'initial') return;
+    current = n;
+
+    /* Update counter + nav title */
+    var slide = slides[n - 1];
+    var title = slide.dataset.title || ('Slide ' + n);
+    counterCurrent.textContent = String(n);
+    navTitle.textContent = title;
+
+    /* Prev / next button state */
+    prevBtn.disabled = (n === 1);
+    nextBtn.disabled = (n === TOTAL);
+
+    /* Announce slide change */
+    announcer.textContent = 'Slide ' + n + ' of ' + TOTAL + ': ' + title;
+
+    /* Update hash (browser history) */
+    if (!skipHistory) {
+      history.pushState({ slide: n }, '', '#' + n);
+    } else {
+      history.replaceState({ slide: n }, '', '#' + n);
+    }
+
+    /* Scroll slide into view */
+    slide.scrollIntoView({ behavior: prefersReduced ? 'auto' : 'smooth' });
+
+    /* Focus the slide heading for screen readers */
+    var heading = slide.querySelector('h1, h2, blockquote');
+    if (heading) {
+      heading.setAttribute('tabindex', '-1');
+      heading.focus({ preventScroll: true });
+      /* Clean up the ephemeral tabindex after blur */
+      heading.addEventListener('blur', function onBlur() {
+        heading.removeAttribute('tabindex');
+        heading.removeEventListener('blur', onBlur);
+      });
+    }
+
+    /* Grid thumbnail highlight */
+    var thumbs = gridContainer.querySelectorAll('.grid-thumb');
+    thumbs.forEach(function (t, i) {
+      t.classList.toggle('is-active', i === n - 1);
+    });
+  }
+
+  /* ── Keyboard navigation ── */
+  document.addEventListener('keydown', function (e) {
+    /* Ignore when focus is in an interactive element that should handle keys */
+    var tag = document.activeElement ? document.activeElement.tagName : '';
+    if (tag === 'INPUT' || tag === 'TEXTAREA' || tag === 'SELECT') return;
+
+    if (gridOpen) {
+      if (e.key === 'Escape') { e.preventDefault(); closeGrid(); }
+      return; /* Arrow keys don't paginate in grid mode */
+    }
+
+    switch (e.key) {
+      case 'ArrowRight':
+      case 'ArrowDown':
+        e.preventDefault();
+        goTo(current + 1);
+        break;
+      case 'ArrowLeft':
+      case 'ArrowUp':
+        e.preventDefault();
+        goTo(current - 1);
+        break;
+      case 'g':
+      case 'G':
+        e.preventDefault();
+        openGrid();
+        break;
+    }
+  });
+
+  /* ── Nav buttons ── */
+  prevBtn.addEventListener('click', function () { goTo(current - 1); });
+  nextBtn.addEventListener('click', function () { goTo(current + 1); });
+
+  /* ── Touch swipe ── */
+  var touchStartX = 0;
+  var touchStartY = 0;
+  document.addEventListener('touchstart', function (e) {
+    touchStartX = e.changedTouches[0].clientX;
+    touchStartY = e.changedTouches[0].clientY;
+  }, { passive: true });
+  document.addEventListener('touchend', function (e) {
+    if (gridOpen) return;
+    var dx = e.changedTouches[0].clientX - touchStartX;
+    var dy = e.changedTouches[0].clientY - touchStartY;
+    if (Math.abs(dx) > Math.abs(dy) && Math.abs(dx) > 40) {
+      if (dx < 0) goTo(current + 1);
+      else         goTo(current - 1);
+    }
+  }, { passive: true });
+
+  /* ── Grid overlay ── */
+  gridBtn.addEventListener('click', openGrid);
+  gridClose.addEventListener('click', closeGrid);
+
+  gridOverlay.addEventListener('click', function (e) {
+    if (e.target === gridOverlay) closeGrid();
+  });
+
+  function openGrid() {
+    gridOpen = true;
+    gridOverlay.classList.add('is-open');
+    gridOverlay.setAttribute('aria-hidden', 'false');
+    gridClose.focus();
+
+    /* Scroll active thumb into view */
+    var active = gridContainer.querySelector('.is-active');
+    if (active) active.scrollIntoView({ block: 'center', behavior: prefersReduced ? 'auto' : 'smooth' });
+  }
+
+  function closeGrid() {
+    gridOpen = false;
+    gridOverlay.classList.remove('is-open');
+    gridOverlay.setAttribute('aria-hidden', 'true');
+    gridBtn.focus();
+  }
+
+  /* ── Browser back / forward ── */
+  window.addEventListener('popstate', function (e) {
+    var state = e.state;
+    if (state && state.slide) {
+      goTo(state.slide, 'skipHistory');
+    }
+  });
+
+  /* ── Initial load: read hash ── */
+  function init() {
+    var hash = window.location.hash;
+    var n = 1;
+    if (hash && /^#\d+$/.test(hash)) {
+      n = parseInt(hash.slice(1), 10);
+      if (n < 1 || n > TOTAL) n = 1;
+    }
+    goTo(n, 'initial');
+  }
+
+  init();
+
+}());
+</script>
+
+</body>
+</html>

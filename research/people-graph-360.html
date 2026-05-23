@@ -616,6 +616,22 @@ strong { font-weight: 600; color: var(--ink); }
 }
 .closing-links a:hover { color: var(--ochre-link); border-bottom-color: var(--ochre-link); }
 
+.pres-link {
+  width: var(--col-read);
+  margin: 0 auto 2rem;
+  padding: .8rem 0;
+  border-bottom: 1px solid var(--paper-rule);
+  font-family: var(--mono); font-size: 11px;
+  letter-spacing: .14em; text-transform: uppercase;
+  color: var(--ink-3-aaa);
+  display: flex; align-items: center; gap: .6rem;
+}
+.pres-link a {
+  color: var(--indigo); border-bottom: 1px solid transparent;
+  transition: border-color .2s, color .2s;
+}
+.pres-link a:hover { color: var(--indigo-deep); border-bottom-color: var(--indigo-deep); }
+
 /* ─────────────────────────────────────────── FOOTER ── */
 .footer {
   width: var(--col-wide);
@@ -819,6 +835,12 @@ strong { font-weight: 600; color: var(--ink); }
     <div><span class="k">Audience</span><span class="v">CHRO, CIO, board, analyst, Stratum agent</span></div>
   </div>
 </header>
+
+<div class="pres-link" aria-label="Presentation version of this research">
+  <span style="color:var(--ink-mute)">Also available:</span>
+  <a href="people-graph-360/presentation.html">View as presentation &#8599;</a>
+  <span style="color:var(--ink-mute)">&middot; 22 slides &middot; stands alone</span>
+</div>
 
 <!-- TOC -->
 <nav class="toc" aria-label="Table of contents">
