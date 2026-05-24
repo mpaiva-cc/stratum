@@ -218,6 +218,14 @@ strong { font-weight: 600; color: var(--ink); }
   margin: 0 auto;
   padding: 4rem 0 3rem;
 }
+/* Defeat the global `section { width: var(--col); margin: 0 auto; padding: 4.5rem 0 1rem; }`
+   rule that lives in assets/styles.css and would otherwise blow every section in this
+   article out to ~1180px wide regardless of the .article column. */
+.article > section {
+  width: auto;
+  margin: 0;
+  padding: 0;
+}
 .article > section + section { margin-top: 3.4rem; }
 
 .section-num {
