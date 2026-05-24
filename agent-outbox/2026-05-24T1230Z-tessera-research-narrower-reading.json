@@ -1,0 +1,56 @@
+{
+  "id": "2026-05-24T1230Z-tessera-research-narrower-reading",
+  "from": "tessera",
+  "to": ["helm", "compass"],
+  "ts": "2026-05-24T12:30:00Z",
+  "subject": "Research artifact narrowed to editorial reading width — people-graph-360.html",
+  "type": "dispatch-report",
+  "body": {
+    "summary": "Narrowed the reading column on /research/people-graph-360.html from 760 px to 660 px, bringing it into Stripe Press / Bringhurst-aligned line-length territory (~70 chars at 17.5 px Newsreader). Recalibrated the matrix breakout column and footer column proportionally. Removed a dead CSS variable. This is the fourth pass on this artifact's width — the user's feedback was correct: 760 px was still too wide for a serious research piece.",
+    "changes": [
+      {
+        "token": "--col-read",
+        "before": "min(760px, 92vw)",
+        "after": "min(660px, 92vw)",
+        "rationale": "760 px at 17.5 px Newsreader yields ~85-90 chars/line, which is newsletter width, not editorial. 660 px lands at ~70 chars — the Bringhurst-recommended range, consistent with Stripe Press and Linear changelog. The user said 'don't ship a tepid fix'; 660 is the honest number."
+      },
+      {
+        "token": "--col-mid",
+        "before": "min(1080px, 92vw)",
+        "after": "min(940px, 92vw)",
+        "rationale": "The competitor matrix uses a negative-margin breakout: margin = (col-read - col-mid) / 2. Keeping col-mid at 1080 while narrowing col-read to 660 would have expanded the breakout from 160 px/side to 210 px/side, making the matrix dominate the page. Narrowing to 940 keeps the breakout at 140 px/side — same ~21% extension ratio as before."
+      },
+      {
+        "token": "--col-wide",
+        "before": "min(1380px, 94vw)",
+        "after": "min(1200px, 94vw)",
+        "rationale": "The footer at 1380 px was sprawling relative to a 660 px reading column. 1200 px brings the footer closer in, reducing the felt gap between content and chrome. The 5-column footer grid still has adequate air at 1200 px."
+      },
+      {
+        "token": "--col-read-wide",
+        "before": "min(840px, 92vw) — defined in :root",
+        "after": "removed",
+        "rationale": "Dead variable. Defined in :root, referenced nowhere in the stylesheet. Cleaned up."
+      },
+      {
+        "token": ".masthead-h1 font-size",
+        "before": "clamp(2.6rem, 5.4vw, 3.6rem → was 4.6rem)",
+        "after": "clamp(2.5rem, 5.2vw, 3.6rem)",
+        "rationale": "4.6 rem was set when the reading column was wide enough to carry it. At 660 px, 4.6 rem would overflow its column at mid-range viewports before the fluid vw value scaled down. Ceiling lowered to 3.6 rem — a serious research headline, not a display ad."
+      }
+    ],
+    "verification": {
+      "build": "make build — clean, 1.245 s",
+      "column_math": {
+        "col_read": "660 px at 17.5 px Newsreader → ~70 chars/line at desktop",
+        "matrix_breakout": "(660 - 940) / 2 = -140 px per side. Was -160 px at 760/1080. Same 21% extension ratio.",
+        "mobile_breakpoint": "@media (max-width: 760px) retained — correct, it governs matrix card-stack collapse which is about viewport, not column width"
+      }
+    },
+    "tradeoffs": [
+      "At very wide viewports (1920 px+) the footer at 1200 px still has significant margin on each side. Accepted — the reading artifact is a document, not a full-bleed marketing page.",
+      "The matrix at 940 px col-mid is narrower, which tightens the table cells. At 940 px all 12 vendors are still readable; the prose read column (last td) is the key one and it has overflow-wrap set."
+    ],
+    "o1_accessibility": "Width change does not affect WCAG 2.2 AAA contrast. Narrower line length is a readability improvement — shorter line lengths reduce cognitive load for all readers, and are particularly beneficial for users with dyslexia or low vision. No AAA criteria regressed."
+  }
+}
