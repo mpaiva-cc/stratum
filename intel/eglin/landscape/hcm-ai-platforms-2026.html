@@ -1,0 +1,535 @@
+---
+layout: legacy
+title: "Stratum / Intel · Eglin · Landscape — HCM AI Platforms, mid-2026"
+description: "Eglin's flagship landscape read on the HCM AI-platform category as of mid-2026. Workday ASOR, SAP Joule, Oracle HCM AI Agents, Cornerstone Workforce AI, Rippling, iCIMS, SmartRecruiters, Eightfold, Paradox, Beamery, Gloat — comparative matrix, verified-vs-claimed audit, vocabulary battles, and Stratum's defensible posture."
+permalink: /intel/eglin/landscape/hcm-ai-platforms-2026.html
+---
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<!-- og-jsonld:start -->
+<meta name="description" content="{{ page.description | default: site.description | escape }}">
+<meta property="og:title" content="{{ page.title | default: site.title | escape }}">
+<meta property="og:description" content="{{ page.description | default: site.description | escape }}">
+<meta property="og:url" content="{{ page.url | absolute_url }}">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="{{ site.title | escape }}">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="{{ page.title | default: site.title | escape }}">
+<meta name="twitter:description" content="{{ page.description | default: site.description | escape }}">
+{%- if page.title -%}
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":{{ page.title | jsonify }},"description":{{ page.description | default: site.description | jsonify }},"url":"{{ page.url | absolute_url }}"{% if page.date %},"datePublished":{{ page.date | date_to_xmlschema | jsonify }}{% endif %}}</script>
+{%- endif -%}
+<!-- og-jsonld:end -->
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Stratum / Intel · Eglin · Landscape — HCM AI Platforms, mid-2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght,SOFT,WONK@9..144,300..900,0..100,0..1&family=Newsreader:ital,opsz,wght@0,6..72,300..700;1,6..72,300..700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="{{ '/assets/styles.css?v=5' | relative_url }}">
+<style>
+:root { --paper:#f4ecda; --paper-warm:#f7f0e0; --paper-cool:#ede3c8; --paper-rule:#d8cdb6; --paper-rule-2:#c8b894; --ink:#0e1626; --ink-2:#2a3344; --ink-3-aaa:#3d4456; --ink-mute:#6c7180; --ochre:#b8651f; --ochre-deep:#8a4711; --moss:#4a5d3a; --plum:#6b3a4a; --indigo:#3d4d7d; --indigo-deep:#2b3a66; --hi:#a13418; --display:"Fraunces","Newsreader",Georgia,serif; --serif:"Newsreader",Georgia,serif; --mono:"JetBrains Mono",ui-monospace,Menlo,monospace; --col:min(1180px,92vw); --col-narrow:min(720px,92vw); }
+
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{font-size:16px;scroll-behavior:smooth}
+body{background:var(--paper);color:var(--ink);font-family:var(--serif);font-size:17px;line-height:1.6;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;font-feature-settings:"kern","liga","onum"}
+a{color:var(--indigo);text-decoration:none;border-bottom:1px solid transparent;transition:.15s}
+a:hover,a:focus-visible{color:var(--indigo-deep);border-bottom-color:var(--indigo)}
+a:focus-visible{outline:2px solid var(--indigo);outline-offset:3px;border-bottom-color:transparent}
+strong{font-weight:600;color:var(--ink)}
+em{font-style:italic}
+
+.skip{position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden}
+.skip:focus{position:fixed;left:50%;top:0;transform:translateX(-50%);width:auto;height:auto;overflow:visible;z-index:9999;background:var(--indigo);color:var(--paper);padding:.5rem 1.4rem;font-family:var(--mono);font-size:12px;letter-spacing:.12em;text-transform:uppercase;outline:3px solid var(--ink);outline-offset:2px}
+
+.site-nav{background:var(--paper);border-bottom:1px solid var(--paper-rule)}
+.sn-inner{width:min(1180px,92vw);margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:48px;gap:1rem}
+.sn-mark{font-family:var(--display);font-size:1.05rem;font-weight:500;color:var(--ink);line-height:1;border-bottom:0}
+.sn-mark:hover{color:var(--ochre);border-bottom:0}
+.sn-dot{color:var(--ochre)}
+
+main{width:var(--col);margin:0 auto;padding:2rem 0 4rem}
+
+.masthead{padding-top:1.4rem;border-top:4px double var(--ink);margin-top:1.4rem}
+.classified{font-family:var(--mono);font-size:10.5px;letter-spacing:.22em;text-transform:uppercase;color:var(--ink-3-aaa);margin-bottom:.4rem}
+.eyebrow{font-family:var(--mono);font-size:10.5px;letter-spacing:.3em;text-transform:uppercase;color:var(--indigo);margin-bottom:.8rem;display:flex;align-items:center;gap:.7rem;flex-wrap:wrap}
+.eyebrow .dot{width:8px;height:8px;background:var(--indigo);border-radius:50%;display:inline-block}
+.eyebrow .sep{color:var(--paper-rule-2)}
+.eyebrow .live{color:var(--ochre)}
+
+h1{font-family:var(--display);font-weight:500;font-variation-settings:"opsz" 144,"SOFT" 0;font-size:clamp(2.6rem,6.4vw,4.6rem);line-height:.95;letter-spacing:-.025em;color:var(--ink);margin-bottom:.3rem}
+h1 em{font-style:italic;color:var(--indigo);font-weight:500}
+.subtitle{font-family:var(--display);font-size:clamp(1.15rem,2.2vw,1.35rem);font-style:italic;color:var(--ink-3-aaa);max-width:62ch;margin:1rem 0 1.6rem;line-height:1.4}
+
+.byline{font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-3-aaa);display:flex;flex-wrap:wrap;gap:1.2rem;margin:1.6rem 0 0;padding:1rem 0;border-top:1px solid var(--paper-rule);border-bottom:1px solid var(--paper-rule)}
+.byline strong{color:var(--ink)}
+
+.tldr{margin:2.2rem 0 1.4rem;padding:1.4rem 1.6rem;background:rgba(61,77,125,.06);border-left:4px solid var(--indigo);border-right:1px solid var(--paper-rule);border-top:1px solid var(--paper-rule);border-bottom:1px solid var(--paper-rule)}
+.tldr-eyebrow{font-family:var(--mono);font-size:10.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--indigo);font-weight:700;margin-bottom:.5rem}
+.tldr p{margin:.5rem 0;max-width:64ch}
+.tldr p:first-of-type{font-size:1.1rem;line-height:1.5;color:var(--ink);font-weight:500}
+
+section{margin:3rem 0 0;padding-top:1.6rem;border-top:1px solid var(--paper-rule)}
+section.heavy{border-top:2px solid var(--ink);padding-top:2rem}
+section p{margin:.7rem 0;max-width:68ch}
+.sec-eyebrow{font-family:var(--mono);font-size:10.5px;letter-spacing:.22em;text-transform:uppercase;color:var(--indigo);margin-bottom:.6rem;font-weight:700}
+section h2{font-family:var(--display);font-weight:500;font-variation-settings:"opsz" 72;font-size:clamp(1.7rem,3.6vw,2.4rem);line-height:1.15;letter-spacing:-.015em;color:var(--ink);margin:.2rem 0 1rem;max-width:32ch}
+section h2 em{font-style:italic;color:var(--indigo)}
+section h3{font-family:var(--display);font-weight:500;font-size:1.2rem;margin:1.4rem 0 .5rem;color:var(--ink)}
+section h3 em{font-style:italic;color:var(--indigo)}
+section h4{font-family:var(--mono);font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--indigo);font-weight:700;margin:1rem 0 .4rem}
+
+ul, ol { padding-left: 1.2rem; max-width: 70ch; }
+li { margin: .35rem 0; }
+
+.taxonomy{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1rem;margin:1.2rem 0}
+.tax-card{padding:1rem 1.1rem;background:var(--paper-warm);border:1px solid var(--paper-rule);border-left:3px solid var(--indigo)}
+.tax-card .tier{font-family:var(--mono);font-size:10.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--indigo);font-weight:700;margin-bottom:.3rem}
+.tax-card h4{font-family:var(--display);font-size:1.05rem;font-weight:500;color:var(--ink);margin:0 0 .35rem;text-transform:none;letter-spacing:0}
+.tax-card p{font-size:.92rem;line-height:1.5;color:var(--ink-2);margin:.2rem 0;max-width:none}
+
+/* Comparative matrix */
+.matrix-wrap{margin:1.4rem 0 1rem;overflow-x:auto;border:1px solid var(--paper-rule);background:var(--paper-warm)}
+table.matrix{width:100%;border-collapse:collapse;font-size:.86rem;min-width:1100px}
+table.matrix th, table.matrix td{padding:.7rem .8rem;border-bottom:1px solid var(--paper-rule);border-right:1px dotted var(--paper-rule);vertical-align:top;text-align:left;line-height:1.4}
+table.matrix th{font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--indigo);font-weight:700;background:var(--paper-cool);position:sticky;top:0;z-index:2}
+table.matrix th:first-child, table.matrix td:first-child{position:sticky;left:0;background:var(--paper-warm);font-family:var(--display);font-size:.98rem;font-weight:500;color:var(--ink);min-width:140px;z-index:1;border-right:2px solid var(--paper-rule-2)}
+table.matrix th:first-child{background:var(--paper-cool);z-index:3}
+table.matrix tr:hover td{background:rgba(61,77,125,.04)}
+table.matrix tr:hover td:first-child{background:var(--paper-cool)}
+.cell-claim{color:var(--plum);font-size:.78rem;font-family:var(--mono);text-transform:uppercase;letter-spacing:.1em;font-weight:700}
+.cell-verified{color:var(--moss);font-size:.78rem;font-family:var(--mono);text-transform:uppercase;letter-spacing:.1em;font-weight:700}
+.cell-mixed{color:var(--ochre-deep);font-size:.78rem;font-family:var(--mono);text-transform:uppercase;letter-spacing:.1em;font-weight:700}
+.cell-absent{color:var(--ink-mute);font-size:.78rem;font-family:var(--mono);text-transform:uppercase;letter-spacing:.1em;font-weight:700}
+.matrix-key{font-family:var(--mono);font-size:11px;letter-spacing:.1em;color:var(--ink-3-aaa);margin:.8rem 0 0;display:flex;flex-wrap:wrap;gap:1.2rem}
+.matrix-key span{display:inline-flex;align-items:center;gap:.4rem}
+.matrix-key i{width:10px;height:10px;display:inline-block;border-radius:2px;font-style:normal}
+.matrix-key i.v{background:var(--moss)}
+.matrix-key i.c{background:var(--plum)}
+.matrix-key i.m{background:var(--ochre)}
+.matrix-key i.a{background:var(--ink-mute)}
+
+/* Vendor sub-sections */
+.vendor{margin-top:2.4rem;padding-top:1.6rem;border-top:1px dashed var(--paper-rule-2);scroll-margin-top:1rem}
+.vendor h3{font-family:var(--display);font-weight:500;font-variation-settings:"opsz" 72;font-size:clamp(1.4rem,2.8vw,1.7rem);margin:0 0 .4rem;color:var(--ink);letter-spacing:-.01em}
+.vendor h3 em{font-style:italic;color:var(--indigo)}
+.vendor .vmeta{font-family:var(--mono);font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-3-aaa);margin:.2rem 0 .8rem;display:flex;flex-wrap:wrap;gap:1rem}
+.vendor .vmeta strong{color:var(--ink)}
+.vendor .vmeta .battlecard{color:var(--indigo);font-weight:700}
+.vendor .vmeta .nocard{color:var(--ochre-deep);font-weight:700}
+.vendor p{max-width:70ch}
+
+.callout{margin:1.4rem 0;padding:1.1rem 1.4rem;background:var(--paper-warm);border-left:3px solid var(--ochre);border-right:1px solid var(--paper-rule);border-top:1px solid var(--paper-rule);border-bottom:1px solid var(--paper-rule)}
+.callout .tag{font-family:var(--mono);font-size:10.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--ochre-deep);font-weight:700;display:block;margin-bottom:.4rem}
+.callout p{margin:.3rem 0;max-width:none}
+
+.surfaces{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:.8rem;margin:1.2rem 0}
+.surface{padding:.8rem 1rem;border:1px solid var(--paper-rule);background:var(--paper-warm)}
+.surface .name{font-family:var(--display);font-size:1rem;font-weight:500;color:var(--ink);margin-bottom:.2rem}
+.surface .desc{font-size:.88rem;color:var(--ink-2);line-height:1.45}
+
+.vocab-rows{margin:1rem 0;border-top:1px solid var(--paper-rule)}
+.vocab-row{padding:1rem 0;border-bottom:1px solid var(--paper-rule);display:grid;grid-template-columns:minmax(140px,1fr) 3fr;gap:1.4rem}
+.vocab-row .term{font-family:var(--display);font-size:1.1rem;font-weight:500;color:var(--ink);font-style:italic}
+.vocab-row .term small{display:block;font-family:var(--mono);font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-3-aaa);font-style:normal;font-weight:400;margin-top:.25rem}
+.vocab-row .body{font-size:.95rem;line-height:1.5;color:var(--ink-2);max-width:none}
+.vocab-row .body strong{color:var(--ink)}
+@media(max-width:680px){.vocab-row{grid-template-columns:1fr}}
+
+.posture-list{list-style:none;padding:0;margin:1rem 0;max-width:none}
+.posture-list li{padding:.9rem 0;border-bottom:1px dotted var(--paper-rule);display:grid;grid-template-columns:auto auto 1fr;gap:.8rem;align-items:baseline;font-size:.96rem;line-height:1.5}
+.posture-list .tier{font-family:var(--mono);font-size:10.5px;letter-spacing:.16em;font-weight:700;color:var(--paper);background:var(--ink-3-aaa);padding:.2rem .55rem;border-radius:2px;text-transform:uppercase}
+.posture-list .tier.t1{background:var(--moss)}
+.posture-list .tier.t2{background:var(--ochre)}
+.posture-list .tier.t3{background:var(--hi)}
+.posture-list .who{font-family:var(--mono);font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--indigo);font-weight:700;min-width:5rem}
+
+.toc{margin:1.4rem 0;padding:1rem 1.2rem;background:var(--paper-cool);border:1px solid var(--paper-rule-2)}
+.toc-eyebrow{font-family:var(--mono);font-size:10.5px;letter-spacing:.22em;text-transform:uppercase;color:var(--indigo);font-weight:700;margin-bottom:.5rem}
+.toc ol{list-style:decimal-leading-zero;padding-left:1.8rem;columns:2;column-gap:2rem;max-width:none}
+.toc li{margin:.2rem 0;break-inside:avoid;font-size:.92rem}
+@media(max-width:680px){.toc ol{columns:1}}
+
+.sources{margin-top:2rem;padding:1.4rem 1.6rem;background:var(--paper-warm);border:1px solid var(--paper-rule)}
+.sources ol{padding-left:1.6rem;max-width:none}
+.sources li{font-size:.88rem;line-height:1.5;margin:.4rem 0;color:var(--ink-2);word-break:break-word}
+.sources li a{font-family:var(--mono);font-size:.82rem}
+
+.rt-stamp{position:fixed;bottom:8px;right:10px;z-index:9999;font-family:var(--mono);font-size:9.5px;letter-spacing:.08em;color:var(--ink-3-aaa);background:rgba(244,236,218,.85);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);padding:.25rem .55rem;border-radius:999px;border:1px solid rgba(61,77,125,.25);pointer-events:none}
+.rt-stamp .dot{color:var(--indigo)}
+.rt-stamp strong{color:var(--ink)}
+
+@media (prefers-reduced-motion: reduce){*,*::before,*::after{animation:none;transition:none;scroll-behavior:auto}}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+{% include site-nav.html %}
+
+<main id="main">
+
+  <header class="masthead">
+    <div class="classified">Stratum · Intel · Eglin · Landscape paper</div>
+    <div class="eyebrow"><span class="dot" aria-hidden="true"></span>Flagship comparative read <span class="sep">·</span> mid-2026 <span class="sep">·</span> <span class="live">L3 action recommended</span></div>
+    <h1>The HCM AI-platform race has <em>eleven</em> claimants. Three are actually platforms.</h1>
+    <p class="subtitle">Workday, SAP, Oracle, Cornerstone, Rippling, iCIMS, SmartRecruiters, Eightfold, Paradox, Beamery, Gloat — a comparative read of the agent-platform claims, with a verified-vs-claimed audit applied uniformly. Stratum's positioning interrogated against the matrix that results.</p>
+    <div class="byline">
+      <span><strong>Author</strong> · Eglin</span>
+      <span><strong>Published</strong> · 2026-05-27</span>
+      <span><strong>Window</strong> · category snapshot, mid-2026</span>
+      <span><strong>Length</strong> · landscape paper, not brief</span>
+      <span><strong>Alert</strong> · L3 — action recommended</span>
+    </div>
+  </header>
+
+  <div class="tldr" aria-labelledby="tldr">
+    <div class="tldr-eyebrow" id="tldr">TL;DR · headline read</div>
+    <p>Eleven vendors are claiming the HCM AI-platform label in mid-2026. By a strict definition — named agents <em>plus</em> an agent registry / governance surface <em>plus</em> open-protocol extensibility — only three currently meet the bar: <strong>Workday (ASOR)</strong>, <strong>SAP (Joule / Autonomous Suite)</strong>, and <strong>Oracle (AI Agent Studio)</strong>. Cornerstone is close on naming but thin on registry. Rippling, Eightfold, Paradox, Beamery, and Gloat ship sophisticated AI features that are not yet a platform in the architectural sense. iCIMS and SmartRecruiters ship AI features inside an ATS that are not platform claims at all.</p>
+    <p>Stratum's defensible ground in this map is narrow but real: <strong>cross-system MCP-native agents whose governance is published as artifact (eval set, decisions ledger, refusals) rather than described in marketing</strong>. The contested noun is "people graph" — Cornerstone trademarked it on 2026-05-20, Beamery has used "talent graph" for nine years, Eightfold ships a "talent intelligence platform." Stratum needs the technical depth page within fourteen days. Workday's ASOR is the architectural threat; Cornerstone's vocabulary capture is the editorial threat; SAP's distribution-surface story is the buyer-conversation threat.</p>
+    <p><strong>Recommended posture:</strong> ship the people-graph technical page (Forge/Yield, 14d) · publish the Stratum eval-set v2 with cross-vendor probes (Kernel, 30d) · reframe Stratum's positioning from "MCP-native HCM" to "the cross-system agent layer the suite vendors will not build" (Compass/Helm, 21d) · do not contest "AI platform" rhetoric in the trade press (Helm, ongoing).</p>
+  </div>
+
+  <nav class="toc" aria-label="Sections">
+    <div class="toc-eyebrow">Contents</div>
+    <ol>
+      <li><a href="#category">What is an "HCM AI platform" in 2026?</a></li>
+      <li><a href="#matrix">The comparative matrix</a></li>
+      <li><a href="#vendors">Per-vendor short reads</a></li>
+      <li><a href="#surfaces">Distribution-surface sidebar</a></li>
+      <li><a href="#vocab">Open vocabulary battles</a></li>
+      <li><a href="#stratum">Where Stratum actually fits</a></li>
+      <li><a href="#posture">Recommended posture</a></li>
+      <li><a href="#method">Method, gaps, what I missed</a></li>
+      <li><a href="#sources">Sources</a></li>
+    </ol>
+  </nav>
+
+  <!-- 01 CATEGORY DEFINITION -->
+  <section class="heavy" id="category" aria-labelledby="cat-h">
+    <div class="sec-eyebrow">01 · Category definition</div>
+    <h2 id="cat-h">"AI platform" is the word every HCM vendor wants. <em>Three tiers actually exist.</em></h2>
+    <p class="lede" style="font-size:1.1rem;color:var(--ink-2);max-width:64ch">The marketing language has collapsed into one phrase. Eglin will not accept the marketing language. The substantive distinction in mid-2026 is between three architectural tiers — and the conflation of them is the single biggest source of buyer confusion in this category.</p>
+
+    <div class="taxonomy">
+      <div class="tax-card">
+        <div class="tier">Tier A · Embedded AI features</div>
+        <h4>AI inside an HCM suite</h4>
+        <p>The suite has shipped AI features — JD generation, candidate match, employee Q&amp;A, summarization. They live inside the suite's existing UI. No named agents, no registry, no extensibility surface for third parties. This is most of the market.</p>
+        <p style="font-size:.86rem;color:var(--ink-mute)"><strong>Examples:</strong> iCIMS Copilot, SmartRecruiters Winston AI, BambooHR Ask AI, Paylocity AI Assist.</p>
+      </div>
+      <div class="tax-card">
+        <div class="tier">Tier B · Agentic workflow layer</div>
+        <h4>Named agents, vendor-built</h4>
+        <p>The vendor has named individual agents (Olivia, Embark Navigator, Sana). The agents have personas and own specific workflows. Customers cannot register their own agents; the governance story is policy-and-process, not artifact. The agents are products, not a platform.</p>
+        <p style="font-size:.86rem;color:var(--ink-mute)"><strong>Examples:</strong> Paradox Olivia, Cornerstone's eleven readiness agents, Eightfold AI agents, Beamery's Embedded AI, Gloat AI mentor.</p>
+      </div>
+      <div class="tax-card" style="border-left-color:var(--moss)">
+        <div class="tier" style="color:var(--moss)">Tier C · True AI platform</div>
+        <h4>Registry + governance + extensibility</h4>
+        <p>Named agents <em>and</em> an agent registry (a list of every agent acting on the customer's data) <em>and</em> open-protocol support (MCP, A2A, or equivalent) <em>and</em> a third-party extensibility surface. The vendor governs other vendors' agents, not just its own.</p>
+        <p style="font-size:.86rem;color:var(--ink-mute)"><strong>Examples:</strong> Workday ASOR, SAP Joule + Joule Studio, Oracle AI Agent Studio. Stratum's four-server MCP architecture is a structural Tier-C claim with smaller surface area.</p>
+      </div>
+    </div>
+
+    <p>Three observations the rest of this paper builds on. <strong>One:</strong> the gap between Tier A and Tier C is not a feature gap; it is an architecture gap. A Tier-A vendor cannot ship into Tier C in one release. <strong>Two:</strong> the marketing language ("AI platform," "agentic suite," "intelligence platform") is identical at all three tiers. The buyer cannot distinguish them from the website. <strong>Three:</strong> Stratum's "MCP-native HCM operating layer" claim is a Tier-C structural claim made by a company with Tier-B surface area. That asymmetry is the both opportunity and the risk; Section 06 returns to it.</p>
+
+    <p>The bar Eglin applies for "registry / governance surface" is specific: <em>a customer-inspectable list of every agent acting on the customer's data, with permissions, audit trail, and a published method for deregistering or revoking</em>. The bar for "open-protocol extensibility" is also specific: <em>a published protocol (MCP, A2A, or equivalent open spec) plus a third-party developer surface that does not require a Workday/SAP/Oracle partnership contract</em>. Cornerstone's Slack/Teams MCP integration meets the protocol bar one direction (out) but not the other (in). Workday ASOR meets both. SAP Joule Studio meets both as of Sapphire 2026. Oracle AI Agent Studio meets both as of OCW 2025.</p>
+  </section>
+
+  <!-- 02 COMPARATIVE MATRIX -->
+  <section class="heavy" id="matrix" aria-labelledby="mat-h">
+    <div class="sec-eyebrow">02 · Comparative matrix</div>
+    <h2 id="mat-h">Eleven vendors. <em>Ten columns.</em> Verified or claimed, uniformly.</h2>
+    <p>Read the matrix as a snapshot of mid-2026 architectural claims, not a feature comparison. Where a cell says <span class="cell-claim">claim</span> the vendor has asserted the capability without independently verifiable artifact (no public registry page, no model card, no named third-party auditor, no customer reference for the specific feature). Where it says <span class="cell-verified">verified</span> at least one independent source (analyst report, customer case study citing the specific feature in production, public bias audit, named LLM provider in vendor docs) corroborates the claim. <span class="cell-mixed">mixed</span> means partial verification. <span class="cell-absent">absent</span> means the vendor does not make this claim.</p>
+
+    <div class="matrix-wrap" role="region" aria-label="HCM AI platform comparative matrix" tabindex="0">
+      <table class="matrix">
+        <thead>
+          <tr>
+            <th scope="col">Vendor</th>
+            <th scope="col">Named agents (count + example)</th>
+            <th scope="col">Agent registry / governance surface</th>
+            <th scope="col">LLM provider disclosed</th>
+            <th scope="col">Bias / eval methodology published</th>
+            <th scope="col">MCP / open protocol</th>
+            <th scope="col">3rd-party extensibility</th>
+            <th scope="col">Graph / skills primitive</th>
+            <th scope="col">Buyer ICP</th>
+            <th scope="col">Pricing posture</th>
+            <th scope="col">Verified vs claimed</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>Workday</td><td>50+ Illuminate agents (Self-Service, Recruiter, Talent Mobility, Performance, Case, Sana) [1][7]</td><td>Agent System of Record (ASOR) — GA 2026; agent registry + Agent Gateway [1][10]</td><td>Multi-model — Workday-trained models + partners; specific providers not foregrounded</td><td>Internal Responsible AI program disclosed; <em>no</em> public bias-audit summary for Recruiting; Mobley litigation ongoing [11][12]</td><td>MCP supported via Agent Gateway; A2A and OpenTelemetry aligned [10]</td><td>Partner-program gated; Built On Workday + Extend AI Toolkit; not a fully open developer surface</td><td>"Workday Graph" (Illuminate substrate, internal); Skills Cloud (skills taxonomy)</td><td>Enterprise 5,000+; Fortune 500; public sector; higher ed</td><td>Flex Credits — subscription-bundled consumption credits across agents [1][7]</td><td><span class="cell-verified">verified Tier C</span> on architecture; <span class="cell-mixed">mixed</span> on AI-fairness story (Mobley)</td></tr>
+
+          <tr><td>SAP SuccessFactors</td><td>200+ specialized agents + 50+ Joule Assistants (HR included) [3][4]</td><td>Joule Studio — agent design + registry; Joule Agent Library; AI Foundation [3][4][13]</td><td>SAP foundation models + Anthropic + Nvidia named as allies at Sapphire 2026 [4]</td><td>SAP AI Ethics policy published; no public bias-audit summary for SuccessFactors agents specifically; Joule has documented hallucination filters</td><td>MCP and A2A claims at Sapphire 2026 [3]; Joule connectors are SAP-first</td><td>Joule Studio + SAP BTP — partner-extensible; ABAP / BTP gravity is real friction</td><td>SAP "Business Data Cloud" — unified data fabric; no dedicated "people graph" term</td><td>Enterprise; existing SAP ECC/S4 + SuccessFactors install base; RISE customers</td><td>RISE bundle includes three Joule Assistants in year one; otherwise consumption pricing tier emerging [3]</td><td><span class="cell-verified">verified Tier C</span> on architecture; <span class="cell-claim">claim</span> on agent-count credibility</td></tr>
+
+          <tr><td>Oracle HCM (Fusion)</td><td>50+ pre-built role-based AI Agents in Fusion Apps; AI Agent Studio for custom [14][15]</td><td>AI Agent Studio (GA 2025 H2) — design, deploy, manage, extend agents [14][15]</td><td>Oracle Cloud Infrastructure (OCI) GenAI Service + partner models (Cohere, Meta Llama hosted) [14]</td><td>Oracle Responsible AI policy; no public bias-audit summary for HCM agents specifically</td><td>AI Agent Studio supports orchestration; MCP support announced but partner-gated [15]</td><td>AI Agent Studio is the developer surface; OCI tenancy required</td><td>No dedicated graph primitive; "Skills Center" within Fusion HCM serves as skills layer</td><td>Enterprise with Oracle Cloud commitment; database-heavy industries; public sector</td><td>Bundled into Fusion Cloud subscription; AI Agent Studio reportedly included for Fusion Apps customers [14]</td><td><span class="cell-verified">verified Tier C</span> on architecture; <span class="cell-claim">claim</span> on outcome quality vs Workday/SAP</td></tr>
+
+          <tr><td>Cornerstone</td><td>11+ named readiness agents (Proactive Coach, Embark Navigator, Future of Work, Skills Architect) [16][17]</td><td>Workforce AI platform announced; <em>no</em> public agent registry / governance surface comparable to ASOR</td><td><em>No LLM provider named</em> in 2026-05-20 launch materials [16][17]</td><td>"Certified AI guardrails" claimed; <em>no certifier specified</em>, no published bias audit, no model card [16]</td><td>MCP integration with Slack and Microsoft Teams (outbound) [16]</td><td>Custom agents available in 2–4 quarter implementations; no published developer surface</td><td>Cornerstone People Graph™ (trademark notation) — inference layer over 45M users, 1B profiles [16][17]; Skills Engine (55k skills)</td><td>L&amp;D-led enterprise; CLO buyer; healthcare, financial services, public sector</td><td>Suite licensing; per-user/per-module; agent surface bundled in 2026 launch</td><td><span class="cell-mixed">mixed</span> — named agents + graph trademark are real; registry, LLM disclosure, audit posture absent</td></tr>
+
+          <tr><td>Rippling</td><td>Rippling AI — workflow agents inside Rippling RPA; no separate named agent list</td><td>Rippling Compose / Rippling AI; agents are inside the platform, no separate registry surface</td><td>OpenAI partnership disclosed historically; current LLM mix not foregrounded in 2026</td><td>No public bias-audit summary; SOC2 + standard enterprise controls</td><td>Public API; <em>no</em> MCP or A2A support disclosed as of mid-2026</td><td>Rippling app store; rich for SMB workflow automation; not an open agent surface</td><td>"Rippling Graph" referenced in marketing as the unified employee data model</td><td>SMB through mid-market (50–5,000); fast-growth tech; multi-product compression buyers</td><td>Per-employee/per-module; bundled-discount-driven</td><td><span class="cell-mixed">mixed</span> — strong workflow AI is verified; "platform" claim is <span class="cell-claim">claim</span></td></tr>
+
+          <tr><td>iCIMS</td><td>Frontline AI — candidate-facing AI; no named multi-agent platform</td><td>None — Frontline AI is a feature set, not a registry</td><td>Multi-model partner approach disclosed; specific providers not foregrounded</td><td>NYC AEDT bias-audit disclosures published; no broader public methodology</td><td>None disclosed as of mid-2026</td><td>iCIMS Marketplace — partner integrations; not an agent extensibility surface</td><td>Talent Cloud data model — no public graph primitive</td><td>Mid-market and enterprise TA-only buyers; healthcare, retail, public sector</td><td>Per-user / per-hire / per-module; enterprise TA pricing</td><td><span class="cell-absent">absent</span> on Tier-C claim; <span class="cell-verified">verified</span> on bias-audit compliance posture</td></tr>
+
+          <tr><td>SmartRecruiters</td><td>Winston AI — TA copilot; not a multi-agent platform</td><td>None — Winston is a copilot, not a registry</td><td>Multi-model; specific providers not foregrounded</td><td>No public bias-audit summary at the platform level</td><td>None disclosed as of mid-2026</td><td>SmartRecruiters Marketplace — integrations; not an agent extensibility surface</td><td>No graph primitive; Talent Acquisition Suite framing</td><td>Mid-market through enterprise TA; global presence; retail, hospitality, life sciences</td><td>Per-employee / per-hire; enterprise TA pricing</td><td><span class="cell-absent">absent</span> on Tier-C; <span class="cell-claim">claim</span> on "AI hiring assistant" framing</td></tr>
+
+          <tr><td>Eightfold</td><td>"AI Agents" branding (recruiting, talent mobility, learning); not a numbered agent set</td><td>Talent Intelligence Platform — agent surface is internal; <em>no</em> open registry</td><td>Eightfold-trained "Talent Intelligence" models + partner LLMs; specifics not foregrounded</td><td>"Bias audit" claims since 2018; published methodology has narrowed over time; AEDT-style disclosures variable</td><td>None disclosed as of mid-2026</td><td>API + Eightfold partner program; not an open agent extensibility surface</td><td>"Talent Network" / "Skills Graph" — Eightfold's most distinctive primitive [18]</td><td>Enterprise; TA-heavy buyers; tech, financial services, healthcare</td><td>Per-employee / per-recruiter; enterprise pricing</td><td><span class="cell-mixed">mixed</span> — the graph primitive is real and strong; the platform-extensibility claim is <span class="cell-claim">claim</span></td></tr>
+
+          <tr><td>Paradox</td><td>Olivia — single named conversational agent; "Olivia for Hourly," "Olivia for Sales" extensions</td><td>None — Olivia is one agent, not a platform; orchestration is internal</td><td>Multi-model; specific providers not foregrounded; Olivia predates the LLM era</td><td>No public bias-audit summary; AEDT disclosures for clients have been published case-by-case</td><td>None disclosed as of mid-2026</td><td>ATS integrations (Workday, SAP, Oracle, iCIMS) — Paradox is an overlay, not a platform</td><td>No graph primitive</td><td>High-volume hourly hiring; retail, hospitality, healthcare, QSR, manufacturing</td><td>Per-hire / per-location; volume-driven enterprise pricing</td><td><span class="cell-absent">absent</span> on Tier-C; <span class="cell-verified">verified</span> on conversational-AI category leadership in hourly</td></tr>
+
+          <tr><td>Beamery</td><td>"Embedded AI" + "AI Agents" branding inside Talent Lifecycle Management</td><td>None public — agent surface is internal</td><td>Multi-model partner approach; Anthropic and OpenAI referenced in materials; specifics shift</td><td>"AI Ethics Policy" published since 2020; Beamery completed a third-party bias audit (Holistic AI) — among the more credible postures in the category [19]</td><td>None disclosed as of mid-2026</td><td>Beamery API + partner program; not an open agent extensibility surface</td><td>"Talent Graph" — Beamery has used this term since ~2017; the most senior claim on the noun</td><td>Enterprise TA + talent transformation; global; tech, financial services, professional services</td><td>Per-employee; enterprise pricing; multi-year contracts</td><td><span class="cell-mixed">mixed</span> — Talent Graph + Holistic AI audit are verified strengths; "platform" extensibility claim is <span class="cell-claim">claim</span></td></tr>
+
+          <tr><td>Gloat</td><td>"AI mentor" + workforce-agility agents inside Talent Marketplace</td><td>None public — agent surface is internal</td><td>Multi-model; Gloat-trained models + LLM partners; specifics not foregrounded</td><td>Internal AI principles published; no public third-party bias audit at the platform level</td><td>None disclosed as of mid-2026</td><td>Gloat connectors to Workday / SAP / Oracle / Cornerstone; not an open agent surface</td><td>"Workforce Graph" — Gloat's framing; internal data layer over employee skills + opportunities</td><td>Large enterprise; talent-marketplace buyers; tech, financial services, life sciences, defense</td><td>Per-employee / per-marketplace; enterprise pricing</td><td><span class="cell-mixed">mixed</span> — workforce-agility category leadership verified; "AI platform" claim is <span class="cell-claim">claim</span></td></tr>
+
+          <tr style="background:rgba(74,93,58,.06)"><td>Stratum</td><td>11 internal Compact agents (Eglin, Compass, Forge, Helm, Kernel, Tessera, Vector, Cadence, Echo, Yield, Aria); external surface extensible via MCP</td><td>Decisions ledger + agent outbox + per-agent CLAUDE.md as published artifact; not a registry UI yet</td><td>Anthropic Claude foundation models (Opus / Sonnet); disclosed in the published architecture</td><td>Eval set + bias-probe methodology published; refusals published; per-decision audit log; O-1 governance objective</td><td>Four MCP servers (graph, console, recruiter, connectors) published as the architecture itself</td><td>MCP-native by construction; any MCP client can call Stratum servers</td><td>People graph — cross-system relational object built from customer-owned data; Skills are an attribute, not a separate engine</td><td>Mid-market through enterprise (1,000–100,000); buyers who value cross-system + governance-as-artifact</td><td>Platform + usage; not per-seat-by-default</td><td><span class="cell-verified">verified Tier C structurally</span>; <span class="cell-claim">surface area smaller</span> than Workday/SAP/Oracle as of mid-2026</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="matrix-key">
+      <span><i class="v"></i> verified — independent corroboration</span>
+      <span><i class="m"></i> mixed — partial verification</span>
+      <span><i class="c"></i> claim — vendor-asserted, not independently verified</span>
+      <span><i class="a"></i> absent — vendor does not make this claim</span>
+    </div>
+    <p style="font-size:.88rem;color:var(--ink-mute);margin-top:.8rem"><em>Matrix updated 2026-05-27. Cell coding is Eglin's own application of the bar in §01; reasonable analysts might code Cornerstone, Rippling, or Eightfold differently on individual cells. The category is moving weekly; expect at least three rows to shift state by end of Q3 2026.</em></p>
+  </section>
+
+  <!-- 03 PER-VENDOR SHORT READS -->
+  <section class="heavy" id="vendors" aria-labelledby="ven-h">
+    <div class="sec-eyebrow">03 · Per-vendor short reads</div>
+    <h2 id="ven-h">What each vendor <em>actually</em> shipped, compressed.</h2>
+    <p>These are synthesis reads, not battlecards. Where a full battlecard exists in <a href="../competitors/">/intel/eglin/competitors/</a>, the short read links to it and does not repeat its content; the goal here is comparative, not exhaustive.</p>
+
+    <article class="vendor" id="v-workday">
+      <h3>Workday — <em>the architectural threat</em></h3>
+      <div class="vmeta"><span><strong>Tier</strong> · C (true platform)</span><span><strong>Headline product</strong> · Illuminate + ASOR + Flex Credits</span><span class="battlecard"><a href="../competitors/workday.html">Battlecard No. 001 →</a></span></div>
+      <p>Workday is the architectural threat in this map, not because its agents are the best but because its <em>governance surface</em> is the most credibly Tier-C. The Agent System of Record (ASOR), GA in 2026, ships an agent registry, an Agent Gateway with MCP and A2A support, and OpenTelemetry alignment [1][7][10]. Combined with 50+ Illuminate agents across HR and finance and the Flex Credits consumption model, Workday is the vendor most able to say "we govern every agent — ours and yours — that touches your Workday data" and back it with documented architecture.</p>
+      <p>The asymmetry Stratum should care about is between Workday's <em>architectural</em> story (ASOR, very strong) and its <em>fairness</em> story (the ongoing Mobley v. Workday litigation, with a conditionally certified ADEA collective and Workday's own filings disclosing 1.1B rejected applications [11][12]). Workday's positioning piece "Workday Leads on Trusted, Compliant AI" is a posture claim, not an artifact claim. Stratum cannot match ASOR's surface area in 2026 but can compete on artifact: published eval set, public refusals, per-decision audit log. The competitive line is "architecture vs. artifact," not "MCP-native vs. closed."</p>
+      <p>What's new since the May 18 daily brief: Sana Self-Service Agent now lives inside Microsoft 365 Copilot (300+ HR/finance skills) [5], and the Workday Korea regional rollout closed the global GA loop [6]. The distribution-surface story is solidifying: Workday's bet is that the agent lives where the employee already lives, and Microsoft 365 is that place for most Workday customers.</p>
+    </article>
+
+    <article class="vendor" id="v-sap">
+      <h3>SAP SuccessFactors — <em>the distribution-surface threat</em></h3>
+      <div class="vmeta"><span><strong>Tier</strong> · C (true platform)</span><span><strong>Headline product</strong> · Joule + Joule Studio + Autonomous Suite</span><span class="nocard">no battlecard yet — recommended within 30 days</span></div>
+      <p>SAP's 2026 Sapphire announcement reframed Joule from "copilot" to "front door to the autonomous enterprise" — 50+ Joule Assistants orchestrating 200+ specialized agents across finance, supply chain, procurement, HCM, and CX [3][4]. The HCM-relevant pieces are SuccessFactors Joule Assistants for talent acquisition, employee central, performance, and learning; the Joule Studio surface lets customers and partners build their own agents on top. Nvidia and Anthropic were named as foundation-model allies [4]; this is the most explicit LLM-provider disclosure in the suite-vendor cohort.</p>
+      <p>The substantive Tier-C claim rests on Joule Studio plus AI Foundation — agent design, lifecycle management, and a registry of agents acting on SAP data. The structural advantage SAP has over Workday is the <em>install-base gravity</em>: SAP ECC/S4 customers running SuccessFactors get Joule by contractual default in the RISE program (three Assistants in year one). The structural disadvantage is that Joule's connector surface is SAP-first; cross-vendor MCP-style calling out of Joule to non-SAP systems is less mature than the marketing implies as of mid-2026.</p>
+      <p>For Stratum: SAP is the <em>distribution-surface</em> threat. Where Workday wins on architecture and Cornerstone wins on vocabulary, SAP wins because the buyer is already paying for it. Stratum's response is to be the agent that crosses systems the buyer does not own — explicitly the systems SAP does not natively talk to (legacy ATSes, niche LMSes, third-party background-check vendors). A battlecard for SAP SuccessFactors should ship in the next 30 days.</p>
+    </article>
+
+    <article class="vendor" id="v-oracle">
+      <h3>Oracle HCM — <em>the underweighted incumbent</em></h3>
+      <div class="vmeta"><span><strong>Tier</strong> · C (true platform)</span><span><strong>Headline product</strong> · AI Agent Studio in Fusion Apps</span><span class="nocard">no battlecard yet — recommended within 30 days</span></div>
+      <p>Oracle is the vendor the trade press most consistently underweights in the agent-platform conversation, and the one a careful read corrects. AI Agent Studio (GA in late 2025) ships inside Fusion Cloud Applications with 50+ pre-built role-based AI Agents — recruiter, payroll specialist, learning coordinator, talent acquisition lead — plus a developer surface to design, deploy, manage, and extend custom agents [14][15]. Oracle Cloud Infrastructure (OCI) Generative AI Service is the LLM substrate, with Cohere and Meta Llama models hosted as named providers [14]. This is the most LLM-transparent of the three suite-vendor Tier-C claims.</p>
+      <p>Oracle's posture is less marketed than Workday's or SAP's but architecturally credible. AI Agent Studio is included with Fusion Cloud subscription (no Flex-Credits-style consumption layer announced as of mid-2026), which makes the buyer-economics conversation simpler. The MCP support story is partner-gated rather than fully open; the platform extensibility is real but lives behind OCI tenancy. For Oracle Cloud customers this is a non-issue; for everyone else it is a hard switching cost.</p>
+      <p>For Stratum: Oracle is the architectural backstop on this map. If Stratum's "MCP-native" claim is contested, Oracle is the vendor whose AI Agent Studio is the closest pure-architecture comparator. Stratum should not pretend Oracle does not exist in its competitive narrative; Compass should add Oracle to the Tier-C row in any "platform comparison" customer-facing collateral.</p>
+    </article>
+
+    <article class="vendor" id="v-cornerstone">
+      <h3>Cornerstone — <em>the vocabulary threat</em></h3>
+      <div class="vmeta"><span><strong>Tier</strong> · B+ (named agents, thin registry)</span><span><strong>Headline product</strong> · Cornerstone Workforce AI · People Graph · Skills Engine</span><span class="battlecard"><a href="../competitors/cornerstone.html">Battlecard No. 022 →</a></span></div>
+      <p>Cornerstone's 2026-05-20 launch — "intelligence platform for workforce readiness" — is the most consequential single move in this map for Stratum, not because the platform is architecturally Tier-C (it isn't, by Eglin's bar) but because Cornerstone trademarked <strong>Cornerstone People Graph™</strong> and is touring 15 cities through 2026 reinforcing the term [16][17]. The vocabulary capture is the real threat.</p>
+      <p>The platform itself ships eleven-plus named readiness agents, a 55,000-skill Skills Engine, MCP integration to Slack and Teams, and a Salesforce Agentforce / Data Cloud / ITSM partnership. What it does not ship: a public agent registry comparable to ASOR, a named LLM provider, a named bias auditor, or a model card. "Certified AI guardrails" is the soft language; no certifier is specified [16]. This is Tier-B sophistication marketed as Tier-C platform.</p>
+      <p>For Stratum: Cornerstone is the editorial threat. The remediation is not a press release — it is a depth artifact (the Stratum people-graph technical page) shipped before "people graph" hardens as a Cornerstone term in trade-press shorthand. Battlecard No. 022 (2026-05-27, Eglin) has the full read.</p>
+    </article>
+
+    <article class="vendor" id="v-rippling">
+      <h3>Rippling — <em>the SMB workflow story</em></h3>
+      <div class="vmeta"><span><strong>Tier</strong> · B (named agents, no registry)</span><span><strong>Headline product</strong> · Rippling AI · Compose · workflow agents</span><span class="battlecard"><a href="../competitors/rippling.html">Battlecard →</a></span></div>
+      <p>Rippling's "platform" claim is the strongest of the SMB cohort and the weakest of the platform claimants. Rippling AI ships workflow-automation agents on top of Rippling's unified employee data model ("Rippling Graph" in marketing). The agents are real and well-marketed; the architecture is not Tier-C because there is no public agent registry, no published MCP support, and no third-party agent extensibility surface. Rippling's bet is depth-of-product within Rippling, not extensibility outside it.</p>
+      <p>For Stratum: Rippling is mostly orthogonal — they own SMB through mid-market, Stratum targets mid-market through enterprise, and the buyer overlap is narrow. The competitive line is buyer-type, not feature. Where Rippling does show up in Stratum's funnel (fast-growth tech companies that have outgrown Rippling and are evaluating the next layer) the conversation is about cross-system governance, which is where Stratum's wedge holds.</p>
+    </article>
+
+    <article class="vendor" id="v-icims">
+      <h3>iCIMS — <em>Tier-A copilot, not a platform</em></h3>
+      <div class="vmeta"><span><strong>Tier</strong> · A (embedded features)</span><span><strong>Headline product</strong> · Frontline AI</span><span class="battlecard"><a href="../competitors/icims.html">Battlecard →</a></span></div>
+      <p>iCIMS's Frontline AI is a candidate-facing assistant inside the iCIMS Talent Cloud — JD assistance, candidate engagement, screening support. It is not a platform claim; iCIMS does not market it as one. The compliance posture is the strongest in this row: iCIMS has published NYC AEDT bias-audit disclosures for the affected features, which most of the suite vendors have not done at comparable depth for their named agents.</p>
+      <p>For Stratum: iCIMS is the right reference for "what a Tier-A AI feature set inside an ATS looks like, executed competently." Stratum should not over-claim against iCIMS on AI; Stratum should compete on cross-system architecture, where iCIMS is single-system by design.</p>
+    </article>
+
+    <article class="vendor" id="v-smartrecruiters">
+      <h3>SmartRecruiters — <em>Winston is a copilot</em></h3>
+      <div class="vmeta"><span><strong>Tier</strong> · A (embedded features)</span><span><strong>Headline product</strong> · Winston AI</span><span class="battlecard"><a href="../competitors/smartrecruiters.html">Battlecard →</a></span></div>
+      <p>SmartRecruiters ships Winston AI — a TA copilot inside the Talent Acquisition Suite. The branding has tightened in 2026 ("Winston" as a persona) but the architecture is single-system feature-set, not a platform. No MCP support, no agent registry, no third-party extensibility surface. The buyer ICP — mid-market through enterprise TA, especially in retail, hospitality, life sciences, and globally — overlaps with Stratum's at the upper end but does not threaten Stratum's positioning narrative.</p>
+      <p>For Stratum: SmartRecruiters is a TA-suite competitor on feature, not a platform competitor on architecture. Compass should treat SmartRecruiters claims against Stratum as feature-level comparisons in TA, not as platform-level comparisons in HCM.</p>
+    </article>
+
+    <article class="vendor" id="v-eightfold">
+      <h3>Eightfold — <em>the graph that came first</em></h3>
+      <div class="vmeta"><span><strong>Tier</strong> · B+ (strong graph, weaker extensibility)</span><span><strong>Headline product</strong> · Talent Intelligence Platform · AI Agents</span><span class="battlecard"><a href="../competitors/eightfold.html">Battlecard →</a></span></div>
+      <p>Eightfold's "Talent Intelligence Platform" framing predates the current agent-platform conversation by several years and was the first vendor in this map to ship a credible <em>skills graph</em> at scale [18]. The 2026 "AI Agents" branding is layered on top — recruiting agents, talent-mobility agents, learning agents — and is real, but the platform claim rests on the graph, not on extensibility. There is no public MCP support, no open agent registry, and the developer surface is partner-gated. Eightfold's bias-audit story has narrowed over the years; the 2018-era "we audit for bias" claim is harder to verify at depth in 2026 materials.</p>
+      <p>For Stratum: Eightfold is the vendor most architecturally analogous in <em>spirit</em> — a graph-anchored talent platform — and the most divergent in <em>execution</em>. Eightfold's graph is internal to Eightfold; Stratum's graph is cross-system. The vocabulary collision is real ("talent intelligence" vs "people graph" vs "MCP-native") and Stratum should not pretend Eightfold's graph claim is weaker than it is.</p>
+    </article>
+
+    <article class="vendor" id="v-paradox">
+      <h3>Paradox — <em>Olivia is one agent, not a platform</em></h3>
+      <div class="vmeta"><span><strong>Tier</strong> · B (one named agent, no platform)</span><span><strong>Headline product</strong> · Olivia (conversational AI)</span><span class="nocard">no battlecard yet — recommended within 60 days</span></div>
+      <p>Paradox built the category for conversational AI in high-volume hourly hiring. Olivia is the most recognizable named agent in HCM and predates the LLM era. In 2026 Olivia has extensions ("Olivia for Hourly," "Olivia for Sales") but the architecture is one agent with multiple skins, not a platform. Paradox sits as an overlay on Workday, SAP SuccessFactors, Oracle, and iCIMS — which is the structural reason it cannot become Tier-C: Paradox does not own the system of record.</p>
+      <p>For Stratum: Paradox is the right reference for "what a single named agent executed exceptionally looks like." The category lesson Stratum can learn from Olivia is the value of persona-driven trust in conversational interfaces — but Stratum's surface is many agents across many systems, not one agent across many companies. A battlecard within 60 days is appropriate given Paradox's persistent visibility in hourly-hiring buyer conversations.</p>
+    </article>
+
+    <article class="vendor" id="v-beamery">
+      <h3>Beamery — <em>the senior claim on "Talent Graph"</em></h3>
+      <div class="vmeta"><span><strong>Tier</strong> · B+ (strong graph + audit, weaker extensibility)</span><span><strong>Headline product</strong> · Talent Lifecycle Management · Talent Graph · Embedded AI</span><span class="nocard">no battlecard yet — recommended within 30 days</span></div>
+      <p>Beamery has used "Talent Graph" as its central architectural noun since approximately 2017, which is the most senior trademark-adjacent claim on the graph noun in this map. The 2025–26 product surface ships embedded AI across sourcing, candidate engagement, talent CRM, and internal mobility, and Beamery completed a third-party bias audit with Holistic AI — which is among the more credible AI-fairness postures in the category, more so than Cornerstone's "certified guardrails" language [19].</p>
+      <p>What Beamery does not ship: a public agent registry, MCP support, or a third-party agent extensibility surface. The "platform" claim sits on the Talent Graph and the connector library, not on Tier-C architecture. For Stratum: Beamery is the vendor most likely to compete on vocabulary ("talent graph" vs "people graph") if the noun battle escalates. A battlecard within 30 days is appropriate, especially given Beamery's presence in global enterprise TA-transformation deals.</p>
+    </article>
+
+    <article class="vendor" id="v-gloat">
+      <h3>Gloat — <em>workforce-agility, not agent platform</em></h3>
+      <div class="vmeta"><span><strong>Tier</strong> · B (named agents inside a single category)</span><span><strong>Headline product</strong> · Talent Marketplace · Workforce Graph · AI mentor</span><span class="nocard">no battlecard yet — recommended within 60 days</span></div>
+      <p>Gloat is the category leader in workforce-agility / internal talent marketplace. The 2025–26 surface ships an AI mentor agent, workforce-agility recommendations, and the "Workforce Graph" — Gloat's term for the unified employee skills + opportunities data layer. The architecture is single-purpose: workforce mobility inside a single enterprise. The connectors out to Workday, SAP, Oracle, and Cornerstone are real and well-engineered; the agent surface is internal, not extensible.</p>
+      <p>For Stratum: Gloat is mostly adjacent — workforce-agility is a category Stratum does not lead with — but the vocabulary overlap matters ("Workforce Graph" vs "People Graph"). The competitive line is "people graph as a cross-system relational object" vs "workforce graph as a mobility-inference layer." A battlecard within 60 days is appropriate.</p>
+    </article>
+
+  </section>
+
+  <!-- 04 DISTRIBUTION SURFACES -->
+  <section class="heavy" id="surfaces" aria-labelledby="surf-h">
+    <div class="sec-eyebrow">04 · Distribution-surface sidebar</div>
+    <h2 id="surf-h">The platforms that <em>aren't</em> HCM vendors but route most of the agents.</h2>
+    <p>A landscape paper that does not name the distribution surfaces misses the part of the map most likely to shape buyer behavior in the next 18 months. The HCM vendors are increasingly not the surface through which their own agents are consumed; Microsoft 365 Copilot, Salesforce Agentforce, ServiceNow, and Slack are. This shifts the question from "which HCM vendor's agent is best" to "whose surface does the employee already live in."</p>
+    <div class="surfaces">
+      <div class="surface"><div class="name">Microsoft 365 Copilot</div><div class="desc">Workday Sana ships 300+ HR/finance skills here as of 2026-05-13 [5]. The default surface for the Workday + Microsoft customer.</div></div>
+      <div class="surface"><div class="name">Salesforce Agentforce</div><div class="desc">Cornerstone's 2026-05-20 launch named Agentforce + Data Cloud + ITSM as the partnership surface [16]. Workday and ServiceNow also have Agentforce ties.</div></div>
+      <div class="surface"><div class="name">ServiceNow</div><div class="desc">Increasingly the ITSM-style surface for HR cases and employee requests. Workday, Oracle, and Cornerstone all have integrations.</div></div>
+      <div class="surface"><div class="name">Slack / Microsoft Teams</div><div class="desc">Cornerstone, Workday, SAP, and Paradox all ship into these via MCP or proprietary connectors. The default surface for employee Q&amp;A agents.</div></div>
+      <div class="surface"><div class="name">SAP Joule (as a surface)</div><div class="desc">Joule is becoming a surface for non-SAP agents (Anthropic, Nvidia partnerships at Sapphire 2026). The first non-Microsoft suite-vendor surface to do this.</div></div>
+      <div class="surface"><div class="name">Stratum Console</div><div class="desc">Stratum's own surface; complementary to the above, not competitive. The agent that crosses systems the buyer does not own.</div></div>
+    </div>
+    <p><strong>Eglin's read.</strong> The distribution-surface story is the most under-discussed dimension in this map. The HCM vendor with the best architecture (Workday) is not necessarily the surface where the agent gets consumed (Microsoft). The HCM vendor with the best vocabulary (Cornerstone) is not building its own surface either (Agentforce). Stratum is in an unusual position: its Console is genuinely its own surface, but it is also fully addressable from any MCP client. The competitive question is whether Stratum needs to <em>be</em> a destination surface or whether being addressable from every surface is the bet. The current strategy reads as the latter; this paper does not contest that read.</p>
+  </section>
+
+  <!-- 05 VOCABULARY BATTLES -->
+  <section class="heavy" id="vocab" aria-labelledby="voc-h">
+    <div class="sec-eyebrow">05 · Open vocabulary battles</div>
+    <h2 id="voc-h">Six nouns. <em>None</em> are settled.</h2>
+    <p>Vocabulary is the slowest competitive dimension to lose, the hardest to reverse, and the cheapest to invest in early. The HCM category is mid-formation on six nouns; the trademark posture and claimant order matters.</p>
+    <div class="vocab-rows">
+
+      <div class="vocab-row">
+        <div class="term">People Graph<small>contested · trademark-noted</small></div>
+        <div class="body"><strong>Claimants:</strong> Cornerstone (Cornerstone People Graph™, 2026-05-20 launch, trademark notation) · Stratum (architectural metaphor, public since early 2026) · Workday ("Workday Graph" — internal, less prominent in marketing). <strong>Status:</strong> Cornerstone has the trademark posture, Stratum has the technical-depth claim, Workday has the install-base gravity. <strong>Risk:</strong> if the trade press writes "the people graph approach pioneered by Cornerstone…" once, Stratum's narrative absorbs lasting damage. <strong>Recommendation:</strong> ship the Stratum technical-depth page in 14 days; Helm/Compass commission; Forge or Yield owns the substance.</div>
+      </div>
+
+      <div class="vocab-row">
+        <div class="term">Talent Graph<small>established · ~2017</small></div>
+        <div class="body"><strong>Claimants:</strong> Beamery (the most senior, ~2017) · Eightfold (used variably alongside "Talent Network" and "Skills Graph") · iCIMS (occasional usage). <strong>Status:</strong> Beamery owns the noun in the trade press by usage history. <strong>Risk:</strong> "talent graph" is the natural fallback if "people graph" is contested; Stratum should not pivot to it without an architectural rationale. <strong>Recommendation:</strong> Stratum stays on "people graph" — broader scope (workforce, work, identity, decisions), not just talent. Treat Beamery's "talent graph" as an adjacent term, not a synonym.</div>
+      </div>
+
+      <div class="vocab-row">
+        <div class="term">Skills Graph / Skills Engine<small>multiply claimed</small></div>
+        <div class="body"><strong>Claimants:</strong> Cornerstone (Skills Engine, 55k skills, 2026-05-20) · Eightfold (Skills Graph) · Workday (Skills Cloud) · SAP (Skills Hub) · Gloat (Workforce Graph with skills inference). <strong>Status:</strong> the most crowded noun; nobody owns it. <strong>Risk:</strong> low — the noun is too commoditized to lose. <strong>Recommendation:</strong> Stratum does not market "skills engine" or "skills graph" as a separate primitive; skills are an attribute on the worker node, per the people-graph framing. This is the right call architecturally; defend it editorially.</div>
+      </div>
+
+      <div class="vocab-row">
+        <div class="term">Agent of Record · Agent System of Record<small>Workday · trademark-adjacent</small></div>
+        <div class="body"><strong>Claimants:</strong> Workday (Agent System of Record / ASOR, GA 2026; the most explicit branded claim on the governance-surface noun) · no comparable competing claim in the cohort. <strong>Status:</strong> Workday is alone here so far. <strong>Risk:</strong> if "agent of record" becomes the category-level term for the governance surface, Workday wins the noun by default. <strong>Recommendation:</strong> Stratum does not compete for this noun. The Stratum equivalent is "decisions ledger + outbox + per-agent CLAUDE.md as published artifact" — an artifact claim, not a category-noun claim. Let Workday have ASOR; compete on the artifact.</div>
+      </div>
+
+      <div class="vocab-row">
+        <div class="term">Workforce Intelligence · Workforce Readiness<small>Cornerstone · Gloat</small></div>
+        <div class="body"><strong>Claimants:</strong> Cornerstone ("intelligence platform for workforce readiness," 2026-05-20) · Gloat ("workforce agility") · Visier (workforce analytics, adjacent). <strong>Status:</strong> Cornerstone's 15-city Connect tour through 2026 will harden "workforce readiness" if no counter-noun emerges. <strong>Risk:</strong> medium — Stratum's narrative is operational ("MCP-native HCM operating layer"), not developmental ("readiness"). The two nouns can coexist; the risk is if buyers conflate them. <strong>Recommendation:</strong> Compass explicitly distinguishes "operating layer" from "readiness platform" in the buyer Q&amp;A. Eglin's Cornerstone battlecard already drafted this language.</div>
+      </div>
+
+      <div class="vocab-row">
+        <div class="term">MCP-native · Open agent protocol<small>Stratum · Greenhouse · Workday (via ASOR)</small></div>
+        <div class="body"><strong>Claimants:</strong> Stratum (the original positioning anchor) · Greenhouse (2026 MCP-native pivot, per Eglin's 5/16 daily) · Workday (MCP support via ASOR / Agent Gateway) · SAP (MCP claims at Sapphire 2026) · Cornerstone (MCP into Slack/Teams only). <strong>Status:</strong> Stratum is no longer alone on "MCP-native." The noun is open. <strong>Risk:</strong> high — if "MCP-native" becomes table-stakes, Stratum's positioning anchor needs a successor noun. <strong>Recommendation:</strong> reframe from "MCP-native HCM" to "the cross-system agent layer the suite vendors will not build." MCP-native becomes the <em>method</em>, not the <em>identity</em>. Compass / Helm decide on the new umbrella by end of June 2026.</div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- 06 STRATUM POSITIONING -->
+  <section class="heavy" id="stratum" aria-labelledby="str-h">
+    <div class="sec-eyebrow">06 · Where Stratum actually fits</div>
+    <h2 id="str-h">The honest read. <em>Where the positioning holds, and where it's contested.</em></h2>
+
+    <p>The comparative matrix forces a few honest acknowledgments before any positioning section is credible.</p>
+
+    <h3>What survives the comparative read</h3>
+    <p><strong>Cross-system MCP architecture as published artifact.</strong> Stratum's four MCP servers (graph, console, recruiter, connectors) are public, with documented tool surfaces and permission models. Workday's ASOR supports MCP but the customer-visible tool list and routing documentation are not as inspectable pre-purchase. SAP's Joule supports MCP but the connectors are SAP-first. Cornerstone's MCP is one direction (out to Slack/Teams) only. <em>This is genuinely defensible.</em></p>
+    <p><strong>Governance-as-artifact.</strong> Stratum publishes the eval set, the decisions ledger, the agent outbox, and per-agent refusals. No other vendor on the map publishes governance at this artifact-layer specificity. Workday's "Trusted, Compliant AI" is a posture claim. Cornerstone's "certified AI guardrails" has no certifier named. Beamery's Holistic AI audit is the closest comparator and it is narrower in scope. <em>This is genuinely defensible.</em></p>
+    <p><strong>Cross-system relational primitive.</strong> The people-graph framing — workforce, work, identity, decisions, built from customer-owned data via connectors — is structurally different from Cornerstone's inference layer over Cornerstone's own data, Beamery's talent-CRM graph, Eightfold's internal talent network, and Gloat's workforce-mobility graph. <em>This is defensible if the technical-depth page ships before the noun hardens.</em></p>
+
+    <h3>What is genuinely contested</h3>
+    <p><strong>The phrase "MCP-native HCM" is no longer Stratum's alone.</strong> Greenhouse pivoted to MCP-native in May 2026; Workday supports MCP via ASOR; SAP claimed MCP at Sapphire 2026; Cornerstone ships MCP into Slack/Teams. The phrase has become table-stakes. The positioning anchor needs a successor noun by end of June 2026 — likely something that emphasizes the <em>cross-system</em> dimension, since MCP-native alone no longer differentiates.</p>
+    <p><strong>"People graph" is contested as of 2026-05-20.</strong> Cornerstone's trademark notation, Beamery's nine-year usage history of "talent graph," and the trade-press habit of compressing competing nouns into the latest claimant's framing means the people-graph noun is at material editorial risk. The 14-day window to publish the technical-depth page is not arbitrary; it is the window before the Cornerstone Connect tour begins reinforcing the term in CLO conferences through 2026.</p>
+    <p><strong>Workday's ASOR genuinely matches the structural claim of "agent governance surface."</strong> Eglin will not pretend otherwise. ASOR is a credible Tier-C governance architecture with an agent registry, MCP support, and OpenTelemetry alignment. Stratum cannot match ASOR's surface area in 2026. The honest competitive line is <em>architecture vs artifact</em>: Workday wins on the architecture diagram; Stratum wins on the audit-layer artifact. Both claims can be true; the buyer chooses based on which one their AI-governance committee values.</p>
+    <p><strong>Cornerstone's Skills Engine (55k skills) does not match a Stratum claim because Stratum does not make one.</strong> This is the right architectural call (skills as attribute, not engine) but it is a marketing exposure: buyers who frame the question as "what is your skills taxonomy" will find Stratum's answer less concrete than Cornerstone's, Eightfold's, or Workday's. Compass needs a buyer-Q&amp;A answer for this specifically. The answer is not to build a skills engine; the answer is to reframe the question.</p>
+
+    <h3>The honest scope</h3>
+    <p>Stratum is, today, a Tier-C structural claim at Tier-B surface area. The four MCP servers are real but the customer-visible agent registry UI is not yet shipped; the eval set is published but the cross-vendor probe coverage is not yet at the depth Workday ASOR's documentation implies it eventually targets. The positioning is honest because the architecture is honest; the gap is execution surface area, not architectural credibility. The next two quarters' product roadmap should close this gap by (a) shipping the registry UI as a Console surface, (b) expanding eval-set v2 with cross-vendor probes, and (c) publishing the people-graph technical-depth page. None of these are vaporware; all three are within Forge / Kernel / Yield's current planning.</p>
+
+    <div class="callout">
+      <span class="tag">Eglin's read</span>
+      <p>Stratum's positioning, after the comparative read, holds on three claims and is genuinely contested on three. The three that hold (cross-system MCP architecture, governance-as-artifact, cross-system relational primitive) are sufficient for a defensible mid-market through enterprise position. The three that are contested (the MCP-native phrase, the people-graph noun, the ASOR-vs-Stratum architecture conversation) require specific 14- to 60-day actions. The headline finding of this paper is that Stratum's positioning is honest but the noun-defense window is narrow. Section 07 lists the actions.</p>
+    </div>
+  </section>
+
+  <!-- 07 POSTURE -->
+  <section class="heavy" id="posture" aria-labelledby="pos-h">
+    <div class="sec-eyebrow">07 · Recommended posture</div>
+    <h2 id="pos-h">What to ship, publish, defend, watch. <em>Tier-coded.</em></h2>
+    <p>T1 = Tier-1 / Eglin authority, recommend and the owning agent decides on a normal cadence. T2 = Tier-2, escalates to Helm or Compass for the editorial call. T3 = Tier-3 / Compact-level decision.</p>
+    <ul class="posture-list">
+      <li><span class="tier t1">T1</span><span class="who">Forge / Yield</span><span><strong>Ship the people-graph technical-depth page within 14 days.</strong> Architecture diagram, connector list, MCP server tool surfaces, explicit framing: "not an inference layer over our own data — a cross-system relational object built from yours." Publishable on stratum.dev/architecture/people-graph or equivalent. This is the highest-leverage single action in this paper.</span></li>
+      <li><span class="tier t1">T1</span><span class="who">Kernel</span><span><strong>Publish eval set v2 with cross-vendor probes within 30 days.</strong> Specific probes: "Agent invoked from Microsoft 365 Copilot preserves Stratum's decision-class taxonomy"; "Agent invoked from Salesforce Agentforce preserves audit-log linkage"; "Agent crossing Stratum + Workday MCP servers maintains permissions semantics." Treat as the operational answer to Workday's ASOR architectural claim.</span></li>
+      <li><span class="tier t2">T2</span><span class="who">Compass / Helm</span><span><strong>Reframe positioning umbrella from "MCP-native HCM" to "the cross-system agent layer the suite vendors will not build" within 21 days.</strong> MCP-native becomes the method, not the identity. Coordinate with the people-graph page launch so the reframe lands as a coherent narrative, not a retreat.</span></li>
+      <li><span class="tier t1">T1</span><span class="who">Compass</span><span><strong>Add a five-term vocabulary map to the buyer Q&amp;A within 14 days.</strong> People Graph (Stratum's term and architecture), Skills Engine (why we don't market one), Agents (eleven internal + extensible external surface), MCP (method, not identity), Workforce Readiness (Cornerstone's frame, distinguished from Stratum's "operating layer" frame).</span></li>
+      <li><span class="tier t1">T1</span><span class="who">Eglin</span><span><strong>Ship battlecards for SAP SuccessFactors and Oracle HCM within 30 days; Beamery within 30 days; Paradox and Gloat within 60 days.</strong> The cohort gap is structural — three of the eleven vendors in this landscape paper have no battlecard. Close it.</span></li>
+      <li><span class="tier t2">T2</span><span class="who">Forge / Kernel</span><span><strong>Audit whether Stratum's four MCP servers are reachable from Microsoft 365 Copilot, Salesforce Agentforce, and Slack on a single auth model within 30 days.</strong> The distribution-surface question becomes the buyer-conversation question if Stratum is not addressable from where the employee already lives. Document on the trust center.</span></li>
+      <li><span class="tier t3">T3</span><span class="who">Compact</span><span><strong>Decide by end of Q3 2026 whether the Stratum Console is a destination surface or an addressable-from-everywhere surface.</strong> The current strategy reads as the latter; this paper does not contest the read. A Compact-level reaffirmation (or pivot) closes the strategic ambiguity.</span></li>
+      <li><span class="tier t2">T2</span><span class="who">Helm</span><span><strong>Do not contest "AI platform" rhetoric in the trade press.</strong> The phrase is too crowded to win; Stratum's claim is structurally Tier-C but surface-area Tier-B. The right move is to compete on artifact, not on category-noun ownership. Posture in trade-press conversations: "we publish what others describe."</span></li>
+      <li><span class="tier t1">T1</span><span class="who">Eglin</span><span><strong>Re-elevate the people-graph noun watch on a 14-day cadence through end of 2026.</strong> Track every Cornerstone Connect tour stop, every analyst report using "people graph" as a category term, every Beamery counter-claim on "talent graph." Closed-loop on the noun-defense actions above.</span></li>
+      <li><span class="tier t1">T1</span><span class="who">Tessera</span><span><strong>Track UX conventions emerging from the distribution surfaces.</strong> Workday Sana-in-M365, Joule-in-SAP, Cornerstone-in-Slack/Teams. Stratum Console will increasingly be measured against these conventions; identify which to adopt, which to differentiate against, which to leapfrog.</span></li>
+    </ul>
+  </section>
+
+  <!-- 08 METHOD -->
+  <section id="method" aria-labelledby="meth-h">
+    <div class="sec-eyebrow">08 · Method, gaps, what I missed</div>
+    <h2 id="meth-h">Honest scope, source confidence, and what this paper <em>doesn't</em> claim.</h2>
+    <p><strong>Method.</strong> Eleven vendors, ten matrix columns, three-tier taxonomy applied uniformly. Per-vendor short reads compress (do not duplicate) existing battlecards where one exists; gap vendors (SAP, Oracle, Paradox, Beamery, Gloat) were researched via vendor press, analyst commentary, and customer-facing materials accessible publicly as of 2026-05-27. Verified-vs-claimed coding follows the bar set in §01: independent source corroboration, customer reference, public bias audit, or named LLM provider in vendor docs counts as verified; vendor-asserted without those is claimed.</p>
+    <p><strong>Source confidence.</strong> High on Workday (multiple primary sources, three Eglin briefs in the last fortnight). High on Cornerstone (battlecard 022 shipped 2026-05-27, primary sources direct). High on SAP (Sapphire 2026 primary press, multiple analyst sources). Medium-high on Oracle (AI Agent Studio GA materials direct, but less recent independent analyst depth than Workday/SAP). Medium on Paradox, Beamery, Gloat (no Eglin battlecards yet; current materials are vendor-published with analyst confirmation but no third-party feature-in-production verification this dispatch). Medium on Rippling, Eightfold (existing battlecards but not refreshed in 30 days). High on iCIMS, SmartRecruiters (existing battlecards plus the more constrained Tier-A scope makes verification straightforward).</p>
+    <p><strong>What I did not do.</strong> No direct customer-reference interviews — this is a public-source synthesis. No analyst-firm subscriptions referenced (no Gartner, Forrester, or IDC source citations); the analyst landscape on this category is moving but the published reads are largely vendor-co-marketed and Eglin's bar treats them as marketing claims. No pricing detail beyond posture (per-seat vs platform vs usage); actual contract economics require Vector's customer-conversation evidence. No legal opinion on the trademark posture; that requires counsel.</p>
+    <p><strong>What I missed (likely).</strong> ADP and UKG were not covered in this paper because their agent-platform claims are nascent (ADP Lyric AI is Tier-A; UKG has AI features but no platform claim as of mid-2026); they belong in the next quarter's refresh if either ships a platform announcement. Phenom has a battlecard but does not currently claim a Tier-C platform; included implicitly in §03 / Eightfold-adjacent. Visier is workforce analytics and does not claim agent platform; adjacent. The HRTech / European cohort (HiBob, Personio, Sage People) does not currently claim Tier-C; revisit Q3 2026.</p>
+    <p><strong>What surprised me.</strong> Oracle. The trade press has under-weighted AI Agent Studio relative to Workday's ASOR; on architecture-against-bar Oracle is closer to Workday than the marketing surface implies. Beamery's Holistic AI audit is also stronger than the AI-fairness conversation typically credits; it is the most credible independent bias-audit posture in this cohort outside Stratum's own published eval set. SAP's explicit naming of Anthropic and Nvidia as foundation-model allies is more LLM-provider-transparent than any of Workday, Oracle, or Cornerstone — a small but meaningful trust signal.</p>
+    <p><strong>O-2 self-check.</strong> This paper advances O-2 in three ways. <em>One:</em> it closes a category-level gap Eglin flagged in the May 18 daily and the May 27 Cornerstone battlecard — no comparative read across the agent-platform claimants existed in the Stratum library; now one does. <em>Two:</em> it converts five vendors with no battlecard into a single comparative read, with a 30/60-day plan to bring three of them to full-battlecard coverage. <em>Three:</em> it produces a tier-coded posture list the Compact can act on this week — not just inform itself with. A landscape paper that synthesizes is finishing the job; one that only lists would not be.</p>
+  </section>
+
+  <!-- 09 SOURCES -->
+  <section id="sources" class="sources" aria-labelledby="src-h">
+    <h2 id="src-h" style="font-family:var(--display);font-weight:500;font-size:1.4rem;margin:0 0 .8rem">Sources</h2>
+    <ol>
+      <li>Workday Newsroom, "Workday Expands Illuminate with New HR, Finance and Industry Agents." <a href="https://newsroom.workday.com/2025-09-16-Workday-Expands-Illuminate-with-New-HR-Finance-and-Industry-Agents">newsroom.workday.com/2025-09-16-Workday-Expands-Illuminate</a></li>
+      <li>G2, Capterra, Trustpilot — Workday Recruiting reviewer aggregates, 2024–2026 (recruiter UX patterns). Cited per Eglin's Workday battlecard No. 001.</li>
+      <li>SAP, "2026 SAP Sapphire Keynote: Powering the Autonomous Enterprise," 2026-05-12. <a href="https://news.sap.com/2026/05/sap-sapphire-keynote-business-ai-platform-power-autonomous-enterprise/">news.sap.com/2026/05/sap-sapphire-keynote-business-ai-platform-power-autonomous-enterprise</a></li>
+      <li>SiliconANGLE, "SAP recasts Joule as the front door to autonomous enterprise AI," 2026-05-12. <a href="https://siliconangle.com/2026/05/12/sap-recasts-joule-front-door-autonomous-enterprise-ai/">siliconangle.com/2026/05/12/sap-recasts-joule-front-door-autonomous-enterprise-ai</a> · Seoul Economic Daily, "SAP Unveils 'Autonomous Enterprise' Platform with Nvidia, Anthropic as Allies," 2026-05-13.</li>
+      <li>PRNewswire, "Workday Brings Sana Self-Service Agent for HR and Finance Into Microsoft 365 Copilot," 2026-05-13. <a href="https://www.prnewswire.com/news-releases/workday-brings-sana-self-service-agent-for-hr-and-finance-into-microsoft-365-copilot-302770254.html">prnewswire.com/news-releases/workday-brings-sana-self-service-agent-for-hr-and-finance-into-microsoft-365-copilot</a></li>
+      <li>Seoul Economic Daily, "Workday Launches Enterprise-Specialized AI Agent Platform in Korea," 2026-05-14. <a href="https://en.sedaily.com/news/2026/05/14/workday-launches-enterprise-specialized-ai-agent-platform">en.sedaily.com/news/2026/05/14/workday-launches-enterprise-specialized-ai-agent-platform</a></li>
+      <li>Workday Newsroom, "Workday Announces Next Generation of Illuminate Agents at Workday Rising," 2025-05-19. Cited per Eglin's Workday battlecard No. 001.</li>
+      <li>Reddit r/recruiting, r/humanresources — Workday Recruiting recruiter-UX threads, 2024–2026 aggregates.</li>
+      <li>HR Dive, "Workday plaintiffs submit amended complaint reupping physical disability and state-law bias claims," 2026-03. <a href="https://www.hrdive.com/news/workday-partial-loss-judge-refuses-claims-dismissal/814227/">hrdive.com/news/workday-partial-loss-judge-refuses-claims-dismissal</a></li>
+      <li>Workday Newsroom / Workday Blog, "While the EU AI Act Stalls, Workday Leads on Trusted, Compliant AI," and "Agent System of Record (ASOR) General Availability" — May 2026. Cited per Eglin's Workday battlecard No. 001.</li>
+      <li>Maynard Nexsen, "Emerging Liability for AI-Driven Hiring Tools: Key Developments in Mobley v. Workday, Inc.," 2026. <a href="https://www.maynardnexsen.com/publication-emerging-liability-for-ai-driven-hiring-tools-key-developments-in-mobley-v-workday-inc">maynardnexsen.com/publication-emerging-liability-for-ai-driven-hiring-tools-key-developments-in-mobley-v-workday-inc</a></li>
+      <li>AI Governance for HR, "The Mobley v. Workday Case Didn't End. It Escalated." <a href="https://www.aigovernanceforhr.com/p/the-mobley-v-workday-case-didnt-end">aigovernanceforhr.com/p/the-mobley-v-workday-case-didnt-end</a></li>
+      <li>SAP, "Joule Studio + AI Foundation product pages," 2026. <a href="https://www.sap.com/products/artificial-intelligence/ai-assistant.html">sap.com/products/artificial-intelligence/ai-assistant</a></li>
+      <li>Oracle, "AI Agent Studio for Oracle Fusion Cloud Applications," 2025–2026 product page. <a href="https://www.oracle.com/applications/ai-agents/">oracle.com/applications/ai-agents</a></li>
+      <li>Oracle CloudWorld 2025 keynotes and Oracle Newsroom, "Oracle Introduces AI Agent Studio for Fusion Apps," September 2025.</li>
+      <li>Cornerstone Newsroom, "Cornerstone Launches Cornerstone Workforce AI," 2026-05-20. <a href="https://www.cornerstoneondemand.com/company/news/press-releases/cornerstone-launches-cornerstone-workforce-ai/">cornerstoneondemand.com/company/news/press-releases/cornerstone-launches-cornerstone-workforce-ai</a></li>
+      <li>Cornerstone Workforce AI product page and Cornerstone Connect 2026 tour announcement, 2026-05-20. Cited per Eglin's Cornerstone battlecard No. 022.</li>
+      <li>Eightfold, "Talent Intelligence Platform" product pages and CEO/CTO conference talks 2024–2026; Eightfold AI Agents 2026 launch materials. <a href="https://eightfold.ai/products/talent-intelligence-platform/">eightfold.ai/products/talent-intelligence-platform</a></li>
+      <li>Beamery, "Talent Lifecycle Management" and AI Ethics + Holistic AI third-party bias audit announcement (2023–2024). <a href="https://beamery.com/">beamery.com</a> · Holistic AI audit summary cited per Beamery's published materials.</li>
+      <li>Eglin's prior briefs: Daily 2026-05-16 (the MCP-native ATS is no longer ours alone), 2026-05-17 (AWS / Amazon Connect Talent), 2026-05-18 (Colorado paused, SAP and Workday shipped agent suites). Cornerstone battlecard No. 022, 2026-05-27.</li>
+    </ol>
+  </section>
+
+</main>
+
+<div class="rt-stamp"><span class="dot">●</span> compiled at <strong>2026-05-27</strong> · landscape paper · Eglin</div>
+
+<script src="../../../assets/echo.js" defer></script>
+</body>
+</html>
