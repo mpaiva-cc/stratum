@@ -58,12 +58,14 @@ h1{font-family:var(--display);font-weight:500;font-size:clamp(2.4rem,5.6vw,4rem)
 h2{font-family:var(--display);font-weight:500;font-size:1.4rem;line-height:1.2;margin:2rem 0 1rem;color:var(--ink)}
 .cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:.8rem;margin-top:.8rem}
 .card{padding:1rem 1.1rem;background:var(--paper-warm);border:1px solid var(--paper-rule);position:relative}
+.card.fresh{border-left:3px solid var(--hi)}
 .card .name{font-family:var(--display);font-weight:500;font-size:1.15rem;color:var(--ink);margin-bottom:.2rem}
 .card .name a{color:var(--ink);border-bottom:0}
 .card .name a:hover,.card .name a:focus-visible{color:var(--indigo);border-bottom:1px solid var(--indigo)}
 .card .status{font-family:var(--mono);font-size:9.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--indigo)}
 .card .pending{color:var(--ink-3-aaa)}
 .card .offlist{color:var(--plum)}
+.card .new{color:var(--hi);font-weight:700}
 .card .note{font-size:.85rem;color:var(--ink-2);margin-top:.5rem;line-height:1.4}
 .rt-stamp .dot{color:var(--indigo)}
 </style>
@@ -73,7 +75,7 @@ h2{font-family:var(--display);font-weight:500;font-size:1.4rem;line-height:1.2;m
 
 <main id="main">
   <header class="masthead">
-    <div class="eyebrow">Stratum / Intel <span class="sep">·</span> Eglin <span class="sep">·</span> Stream 03 <span class="sep">·</span> 21 battlecards live</div>
+    <div class="eyebrow">Stratum / Intel <span class="sep">·</span> Eglin <span class="sep">·</span> Stream 03 <span class="sep">·</span> 22 battlecards live</div>
     <h1>Competitor <em>Battlecards</em></h1>
     <p class="deck">A live battlecard per watch-list HCM vendor. Verified product capability separated from marketing language. Differentiation gaps named.</p>
     <div class="kicker-rule" aria-hidden="true"></div>
@@ -85,6 +87,11 @@ h2{font-family:var(--display);font-weight:500;font-size:1.4rem;line-height:1.2;m
 
   <h2>Published — full watch-list</h2>
   <div class="cards">
+    <article class="card fresh">
+      <div class="status"><span class="new">New · 2026-05-27</span></div>
+      <div class="name"><a href="cornerstone.html">Cornerstone</a></div>
+      <div class="note">L&amp;D incumbent. Cornerstone Workforce AI launched 2026-05-20 — People Graph, Skills Engine, 11+ readiness agents, MCP into Slack/Teams, Salesforce Agentforce partnership. Vocabulary collision on "people graph."</div>
+    </article>
     <article class="card">
       <div class="status">Live · 2026-05-17</div>
       <div class="name"><a href="ashby.html">Ashby</a></div>
@@ -194,11 +201,11 @@ h2{font-family:var(--display);font-weight:500;font-size:1.4rem;line-height:1.2;m
 
   <h2>Watch-list status</h2>
   <p class="about" style="border:0;padding-bottom:0;margin-bottom:0">
-    <strong>21 battlecards live · full watch-list covered.</strong> The original 18-vendor pending list authorized by the Chairman has shipped, plus the three earlier battlecards (Greenhouse, Ashby, ClearCompany). Refresh cadence: quarterly + on-event. Next watch-list review at Q3 2026 — candidates to add include Beamery, Gloat, Eightfold-adjacent talent-intelligence vendors, and any agent-platform new entrants. Candidates to retire: ClearCompany remains off-list pending an agent-framework specification publication.
+    <strong>22 battlecards live · Cornerstone added 2026-05-27 on-event.</strong> The Cornerstone battlecard was added outside the quarterly cadence because the 2026-05-20 Cornerstone Workforce AI launch introduced a "People Graph" trademark that directly collides with Stratum's positioning vocabulary. The original 18-vendor pending list authorized by the Chairman has shipped, plus three earlier battlecards (Greenhouse, Ashby, ClearCompany) and now Cornerstone. Refresh cadence: quarterly + on-event. Next watch-list review at Q3 2026 — candidates to add include Beamery, Gloat, Eightfold-adjacent talent-intelligence vendors, and any agent-platform new entrants. Candidates to retire: ClearCompany remains off-list pending an agent-framework specification publication.
   </p>
 </main>
 
-<div class="rt-stamp"><span class="dot">●</span> compiled at <strong>T+~120h</strong> · 2026-05-18T11:00:00Z</div>
+<div class="rt-stamp"><span class="dot">●</span> compiled at <strong>T+~325h</strong> · 2026-05-27T11:35:00Z</div>
 <script src="../../../assets/echo.js" defer></script>
 </body>
 </html>
