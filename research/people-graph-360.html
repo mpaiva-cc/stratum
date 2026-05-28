@@ -405,6 +405,18 @@ strong { font-weight: 600; color: var(--ink); }
 .compmat .p-row     { color: var(--plum); border-color: var(--plum); background: rgba(107,58,74,.05); }
 .compmat .p-infer   { color: var(--indigo-deep); border-color: var(--indigo-deep); background: rgba(42,54,88,.06); }
 
+/* paradigm variant — used for the warehouse-vs-graph comparison in §VI */
+.compmat.paradigm tbody td:last-child {
+  font-family: var(--mono); font-size: 11.5px;
+  line-height: 1.55; color: var(--ink-2);
+}
+.compmat.paradigm td.dim {
+  font-family: var(--serif); font-size: 13.5px;
+  color: var(--ink); font-weight: 500; white-space: nowrap;
+}
+.compmat.paradigm thead .col-warehouse { color: var(--ochre-link); }
+.compmat.paradigm thead .col-graph { color: var(--indigo); }
+
 /* vignette card — used in §V */
 .vignette {
   margin: 1.6rem 0;
@@ -447,22 +459,6 @@ strong { font-weight: 600; color: var(--ink); }
   font-size: 10.5px; letter-spacing: .22em; text-transform: uppercase;
   color: var(--indigo); margin-right: .45rem;
 }
-
-/* ascii / code aside (used for architecture in §VI) */
-.ascii {
-  margin: 1.6rem 0;
-  padding: 1.2rem 1.1rem;
-  background: var(--paper-warm);
-  border: 1px solid var(--paper-rule);
-  font-family: var(--mono); font-size: 11px;
-  line-height: 1.55; color: var(--ink-2);
-  overflow-x: auto;
-  white-space: pre;
-  max-width: 100%;
-}
-.ascii .o { color: var(--ochre-link); }
-.ascii .i { color: var(--indigo); }
-.ascii .m { color: var(--ink-mute); }
 
 /* counter-args — used in §VIII */
 .counter {
@@ -1807,23 +1803,58 @@ strong { font-weight: 600; color: var(--ink); }
     rather than process-enforced.
   </p>
 
-  <div class="ascii">         <span class="m">┌─────────────────────────────────────────────────────────────┐</span>
-         <span class="m">│         WAREHOUSE PARADIGM           </span><span class="m">vs</span><span class="m">    GRAPH PARADIGM         │</span>
-         <span class="m">└─────────────────────────────────────────────────────────────┘</span>
-
-           <span class="m">─ warehouse ─</span>                          <span class="m">─ graph ─</span>
-
-           <span class="o">rows + foreign keys</span>                      <span class="i">nodes + edges</span>
-           <span class="o">JOIN at query time</span>                       <span class="i">traversal at query time</span>
-           <span class="o">time = SCD2 / effective dates</span>            <span class="i">time = edge property</span>
-           <span class="o">consent = row-level security</span>             <span class="i">consent = edge property</span>
-           <span class="o">identity = source key</span>                    <span class="i">identity = resolved cluster</span>
-           <span class="o">agent = doer of JOINs</span>                    <span class="i">agent = reasoner over neighborhoods</span>
-
-           <span class="m">best for:</span>                              <span class="m">best for:</span>
-           <span class="o">- batch analytics</span>                       <span class="i">- interactive agentic queries</span>
-           <span class="o">- known query shapes</span>                    <span class="i">- open-ended traversals</span>
-           <span class="o">- finance + ops reporting</span>               <span class="i">- people-systems-of-understanding</span></div>
+  <div class="compmat paradigm" id="warehouse-vs-graph">
+    <div class="compmat-head">
+      <span class="ttl">Warehouse paradigm &middot; graph paradigm</span>
+      <span>same data, different substrate</span>
+    </div>
+    <table>
+      <thead>
+        <tr>
+          <th style="width:8.5rem">Dimension</th>
+          <th><span class="col-warehouse">Warehouse</span></th>
+          <th><span class="col-graph">Graph</span></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="dim">Storage</td>
+          <td>rows + foreign keys</td>
+          <td>nodes + edges</td>
+        </tr>
+        <tr>
+          <td class="dim">Query</td>
+          <td>JOIN at query time</td>
+          <td>traversal at query time</td>
+        </tr>
+        <tr>
+          <td class="dim">Time</td>
+          <td>SCD2 / effective dates</td>
+          <td>edge property</td>
+        </tr>
+        <tr>
+          <td class="dim">Consent</td>
+          <td>row-level security</td>
+          <td>edge property</td>
+        </tr>
+        <tr>
+          <td class="dim">Identity</td>
+          <td>source key</td>
+          <td>resolved cluster</td>
+        </tr>
+        <tr>
+          <td class="dim">Agent role</td>
+          <td>doer of JOINs</td>
+          <td>reasoner over neighborhoods</td>
+        </tr>
+        <tr>
+          <td class="dim">Best for</td>
+          <td>batch analytics<br>known query shapes<br>finance + ops reporting</td>
+          <td>interactive agentic queries<br>open-ended traversals<br>people-systems-of-understanding</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
 
   <p>
     None of this means a graph replaces the warehouse. They are
