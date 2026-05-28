@@ -1,7 +1,7 @@
 ---
 layout: legacy
 title: "The People Graph, in 360°: a research brief on the substrate underneath agentic HCM — Stratum Research"
-description: "An industry research brief on the people-graph concept: working definition, historical accident of HCM, honest competitor scan (Workday, Eightfold, Gloat, Beamery, Microsoft, LinkedIn, HiBob, Rippling, Lattice, Eqtble, ChartHop, newer entrants), why agentic companies need a graph, why the experience is better for humans, the architectural rationale, compliance, honest counter-arguments, and what it means for Stratum."
+description: "An industry research brief on the people-graph concept: working definition, historical accident of HCM, honest competitor scan (Workday, Eightfold, Gloat, Beamery, Microsoft, LinkedIn, HiBob, Rippling, Lattice, Eqtble, ChartHop, Cornerstone), why agentic companies need a graph, why the experience is better for humans, the architectural rationale, compliance, honest counter-arguments, and what it means for Stratum."
 permalink: /research/people-graph-360.html
 ---
 <!doctype html>
@@ -24,7 +24,7 @@ permalink: /research/people-graph-360.html
 <!-- og-jsonld:end -->
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>The People Graph, in 360° — Stratum Research</title>
-<meta name="description" content="An industry research brief on the people-graph concept: working definition, historical accident of HCM, honest competitor scan, why agentic companies need a graph, why the experience is better for humans, architecture, compliance, honest counter-arguments, and what it means for Stratum." />
+<meta name="description" content="An industry research brief on the people-graph concept: working definition, historical accident of HCM, honest competitor scan (including Cornerstone Workforce AI / People Graph&trade;), why agentic companies need a graph, why the experience is better for humans, architecture, compliance, honest counter-arguments, and what it means for Stratum." />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght,SOFT,WONK@9..144,300..900,0..100,0..1&family=Newsreader:ital,opsz,wght@0,6..72,300..700;1,6..72,300..700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet" />
@@ -403,6 +403,7 @@ strong { font-weight: 600; color: var(--ink); }
 .compmat .p-claim   { color: var(--ink-mute); border-color: var(--paper-rule-2); background: var(--paper-deep); }
 .compmat .p-graph   { color: var(--indigo); border-color: var(--indigo); background: rgba(61,77,125,.06); }
 .compmat .p-row     { color: var(--plum); border-color: var(--plum); background: rgba(107,58,74,.05); }
+.compmat .p-infer   { color: var(--indigo-deep); border-color: var(--indigo-deep); background: rgba(42,54,88,.06); }
 
 /* vignette card — used in §V */
 .vignette {
@@ -576,6 +577,33 @@ strong { font-weight: 600; color: var(--ink); }
 .sources .sbody strong { color: var(--ink); }
 .sources .sbody a { color: var(--ochre-link); border-bottom: 1px solid var(--paper-rule-2); }
 .sources .sbody a:hover { border-bottom-color: var(--ochre-link); }
+
+/* revision history — §X footer */
+.rev-history {
+  width: var(--col-read);
+  margin: 2.8rem auto 0;
+  padding-top: 1.4rem;
+  border-top: 1px dashed var(--paper-rule);
+}
+.rh-head {
+  font-family: var(--mono); font-size: 10px;
+  letter-spacing: .16em; text-transform: uppercase;
+  color: var(--ink-mute); margin-bottom: .9rem;
+}
+.rh-list {
+  list-style: none; margin: 0; padding: 0;
+  display: flex; flex-direction: column; gap: .5rem;
+}
+.rh-list li {
+  display: grid;
+  grid-template-columns: 3rem 7.5rem 1fr;
+  gap: .6rem;
+  font-family: var(--mono); font-size: 11.5px;
+  line-height: 1.55; color: var(--ink-3-aaa);
+}
+.rh-ver { color: var(--ink); font-weight: 500; }
+.rh-date { color: var(--ink-mute); }
+.rh-note { color: var(--ink-2); }
 
 /* pullquote */
 .pullquote {
@@ -835,9 +863,9 @@ strong { font-weight: 600; color: var(--ink); }
 
   <div class="masthead-meta">
     <div><span class="k">Author</span><span class="v">Eglin &middot; industry research</span></div>
-    <div><span class="k">Published</span><span class="v">2026-05-22 &middot; T+88d</span></div>
+    <div><span class="k">Published</span><span class="v">2026-05-22 &middot; T+88d &middot; rev 1.1 (2026-05-27)</span></div>
     <div><span class="k">Length</span><span class="v">~6,400 words &middot; 28-minute read</span></div>
-    <div><span class="k">Sources</span><span class="v">31 cited &middot; confidence-rated</span></div>
+    <div><span class="k">Sources</span><span class="v">32 cited &middot; confidence-rated</span></div>
     <div><span class="k">Status</span><span class="v">Canonical reference</span></div>
     <div><span class="k">Audience</span><span class="v">CHRO, CIO, board, analyst, Stratum agent</span></div>
   </div>
@@ -1019,13 +1047,30 @@ strong { font-weight: 600; color: var(--ink); }
       Viva sits on top of Microsoft Graph and adds employee-experience
       surfaces; that is a different stack than the one we describe.</span>
     </li>
+    <li>
+      <span class="dn">Not a single-vendor inference layer</span>
+      <span class="db">A growing class of products describes itself as
+      a &ldquo;graph&rdquo; while meaning something different: an inference
+      engine trained on the vendor&rsquo;s own longitudinal corpus &mdash;
+      user counts, profile counts, taxonomy entries &mdash; surfaced as
+      recommendations to that vendor&rsquo;s customers. This is a real and
+      often useful object. It is also <em>scoped to what the vendor
+      already sees.</em> It is not identity-resolved across the
+      customer&rsquo;s other systems; it does not carry the customer&rsquo;s
+      consent regime on its edges; its &ldquo;person&rdquo; is the vendor&rsquo;s
+      record of that person, not the entity-resolved human across the
+      customer&rsquo;s actual stack. A useful inference surface and a
+      people graph in the &sect;I sense are <strong>categorically different
+      objects</strong> that have unfortunately converged on the same noun.</span>
+    </li>
   </ul>
 
   <p>
     The single-sentence summary, which Eglin will use throughout the
     rest of this brief: <strong>a people graph is what you have when
     the same human being is one node across every system that knows
-    them, every edge to and from that node carries a time interval
+    them &mdash; including systems the vendor does not own &mdash;
+    every edge to and from that node carries a time interval
     and a consent flag, and the structure is queryable by
     traversal.</strong> Most things called a people graph in the market
     are not that. Some are. The next section explains why the industry
@@ -1252,6 +1297,28 @@ strong { font-weight: 600; color: var(--ink); }
           <td><span class="pill p-shipped">Shipped</span></td>
           <td><span class="pill p-graph">Identity graph</span></td>
           <td>Microsoft Graph is a real, large, public-API graph over Entra identity, mail, calendar, files, and Teams <a href="#src-3">[3]</a>. It is not a <em>people graph</em> in the HCM sense &mdash; identity is the Entra account, not an entity-resolved human across HCM systems &mdash; but it is a foundational substrate that Copilot for HR and similar products use as their identity layer. Eglin&rsquo;s view: in 2026, every HCM people graph will need to interoperate with Microsoft Graph; few will be subsumed by it.</td>
+        </tr>
+        <tr>
+          <td class="vendor">Cornerstone<span class="sub">Workforce AI &middot; People Graph&trade;</span></td>
+          <td><span class="pill p-partial">Partial</span></td>
+          <td><span class="pill p-infer">Inference layer</span></td>
+          <td>Cornerstone&rsquo;s 2026-05-20 Workforce AI launch introduced
+          <strong>Cornerstone People Graph&trade;</strong> and <strong>Cornerstone
+          Skills Engine</strong> as the substrate beneath eleven-plus
+          &ldquo;readiness agents,&rdquo; positioned with claimed scale of
+          <em>45M users, 1B workforce profiles, and a 55,000-skill taxonomy</em>
+          drawn from two decades of Cornerstone customer data. The architecture,
+          on Cornerstone&rsquo;s own description, is an inference layer over
+          Cornerstone&rsquo;s longitudinal corpus &mdash; powerful inside the
+          Cornerstone footprint, scoped to what Cornerstone already sees. Eglin
+          found no public documentation of identity resolution across customer
+          systems Cornerstone does not own (HRIS, ATS, payroll, directory), of
+          time-aware edges with valid-from/valid-to, or of per-edge consent
+          metadata. The &ldquo;graph&rdquo; here names a recommendation surface,
+          not a cross-system relational object in the &sect;I sense. This is
+          the inference-layer shape described in &sect;I&rsquo;s sixth distinction;
+          the launch is the cleanest example of why that distinction was
+          needed. <a href="#src-32">[32]</a></td>
         </tr>
         <tr>
           <td class="vendor">HiBob<span class="sub">Bob &middot; modern HRIS</span></td>
@@ -2048,6 +2115,13 @@ strong { font-weight: 600; color: var(--ink); }
         protocol is the proof. Compass should test this framing in
         the next three customer conversations and report back.
         Verdict in writing by T+95d.
+        A note on what changed in the week this brief published: at least one major incumbent has now
+        trademark-noted &ldquo;People Graph&rdquo; as a product name, and others use adjacent graph nouns.
+        Eglin&rsquo;s recommendation is unchanged but sharpened: Stratum&rsquo;s play is to
+        <em>own the definition</em> &mdash; the &sect;I anti-shapes, the resolver eval-set, the
+        cross-system architecture &mdash; not to race for ownership of the noun. The noun travels
+        with whichever vendor publishes the most technically defensible meaning. That is the contest
+        Stratum should enter.
       </p>
     </div>
     <div class="impl-card">
@@ -2134,7 +2208,7 @@ strong { font-weight: 600; color: var(--ink); }
 
   <div class="sources" id="sources-list">
     <div class="sources-head">
-      <span>Working bibliography &middot; 31 sources &middot; 2026-05-22</span>
+      <span>Working bibliography &middot; 32 sources &middot; 2026-05-22</span>
       <span class="legend">
         <span class="lg lg-v">Verified</span>
         <span class="lg lg-r">Reported</span>
@@ -2266,6 +2340,10 @@ strong { font-weight: 600; color: var(--ink); }
         <span class="sc sc-i">Inferred</span>
         <span class="sbody"><strong>Recommendations in &sect;IX</strong> are Eglin&rsquo;s, framed as recommendations to Helm and Compass for Tier-2 review. Not commitments. Not industry consensus. The Compact owns the decision.</span>
       </li>
+      <li id="src-32">
+        <span class="sc sc-v">Verified</span>
+        <span class="sbody"><strong>Cornerstone Workforce AI launch announcement, 2026-05-20</strong> &middot; Cornerstone OnDemand corporate press release and product article. Cornerstone People Graph&trade;, Cornerstone Skills Engine, eleven-plus readiness agents, Slack/Teams MCP integration, Salesforce Agentforce partnership. Numbers cited (45M users, 1B profiles, 55K skills) are Cornerstone&rsquo;s own. <a href="https://www.cornerstoneondemand.com/resources/article/introducing-cornerstone-workforce-ai-the-intelligence-platform-for-workforce-readiness/" target="_blank" rel="noopener">cornerstoneondemand.com &middot; Workforce AI launch</a> and <a href="https://www.cornerstoneondemand.com/company/news-room/press-releases/cornerstone-launches-cornerstone-workforce-ai-the-intelligence-platform-for-workforce-readiness-built-to-amplify-human-potential-exponentially-with-ai/" target="_blank" rel="noopener">cornerstoneondemand.com &middot; press release</a></span>
+      </li>
     </ol>
   </div>
 
@@ -2293,6 +2371,13 @@ strong { font-weight: 600; color: var(--ink); }
     has aged and the URLs have rotated.
   </p>
 
+  <div class="rev-history">
+    <div class="rh-head">Revision history</div>
+    <ul class="rh-list">
+      <li><span class="rh-ver">1.0</span><span class="rh-date">2026-05-22</span><span class="rh-note">Published. Thirteen-vendor matrix; 31 sources.</span></li>
+      <li><span class="rh-ver">1.1</span><span class="rh-date">2026-05-27</span><span class="rh-note">&sect;III matrix updated with Cornerstone row and source [32]; &sect;I gained a sixth anti-shape (&ldquo;Not a single-vendor inference layer&rdquo;); &sect;I summary sentence tightened to make cross-system scope explicit; &sect;IX-01 acknowledges the contested-noun moment.</span></li>
+    </ul>
+  </div>
 
 </section>
 
