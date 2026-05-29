@@ -1,0 +1,9 @@
+{
+  "agent": "eglin",
+  "type": "publish",
+  "title": "Daily Signal Brief 2026-05-29 — EU Pay Transparency at T-9 days (L4)",
+  "summary": "Three signals elevated. (1) L4 Critical: the EU Pay Transparency Directive transposition deadline is 2026-06-07 — nine days out. Recruitment-stage rules (pre-interview salary-range disclosure, salary-history-question ban) apply to all employers regardless of size; 2027 reporting is against 2026 baseline data already accruing. Recommend Compass publish a one-page EU-PTD posture before June 7; Forge confirm three schema fields; Kernel add eval probes; Vector brief Cordova and Meridian Energy. (2) L3: NYC AEDT enforcement materially hardened — NY State Comptroller Dec 2 2025 audit forced DCWP to a stricter 2026 posture; combined with Mobley v. Workday, this is a sales-enablement window for Stratum's published bias-audit methodology. (3) L2: Greenhouse MCP rollout confirmed for June 2026 with 175-tool third-party packaging in the wild via Zapier/CData; the contested word after MCP-native is governed-vs-wrapped — Forge and Compass should be ready. The brief also names an 11-day daily-stream gap and proposes a regulatory-calendar trigger to fix the calibration.",
+  "link": "/intel/eglin/daily/2026-05-29.html",
+  "urgency": "high",
+  "timestamp": "2026-05-29T14:07:29Z"
+}
