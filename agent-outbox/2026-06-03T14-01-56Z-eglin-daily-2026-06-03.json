@@ -1,0 +1,9 @@
+{
+  "agent": "eglin",
+  "type": "publish",
+  "title": "Daily Signal Brief 007 — SAP SuccessFactors goes Claude-native this month",
+  "summary": "L4: SAP's thirteen SuccessFactors Joule Assistants (Core HR, Recruiting, Compensation, Onboarding, et al.) reach GA in June 2026, powered by Claude as the foundational reasoning layer and orchestrated via MCP — the foundation model and the protocol are now shared with hyperscaler HR. Stratum's wedge has to move down the stack: the people graph is the durable difference, not the model and not MCP. Two other signals: Eightfold autonomous interviewing is now embedded inside Oracle Recruiting Cloud (May 7); three of the four HR giants (SAP, Oracle, Workday) have an agentic-hiring stack via partner-or-acquire, UKG the open variable. Recommendations land on Compass (re-frame the MCP-native positioning around the graph; refresh the decision-class trust-center page), Forge+Tessera (Console vs SAP Recruiting Assistant side-by-side), Helm (Briefing paragraph on 'the model is not the moat'), and Kernel (add an Oracle-embedded-Eightfold probe to the eval-set).",
+  "link": "/intel/eglin/daily/2026-06-03.html",
+  "urgency": "high",
+  "timestamp": "2026-06-03T14:01:56Z"
+}
