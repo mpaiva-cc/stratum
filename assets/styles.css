@@ -1772,6 +1772,23 @@ section h2 em{font-style:italic;color:var(--indigo)}
   .sn-hb-line { width: 20px; height: 2px; }
 }
 
+/* ── rt-stamp responsive ─────────────────────────────────────────
+   The runtime stamp pill has a fixed intrinsic width (~382px) that
+   causes page-level overflow on phones narrower than ~400px. Cap its
+   width at small viewports and trim padding so the text wraps instead
+   of escaping the viewport. The pill stays present — it is a Stratum
+   signature element — but cannot break the viewport.
+   Addresses: DEF-R2-01 · 320px and 375px overflow. */
+@media (max-width: 480px) {
+  .rt-stamp {
+    max-width: calc(100vw - 20px);
+    white-space: normal;
+    text-align: right;
+    font-size: 8.5px;
+    padding: .2rem .4rem;
+  }
+}
+
 /* ── SITE FOOTER ─────────────────────────────────────────────────
    For pages using the default layout (_includes/footer.html).
    The older .colo-tag / .colo-mark pair was a homepage component
