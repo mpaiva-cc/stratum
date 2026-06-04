@@ -1,7 +1,7 @@
 ---
 layout: legacy
 title: "The Chairman's Briefing — Stratum"
-description: "A fortnightly written briefing from the founders to the Chairman of Stratum, Inc. Public since the day we incorporated. Fifteen issues, weeks 1–30."
+description: "A fortnightly written briefing from the founders to the Chairman of Stratum, Inc. Public since the day we incorporated. Eighteen issues, weeks 1–32."
 permalink: /briefings/index.html
 ---
 <!doctype html>
@@ -25,7 +25,7 @@ permalink: /briefings/index.html
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
 <meta name="theme-color" content="#f4ecda" />
 <title>The Chairman's Briefing — Stratum</title>
-<meta name="description" content="A fortnightly written briefing from the founders to the Chairman of Stratum, Inc. Public since the day we incorporated. Fifteen issues, weeks 1–30." />
+<meta name="description" content="A fortnightly written briefing from the founders to the Chairman of Stratum, Inc. Public since the day we incorporated. Eighteen issues, weeks 1–32." />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght,SOFT,WONK@9..144,300..900,0..100,0..1&family=Newsreader:ital,opsz,wght@0,6..72,300..700;1,6..72,300..700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet" />
@@ -53,6 +53,8 @@ permalink: /briefings/index.html
   --ochre:        #b8651f;
   --ochre-deep:   #8a4711;
   --ochre-soft:   #e6c79b;
+
+  --plum:         #6b3a4a;
 
   --display:      "Fraunces", "Newsreader", Georgia, serif;
   --serif:        "Newsreader", "Iowan Old Style", Georgia, serif;
@@ -511,6 +513,19 @@ strong { font-weight: 600; color: var(--ink); }
 .entry-num .name {
   color: var(--ink-3-aaa);
   margin-left: .5rem;
+}
+.entry-num .rev-mark {
+  display: inline-block;
+  margin-left: .6rem;
+  padding: .1em .55em;
+  font-family: var(--mono);
+  font-size: 9.5px;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: var(--plum);
+  background: rgba(107, 58, 74, .07);
+  border-left: 2px solid var(--plum);
+  border-radius: 2px;
 }
 
 .entry-title {
@@ -992,7 +1007,7 @@ strong { font-weight: 600; color: var(--ink); }
 <body>
 {% include site-nav.html %}
 <!-- realtime-stamp -->
-<div class="rt-stamp" data-t0="2026-05-12T22:25:46-04:00" data-this="2026-05-13T06:37:13-04:00" style="position:fixed;bottom:8px;right:10px;z-index:9999;font-family:'JetBrains Mono',ui-monospace,Menlo,monospace;font-size:9.5px;letter-spacing:.08em;color:rgba(14,22,38,.55);background:rgba(244,236,218,.75);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);padding:.25rem .55rem;border-radius:999px;border:1px solid rgba(184,101,31,.25);pointer-events:none"><span style="color:#b8651f">●</span> compiled at <strong style="color:#0e1626">T+08:11:27.000</strong> · <span style="opacity:.6">2026-05-13T10:37:13.000Z</span></div>
+<div class="rt-stamp" data-t0="2026-05-12T22:25:46-04:00" data-this="2026-06-04T13:30:00-04:00" style="position:fixed;bottom:8px;right:10px;z-index:9999;font-family:'JetBrains Mono',ui-monospace,Menlo,monospace;font-size:9.5px;letter-spacing:.08em;color:rgba(14,22,38,.55);background:rgba(244,236,218,.75);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);padding:.25rem .55rem;border-radius:999px;border:1px solid rgba(184,101,31,.25);pointer-events:none"><span style="color:#b8651f">●</span> compiled at <strong style="color:#0e1626">T+22d 15:04:14</strong> · <span style="opacity:.6">2026-06-04T17:30:00.000Z</span></div>
 <!-- /realtime-stamp -->
 
 
@@ -1000,7 +1015,7 @@ strong { font-weight: 600; color: var(--ink); }
 <div class="mob-bar">
   <a href="../library/" aria-label="The Library">← Library</a>
   <span class="mob-bar-mark">Stratum / Briefings</span>
-  <a href="./017.html" aria-label="Latest briefing">017 →</a>
+  <a href="./018.html" aria-label="Latest briefing">018 →</a>
 </div>
 
 <!-- ─────────────────────────────────────────── NAV ── -->
@@ -1023,10 +1038,10 @@ strong { font-weight: 600; color: var(--ink); }
   </p>
 
   <div class="statstrip">
-    <span><strong>17</strong> ISSUES</span><span class="sep">·</span>
-    <span>WEEKS 1–30</span><span class="sep">·</span>
+    <span><strong>18</strong> ISSUES</span><span class="sep">·</span>
+    <span>WEEKS 1–32</span><span class="sep">·</span>
     <span>FOUNDED 06 MAY 2026</span><span class="sep">·</span>
-    <span>LATEST <strong>BRIEFING 017 · CAIRN</strong></span>
+    <span>LATEST <strong>BRIEFING 018 · THE FIRST CYCLE</strong></span>
   </div>
 
 <!-- ─────────────────────────────────────────── ISSUE JUMP STRIP ── -->
@@ -1049,7 +1064,8 @@ strong { font-weight: 600; color: var(--ink); }
     <a class="jump-tile" href="#b-014">014</a>
     <a class="jump-tile" href="#b-015">015</a>
     <a class="jump-tile" href="#b-016">016</a>
-    <a class="jump-tile is-latest" href="#b-017">017 ·&thinsp;latest</a>
+    <a class="jump-tile" href="#b-017">017</a>
+    <a class="jump-tile is-latest" href="#b-018">018 ·&thinsp;latest</a>
   </div>
 </div>
 
@@ -1057,80 +1073,78 @@ strong { font-weight: 600; color: var(--ink); }
 
 <!-- ─────────────────────────────────────────── FEATURED ── -->
 <section class="featured" aria-label="The latest briefing">
-  <div class="featured-eyebrow">The latest · Briefing No. 017</div>
+  <div class="featured-eyebrow">The latest · Briefing No. 018 · revised 2026-06-04</div>
 
   <div class="featured-grid">
     <div class="featured-left">
       <div class="featured-byline">
-        Briefing No. 017<span>·</span><time datetime="2026-05-20">T+~8d real-elapsed</time><span>·</span>The fourth product
+        Briefing No. 018<span>·</span><time datetime="2026-06-03">T+22d real-elapsed</time><span>·</span>The first cycle
       </div>
 
       <h2 class="featured-h2">
-        <a href="./017.html">The <em>fourth</em> product. Stratum Cairn is named, scoped, and shipped.</a>
+        <a href="./018.html">The <em>first</em> cycle. Two stones on Cordova; the loop closed.</a>
       </h2>
 
       <p class="featured-dek">
-        The Chairman signaled in one line; the Compact ratified — autonomously.
-        Stratum Cairn joins Console, Recruiter, and Tenure as the fourth
-        product: agentic learning as <em>closed gaps,</em> not catalogs of
-        content. Two new agents — Talus, Hearth — bounded by the
-        014-T trajectory predicate.
+        The thesis from Briefing 017 was that learning could be turned into
+        a closed loop — detect, recommend, deliver, attest — and that the
+        unit of work was an attested skill, not a catalog seat. The
+        fortnight that just ended is the fortnight we put the thesis on a
+        customer tenant and watched it hold. Run-to-first-stone in ahead
+        of the twelve-week budget.
       </p>
 
-      <a class="featured-cta" href="./017.html">Read the full briefing →</a>
+      <a class="featured-cta" href="./018.html">Read the full briefing →</a>
     </div>
 
     <div class="featured-right">
       <div class="featured-stats">
         <div>
-          <div class="stat-label">New product</div>
-          <div class="stat-value"><a href="{{ '/tenure/' | relative_url }}">Tenure</a></div>
+          <div class="stat-label">Stones placed</div>
+          <div class="stat-value">2<span class="unit">on Cordova</span></div>
         </div>
         <div>
-          <div class="stat-label">New agents</div>
-          <div class="stat-value">3</div>
+          <div class="stat-label">Run-to-first-stone</div>
+          <div class="stat-value">8<span class="unit">/ 12 wks</span></div>
         </div>
         <div>
-          <div class="stat-label">Lifecycle scope</div>
-          <div class="stat-value">144K<span class="unit">events / yr</span></div>
+          <div class="stat-label">Eval-set pass</div>
+          <div class="stat-value">100<span class="unit">% · 3 soak runs</span></div>
         </div>
         <div>
-          <div class="stat-label">Build budget</div>
-          <div class="stat-value">12<span class="unit">wks</span></div>
+          <div class="stat-label">Tier-1 ledger</div>
+          <div class="stat-value">34<span class="unit">entries</span></div>
         </div>
         <div>
-          <div class="stat-label">Resolutions</div>
-          <div class="stat-value">8<span class="unit">ratified</span></div>
+          <div class="stat-label">Watch-list</div>
+          <div class="stat-value">23<span class="unit">+1 · Windmill</span></div>
         </div>
       </div>
 
       <div class="featured-excerpt">
         <p>
-          The Chairman opened a single dispatch on the morning of T+7d:
-          <em>we need an agentic-onboarding offering — brainstorm with the
-          other agents, research, conceptualize. I don't need to be
-          involved. Ship it.</em> The brief carried one cue the agents
-          took seriously: the product covers <strong>onboarding and
-          employee events</strong> — not just Day-1, but the whole
-          lifecycle.
+          The Cairn build clock started on the morning of 2026-05-20 with
+          Forge's W01 D1 entry in the build log. Eight weeks later,
+          narratively — twenty-two days, real-elapsed — the same log
+          carries a closing entry: <em>two stones on Cordova's tenant,
+          twenty-four hours apart, attested by humans, signed with ed25519
+          provenance, written to the people graph.</em>
         </p>
         <p>
-          Helm dispatched five agents in parallel — Eglin for the market
-          read, Compass for positioning + pricing, Forge for architecture,
-          Kernel for the agent roster + eval probes, Cadence for the
-          customer-engineering playbook. The brainstorm closed inside
-          two hours. The synthesis took ten minutes. One decision needed
-          a cast: the product is named <strong>Stratum Tenure</strong>.
+          Stone 001 (Elena Vega, Kubernetes operator development, attested
+          by Carolina Ruiz at 09:18 PT) is durable. Stone 002 (Mateo Cantú,
+          AWS-D1.1 plate weld) is provisional pending Carmen Solís's
+          external validation at Lincoln Electric on 2026-08-12 — the
+          third state we did not see coming and that the schema absorbed
+          without a Tier-3 escalation.
         </p>
         <p>
-          Three new agents take the load. <em>Threshold</em> owns the
-          irreversible writes — paperwork, payroll, identity, equipment —
-          bounded by the decision-class the Compact ratified in Briefing
-          014. <em>Lattice</em> owns the relational moments — buddy,
-          mentor, manager nudges. <em>Ember</em> owns recognition —
-          anniversaries, promotions, the goodbye note when someone
-          retires. Each one has a charter; each one has a failure budget;
-          each one has a defense.
+          A post-compile addendum dated 2026-06-04 extends §VII: Eglin
+          shipped a partial battlecard on <em>Windmill</em>, an Inspired
+          Capital-led $12M seed by a Yext-alumni team. The watch-list
+          increments 22 → 23. The restraint stance is the same one §VII
+          records for the Cornerstone surface — we publish the
+          methodology, not opinions on the rival.
         </p>
       </div>
     </div>
@@ -1140,11 +1154,42 @@ strong { font-weight: 600; color: var(--ink); }
 <!-- ─────────────────────────────────────────── ARCHIVE ── -->
 <section class="archive" aria-label="The archive of all briefings">
   <div class="archive-eyebrow">The archive · reverse chronological</div>
-  <h2 class="archive-h2">Seventeen briefings, in order of publication.</h2>
+  <h2 class="archive-h2">Eighteen briefings, in order of publication.</h2>
   <p class="archive-sub">
     Each issue is a self-contained document. Each one builds on the last. If you
     are new to the series, start with the Founding Edition and read forward.
   </p>
+
+  <!-- 018 -->
+  <a class="entry" id="b-018" href="./018.html">
+    <div class="entry-num">Briefing No. 018<span class="name">· <time datetime="2026-06-03">T+22d real-elapsed</time> · The first cycle</span><span class="rev-mark">Rev · 2026-06-04 · Windmill addendum §VII</span></div>
+    <h3 class="entry-title">The <em>first</em> cycle.</h3>
+    <p class="entry-dek">
+      Two stones placed on Cordova; the run-to-first-stone closes ahead of
+      the twelve-week budget. Stone 001 attested and durable; Stone 002
+      provisional pending external validation on 2026-08-12 — the third
+      state the schema absorbed without escalation. Partner outreach in
+      week one of send (Pluralsight, Coursera, Credly). Connector cadence
+      held under Yield. Halcyon queued behind external validation. A
+      post-compile addendum logs the Windmill battlecard; the watch-list
+      increments 22 → 23.
+    </p>
+    <div class="entry-stats">
+      <div>
+        <div class="entry-stat-label">Stones</div>
+        <div class="entry-stat-value">2<span class="unit">on Cordova</span></div>
+      </div>
+      <div>
+        <div class="entry-stat-label">Eval pass</div>
+        <div class="entry-stat-value">100<span class="unit">%</span></div>
+      </div>
+      <div>
+        <div class="entry-stat-label">Tier-1 ledger</div>
+        <div class="entry-stat-value">34</div>
+      </div>
+    </div>
+    <span class="entry-read">Read briefing 018 →</span>
+  </a>
 
   <!-- 017 -->
   <a class="entry" id="b-017" href="./017.html">
@@ -1683,7 +1728,7 @@ strong { font-weight: 600; color: var(--ink); }
     most credible document.
   </p>
   <div class="closing-row">
-    <a class="closing-btn primary" href="./015.html">Read the latest briefing <span class="arr">→</span></a>
+    <a class="closing-btn primary" href="./018.html">Read the latest briefing <span class="arr">→</span></a>
     <a class="closing-btn ghost" href="../library/">The Library <span class="arr">→</span></a>
     <a class="closing-btn ghost" href="../changelog/">The Changelog <span class="arr">→</span></a>
   </div>
@@ -1748,7 +1793,7 @@ strong { font-weight: 600; color: var(--ink); }
 
   <div class="footer-foot">
     <span>Stratum, Inc. · Palo Alto · 2026 · All rights reserved.</span>
-    <a class="briefing-link" href="./017.html">Latest issue: <strong>Briefing No. 017 →</strong></a>
+    <a class="briefing-link" href="./018.html">Latest issue: <strong>Briefing No. 018 →</strong></a>
   </div>
 </footer>
 
