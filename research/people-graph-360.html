@@ -600,6 +600,31 @@ strong { font-weight: 600; color: var(--ink); }
 .rh-ver { color: var(--ink); font-weight: 500; }
 .rh-date { color: var(--ink-mute); }
 .rh-note { color: var(--ink-2); }
+/* addendum — §XI subsection headers and graph code blocks */
+.sub-h {
+  font-family: var(--mono); font-size: 10.5px;
+  letter-spacing: .22em; text-transform: uppercase;
+  color: var(--ink-3-aaa); margin: 2.2rem 0 .35rem;
+  display: block;
+}
+.sub-h + .sub-title {
+  font-family: var(--display); font-style: italic;
+  font-variation-settings: "opsz" 24, "SOFT" 60;
+  font-size: 1.25rem; color: var(--ink);
+  margin: 0 0 1.1rem; font-weight: 400; line-height: 1.35;
+}
+.graph-block {
+  margin: 1.4rem 0;
+  padding: 1.1rem 1.3rem;
+  background: var(--paper-deep);
+  border: 1px dashed var(--paper-rule-2);
+  border-left: 2px solid var(--indigo);
+  font-family: var(--mono); font-size: 11.5px;
+  line-height: 1.6; color: var(--ink-2);
+  overflow-x: auto;
+  white-space: pre;
+}
+
 
 /* pullquote */
 .pullquote {
@@ -870,7 +895,7 @@ strong { font-weight: 600; color: var(--ink); }
 <a href="#main" class="skip-link">Skip to content</a>
 
 <!-- realtime-stamp -->
-<div class="rt-stamp" data-t0="2026-05-12T22:25:46-04:00" data-this="2026-05-22T12:00:00-04:00" style="position:fixed;bottom:8px;right:10px;z-index:9999;font-family:'JetBrains Mono',ui-monospace,Menlo,monospace;font-size:9.5px;letter-spacing:.08em;color:rgba(14,22,38,.55);background:rgba(244,236,218,.75);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);padding:.25rem .55rem;border-radius:999px;border:1px solid rgba(184,101,31,.25);pointer-events:none"><span style="color:#b8651f">&#9679;</span> compiled at <strong style="color:#0e1626">T+88d &middot; midday</strong> &middot; <span style="opacity:.6">2026-05-22T16:00:00.000Z</span></div>
+<div class="rt-stamp" data-t0="2026-05-12T22:25:46-04:00" data-this="2026-06-03T12:00:00-04:00" style="position:fixed;bottom:8px;right:10px;z-index:9999;font-family:'JetBrains Mono',ui-monospace,Menlo,monospace;font-size:9.5px;letter-spacing:.08em;color:rgba(14,22,38,.55);background:rgba(244,236,218,.75);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);padding:.25rem .55rem;border-radius:999px;border:1px solid rgba(184,101,31,.25);pointer-events:none"><span style="color:#b8651f">&#9679;</span> compiled at <strong style="color:#0e1626">T+100d &middot; midday</strong> &middot; <span style="opacity:.6">2026-06-03T16:00:00.000Z</span></div>
 <!-- /realtime-stamp -->
 
 <!-- mobile bar -->
@@ -901,13 +926,14 @@ strong { font-weight: 600; color: var(--ink); }
     claimed, why agents need this substrate, why humans get a better
     experience on top of it, the architectural reason a graph beats a
     warehouse for this problem, and where the thesis is weakest.
+    Rev&nbsp;1.2 adds §&nbsp;XI: a walked-through substrate explainer for one employee through both architectures, and a corrected competitive sweep crediting Workday&rsquo;s OMS as the first-generation HR substrate.
   </p>
 
   <div class="masthead-meta">
     <div><span class="k">Author</span><span class="v">Eglin &middot; industry research</span></div>
-    <div><span class="k">Published</span><span class="v">2026-05-22 &middot; T+88d &middot; rev 1.1 (2026-05-27)</span></div>
-    <div><span class="k">Length</span><span class="v">~6,400 words &middot; 28-minute read</span></div>
-    <div><span class="k">Sources</span><span class="v">32 cited &middot; confidence-rated</span></div>
+    <div><span class="k">Published</span><span class="v">2026-05-22 &middot; T+88d &middot; rev 1.2 (2026-06-03)</span></div>
+    <div><span class="k">Length</span><span class="v">~9,200 words &middot; 38-minute read</span></div>
+    <div><span class="k">Sources</span><span class="v">36 cited &middot; confidence-rated</span></div>
     <div><span class="k">Status</span><span class="v">Canonical reference</span></div>
     <div><span class="k">Audience</span><span class="v">CHRO, CIO, board, analyst, Stratum agent</span></div>
   </div>
@@ -932,6 +958,7 @@ strong { font-weight: 600; color: var(--ink); }
     <li><a href="#s7">The compliance angle: provenance lives on edges, not rows.</a></li>
     <li><a href="#s8">The honest counter-arguments.</a></li>
     <li><a href="#s9">What this means for Stratum.</a></li>
+    <li><a href="#s11">Addendum &middot; The substrate, walked through &mdash; architecture explainer and competitive sweep.</a></li>
     <li><a href="#s10">Sources and the confidence ladder.</a></li>
   </ol>
 </nav>
@@ -1305,10 +1332,10 @@ strong { font-weight: 600; color: var(--ink); }
       </thead>
       <tbody>
         <tr>
-          <td class="vendor">Workday<span class="sub">Skills Cloud &middot; Career Hub</span></td>
-          <td><span class="pill p-partial">Partial</span></td>
-          <td><span class="pill p-row">Row-store</span></td>
-          <td>Workday Skills Cloud describes a &ldquo;spatial representation&rdquo; of skills derived from worker, candidate, learning, and team data, with implicit skill discovery <a href="#src-4">[4]</a>. The skills layer is real and well-engineered. The underlying HCM remains a relational object model; the graph is over <em>skills</em>, not over <em>identity-resolved people across systems Workday does not own.</em> If you are inside Workday end-to-end, the skills layer is useful. If you are not, the graph stops at the suite boundary.</td>
+          <td class="vendor">Workday<span class="sub">OMS &middot; Skills Cloud &middot; Career Hub</span></td>
+          <td><span class="pill p-shipped">Shipped</span><span class="pill p-partial" style="margin-left:.25rem">suite-bounded</span></td>
+          <td><span class="pill p-graph">Object graph (in-memory)</span></td>
+          <td>Workday&rsquo;s Object Management Service (OMS) &mdash; designed in 2005, disclosed in the 2012 S-1, and documented by Workday Engineering in 2018 &mdash; is an in-memory object graph that loads all business objects into memory on startup and uses the SQL database as a key-value persistence layer rather than as a relational store <a href="#src-33">[33]</a><a href="#src-34">[34]</a>. Traversals happen in memory; complex queries over employees, organizations, and reporting chains do not become SQL join trees. The XpressO application language runs directly against OMS at runtime. This is not marketing; it is a working, twenty-year-old substrate that has scaled to 11,000+ customers. The constraint: OMS is scoped exclusively to Workday-owned data. Identity inside OMS is the Workday worker object; reconciling a record from Greenhouse, an external LMS, or a payroll provider Workday does not own is not OMS&rsquo;s job. Time is handled via the effective-date pattern rather than as a first-class graph dimension. Consent is enforced at the access-control layer, not at per-edge storage. Workday Skills Cloud is a real graph over skills, built on top of this substrate <a href="#src-4">[4]</a>. The correct credit is overdue; the correct limit is real: OMS is a substrate for Workday&rsquo;s suite. Stratum&rsquo;s people graph is positioned as a substrate for the customer&rsquo;s entire HR-data perimeter, including the systems Workday does not own.</td>
         </tr>
         <tr>
           <td class="vendor">Eightfold AI<span class="sub">Talent Intelligence Platform</span></td>
@@ -1417,9 +1444,10 @@ strong { font-weight: 600; color: var(--ink); }
     talent universe and is bringing it inside customers in pilots; how
     well that closes the identity-resolution loop with the customer&rsquo;s
     HRIS is not publicly documented. <strong>Workday</strong>&rsquo;s
-    Skills Cloud is the strongest graph element inside an incumbent
-    suite, but the underlying HCM is a relational object model and
-    Workday&rsquo;s graph stops at the suite boundary. <strong>LinkedIn</strong>
+    Object Management Service is a genuine in-memory object substrate &mdash;
+    the most technically credible prior attempt in HCM &mdash; but it is
+    suite-bounded by design; the substrate stops at the Workday ownership
+    boundary. <strong>LinkedIn</strong>
     is the reference architecture for what a real graph at scale looks
     like, and is not available to customers as a private substrate.
     <strong>Microsoft Graph</strong> is the identity graph that every
@@ -2267,6 +2295,760 @@ strong { font-weight: 600; color: var(--ink); }
 
 </section>
 
+<!-- §11 -->
+<section id="s11">
+  <span class="section-num">&sect; XI.</span>
+  <h2 class="section-h">Addendum &middot; <em>The substrate, walked through.</em></h2>
+
+  <p>
+    The brief above argues that the substrate underneath agentic HCM has to change &mdash;
+    that the question &ldquo;what is this person, across everything we know about them?&rdquo;
+    cannot be answered well by the row-store HRIS that the previous era settled on. &sect;VI
+    made the argument structurally, with a table. This addendum makes the same argument by
+    walking one employee through both architectures, end to end, so that the difference is
+    <em>felt</em> rather than asserted. The architecture section is by Forge; the competitive
+    sweep that follows is by Eglin. They were drafted independently and integrated here by
+    Tessera.
+  </p>
+
+  <p>
+    The employee in the walk-through is <strong>Maria Santos</strong> &mdash; to be distinguished
+    from the Maria L&oacute;pez who appears as the entity-resolution example in &sect;I. Maria
+    Santos is a senior software engineer at a fictional 4,800-person company called
+    <em>Helix Bio</em>. She joined Helix two years ago through an acquisition; before that,
+    she spent four years at a startup called <em>Arroyo Labs</em>, which Helix bought. She has
+    been promoted once, completed three internal courses, holds a closed-out performance cycle,
+    owns two active goals, and is on a payroll plan that changed twice in the last eighteen months.
+    She is, in other words, a perfectly ordinary mid-career employee with a perfectly ordinary
+    employment history. She is also the kind of person every HCM question is actually about.
+  </p>
+
+  <!-- XI.i -->
+  <span class="sub-h">&sect; XI.i</span>
+  <p class="sub-title">The row-store paradigm, walked through.</p>
+
+  <p>
+    The HRIS that holds Maria&rsquo;s record at Helix is the modal one: a relational database
+    with separate schemas (or, in the more old-fashioned deployments, separate physical databases)
+    for each functional module. The vendor markets the suite as integrated. Architecturally, it
+    is not integrated &mdash; it is <em>co-located</em>. Onboarding, Recruiting, Payroll,
+    Performance, Goals, and Learning are each a row store with its own primary keys, its own
+    notion of what a person is, and its own way of remembering the past.
+  </p>
+
+  <p>
+    To make the shape concrete, here is a stripped-down inventory of where Maria&rsquo;s
+    information actually lives in such a system. A real Workday or SuccessFactors deployment
+    will have closer to forty tables per module &mdash; but the topology is faithful.
+  </p>
+
+  <div class="compmat" style="margin-top:1.4rem;margin-bottom:1.4rem">
+    <div class="compmat-head">
+      <span class="ttl">Maria Santos &middot; where one employee lives in a row-store HRIS</span>
+      <span>Forge &middot; 2026-06-03</span>
+    </div>
+    <table>
+      <thead>
+        <tr>
+          <th style="width:8.5rem">Module</th>
+          <th style="width:12rem">Primary table</th>
+          <th style="width:10rem">Maria&rsquo;s key</th>
+          <th>What it stores</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="vendor" style="font-size:13.5px">Recruiting</td>
+          <td><code style="font-size:11px">ats_candidate</code></td>
+          <td><code style="font-size:11px">cand_id = 91142</code></td>
+          <td>Her application to Arroyo Labs in 2020, status <code style="font-size:11px">hired</code></td>
+        </tr>
+        <tr>
+          <td class="vendor" style="font-size:13.5px">Onboarding</td>
+          <td><code style="font-size:11px">onb_employee_session</code></td>
+          <td><code style="font-size:11px">onb_id = 30714</code></td>
+          <td>Her I-9, NDA, badge-pickup checklist from 2020-08-03</td>
+        </tr>
+        <tr>
+          <td class="vendor" style="font-size:13.5px">Core HR</td>
+          <td><code style="font-size:11px">hr_employee</code> (SCD2)</td>
+          <td><code style="font-size:11px">emp_id = 28119</code></td>
+          <td>Her name, badge, position, cost center &mdash; versioned over time</td>
+        </tr>
+        <tr>
+          <td class="vendor" style="font-size:13.5px">Payroll</td>
+          <td><code style="font-size:11px">pay_worker</code></td>
+          <td><code style="font-size:11px">worker_id = 7782</code></td>
+          <td>Her pay group, tax jurisdiction, direct-deposit allocations</td>
+        </tr>
+        <tr>
+          <td class="vendor" style="font-size:13.5px">Performance</td>
+          <td><code style="font-size:11px">perf_cycle_participant</code></td>
+          <td><code style="font-size:11px">participant_id = 14883</code></td>
+          <td>Her 2024 mid-year cycle, ratings, calibration outcomes</td>
+        </tr>
+        <tr>
+          <td class="vendor" style="font-size:13.5px">Goals</td>
+          <td><code style="font-size:11px">goals_objective</code></td>
+          <td><code style="font-size:11px">obj_id = 55204, 55207</code></td>
+          <td>Her two active goals, owner, parent-OKR linkage</td>
+        </tr>
+        <tr>
+          <td class="vendor" style="font-size:13.5px">Learning</td>
+          <td><code style="font-size:11px">lms_enrollment</code></td>
+          <td><code style="font-size:11px">learner_id = ARRY-8821</code></td>
+          <td>Her three completed courses, scores, credential issuance</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <p>
+    Seven primary keys for one person. Notice the <code>ARRY-8821</code> in the LMS row &mdash;
+    that is the legacy Arroyo Labs learner ID, which the post-acquisition migration left in place
+    because the LMS vendor charged extra to re-key. Notice that the Recruiting key dates to a
+    <em>different company entirely</em> (Arroyo, not Helix), which means the
+    application-to-employment link inside Helix&rsquo;s own ATS is severed unless someone wrote a
+    custom join table to reconnect them. Most of the time, no one did.
+  </p>
+
+  <p>
+    Time, in this paradigm, is handled with a pattern called <strong>slowly-changing dimension
+    type&nbsp;2</strong> &mdash; SCD2. The idea is straightforward: instead of overwriting a row
+    when a fact changes, you insert a new row with <code>valid_from</code> and <code>valid_to</code>
+    columns and mark the old row closed. So Maria&rsquo;s <code>hr_employee</code> table does not
+    contain one row for Maria &mdash; it contains nine rows, one for each promotion, transfer,
+    manager change, and cost-center reassignment since 2020. Querying &ldquo;who reported to Devon
+    on August 4, 2024&rdquo; then requires, in SQL, that you remember to filter every joined table
+    on <code>valid_from &le; '2024-08-04' AND valid_to &gt; '2024-08-04'</code>. If you forget
+    one of those predicates on one of those tables, you get a silently wrong answer. This is the
+    principal hazard of warehouse-style time: it is <em>the analyst&rsquo;s responsibility to
+    remember to ask for the right point in time</em>, on every table, every time.
+  </p>
+
+  <p>
+    Now suppose an executive asks a question that crosses the acquisition boundary:
+    <strong>who reports to whom across the Arroyo and Helix entities, today, restricted to people
+    who joined through the Arroyo deal?</strong> In the row-store world, this is not a question
+    &mdash; it is a project. The SQL has to (a) join <code>hr_employee</code> to itself
+    recursively to walk the reports-to chain, (b) join to <code>pay_worker</code> to find the
+    legal-entity stamp that identifies Arroyo-origin employees, (c) join to the merger
+    reconciliation table that someone built in 2024 to reconnect Arroyo&rsquo;s old IDs to Helix&rsquo;s
+    new ones, (d) apply SCD2 predicates on every joined table for &ldquo;today,&rdquo; and (e) handle
+    the not-uncommon case where Maria&rsquo;s manager-of-record in <code>hr_employee</code> disagrees
+    with her dotted-line manager in the org-chart tool because the latter is not part of the HRIS.
+    The query is twelve to fifteen joins, two recursive CTEs, and at least one human judgment call
+    about which manager field is &ldquo;real.&rdquo; It takes a competent analyst a half-day to write
+    and a warehouse cluster a few minutes to run. The answer, when it arrives, is a CSV. The next
+    time someone asks the question, the analyst writes the query again, slightly differently, because
+    nobody remembered to save it.
+  </p>
+
+  <p>
+    Consent, in this paradigm, lives in a separate table &mdash; typically
+    <code>consent_grant</code>, keyed by <code>subject_id</code> and <code>purpose_id</code> &mdash;
+    and is enforced either by row-level security policies (modern stack) or by an
+    application-layer check that the developer remembered to write (older stack). The structural
+    property to notice is that consent is <em>external to the data</em>. An agent that issues an
+    open-ended traversal &mdash; <em>which engineers two hops from Maria have completed the
+    AI-safety course?</em> &mdash; cannot easily be governed by row-level security, because
+    row-level security expects you to declare the access pattern in advance. The agent does not
+    declare; the agent reasons.
+  </p>
+
+  <p>
+    This is the world the incumbent HCM is built for. It is a perfectly fine world for finance
+    reporting, for headcount snapshots, for the CHRO&rsquo;s board pack. It is a deeply hostile
+    world for any question that does not arrive in the shape of a pre-declared SQL.
+  </p>
+
+  <!-- XI.ii -->
+  <span class="sub-h">&sect; XI.ii</span>
+  <p class="sub-title">The substrate paradigm, walked through the same person.</p>
+
+  <p>
+    The substrate underneath Stratum&rsquo;s product is a labeled property graph. Maria Santos is
+    not seven rows in seven tables. She is <strong>one node</strong> &mdash; a
+    <code>Person</code> node &mdash; with a single canonical identity that the entity-resolution
+    pipeline produced from the seven source records above. The mechanics of how that identity was
+    produced &mdash; the four-stage resolver, the probabilistic blocking, the graph-confirmation
+    pass that catches the contractor-to-employee transitions, the conflict queue that Pillar reviews
+    &mdash; are the subject of <a href="/essays/the-graph-between-the-databases.html">Essay
+    No.&nbsp;02</a>. The premise here is just that the cluster exists: one node, with provenance
+    back to all seven source rows, available for traversal.
+  </p>
+
+  <p>
+    Around that node hang the things Maria <em>is</em> and the things Maria has <em>done</em>,
+    expressed as other nodes connected by edges:
+  </p>
+
+  <div class="graph-block" role="img" aria-label="Property graph representation of Maria Santos, showing edges for roles, reporting lines, completed courses, goals, performance cycles, compensation, and skills with valid_from and valid_to timestamps">(Person:Maria Santos)
+    &#9500;&#9472;&#9472;[:hired_into, valid_from:2020-08-03, source:ats_arroyo]&#9472;&#9472;&gt; (Role: Engineer II, Arroyo)
+    &#9500;&#9472;&#9472;[:promoted_to,  valid_from:2022-01-15]&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&gt; (Role: Senior Engineer, Arroyo)
+    &#9500;&#9472;&#9472;[:absorbed_into, valid_from:2024-03-01, event:M&amp;A]&#9472;&#9472;&#9472;&#9472;&gt; (Role: Senior Engineer, Helix)
+    &#9500;&#9472;&#9472;[:reports_to,   valid_from:2024-03-01, valid_to:2025-08-12]&#9472;&#9472;&gt; (Person: Devon)
+    &#9500;&#9472;&#9472;[:reports_to,   valid_from:2025-08-13, valid_to:&#8734;]&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&gt; (Person: Aisha)
+    &#9500;&#9472;&#9472;[:completed,    valid_from:2023-11-04, source:lms]&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&gt; (Course: AI Safety 101)
+    &#9500;&#9472;&#9472;[:owns,         valid_from:2026-01-08]&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&gt; (Goal: Ship Cairn v1)
+    &#9500;&#9472;&#9472;[:assessed_in,  valid_from:2024-07-01, rating:exceeds]&#9472;&#9472;&gt; (PerfCycle: 2024H1)
+    &#9500;&#9472;&#9472;[:paid_under,   valid_from:2025-04-01]&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&gt; (CompPlan: SE-IV-2025)
+    &#9492;&#9472;&#9472;[:holds_skill,  confidence:0.91, attested_by:peer-review]&gt; (Skill: distributed-systems)</div>
+
+  <p>Three structural properties to notice, because they are the load-bearing difference.</p>
+
+  <p>
+    <strong>One: time is on the edges, not on the rows.</strong> The fact that Maria reported to
+    Devon from March 2024 to August 2025, and to Aisha since, is two <code>reports_to</code> edges
+    with <code>valid_from</code> and <code>valid_to</code> properties. There is no SCD2 ceremony,
+    no closed-row pattern, no analyst-discipline-required predicate. The question &ldquo;who
+    reported to Devon on August 4, 2024&rdquo; is a single traversal &mdash; <em>find all
+    <code>reports_to</code> edges into <code>Person:Devon</code> where
+    <code>valid_from &le; '2024-08-04' &lt; valid_to</code></em> &mdash; and the time argument is
+    uniform across every edge type. The query against today&rsquo;s graph and the query against
+    the August-2024 graph are the same query with a different parameter.
+  </p>
+
+  <p>
+    <strong>Two: identity is the cluster, not the source key.</strong> The seven source records
+    that the row store kept as seven separate keys are, in the substrate,
+    <em>provenance edges</em> into a single canonical <code>Person</code> node. The Arroyo learner
+    ID and the Helix employee ID are not different rows about different objects &mdash; they are
+    different <em>attestations</em> about the same object, each carried as a property on a
+    <code>provenance</code> edge with a source-system tag, a confidence score, and a consent scope.
+    The acquisition boundary, which broke the row store, is just a property on an edge.
+  </p>
+
+  <p>
+    <strong>Three: consent is on the edges, not in a separate table.</strong> The
+    <code>assessed_in</code> edge that links Maria to her 2024 performance cycle carries a
+    <code>consent_scope</code> property &mdash; say,
+    <code>{managers, perf-calibration-agents, hr-business-partners}</code>. An agent that is not
+    on that list does not see the edge. It is not blocked at query time by a row-level security
+    layer; it is <em>structurally invisible</em> to the traversal. The right-to-be-forgotten
+    request becomes a bounded subgraph delete rather than a multi-system reconciliation project
+    across seven row stores.
+  </p>
+
+  <p>
+    The acquisition-boundary question &mdash; <em>who reports to whom across the Arroyo and Helix
+    entities, today, restricted to people who joined through the Arroyo deal</em> &mdash; becomes
+    a four-line traversal: start from any <code>Person</code> node whose <code>hired_into</code>
+    edge has <code>source:ats_arroyo</code>, follow <code>reports_to</code> edges valid at the
+    query time, return the chain. Twelve-to-fifteen joins collapse to one neighborhood walk.
+    The answer arrives at interactive latency. The next person who asks does not need an analyst.
+  </p>
+
+  <!-- XI.iii -->
+  <span class="sub-h">&sect; XI.iii</span>
+  <p class="sub-title">What changes when an agent shows up.</p>
+
+  <p>
+    &sect;VI of the brief already establishes the structural argument. The agent-facing implication
+    is the one that matters for the Chairman&rsquo;s conversation: <strong>a row-store agent is a
+    doer of JOINs; a substrate agent is a reasoner over neighborhoods.</strong>
+  </p>
+
+  <p>
+    A row-store agent, to do its job, has to learn the schema &mdash; seven modules, forty tables
+    per module, the SCD2 convention, the merger reconciliation table that someone built in 2024
+    &mdash; and then write SQL against it. It has to remember, every time, to apply the temporal
+    predicates. It has to know which consent table governs which access pattern, and to ask
+    permission <em>before</em> the query, in a shape the consent system can recognize. It has to
+    know that the ATS-to-HRIS join is severed and that someone wrote a custom bridge. When the
+    schema changes, the agent breaks. When the consent model changes, the agent leaks. The
+    agent&rsquo;s reliability is bounded by the discipline of the schema documentation, which in
+    every HCM deployment audited is out of date by between three and eighteen months.
+  </p>
+
+  <p>
+    A substrate agent does not write JOINs. It traverses. The schema <em>is</em> the graph &mdash;
+    node types and edge types &mdash; and the schema is small (Stratum&rsquo;s customer graphs are
+    typically twelve node types and twenty-three edge types). Time is a parameter to traversal,
+    not a predicate to remember. Consent is a property of the edges the agent can reach, not a
+    check it must perform. The agent&rsquo;s reliability is bounded by the resolver&rsquo;s
+    precision-recall and by the graph&rsquo;s coverage &mdash; both of which are measurable,
+    publishable, and the subject of Stratum&rsquo;s eval-set methodology. The agent is doing the
+    thing language models are good at &mdash; reasoning over a small, well-typed neighborhood
+    &mdash; instead of the thing they are bad at, which is writing twelve-join SQL against a
+    schema they half-remember.
+  </p>
+
+  <p>
+    This is the argument under the argument. Substrate is not a faster row store. It is a
+    <em>different kind of thing</em> for the agent to think against.
+  </p>
+
+  <!-- XI.iv -->
+  <span class="sub-h">&sect; XI.iv</span>
+  <p class="sub-title">The honest cost.</p>
+
+  <p>
+    The symmetric account. There are questions the substrate is worse at, and a few of them
+    are important.
+  </p>
+
+  <p>
+    It is worse at <strong>batch analytics</strong>. If you want to compute average tenure by
+    cost center for the 10-K, the warehouse will give you that answer faster and cheaper than
+    the graph. The graph is built for interactive neighborhood traversal at single-person
+    granularity; the warehouse is built for aggregation across millions of rows. Use the right tool.
+  </p>
+
+  <p>
+    It is worse at <strong>finance reporting</strong>. The general ledger, the labor-cost roll-up,
+    the headcount-versus-plan variance &mdash; these are columnar-warehouse problems, not graph
+    problems. The substrate does not replace the warehouse for the CFO. It complements it.
+  </p>
+
+  <p>
+    It is worse at <strong>point-in-time reconstruction of a single dimension</strong>. If your
+    auditor asks for the <em>exact</em> cost-center hierarchy as of December 31, 2024, with every
+    node and every edge captured precisely as it existed at the boundary, the SCD2 warehouse
+    pattern is genuinely well-suited to that and was built for it. The substrate can answer the
+    question &mdash; the time-on-edges property makes it expressible &mdash; but the warehouse&rsquo;s
+    row-by-row immutability is a sturdier audit posture for a single-dimension question.
+  </p>
+
+  <p>
+    The honest framing, then, is the one &sect;VI already states: <strong>the substrate
+    complements the warehouse; it does not replace it.</strong> Both exist in every Stratum
+    customer deployment, fed by the same ingestion pipeline. The architectural mistake is not
+    having both. It is using the warehouse alone for the questions that are structurally
+    graph-shaped &mdash; the questions agents actually ask.
+  </p>
+
+  <!-- XI.v -->
+  <span class="sub-h">&sect; XI.v</span>
+  <p class="sub-title">One example the Chairman can use.</p>
+
+  <p>If someone asks the Chairman what the difference is, this is the version to use in conversation:</p>
+
+  <div class="pullquote">
+    <p class="pullquote-text">
+      Every HCM system on the market is seven row stores in a trench coat &mdash; one for
+      recruiting, one for payroll, one for performance, one for learning, and so on &mdash; joined
+      together by foreign keys and held in line by an analyst&rsquo;s discipline. When the
+      question fits the schema, it works. When the question is &ldquo;who is this person across
+      everything we know about her, who could replace her, who has done this kind of work before,
+      what does her trajectory look like&rdquo; &mdash; the question an agent actually asks &mdash;
+      it does not work. The substrate underneath Stratum is one identity-resolved graph instead of
+      seven row stores. Time is on the edges. Consent is on the edges. Identity is the cluster,
+      not the key. The same question that took an analyst a half-day in the old world becomes a
+      single traversal an agent can run in 200 milliseconds. We did not build a faster HRIS.
+      We built a different shape of thing underneath it.
+    </p>
+    <div class="pullquote-attr"><strong>For the Chairman</strong> &middot; Forge &middot; 2026-06-03</div>
+  </div>
+
+  <p>
+    The methodological discipline behind that claim &mdash; the resolver eval-set, the
+    precision-recall numbers, the conflict queue throughput &mdash; is the subject of
+    <a href="/essays/the-graph-between-the-databases.html">Essay No.&nbsp;02</a> and the
+    eval-set publication tracked in &sect;IX&rsquo;s Implication&nbsp;02. The pedagogical
+    version above is the version that travels in a conversation. The numbers are what defend
+    it when the conversation gets technical.
+  </p>
+
+  <!-- XI.vi -->
+  <span class="sub-h">&sect; XI.vi</span>
+  <p class="sub-title">Has anyone shipped this before? Competitive sweep.</p>
+
+  <p>
+    The addendum's architecture argument raises an obvious question: has any HCM vendor actually
+    re-architected the backend as a substrate? The original &sect;III matrix answered this
+    incompletely. Eglin&rsquo;s extended sweep, conducted for this addendum, produces a sharper
+    answer.
+  </p>
+
+  <div class="callout eglin">
+    <strong>Headline finding.</strong> One vendor in HCM has actually re-architected the backend
+    as an object substrate. It is Workday, and it did this two decades ago. Everyone else is doing
+    one of three things: (a) shipping a recommendation layer over their own corpus and calling it
+    a graph, (b) running a strongly-normalized relational model with consistent IDs inside a
+    single tenant and calling that a graph, or (c) building integration plumbing across HRIS
+    systems they don&rsquo;t own and not claiming graph storage at all.
+    <strong>Stratum is not first at &ldquo;object substrate for HR.&rdquo; Workday was, in 2005.
+    Stratum is first at a narrower, harder thing: a cross-system, identity-resolved, time-aware,
+    consent-bound people graph that lives outside any single suite.</strong>
+  </div>
+
+  <span class="sub-h">&sect; XI.vi.1 &middot; Workday&rsquo;s Object Management Service</span>
+  <p class="sub-title">The only deep substrate attempt in HCM.</p>
+
+  <p>
+    The Object Management Service is the load-bearing case, and &sect;III under-credited it.
+    Eglin&rsquo;s earlier read positioned Workday&rsquo;s graph claim as &ldquo;Skills Cloud is
+    graph-shaped, the rest is relational.&rdquo; That framing is too soft. The primary
+    documentation &mdash; Workday&rsquo;s 2012 S-1 IPO filing, the 2018 Workday Engineering
+    post on OMS architecture, and decades of Bhusri keynotes &mdash; supports a stronger reading:
+    <strong>the entire Workday backend is, by architectural intent, an object model, not a
+    relational schema with object framing.</strong>
+  </p>
+
+  <p>Verified, from primary sources:</p>
+
+  <ul style="margin:0 0 1rem 1.4rem;padding:0;font-family:var(--serif);font-size:1rem;line-height:1.7;color:var(--ink-2)">
+    <li>The S-1 (October 2012) describes the technology foundation explicitly as &ldquo;object-oriented technology framework&rdquo; and &ldquo;in-memory data management&rdquo; alongside multitenancy and mobility <a href="#src-33">[33]</a>.</li>
+    <li>The Workday Engineering post (March 2018) describes OMS as a cluster of Java services that &ldquo;loads all business objects into memory as it starts up&rdquo; and notes that, post-startup, OMS &ldquo;doesn&rsquo;t rely on the SQL database for read operations.&rdquo; The SQL database is used &ldquo;as a key-value store rather than a relational database&rdquo; <a href="#src-34">[34]</a>.</li>
+    <li>The object model defines both structure (classes, relationships, attributes) and logic (methods), expressed as metadata. XpressO is the proprietary application language whose runtime is OMS itself.</li>
+  </ul>
+
+  <p>
+    The honest read of the architecture: this is an in-memory object graph with persistence
+    externalized to a key-value-shaped SQL backing. Traversals over the model happen in memory;
+    complex queries over employees, organizations, charts of accounts, and the relationships among
+    them do not become SQL join trees. That is what a substrate is supposed to look like. The
+    match against the &sect;I definition of a people graph fails on three dimensions:
+  </p>
+
+  <ul style="margin:0 0 1rem 1.4rem;padding:0;font-family:var(--serif);font-size:1rem;line-height:1.7;color:var(--ink-2)">
+    <li><strong>Cross-system identity resolution.</strong> OMS is exclusively internal to Workday. Reconciling a Maria Santos record from Greenhouse, Slack, and an external LMS into the same logical person is not OMS&rsquo;s job. That is the design intent &mdash; Workday was always a suite play &mdash; and that is exactly the gap Stratum is positioned into.</li>
+    <li><strong>Time as a first-class edge.</strong> Workday models effective-dated data well for transactional HR purposes. Whether that constitutes &ldquo;time as a first-class graph dimension queryable by traversal&rdquo; is a separate claim the public documentation does not make.</li>
+    <li><strong>Per-edge consent metadata.</strong> No public Workday documentation describes per-relationship consent at the storage layer. Consent in Workday is enforced at the access-control and reporting-policy layer.</li>
+  </ul>
+
+  <p>
+    <strong>The correct credit:</strong> Workday genuinely re-architected the HR backend. OMS is
+    not marketing; it is a working, twenty-year-old object substrate that has scaled to 11,000+
+    customers and runs the back office of much of the Fortune 500. The reason Workday wins large
+    deals on architecture is that OMS is real. Anyone making the substrate case in HCM and
+    ignoring this is being dishonest.
+  </p>
+
+  <p>
+    <strong>The correct distinction:</strong> OMS is a substrate for Workday-owned data.
+    Stratum&rsquo;s people graph is positioned as a substrate for the customer&rsquo;s
+    HR-data perimeter, including the systems Workday does not own. Different shape, different
+    scope. Both are legitimate substrates. The Stratum claim is that, in a world where no buyer
+    runs only Workday (every Workday customer also runs ATSes, LMSes, directories, credentialing
+    systems, and payroll providers Workday does not natively own), the cross-system substrate is
+    the new architectural surface.
+  </p>
+
+  <span class="sub-h">&sect; XI.vi.2 &middot; The Force.com lineage</span>
+  <p class="sub-title">Precedent: the substrate idea predates HR.</p>
+
+  <p>
+    The substrate idea did not start in HR. Bhusri&rsquo;s product instincts at Workday and Marc
+    Benioff&rsquo;s at Salesforce share genealogy &mdash; both were PeopleSoft alumni who left to
+    build metadata-driven multi-tenant SaaS. Force.com (GA 2007) is the architectural precedent
+    for OMS in spirit: applications defined as metadata over a flexible storage layer, not as
+    schemas over a relational database. Workday OMS is the HR-domain instantiation of that idea;
+    Force.com is the CRM-domain instantiation.
+  </p>
+
+  <p>
+    The takeaway: <strong>the substrate-shaped backend is not a 2026 invention.</strong> It was
+    the dominant architectural idea for multi-tenant SaaS twenty years ago. What is new in 2026
+    is the <em>cross-vendor</em> version &mdash; a substrate that sits <em>between</em> the
+    metadata-driven backends of Workday, Salesforce, ServiceNow, Microsoft, and the rest, rather
+    than inside any one of them. That is the part nobody has shipped. Stratum&rsquo;s claim is to
+    that scope.
+  </p>
+
+  <span class="sub-h">&sect; XI.vi.3 &middot; The recommendation-layer cluster</span>
+  <p class="sub-title">Eightfold, Cornerstone, Gloat: graph-as-inference.</p>
+
+  <p>
+    Three vendors that say &ldquo;graph&rdquo; and mean architecturally similar things: an
+    inference layer over the vendor&rsquo;s own corpus.
+  </p>
+
+  <p>
+    <strong>Eightfold</strong> is the most graph-native of the three. The Talent Intelligence
+    Platform combines a deep skills inference layer with embeddings trained on a very large
+    external talent corpus, and Eightfold&rsquo;s public materials describe the underlying shape
+    as graph-and-embedding rather than pure relational. The &sect;III matrix rated this &ldquo;Partial
+    graph + ML,&rdquo; and that holds. The open question &mdash; never publicly answered &mdash;
+    is how Eightfold resolves identity across the customer&rsquo;s <em>internal</em> HRIS, ATS,
+    and LMS once a candidate becomes an employee.
+  </p>
+
+  <p>
+    <strong>Cornerstone</strong> ships an inference layer and calls it a graph. The May 20,
+    2026 Workforce AI launch introduced Cornerstone People Graph&trade; as the substrate beneath
+    eleven-plus &ldquo;readiness agents,&rdquo; with claimed scale of 45M users, 1B workforce
+    profiles, and a 55,000-skill taxonomy. By Cornerstone&rsquo;s own description, this is an
+    inference layer over Cornerstone&rsquo;s longitudinal corpus &mdash; powerful inside the
+    Cornerstone footprint, scoped to what Cornerstone already sees. No public documentation of
+    identity resolution across systems Cornerstone does not own, of time-aware edges, or of
+    per-edge consent metadata. The &sect;III Cornerstone row stands. See the
+    <a href="/intel/eglin/competitors/cornerstone.html">Cornerstone battlecard</a>.
+  </p>
+
+  <p>
+    <strong>Gloat</strong> has built the most concrete substrate-shaped edge inference of the
+    three. The Loomra Workforce Context Engine combines a workforce knowledge graph, semantic
+    embeddings, skills inference, and career-trajectory modeling. The published example &mdash;
+    inferring change-management capability from a PMP certification plus three
+    digital-transformation projects &mdash; is the kind of edge a real graph produces. The scope
+    is bounded: Gloat is a talent-marketplace layer atop one HRIS, not a substrate for the
+    entire employee lifecycle.
+  </p>
+
+  <p>
+    Pattern across the three: graph-as-recommendation works in a bounded domain. None of these
+    are cross-system substrates. None claim to be.
+  </p>
+
+  <span class="sub-h">&sect; XI.vi.4 &middot; Infrastructure graphs at scale</span>
+  <p class="sub-title">LinkedIn and Microsoft set the engineering bar.</p>
+
+  <p>
+    LinkedIn&rsquo;s Economic Graph is the reference architecture for graph-at-scale. LinkedIn
+    Engineering publicly documents a distributed graph database holding tens of TB at roughly
+    500K QPS, and the 2018 SIGKDD paper describes the Economic Graph in detail
+    <a href="#src-8">[8]</a>. It is the external graph &mdash; not a people graph for any single
+    company &mdash; but it sets the engineering bar that any internal people graph has to meet.
+  </p>
+
+  <p>
+    Microsoft Graph is a real, large, public-API graph over Entra identity, mail, calendar,
+    files, and Teams. It is not a <em>people</em> graph in the HCM sense; identity in Microsoft
+    Graph is the Entra account, not an entity-resolved human across HRIS / ATS / LMS / payroll
+    <a href="#src-3">[3]</a>. In 2026, every HCM people graph will need to call Microsoft Graph;
+    few will be subsumed by it.
+  </p>
+
+  <span class="sub-h">&sect; XI.vi.5 &middot; The row-store-with-graph-marketing tier</span>
+  <p class="sub-title">Rippling, HiBob, Lattice, Deel, ChartHop.</p>
+
+  <p>
+    <strong>Rippling</strong> brands its core data model as the &ldquo;Employee Graph&rdquo; and
+    positions it as the substrate for cross-functional workflows (IT, payroll, devices,
+    permissions) <a href="#src-9">[9]</a>. The publicly described capabilities &mdash; reading
+    roles, locations, and reporting structure into downstream systems &mdash; are
+    workflow-orchestration features, not graph traversal. Eglin&rsquo;s read: a
+    strongly-normalized relational model with consistent identity <em>inside</em> the Rippling
+    tenant. Useful, but not a substrate in the &sect;I sense. This was the vendor Eglin most
+    expected to belong on the substrate list after a serious look. On inspection it does not.
+  </p>
+
+  <p>
+    <strong>HiBob, Lattice, Deel, ChartHop, Personio.</strong> Modern HRIS and people-analytics
+    vendors with strong UX and APIs. None publishes primary architecture documentation describing
+    a graph storage model. All resolve, on inspection, to relational models with API surfaces over
+    them. There is no substrate claim to evaluate here; there is product positioning that uses
+    graph-adjacent language.
+  </p>
+
+  <span class="sub-h">&sect; XI.vi.6 &middot; Substrate-database tech in HR</span>
+  <p class="sub-title">Datomic, Dgraph, Neo4j, FoundationDB, TerminusDB.</p>
+
+  <p>
+    No HR vendor has publicly shipped on any of these as the primary HR substrate. Some use Neo4j
+    or similar for adjacent features (skill ontologies, org-chart visualizations); none has
+    published a primary architecture statement that the system of record runs on a graph database.
+    This is one of the more telling negative findings in the sweep. The substrate-database vendors
+    have spent ten years selling into financial services, telecoms, and fraud-detection; HR has
+    not been a notable adopter. That gap is the gap Stratum is positioned into.
+  </p>
+
+  <span class="sub-h">&sect; XI.vi.7 &middot; Integration plumbing and the startup scan</span>
+  <p class="sub-title">Merge, Finch, Kombo, Apideck &mdash; and Windmill.</p>
+
+  <p>
+    <strong>Merge, Finch, Kombo, Apideck, Nango, Truto</strong> are unified-API platforms for
+    HRIS / payroll / ATS / LMS integration. They make heterogeneous backends look like one API.
+    They do not store the data persistently as a substrate; they sync or pass through and
+    normalize. They are infrastructure for <em>talking to</em> HR systems, not infrastructure for
+    <em>being</em> one. None of them claims substrate-shape, and that is correct positioning.
+  </p>
+
+  <p>
+    The interesting new entrant here is <strong>Windmill</strong> (Inspired Capital-led $12M seed,
+    April 2026; founders Max Shaw, Brian Distelburger, Mark Tanner
+    <a href="#src-35">[35]</a>). Windmill positions itself around a &ldquo;context graph&rdquo;
+    of workforce evidence, drawing from Slack, GitHub, Google Workspace, and approximately thirty
+    other tools, organized in four layers (People, Evidence, Expectations, Perspectives). On
+    inspection, the context graph is a recommendation-and-evidence surface, not a substrate
+    &mdash; each data point is tied to a source, but the persistent store is not described as a
+    graph database and identity resolution across HRIS / ATS / payroll is not the load-bearing
+    claim. It is closer to a workforce-evidence layer for performance reviews than to a substrate.
+    But it is the freshest explicit graph-positioning attempt in the lane, it is funded, and it
+    warrants a battlecard within 60 days. If Windmill grows scope, it could converge toward the
+    substrate claim from a different angle.
+  </p>
+
+  <span class="sub-h">&sect; XI.vi.8 &middot; Stratum, honestly</span>
+  <p class="sub-title">Where the claim is strongest; where it is not yet proven.</p>
+
+  <p>
+    Stratum publishes a people-graph architecture as artifact. The four-MCP-server design (graph,
+    console, recruiter, connectors), the decisions ledger, the agent outbox, the per-agent
+    CLAUDE.md, and the bias-probe methodology are real, published, and inspectable.
+  </p>
+
+  <p>Where Stratum&rsquo;s claim is strongest:</p>
+
+  <ul style="margin:0 0 1rem 1.4rem;padding:0;font-family:var(--serif);font-size:1rem;line-height:1.7;color:var(--ink-2)">
+    <li>The cross-system, identity-resolved, time-aware, consent-bound shape is genuinely novel. Workday&rsquo;s OMS is substrate-shaped but stops at the suite boundary. Eightfold and Gloat and Cornerstone are recommendation-layer-shaped. The shape Stratum publishes is not duplicated anywhere Eglin could verify.</li>
+    <li>The governance-as-artifact posture (eval set, refusals, per-decision audit log, decisions ledger) is uncommon in HCM and is verifiable by inspection.</li>
+    <li>The MCP-native architecture is the right structural bet for 2026 &mdash; Workday ASOR, SAP Joule Studio, Oracle AI Agent Studio, and Cornerstone are all converging on MCP from the closed-suite side; Stratum is converging from the open side.</li>
+  </ul>
+
+  <p>Where Stratum&rsquo;s claim is weakest:</p>
+
+  <ul style="margin:0 0 1rem 1.4rem;padding:0;font-family:var(--serif);font-size:1rem;line-height:1.7;color:var(--ink-2)">
+    <li>&ldquo;Published architecture&rdquo; is not &ldquo;shipped at 50,000-employee customer scale.&rdquo; Workday OMS has been load-tested by twenty years of production traffic; Stratum has not. The substrate claim is structurally credible; the operational claim is still ahead of the evidence.</li>
+    <li>The distinction between Stratum&rsquo;s people graph and a &ldquo;Workday OMS extended cross-system&rdquo; is real but subtle. Workday could plausibly position cross-system extension via ASOR + Agent Gateway as the same architectural endgame. The competitive line will be drawn on identity-resolution architecture and time-as-first-class-edge.</li>
+    <li>Cornerstone&rsquo;s vocabulary capture on &ldquo;People Graph&trade;&rdquo; (May 20, 2026) is a real editorial risk. Stratum&rsquo;s claim has to be defended editorially as well as architecturally; the technical-depth page Compass and Forge are building is the right response.</li>
+  </ul>
+
+  <p>
+    Workday re-architected the HR backend twenty years ago for the suite.
+    Stratum is re-architecting it now for the cross-system world that suite-only never reached.
+  </p>
+
+  <span class="sub-h">&sect; XI.vi.9 &middot; Summary table</span>
+  <p class="sub-title">Substrate attempts rated.</p>
+
+  <div class="compmat" style="margin-top:1.4rem;margin-bottom:1.4rem">
+    <div class="compmat-head">
+      <span class="ttl">Substrate attempts in HCM and adjacent infrastructure &middot; rated</span>
+      <span>Eglin &middot; 2026-06-03 &middot; addendum to §III</span>
+    </div>
+    <table>
+      <thead>
+        <tr>
+          <th style="width:10rem">Vendor / system</th>
+          <th style="width:9rem">Substrate attempt?</th>
+          <th style="width:9rem">Architectural shape</th>
+          <th style="width:7rem">Cross-system identity?</th>
+          <th style="width:6.5rem">Time-aware edges?</th>
+          <th style="width:6.5rem">Per-edge consent?</th>
+          <th>Eglin rating</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="vendor">Workday OMS</td>
+          <td><span class="pill p-shipped">Yes (1st gen)</span></td>
+          <td>In-memory object graph + KV-shaped SQL</td>
+          <td>No (suite-bounded)</td>
+          <td>Effective-dated; not graph-native</td>
+          <td>Not at storage layer</td>
+          <td>Verified substrate, bounded scope</td>
+        </tr>
+        <tr>
+          <td class="vendor">Salesforce Force.com</td>
+          <td><span class="pill p-shipped">Yes (CRM domain)</span></td>
+          <td>Metadata-driven multi-tenant</td>
+          <td>n/a</td>
+          <td>n/a</td>
+          <td>n/a</td>
+          <td>Verified; out of HCM</td>
+        </tr>
+        <tr>
+          <td class="vendor">Eightfold TIP</td>
+          <td><span class="pill p-partial">Partial</span></td>
+          <td>Graph + embeddings, vendor corpus</td>
+          <td>Not publicly documented</td>
+          <td>Not first-class</td>
+          <td>Not first-class</td>
+          <td>Claim &ne; substrate</td>
+        </tr>
+        <tr>
+          <td class="vendor">Cornerstone People Graph&trade;</td>
+          <td><span class="pill p-claim">No</span></td>
+          <td>Inference layer over Cornerstone corpus</td>
+          <td>No</td>
+          <td>No</td>
+          <td>No</td>
+          <td>Claim only</td>
+        </tr>
+        <tr>
+          <td class="vendor">Gloat Loomra</td>
+          <td><span class="pill p-partial">Partial</span></td>
+          <td>Workforce knowledge graph (bounded)</td>
+          <td>Single-HRIS</td>
+          <td>Not first-class</td>
+          <td>Not first-class</td>
+          <td>Verified bounded</td>
+        </tr>
+        <tr>
+          <td class="vendor">Beamery Talent Graph</td>
+          <td><span class="pill p-shipped">Yes (recruiting)</span></td>
+          <td>Semantic-web graph, 17B data points</td>
+          <td>External talent universe</td>
+          <td>Not first-class</td>
+          <td>Not first-class</td>
+          <td>Verified; recruiting-only</td>
+        </tr>
+        <tr>
+          <td class="vendor">LinkedIn Economic Graph</td>
+          <td><span class="pill p-shipped">Yes (reference)</span></td>
+          <td>Distributed graph DB, ~500K QPS</td>
+          <td>External</td>
+          <td>Yes (career trajectories)</td>
+          <td>n/a (public data)</td>
+          <td>Verified; not a competitor</td>
+        </tr>
+        <tr>
+          <td class="vendor">Microsoft Graph</td>
+          <td><span class="pill p-shipped">Yes (identity)</span></td>
+          <td>Identity + collaboration graph</td>
+          <td>Entra-bound</td>
+          <td>Yes</td>
+          <td>n/a</td>
+          <td>Verified; not a people graph</td>
+        </tr>
+        <tr>
+          <td class="vendor">Rippling Employee Graph</td>
+          <td><span class="pill p-claim">No</span></td>
+          <td>Normalized relational, single-tenant</td>
+          <td>No</td>
+          <td>No</td>
+          <td>No</td>
+          <td>Claim only</td>
+        </tr>
+        <tr>
+          <td class="vendor">HiBob / Lattice / Deel / ChartHop</td>
+          <td><span class="pill p-claim">No</span></td>
+          <td>Relational HRIS with strong APIs</td>
+          <td>No</td>
+          <td>No</td>
+          <td>No</td>
+          <td>Marketing-graph only</td>
+        </tr>
+        <tr>
+          <td class="vendor">Merge / Finch / Kombo / Apideck</td>
+          <td><span class="pill p-claim">No (correctly)</span></td>
+          <td>Unified API integration plumbing</td>
+          <td>n/a (sync layer)</td>
+          <td>n/a</td>
+          <td>n/a</td>
+          <td>Not substrate-shaped; correct positioning</td>
+        </tr>
+        <tr>
+          <td class="vendor">Windmill <span class="sub">seed, April 2026</span></td>
+          <td><span class="pill p-partial">Partial</span></td>
+          <td>Context-graph evidence layer</td>
+          <td>Not the load-bearing claim</td>
+          <td>Source-tagged</td>
+          <td>Source-tagged</td>
+          <td>Verified-bounded; watch</td>
+        </tr>
+        <tr>
+          <td class="vendor"><strong>Stratum people graph</strong></td>
+          <td><span class="pill p-shipped">Yes (cross-system)</span></td>
+          <td>Cross-system property graph w/ entity resolution, time-aware edges, per-edge consent</td>
+          <td>Yes (design)</td>
+          <td>Yes (design)</td>
+          <td>Yes (design)</td>
+          <td>Structurally verified; not yet proven at scale</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <p style="font-family:var(--mono);font-size:11px;letter-spacing:.1em;color:var(--ink-3-aaa);margin-top:.5rem">
+    — Eglin, industry research desk &middot; 2026-06-03 &middot; addendum to People Graph, in 360&deg; &sect;III
+  </p>
+
+</section>
+
 <!-- §10 -->
 <section id="s10">
   <span class="section-num">&sect; X.</span>
@@ -2285,7 +3067,7 @@ strong { font-weight: 600; color: var(--ink); }
 
   <div class="sources" id="sources-list">
     <div class="sources-head">
-      <span>Working bibliography &middot; 32 sources &middot; 2026-05-22</span>
+      <span>Working bibliography &middot; 36 sources &middot; 2026-06-03</span>
       <span class="legend">
         <span class="lg lg-v">Verified</span>
         <span class="lg lg-r">Reported</span>
@@ -2421,6 +3203,22 @@ strong { font-weight: 600; color: var(--ink); }
         <span class="sc sc-v">Verified</span>
         <span class="sbody"><strong>Cornerstone Workforce AI launch announcement, 2026-05-20</strong> &middot; Cornerstone OnDemand corporate press release and product article. Cornerstone People Graph&trade;, Cornerstone Skills Engine, eleven-plus readiness agents, Slack/Teams MCP integration, Salesforce Agentforce partnership. Numbers cited (45M users, 1B profiles, 55K skills) are Cornerstone&rsquo;s own. <a href="https://www.cornerstoneondemand.com/resources/article/introducing-cornerstone-workforce-ai-the-intelligence-platform-for-workforce-readiness/" target="_blank" rel="noopener">cornerstoneondemand.com &middot; Workforce AI launch</a> and <a href="https://www.cornerstoneondemand.com/company/news-room/press-releases/cornerstone-launches-cornerstone-workforce-ai-the-intelligence-platform-for-workforce-readiness-built-to-amplify-human-potential-exponentially-with-ai/" target="_blank" rel="noopener">cornerstoneondemand.com &middot; press release</a></span>
       </li>
+      <li id="src-33">
+        <span class="sc sc-v">Verified</span>
+        <span class="sbody"><strong>Workday S-1 IPO filing, October 2012 (SEC)</strong>. Primary source for OMS &ldquo;object-oriented technology framework&rdquo; and &ldquo;in-memory data management&rdquo; architectural description. <a href="https://www.sec.gov/Archives/edgar/data/0001327811/000119312512375787/d385110ds1.htm" target="_blank" rel="noopener">sec.gov &middot; Workday S-1 2012</a></span>
+      </li>
+      <li id="src-34">
+        <span class="sc sc-v">Verified</span>
+        <span class="sbody"><strong>Workday Engineering &mdash; &ldquo;Exploring Workday&rsquo;s Architecture,&rdquo; March 2018</strong>. Describes the Object Management Service as loading all business objects into memory at startup; SQL database used &ldquo;as a key-value store rather than a relational database.&rdquo; Confirms that post-startup, OMS &ldquo;doesn&rsquo;t rely on the SQL database for read operations.&rdquo; <a href="https://medium.com/workday-engineering/exploring-workdays-architecture-73c5dbbffc35" target="_blank" rel="noopener">medium.com/workday-engineering &middot; Exploring Workday&rsquo;s Architecture</a></span>
+      </li>
+      <li id="src-35">
+        <span class="sc sc-v">Verified</span>
+        <span class="sbody"><strong>Windmill $12M seed, April 2026</strong> &middot; Inspired Capital-led; founders Max Shaw, Brian Distelburger, Mark Tanner. &ldquo;Context graph&rdquo; of workforce evidence across Slack, GitHub, Google Workspace, and ~30 tools. <a href="https://justainews.com/companies/funding-news/windmill-secures-12m-to-fix-how-companies-track-people/" target="_blank" rel="noopener">justainews.com &middot; Windmill seed</a></span>
+      </li>
+      <li id="src-36">
+        <span class="sc sc-r">Reported</span>
+        <span class="sbody"><strong>Personnel Today &mdash; &ldquo;Graph databases: the next big thing for HCM?&rdquo;</strong> Josh Bersin commentary on graph-database adoption in human capital management. <a href="https://www.personneltoday.com/hr/graph-databases-the-next-big-thing-for-human-capital-management/" target="_blank" rel="noopener">personneltoday.com &middot; graph databases HCM</a></span>
+      </li>
     </ol>
   </div>
 
@@ -2453,6 +3251,7 @@ strong { font-weight: 600; color: var(--ink); }
     <ul class="rh-list">
       <li><span class="rh-ver">1.0</span><span class="rh-date">2026-05-22</span><span class="rh-note">Published. Thirteen-vendor matrix; 31 sources.</span></li>
       <li><span class="rh-ver">1.1</span><span class="rh-date">2026-05-27</span><span class="rh-note">&sect;III matrix updated with Cornerstone row and source [32]; &sect;I gained a sixth anti-shape (&ldquo;Not a single-vendor inference layer&rdquo;); &sect;I summary sentence tightened to make cross-system scope explicit; &sect;IX-01 acknowledges the contested-noun moment.</span></li>
+      <li><span class="rh-ver">1.2</span><span class="rh-date">2026-06-03</span><span class="rh-note">&sect;XI Addendum added: architecture explainer (Forge) walking Maria Santos through row-store and substrate paradigms, plus competitive sweep (Eglin) on prior substrate attempts. &sect;III Workday row corrected from &ldquo;Partial / Row-store&rdquo; to &ldquo;Shipped (suite-bounded) / Object graph (in-memory)&rdquo; based on primary-source review of the 2012 S-1 and 2018 Workday Engineering post; &sect;III closing paragraph updated for consistency. Sources [33]&ndash;[36] added (Workday S-1, Workday Engineering 2018, Windmill seed, Personnel Today / Bersin). Masthead updated to 36 sources, ~9,200 words. Integration by Tessera.</span></li>
     </ul>
   </div>
 
