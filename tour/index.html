@@ -1455,6 +1455,56 @@ html.js .scene.is-visible .scene-inner {
   .arc-strip { padding: .3rem .8rem; }
 }
 
+/* ── Chapter-break dividers ── */
+.chapter-break {
+  padding: 3rem calc((100vw - min(680px, 88vw)) / 2) 1.5rem;
+  display: flex;
+  align-items: baseline;
+  gap: 1rem;
+  border-top: 1px solid var(--paper-rule, #d8cdb6);
+  margin-top: 1.5rem;
+}
+.chapter-break__num {
+  font-family: 'JetBrains Mono', ui-monospace, Menlo, monospace;
+  font-size: 9.5px;
+  letter-spacing: .22em;
+  text-transform: uppercase;
+  color: var(--ochre, #b8651f);
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+.chapter-break__title {
+  font-family: 'Fraunces', Georgia, serif;
+  font-size: clamp(1.05rem, 2.2vw, 1.3rem);
+  font-weight: 500;
+  font-variation-settings: "opsz" 24, "WONK" 0;
+  color: var(--ink, #0e1626);
+  line-height: 1.2;
+  margin: 0;
+}
+.chapter-break__dek {
+  font-family: 'Newsreader', Georgia, serif;
+  font-size: .88rem;
+  font-style: italic;
+  color: var(--ink-2, rgba(14,22,38,.65));
+  margin: .25rem 0 0;
+  line-height: 1.5;
+}
+@media (prefers-reduced-motion: no-preference) {
+  .chapter-break {
+    opacity: 0;
+    transform: translateY(8px);
+    transition: opacity .4s ease, transform .4s ease;
+  }
+  .chapter-break.is-visible {
+    opacity: 1;
+    transform: none;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .chapter-break { opacity: 1; transform: none; }
+}
+
 </style>
 
 <style>
@@ -1582,6 +1632,16 @@ html.js .scene.is-visible .scene-inner {
       </div>
     </div>
   </section>
+
+
+  <!-- ─────────────────────── CHAPTER 1 BREAK -->
+  <div class="chapter-break" aria-hidden="true">
+    <span class="chapter-break__num">Chapter 1</span>
+    <div>
+      <h2 class="chapter-break__title">The CHRO's question</h2>
+      <p class="chapter-break__dek">Carolina Ruiz. Cordova Manufacturing. Tuesday afternoon. The board chair just texted.</p>
+    </div>
+  </div>
 
   <!-- ─────────────────────── SCENE 1 · THE QUESTION -->
   <section class="scene" id="scene-1" data-scene="1" aria-label="Scene 1, the CHRO's question">
@@ -1800,6 +1860,26 @@ html.js .scene.is-visible .scene-inner {
     </div>
   </section>
 
+
+  <!-- ─────────────────────── CHAPTER 2 BREAK -->
+  <div class="chapter-break" aria-hidden="true">
+    <span class="chapter-break__num">Chapter 2</span>
+    <div>
+      <h2 class="chapter-break__title">How Elena got here</h2>
+      <p class="chapter-break__dek">Recruiter found her. Tenure onboarded her. Console has been watching ever since.</p>
+    </div>
+  </div>
+
+
+  <!-- ─────────────────────── CHAPTER 3 BREAK -->
+  <div class="chapter-break" aria-hidden="true">
+    <span class="chapter-break__num">Chapter 3</span>
+    <div>
+      <h2 class="chapter-break__title">The architecture</h2>
+      <p class="chapter-break__dek">One people graph. Every system you already run, reconciled.</p>
+    </div>
+  </div>
+
   <!-- ─────────────────────── SCENE 5 · CITATION PACK -->
   <section class="scene" id="scene-5" data-scene="5" aria-label="Scene 5, citation pack">
     <div class="scene-inner">
@@ -1936,6 +2016,36 @@ html.js .scene.is-visible .scene-inner {
       <p class="scene-dek">We don't replace Workday, Greenhouse, or ADP. We read from them, reconcile them, and put one answer-shaped surface on top.</p>
     </div>
   </section>
+
+
+  <!-- ─────────────────────── CHAPTER 4 BREAK -->
+  <div class="chapter-break" aria-hidden="true">
+    <span class="chapter-break__num">Chapter 4</span>
+    <div>
+      <h2 class="chapter-break__title">Elena's lifecycle</h2>
+      <p class="chapter-break__dek">Hired. Onboarded. Transferred. At 18 months, Carolina attested her Kubernetes credential.</p>
+    </div>
+  </div>
+
+
+  <!-- ─────────────────────── CHAPTER 5 BREAK -->
+  <div class="chapter-break" aria-hidden="true">
+    <span class="chapter-break__num">Chapter 5</span>
+    <div>
+      <h2 class="chapter-break__title">The credential</h2>
+      <p class="chapter-break__dek">Cairn read the weld logs. Carmen Solís signed off. Elena's k8s stone is now portable.</p>
+    </div>
+  </div>
+
+
+  <!-- ─────────────────────── CHAPTER 6 BREAK -->
+  <div class="chapter-break" aria-hidden="true">
+    <span class="chapter-break__num">Chapter 6</span>
+    <div>
+      <h2 class="chapter-break__title">Ask anything</h2>
+      <p class="chapter-break__dek">Six questions, live, right now. No login.</p>
+    </div>
+  </div>
 
   <!-- ─────────────────────── SCENE 7 · WHAT YOU CAN ASK -->
   <section class="scene" id="scene-7" data-scene="7" aria-label="Scene 7, example questions">
@@ -2083,9 +2193,16 @@ html.js .scene.is-visible .scene-inner {
       rootMargin: '0px 0px -10% 0px'
     });
     scenes.forEach(function (s) { io.observe(s); });
+    // Chapter-break dividers: simple fade-in via same observer
+    Array.prototype.slice.call(document.querySelectorAll('.chapter-break')).forEach(function (cb) {
+      io.observe(cb);
+    });
   } else {
     // Fallback
     scenes.forEach(function (s) { s.classList.add('is-visible'); });
+    Array.prototype.slice.call(document.querySelectorAll('.chapter-break')).forEach(function (cb) {
+      cb.classList.add('is-visible');
+    });
   }
 
   // ─── Scroll progress bar ──────────────────────────────────
