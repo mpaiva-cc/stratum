@@ -275,7 +275,25 @@ code { font-family: var(--mono); font-size: .9em; color: var(--moss-deep); backg
   background: rgba(74,93,58,.2);
 }
 @media (max-width: 720px) {
-  .tour-steps { display: none; }
+  .tour-steps { overflow-x: auto; -webkit-overflow-scrolling: touch; scrollbar-width: none; }
+  .tour-steps::-webkit-scrollbar { display: none; }
+}
+.tour-step-group-label {
+  font-family: var(--mono);
+  font-size: 8px;
+  letter-spacing: .2em;
+  text-transform: uppercase;
+  color: rgba(244,236,218,.3);
+  padding: 0 .3rem;
+  white-space: nowrap;
+}
+.tour-step-divider {
+  display: inline-block;
+  width: 1px;
+  height: 18px;
+  background: rgba(244,236,218,.15);
+  margin: 0 .3rem;
+  flex-shrink: 0;
 }
 .tour-cta {
   font-family: var(--mono);
@@ -1101,7 +1119,7 @@ code { font-family: var(--mono); font-size: .9em; color: var(--moss-deep); backg
 {% include site-nav.html %}
 
 <!-- realtime-stamp -->
-<div class="rt-stamp" data-t0="2026-05-12T22:25:46-04:00" data-this="2026-05-19T21:00:00-04:00" style="position:fixed;bottom:8px;right:10px;z-index:9999;font-family:'JetBrains Mono',ui-monospace,Menlo,monospace;font-size:9.5px;letter-spacing:.08em;color:rgba(14,22,38,.55);background:rgba(244,236,218,.75);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);padding:.25rem .55rem;border-radius:999px;border:1px solid rgba(184,101,31,.25);pointer-events:none" aria-hidden="true"><span style="color:#b8651f">●</span> compiled at <strong style="color:#0e1626">T+166:34:14.000</strong> · <span style="opacity:.6">2026-05-20T01:00:00.000Z</span></div>
+<div class="rt-stamp" data-t0="2026-05-12T22:25:46-04:00" data-this="2026-06-04T10:00:00-04:00" style="position:fixed;bottom:8px;right:10px;z-index:9999;font-family:'JetBrains Mono',ui-monospace,Menlo,monospace;font-size:9.5px;letter-spacing:.08em;color:rgba(14,22,38,.55);background:rgba(244,236,218,.75);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);padding:.25rem .55rem;border-radius:999px;border:1px solid rgba(184,101,31,.25);pointer-events:none" aria-hidden="true"><span style="color:#b8651f">●</span> compiled at <strong style="color:#0e1626">T+539:34:14.000</strong> · <span style="opacity:.6">2026-06-04T14:00:00.000Z</span></div>
 <!-- /realtime-stamp -->
 
 <a href="#main" style="position:absolute;left:-9999px;top:0;width:1px;height:1px;z-index:9999;background:var(--paper,#f4ecda);color:var(--ink,#0e1626);padding:.5rem 1rem;font-family:'JetBrains Mono',monospace;font-size:13px;text-decoration:none" onfocus="this.style.left='0';this.style.width='auto';this.style.height='auto';" onblur="this.style.left='-9999px';this.style.width='1px';this.style.height='1px';">Skip to main content</a>
@@ -1122,11 +1140,23 @@ code { font-family: var(--mono); font-size: .9em; color: var(--moss-deep); backg
       Stratum Cairn <span class="sub">/ Tour</span>
     </div>
     <div class="tour-steps" role="list">
+      <span class="tour-step-group-label" aria-hidden="true">Elena Vega</span>
       <button class="tour-step-btn is-active" data-target="screen-1" role="listitem">01 · Profile</button>
       <button class="tour-step-btn" data-target="screen-2" role="listitem">02 · Detect</button>
       <button class="tour-step-btn" data-target="screen-3" role="listitem">03 · Recommend</button>
       <button class="tour-step-btn" data-target="screen-4" role="listitem">04 · Attest</button>
       <button class="tour-step-btn" data-target="screen-5" role="listitem">05 · Trajectory</button>
+      <button class="tour-step-btn" data-target="screen-6" role="listitem">06 · Reciprocate</button>
+      <button class="tour-step-btn" data-target="screen-7" role="listitem">07 · Promote</button>
+      <span class="tour-step-divider" aria-hidden="true"></span>
+      <span class="tour-step-group-label" aria-hidden="true">Mateo Cantú</span>
+      <button class="tour-step-btn" data-target="screen-8" role="listitem">08 · Onboard</button>
+      <button class="tour-step-btn" data-target="screen-9" role="listitem">09 · Detect</button>
+      <button class="tour-step-btn" data-target="screen-10" role="listitem">10 · Validate</button>
+      <span class="tour-step-divider" aria-hidden="true"></span>
+      <span class="tour-step-group-label" aria-hidden="true">Cohort</span>
+      <button class="tour-step-btn" data-target="screen-11" role="listitem">11 · Cohort</button>
+      <button class="tour-step-btn" data-target="screen-12" role="listitem">12 · Handoff</button>
     </div>
     <a href="../" class="tour-cta">← Back to Cairn</a>
   </div>
@@ -1140,7 +1170,7 @@ code { font-family: var(--mono); font-size: .9em; color: var(--moss-deep); backg
     <div class="screen-step">
       <span class="bar" aria-hidden="true"></span>
       <span class="verb">Profile</span>
-      Screen 01 of 05
+      Screen 01 of 12
     </div>
     <h1 class="screen-h" id="s1-heading">
       Elena Vega's <em>cairn.</em>
@@ -1302,7 +1332,7 @@ code { font-family: var(--mono); font-size: .9em; color: var(--moss-deep); backg
     <div class="screen-step">
       <span class="bar" aria-hidden="true"></span>
       <span class="verb">Detect</span>
-      Screen 02 of 05
+      Screen 02 of 12
     </div>
     <h2 class="screen-h" id="s2-heading">
       Talus detects the <em>gap</em> from PR evidence.
@@ -1403,7 +1433,7 @@ code { font-family: var(--mono); font-size: .9em; color: var(--moss-deep); backg
     <div class="screen-step">
       <span class="bar" aria-hidden="true"></span>
       <span class="verb">Recommend</span>
-      Screen 03 of 05
+      Screen 03 of 12
     </div>
     <h2 class="screen-h" id="s3-heading">
       Hearth proposes a <em>closed-loop</em> intervention.
@@ -1516,7 +1546,7 @@ code { font-family: var(--mono); font-size: .9em; color: var(--moss-deep); backg
     <div class="screen-step">
       <span class="bar" aria-hidden="true"></span>
       <span class="verb">Attest</span>
-      Screen 04 of 05
+      Screen 04 of 12
     </div>
     <h2 class="screen-h" id="s4-heading">
       Elena ships PR #4891.<br><em>Hearth verifies.</em>
@@ -1627,7 +1657,7 @@ code { font-family: var(--mono); font-size: .9em; color: var(--moss-deep); backg
     <div class="screen-step">
       <span class="bar" aria-hidden="true"></span>
       <span class="verb">Trajectory</span>
-      Screen 05 of 05
+      Screen 05 of 12
     </div>
     <h2 class="screen-h" id="s5-heading">
       One fewer gap. <em>Three months closer</em> to Staff SRE.
@@ -1771,6 +1801,200 @@ code { font-family: var(--mono); font-size: .9em; color: var(--moss-deep); backg
             Quantifiable in the people graph, traceable to a specific intervention,
             verifiable by anyone with access. This is what Cairn sells to L&D buyers:
             <strong>not completion rates — closed gaps with trajectory delta.</strong>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════ SCREEN 6 · RECIPROCATE ══ -->
+<section class="tour-screen" id="screen-6" aria-labelledby="s6-heading">
+  <div class="screen-inner">
+    <div class="screen-step">
+      <span class="bar" aria-hidden="true"></span>
+      <span class="verb">Reciprocate</span>
+      Screen 06 of 12
+    </div>
+    <h1 class="screen-h" id="s6-heading">
+      Elena attests <em>someone else.</em>
+    </h1>
+    <p class="screen-sub">
+      The graph is bidirectional. Elena — now six stones in — is the right
+      peer to verify Dev's <code>k8s-statefulsets</code> demonstration.
+      Cairn surfaces the match; Elena closes the loop.
+    </p>
+
+    <div class="screen-split">
+      <div>
+        <div class="ui-frame" role="region" aria-label="Peer-attestation request for Dev Narayanan, routed to Elena Vega">
+          <div class="ui-titlebar">
+            <div class="ui-dots" aria-hidden="true">
+              <span class="ui-dot"></span><span class="ui-dot"></span><span class="ui-dot"></span>
+            </div>
+            Cairn · Peer attestation request
+          </div>
+          <div style="padding:1.2rem 1.4rem;">
+            <div style="font-family:var(--mono);font-size:9px;letter-spacing:.2em;text-transform:uppercase;color:var(--ink-3-aaa);margin-bottom:.8rem;">Routed to you · Elena Vega</div>
+            <div style="display:grid;grid-template-columns:auto 1fr;gap:.6rem 1rem;align-items:start;margin-bottom:1.2rem;">
+              <div class="person-avatar" style="width:36px;height:36px;font-size:13px;" aria-hidden="true">DN</div>
+              <div>
+                <div style="font-family:var(--serif);font-size:1rem;font-weight:600;color:var(--ink);">Dev Narayanan</div>
+                <div style="font-family:var(--mono);font-size:9px;color:var(--ink-3-aaa);">SRE · L4 · Cordova Manufacturing</div>
+              </div>
+            </div>
+            <div style="background:var(--paper-deep);border-radius:6px;padding:.9rem 1rem;margin-bottom:1rem;">
+              <div style="font-family:var(--mono);font-size:9px;letter-spacing:.14em;text-transform:uppercase;color:var(--moss-text);margin-bottom:.5rem;">Skill to attest</div>
+              <div style="display:flex;align-items:center;gap:.5rem;">
+                <span class="stone-sq" aria-hidden="true"></span>
+                <span style="font-family:var(--mono);font-size:12px;font-weight:600;">k8s-statefulsets</span>
+              </div>
+              <div style="font-family:var(--mono);font-size:9px;color:var(--ink-3-aaa);margin-top:.4rem;">PR #5102 · StatefulSet migration for Postgres cluster</div>
+            </div>
+            <div style="background:var(--paper-card);border:1px solid var(--paper-rule);border-radius:6px;padding:.8rem 1rem;margin-bottom:1rem;">
+              <div style="font-family:var(--mono);font-size:9px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-3-aaa);margin-bottom:.5rem;">Why you were matched</div>
+              <p style="font-family:var(--sans);font-size:12px;line-height:1.5;color:var(--ink-2);margin:0;">
+                You hold <strong>k8s-statefulsets</strong> as a verified stone.
+                You and Dev work in the same org. You flagged peer-pairing availability
+                last sprint. Talus routed this request to you; no manager involved.
+              </p>
+            </div>
+            <div style="display:flex;gap:.6rem;">
+              <button class="ac-btn ac-btn-approve" type="button" style="flex:1;">✓ Attest stone</button>
+              <button class="ac-btn ac-btn-more" type="button">Review PR</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <div class="annotation">
+          <div class="annotation-label">Peer attestation, not manager approval</div>
+          <p class="annotation-body">
+            Dev's manager doesn't hold the stone — Elena does. Cairn routes
+            attestation requests to people who have demonstrated the skill,
+            are in the same org, and are available. The graph knows who
+            can credibly attest; the manager doesn't have to.
+          </p>
+        </div>
+        <div class="annotation">
+          <div class="annotation-label">Trust propagates through the graph</div>
+          <p class="annotation-body">
+            Elena's k8s-statefulsets stone was itself attested by Priya
+            Chandrasekaran (Staff SRE, L6). That trust transfers: Elena
+            attesting Dev creates a verifiable chain. Carmen Solís at Lincoln
+            Electric can query this chain when evaluating cross-org contractors.
+          </p>
+        </div>
+        <div class="annotation">
+          <div class="annotation-label">Graph health</div>
+          <p class="annotation-body">
+            Reciprocal attestation is how the graph stays live. A person who
+            only receives stones is a consumer. A person who attests others
+            is a contributor. Cairn surfaces contribution as part of the
+            trajectory picture — not a separate score, just a facet of the
+            work graph.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════ SCREEN 7 · PROMOTE ══ -->
+<section class="tour-screen" id="screen-7" aria-labelledby="s7-heading">
+  <div class="screen-inner">
+    <div class="screen-step">
+      <span class="bar" aria-hidden="true"></span>
+      <span class="verb">Promote</span>
+      Screen 07 of 12
+    </div>
+    <h1 class="screen-h" id="s7-heading">
+      T+18 months. <em>Elena reaches Staff SRE.</em>
+    </h1>
+    <p class="screen-sub">
+      Ten stones placed. Zero gaps remaining. The trajectory line hits the
+      target node. Hearth drafts the promotion summary; Carolina Ruiz
+      approves. The cairn records the moment.
+    </p>
+
+    <div class="screen-split">
+      <div>
+        <div class="ui-frame" role="region" aria-label="Promotion-readiness view for Elena Vega, all stones placed">
+          <div class="ui-titlebar">
+            <div class="ui-dots" aria-hidden="true">
+              <span class="ui-dot"></span><span class="ui-dot"></span><span class="ui-dot"></span>
+            </div>
+            Cairn · Promotion readiness · Elena Vega
+          </div>
+          <div style="padding:1.2rem 1.4rem;">
+            <div style="background:color-mix(in srgb, var(--moss) 12%, var(--paper-card));border:1px solid color-mix(in srgb, var(--moss) 28%, transparent);border-radius:8px;padding:1rem 1.2rem;margin-bottom:1.2rem;display:flex;align-items:center;gap:.8rem;">
+              <svg width="24" height="24" viewBox="0 0 24 24" aria-hidden="true" fill="none">
+                <circle cx="12" cy="12" r="10" stroke="var(--moss)" stroke-width="1.8"/>
+                <polyline points="7 12.5 10.5 16 17 9" stroke="var(--moss)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+              <div>
+                <div style="font-family:var(--serif);font-size:1rem;font-weight:600;color:var(--moss-text);">Promotion-ready · all criteria met</div>
+                <div style="font-family:var(--mono);font-size:9px;color:var(--moss-text);opacity:.75;margin-top:.2rem;">10/10 stones · 0 gaps · T+18mo from L5</div>
+              </div>
+            </div>
+            <div style="font-family:var(--mono);font-size:9px;letter-spacing:.2em;text-transform:uppercase;color:var(--ink-3-aaa);margin-bottom:.6rem;">Verified stones · Staff SRE (L6)</div>
+            <div class="stones-row" role="list" style="flex-wrap:wrap;">
+              <span class="stone-chip" role="listitem"><span class="stone-sq" aria-hidden="true"></span>python-async</span>
+              <span class="stone-chip" role="listitem"><span class="stone-sq" aria-hidden="true"></span>terraform-iac</span>
+              <span class="stone-chip" role="listitem"><span class="stone-sq" aria-hidden="true"></span>k8s-statefulsets</span>
+              <span class="stone-chip" role="listitem"><span class="stone-sq" aria-hidden="true"></span>incident-command</span>
+              <span class="stone-chip" role="listitem"><span class="stone-sq" aria-hidden="true"></span>prom-alerting</span>
+              <span class="stone-chip" role="listitem"><span class="stone-sq" aria-hidden="true"></span>k8s-operators</span>
+              <span class="stone-chip" role="listitem"><span class="stone-sq" aria-hidden="true"></span>distributed-tracing</span>
+              <span class="stone-chip" role="listitem"><span class="stone-sq" aria-hidden="true"></span>sre-capacity-planning</span>
+              <span class="stone-chip" role="listitem"><span class="stone-sq" aria-hidden="true"></span>api-contract-design</span>
+              <span class="stone-chip" role="listitem"><span class="stone-sq" aria-hidden="true"></span>mentorship-L3</span>
+            </div>
+            <div style="margin-top:1.2rem;background:var(--paper-deep);border-radius:6px;padding:.9rem 1rem;">
+              <div style="font-family:var(--mono);font-size:9px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-3-aaa);margin-bottom:.5rem;">Hearth · promotion summary draft</div>
+              <p style="font-family:var(--sans);font-size:11.5px;line-height:1.55;color:var(--ink-2);margin:0;">
+                Elena Vega has met all ten stone criteria for Staff SRE (L6) at Cordova Manufacturing.
+                Evidence is fully verified across her work graph: 7 PR-based stones, 2 incident-record
+                stones, 1 peer-mentorship stone. Trajectory velocity averaged 1 stone per 6.4 weeks.
+                Recommending immediate promotion effective next review cycle.
+              </p>
+            </div>
+            <div style="margin-top:.8rem;display:flex;gap:.6rem;">
+              <button class="ac-btn ac-btn-approve" type="button" style="flex:1;">Carolina Ruiz · Approve promotion</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <div class="annotation">
+          <div class="annotation-label">The promotion conversation that didn't need to happen</div>
+          <p class="annotation-body">
+            In every other system, Elena would have had to advocate for
+            herself — compile her own evidence, navigate a manager's memory,
+            hope timing aligned. In Cairn, the work graph already made
+            the case. The conversation between Elena and Carolina was
+            three minutes. The decision was 48 hours.
+          </p>
+        </div>
+        <div class="annotation">
+          <div class="annotation-label">What the cairn records at this moment</div>
+          <p class="annotation-body">
+            Ten stones. Eighteen months. A trajectory that was estimated
+            at 22 months when Elena joined the graph — reduced by 4 months
+            through demonstrated velocity. The cairn is a record, not a
+            promise. What's recorded here is what happened.
+          </p>
+        </div>
+        <div class="annotation">
+          <div class="annotation-label">Elena's cairn is now evidence for her next move</div>
+          <p class="annotation-body">
+            If Elena leaves Cordova, her cairn travels. The stones are
+            hers, not Cordova's. Carmen Solís at Lincoln Electric — or
+            anyone else in the trust graph — can validate the record.
+            This is portability as a design value, not a feature.
           </p>
         </div>
       </div>
