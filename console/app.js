@@ -5814,6 +5814,14 @@ const DEMO = (() => {
     if (!state.people || !state.people.length) return;
     const hasKey = !!(LLM && LLM.settings.apiKey);
     if (hasKey) return;
+    // ?q=<slug> — inbound from the product tour question-pile.
+    // If the slug is valid, skip the gallery and run it directly.
+    const qSlug = new URLSearchParams(location.search).get('q');
+    if (qSlug && SLUGS.some(s => s.slug === qSlug)) {
+      closeOnboarding();
+      runSlug(qSlug);
+      return;
+    }
     const demoParam = /[?&]demo=1/.test(location.search) || location.hash === '#demo';
     const skipped = sessionStorage.getItem('stratum_skipped_onboarding') === '1';
     if (demoParam || skipped) {
