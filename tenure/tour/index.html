@@ -246,6 +246,40 @@ main#main { padding-bottom: 5rem; }
   .arc-strip { padding: .3rem .8rem; }
 }
 
+
+/* ARC FRAMING */
+.arc-framing {
+  width: var(--col);
+  margin: 1.5rem auto 0;
+}
+.arc-framing-inner {
+  display: flex;
+  gap: 1rem;
+  align-items: baseline;
+  padding: .9rem 1.2rem;
+  background: color-mix(in srgb, var(--moss) 6%, var(--paper-warm));
+  border: 1px solid color-mix(in srgb, var(--moss) 18%, transparent);
+  border-left: 3px solid var(--moss);
+  border-radius: 0 4px 4px 0;
+}
+.arc-framing__label {
+  font-family: var(--mono);
+  font-size: 9px;
+  letter-spacing: .2em;
+  text-transform: uppercase;
+  color: var(--moss);
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+.arc-framing__body {
+  font-family: var(--serif);
+  font-size: 13.5px;
+  line-height: 1.5;
+  color: var(--ink-3-aaa);
+  margin: 0;
+}
+.arc-framing__body strong { color: var(--ink); }
+
 </style>
 </head>
 <body>
@@ -298,7 +332,23 @@ main#main { padding-bottom: 5rem; }
       </p>
     </div>
   </div>
-</section>
+
+<!-- arc framing: chapter 2 of Elena's story -->
+<div class="arc-framing" role="note" aria-label="How this fits Elena Vega's journey through the four Stratum products">
+  <div class="arc-framing-inner">
+    <span class="arc-framing__label">Chapter 2 of 4</span>
+    <p class="arc-framing__body">
+      Elena Vega joined Cordova Manufacturing through Stratum Recruiter — chapter 1.
+      <strong>This is chapter 2: Tenure managing her first 90 days and her internal transfer
+      to Platform Engineering.</strong> When Tenure's onboarding completes, Console begins
+      tracking Elena's analytics and pay equity (chapter 3). Cairn attests her skills
+      18 months later (chapter 4). The character in this walkthrough is Maria Chen, our
+      canonical synthetic employee for Tenure's storyboard. The workflow is the same
+      one that ran for Elena.
+    </p>
+  </div>
+</div>
+<!-- /arc framing -->
 
 <nav class="scene-nav" aria-label="Jump to scene">
   <a href="#scene-1">01 · Pre-board</a>
@@ -645,10 +695,11 @@ main#main { padding-bottom: 5rem; }
 <aside class="tour-close">
   <h2>When Tenure goes live with your data, this is the workflow that runs.</h2>
   <p>Mercator, Halcyon, and Northwind are the launch design partners. Vector and Cadence are opening the conversations this week. The first customer demo with real data is twelve weeks out.</p>
+  <p class="tour-close-arc" style="font-family:var(--mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--ochre-link);margin:0 0 1.2rem;">Next in Elena's arc: Console — chapter 3</p>
   <div class="cta-row">
-    <a class="cta" href="mailto:hello@stratum.ai?subject=Tenure%20design%20partner">Become a design partner</a>
+    <a class="cta" href="/tour/">Console tour →</a>
+    <a class="cta ghost" href="mailto:hello@stratum.ai?subject=Tenure%20design%20partner">Become a design partner</a>
     <a class="cta ghost" href="{{ '/tenure/' | relative_url }}">Back to Tenure</a>
-    <a class="cta ghost" href="{{ '/briefings/016.html' | relative_url }}">Read the briefing</a>
   </div>
 </aside>
 
