@@ -959,6 +959,57 @@ html.js .scene.is-visible .scene-inner {
 }
 .cite-chip-mock .v { color: var(--ink); }
 
+/* ─────────────────────────────────── AGENT CARD / CITE BLOCKS ──
+   Used in Ch 2 (Recruiter pipeline), Ch 4 (Tenure milestones),
+   Ch 5 (Cairn attestation). Defined here; inline fallbacks removed. */
+
+.ac-a {
+  background: var(--paper-card, var(--paper));
+  border: 1px solid var(--paper-rule);
+  border-radius: var(--radius, 6px);
+  overflow: hidden;
+  text-align: left;
+  margin-top: 1.4rem;
+}
+.ac-a-label {
+  display: block;
+  font-family: var(--mono);
+  font-size: 9.5px;
+  letter-spacing: .22em;
+  text-transform: uppercase;
+  color: var(--ochre);
+  font-weight: 700;
+  padding: .55rem .8rem .2rem;
+}
+.ac-a-body {
+  font-family: var(--mono);
+  font-size: 11.5px;
+  line-height: 1.7;
+  color: var(--ink);
+  padding: 0 .8rem .75rem;
+}
+.ac-cite {
+  background: var(--paper-warm, #f7f0e0);
+  border-top: 1px solid var(--paper-rule);
+  padding: .55rem .8rem;
+  display: grid;
+  gap: .25rem;
+}
+.ac-cite-k {
+  font-family: var(--mono);
+  font-size: 9.5px;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  color: var(--ochre);
+  font-weight: 700;
+}
+.ac-cite-v {
+  font-family: var(--mono);
+  font-size: 11px;
+  color: var(--ink);
+  line-height: 1.45;
+}
+
 /* ─────────────────────────────────── SCENE 5 · BIG CITATION ── */
 
 .cite-blown {
@@ -1891,7 +1942,7 @@ html.js .scene.is-visible .scene-inner {
         </div>
         <div class="ac-a">
           <span class="ac-a-label">Pipeline</span>
-          <div class="ac-a-body" style="font-family:'JetBrains Mono',ui-monospace,Menlo,monospace;font-size:11.5px;line-height:1.7">
+          <div class="ac-a-body">
             <div style="display:flex;align-items:center;gap:.7rem;border-bottom:1px solid var(--paper-rule,#d8cdb6);padding-bottom:.4rem;margin-bottom:.4rem">
               <span style="width:2rem;text-align:right;opacity:.55">1</span>
               <span style="flex:1">D. Narayanan</span>
@@ -2139,7 +2190,7 @@ html.js .scene.is-visible .scene-inner {
         </div>
         <div class="ac-a">
           <span class="ac-a-label">Milestones</span>
-          <div class="ac-a-body" style="font-family:'JetBrains Mono',ui-monospace,Menlo,monospace;font-size:11px;line-height:1.8">
+          <div class="ac-a-body">
             <div style="display:grid;grid-template-columns:5rem 1fr;gap:.3rem .8rem">
               <span style="color:var(--ochre,#b8651f);font-weight:600">T+0d</span>
               <span>Hired · req R-0041 closed · onboarding checklist opened</span>
@@ -2235,7 +2286,7 @@ html.js .scene.is-visible .scene-inner {
         </div>
         <div class="ac-a">
           <span class="ac-a-label">Evidence</span>
-          <div class="ac-a-body" style="font-family:'JetBrains Mono',ui-monospace,Menlo,monospace;font-size:11px;line-height:1.7">
+          <div class="ac-a-body">
             <div style="display:grid;grid-template-columns:8rem 1fr;gap:.3rem .8rem">
               <span style="opacity:.65">Stone</span>
               <span style="font-weight:600">k8s-cluster-ops · Tier 2 · reversible</span>
@@ -2280,7 +2331,7 @@ html.js .scene.is-visible .scene-inner {
         </div>
         <div class="ac-a">
           <span class="ac-a-label">12 screens</span>
-          <div class="ac-a-body" style="font-family:'Newsreader',Georgia,serif;font-style:italic;font-size:13px;line-height:1.7;color:var(--ink,#0e1626)">
+          <div class="ac-a-body">
             Elena earns her first stone · reciprocates for Dev Narayanan · reaches 10 stones at T+18mo.
             Mateo Cantú's welding credential arrives from Lincoln Electric.
             Carolina reviews the full team gap map.
@@ -2371,11 +2422,11 @@ html.js .scene.is-visible .scene-inner {
         <p>partners@stratum.ai — a founder reads every note. We reply within a business day.</p>
         <span class="arrow">Email us →</span>
       </a>
-      <a href="../" class="outro-card">
+      <a href="../briefings/018.html" class="outro-card">
         <span class="step">§ 03 · Briefing</span>
         <h3>I want the <em>long version.</em></h3>
-        <p>The 30-minute briefing: thesis, architecture, evidence, what we won't ship.</p>
-        <span class="arrow">Read the briefing →</span>
+        <p>Briefing 018: thesis, architecture, evidence, what we won't ship. The full read.</p>
+        <span class="arrow">Read briefing 018 →</span>
       </a>
     </div>
   </section>
