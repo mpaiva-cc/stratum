@@ -1152,7 +1152,7 @@ html.js .scene.is-visible .scene-inner {
   font-family: var(--display);
   font-weight: 500;
   font-variation-settings: "opsz" 144, "SOFT" 0;
-  font-size: clamp(3.2rem, 10vw, 8rem);
+  font-size: clamp(2.2rem, 10vw, 8rem);
   line-height: .94;
   letter-spacing: -.04em;
   color: var(--ink);
@@ -1505,6 +1505,11 @@ html.js .scene.is-visible .scene-inner {
   .arc-strip__ch { display: none; }
   .arc-strip { padding: .3rem .8rem; }
 }
+@media (max-width: 480px) {
+  /* Hide the next-chapter link at narrowest widths to prevent overflow */
+  .arc-strip__next { display: none; }
+  .arc-strip__products { gap: .5rem; }
+}
 
 /* ── Chapter-break dividers ── */
 .chapter-break {
@@ -1554,6 +1559,18 @@ html.js .scene.is-visible .scene-inner {
 }
 @media (prefers-reduced-motion: reduce) {
   .chapter-break { opacity: 1; transform: none; }
+}
+
+/* 320px — smallest-viewport overflow guards */
+@media (max-width: 360px) {
+  .scene-close h2 { font-size: clamp(1.9rem, 9vw, 2.4rem); }
+  .outro-title { font-size: clamp(1.6rem, 6vw, 2rem); }
+  .chapter-break { padding-left: 1rem; padding-right: 1rem; }
+  .mobile-bar-inner { padding: 0 .6rem; }
+  /* q-cards: ensure they don't overflow horizontally */
+  .q-card, .q-card.q1, .q-card.q2, .q-card.q3, .q-card.q4, .q-card.q5, .q-card.q6 {
+    max-width: calc(100vw - 2rem);
+  }
 }
 
 </style>

@@ -1165,6 +1165,10 @@ code { font-family: var(--mono); font-size: .9em; color: var(--moss-deep); backg
   .arc-strip__ch { display: none; }
   .arc-strip { padding: .3rem .8rem; }
 }
+@media (max-width: 480px) {
+  .arc-strip__next { display: none; }
+  .arc-strip__products { gap: .5rem; }
+}
 
 .skip-link {
   position: absolute;
@@ -1181,6 +1185,13 @@ code { font-family: var(--mono); font-size: .9em; color: var(--moss-deep); backg
   text-decoration: none;
 }
 .skip-link:focus { left: 1rem; top: 1rem; }
+
+/* 320px — smallest-viewport overflow guards */
+@media (max-width: 360px) {
+  .screen-h { font-size: clamp(1.5rem, 5.5vw, 1.9rem); }
+  .tour-nav-inner { padding: .45rem .4rem; gap: .6rem; }
+  .tour-cta { display: none; }
+}
 
 </style>
 </head>

@@ -245,6 +245,10 @@ main#main { padding-bottom: 5rem; }
   .arc-strip__ch { display: none; }
   .arc-strip { padding: .3rem .8rem; }
 }
+@media (max-width: 480px) {
+  .arc-strip__next { display: none; }
+  .arc-strip__products { gap: .5rem; }
+}
 
 
 /* ARC FRAMING */
@@ -466,6 +470,14 @@ footer { background: var(--paper); border-top: 1px solid var(--paper-rule); padd
 /* Colo tag: readable at phone width */
 @media (max-width: 414px) {
   .colo-tag { font-size: 9.5px; letter-spacing: .16em; }
+}
+
+/* 320px — smallest-viewport overflow guards */
+@media (max-width: 360px) {
+  .tour-h1 { font-size: clamp(1.75rem, 6vw, 2.2rem); }
+  .scene-h { font-size: clamp(1.5rem, 5vw, 1.9rem); }
+  .mockup-bar .crumb { display: none; }
+  .tour-close { padding: 1.5rem .7rem; }
 }
 
 /* Prefers-reduced-motion */
