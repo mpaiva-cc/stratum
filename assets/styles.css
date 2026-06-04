@@ -1773,15 +1773,22 @@ section h2 em{font-style:italic;color:var(--indigo)}
 }
 
 /* ── rt-stamp responsive ─────────────────────────────────────────
-   The runtime stamp pill has a fixed intrinsic width (~382px) that
-   causes page-level overflow on phones narrower than ~400px. Cap its
-   width at small viewports and trim padding so the text wraps instead
-   of escaping the viewport. The pill stays present — it is a Stratum
-   signature element — but cannot break the viewport.
-   Addresses: DEF-R2-01 · 320px and 375px overflow. */
+   Round-3 used max-width:calc(100vw-20px) + white-space:normal but the
+   56-char timestamp text still drew as a single line wide enough to fill
+   300px, causing 95px overflow at 320px. Root cause: max-width doesn't
+   constrain a fixed-positioned element when its text is too wide to wrap.
+   Round-5 fix: left:10px + right:10px + width:auto on position:fixed
+   forces the pill to span exactly viewport-width minus 20px gutters —
+   the text must wrap within that box regardless of content length.
+   overflow-x:clip on body stops .tour-step-btn row from inflating
+   scrollWidth and window.innerWidth in mobile emulation.
+   Addresses: DEF-R2-01 · 320px and 375px overflow. DEF-R5-01. */
 @media (max-width: 480px) {
+  body { overflow-x: clip; }
   .rt-stamp {
-    max-width: calc(100vw - 20px);
+    left: 10px;
+    right: 10px;
+    width: auto;
     white-space: normal;
     text-align: right;
     font-size: 8.5px;
