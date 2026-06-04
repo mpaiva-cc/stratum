@@ -517,12 +517,12 @@ footer { background: var(--paper); border-top: 1px solid var(--paper-rule); padd
 <nav class="arc-strip" aria-label="Four-product tour navigation">
   <span class="arc-strip__label">Stratum tour</span>
   <ol class="arc-strip__products">
-    <li class="arc-strip__item arc-strip__item--done"><a href="/recruiter/tour/">Recruiter</a><span class="arc-strip__ch">ch. 1</span></li>
+    <li class="arc-strip__item arc-strip__item--done"><a href="{{ '/recruiter/tour/' | relative_url }}">Recruiter</a><span class="arc-strip__ch">ch. 1</span></li>
     <li class="arc-strip__item arc-strip__item--current" aria-current="step"><span>Tenure</span><span class="arc-strip__ch">ch. 2</span></li>
     <li class="arc-strip__item"><span>Console</span><span class="arc-strip__ch">ch. 3</span></li>
     <li class="arc-strip__item"><span>Cairn</span><span class="arc-strip__ch">ch. 4</span></li>
   </ol>
-  <a class="arc-strip__next" href="/tour/">Next: Console →</a>
+  <a class="arc-strip__next" href="{{ '/tour/' | relative_url }}">Next: Console →</a>
 </nav>
 <!-- /arc-strip -->
 
@@ -926,7 +926,7 @@ footer { background: var(--paper); border-top: 1px solid var(--paper-rule); padd
   <p>Mercator, Halcyon, and Northwind are the launch design partners. Vector and Cadence are opening the conversations this week. The first customer demo with real data is twelve weeks out.</p>
   <p class="tour-close-arc" style="font-family:var(--mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--ochre-on-dark);margin:0 0 1.2rem;">Next in Elena's arc: Console — chapter 3</p>
   <div class="cta-row">
-    <a class="cta" href="/tour/">Console tour →</a>
+    <a class="cta" href="{{ '/tour/' | relative_url }}">Console tour →</a>
     <a class="cta ghost" href="mailto:hello@stratum.ai?subject=Tenure%20design%20partner">Become a design partner</a>
     <a class="cta ghost" href="{{ '/tenure/' | relative_url }}">Back to Tenure</a>
   </div>
@@ -937,10 +937,10 @@ footer { background: var(--paper); border-top: 1px solid var(--paper-rule); padd
     <span class="footer-mark">Stratum<span class="dot">.</span><span class="sub">/Tenure</span></span>
     <span class="footer-meta">&copy; Stratum &middot; AI-first HCM &middot; 2026</span>
     <div class="footer-links">
-      <a href="/">Home</a>
+      <a href="{{ '/' | relative_url }}">Home</a>
       <a href="{{ '/tenure/' | relative_url }}">Tenure</a>
       <a href="{{ '/intel/eglin/opportunities/onboarding-employee-events.html' | relative_url }}">Market evidence</a>
-      <a href="/tour/">Console tour</a>
+      <a href="{{ '/tour/' | relative_url }}">Console tour</a>
       <a href="mailto:hello@stratum.ai">Contact</a>
     </div>
   </div>
