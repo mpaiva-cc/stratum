@@ -144,6 +144,10 @@ strong { font-weight: 600; color: var(--ink); }
   border-bottom: 0;
   opacity: .8;
   transition: opacity .2s, color .2s;
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
+  padding: 0 .4rem;
 }
 .mobile-bar a:hover { opacity: 1; color: var(--ochre); }
 .mobile-bar .mb-center {
@@ -205,8 +209,8 @@ strong { font-weight: 600; color: var(--ink); }
   position: relative;
   padding-bottom: 2px;
 }
-.nav-links a:hover { color: var(--ink); }
-.nav-links a:hover::after {
+.nav-links a:hover, .nav-links a:focus-visible { color: var(--ink); }
+.nav-links a:hover::after, .nav-links a:focus-visible::after {
   content: "";
   position: absolute;
   left: 0; right: 0; bottom: -2px;
@@ -238,6 +242,7 @@ strong { font-weight: 600; color: var(--ink); }
   gap: .55rem;
   transition: background .2s, color .2s;
   border-bottom: 1px solid var(--ink);
+  min-height: 44px;
 }
 .nav-cta:hover {
   background: var(--ochre);
@@ -1485,7 +1490,7 @@ html.js .scene.is-visible .scene-inner {
 }
 .arc-strip__item { color: rgba(244,236,218,.38); }
 .arc-strip__item a { color: inherit; text-decoration: none; }
-.arc-strip__item a:hover { color: rgba(244,236,218,.75); }
+.arc-strip__item a:hover, .arc-strip__item a:focus-visible { color: rgba(244,236,218,.75); outline: 2px solid var(--ochre); outline-offset: 2px; }
 .arc-strip__item--done { color: rgba(244,236,218,.6); }
 .arc-strip__item--current { color: var(--paper, #f4ecda); font-weight: 600; }
 .arc-strip__ch {
@@ -1498,8 +1503,11 @@ html.js .scene.is-visible .scene-inner {
   text-decoration: none;
   white-space: nowrap;
   font-size: .72rem;
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
 }
-.arc-strip__next:hover { text-decoration: underline; }
+.arc-strip__next:hover, .arc-strip__next:focus-visible { text-decoration: underline; outline: 2px solid var(--ochre); outline-offset: 2px; }
 @media (max-width: 600px) {
   .arc-strip__label { display: none; }
   .arc-strip__ch { display: none; }

@@ -265,7 +265,7 @@ code { font-family: var(--mono); font-size: .9em; color: var(--moss-deep); backg
   padding: .35rem .65rem;
   cursor: pointer;
   transition: color .15s, border-color .15s;
-  min-height: 32px;
+  min-height: 44px;
   white-space: nowrap;
 }
 .tour-step-btn:hover { color: var(--paper); }
@@ -310,6 +310,9 @@ code { font-family: var(--mono); font-size: .9em; color: var(--moss-deep); backg
   padding: .35rem .75rem;
   transition: color .15s, border-color .15s;
   white-space: nowrap;
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
 }
 .tour-cta:hover { color: var(--paper); border-color: rgba(197,205,177,.6); }
 
@@ -1145,7 +1148,7 @@ code { font-family: var(--mono); font-size: .9em; color: var(--moss-deep); backg
 }
 .arc-strip__item { color: rgba(244,236,218,.38); }
 .arc-strip__item a { color: inherit; text-decoration: none; }
-.arc-strip__item a:hover { color: rgba(244,236,218,.75); }
+.arc-strip__item a:hover, .arc-strip__item a:focus-visible { color: rgba(244,236,218,.75); outline: 2px solid var(--ochre); outline-offset: 2px; }
 .arc-strip__item--done { color: rgba(244,236,218,.6); }
 .arc-strip__item--current { color: var(--paper, #f4ecda); font-weight: 600; }
 .arc-strip__ch {
@@ -1158,8 +1161,11 @@ code { font-family: var(--mono); font-size: .9em; color: var(--moss-deep); backg
   text-decoration: none;
   white-space: nowrap;
   font-size: .72rem;
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
 }
-.arc-strip__next:hover { text-decoration: underline; }
+.arc-strip__next:hover, .arc-strip__next:focus-visible { text-decoration: underline; outline: 2px solid var(--ochre); outline-offset: 2px; }
 @media (max-width: 600px) {
   .arc-strip__label { display: none; }
   .arc-strip__ch { display: none; }
