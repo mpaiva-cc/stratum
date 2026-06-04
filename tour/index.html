@@ -1609,7 +1609,7 @@ html.js .scene.is-visible .scene-inner {
     <div class="scene-inner">
       <div class="scene-counter">
         <span class="bar"></span>
-        <span>Scene 0 of 8 · The trailer</span>
+        <span>Scene 0 of 14 · The trailer</span>
         <span class="bar"></span>
       </div>
       <h1>Ninety seconds<br/>with <em>Stratum.</em></h1>
@@ -1627,7 +1627,7 @@ html.js .scene.is-visible .scene-inner {
       </div>
       <div class="progress-meter">
         <span class="bar"></span>
-        <span id="progress-meter">Scene 0 of 8</span>
+        <span id="progress-meter">Scene 0 of 14</span>
         <span class="bar"></span>
       </div>
     </div>
@@ -2216,6 +2216,86 @@ html.js .scene.is-visible .scene-inner {
     </div>
   </div>
 
+  <!-- ─────────────────────── CH5-A · CAIRN ATTESTATION MOMENT -->
+  <section class="scene" id="scene-ch5a" data-scene="13" aria-label="Chapter 5, scene 1: Cairn attests Elena's Kubernetes credential">
+    <div class="scene-inner">
+      <div class="scene-eyebrow">§ Ch 5 · Scene 1 · The attestation</div>
+      <h2 class="scene-title">Cairn read the logs.<br/><em>Carolina signed.</em></h2>
+      <p class="scene-pull">
+        T+547d. Elena had accumulated 10 Kubernetes skill stones over 18 months.
+        Cairn's Talus agent read her cluster-ops logs, correlated them against
+        the k8s-cluster-ops rubric, and surfaced the attestation for review.
+        Carolina Ruiz — wearing her engineering-manager hat — signed.
+      </p>
+
+      <div class="answer-card-mock" aria-label="Cairn attestation card for Elena Vega, k8s-cluster-ops credential">
+        <div class="ac-q">
+          <span class="ac-q-label" style="background:var(--ochre,#b8651f);color:#fff">Cairn</span>
+          <span class="ac-q-text">Attestation · Elena Vega · k8s-cluster-ops · Stone 010 of 10</span>
+        </div>
+        <div class="ac-a">
+          <span class="ac-a-label">Evidence</span>
+          <div class="ac-a-body" style="font-family:'JetBrains Mono',ui-monospace,Menlo,monospace;font-size:11px;line-height:1.7">
+            <div style="display:grid;grid-template-columns:8rem 1fr;gap:.3rem .8rem">
+              <span style="opacity:.65">Stone</span>
+              <span style="font-weight:600">k8s-cluster-ops · Tier 2 · reversible</span>
+              <span style="opacity:.65">Evidence</span>
+              <span>Cluster-ops logs · 312 operations · 18-month span</span>
+              <span style="opacity:.65">Rubric</span>
+              <span>87 / 100 · threshold 80</span>
+              <span style="opacity:.65">Attested by</span>
+              <span style="font-weight:600">Carolina Ruiz · T+547d</span>
+              <span style="opacity:.65">Trust chain</span>
+              <span>Elena → Dev Narayanan peer-attested T+412d</span>
+            </div>
+          </div>
+        </div>
+        <div class="ac-cite">
+          <span class="ac-cite-k">Console visibility</span>
+          <span class="ac-cite-v">This stone is now a node in the people graph · Console reads it when answering skills-gap queries</span>
+        </div>
+      </div>
+
+      <p class="scene-dek">Cairn doesn't issue credentials. It attests evidence. The stone is portable — Elena can take it to a future employer. Console reads it when you ask who can run production Kubernetes today.</p>
+    </div>
+  </section>
+
+  <!-- ─────────────────────── CH5-B · HANDOFF TO CAIRN TOUR -->
+  <section class="scene" id="scene-ch5b" data-scene="14" aria-label="Chapter 5, scene 2: handoff to the Cairn product tour">
+    <div class="scene-inner">
+      <div class="scene-eyebrow">§ Ch 5 · Scene 2 · The full Cairn story</div>
+      <h2 class="scene-title">Elena's arc,<br/>all the way <em>through.</em></h2>
+      <p class="scene-pull">
+        You've seen how Console uses Cairn data to answer your questions.
+        The Cairn tour shows the other side: how Talus reads evidence,
+        how Carmen Solís cross-attested Mateo Cantú's weld credential
+        from Lincoln Electric, and how the cohort view surfaces skill gaps
+        across Carolina's entire team.
+      </p>
+
+      <div class="answer-card-mock" aria-label="Cairn tour preview — Elena's arc continues">
+        <div class="ac-q">
+          <span class="ac-q-label" style="background:var(--ochre,#b8651f);color:#fff">Cairn · Ch 4</span>
+          <span class="ac-q-text">What the Cairn tour shows you</span>
+        </div>
+        <div class="ac-a">
+          <span class="ac-a-label">12 screens</span>
+          <div class="ac-a-body" style="font-family:'Newsreader',Georgia,serif;font-style:italic;font-size:13px;line-height:1.7;color:var(--ink,#0e1626)">
+            Elena earns her first stone · reciprocates for Dev Narayanan · reaches 10 stones at T+18mo.
+            Mateo Cantú's welding credential arrives from Lincoln Electric.
+            Carolina reviews the full team gap map.
+          </div>
+        </div>
+        <div class="ac-cite" style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:.5rem">
+          <span style="font-family:'JetBrains Mono',ui-monospace,Menlo,monospace;font-size:10.5px;color:var(--ink-2,rgba(14,22,38,.65))">Chapter 4 of 4 · the credential layer</span>
+          <a href="/cairn/tour/" style="font-family:'JetBrains Mono',ui-monospace,Menlo,monospace;font-size:11px;font-weight:600;color:var(--ochre,#b8651f);text-decoration:none;letter-spacing:.05em">Open Cairn tour →</a>
+        </div>
+      </div>
+
+      <p class="scene-dek">Elena's arc ends in Cairn. Or continue below — six live questions in the Console, right now, no login required.</p>
+    </div>
+  </section>
+
 
   <!-- ─────────────────────── CHAPTER 6 BREAK -->
   <div class="chapter-break" aria-hidden="true">
@@ -2250,7 +2330,7 @@ html.js .scene.is-visible .scene-inner {
     <div class="scene-inner">
       <div class="scene-counter">
         <span class="bar"></span>
-        <span>Scene 8 of 8 · The close</span>
+        <span>Scene 8 of 14 · The close</span>
         <span class="bar"></span>
       </div>
       <h2>Now <em>you</em> try.</h2>
@@ -2325,7 +2405,7 @@ html.js .scene.is-visible .scene-inner {
 
 <div class="scene-pos" id="scene-pos" aria-live="polite">
   <span class="dot" aria-hidden="true"></span>
-  <span id="scene-pos-text">Scene 0 of 8</span>
+  <span id="scene-pos-text">Scene 0 of 14</span>
 </div>
 
 <script>
@@ -2337,7 +2417,7 @@ html.js .scene.is-visible .scene-inner {
 
   // ─── Scenes ────────────────────────────────────────────────
   var scenes = Array.prototype.slice.call(document.querySelectorAll('.scene'));
-  var totalScenes = 8; // scenes 1..8 (intro is 0)
+  var totalScenes = 14; // scenes 1..14 (intro is 0, 6 new ch2/ch4/ch5 scenes)
   var currentScene = 0;
 
   // ─── Counter / progress text ───────────────────────────────
