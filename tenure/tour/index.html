@@ -383,6 +383,97 @@ footer { background: var(--paper); border-top: 1px solid var(--paper-rule); padd
 }
 .footer-links a:hover { color: var(--ochre); }
 
+/* ─────────────────────────────────────────── MOBILE — TENURE ── */
+
+/* Hero: reduce vertical padding on small screens */
+@media (max-width: 900px) {
+  .tour-hero { padding: 2.8rem 0 2rem; }
+  .tour-dek { font-size: 1.1rem; }
+}
+
+@media (max-width: 540px) {
+  .tour-hero { padding: 2rem 0 1.5rem; }
+  .tour-h1 { font-size: clamp(2rem, 7vw, 2.8rem); }
+  .tour-dek { font-size: 1rem; max-width: none; }
+}
+
+/* Scene: remove excessive side padding at phone width */
+@media (max-width: 540px) {
+  .scene { padding: 2rem 0 1.5rem; }
+  .scene-head { gap: .4rem .6rem; font-size: 10px; }
+}
+
+/* Mockup: overflow protection at phone width */
+@media (max-width: 600px) {
+  .mockup { overflow-x: hidden; }
+  .steps li { grid-template-columns: 1.4rem 1fr; }
+  .steps .when { display: none; }
+  .form-preview .field { grid-template-columns: 1fr; }
+  .form-preview .field .v { text-align: left; }
+  .mockup-row { flex-wrap: wrap; gap: .3rem; }
+  .mockup-row .v { word-break: break-word; }
+}
+
+/* Scene nav pills: minimum touch target */
+.scene-nav a { min-height: 44px; display: inline-flex; align-items: center; }
+
+/* Cast card: ensure content doesn't overflow */
+@media (max-width: 414px) {
+  .cast-meta { font-size: 10.5px; }
+}
+
+/* Arc-framing: stack on small screens */
+@media (max-width: 600px) {
+  .arc-framing-inner { flex-direction: column; gap: .5rem; align-items: flex-start; }
+  .arc-framing__label { white-space: normal; }
+}
+
+/* Mobile bar: ensure adequate touch targets */
+.mobile-bar-inner { min-height: 44px; }
+.mobile-bar a { min-height: 44px; display: inline-flex; align-items: center; padding: 0 .4rem; }
+
+/* Tour close: reduce padding on small screens */
+@media (max-width: 540px) {
+  .tour-close { padding: 2rem .9rem; margin: 3rem auto 0; }
+  .tour-close h2 { font-size: clamp(1.5rem, 5vw, 1.9rem); }
+  .tour-close p { font-size: .95rem; }
+  .tour-close .cta { min-height: 44px; display: inline-flex; align-items: center; }
+}
+
+/* Footer: reduce padding on small screens */
+@media (max-width: 540px) {
+  .footer-inner { flex-direction: column; align-items: flex-start; gap: 1rem; padding: 1.2rem 0; }
+  .footer-links { flex-wrap: wrap; gap: .8rem; }
+}
+
+/* Preview banner: allow text to wrap at very small widths */
+@media (max-width: 414px) {
+  .preview-banner { font-size: 10px; padding: .55rem .4rem; }
+  .preview-banner em { display: block; margin-left: 0; margin-top: .2rem; }
+}
+
+/* Boundary callout: ensure it fits in single column */
+@media (max-width: 540px) {
+  .boundary { font-size: 11px; padding: .7rem .9rem; }
+}
+
+/* Agent log: allow wrapping */
+@media (max-width: 600px) {
+  .agent-log { font-size: 10.5px; overflow-x: auto; }
+  .agent-log p { white-space: normal; word-break: break-word; }
+}
+
+/* Colo tag: readable at phone width */
+@media (max-width: 414px) {
+  .colo-tag { font-size: 9.5px; letter-spacing: .16em; }
+}
+
+/* Prefers-reduced-motion */
+@media (prefers-reduced-motion: reduce) {
+  * { transition: none; animation: none; }
+  html { scroll-behavior: auto; }
+}
+
 </style>
 </head>
 <body>
