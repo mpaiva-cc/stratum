@@ -21,9 +21,9 @@ status: filed
 
 3. The tenure tour is missing three house-style chrome elements: rt-stamp, mobile-bar, and the standard `footer-inner`. It also uses one non-standard design token (`--ochre-link`) and lacks a global site-nav include.
 
-4. The main tour references seven chapters in its title but the markup has six chapter-break dividers and fourteen scenes labeled "0 of 14."
+4. ~~The main tour references seven chapters in its title but the markup has six chapter-break dividers and fourteen scenes labeled "0 of 14."~~ **Correction (2026-06-04):** Grep on the delivered file found no "seven chapters" text anywhere in /tour/index.html. This finding was a stale pre-compaction artifact that never shipped. Finding 4 is void; D-07 and §4a are rendered moot.
 
-5. Two character naming violations against the Path A directive: the recruiter tour uses "Liu Chen" as the demo candidate (should be Elena Vega), and the tenure tour uses "Maria Chen / Priya Iyer" as storyboard stand-ins (should be Elena Vega / Carolina Ruiz).
+5. Two character naming violations against the Path A directive: the recruiter tour uses "Liu Chen" as the demo candidate (should be Elena Vega), and the tenure tour uses "Maria Chen / Priya Iyer" as storyboard stand-ins (should be Elena Vega / Mateo Cantú) **[correction: original said Carolina Ruiz, but she is the CHRO at Cordova Manufacturing — not a plausible manager for a platform engineer. Changed to Mateo Cantú in execution.]**.
 
 6. Accessibility gaps: tenure missing skip-link, `aria-live` scene-pos region absent from tenure and cairn, scene `aria-label` strings inconsistent across tours, and `prefers-reduced-motion` guard missing from recruiter's `.scene-inner` CSS.
 
@@ -114,7 +114,7 @@ The main tour's chapter 2, 4, and 5 scenes use `.ac-a`, `.ac-a-label`, `.ac-a-bo
 
 Tenure defines `--ochre-link: #7a3d0a` — a darker ochre for links that does not exist in the Stratum token set. This token should be removed; link color in tenure should use `var(--ochre)` or, if AAA contrast requires a darker shade on paper, define the shade as a standard token in `assets/styles.css` and use it across all tours.
 
-Note: `#7a3d0a` on `var(--paper)` (#f4ecda) produces a contrast ratio of approximately 7.5:1 — it passes WCAG AAA. The standard `var(--ochre)` (#b8651f) on paper is approximately 3.5:1, which fails AAA for body text (passes for large text only). This means tenure's darker link color is actually more accessible. **Resolution: define `--ochre-deep: #7a3d0a` in `assets/styles.css`, add it to the Stratum token palette, use it in all four tours for body link color.** This turns tenure's local fix into a system-wide AAA win.
+Note: `#7a3d0a` on `var(--paper)` (#f4ecda) produces a contrast ratio of approximately 7.5:1 — it passes WCAG AAA. The standard `var(--ochre)` (#b8651f) on paper is approximately 3.5:1, which fails AAA for body text (passes for large text only). This means tenure's darker link color is actually more accessible. **Resolution stated in original draft: define `--ochre-deep: #7a3d0a` in `assets/styles.css`.** **Correction (2026-06-04): `assets/styles.css` already contains `--ochre-link: #7a3d0a` as the canonical AAA link token (and a separate `--ochre-deep: #8a4711` at a different value). Execution retained `--ochre-link` and did not add a duplicate. D-04 above is corrected accordingly.**
 
 ### 3d · Recruiter tour `scene-inner` progressive enhancement gap
 
@@ -132,9 +132,11 @@ Cairn's mobile-bar hover uses `var(--moss-soft)` instead of `var(--paper)` used 
 
 ### 4a · Chapter count copy mismatch
 
-`/tour/index.html` title and hero copy refer to "seven chapters." The markup has six chapter-break dividers (Ch 1–6) and fourteen scenes. The correct copy is "six chapters, fourteen scenes" or the chapter numbering needs a seventh chapter added.
+**Correction (2026-06-04):** No “seven chapters” text was found in `/tour/index.html` during execution grep. This finding did not reproduce and the corresponding D-07 decision is void. Original text preserved below for the record.
 
-**Decision:** Correct the copy to match the markup. "Six chapters · fourteen scenes" is accurate.
+~~`/tour/index.html` title and hero copy refer to “seven chapters.” The markup has six chapter-break dividers (Ch 1–6) and fourteen scenes. The correct copy is “six chapters, fourteen scenes” or the chapter numbering needs a seventh chapter added.~~
+
+~~**Decision:** Correct the copy to match the markup. “Six chapters · fourteen scenes” is accurate.~~
 
 ### 4b · Character naming violations — Path A directive
 
@@ -193,9 +195,9 @@ Scene images in all four tours were not individually verified for descriptive al
 | D-01 | Console `?q=` fix: correct four mismatched slugs in main tour; add `?q=` parameter handling in `app.js` at `maybeAutoOpen()` |
 | D-02 | Navigation hybrid (Option C): preserve auto-play for main + recruiter, step-buttons for cairn, pill jumplinks for tenure; standardize chrome across all four |
 | D-03 | Arc-strip CSS: extract to `assets/styles.css`; per-tour state via data attribute; remove all inline duplicates |
-| D-04 | `--ochre-deep: #7a3d0a` added to Stratum token set in `assets/styles.css`; used for body link color in all four tours |
+| D-04 | ~~`--ochre-deep: #7a3d0a` added to Stratum token set in `assets/styles.css`; used for body link color in all four tours~~ **Correction (2026-06-04):** `assets/styles.css` already had `--ochre-link: #7a3d0a` as the canonical AAA text-link token. Execution retained `--ochre-link` as-is; no new token was added. `--ochre-deep` in the file is `#8a4711`, a different value. |
 | D-05 | Liu Chen → Elena Vega (recruiter tour) |
-| D-06 | Maria Chen → Elena Vega, Priya Iyer → Carolina Ruiz (tenure tour) |
+| D-06 | Maria Chen → Elena Vega, Priya Iyer → Mateo Cantú (tenure tour) **[correction: original said Carolina Ruiz; she is the CHRO and cannot be Elena's platform engineering manager. Changed to Mateo Cantú in execution.]** |
 | D-07 | Main tour title copy: "six chapters · fourteen scenes" (not "seven chapters") |
 | D-08 | "Briefing" outro card renamed to "Product overview" with destination `../` |
 
