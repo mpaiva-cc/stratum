@@ -1406,6 +1406,55 @@ html.js .scene.is-visible .scene-inner {
 .center { text-align: center; }
 .muted { color: var(--ink-mute); }
 
+
+/* ─────────────────────────────────── ARC-STRIP ── */
+.arc-strip {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3, .75rem);
+  padding: .35rem 1.2rem;
+  background: color-mix(in srgb, var(--ink) 96%, var(--paper));
+  border-bottom: 1px solid rgba(244,236,218,.1);
+  font-family: var(--mono, 'JetBrains Mono', monospace);
+  font-size: .72rem;
+  letter-spacing: .04em;
+}
+.arc-strip__label {
+  color: rgba(244,236,218,.45);
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+.arc-strip__products {
+  display: flex;
+  gap: .75rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  flex: 1;
+}
+.arc-strip__item { color: rgba(244,236,218,.38); }
+.arc-strip__item a { color: inherit; text-decoration: none; }
+.arc-strip__item a:hover { color: rgba(244,236,218,.75); }
+.arc-strip__item--done { color: rgba(244,236,218,.6); }
+.arc-strip__item--current { color: var(--paper, #f4ecda); font-weight: 600; }
+.arc-strip__ch {
+  margin-left: .2rem;
+  opacity: .5;
+  font-size: .65rem;
+}
+.arc-strip__next {
+  color: #b8651f;
+  text-decoration: none;
+  white-space: nowrap;
+  font-size: .72rem;
+}
+.arc-strip__next:hover { text-decoration: underline; }
+@media (max-width: 600px) {
+  .arc-strip__label { display: none; }
+  .arc-strip__ch { display: none; }
+  .arc-strip { padding: .3rem .8rem; }
+}
+
 </style>
 
 <style>
@@ -1454,8 +1503,21 @@ html.js .scene.is-visible .scene-inner {
 <body>
 <!-- ── SITE-NAV ── -->
 {% include site-nav.html %}
+
+<!-- arc-strip: four-product tour navigation -->
+<nav class="arc-strip" aria-label="Four-product tour navigation">
+  <span class="arc-strip__label">Stratum tour</span>
+  <ol class="arc-strip__products">
+    <li class="arc-strip__item arc-strip__item--done"><a href="/recruiter/tour/">Recruiter</a><span class="arc-strip__ch">ch. 1</span></li>
+    <li class="arc-strip__item arc-strip__item--done"><a href="/tenure/tour/">Tenure</a><span class="arc-strip__ch">ch. 2</span></li>
+    <li class="arc-strip__item arc-strip__item--current" aria-current="step"><span>Console</span><span class="arc-strip__ch">ch. 3</span></li>
+    <li class="arc-strip__item"><span>Cairn</span><span class="arc-strip__ch">ch. 4</span></li>
+  </ol>
+  <a class="arc-strip__next" href="/cairn/tour/">Next: Cairn →</a>
+</nav>
+<!-- /arc-strip -->
 <!-- realtime-stamp -->
-<div class="rt-stamp" data-t0="2026-05-12T22:25:46-04:00" data-this="2026-05-15T22:36:14-04:00" style="position:fixed;bottom:8px;right:10px;z-index:9999;font-family:'JetBrains Mono',ui-monospace,Menlo,monospace;font-size:9.5px;letter-spacing:.08em;color:rgba(14,22,38,.55);background:rgba(244,236,218,.75);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);padding:.25rem .55rem;border-radius:999px;border:1px solid rgba(184,101,31,.25);pointer-events:none"><span style="color:#b8651f">●</span> compiled at <strong style="color:#0e1626">T+72:10:28.000</strong> · <span style="opacity:.6">2026-05-16T02:36:14.000Z</span></div>
+<div class="rt-stamp" data-t0="2026-05-12T22:25:46-04:00" data-this="2026-06-04T10:00:00-04:00" style="position:fixed;bottom:8px;right:10px;z-index:9999;font-family:'JetBrains Mono',ui-monospace,Menlo,monospace;font-size:9.5px;letter-spacing:.08em;color:rgba(14,22,38,.55);background:rgba(244,236,218,.75);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);padding:.25rem .55rem;border-radius:999px;border:1px solid rgba(184,101,31,.25);pointer-events:none"><span style="color:#b8651f">●</span> compiled at <strong style="color:#0e1626">T+539:34:14.000</strong> · <span style="opacity:.6">2026-06-04T14:00:00.000Z</span></div>
 <!-- /realtime-stamp -->
 
 
