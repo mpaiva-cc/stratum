@@ -222,9 +222,10 @@
 
   // ── local bootstrap (dev convenience) ──────────────────────
   // If a sibling file ./echo-key.json exists (gitignored, local-only),
-  // seed the OpenAI key and default to the OpenAI engine. On the public
-  // GitHub Pages deploy this file does not exist; the fetch 404s silently
-  // and the widget falls back to manual BYOK paste as before.
+  // seed the OpenAI key and default to the OpenAI engine.
+  // On deployed origins (GitHub Pages, etc.) the function returns early
+  // before any fetch — no 404, no console error. Dev workflow on
+  // localhost is unchanged. See: DEF-R2-03.
   const echoScriptTag = document.querySelector('script[src*="echo.js"]');
   const echoBaseURL = echoScriptTag
     ? echoScriptTag.src.replace(/echo\.js(\?.*)?$/, '')
@@ -232,6 +233,10 @@
 
   async function bootstrapLocalKey() {
     if (!echoBaseURL) return;
+    // Dev-only bootstrap: skip on deployed origins (GitHub Pages, any non-localhost)
+    // to avoid a 404 console error. The file is gitignored and only exists locally.
+    const h = location.hostname;
+    if (h !== 'localhost' && h !== '127.0.0.1' && h !== '0.0.0.0') return;
     try {
       const r = await fetch(echoBaseURL + 'echo-key.json', { cache: 'no-store' });
       if (!r.ok) return;
