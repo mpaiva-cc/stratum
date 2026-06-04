@@ -126,7 +126,7 @@ NAV_CSS = """
 .sn-col{padding:.4rem 1.2rem .4rem .4rem;border-right:1px solid var(--paper-rule)}
 .sn-col:last-child{border-right:none}
 .sn-col-head{font-family:'JetBrains Mono',ui-monospace,Menlo,monospace;font-size:9.5px;letter-spacing:.24em;text-transform:uppercase;font-weight:700;color:var(--ochre);margin-bottom:.7rem;padding:.2rem 0}
-.sn-col a{display:block;font-family:'JetBrains Mono',ui-monospace,Menlo,monospace;font-size:11px;letter-spacing:.06em;color:var(--ink);text-decoration:none;padding:.32rem 0;border-bottom:0;line-height:1.3;min-height:28px;display:flex;align-items:center}
+.sn-col a{display:flex;align-items:center;font-family:'JetBrains Mono',ui-monospace,Menlo,monospace;font-size:11px;letter-spacing:.06em;color:var(--ink);text-decoration:none;padding:.32rem 0;border-bottom:0;line-height:1.3;min-height:44px}
 .sn-col a:hover{color:var(--ochre)}
 .sn-col a:focus-visible{outline:2px solid var(--ochre);outline-offset:2px}
 .sn-col a[aria-current="page"]{color:var(--ochre);font-weight:700}

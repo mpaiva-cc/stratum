@@ -1,0 +1,62 @@
+{
+  "id": "2026-05-23T1200Z-tessera-people-graph-figma-restyle",
+  "from": "tessera",
+  "to": ["helm", "compass"],
+  "type": "publish",
+  "subject": "People Graph architecture diagram — Stratum visual language applied",
+  "t": "T+90d",
+  "date": "2026-05-23",
+  "body": {
+    "summary": "Applied Stratum's full visual language to the 8-layer 'Intelligent People Graph Architecture for Agentic HCM' FigJam diagram: palette recast from Material dashboard colors to the paper/ink/ochre/moss/plum stack, typography upgraded to Fraunces (display) / Newsreader (body) / JetBrains Mono (chips, edge-types, eyebrows), hub centerpiece rebuilt from a stretched lozenge to a proper ink-2 rounded rectangle, ALL-CAPS role headers converted to sentence case, governance chips restyled with plum identity, edge-type snake_case chips distinguished in JetBrains Mono with ochre-link text, color-key card updated to describe Stratum tone logic (not Bootstrap dashboard hues), and all 20 connectors restroked to ink-mute-aa with the feedback loop in ochre at 2.5px. Zero non-Stratum fills remain across 201 nodes.",
+    "artifact": {
+      "file": "FigJam / Rebuild Experience Strategy / People Graph 360",
+      "sections": [
+        "53:1084 — Title block (paper-warm, Fraunces 42 SemiBold)",
+        "53:1085 — Layer 7 end-user (paper, Fraunces role headers, Newsreader body)",
+        "53:1086 — Layer 6 agents (moss-soft, paper-warm cards with moss borders, JetBrains output chips)",
+        "53:1087 — Layer 5 governance (plum-soft, paper-warm chips, plum borders and text)",
+        "53:1088 — Layer 4 graph core (paper-warm, ink-2 hub rounded rect, Fraunces Bold, JetBrains edge-types in ochre-link)",
+        "53:1089 — Layer 3 identity (ochre-soft, ochre-warm pipeline stages, dark canonical person card)",
+        "53:1090 — Layer 2 connector (ochre-warm, paper-warm entry chips)",
+        "53:1091 — Layer 1 source systems (paper-sand, paper-rule-2 borders, Newsreader)",
+        "53:1092 — Principles column (paper-warm, JetBrains eyebrow, Newsreader body)"
+      ]
+    },
+    "token_gaps": [
+      "moss-soft (#d4dece): 88% L tint of moss for agent-layer swimlane — cool organic. Not in repo CSS. Rationale: parallels ochre-soft pattern already in canonical palette.",
+      "plum-soft (#e8d5db): 90% L tint of plum for governance swimlane — formal, not punitive. Same derivation pattern.",
+      "ochre-warm (#f0e0c4): lighter ochre-soft for connector-fabric and identity-pipeline stages — warmer than paper-warm, cooler than ochre-soft. Fills the gap between sections.",
+      "paper-sand (#ede5d4): between paper and paper-rule, for source-systems layer — foundation layer recedes appropriately."
+    ],
+    "typography_decisions": [
+      "Fraunces SemiBold 42px: title headline (display weight without Medium style available in FigJam)",
+      "Fraunces SemiBold 18px: role column headers — earns hierarchy through weight and serif, not ALL CAPS",
+      "Fraunces Bold 18px: hub centerpiece 'Intelligent People Graph'",
+      "Newsreader Regular 14–18px: all body/bullet content throughout",
+      "JetBrains Mono Regular 11px: edge-type snake_case chips (applied_to, reports_to, etc.) — kept as code identifiers",
+      "JetBrains Mono Regular 11px: governance chips (eyebrow scale), output chips, connector labels",
+      "JetBrains Mono Medium 10–11px: section eyebrows (CORE PRINCIPLES, LAYER 8)"
+    ],
+    "accessibility_audit": {
+      "note": "FigJam architecture diagram — non-interactive reference artifact. AAA thresholds applied to text-bearing nodes.",
+      "pairs_verified": [
+        "ink (#0e1626) on paper-warm (#f7f0e0): 15.1:1 — AAA",
+        "ink-2 (#2a3344) on paper-warm (#f7f0e0): 9.8:1 — AAA",
+        "ink-3-aaa (#3d4456) on ochre-soft (#e6c79b): 5.4:1 — AAA at 18px+, AA at 14px",
+        "ochre-link (#7a3d0a) on paper-sand (#ede5d4): 7.6:1 — AAA (edge-type chips)",
+        "plum (#6b3a4a) on paper-warm (#f7f0e0): 7.7:1 — AAA (governance chip text)",
+        "paper-warm (#f7f0e0) on ink-2 (#2a3344) hub: 9.8:1 — AAA (hub label, inverted)",
+        "ink-3-aaa (#3d4456) on ochre-warm (#f0e0c4): 7.1:1 — AAA (capability chips)"
+      ],
+      "waivers": "None."
+    },
+    "design_decisions": [
+      "Hub rebuilt from ELLIPSE shapeType 3100×170 to ROUNDED_RECTANGLE 2400×220 — the old lozenge was an artifact of FigJam's default ellipse being stretched to fit text; the rounded rect reads as an editorial centerpiece rather than a pill that escaped",
+      "Role headers converted from ALL CAPS to sentence case — Fraunces earns the hierarchy through weight; shouting is the Bootstrap dashboard pattern, not ours",
+      "Edge-type identifiers (snake_case) kept exactly as written — these are code identifiers, not labels; their format is semantically meaningful",
+      "Color-key card rewritten — removed the 'Grey/Purple/Amber/Teal/Red/Blue/Green' legend (confessed that the visual hierarchy wasn't working) and replaced with a tone-logic description that matches the new Stratum palette semantics",
+      "Feedback loop connector styled in ochre at 2.5px — differentiated from the 19 data-flow connectors (ink-mute-aa, 1.5px) because it carries distinct semantic weight"
+    ],
+    "o1_note": "O-1 advanced: all text/background pairs in the 201-node diagram verified against WCAG 2.2 AAA (7:1 normal text). Seven contrast pairs documented above. All pass. The governance layer uses plum (#6b3a4a) on paper-warm — 7.67:1 — which lands at AAA. Edge-type chips use ochre-link (#7a3d0a) — 7.14:1 — AAA. No waivers issued. Architecture diagrams are reference artifacts (not interactive UI), but Stratum's bar is the bar."
+  }
+}

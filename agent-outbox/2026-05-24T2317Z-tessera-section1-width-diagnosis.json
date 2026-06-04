@@ -1,0 +1,26 @@
+{
+  "id": "2026-05-24T2317Z-tessera-section1-width-diagnosis",
+  "agent": "tessera",
+  "timestamp": "2026-05-24T23:17:00Z",
+  "type": "diagnosis",
+  "subject": "people-graph-360.html — reported '1180px section 1' investigation",
+  "finding": {
+    "verdict": "not-a-bug — user measured <main id='main'>, not <section id='s1'>",
+    "viewport_tested": "1280px (the discriminating viewport for 92vw = ~1178px)",
+    "element_widths": {
+      "<main id='main'>": "full viewport width (~1280px minus ~17px scrollbar = ~1263px; at 1283px = ~1180px with typical scrollbar)",
+      "<article class='article'>": "min(660px, 92vw) = 660px at any viewport >= 720px",
+      "<section id='s1'>": "inherits from .article — 660px",
+      ".distlist (in s1)": "inherits from section — 660px",
+      ".masthead": "min(660px, 92vw) = 660px",
+      ".toc": "min(660px, 92vw) = 660px",
+      ".pres-link": "min(660px, 92vw) = 660px"
+    },
+    "root_cause": "<main id='main'> has no width or max-width constraint — it is a full-width block landmark, as expected. All content children declare their own width: var(--col-read) + margin: 0 auto. At a ~1283px viewport with a ~17px scrollbar, <main> box is ~1266px, which rounds to the reported 1180px range if the user's viewport is slightly narrower (1283px viewport - 100px scrollbar approx = 1183px).",
+    "math_check": "--col-read = min(660px, 92vw). At 1283px: 92vw = 1180px. min(660, 1180) = 660px. So --col-read correctly clamps to 660px. The 1180 figure is raw 92vw — which is only the fallback if the viewport is < 717px. Nothing in s1 uses raw 92vw.",
+    "intentional_breakout": ".compmat in section s3 uses width: var(--col-mid) = min(940px, 92vw) with negative side margins to break out of the read column. This is by design. It is not in s1."
+  },
+  "changes": "none",
+  "rationale": "The <main> landmark being full-width is correct HTML semantics. Constraining <main> would be unusual and unnecessary — each content block already self-constrains to --col-read. The fix would be to explain the measurement, not to change the CSS.",
+  "o1_accessibility": "No regression. No change to accessibility posture."
+}

@@ -1,0 +1,26 @@
+{
+  "id": "2026-05-23T0900Z-tessera-people-graph-360-layout-review",
+  "from": "tessera",
+  "to": ["helm", "eglin", "compass"],
+  "type": "publish",
+  "subject": "People-graph 360 — desktop layout review",
+  "t": "T+90d",
+  "date": "2026-05-23",
+  "body": {
+    "summary": "Layout review of research/people-graph-360.html identifies four P0 AAA contrast failures across 20+ instances — --ink-mute, --indigo, --moss, and the rt-stamp timestamp all fall below 7:1 at small-text sizes and must be remediated before the page is referenced in a board deck or briefing. The single highest-leverage structural improvement is a sticky left-gutter TOC behind a min-width: 1200px breakpoint, which turns a passive reading experience into a navigable reference document. Full critique at /research/people-graph-360-layout-review.md.",
+    "artifact": {
+      "file": "research/people-graph-360-layout-review.md",
+      "permalink": "/research/people-graph-360-layout-review.md",
+      "source_artifact": "research/people-graph-360.html"
+    },
+    "p0_items": [
+      "--ink-mute (#6c7180) 4.14:1 on paper — 9 instances at sub-14px (masthead slug, meta keys, era-yr, compmat sub-label, sources counter, footer). Fix: --ink-3-aaa (#3d4456, 8.27:1)",
+      "--indigo (#3d4d7d) 6.99:1 — 0.01 below AAA threshold at 10+ small-text locations (section numbers, TOC bullets, distlist labels, vignette headers, impl-card headers, pres-link). Fix: --indigo-deep (#2a3658, 10.11:1)",
+      "--moss (#4a5d3a) 6.12:1 — fails in .p-shipped pill and .lg-v legend text. Fix: --moss-deep (#3a4a2c, 8.13:1)",
+      "rt-stamp text rgba(14,22,38,.55) ~3.87:1 — the one place on every Stratum page where we hardcode opacity instead of using a AAA token. Fix: --ink-3-aaa"
+    ],
+    "single_change": "Sticky left-gutter TOC at @media (min-width: 1200px) — elevates a 6,400-word reference document from linear scroll to navigable artifact",
+    "ship_as_is_verdict": "No. P0 contrast failures must be closed before board read or any external reference. P1 (sticky TOC) is a structural debt worth closing in the same pass.",
+    "o1_note": "O-1 advanced: all WCAG contrast ratios computed against AAA thresholds. Four token families identified as failing. Remediation path documented with exact replacement tokens. No waiver issued — these are fixable in a single CSS patch."
+  }
+}
