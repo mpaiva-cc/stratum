@@ -1,0 +1,377 @@
+---
+layout: legacy
+title: "Stratum / Intel · Eglin · Competitor Battlecard — Windmill (partial)"
+description: "Eglin"
+permalink: /intel/eglin/competitors/windmill.html
+---
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<!-- og-jsonld:start -->
+<meta name="description" content="{{ page.description | default: site.description | escape }}">
+<meta property="og:title" content="{{ page.title | default: site.title | escape }}">
+<meta property="og:description" content="{{ page.description | default: site.description | escape }}">
+<meta property="og:url" content="{{ page.url | absolute_url }}">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="{{ site.title | escape }}">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="{{ page.title | default: site.title | escape }}">
+<meta name="twitter:description" content="{{ page.description | default: site.description | escape }}">
+{%- if page.title -%}
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":{{ page.title | jsonify }},"description":{{ page.description | default: site.description | jsonify }},"url":"{{ page.url | absolute_url }}"{% if page.date %},"datePublished":{{ page.date | date_to_xmlschema | jsonify }}{% endif %}}</script>
+{%- endif -%}
+<!-- og-jsonld:end -->
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Stratum / Intel · Eglin · Competitor Battlecard — Windmill (partial)</title>
+<meta name="description" content="Eglin's partial battlecard for Windmill — Inspired Capital-backed $12M seed (April 2026) building a 'context graph' for workforce evidence over Slack, GitHub, Google Workspace, and 30+ tools. Helm-authorized partial scope: verified-vs-claimed architecture, four-layer model evaluated against the Stratum substrate claim, and two named escalation milestones." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght,SOFT,WONK@9..144,300..900,0..100,0..1&family=Newsreader:ital,opsz,wght@0,6..72,300..700;1,6..72,300..700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="{{ '/assets/styles.css?v=5' | relative_url }}">
+<style>
+:root { --paper:#f4ecda; --paper-warm:#f7f0e0; --paper-rule:#d8cdb6; --paper-rule-2:#c8b894; --ink:#0e1626; --ink-2:#2a3344; --ink-3-aaa:#3d4456; --ochre:#b8651f; --ochre-deep:#8a4711; --moss:#4a5d3a; --plum:#6b3a4a; --indigo:#3d4d7d; --indigo-deep:#2b3a66; --hi:#a13418; --display:"Fraunces","Newsreader",Georgia,serif; --serif:"Newsreader",Georgia,serif; --mono:"JetBrains Mono",ui-monospace,Menlo,monospace; --col:min(1100px,92vw); }
+
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{font-size:16px}
+body{background:var(--paper);color:var(--ink);font-family:var(--serif);font-size:17px;line-height:1.6;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+a{color:var(--indigo);text-decoration:none;border-bottom:1px solid transparent;transition:.15s}
+a:hover,a:focus-visible{color:var(--indigo-deep);border-bottom-color:var(--indigo)}
+a:focus-visible{outline:2px solid var(--indigo);outline-offset:3px;border-bottom-color:transparent}
+strong{font-weight:600;color:var(--ink)}
+em{font-style:italic}
+
+.skip{position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden}
+.skip:focus{position:fixed;left:50%;top:0;transform:translateX(-50%);width:auto;height:auto;overflow:visible;z-index:9999;background:var(--indigo);color:var(--paper);padding:.5rem 1.4rem;font-family:var(--mono);font-size:12px;letter-spacing:.12em;text-transform:uppercase;outline:3px solid var(--ink);outline-offset:2px}
+
+.site-nav{background:var(--paper);border-bottom:1px solid var(--paper-rule)}
+.sn-inner{width:min(1180px,92vw);margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:48px;gap:1rem}
+.sn-mark{font-family:var(--display);font-size:1.05rem;font-weight:500;color:var(--ink);line-height:1;border-bottom:0}
+.sn-mark:hover{color:var(--ochre);border-bottom:0}
+.sn-dot{color:var(--ochre)}
+
+main{width:var(--col);margin:0 auto;padding:2rem 0 4rem}
+.classified{font-family:var(--mono);font-size:10.5px;letter-spacing:.22em;text-transform:uppercase;color:var(--ink-3-aaa);margin-bottom:.4rem}
+.eyebrow{font-family:var(--mono);font-size:10.5px;letter-spacing:.3em;text-transform:uppercase;color:var(--indigo);margin-bottom:.8rem;display:flex;align-items:center;gap:.7rem;flex-wrap:wrap}
+.eyebrow .dot{width:8px;height:8px;background:var(--indigo);border-radius:50%;display:inline-block}
+.eyebrow .sep{color:var(--paper-rule-2)}
+
+h1{font-family:var(--display);font-weight:500;font-variation-settings:"opsz" 96;font-size:clamp(2.6rem,6.4vw,4.4rem);line-height:.95;letter-spacing:-.025em;color:var(--ink);margin-bottom:.3rem}
+.subtitle{font-family:var(--display);font-size:1.2rem;font-style:italic;color:var(--ink-2);max-width:62ch;margin:1rem 0 1.6rem;line-height:1.4}
+
+.fact-strip{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:.6rem;margin-top:1.4rem;border-top:1px solid var(--paper-rule);border-bottom:1px solid var(--paper-rule);padding:1rem 0}
+.fact-strip .f{padding:0 .4rem}
+.fact-strip .k{font-family:var(--mono);font-size:9.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--ink-3-aaa);margin-bottom:.25rem}
+.fact-strip .v{font-family:var(--display);font-size:1.05rem;color:var(--ink);font-weight:500}
+
+section{margin:2.6rem 0 0;padding-top:1.4rem;border-top:1px solid var(--paper-rule)}
+section p{margin:.7rem 0;max-width:68ch}
+.sec-eyebrow{font-family:var(--mono);font-size:10.5px;letter-spacing:.22em;text-transform:uppercase;color:var(--indigo);margin-bottom:.6rem;font-weight:700}
+section h2{font-family:var(--display);font-weight:500;font-variation-settings:"opsz" 72;font-size:clamp(1.6rem,3.4vw,2.2rem);line-height:1.15;letter-spacing:-.015em;color:var(--ink);margin:.2rem 0 1rem;max-width:32ch}
+section h2 em{font-style:italic;color:var(--indigo)}
+section h3{font-family:var(--display);font-weight:500;font-size:1.1rem;margin:1rem 0 .4rem;color:var(--ink)}
+
+.split{display:grid;grid-template-columns:1fr 1fr;gap:1.4rem;margin:1rem 0}
+.split-col{padding:1rem 1.1rem;background:var(--paper-warm);border:1px solid var(--paper-rule)}
+.split-col h3{font-family:var(--mono);font-size:10.5px;letter-spacing:.2em;text-transform:uppercase;font-weight:700;margin:0 0 .6rem}
+.split-col.fact h3{color:var(--moss)}
+.split-col.claim h3{color:var(--plum)}
+.split-col ul{list-style:none;padding:0;margin:0}
+.split-col li{padding:.35rem 0;font-size:.95rem;line-height:1.45;border-bottom:1px dotted var(--paper-rule)}
+.split-col li:last-child{border-bottom:0}
+@media(max-width:680px){.split{grid-template-columns:1fr}}
+
+.list{list-style:none;padding:0;margin:1rem 0}
+.list li{padding:.55rem 0;border-bottom:1px dotted var(--paper-rule);max-width:80ch;font-size:.98rem;line-height:1.5}
+.list li:last-child{border-bottom:0}
+
+.layer-grid{display:grid;grid-template-columns:1fr;gap:.9rem;margin:1.2rem 0}
+.layer{padding:1.1rem 1.3rem;background:var(--paper-warm);border:1px solid var(--paper-rule);border-left:3px solid var(--indigo)}
+.layer .name{font-family:var(--mono);font-size:10.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--indigo);font-weight:700;margin-bottom:.5rem}
+.layer h3{font-family:var(--display);font-weight:500;font-size:1.2rem;color:var(--ink);margin:.1rem 0 .6rem}
+.layer .row{display:grid;grid-template-columns:1fr 1fr 1fr;gap:1rem;margin-top:.5rem;font-size:.93rem;line-height:1.5}
+.layer .row .k{font-family:var(--mono);font-size:9.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--ink-3-aaa);margin-bottom:.3rem;font-weight:700}
+@media(max-width:760px){.layer .row{grid-template-columns:1fr}}
+
+.callout{margin:1rem 0;padding:.9rem 1.1rem;border-left:3px solid var(--plum);background:rgba(107,58,74,.05);font-size:.95rem;line-height:1.5;max-width:72ch}
+.callout .tag{font-family:var(--mono);font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--plum);font-weight:700;display:block;margin-bottom:.3rem}
+
+.partial{margin:1rem 0 1.4rem;padding:1rem 1.2rem;border:2px dashed var(--ochre);background:rgba(184,101,31,.06)}
+.partial .tag{font-family:var(--mono);font-size:10.5px;letter-spacing:.22em;text-transform:uppercase;color:var(--ochre-deep);font-weight:700;display:block;margin-bottom:.4rem}
+.partial p{margin:.3rem 0;max-width:72ch;font-size:.95rem}
+
+.trigger{margin:1rem 0;padding:1rem 1.2rem;border:1px solid var(--paper-rule);background:var(--paper-warm);border-left:3px solid var(--hi)}
+.trigger .name{font-family:var(--mono);font-size:10.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--hi);font-weight:700;margin-bottom:.4rem}
+.trigger h3{font-family:var(--display);font-weight:500;font-size:1.1rem;margin:.1rem 0 .5rem;color:var(--ink)}
+.trigger p{margin:.35rem 0;max-width:72ch;font-size:.94rem;line-height:1.5}
+.trigger .meta{font-family:var(--mono);font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-3-aaa);margin-top:.4rem}
+
+.scorecard{margin:1.2rem 0;border:1px solid var(--paper-rule);background:var(--paper-warm)}
+.scorecard-row{display:grid;grid-template-columns:1fr 2fr;padding:.55rem 1rem;border-bottom:1px dotted var(--paper-rule);font-size:.95rem}
+.scorecard-row:last-child{border-bottom:0}
+.scorecard-row .label{font-family:var(--mono);font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-3-aaa);font-weight:700}
+.scorecard-row .val{color:var(--ink)}
+.scorecard-row .val em{color:var(--ink-3-aaa);font-size:.88rem;margin-left:.4rem}
+
+.sources li{padding:.3rem 0;max-width:84ch}
+
+.closing{margin-top:2.4rem;padding:1.4rem 1.6rem;background:rgba(74,93,58,.07);border-left:4px solid var(--moss);border-right:1px solid var(--paper-rule);border-top:1px solid var(--paper-rule);border-bottom:1px solid var(--paper-rule)}
+.closing p{margin:.4rem 0;max-width:66ch;font-size:.98rem}
+.rt-stamp{position:fixed;bottom:1rem;right:1.2rem;font-family:var(--mono);font-size:10.5px;letter-spacing:.14em;color:var(--ink-3-aaa);background:var(--paper);padding:.4rem .7rem;border:1px solid var(--paper-rule)}
+.rt-stamp .dot{color:var(--indigo)}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to main content</a>
+{% include site-nav.html %}
+
+<main id="main">
+
+  <header class="masthead">
+    <div class="classified">Eglin Battlecard · No. 023 · Windmill · partial</div>
+    <div class="eyebrow"><span class="dot" aria-hidden="true"></span>Live · partial scope · Level 2 Watch <span class="sep">·</span> v1.0 · Helm-authorized 2026-06-04</div>
+    <h1>Windmill<em>.</em></h1>
+    <p class="subtitle">Inspired Capital-backed $12M seed (28 April 2026). Builds what it calls a <strong>"context graph"</strong> for workforce evidence — Slack, GitHub, Google Workspace, and 30+ tools, organized in four layers (People, Evidence, Expectations, Perspectives). The product shipping today is a performance-review and feedback surface. The positioning vocabulary overlaps Stratum's substrate narrative; the architecture, as publicly described, does not. This battlecard is partial by Helm's spec.</p>
+
+    <div class="fact-strip">
+      <div class="f"><div class="k">Founded</div><div class="v">2023</div></div>
+      <div class="f"><div class="k">Seed close</div><div class="v">28 Apr 2026</div></div>
+      <div class="f"><div class="k">Seed size</div><div class="v">$12M</div></div>
+      <div class="f"><div class="k">Lead</div><div class="v">Inspired Capital</div></div>
+      <div class="f"><div class="k">CEO</div><div class="v">Max Shaw</div></div>
+      <div class="f"><div class="k">Customers</div><div class="v"><em>100+ (claimed)</em></div></div>
+      <div class="f"><div class="k">Alert level</div><div class="v">L2 · Watch</div></div>
+    </div>
+  </header>
+
+  <!-- 00 SCOPE NOTE -->
+  <section aria-labelledby="scope">
+    <div class="sec-eyebrow">00 · Scope of this battlecard</div>
+    <h2 id="scope">A <em>partial</em> battlecard, by design.</h2>
+    <div class="partial">
+      <span class="tag">Authorization · Helm · 2026-06-04</span>
+      <p>Helm authorized a partial battlecard for Windmill on 2026-06-04 with a specific three-section scope: (1) verified-vs-claimed architecture, (2) the four-layer model evaluated against what each layer would have to become to threaten Stratum's substrate claim, and (3) two named, falsifiable escalation milestones. No defensive content from Compass. No customer outreach. No board notification — Windmill does not clear that bar at L2 Watch.</p>
+      <p>The reason it is partial: Windmill's substrate-threat probability inside a 6–12 month window reads at roughly <strong>12–15%</strong>; the positioning-threat probability — vocabulary pollution in the trade press around "context graph" / "workforce graph" — reads materially higher, at <strong>45–55%</strong>. A partial battlecard sized to the positioning risk is the proportional response. If either of the §3 milestones fires, this becomes a full battlecard inside seven days.</p>
+    </div>
+    <p>Cross-link: the broader competitive-substrate read sits in the <a href="../../../research/people-graph-360.html#s3">People Graph 360 §III matrix</a> and the <a href="../../../research/people-graph-360/addendum-competitive-draft.md">§XI.vi addendum (rev 1.2, 2026-06-03)</a>. Windmill appears in both. This battlecard is the operational artifact those research pieces pointed to.</p>
+  </section>
+
+  <!-- 01 VERIFIED vs CLAIMED ARCHITECTURE -->
+  <section aria-labelledby="arch">
+    <div class="sec-eyebrow">§1 · Verified vs. claimed architecture</div>
+    <h2 id="arch">A graph noun. <em>An evidence surface.</em></h2>
+    <p>Windmill's primary architectural claim, on its website and in the 28 April 2026 PR Newswire release, is "the context graph for your people" — described as "a continuously updated, cited understanding of the workforce" where "every insight traces back to a specific Slack thread, pull request, or piece of documentation" [1][2]. The claim is well-formed at the level of product positioning. The underlying architecture, as publicly stated, has none of the load-bearing properties a substrate would need.</p>
+
+    <div class="split">
+      <div class="split-col fact">
+        <h3>Verified from primary sources</h3>
+        <ul>
+          <li>$12M seed led by Inspired Capital (Alexa von Tobel, MP), with Primary Venture Partners, Founder Collective, Oceans Ventures participating. Closed 28 Apr 2026 [1][2].</li>
+          <li>Founders: Max Shaw (CEO, formerly SVP Product at Yext), Brian Distelburger (co-founder of Yext), Mark Tanner (previously VP Strategy at Saturn) [1][6][7].</li>
+          <li>Shipping product since November 2025: AI-drafted performance reviews. 100+ customers including Kalshi, Rho, and Merge [1][2].</li>
+          <li>Integrates with Slack, GitHub, Google Workspace, and "30+ other tools where work already happens" [1][2].</li>
+          <li>Four named layers in the context-graph framing: <strong>People</strong> ("who they are and how they connect"), <strong>Evidence</strong> ("what actually happened"), <strong>Expectations</strong> ("what good looks like"), <strong>Perspectives</strong> ("what people think") [1][3].</li>
+          <li>Access surfaces stated in the release: a chat agent ("Windy"), a web app, and <strong>"full MCP and API support"</strong> [1].</li>
+          <li>Product surface today: Performance Reviews, 1:1s, Continuous feedback, Calibrations, Pulse surveys [3].</li>
+          <li>Claimed outcomes: "reviews completed 90% faster with 93% employee satisfaction" — vendor-published, not independently verified [1].</li>
+        </ul>
+      </div>
+      <div class="split-col claim">
+        <h3>Claimed without architectural substance</h3>
+        <ul>
+          <li><strong>"Context graph"</strong> as the noun for the system — no public material describes a graph database, a property-graph store, or a graph query layer. The four "layers" are content categories, not storage primitives.</li>
+          <li><strong>Cross-system identity resolution</strong> — not described in any public material. The platform reads <em>from</em> Slack, GitHub, Google Workspace; whether and how a Maria López identity is resolved into a single canonical node across those sources is not stated.</li>
+          <li><strong>Time as a first-class property of edges</strong> — absent from public material. Source-tagged provenance ("every insight traces to a specific Slack thread") is timestamped at the evidence layer, but the graph is not described as time-aware in the way a temporal property graph would be.</li>
+          <li><strong>Per-edge consent metadata</strong> — absent from public material. No published consent model, no opt-in/scope framework, no policy layer described at the storage level. The release does not mention SOC 2, ISO 27001, GDPR posture, or any compliance certification.</li>
+          <li><strong>"Continuously updated, cited understanding"</strong> — positioning, not architecture. Consistent with a RAG pipeline over the connected sources, surfaced through an LLM chat agent.</li>
+          <li><strong>No LLM provider named</strong> — Anthropic, OpenAI, Google, AWS Bedrock — none disclosed.</li>
+          <li><strong>"Full MCP support"</strong> — claimed but not documented. No published MCP server name, no tool list, no permission model, no public registry comparable to Workday ASOR or Stratum's four servers.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="callout">
+      <span class="tag">Eglin's read</span>
+      The honest classification: Windmill is shipping an <strong>evidence-aggregation surface for performance reviews</strong> with an LLM chat layer on top, branded as a "context graph." That is a real product with credible early traction — 100+ customers in seven months is not nothing — and it solves a known pain point (managers writing reviews from a blank page). It is not a substrate in the People Graph 360 §I sense. The "graph" is the noun the company uses to describe the relationship between an insight and its citation, not the noun for a persistent property graph. Two of the three load-bearing substrate properties (time-as-edge, per-edge consent) are not just unshipped — they are unaddressed in public material. The third (cross-system identity resolution) is implied by the integration surface but not described as architectural commitment.
+    </div>
+
+    <p><strong>The Yext-lineage observation.</strong> Both Shaw and Distelburger come from Yext, which built the "Answers Platform" / public-facts knowledge graph for business locations and entities. That background means the team has real schema-and-entity-resolution chops — but their prior product was a graph over <em>public business data</em>, not over workforce-private data with consent, retention, and identity-resolution obligations attached. The instinct to call this a "graph" is consistent with the Yext design DNA. Whether that DNA scales into the consent-bound, time-aware shape an HR substrate requires is the open question, and one their public material does not engage with at the time of this writing.</p>
+  </section>
+
+  <!-- 02 FOUR-LAYER MODEL -->
+  <section aria-labelledby="layers">
+    <div class="sec-eyebrow">§2 · The four-layer model, evaluated</div>
+    <h2 id="layers">What each layer would have to <em>become</em>.</h2>
+    <p>Windmill names four layers: People, Evidence, Expectations, Perspectives. For each, this section names (a) what they are shipping today, (b) what they would have to ship for that layer to threaten Stratum's substrate claim, and (c) confidence that they will. The synthesis sits at the end.</p>
+
+    <div class="layer-grid">
+
+      <article class="layer">
+        <div class="name">Layer 1 · People</div>
+        <h3>"Who they are and how they connect."</h3>
+        <div class="row">
+          <div>
+            <div class="k">Shipping today</div>
+            A roster of employees, drawn from connected sources (Slack handles, GitHub committers, Google Workspace accounts). Reporting structure inferred from organizational chart inputs. No public description of cross-system entity resolution; identity appears to be tenant-scoped and account-keyed within each integrated tool.
+          </div>
+          <div>
+            <div class="k">Substrate threshold</div>
+            A canonical worker identity resolved across Slack handle ≠ GitHub committer ≠ Google account ≠ HRIS record ≠ payroll ID, governed by a published reconciliation algorithm with confidence scores, hold-and-review queues for ambiguous matches, and an audit trail per merge. A versioned, time-stamped identity graph queryable by external systems via published schema. This is the load-bearing distinction.
+          </div>
+          <div>
+            <div class="k">Confidence they ship this</div>
+            <strong>Low.</strong> No public material engages with identity resolution as an architectural problem. The Yext lineage suggests the team <em>could</em> build it, but the product is currently scoped to performance reviews — a domain where soft identity matching (Slack handle ≈ Google account by email) is sufficient. Building hard identity resolution would require an architectural pivot the seed funding does not obviously support.
+          </div>
+        </div>
+      </article>
+
+      <article class="layer">
+        <div class="name">Layer 2 · Evidence</div>
+        <h3>"What actually happened."</h3>
+        <div class="row">
+          <div>
+            <div class="k">Shipping today</div>
+            Ingestion and indexing of artifacts across Slack threads, GitHub PRs and commits, Google Docs, calendar entries, and 30+ named integrations. Citation-grounded retrieval: each LLM-generated insight in a draft review traces back to a specific source artifact. This is the strongest publicly verified capability and the one that explains the early customer traction.
+          </div>
+          <div>
+            <div class="k">Substrate threshold</div>
+            A persistent, time-versioned evidence store with provenance and consent metadata on every edge, queryable independently of the chat surface, with retention policy expressed as graph property and per-evidence-class deletion APIs that satisfy GDPR Article 17 and CPRA at the storage layer. A published schema for what evidence categories the system stores and what it does not. This is a serious infrastructure build.
+          </div>
+          <div>
+            <div class="k">Confidence they ship this</div>
+            <strong>Low-medium.</strong> The evidence-aggregation surface is the product. The substrate-shaped version of it is an engineering investment that pushes the product further from its current "drafted review" UX surface — a roadmap divergence the team has not signaled.
+          </div>
+        </div>
+      </article>
+
+      <article class="layer">
+        <div class="name">Layer 3 · Expectations</div>
+        <h3>"What good looks like."</h3>
+        <div class="row">
+          <div>
+            <div class="k">Shipping today</div>
+            Per-role calibration patterns derived from accumulated review and feedback content within a customer tenant — the kind of "your strong-performer engineers ship X PRs/quarter with Y review velocity" inference a tenant-bound evidence store enables. Not a cross-customer benchmarking corpus (no public claim of that scale).
+          </div>
+          <div>
+            <div class="k">Substrate threshold</div>
+            A skills-and-expectations ontology with cross-tenant calibration, an explicit fairness / bias-audit posture for any inference that flows into a hiring or promotion decision (Mobley v. Workday read-across applies the moment an evidence platform's inferences inform employment outcomes), and a published taxonomy comparable to Cornerstone's 55,000-skill claim or Eightfold's skills graph. None of this is in public material.
+          </div>
+          <div>
+            <div class="k">Confidence they ship this</div>
+            <strong>Low.</strong> This is where Windmill collides with the existing graph-as-recommendation cluster (Eightfold, Cornerstone, Gloat) and where it would face L&D and compliance incumbents with twenty-year head starts. Strategically unlikely from a $12M seed.
+          </div>
+        </div>
+      </article>
+
+      <article class="layer">
+        <div class="name">Layer 4 · Perspectives</div>
+        <h3>"What people think."</h3>
+        <div class="row">
+          <div>
+            <div class="k">Shipping today</div>
+            Pulse surveys, 1:1 notes, continuous feedback capture, manager-and-peer review inputs. A standard performance-and-engagement input surface for a startup at this stage. Culture Amp, 15Five, and Lattice all ship comparable capability at much larger customer scale.
+          </div>
+          <div>
+            <div class="k">Substrate threshold</div>
+            Sentiment and perspective as queryable, consent-bound, time-versioned graph properties — not just survey results, but a longitudinal employee-voice graph with explicit anonymity-vs-attribution policy at the edge level. Plus integration into the broader workforce-decision flow such that perspective data is structurally inseparable from employment-outcome decisions, governed by an audit posture comparable to Culture Amp's 1B+ benchmarking corpus.
+          </div>
+          <div>
+            <div class="k">Confidence they ship this</div>
+            <strong>Low.</strong> The engagement-survey category has incumbents whose data corpora are not catchable by a seed-stage startup. The substrate version of this layer is a Culture Amp / Lattice problem space, and Windmill is too early to engage it.
+          </div>
+        </div>
+      </article>
+
+    </div>
+
+    <div class="callout">
+      <span class="tag">Synthesis</span>
+      For Windmill to threaten Stratum's substrate claim, they would have to ship <strong>(X) hard cross-system identity resolution with a published reconciliation algorithm and audit trail</strong>, <strong>(Y) a persistent time-versioned graph store with consent metadata on every edge and per-evidence-class deletion APIs</strong>, and <strong>(Z) an explicit governance posture — third-party bias audit, named LLM provider, model cards — once their inferences begin to influence employment outcomes</strong>. The team shape they raised on does not suggest they intend to. A $12M seed for a performance-review product with three product-marketing-shaped founders (none of whom is a graph-database architect on the public record) builds the evidence-aggregation surface they have shipped, not the substrate. Substrate-threat probability in a 6–12 month window: <strong>~12–15%</strong>. Positioning-threat probability — "context graph" / "workforce graph" appearing in trade press as a category-defining noun for what Stratum claims architecturally — is materially higher and is what this battlecard is sized to track.
+    </div>
+  </section>
+
+  <!-- 03 ESCALATION MILESTONES -->
+  <section aria-labelledby="escalate">
+    <div class="sec-eyebrow">§3 · Escalation milestones</div>
+    <h2 id="escalate">Two falsifiable triggers. <em>Watched on cadence.</em></h2>
+    <p>These are the two events that move Windmill from L2 Watch to L3 Action and convert this partial battlecard into a full one. Both are public-signal triggers — they require no private intelligence to detect. The monitoring assignments below name who watches what, on what cadence, with what notification.</p>
+
+    <article class="trigger">
+      <div class="name">Trigger A · Series A announcement with substrate language</div>
+      <h3>If the Series A press release uses the following vocabulary, escalate.</h3>
+      <p>The falsifiable language: <strong>"system of record,"</strong> <strong>"graph database,"</strong> <strong>"identity resolution across systems,"</strong> or any framing that asserts architectural depth beyond the current evidence-surface description. Any one of these phrases appearing in Windmill's own Series A copy — not analyst paraphrase — fires the trigger. Tier-A trade-press paraphrase ("Windmill is positioning its context graph as the system of record for workforce decisions…") also fires the trigger if the paraphrase is attributable to Windmill leadership in the article.</p>
+      <p>Why this matters: a Series A typically arrives 12–24 months after seed. Inspired Capital's portfolio companies historically announce A rounds in the $30–60M range and the messaging often expands beyond the seed-stage product framing. If Windmill chooses substrate vocabulary at A, they are committing to a roadmap the seed-stage product has not yet built — but they are also claiming the category-noun publicly. That noun overlap with Stratum's people-graph positioning is the editorial risk.</p>
+      <p class="meta">Watcher: Eglin · Cadence: weekly funding-news sweep + on-event alert · Notify: Helm and Compass within 24h of detection · Action: full battlecard within 7 days, plus a brief to the Compact.</p>
+    </article>
+
+    <article class="trigger">
+      <div class="name">Trigger B · Named reference customer using graph vocabulary</div>
+      <h3>If a published customer case study uses graph vocabulary to describe Windmill, escalate.</h3>
+      <p>The falsifiable language: a Windmill customer (not Windmill itself) describing what Windmill does for them using nouns like <strong>"graph,"</strong> <strong>"substrate,"</strong> <strong>"system of record,"</strong> or <strong>"single source of truth"</strong> — in a published case study, conference talk, podcast appearance, or written testimonial that is attributable to the customer's HR or technology leadership. Marketing copy on the Windmill site repeating their own framing does not count; the trigger requires <em>customer adoption of the vocabulary</em>, which is the signal that the category-noun is travelling.</p>
+      <p>Why this matters: vocabulary captured at the customer layer is materially harder to reframe than vocabulary at the vendor layer. If a Kalshi or Rho or Merge spokesperson describes Windmill as "our workforce graph," that quote will be reused by analysts, journalists, and competing vendors. The Cornerstone battlecard documents the same dynamic for "people graph" at the incumbent layer. Windmill at the startup layer is a different shape of the same risk.</p>
+      <p class="meta">Watcher: Eglin · Cadence: monthly customer-content sweep (Windmill blog, customer LinkedIn, podcast appearances by named customers) + Tier-A analyst publications (Bersin, Sapient Insights, Brian Sommer) · Notify: Helm and Compass within 24h · Action: full battlecard within 7 days, plus an updated language map for the Compass buyer-facing competitive page.</p>
+    </article>
+
+    <div class="callout">
+      <span class="tag">Monitoring cadence (consolidated)</span>
+      Weekly funding-news sweep includes Inspired Capital portfolio activity and Windmill's own press surface (PR Newswire, BusinessWire, company blog). Monthly customer-content sweep includes Windmill's published case studies, customer LinkedIn posts mentioning Windmill, and HCM-analyst publications scanning for "context graph" or "workforce graph" as a category noun. Both sweeps roll into Eglin's weekly digest, with the Windmill row carrying a status line: "no triggers fired" or "Trigger [A/B] fired on [date]." If 90 days pass with no triggers fired and no Series A signal, Eglin will reassess the threat scoring and either downgrade Windmill from L2 Watch or maintain at L2 with revised expected-trigger dates.
+    </div>
+  </section>
+
+  <!-- SIGNAL SCORECARD -->
+  <section aria-labelledby="score">
+    <div class="sec-eyebrow">§4 · Signal scorecard</div>
+    <h2 id="score">How I'm scoring this.</h2>
+    <div class="scorecard">
+      <div class="scorecard-row"><div class="label">Alert level</div><div class="val">L2 · Watch <em>· partial battlecard sized to the positioning risk</em></div></div>
+      <div class="scorecard-row"><div class="label">Relevance</div><div class="val">Medium-High <em>· direct vocabulary overlap on "graph" as workforce-system noun</em></div></div>
+      <div class="scorecard-row"><div class="label">Urgency</div><div class="val">Medium <em>· Inspired's second press-wave window mid-July 2026</em></div></div>
+      <div class="scorecard-row"><div class="label">Confidence</div><div class="val">High <em>· primary sources well-documented; architecture description is thin precisely because it is thin</em></div></div>
+      <div class="scorecard-row"><div class="label">Competitive impact</div><div class="val">Low-Medium <em>· not a seat-substitution risk for Stratum's 2026 deals</em></div></div>
+      <div class="scorecard-row"><div class="label">Substrate-threat probability (6–12mo)</div><div class="val">~12–15% <em>· architecture and team shape do not point this way</em></div></div>
+      <div class="scorecard-row"><div class="label">Positioning-threat probability (6–12mo)</div><div class="val">~45–55% <em>· "context graph" travels well in trade press</em></div></div>
+      <div class="scorecard-row"><div class="label">Differentiation potential</div><div class="val">High <em>· the architecture comparison is favourable to Stratum if drawn</em></div></div>
+      <div class="scorecard-row"><div class="label">Compliance risk</div><div class="val">Not yet material <em>· Windmill is pre-compliance-surface</em></div></div>
+    </div>
+  </section>
+
+  <!-- CHANGELOG -->
+  <section aria-labelledby="log">
+    <div class="sec-eyebrow">§5 · Changelog</div>
+    <h2 id="log">Edits to this battlecard.</h2>
+    <ul class="list">
+      <li><strong>2026-06-04 · v1.0 · Partial battlecard created.</strong> Triggered by the 28 April 2026 Windmill seed announcement and prior surfacing in the People Graph 360 §XI.vi addendum (rev 1.2, 2026-06-03). Helm-authorized partial scope: §1 verified-vs-claimed architecture, §2 four-layer model evaluated, §3 two escalation triggers. No defensive content from Compass; no customer outreach; no board notification. Author: Eglin.</li>
+    </ul>
+  </section>
+
+  <!-- SOURCES -->
+  <section class="sources" aria-labelledby="sources">
+    <h2 id="sources">Sources</h2>
+    <ol>
+      <li>PR Newswire (Windmill press release), "Windmill, the AI Company That Bets on Humans, Raises $12M," 28 April 2026. <a href="https://www.prnewswire.com/news-releases/windmill-the-ai-company-that-bets-on-humans-raises-12m-302755153.html">prnewswire.com/news-releases/windmill-the-ai-company-that-bets-on-humans-raises-12m…</a></li>
+      <li>Pulse 2.0, "Windmill: $12 Million Raised For AI Platform Building The Context Graph For Workforce Intelligence," April 2026. <a href="https://pulse2.com/windmill-12-million-raised-for-ai-platform-building-the-context-graph-for-workforce-intelligence/">pulse2.com/windmill-12-million-raised-for-ai-platform-building-the-context-graph-for-workforce-intelligence/</a></li>
+      <li>Windmill, company website. <a href="https://gowindmill.com/">gowindmill.com</a></li>
+      <li>Inspired Capital, Portfolio page. <a href="https://www.inspiredcapital.com/portfolio">inspiredcapital.com/portfolio</a></li>
+      <li>citybiz, "Windmill Raises $12M to Build AI Infrastructure for Workforce Context and Performance Intelligence," April 2026. <a href="https://www.citybiz.co/article/838171/windmill-raises-12m-to-build-ai-infrastructure-for-workforce-context-and-performance-intelligence/">citybiz.co/article/838171/…</a></li>
+      <li>Embracing Erosion podcast, "Max Shaw: Co-Founder of Windmill & Former SVP of Product at Yext on the Future of Work with AI." <a href="https://music.amazon.com/es-co/podcasts/42f1840d-702d-4866-b033-8b7ac576dc15/episodes/4bc45e6a-faf8-4cdc-b0fb-02bf6a00546e/embracing-erosion-max-shaw-co-founder-of-windmill-former-svp-of-product-at-yext-on-the-future-of-work-with-ai">music.amazon.com/podcasts/…/embracing-erosion-max-shaw-co-founder-of-windmill</a></li>
+      <li>LinkedIn — Max Shaw, Windmill. <a href="https://www.linkedin.com/in/max-shaw-82287025">linkedin.com/in/max-shaw-82287025</a></li>
+      <li>Eglin · People Graph 360 §XI.vi addendum (competitive sweep, rev 1.2). <a href="../../../research/people-graph-360/addendum-competitive-draft.md">/research/people-graph-360/addendum-competitive-draft.md</a></li>
+      <li>Eglin Battlecard No. 022 — Cornerstone (the parallel "people graph" vocabulary case). <a href="./cornerstone.html">/intel/eglin/competitors/cornerstone.html</a></li>
+    </ol>
+  </section>
+
+  <!-- CLOSING -->
+  <section class="closing" aria-labelledby="closing">
+    <h3 id="closing">What I missed / want next</h3>
+    <p><strong>What I don't have.</strong> No Windmill engineering or architecture blog post beyond the launch materials — no public depth on how the "context graph" is stored, what entity-resolution algorithm runs at ingest, or how consent and retention are modelled. No model card, no LLM provider disclosure, no SOC 2 / ISO / GDPR posture document. No independent customer testimony beyond the three customers named in the press release. No analyst-published independent assessment. No Alexa von Tobel (Inspired Capital) interview elaborating the thesis at depth. No published MCP server documentation despite the "full MCP support" claim. No third-party bias-audit relationship.</p>
+    <p><strong>Next refresh triggers.</strong> Beyond the two escalation triggers in §3: (1) a Windmill engineering blog post describing the storage layer; (2) any independent technical review on Hacker News, /r/ExperiencedDevs, or a credentialled engineer's Substack assessing the architecture; (3) Series A timing signals (typical Inspired A-round lag is 12–18 months from seed, putting an A announcement window in late Q1 2027 unless accelerated); (4) any addition of an architecture-named hire (head of data, head of platform, VP engineering with a graph-database background) signalling a roadmap pivot toward substrate-shape.</p>
+    <p><strong>O-2 self-check.</strong> This battlecard advances O-2 in three concrete ways. (a) It builds the always-on signal stream into the partial-battlecard format — a smaller, faster artifact for a smaller, faster threat — which is exactly the kind of forward-leaning, proportional research O-2 calls for. (b) It separates marketing vocabulary ("context graph") from architectural reality (evidence aggregation + LLM chat) at the level of granularity the Compact needs to make a positioning call without re-doing the source-reading. (c) It names two falsifiable, public-signal escalation triggers with explicit watcher / cadence / notification — closed-loop monitoring rather than open-ended "we'll keep an eye on them." The honest take: Windmill is a credible early-stage product run by experienced founders with a positioning-vocabulary collision that matters and an architecture story that does not yet justify the noun. Stratum's response is not defensive — it is to keep publishing depth, watch the two triggers, and reassess if either fires.</p>
+  </section>
+
+</main>
+
+<div class="rt-stamp"><span class="dot">●</span> compiled at <strong>T+~503h</strong> · 2026-06-04T14:30:00Z</div>
+
+<script src="../../../assets/echo.js" defer></script>
+</body>
+</html>
