@@ -338,6 +338,7 @@ code { font-family: var(--mono); font-size: .9em; color: var(--moss-deep); backg
   padding: 5rem 0 4rem;
   position: relative;
   scroll-margin-top: 60px;
+  overflow-x: hidden;
 }
 .tour-screen:nth-child(even) {
   background: var(--paper-deep);
@@ -847,6 +848,8 @@ code { font-family: var(--mono); font-size: .9em; color: var(--moss-deep); backg
 
 .diff-wrap {
   padding: 1.2rem 1.6rem;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
 }
 .diff-header {
   font-family: var(--mono);
