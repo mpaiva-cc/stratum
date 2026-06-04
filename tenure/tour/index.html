@@ -39,7 +39,7 @@ permalink: /tenure/tour/index.html
   --paper-rule:#d8cdb6; --paper-rule-2:#c8b894;
   --ink:#0e1626; --ink-2:#2a3344; --ink-3:#4b5365; --ink-3-aaa:#3d4456;
   --ink-mute-aa:#404755;
-  --ochre:#b8651f; --ochre-link:#7a3d0a;
+  --ochre:#b8651f; --ochre-link:#7a3d0a; --ochre-on-dark:#e5913c;
   --moss:#4a5d3a; --plum:#6b3a4a;
   --ok:#3d6b3a; --warn:#a76b1d; --info:#3a5d6b;
   --display:"Fraunces","Newsreader",Georgia,serif;
@@ -338,7 +338,7 @@ main#main { padding-bottom: 5rem; }
 }
 .mobile-bar a:hover { opacity: 1; color: var(--ochre); }
 .mobile-bar .mb-center {
-  color: var(--ochre);
+  color: var(--ochre-on-dark); /* was --ochre (4.24:1 fail) — raised to AAA 7.27:1 */
   letter-spacing: .18em;
 }
 .mobile-bar .mb-center .sl { color: var(--paper); opacity: .6; }

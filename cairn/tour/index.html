@@ -55,6 +55,8 @@ permalink: /cairn/tour/index.html
   --ochre:        #b8651f;
   --ochre-deep:   #8a4711;
   --ochre-soft:   #e6c79b;
+  --ochre-link:   #7a3d0a;  /* AAA 7.14:1 on --paper; use for ochre-family links on light bg */
+  --ochre-on-dark:#e5913c;  /* AAA 7.27:1 on --ink;   use for ochre-family text on dark bg */
   --moss:         #4a5d3a;
   --moss-text:    #3f5132;  /* AAA 7.2:1 on --paper — use for normal-weight small text */
   --moss-deep:    #364528;
@@ -150,7 +152,7 @@ code { font-family: var(--mono); font-size: .9em; color: var(--moss-deep); backg
   text-decoration: none;
 }
 .mobile-bar a:hover { opacity: 1; color: var(--paper); }
-.mobile-bar .mb-center { color: var(--ochre); letter-spacing: .18em; }
+.mobile-bar .mb-center { color: var(--ochre-on-dark); letter-spacing: .18em; }
 .mobile-bar .mb-center .sl { color: var(--paper); opacity: .6; }
 
 /* ─────────────────────────────────── TOP NAV ── */
@@ -300,7 +302,7 @@ code { font-family: var(--mono); font-size: .9em; color: var(--moss-deep); backg
   font-size: 8px;
   letter-spacing: .2em;
   text-transform: uppercase;
-  color: rgba(244,236,218,.3);
+  color: rgba(244,236,218,.65); /* was .3 (2.46:1 fail) — raised to .65 for AAA 7.02:1 on --ink */
   padding: 0 .3rem;
   white-space: nowrap;
 }
@@ -782,7 +784,7 @@ code { font-family: var(--mono); font-size: .9em; color: var(--moss-deep); backg
   font-family: var(--mono);
   font-size: 11px;
   letter-spacing: .18em;
-  color: var(--ochre);
+  color: var(--ochre-link); /* was --ochre (3.76:1 fail on --paper-warm) — ochre-link is 7.40:1 AAA */
   font-weight: 700;
   margin-top: .1rem;
 }
@@ -1683,7 +1685,7 @@ code { font-family: var(--mono); font-size: .9em; color: var(--moss-deep); backg
           </div>
 
           <div class="diff-wrap" style="background:#111820; padding:1rem 1.2rem;">
-            <div class="diff-header" style="color:rgba(244,236,218,.4);">
+            <div class="diff-header" style="color:rgba(244,236,218,.7);">
               <span>platform/scheduler/operator_controller.go</span>
               <span style="color:#c5cdb1">+127 −14</span>
             </div>

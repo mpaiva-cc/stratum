@@ -52,6 +52,7 @@ permalink: /recruiter/tour/index.html
   --ochre:        #b8651f;
   --ochre-deep:   #8a4711;
   --ochre-soft:   #e6c79b;
+  --ochre-on-dark:#e5913c;  /* AAA 7.27:1 on --ink; use for ochre-family text on dark bg */
   --moss:         #4a5d3a;
   --moss-deep:    #364528;
   --moss-soft:    #c5cdb1;
@@ -152,7 +153,7 @@ strong { font-weight: 600; color: var(--ink); }
 }
 .mobile-bar a:hover { opacity: 1; color: var(--ochre); }
 .mobile-bar .mb-center {
-  color: var(--ochre);
+  color: var(--ochre-on-dark); /* was --ochre (4.24:1 fail) — raised to AAA 7.27:1 */
   letter-spacing: .18em;
 }
 .mobile-bar .mb-center .sl { color: var(--paper); opacity: .6; }
