@@ -280,10 +280,128 @@ main#main { padding-bottom: 5rem; }
 }
 .arc-framing__body strong { color: var(--ink); }
 
+
+/* SKIP LINK */
+.skip-link {
+  position: absolute;
+  left: -9999px;
+  top: 0;
+  background: var(--ink);
+  color: var(--paper);
+  padding: .5rem 1rem;
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  z-index: 200;
+  text-decoration: none;
+}
+.skip-link:focus { left: 1rem; top: 1rem; }
+
+/* MOBILE BAR */
+.mobile-bar {
+  position: sticky;
+  top: 0;
+  z-index: 60;
+  background: var(--ink);
+  color: var(--paper);
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+}
+.mobile-bar-inner {
+  width: var(--col);
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: .55rem 0;
+}
+.mobile-bar a {
+  color: var(--paper);
+  border-bottom: 0;
+  opacity: .8;
+  transition: opacity .2s, color .2s;
+  text-decoration: none;
+}
+.mobile-bar a:hover { opacity: 1; color: var(--ochre); }
+.mobile-bar .mb-center {
+  color: var(--ochre);
+  letter-spacing: .18em;
+}
+.mobile-bar .mb-center .sl { color: var(--paper); opacity: .6; }
+
+/* FOOTER */
+footer { background: var(--paper); border-top: 1px solid var(--paper-rule); padding: 2rem 0; }
+.footer-inner {
+  width: var(--col);
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1.4rem;
+}
+.footer-mark {
+  font-family: var(--display);
+  font-weight: 600;
+  font-size: 1.2rem;
+  color: var(--ink);
+  letter-spacing: -.02em;
+}
+.footer-mark .dot { color: var(--ochre); }
+.footer-mark .sub {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: .18em;
+  color: var(--ochre);
+  text-transform: uppercase;
+  margin-left: .4rem;
+  font-weight: 500;
+  vertical-align: 3px;
+}
+.footer-meta {
+  font-family: var(--mono);
+  font-size: 10.5px;
+  letter-spacing: .14em;
+  color: var(--ink-3-aaa);
+  text-transform: uppercase;
+}
+.footer-links {
+  display: flex;
+  gap: 1.4rem;
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+}
+.footer-links a {
+  color: var(--ink-3-aaa);
+  border-bottom: 0;
+  text-decoration: none;
+}
+.footer-links a:hover { color: var(--ochre); }
+
 </style>
 </head>
 <body>
 {% include site-nav.html %}
+
+<!-- realtime-stamp -->
+<div class="rt-stamp" data-t0="2026-05-19T00:00:00-04:00" data-this="2026-06-04T10:00:00-04:00" style="position:fixed;bottom:8px;right:10px;z-index:9999;font-family:'JetBrains Mono',ui-monospace,Menlo,monospace;font-size:9.5px;letter-spacing:.08em;color:rgba(14,22,38,.55);background:rgba(244,236,218,.75);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);padding:.25rem .55rem;border-radius:999px;border:1px solid rgba(184,101,31,.25);pointer-events:none" aria-hidden="true"><span style="color:#b8651f">&#9679;</span> compiled at <strong style="color:#0e1626">T+538:00:00.000</strong> &middot; <span style="opacity:.6">2026-06-04T14:00:00.000Z</span></div>
+<!-- /realtime-stamp -->
+
+<a href="#main" class="skip-link">Skip to main content</a>
+
+<!-- Mobile bar -->
+<div class="mobile-bar" role="navigation" aria-label="Section navigation">
+  <div class="mobile-bar-inner">
+    <a href="/recruiter/tour/">&#8592; Recruiter</a>
+    <span class="mb-center">Tenure <span class="sl">/</span> Tour</span>
+    <a href="/tour/">Console &#8594;</a>
+  </div>
+</div>
 
 <!-- arc-strip: four-product tour navigation -->
 <nav class="arc-strip" aria-label="Four-product tour navigation">
@@ -703,9 +821,18 @@ main#main { padding-bottom: 5rem; }
   </div>
 </aside>
 
-<footer class="colo-tag">
-  Stratum Tenure · The Tour · 2026-05-19 ·
-  <a href="{{ '/intel/eglin/opportunities/onboarding-employee-events.html' | relative_url }}">Eglin's market evidence</a>
+<footer>
+  <div class="footer-inner">
+    <span class="footer-mark">Stratum<span class="dot">.</span><span class="sub">/Tenure</span></span>
+    <span class="footer-meta">&copy; Stratum &middot; AI-first HCM &middot; 2026</span>
+    <div class="footer-links">
+      <a href="/">Home</a>
+      <a href="{{ '/tenure/' | relative_url }}">Tenure</a>
+      <a href="{{ '/intel/eglin/opportunities/onboarding-employee-events.html' | relative_url }}">Market evidence</a>
+      <a href="/tour/">Console tour</a>
+      <a href="mailto:hello@stratum.ai">Contact</a>
+    </div>
+  </div>
 </footer>
 
 </main>

@@ -283,17 +283,22 @@ main { display: block; }
   max-width: 1100px;
   margin: 0 auto;
   text-align: center;
+  /* Default: fully visible — linear reading order works without JS */
+}
+
+/* Progressive enhancement: only hide-then-reveal when JS has confirmed capability */
+html.js .scene-inner {
   opacity: 0;
   transform: translateY(28px);
   transition: opacity .9s cubic-bezier(.2,.7,.3,1), transform .9s cubic-bezier(.2,.7,.3,1);
 }
-.scene.is-visible .scene-inner {
+html.js .scene.is-visible .scene-inner {
   opacity: 1;
   transform: translateY(0);
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .scene-inner { opacity: 1; transform: none; transition: none; }
+  html.js .scene-inner { opacity: 1; transform: none; transition: none; }
 }
 
 .scene-counter {
@@ -2056,6 +2061,7 @@ main { display: block; }
 .arc-framing__body strong { color: var(--ink, #0e1626); }
 
 </style>
+<script>/* Enhancement guard: set html.js class immediately so CSS can scope scroll-reveal */document.documentElement.classList.add('js');</script>
 </head>
 <body>
 {% include site-nav.html %}
