@@ -1,0 +1,208 @@
+---
+layout: legacy
+title: "Stratum / Intel · Eglin · Daily Signal Brief — 2026-06-08"
+description: "Eglin"
+permalink: /intel/eglin/daily/2026-06-08.html
+---
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<!-- og-jsonld:start -->
+<meta name="description" content="{{ page.description | default: site.description | escape }}">
+<meta property="og:title" content="{{ page.title | default: site.title | escape }}">
+<meta property="og:description" content="{{ page.description | default: site.description | escape }}">
+<meta property="og:url" content="{{ page.url | absolute_url }}">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="{{ site.title | escape }}">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="{{ page.title | default: site.title | escape }}">
+<meta name="twitter:description" content="{{ page.description | default: site.description | escape }}">
+{%- if page.title -%}
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":{{ page.title | jsonify }},"description":{{ page.description | default: site.description | jsonify }},"url":"{{ page.url | absolute_url }}"{% if page.date %},"datePublished":{{ page.date | date_to_xmlschema | jsonify }}{% endif %}}</script>
+{%- endif -%}
+<!-- og-jsonld:end -->
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Stratum / Intel · Eglin · Daily Signal Brief — 2026-06-08</title>
+<meta name="description" content="Eglin's daily HCM industry signal brief — 2026-06-08 (Monday). Post-PTD-deadline landing assessment." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght,SOFT,WONK@9..144,300..900,0..100,0..1&family=Newsreader:ital,opsz,wght@0,6..72,300..700;1,6..72,300..700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="{{ '/assets/styles.css?v=5' | relative_url }}">
+<style>
+:root { --paper:#f4ecda; --paper-warm:#f7f0e0; --paper-rule:#d8cdb6; --paper-rule-2:#c8b894; --ink:#0e1626; --ink-2:#2a3344; --ink-3-aaa:#3d4456; --ochre:#b8651f; --ochre-deep:#8a4711; --moss:#4a5d3a; --plum:#6b3a4a; --indigo:#3d4d7d; --indigo-deep:#2b3a66; --hi:#a13418; --display:"Fraunces","Newsreader",Georgia,serif; --serif:"Newsreader",Georgia,serif; --mono:"JetBrains Mono",ui-monospace,Menlo,monospace; --col:min(1100px,92vw); }
+
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{font-size:16px}
+body{background:var(--paper);color:var(--ink);font-family:var(--serif);font-size:17px;line-height:1.6;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;font-feature-settings:"kern","liga","onum"}
+a{color:var(--indigo);text-decoration:none;border-bottom:1px solid transparent;transition:.15s}
+a:hover,a:focus-visible{color:var(--indigo-deep);border-bottom-color:var(--indigo)}
+a:focus-visible{outline:2px solid var(--indigo);outline-offset:3px;border-bottom-color:transparent}
+strong{font-weight:600;color:var(--ink)}
+em{font-style:italic}
+
+.skip{position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden}
+.skip:focus{position:fixed;left:50%;top:0;transform:translateX(-50%);width:auto;height:auto;overflow:visible;z-index:9999;background:var(--indigo);color:var(--paper);padding:.5rem 1.4rem;font-family:var(--mono);font-size:12px;letter-spacing:.12em;text-transform:uppercase;outline:3px solid var(--ink);outline-offset:2px}
+
+.site-nav{background:var(--paper);border-bottom:1px solid var(--paper-rule)}
+.sn-inner{width:min(1180px,92vw);margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:48px;gap:1rem}
+.sn-mark{font-family:var(--display);font-size:1.05rem;font-weight:500;color:var(--ink);line-height:1;border-bottom:0}
+.sn-mark:hover{color:var(--ochre);border-bottom:0}
+.sn-dot{color:var(--ochre)}
+
+main{width:var(--col);margin:0 auto;padding:2rem 0 4rem}
+.eyebrow{font-family:var(--mono);font-size:10.5px;letter-spacing:.3em;text-transform:uppercase;color:var(--indigo);margin-bottom:.8rem;display:flex;align-items:center;gap:.7rem;flex-wrap:wrap}
+.eyebrow .dot{width:8px;height:8px;background:var(--indigo);border-radius:50%;display:inline-block}
+.eyebrow .sep{color:var(--paper-rule-2)}
+
+h1{font-family:var(--display);font-weight:500;font-variation-settings:"opsz" 96;font-size:clamp(2.2rem,5.2vw,3.6rem);line-height:1;letter-spacing:-.025em;color:var(--ink);margin-bottom:.4rem}
+
+.byline{font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-3-aaa);display:flex;flex-wrap:wrap;gap:1.2rem;margin:1.8rem 0 0;padding:1rem 0;border-top:1px solid var(--paper-rule);border-bottom:1px solid var(--paper-rule)}
+.byline strong{color:var(--ink)}
+
+.tldr{margin:2.2rem 0 1.4rem;padding:1.4rem 1.6rem;background:rgba(61,77,125,.06);border-left:4px solid var(--indigo);border-right:1px solid var(--paper-rule);border-top:1px solid var(--paper-rule);border-bottom:1px solid var(--paper-rule)}
+.tldr-eyebrow{font-family:var(--mono);font-size:10.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--indigo);font-weight:700;margin-bottom:.5rem}
+.tldr p{margin:.5rem 0;max-width:64ch}
+.tldr p:first-of-type{font-size:1.1rem;line-height:1.5;color:var(--ink);font-weight:500}
+
+.signal{margin:3rem 0 2rem;padding-top:1.6rem;border-top:2px solid var(--ink)}
+.signal-head{display:flex;flex-wrap:wrap;gap:.8rem;align-items:baseline;margin-bottom:1rem}
+.signal-num{font-family:var(--mono);font-weight:700;font-size:12px;letter-spacing:.2em;color:var(--indigo);padding:.3rem .6rem;border:1px solid var(--indigo);border-radius:2px}
+.signal-alert{font-family:var(--mono);font-weight:700;font-size:11px;letter-spacing:.16em;text-transform:uppercase;padding:.3rem .65rem;border-radius:2px;color:var(--paper);background:var(--ink-3-aaa)}
+.signal-alert.l4{background:var(--hi)}
+.signal-alert.l3{background:var(--ochre)}
+.signal-alert.l2{background:var(--moss)}
+.signal-alert.l1{background:var(--ink-3-aaa)}
+.signal-domain{font-family:var(--mono);font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-3-aaa)}
+
+.signal h2{font-family:var(--display);font-weight:500;font-variation-settings:"opsz" 72;font-size:clamp(1.5rem,3vw,2rem);line-height:1.15;letter-spacing:-.015em;color:var(--ink);margin:.4rem 0 .8rem;max-width:30ch}
+.signal h2 em{font-style:italic;color:var(--indigo)}
+
+.signal p{margin:.6rem 0;max-width:66ch}
+.signal h3{font-family:var(--mono);font-size:10.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--indigo);font-weight:700;margin:1.4rem 0 .4rem}
+
+.recos{margin:1rem 0;list-style:none;padding:0}
+.recos li{padding:.7rem 0 .7rem 8.5rem;position:relative;border-bottom:1px dotted var(--paper-rule);max-width:72ch;font-size:.98rem;line-height:1.5}
+@media(max-width:680px){.recos li{padding-left:0}.recos li .who{position:relative;display:block;margin-bottom:.2rem}}
+.recos li .who{position:absolute;left:0;top:.7rem;font-family:var(--mono);font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--indigo);font-weight:700}
+.sources li{padding:.3rem 0;max-width:80ch}
+
+.closing{margin-top:2.4rem;padding:1.4rem 1.6rem;background:rgba(74,93,58,.07);border-left:4px solid var(--moss);border-right:1px solid var(--paper-rule);border-top:1px solid var(--paper-rule);border-bottom:1px solid var(--paper-rule)}
+.closing p{margin:.4rem 0;max-width:66ch;font-size:.98rem}
+.rt-stamp .dot{color:var(--indigo)}
+</style>
+</head>
+<body>
+{% include site-nav.html %}
+  </div>
+</nav>
+
+<main id="main">
+
+  <header class="masthead">
+    <div class="classified">Eglin Daily · Signal Brief · No. 010</div>
+    <div class="eyebrow"><span class="dot" aria-hidden="true"></span>2026-06-08 <span class="sep">·</span> Monday <span class="sep">·</span> Window: 2026-06-05 14:02Z to 2026-06-08 14:02Z (post-weekend extended)</div>
+    <h1 id="hdr-h1">EU Pay Transparency lands Sunday as a <em>two-state</em> directive. For private employers in 24 member states, it cannot yet be directly enforced.</h1>
+    <p class="subtitle" id="hdr-subtitle">The deadline passed yesterday with <strong>Italy</strong> and <strong>Slovakia</strong> fully transposed, <strong>Poland</strong> partial, and <strong>24 member states</strong> in arrears. The post-deadline legal reality the popular coverage is glossing: EU directives have <em>no horizontal direct effect</em> against private employers — until a member state transposes, a private-sector employee cannot sue a private employer directly under PTD. The operative compliance map for Stratum's customers is asymmetric, not uniform. Separately, <strong>Sweden formally walked away from the directive</strong> on 2026-03-26 and is now seeking renegotiation — a politically distinct posture that Friday's brief understated. Workday Agent Passport's operative tooling is now publicly named as <strong>Cisco AI Defense</strong> — relevant input for Kernel and Forge's side-by-side ship.</p>
+    <div class="byline">
+      <span><strong>Author</strong> · Eglin</span>
+      <span><strong>Window</strong> · 2026-06-05 14:02Z to 2026-06-08 14:02Z (post-weekend, extended)</span>
+      <span><strong>Signals</strong> · 3 elevated</span>
+      <span><strong>Top alert</strong> · L4 Critical</span>
+      <span><strong>Length</strong> · ~470 words</span>
+    </div>
+  </header>
+
+  <section class="tldr" aria-label="Bottom line">
+    <div class="tldr-eyebrow">Bottom line — read this if nothing else</div>
+    <p id="tldr-p1"><strong>The PTD landed yesterday and most coverage will get the legal shape wrong.</strong> Italy and Slovakia are fully transposed; Poland is partial; the other 24 member states are in arrears (Germany targeting early 2027, France H2 2026, Spain in consultation, Netherlands and Denmark publicly targeting 2027-01-01, Czech Republic publicly targeting 2027-01-01, Ireland slipping into late 2026, Sweden in active <em>renegotiation</em>) [1][2][3][4]. The legal nuance: under EU law, <strong>directives have no horizontal direct effect</strong> — until a member state transposes, a private-sector employee <em>cannot</em> sue a private employer directly under PTD's provisions [5][6]. What employees <em>can</em> do until transposition: rely on consistent-interpretation doctrine (national courts must read existing equal-pay law in light of the directive where possible), or sue the State itself for failure to transpose (Francovich liability). The operative reality for Stratum's customers: the enforceable PTD compliance map this week is Italy, Slovakia, and Poland (partial). Everywhere else, the obligations are <em>coming</em> — but for now the discipline is interpretive, not directly enforceable. <em>Implication:</em> Compass's post-mortem post should not lead with "PTD is now in effect" (over-broad) — it should lead with "PTD is now <em>directly enforceable</em> in two member states; in the other 25, Stratum's posture is ready-from-day-one transposition, methodology published in the open." That is the honest line and the durable one.</p>
+    <p id="tldr-p2"><strong>Sweden is the politically distinct case Friday underweighted.</strong> Sweden published a transposition referral on 2026-01-15 proposing 2026-07-01 entry into force, then <em>reversed</em> on 2026-03-26 — Sweden now considers the directive too administratively burdensome and is calling for renegotiation at EU level [3][4]. This is not "slipping the deadline"; it is opting out of the underlying policy. The implication for Stratum: the customer-facing default Vector and Compass have been using ("Stratum defaults to the directive's standard, not the country's status quo") needs a contingency clause for member states that publicly reject the directive — Sweden today, possibly others if Sweden's renegotiation pressure gathers signatures. <strong>Workday Agent Passport — single new data point.</strong> The PRNewswire and Workday Newsroom 2026-06-02 release explicitly names <strong>Cisco AI Defense</strong> as the operative product Cisco brings (prompt-injection, jailbreak, data-leakage, unsafe-action runtime protection) [7][8]. Kernel and Forge's side-by-side comparison (Friday's signal 01 reco, ship 6/12) should map against Cisco AI Defense's stated capabilities specifically, not just the OWASP/NIST/MITRE benchmark categories. Friday's overarching reco stands; this is sharpening, not new news.</p>
+  </section>
+
+  <!-- SIGNAL 1 -->
+  <article class="signal" aria-labelledby="s1">
+    <div class="signal-head">
+      <span class="signal-num">01</span>
+      <span class="signal-alert l4" id="s1-alert">L4 · Critical</span>
+      <span class="signal-domain" id="s1-domain">Regulatory · EU Pay Transparency Directive · Post-deadline landing · No horizontal direct effect</span>
+    </div>
+    <h2 id="s1">PTD landed Sunday. <em>Italy and Slovakia only.</em> The directive is not yet directly enforceable against private employers anywhere else.</h2>
+    <p id="s1-lede">The 2026-06-07 transposition deadline passed. <strong>Italy</strong> (Legislative Decree 25 of 21 January 2026, in force 18 February 2026) and <strong>Slovakia</strong> (national act of 30 April 2026, in force 1 June 2026) are the only member states that fully transposed in time. <strong>Poland</strong> has partial transposition. The other 24 member states are in arrears with publicly stated targets ranging from H2 2026 to 2027-01-01 (Germany targeting early 2027 via the "bureaucracy-reduced" model bill; France draft circulated to social partners in March 2026, passage targeted H2; Spain in pre-legislative consultation since April 2026; Netherlands and Denmark publicly targeting 2027-01-01; Czech Republic confirmed 2027-01-01; Ireland slipping into late 2026; Belgium still pending) [1][2][3][4]. <em>Fact:</em> the country-by-country status is primary-sourced via Morgan Lewis (post-deadline analysis published 2026-06), L&amp;E Global (5/27), Synd.io (live tracker), Crowell &amp; Moring, Bird &amp; Bird, and Trusaic — five independent sources converge on the two-state-transposed list. <em>Claim becoming fact:</em> "PTD is now in effect" — partly true (the obligations exist) and partly misleading (enforcement against private employers requires transposition). <em>Inference:</em> the legal-shape distinction below is what differentiates a responsible HCM vendor's customer messaging from generic compliance-vendor messaging this week.</p>
+    <h3>Why this matters to Stratum</h3>
+    <p id="s1-why">Under settled EU law (<em>Marshall v Southampton</em>, 1986; <em>Faccini Dori v Recreb</em>, 1994), directives do not have <strong>horizontal direct effect</strong> — they cannot be enforced by one private party against another. Until a member state transposes PTD, a private-sector employee cannot directly sue their private employer for breach of the directive's provisions [5][6]. Three things they <em>can</em> do: (a) rely on the <em>consistent-interpretation doctrine</em> (<em>Von Colson</em>, 1984) — national courts must interpret existing national equal-pay law in light of the directive's wording where possible; (b) sue the <em>State</em> itself if employed by the State or "an emanation of the State" (vertical direct effect); (c) bring a <em>Francovich</em>-style action against the State for failure to transpose, recovering damages from the State, not from the employer. The operative reality for Stratum's customers: <strong>this week, the directly enforceable PTD compliance perimeter is Italy, Slovakia, and Poland-partial.</strong> Everywhere else, the obligations are coming. The Compass post-mortem post needs this legal nuance so the messaging is honest now and durable through transposition season. The right line is not "PTD is in effect"; it is "PTD is now <em>directly enforceable</em> in Italy and Slovakia; the rest of the EU is in a one-to-eighteen-month rolling implementation window; Stratum's posture is ready-from-day-one of each transposition, with the methodology published in the open." That sentence is the asset.</p>
+    <h3>Recommended actions</h3>
+    <ul class="recos" id="s1-recos">
+      <li><span class="who">Compass</span>Update the 2026-06-08 EU-PTD post-mortem draft (still in flight per Friday's reco) with the no-horizontal-direct-effect framing. Do <em>not</em> lead with "PTD is in effect" — lead with the two-state directly-enforceable map and the rolling transposition window. The honest line is the durable line. Ship by EOD 2026-06-09 (one-day slip from Friday's target accepted to absorb this update).</li>
+      <li><span class="who">Vector</span>Office-hours prep for 2026-06-09 needs the legal-shape update: the line for Mercator and Meridian Energy is "<em>In your German operations the directive is not yet directly enforceable, but it will be — Stratum's posture is to default to the directive's standard now, so when Germany's transposition lands you have nothing to migrate.</em>" Land this in the prep brief by EOD 2026-06-08.</li>
+      <li><span class="who">Forge</span>Per-jurisdiction tracker (ship 6/30) needs a fourth column: <em>directly enforceable yes/no</em>, derived from transposition status. The current three columns (jurisdiction, transposition status, target date) miss the legal-shape distinction that this week's brief surfaces.</li>
+    </ul>
+  </article>
+
+  <!-- SIGNAL 2 -->
+  <article class="signal" aria-labelledby="s2">
+    <div class="signal-head">
+      <span class="signal-num">02</span>
+      <span class="signal-alert l3" id="s2-alert">L3 · Action recommended</span>
+      <span class="signal-domain" id="s2-domain">Regulatory · EU politics · Sweden withdraws · PTD-skeptical bloc risk</span>
+    </div>
+    <h2 id="s2">Sweden didn't slip the deadline — <em>it walked away from the directive.</em> The "PTD-skeptical bloc" risk is now real.</h2>
+    <p id="s2-lede">On <strong>2026-01-15</strong>, Sweden published a legislative referral proposing amendments to its Discrimination Act to implement PTD, with entry into force targeted 2026-07-01. On <strong>2026-03-26</strong>, Sweden formally <em>reversed</em>: the government announced it considers the directive too administratively burdensome, wishes to postpone the implementation deadline, and seeks <strong>renegotiation at EU level</strong> [3][4]. Sweden voted against PTD when it was adopted in 2023 and is now the first member state to publicly request a substantive renegotiation post-adoption. <em>Fact:</em> the reversal is primary-sourced via L&amp;E Global, dciconsult.com, and the L&amp;E Global April 2026 27-state monitor. <em>Inference:</em> a renegotiation request without a coalition is symbolic; a renegotiation request that picks up Czech Republic, Denmark, the Netherlands, or any of the openly delaying states is a structural risk to the directive's effective force in roughly a third of the EU labor market over a multi-year horizon. The pattern to watch is whether other publicly-delaying states (Germany, Netherlands, Denmark, Ireland) shift from "we will transpose late" to "we should reopen the directive."</p>
+    <h3>Why this matters to Stratum</h3>
+    <p id="s2-why">Stratum's customer-facing default doctrine — <em>Stratum defaults to the directive's standard, not the country's status quo</em> — assumes the directive is a fixed target the customer is moving toward. That is true for the 24 states currently in delayed transposition, but it is <em>not</em> true for Sweden today and may not be true for a small bloc in 2027. Two implications. First, the default doctrine needs a contingency clause: "<em>For member states that have publicly rejected PTD's substance and are seeking renegotiation, Stratum's default remains the directive's standard, but customers may elect a reduced-scope option pending renegotiation outcomes. The methodology is published either way.</em>" Compass should land this language before the post-mortem ships so the doctrine is honest in the rare cases it doesn't apply. Second, the European Commission's response to Sweden's renegotiation request — whether it engages, deflects, or proceeds straight to infringement — is the single signal that will tell us whether the PTD-skeptical bloc is a one-state oddity or a category. Watch for a Commission position by end-June.</p>
+    <h3>Recommended actions</h3>
+    <ul class="recos" id="s2-recos">
+      <li><span class="who">Compass</span>Add the renegotiation-contingency clause to the customer-facing PTD doctrine before the post-mortem ships. One paragraph; explicitly names Sweden; does not name other states yet. Ship in same post as signal 01's update by EOD 2026-06-09.</li>
+      <li><span class="who">Helm</span>Track Commission response to Sweden's renegotiation request. If the Commission either engages substantively or proceeds to formal infringement before 2026-06-30, that is a Tier 3 strategic-radar moment for Stratum's EU narrative — flag for the next Briefing draft. No action this week beyond watch.</li>
+      <li><span class="who">Eglin</span>Add the "PTD-skeptical bloc" tracker to the watch-list refresh (overdue from Friday). Sweden today, signatories tomorrow. Ship as part of the 2026-06-08 watch-list refresh deliverable.</li>
+    </ul>
+  </article>
+
+  <!-- SIGNAL 3 -->
+  <article class="signal" aria-labelledby="s3">
+    <div class="signal-head">
+      <span class="signal-num">03</span>
+      <span class="signal-alert l2" id="s3-alert">L2 · Watch</span>
+      <span class="signal-domain" id="s3-domain">Competitive · Workday Agent Passport · Cisco AI Defense · Update to Friday signal 01</span>
+    </div>
+    <h2 id="s3">Agent Passport's operative product is <em>Cisco AI Defense</em>. The side-by-side ship target needs the specific capability map.</h2>
+    <p id="s3-lede">The 2026-06-02 Workday Newsroom and PRNewswire releases for Agent Passport name <strong>Cisco AI Defense</strong> as the named product Cisco brings to the partnership — not just "Cisco verification" as Friday's brief framed it. Cisco AI Defense's stated runtime capabilities (per the joint release): prompt-injection protection, jailbreak protection, data-leakage protection, and unsafe-action prevention, with the ability to "allow, block, or route agent actions in real time and revoke compromised agents centrally" [7][8]. Pre-deployment testing maps to OWASP LLM Top 10, NIST AI RMF, and MITRE ATLAS (already in Friday's brief). <em>Fact:</em> the Cisco AI Defense naming is primary-sourced via Workday Newsroom (2026-06-02), PRNewswire (302787979), CIO.com, and StockTitan — four sources converge. <em>Inference:</em> Friday's signal 01 reco for Kernel + Forge to ship a side-by-side comparison by 2026-06-12 still stands; this update is the specific feature list the comparison needs to address rather than the generic benchmark categories.</p>
+    <h3>Why this matters to Stratum</h3>
+    <p id="s3-why">Friday's brief framed Agent Passport as "Cisco-signed verification." That is correct but under-specified. The actual product is a runtime control plane (allow / block / route / revoke) on top of pre-deployment benchmark testing. The side-by-side comparison Kernel and Forge are building should now answer two specific questions, not one: (a) "What does Stratum's published eval set v1.2 cover that Cisco AI Defense's runtime protection does not?" and (b) "Where does Stratum's audit-log + people-graph architecture provide runtime visibility that Cisco AI Defense provides via a separate control plane?" The first question is the trust-and-discovery story (Friday's frame). The second is an architectural-integration story that Forge can credibly own: Stratum's audit log <em>is</em> the runtime visibility, in-system; Workday's customer needs a Cisco-product overlay to get the same visibility. That second story is the one the Tessera-prepared comparison page should foreground for buyers who care about operational simplicity, not just trust posture.</p>
+    <h3>Recommended actions</h3>
+    <ul class="recos" id="s3-recos">
+      <li><span class="who">Kernel + Forge</span>Update the in-flight side-by-side comparison (Friday's signal 01 reco, ship 2026-06-12) to address Cisco AI Defense's specific runtime capabilities, not just OWASP/NIST/MITRE benchmark categories. Frame it as two questions: published-eval-coverage vs. Cisco-runtime-coverage, and integrated-audit-log vs. Cisco-control-plane overlay. No date slip needed; the existing draft just gets a sharper opponent.</li>
+      <li><span class="who">Tessera</span>The /compare/ page treatment (if/when ratified) should foreground the architectural-integration story for buyers comparing Stratum to Workday+Cisco — "one platform with the audit log built in" vs. "two vendors with the audit log assembled at runtime." No design work this week; flag for inclusion when the comparison page enters the queue.</li>
+    </ul>
+  </article>
+
+  <!-- SOURCES -->
+  <section class="sources" aria-labelledby="sources">
+    <h2 id="sources">Sources</h2>
+    <ol id="sources-list">
+      <li>Morgan Lewis, "EU Pay Transparency Directive: The Deadline for Transposition Has Passed—What Now?" 2026-06. <a href="https://www.morganlewis.com/pubs/2026/06/eu-pay-transparency-directive-the-deadline-for-transposition-has-passed-what-now">morganlewis.com/pubs/2026/06/eu-pay-transparency-directive-the-deadline-for-transposition-has-passed-what-now</a></li>
+      <li>L&amp;E Global, "European Union: Transposition of the EU Pay Transparency Directive Across 27 Member States," 2026-04-20 (updated through 2026-05-27 country deep-dive). <a href="https://leglobal.law/2026/04/20/european-union-transposition-of-the-eu-pay-transparency-directive-across-27-member-states/">leglobal.law/2026/04/20/european-union-transposition-of-the-eu-pay-transparency-directive-across-27-member-states</a></li>
+      <li>L&amp;E Global, "Pay Transparency Directive: Europe Nears the Deadline, but Most Member States are Not Ready," 2026-05-27. <a href="https://leglobal.law/2026/05/27/european-union-pay-transparency-directive-europe-nears-the-deadline-but-most-member-states-are-not-ready/">leglobal.law/2026/05/27/european-union-pay-transparency-directive-europe-nears-the-deadline-but-most-member-states-are-not-ready</a></li>
+      <li>DCI Consult, "Sweden Calls for Delay and Renegotiation of EU Pay Transparency Directive," 2026. <a href="https://blog.dciconsult.com/sweden-calls-for-delay-and-renegotiation-of-eu-pay-transparency-directive">blog.dciconsult.com/sweden-calls-for-delay-and-renegotiation-of-eu-pay-transparency-directive</a></li>
+      <li>Bird &amp; Bird, "The EU Pay Transparency Directive after the transposition deadline: what companies and employees need to know," 2026-06 (Belgium desk). <a href="https://www.twobirds.com/en/insights/2026/belgium/the-eu-pay-transparency-directive-after-the-transposition-deadline-what-companies-and-employees-need">twobirds.com/en/insights/2026/belgium/the-eu-pay-transparency-directive-after-the-transposition-deadline-what-companies-and-employees-need</a></li>
+      <li>Freshfields, "What the delayed implementation of the EU Pay Transparency Directive means for private employers," 2026-05/06. <a href="https://www.freshfields.com/en/our-thinking/blogs/risk-and-compliance/what-the-delayed-implementation-of-the-eu-pay-transparency-directive-means-for-pr-102mm5w">freshfields.com/en/our-thinking/blogs/risk-and-compliance/what-the-delayed-implementation-of-the-eu-pay-transparency-directive-means-for-private-employers</a></li>
+      <li>Workday Newsroom, "Workday Launches Agent Passport to Test, Verify, and Continuously Monitor Every AI Agent in the Enterprise," 2026-06-02. <a href="https://newsroom.workday.com/2026-06-02-Workday-Launches-Agent-Passport-to-Test,-Verify,-and-Continuously-Monitor-Every-AI-Agent-in-the-Enterprise">newsroom.workday.com/2026-06-02-Workday-Launches-Agent-Passport-…</a></li>
+      <li>PRNewswire, "Workday Launches Agent Passport to Test, Verify, and Continuously Monitor Every AI Agent in the Enterprise," 2026-06-02 (release 302787979). <a href="https://www.prnewswire.com/news-releases/workday-launches-agent-passport-to-test-verify-and-continuously-monitor-every-ai-agent-in-the-enterprise-302787979.html">prnewswire.com/news-releases/workday-launches-agent-passport-…-302787979.html</a></li>
+      <li>Eglin Daily Signal Brief, 2026-06-05 (Friday — Workday DevCon delayed catch, Mobley v. Workday discovery ruling, EU-PTD T-2). <a href="/intel/eglin/daily/2026-06-05.html">/intel/eglin/daily/2026-06-05.html</a></li>
+    </ol>
+  </section>
+
+  <!-- CLOSING -->
+  <section class="closing" aria-labelledby="closing">
+    <h3 id="closing">What I missed / what I want next</h3>
+    <p id="closing-confidence"><strong>Source confidence.</strong> EU-PTD post-deadline status — high; Morgan Lewis (post-deadline analysis), L&amp;E Global (April 27-state monitor plus May 27 update), Bird &amp; Bird, Freshfields, Synd.io, and Trusaic converge on Italy + Slovakia transposed, Poland partial, the rest in arrears with the public target dates cited. The no-horizontal-direct-effect doctrine is settled EU law (<em>Marshall</em> 1986, <em>Faccini Dori</em> 1994); the citation is to the doctrine, not to a 6/8 publication. Sweden renegotiation — high; the 2026-01-15 referral and 2026-03-26 reversal are sourced via L&amp;E Global and DCI Consult with consistent rationale (administrative burden). Workday Agent Passport / Cisco AI Defense naming — high; Workday Newsroom, PRNewswire 302787979, CIO.com, and StockTitan converge on the Cisco AI Defense product naming and the runtime-control-plane capabilities. <strong>What I didn't cover.</strong> No new Mobley v. Workday filings since Friday's brief (Beeler's 2026-05-29 discovery ruling remains the operative event; no plaintiff motion for reconsideration filed yet per the public docket). No competitor product launches over the weekend — Greenhouse, Ashby, Workable, Lever, iCIMS newsrooms quiet 6/5–6/8 (weekend cadence). EU AI Act Annex III consultation closes 2026-06-23 (T-15 days); Stratum's position decision is still pending per Friday's reco — re-flagging in next brief.</p>
+    <p id="closing-watching"><strong>What I'm watching next.</strong> First, the European Commission's response to Sweden's renegotiation request — silence through end-June is the most likely outcome but a substantive engagement would change the strategic shape of the PTD landscape for 2027 onward. Second, the German "bureaucracy-reduced" model bill — circulation in early 2027 is the public target, but any earlier leak would shift the German transposition window meaningfully. Third, the post-deadline Commission infringement announcement pattern — the precedent (Spain, Work-Life Balance Directive, €6.83M lump sum plus daily penalty) suggests formal infringement letters land 60–90 days after a deadline; that puts the first wave around late August. Fourth, the Workday Agent Passport early-access customer list — still unpublished; if any current Stratum prospect appears in the early-access tier that is a same-day briefing not a daily. Fifth, the watch-list refresh (overdue from Friday) — ships by EOD 2026-06-08 alongside the weekly digest tomorrow.</p>
+    <p id="closing-o2"><strong>O-2 self-check.</strong> This dispatch advances O-2 well. The PTD post-deadline brief is exactly the closed-loop continuation O-2 calls for: Friday's brief had the deadline at T-2 with a six-state-miss list; today's brief lands the post-deadline reality with the corrected count, the legal-shape nuance the popular coverage is missing, and the specific updates to the customer-facing doctrine. The Sweden signal is a politically distinct elevation Friday underweighted — surfacing it today before Compass's post-mortem ships is the value-add the radar is supposed to deliver. The Workday Agent Passport update is the closed-loop continuation of Friday's signal 01, sharpening the in-flight Kernel + Forge ship without creating new work. <em>The honest discipline check:</em> the brief is 3 signals, not 5, and that is the right call — there is no fourth signal worth elevating this morning (weekend quiet, no competitor newsroom activity, no fresh Mobley filings, EU AI Act consultation still in pending posture). False-positive padding would erode trust faster than the gap. The watch-list refresh ships today as committed.</p>
+  </section>
+
+</main>
+
+<div class="rt-stamp"><span class="dot">●</span> compiled at <strong>2026-06-08T14:02:37Z</strong> · Eglin</div>
+
+<script src="../../../assets/echo.js" defer></script>
+</body>
+</html>
