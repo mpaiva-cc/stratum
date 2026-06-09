@@ -1,7 +1,7 @@
 ---
 layout: legacy
 title: "Stratum — Changelog · The honest log of what we shipped."
-description: "The Stratum product changelog. Eleven internal versions across Foundation, Loam, and Marble. Private alpha; public GA targeted Q1 2027."
+description: "The Stratum product changelog. Foundation, Loam, Marble, and now Basalt — resumed at the Stratum Ember milestone. Private alpha; public GA targeted Q1 2027."
 permalink: /changelog/index.html
 ---
 <!doctype html>
@@ -938,7 +938,7 @@ p { margin: 0 0 1.1em; }
 <header class="log-header">
   <div class="log-eyebrow">
     <span class="bar"></span>
-    <span>stratum.ai/changelog · v0.4.2 · 11 releases</span>
+    <span>stratum.ai/changelog · v0.7.0 · resumed at the Ember milestone</span>
   </div>
 
   <h1 class="log-wordmark">
@@ -947,10 +947,12 @@ p { margin: 0 0 1.1em; }
   </h1>
 
   <p class="log-sub">
-    The honest log of what we shipped, by version, by week. Eleven internal
-    builds across three codename groups — Foundation, Loam, Marble — covering
-    the people-graph schema, three connectors, and the design language. We
-    write these for design partners, for our chairman, and for ourselves.
+    The honest log of what we shipped, by version, by week. The Foundation,
+    Loam, and Marble groups covered the people-graph schema, the connectors,
+    and the design language; the log then paused while Tenure and Cairn shipped
+    (recorded in the briefings) and resumes here at the Basalt group for the
+    Stratum Ember milestone. We write these for design partners, for our
+    chairman, and for ourselves.
   </p>
 
   <div class="log-note">
@@ -986,12 +988,78 @@ p { margin: 0 0 1.1em; }
 
 <!-- ───────────────────────────────────────────────── LOG ENTRIES ── -->
 <section class="log">
-  <div class="log-h">The log · reverse chronological · 11 entries</div>
+  <div class="log-h">The log · reverse chronological · resumed at the Ember milestone</div>
 
   <div class="entries">
 
-    <!-- ═══════════════════════════ v0.4.2 ═══════════════════════════ -->
+    <!-- ═══════════════════════════ v0.7.0 · EMBER MILESTONE ═══════════════════════════ -->
     <article class="entry is-current">
+      <aside class="entry-rail">
+        <div class="entry-version"><span class="v">v</span>0.7.0</div>
+        <div class="entry-codename">Basalt</div>
+        <div class="entry-date">Mon, 2026-06-08</div>
+        <div class="entry-build">build · 2652a64 · main</div>
+        <div class="entry-shipped">
+          <span class="lbl">Shipped by</span>
+          <span class="names">Forge (eng)<br/>Kernel (eval)<br/>Tessera (design)</span>
+        </div>
+      </aside>
+
+      <div class="entry-body">
+        <p class="entry-summary">
+          The log resumes after the Marble group. What shipped this cycle is
+          not a product — it is the scaffolding for a <em>proposed</em> one.
+          Stratum Ember, a candidate-relationship layer, was proposed ahead of
+          customer demand and approved by the Chairman as a six-week
+          falsification test (<code>D-267 / D-268 / D-269</code>). <strong>Ember
+          itself is not shipped</strong>; what shipped is the eval-set probes
+          that gate it, the public evaluation surfaces, and the homepage
+          product callout. Tenure and Cairn shipped between Marble and now and
+          are recorded in <a href="../briefings/">the briefings</a>; their
+          changelog backfill is outstanding and honestly noted below.
+        </p>
+
+        <div class="section-block is-added">
+          <div class="section-label">Added</div>
+          <ul class="bullets">
+            <li><span class="tag">eval</span> two new probe families — <code>consent-validity</code> (does a proposed outreach carry a valid consent edge for purpose and jurisdiction?) and <code>nurture-fairness</code> (is the agent prioritising whom to nurture along a protected-class proxy?); both must pass before any Ember outreach is enabled</li>
+            <li><span class="tag">product</span> Ember evaluation surfaces published — <a href="../ember/plan.html">plan PLN-2026-004 v1.1</a>, <a href="../ember/decision.html">decision record</a>, <a href="../ember/">product overview</a>, and the <a href="../ember/design-partner-brief.html">Mercator + Halcyon design-partner brief</a></li>
+            <li><span class="tag">web</span> homepage <code>Product · Latest</code> block; Ember added to site nav and to the roadmap (Up next, marked proposed); <a href="../briefings/019.html">Briefing 019</a> published</li>
+            <li><span class="tag">ledger</span> public decisions-ledger entries <code>099–101</code>; the ledger crosses 100 on the Chairman's approval (D-268), exactly as entry 098 anticipated</li>
+          </ul>
+        </div>
+
+        <div class="section-block is-changed">
+          <div class="section-label">Changed</div>
+          <ul class="bullets">
+            <li><span class="tag">governance</span> PLN-2026-004 §X resolved by the Chairman — build ahead of demand (yes), the name Ember (stands, provisional, pending Tessera's review), standalone-vs-module (decided at the T+68d adoption gate, module-first the fallback); plan status <code>DRAFT → v1.1 approved-for-evaluation</code></li>
+            <li><span class="tag">pricing</span> Ember design-partner pricing set at <code>$0</code> through the T+68d evaluation for Mercator and Halcyon, contingent on weekly feedback and a joint consent-data audit (D-269)</li>
+          </ul>
+        </div>
+
+        <div class="section-block is-known">
+          <div class="section-label">Known</div>
+          <ul class="bullets">
+            <li><span class="tag">ember</span> <strong>not shipped</strong> — proposed, under a six-week evaluation; the T+68d adoption gate decides standalone vs module vs shelve. Consent coverage at <code>100%</code> is a hard gate; below it the product does not ship</li>
+            <li><span class="tag">changelog</span> backfill for the Tenure and Cairn release groups is outstanding; recorded in <a href="../briefings/016.html">Briefings 016</a>–<a href="../briefings/018.html">018</a> meanwhile. The "resumed" date convention shifts to real-elapsed ISO at this entry</li>
+            <li><span class="tag">focus</span> Ember is the last new product surface before consolidation (<code>RISK-FOCUS-008</code>); if the core is not assembling cheaply by T+47d it folds into Recruiter rather than standing up a line</li>
+          </ul>
+        </div>
+
+        <div class="contrib-line">
+          <span class="lbl">Contributors</span>
+          <span class="name">Compass</span> (gtm · proposal) ·
+          <span class="name">Forge</span> (architecture) ·
+          <span class="name">Vector</span> (customer · brief) ·
+          <span class="name">Kernel</span> (eval probes) ·
+          <span class="name">Tessera</span> (design · surfaces) ·
+          <span class="name">Helm</span> (briefing 019)
+        </div>
+      </div>
+    </article>
+
+    <!-- ═══════════════════════════ v0.4.2 ═══════════════════════════ -->
+    <article class="entry">
       <aside class="entry-rail">
         <div class="entry-version"><span class="v">v</span>0.4.2</div>
         <div class="entry-codename">Marble</div>
