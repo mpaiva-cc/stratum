@@ -1,0 +1,224 @@
+---
+layout: legacy
+title: "Stratum Ember — Design-Partner Brief · Mercator & Halcyon."
+description: "The design-partner brief for the Stratum Ember six-week evaluation: Mercator and Halcyon each run one real talent pool through consent-gated nurture, with a joint consent-data audit. The falsification gates that decide go/no-go at T+68d. Authored by Vector."
+permalink: /ember/design-partner-brief.html
+---
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<!-- og-jsonld:start -->
+<meta name="description" content="{{ page.description | default: site.description | escape }}">
+<meta property="og:title" content="{{ page.title | default: site.title | escape }}">
+<meta property="og:description" content="{{ page.description | default: site.description | escape }}">
+<meta property="og:url" content="{{ page.url | absolute_url }}">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="{{ site.title | escape }}">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="{{ page.title | default: site.title | escape }}">
+<meta name="twitter:description" content="{{ page.description | default: site.description | escape }}">
+{%- if page.title -%}
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":{{ page.title | jsonify }},"description":{{ page.description | default: site.description | jsonify }},"url":"{{ page.url | absolute_url }}"}</script>
+{%- endif -%}
+<!-- og-jsonld:end -->
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Stratum Ember — Design-Partner Brief · Mercator &amp; Halcyon.</title>
+<meta name="description" content="The design-partner brief for the Stratum Ember six-week evaluation. Authored by Vector." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght,SOFT,WONK@9..144,300..900,0..100,0..1&family=Newsreader:ital,opsz,wght@0,6..72,300..700;1,6..72,300..700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="{{ '/assets/styles.css?v=5' | relative_url }}">
+<style>
+/* ============================================================
+   Stratum · stratum.ai/ember/design-partner-brief
+   Ember · Design-Partner Brief · Mercator & Halcyon · Vector
+   ============================================================ */
+:root{
+  --paper:#f4ecda;--paper-warm:#f7f0e0;--paper-deep:#ebe1c9;--paper-card:#fbf5e6;
+  --paper-rule:#d8cdb6;--paper-rule-2:#c8b894;
+  --ink:#0e1626;--ink-2:#2a3344;--ink-3:#4b5365;--ink-3-aaa:#3d4456;--ink-mute:#6c7180;
+  --ochre:#b8651f;--ochre-deep:#8a4711;--ochre-soft:#e6c79b;--ochre-wash:rgba(184,101,31,.07);
+  --moss:#4a5d3a;--moss-deep:#364528;--moss-soft:#c5cdb1;
+  --plum:#6b3a4a;--plum-soft:#c8a8b1;
+  --display:"Fraunces","Newsreader",Georgia,serif;
+  --serif:"Newsreader","Iowan Old Style",Georgia,serif;
+  --mono:"JetBrains Mono",ui-monospace,"SF Mono",Menlo,monospace;
+  --col-wide:min(1320px,94vw);--col-read:min(820px,92vw);--col-doc:min(960px,92vw);
+}
+*{box-sizing:border-box;}
+html,body{margin:0;padding:0;background:var(--paper);color:var(--ink);font-family:var(--serif);font-size:17.5px;line-height:1.62;font-feature-settings:"kern","liga","onum";text-rendering:optimizeLegibility;-webkit-font-smoothing:antialiased;}
+body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:0;background:radial-gradient(circle at 8% 12%,rgba(184,101,31,.05),transparent 42%),radial-gradient(circle at 92% 88%,rgba(14,22,38,.04),transparent 46%),repeating-radial-gradient(circle at 0 0,rgba(14,22,38,.012) 0,rgba(14,22,38,.012) 1px,transparent 1px,transparent 3px);mix-blend-mode:multiply;}
+a{color:var(--ochre);text-decoration:none;border-bottom:1px solid transparent;transition:border-color .2s,color .2s;}
+a:hover{border-bottom-color:var(--ochre);}
+em{font-style:italic;font-variation-settings:"opsz" 14;}
+strong{font-weight:600;color:var(--ink);}
+p{margin:0 0 1.1em;}
+.mob-bar{display:none;}
+@media (max-width:960px){.mob-bar{position:sticky;top:0;z-index:200;background:rgba(244,236,218,.96);-webkit-backdrop-filter:saturate(140%) blur(10px);backdrop-filter:saturate(140%) blur(10px);border-bottom:1px solid var(--paper-rule);padding:.6rem 1.1rem;display:flex;align-items:center;justify-content:space-between;gap:.6rem;font-family:var(--mono);font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-3-aaa);}.mob-bar a{color:var(--ink-3-aaa);min-height:36px;display:flex;align-items:center;padding:0 .25rem;border-bottom:0;}.mob-bar-mark{font-family:var(--display);font-weight:600;font-size:1rem;color:var(--ink);text-transform:none;flex:1;text-align:center;}}
+.doc-head{width:var(--col-doc);margin:0 auto;padding:4.4rem 0 3rem;border-bottom:1px solid var(--paper-rule);}
+.doc-stamp{font-family:var(--mono);font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--ink-mute);line-height:1.85;margin-bottom:2rem;display:flex;flex-direction:column;gap:.15rem;border-left:2px solid var(--ochre);padding-left:1rem;max-width:56ch;}
+.doc-stamp .l1{color:var(--ink-2);font-weight:500;} .doc-stamp .l2{color:var(--ink);} .doc-stamp .l3{color:var(--ochre);}
+.doc-title{font-family:var(--display);font-weight:500;font-variation-settings:"opsz" 144,"SOFT" 0;font-size:clamp(2.3rem,5.4vw,3.6rem);line-height:1.03;letter-spacing:-.032em;color:var(--ink);margin:0 0 1.2rem;max-width:20ch;}
+.doc-title em{font-style:italic;font-variation-settings:"opsz" 144,"WONK" 1;color:var(--ochre);}
+.doc-sub{font-family:var(--display);font-style:italic;font-weight:400;font-variation-settings:"opsz" 36;font-size:clamp(1.1rem,2vw,1.4rem);line-height:1.38;color:var(--ink-2);max-width:54ch;margin:0 0 1.8rem;}
+.doc-dateline{font-family:var(--mono);font-size:11.5px;letter-spacing:.05em;color:var(--ink-mute);line-height:1.7;max-width:76ch;padding:.9rem 1.1rem;border-left:2px solid var(--ink);background:var(--paper-warm);}
+.doc-dateline strong{color:var(--ink-2);letter-spacing:.14em;text-transform:uppercase;font-size:10.5px;font-weight:500;display:inline-block;margin-right:.4em;}
+.section{width:var(--col-doc);margin:0 auto;padding:3.2rem 0 1rem;}
+.section-head{display:grid;grid-template-columns:200px 1fr;gap:2rem;margin-bottom:2rem;align-items:end;border-top:1px solid var(--ink);padding-top:2.2rem;}
+.section-rail{font-family:var(--mono);font-size:11.5px;letter-spacing:.24em;text-transform:uppercase;color:var(--ochre);display:flex;align-items:center;gap:.7rem;}
+.section-rail::before{content:"";width:22px;height:1px;background:var(--ochre);}
+.section-title{font-family:var(--display);font-variation-settings:"opsz" 144;font-weight:500;font-size:clamp(1.7rem,3.4vw,2.4rem);line-height:1.07;letter-spacing:-.026em;color:var(--ink);margin:0 0 .5rem;}
+.section-title em{font-style:italic;font-variation-settings:"opsz" 144,"WONK" 1;color:var(--ochre);}
+.section-dek{font-family:var(--serif);font-size:1.02rem;line-height:1.5;color:var(--ink-3-aaa);font-style:italic;max-width:58ch;margin:0;}
+@media (max-width:820px){.section-head{grid-template-columns:1fr;gap:1rem;}}
+.prose{max-width:64ch;margin:0 auto 1.2rem;}
+.prose p{font-family:var(--serif);font-size:1.07rem;line-height:1.62;color:var(--ink-2);}
+.prose p strong{color:var(--ink);}
+.prose .kicker{font-family:var(--mono);font-size:10.5px;letter-spacing:.22em;text-transform:uppercase;color:var(--ochre);margin-bottom:.35rem;display:block;}
+/* gates table */
+.gates{max-width:64ch;margin:1.4rem auto 0;border-top:1px solid var(--ink);border-bottom:1px solid var(--ink);}
+.gate{display:grid;grid-template-columns:1.5fr 1fr;gap:1rem;padding:1rem 0;border-top:1px dashed var(--paper-rule);align-items:baseline;}
+.gate:first-child{border-top:0;}
+.gate .gk{font-family:var(--serif);font-size:1.02rem;color:var(--ink-2);line-height:1.4;}
+.gate .gk b{color:var(--ink);}
+.gate .gv{font-family:var(--mono);font-size:12.5px;letter-spacing:.04em;color:var(--ink);text-align:right;}
+.gate .gv.hard{color:var(--plum);font-weight:700;}
+.gate .gv.go{color:var(--moss-deep);font-weight:500;}
+@media (max-width:640px){.gate{grid-template-columns:1fr;gap:.2rem;}.gate .gv{text-align:left;}}
+/* steps */
+.steps{max-width:64ch;margin:1.2rem auto 0;display:flex;flex-direction:column;gap:0;border-top:1px solid var(--ink);border-bottom:1px solid var(--ink);}
+.step{display:grid;grid-template-columns:130px 1fr;gap:1.4rem;padding:1.3rem 0;border-top:1px solid var(--paper-rule);align-items:start;}
+.step:first-child{border-top:0;}
+.step .sw{font-family:var(--mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--ochre);line-height:1.4;}
+.step .sb{font-family:var(--serif);font-size:1.02rem;line-height:1.55;color:var(--ink-2);}
+.step .sb strong{color:var(--ink);}
+@media (max-width:640px){.step{grid-template-columns:1fr;gap:.4rem;}}
+.note{max-width:64ch;margin:1.4rem auto 0;border-left:3px solid var(--plum);background:rgba(107,58,74,.05);padding:1.1rem 1.3rem;font-family:var(--serif);font-size:1.02rem;line-height:1.55;color:var(--ink-2);}
+.note strong{color:var(--plum);}
+.closing{width:var(--col-read);margin:3.2rem auto 0;padding:3.6rem 0;text-align:center;border-top:1px solid var(--paper-rule);}
+.closing-h{font-family:var(--display);font-variation-settings:"opsz" 144;font-weight:400;font-size:clamp(1.4rem,2.8vw,2rem);line-height:1.26;letter-spacing:-.02em;margin:0 0 1.4rem;color:var(--ink);font-style:italic;max-width:34ch;margin-left:auto;margin-right:auto;}
+.closing-h em{color:var(--ochre);font-style:italic;font-variation-settings:"opsz" 144,"WONK" 1;}
+.closing-sign{font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-mute);margin-top:1.4rem;line-height:1.7;}
+.closing-sign strong{color:var(--ink-2);}
+.footer{background:var(--ink);color:var(--paper);padding:3.4rem 0 1.6rem;margin-top:1rem;}
+.footer-foot{width:var(--col-wide);margin:0 auto;font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:rgba(244,236,218,.6);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem;}
+.footer-foot a{color:rgba(244,236,218,.85);border-bottom:0;} .footer-foot a:hover{color:var(--ochre);}
+@media (max-width:960px){html,body{overflow-x:clip;}}
+</style>
+</head>
+<body>
+<!-- realtime-stamp -->
+<div class="rt-stamp" data-t0="2026-05-12T22:25:46-04:00" data-this="2026-06-08T12:00:00-04:00" style="position:fixed;bottom:8px;right:10px;z-index:9999;font-family:'JetBrains Mono',ui-monospace,Menlo,monospace;font-size:9.5px;letter-spacing:.08em;color:rgba(14,22,38,.55);background:rgba(244,236,218,.75);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);padding:.25rem .55rem;border-radius:999px;border:1px solid rgba(184,101,31,.25);pointer-events:none"><span style="color:#b8651f">●</span> compiled at <strong style="color:#0e1626">T+26d</strong> real-elapsed · <span style="opacity:.6">2026-06-08</span></div>
+<!-- /realtime-stamp -->
+
+<div class="mob-bar">
+  <a href="./index.html" aria-label="Ember overview">← Ember</a>
+  <span class="mob-bar-mark">Ember / Design-partner brief</span>
+  <a href="./plan.html" aria-label="The plan">Plan →</a>
+</div>
+
+{% include site-nav.html %}
+
+<header class="doc-head">
+  <div class="doc-stamp">
+    <span class="l1">STRATUM, INC. · CUSTOMER ENGINEERING</span>
+    <span class="l2">DESIGN-PARTNER BRIEF · STRATUM EMBER</span>
+    <span class="l3">MERCATOR &amp; HALCYON · T+26d</span>
+  </div>
+  <h1 class="doc-title">A six-week test, <em>not</em> a launch.</h1>
+  <p class="doc-sub">Two partners, one real pool each, consent-gated nurture live, and a gate that can tell us — cheaply and honestly — whether Ember deserves to exist.</p>
+  <div class="doc-dateline">
+    <strong>From.</strong>
+    Vector · Customer Engineering · for <a href="../customers/mercator.html">Mercator</a> and <a href="../customers/halcyon.html">Halcyon</a>.<br/>
+    Companion to the <a href="./plan.html">Ember plan (PLN-2026-004)</a> and the <a href="./decision.html">decision record (D-269)</a>. The terms here are the contractual trade for design-partner pricing.
+  </div>
+</header>
+
+<!-- WHAT EMBER IS -->
+<section class="section" id="what">
+  <div class="section-head">
+    <div class="section-rail">What you'd be testing</div>
+    <div>
+      <h2 class="section-title">Ember, in one <em>paragraph</em>.</h2>
+      <p class="section-dek">You already know the people graph. This is the surface that sits in front of it, before a requisition exists.</p>
+    </div>
+  </div>
+  <div class="prose">
+    <p>Stratum Ember is a proposed candidate-relationship product on the <a href="../graph/">people graph</a>: dynamic talent pools, consent-native nurture, and identity-resolved rediscovery of the people you already met — past finalists, referrals, alumni — surfaced as one deduplicated person, not a rented list that decays. It is not shipped. It is a proposal, and you are being asked to help us decide whether it should be. We will tell you the result either way.</p>
+  </div>
+</section>
+
+<!-- THE ASK -->
+<section class="section" id="ask">
+  <div class="section-head">
+    <div class="section-rail">The ask</div>
+    <div>
+      <h2 class="section-title">One real pool. <em>Six</em> weeks. Your own past finalists.</h2>
+      <p class="section-dek">Small, real, and bounded — chosen so the test is honest and the effort is low.</p>
+    </div>
+  </div>
+  <div class="steps">
+    <div class="step"><div class="sw">The pool</div><div class="sb">Each of you picks <strong>one real population</strong> — your strong past finalists and referrals for a recurring role — and we build it as a live pool on your tenant. No data leaves your perimeter; identity is resolved across your own ATS, HRIS, and directory.</div></div>
+    <div class="step"><div class="sw">The nurture</div><div class="sb"><strong>Consent-gated nurture runs live</strong> against that pool. Every send is checked against a per-edge consent record — scope, purpose, validity, jurisdiction. An outreach without valid consent for its purpose cannot be sent. By construction, not by policy.</div></div>
+    <div class="step"><div class="sw">The audit</div><div class="sb">We run a <strong>joint consent-data audit</strong> with your team and prove, on your tenant, that no outreach left without a valid consent edge. <strong>This artifact is the single most important output of the six weeks</strong> — and it is yours, for your own General Counsel.</div></div>
+    <div class="step"><div class="sw">The cadence</div><div class="sb">A <strong>weekly feedback session</strong>; Vector shadows every session end-to-end. Issues triaged within 48 hours; ship cadence is daily through the evaluation.</div></div>
+  </div>
+</section>
+
+<!-- THE GATES -->
+<section class="section" id="gates">
+  <div class="section-head">
+    <div class="section-rail">How we'll judge it</div>
+    <div>
+      <h2 class="section-title">The gates that decide <em>go / no-go</em> at T+68d.</h2>
+      <p class="section-dek">Published in advance, so the test can return a clean "no." The first one is non-negotiable.</p>
+    </div>
+  </div>
+  <div class="gates">
+    <div class="gate"><div class="gk"><b>Consent coverage of outreach</b> — sends with a valid consent edge for purpose and jurisdiction</div><div class="gv hard">100% · hard gate</div></div>
+    <div class="gate"><div class="gk"><b>Unprompted sourcer adoption</b> — do your sourcers use it without being told?</div><div class="gv go">&gt; 60% of seats</div></div>
+    <div class="gate"><div class="gk"><b>Rediscovery-to-interview rate</b> — warm graph candidate to live interview loop</div><div class="gv go">&gt; 2× cold-source baseline</div></div>
+    <div class="gate"><div class="gk"><b>Candidate transparency NPS</b> — surveyed, among the people you nurtured</div><div class="gv go">&gt; 40</div></div>
+  </div>
+  <div class="note"><strong>Below the hard gate, the product does not ship.</strong> Consent coverage at 100% is a gate, not a target. If a single outreach could leave without valid consent, Ember is not ready and we will say so — to you first.</div>
+</section>
+
+<!-- TERMS -->
+<section class="section" id="terms">
+  <div class="section-head">
+    <div class="section-rail">The trade</div>
+    <div>
+      <h2 class="section-title">Zero dollars through the evaluation. <em>One</em> condition.</h2>
+      <p class="section-dek">Decision D-269. Explicit and contractual, because the value we get from you is real.</p>
+    </div>
+  </div>
+  <div class="prose">
+    <p><strong>Ember is $0 through the T+68d evaluation</strong> for both design partners, in exchange for the weekly feedback and the jointly-run consent-data audit. The trade is explicit: <strong>no feedback, no free tier.</strong> If Ember graduates to a product after the gate, design partners carry preferential Year-One pricing on the no-per-seat model — but that is a later conversation, and it is not a condition of this test.</p>
+    <p>What you get, regardless of the outcome: early influence on the product, the consent-audit artifact for your own compliance posture, and an honest answer about whether a relationship layer on the people graph holds up against your real data.</p>
+  </div>
+</section>
+
+<section class="closing">
+  <h2 class="closing-h">We are building this <em>ahead</em> of the demand. Six weeks from now we will know — with you, on your data — whether we were right.</h2>
+  <div class="closing-sign">
+    <strong>Vector · Stratum Customer Engineering.</strong><br/>
+    Companion to PLN-2026-004 · decision D-269 · T+26d.<br/>
+    Next checkpoint: the T+68d gate.
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="footer-foot">
+    <div>© 2026 Stratum, Inc. · Public because the Compact requires it.</div>
+    <div>Design-partner brief · <strong style="color:var(--paper);">Mercator &amp; Halcyon</strong> · T+26d</div>
+    <div><a href="mailto:partners@stratum.ai">partners@stratum.ai</a></div>
+  </div>
+</footer>
+
+<script>
+(function(){var nav=document.getElementById('nav');if(!nav)return;function s(){if(window.scrollY>8)nav.classList.add('is-scrolled');else nav.classList.remove('is-scrolled');}window.addEventListener('scroll',s,{passive:true});s();})();
+</script>
+<script src="../assets/echo.js" defer></script>
+</body>
+</html>

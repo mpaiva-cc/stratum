@@ -1,0 +1,228 @@
+---
+layout: legacy
+title: "Stratum Ember — the relationship layer for AI-first hiring."
+description: "Stratum Ember is a proposed AI-first Candidate Relationship Management product: dynamic talent pools, consent-native nurture, and identity-resolved rediscovery on the people graph. The front edge of the funnel — attract → hire → grow. Proposed fifth product, under a six-week evaluation."
+permalink: /ember/index.html
+---
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<!-- og-jsonld:start -->
+<meta name="description" content="{{ page.description | default: site.description | escape }}">
+<meta property="og:title" content="{{ page.title | default: site.title | escape }}">
+<meta property="og:description" content="{{ page.description | default: site.description | escape }}">
+<meta property="og:url" content="{{ page.url | absolute_url }}">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="{{ site.title | escape }}">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="{{ page.title | default: site.title | escape }}">
+<meta name="twitter:description" content="{{ page.description | default: site.description | escape }}">
+{%- if page.title -%}
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","headline":{{ page.title | jsonify }},"description":{{ page.description | default: site.description | jsonify }},"url":"{{ page.url | absolute_url }}"}</script>
+{%- endif -%}
+<!-- og-jsonld:end -->
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Stratum Ember — the relationship layer for AI-first hiring.</title>
+<meta name="description" content="Stratum Ember is a proposed AI-first Candidate Relationship Management product on the people graph. Proposed fifth product, under a six-week evaluation." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght,SOFT,WONK@9..144,300..900,0..100,0..1&family=Newsreader:ital,opsz,wght@0,6..72,300..700;1,6..72,300..700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="{{ '/assets/styles.css?v=5' | relative_url }}">
+<style>
+/* ============================================================
+   Stratum · stratum.ai/ember
+   Stratum Ember · product overview (proposed)
+   Cream paper · deep ink · ochre · moss · plum.
+   ============================================================ */
+:root{
+  --paper:#f4ecda;--paper-warm:#f7f0e0;--paper-deep:#ebe1c9;--paper-card:#fbf5e6;
+  --paper-rule:#d8cdb6;--paper-rule-2:#c8b894;
+  --ink:#0e1626;--ink-2:#2a3344;--ink-3:#4b5365;--ink-3-aaa:#3d4456;--ink-mute:#6c7180;
+  --ochre:#b8651f;--ochre-deep:#8a4711;--ochre-soft:#e6c79b;--ochre-wash:rgba(184,101,31,.07);
+  --moss:#4a5d3a;--moss-deep:#364528;--moss-soft:#c5cdb1;
+  --plum:#6b3a4a;--plum-soft:#c8a8b1;
+  --display:"Fraunces","Newsreader",Georgia,serif;
+  --serif:"Newsreader","Iowan Old Style",Georgia,serif;
+  --mono:"JetBrains Mono",ui-monospace,"SF Mono",Menlo,monospace;
+  --col:min(1180px,92vw);--col-wide:min(1320px,94vw);--col-read:min(820px,92vw);--col-doc:min(960px,92vw);
+}
+*{box-sizing:border-box;}
+html,body{margin:0;padding:0;background:var(--paper);color:var(--ink);font-family:var(--serif);font-size:17.5px;line-height:1.62;font-feature-settings:"kern","liga","onum";text-rendering:optimizeLegibility;-webkit-font-smoothing:antialiased;}
+body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:0;background:radial-gradient(circle at 8% 12%,rgba(184,101,31,.05),transparent 42%),radial-gradient(circle at 92% 88%,rgba(14,22,38,.04),transparent 46%),repeating-radial-gradient(circle at 0 0,rgba(14,22,38,.012) 0,rgba(14,22,38,.012) 1px,transparent 1px,transparent 3px);mix-blend-mode:multiply;}
+a{color:var(--ochre);text-decoration:none;border-bottom:1px solid transparent;transition:border-color .2s,color .2s;}
+a:hover{border-bottom-color:var(--ochre);}
+em{font-style:italic;font-variation-settings:"opsz" 14;}
+strong{font-weight:600;color:var(--ink);}
+p{margin:0 0 1.1em;}
+.mob-bar{display:none;}
+@media (max-width:960px){.mob-bar{position:sticky;top:0;z-index:200;background:rgba(244,236,218,.96);-webkit-backdrop-filter:saturate(140%) blur(10px);backdrop-filter:saturate(140%) blur(10px);border-bottom:1px solid var(--paper-rule);padding:.6rem 1.1rem;display:flex;align-items:center;justify-content:space-between;gap:.6rem;font-family:var(--mono);font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-3-aaa);}.mob-bar a{color:var(--ink-3-aaa);min-height:36px;display:flex;align-items:center;padding:0 .25rem;border-bottom:0;}.mob-bar-mark{font-family:var(--display);font-weight:600;font-size:1rem;color:var(--ink);text-transform:none;flex:1;text-align:center;}}
+/* proposed banner */
+.proposed{width:var(--col-doc);margin:1.4rem auto 0;background:var(--ochre-wash);border:1px solid var(--ochre-soft);border-left:3px solid var(--ochre);padding:.9rem 1.2rem;font-family:var(--mono);font-size:11.5px;letter-spacing:.04em;line-height:1.6;color:var(--ink-2);}
+.proposed strong{color:var(--ochre-deep);letter-spacing:.14em;text-transform:uppercase;font-size:10.5px;margin-right:.5em;}
+.proposed a{color:var(--ochre-deep);}
+/* hero */
+.hero{width:var(--col-doc);margin:0 auto;padding:3.6rem 0 2.6rem;border-bottom:1px solid var(--paper-rule);}
+.hero-eyebrow{font-family:var(--mono);font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--ink-mute);margin-bottom:1.4rem;display:flex;gap:.7rem;align-items:center;}
+.hero-eyebrow .dot{color:var(--ochre);}
+.hero h1{font-family:var(--display);font-weight:500;font-variation-settings:"opsz" 144,"SOFT" 0;font-size:clamp(2.6rem,6.4vw,4.4rem);line-height:1.0;letter-spacing:-.035em;color:var(--ink);margin:0 0 1.2rem;max-width:16ch;}
+.hero h1 em{font-style:italic;font-variation-settings:"opsz" 144,"WONK" 1;color:var(--ochre);}
+.hero-lede{font-family:var(--display);font-style:italic;font-weight:400;font-variation-settings:"opsz" 36;font-size:clamp(1.2rem,2.2vw,1.55rem);line-height:1.4;color:var(--ink-2);max-width:54ch;margin:0 0 1.8rem;}
+.hero-cta{display:inline-flex;align-items:center;gap:.55rem;font-family:var(--mono);font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--paper);background:var(--ink);padding:.7rem 1.1rem;border:1px solid var(--ink);border-bottom:1px solid var(--ink);transition:background .2s,color .2s;}
+.hero-cta:hover{background:var(--ochre);border-color:var(--ochre);}
+.hero-cta .arr{color:var(--ochre);} .hero-cta:hover .arr{color:var(--ink);}
+.hero-cta.ghost{color:var(--ink);background:transparent;margin-left:.6rem;} .hero-cta.ghost:hover{color:var(--ochre-deep);background:var(--ochre-wash);border-color:var(--ochre);}
+/* funnel strip */
+.funnel{width:var(--col-doc);margin:0 auto;padding:2.6rem 0;border-bottom:1px solid var(--paper-rule);}
+.funnel-rail{font-family:var(--mono);font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--ochre);margin-bottom:1.2rem;}
+.funnel-row{display:grid;grid-template-columns:repeat(4,1fr);gap:.8rem;}
+.funnel-step{border:1px solid var(--paper-rule);background:var(--paper-card);padding:1rem 1.1rem;position:relative;}
+.funnel-step.on{border-color:var(--ochre);background:var(--ochre-wash);}
+.funnel-step .verb{font-family:var(--mono);font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--ink-mute);}
+.funnel-step.on .verb{color:var(--ochre-deep);}
+.funnel-step .name{font-family:var(--display);font-weight:500;font-size:1.15rem;color:var(--ink);margin:.2rem 0 .15rem;}
+.funnel-step .role{font-family:var(--serif);font-size:.92rem;font-style:italic;color:var(--ink-3-aaa);line-height:1.35;}
+@media (max-width:760px){.funnel-row{grid-template-columns:1fr 1fr;}}
+/* sections */
+.section{width:var(--col-doc);margin:0 auto;padding:3.4rem 0 1rem;}
+.section-rail{font-family:var(--mono);font-size:11.5px;letter-spacing:.24em;text-transform:uppercase;color:var(--ochre);display:flex;align-items:center;gap:.7rem;margin-bottom:1.4rem;}
+.section-rail::before{content:"";width:22px;height:1px;background:var(--ochre);}
+.section h2{font-family:var(--display);font-weight:500;font-variation-settings:"opsz" 144;font-size:clamp(1.8rem,3.6vw,2.5rem);line-height:1.06;letter-spacing:-.026em;color:var(--ink);margin:0 0 .6rem;max-width:24ch;}
+.section h2 em{font-style:italic;color:var(--ochre);font-variation-settings:"opsz" 144,"WONK" 1;}
+.section .dek{font-family:var(--serif);font-size:1.08rem;line-height:1.55;color:var(--ink-2);max-width:62ch;margin:0 0 1.8rem;}
+/* three pillars */
+.pillars{display:grid;grid-template-columns:repeat(3,1fr);gap:1.2rem;margin-top:1.4rem;}
+.pillar{border:1px solid var(--paper-rule);background:var(--paper-warm);padding:1.5rem 1.5rem 1.4rem;position:relative;}
+.pillar::before{content:"";position:absolute;top:0;left:0;width:36px;height:3px;background:var(--ochre);}
+.pillar:nth-child(2)::before{background:var(--moss);}
+.pillar:nth-child(3)::before{background:var(--plum);}
+.pillar .n{font-family:var(--mono);font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--ink-mute);}
+.pillar h3{font-family:var(--display);font-weight:500;font-variation-settings:"opsz" 48;font-size:1.22rem;letter-spacing:-.01em;color:var(--ink);margin:.4rem 0 .6rem;line-height:1.2;}
+.pillar p{font-family:var(--serif);font-size:1rem;line-height:1.55;color:var(--ink-2);margin:0;}
+.pillar p strong{color:var(--ink);}
+@media (max-width:820px){.pillars{grid-template-columns:1fr;}}
+/* prose + pricing note */
+.prose{max-width:64ch;margin:0 auto 1rem;}
+.prose p{font-family:var(--serif);font-size:1.07rem;line-height:1.62;color:var(--ink-2);}
+.prose p strong{color:var(--ink);}
+.note{max-width:64ch;margin:1.4rem auto 0;border-left:3px solid var(--moss);background:rgba(74,93,58,.05);padding:1.1rem 1.3rem;font-family:var(--serif);font-size:1.02rem;line-height:1.55;color:var(--ink-2);}
+.note strong{color:var(--moss-deep);}
+/* closing */
+.closing{width:var(--col-read);margin:3.4rem auto 0;padding:4rem 0;text-align:center;border-top:1px solid var(--paper-rule);}
+.closing-h{font-family:var(--display);font-variation-settings:"opsz" 144;font-weight:400;font-size:clamp(1.5rem,3vw,2.1rem);line-height:1.24;letter-spacing:-.02em;margin:0 0 1.6rem;color:var(--ink);font-style:italic;max-width:30ch;margin-left:auto;margin-right:auto;}
+.closing-h em{color:var(--ochre);font-style:italic;font-variation-settings:"opsz" 144,"WONK" 1;}
+.closing .hero-cta{margin-top:.6rem;}
+/* footer */
+.footer{background:var(--ink);color:var(--paper);padding:3.4rem 0 1.6rem;margin-top:2.4rem;}
+.footer-foot{width:var(--col-wide);margin:0 auto;font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:rgba(244,236,218,.6);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem;}
+.footer-foot a{color:rgba(244,236,218,.85);border-bottom:0;} .footer-foot a:hover{color:var(--ochre);}
+@media (max-width:960px){html,body{overflow-x:clip;}}
+</style>
+</head>
+<body>
+<!-- realtime-stamp -->
+<div class="rt-stamp" data-t0="2026-05-12T22:25:46-04:00" data-this="2026-06-08T12:00:00-04:00" style="position:fixed;bottom:8px;right:10px;z-index:9999;font-family:'JetBrains Mono',ui-monospace,Menlo,monospace;font-size:9.5px;letter-spacing:.08em;color:rgba(14,22,38,.55);background:rgba(244,236,218,.75);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);padding:.25rem .55rem;border-radius:999px;border:1px solid rgba(184,101,31,.25);pointer-events:none"><span style="color:#b8651f">●</span> compiled at <strong style="color:#0e1626">T+26d</strong> real-elapsed · narrative reach T+94d · <span style="opacity:.6">2026-06-08</span></div>
+<!-- /realtime-stamp -->
+
+<div class="mob-bar">
+  <a href="../product/" aria-label="Product overview">← Product</a>
+  <span class="mob-bar-mark">Stratum Ember</span>
+  <a href="./plan.html" aria-label="The plan">Plan →</a>
+</div>
+
+{% include site-nav.html %}
+
+<div class="proposed">
+  <strong>Proposed</strong> Stratum Ember is a <em>proposed</em> fifth product, under a six-week evaluation — not yet shipped. The Chairman approved the test; the standalone-vs-module call is reserved to the <a href="./decision.html">T+68d gate</a>. Read the <a href="./plan.html">plan (PLN-2026-004)</a> and the <a href="./decision.html">decision record</a>.
+</div>
+
+<header class="hero">
+  <div class="hero-eyebrow"><span class="dot">●</span> Stratum Ember · candidate relationship management · proposed</div>
+  <h1>Keep faith with the talent <em>not yet</em> in your pipeline.</h1>
+  <p class="hero-lede">Recruiter hires the candidate in the requisition. Ember keeps the relationship with the thousand who aren't in one yet — silver medalists, past applicants, referrals, alumni, the passive prospect a sourcer has nurtured for two years — on the same consent-bound people graph.</p>
+  <a href="./plan.html" class="hero-cta">Read the plan <span class="arr">→</span></a>
+  <a href="./decision.html" class="hero-cta ghost">The decision <span class="arr">→</span></a>
+</header>
+
+<!-- FUNNEL POSITION -->
+<section class="funnel">
+  <div class="funnel-rail">One people graph · the whole funnel</div>
+  <div class="funnel-row">
+    <div class="funnel-step on">
+      <div class="verb">Attract</div>
+      <div class="name">Ember</div>
+      <div class="role">pools · nurture · rediscovery</div>
+    </div>
+    <div class="funnel-step">
+      <div class="verb">Hire</div>
+      <div class="name">Recruiter</div>
+      <div class="role">req · pipeline · offer</div>
+    </div>
+    <div class="funnel-step">
+      <div class="verb">Grow</div>
+      <div class="name">Tenure</div>
+      <div class="role">onboard · lifecycle</div>
+    </div>
+    <div class="funnel-step">
+      <div class="verb">Prove</div>
+      <div class="name">Cairn</div>
+      <div class="role">skills · attestation</div>
+    </div>
+  </div>
+</section>
+
+<!-- THREE DIFFERENTIATORS -->
+<section class="section">
+  <div class="section-rail">Why Ember is different</div>
+  <h2>Not a faster <em>megaphone</em>. A relationship the candidate can trust.</h2>
+  <p class="dek">The recruiting-CRM category spent a decade making the recruiter's outreach faster and almost none making it consented, deduplicated, or transparent to the candidate. We do not lead with "one graph" — that noun is contested. We lead with the three things our architecture does that a bolt-on CRM cannot retrofit.</p>
+
+  <div class="pillars">
+    <div class="pillar">
+      <div class="n">01 · compliant by construction</div>
+      <h3>Consent is an edge, not a checkbox.</h3>
+      <p>A nurture campaign is a graph traversal that <strong>cannot cross an edge without valid consent</strong> for its purpose and jurisdiction. With the category shipping agentic outreach into EU AI Act high-risk rules and NYC Local Law 144, "compliant by construction" is the thing a General Counsel asks for by name.</p>
+    </div>
+    <div class="pillar">
+      <div class="n">02 · the pool that doesn't decay</div>
+      <h3>Rediscovery over a resolved identity.</h3>
+      <p>Incumbent pools are static snapshots that rot the moment they're built. Ember's pool is a <strong>live query over a graph whose identities are reconciled continuously</strong> across the customer's whole perimeter. The silver medalist who changed jobs is still the same node; the referral who is also a past applicant is one person, not two.</p>
+    </div>
+    <div class="pillar">
+      <div class="n">03 · the anti-ghosting product</div>
+      <h3>Transparency the category forgot.</h3>
+      <p>Recruiter refuses the black-box match score; Ember points that same explanation layer at the candidate. A person can <strong>see where they stand, what data is held, and revoke consent in one place.</strong> The ethics and the architecture are the same fact.</p>
+    </div>
+  </div>
+</section>
+
+<!-- PRICING STANCE -->
+<section class="section">
+  <div class="section-rail">How it's priced</div>
+  <h2>Priced on relationships <em>kept</em>, not seats filled.</h2>
+  <div class="prose">
+    <p>The pure-play recruiting CRMs price per recruiter seat — which taxes you for growing the team doing the work. Stratum has never priced per seat, and Ember won't start. A platform fee plus a usage tier on the outcomes that matter — consented conversations and rediscovery-influenced hires — with the cheapest door being Ember as a module on a contract you already hold.</p>
+  </div>
+  <div class="note"><strong>Module-first, on purpose.</strong> The Year-One goal is funnel completion and attach, not a standalone revenue headline. The standalone price exists to prove the motion travels — not to lead with it.</div>
+</section>
+
+<section class="closing">
+  <h2 class="closing-h">Recruiter hires the person in the pipeline. Ember is how you earn the right to the thousand who aren't in it yet — and <em>never let them go cold</em>.</h2>
+  <a href="./plan.html" class="hero-cta">Read the full plan <span class="arr">→</span></a>
+  <a href="./design-partner-brief.html" class="hero-cta ghost">Design-partner brief <span class="arr">→</span></a>
+</section>
+
+<footer class="footer">
+  <div class="footer-foot">
+    <div>© 2026 Stratum, Inc. · The autonomous HCM company.</div>
+    <div>Stratum Ember · proposed · PLN-2026-004 · T+26d</div>
+    <div><a href="mailto:partners@stratum.ai">partners@stratum.ai</a></div>
+  </div>
+</footer>
+
+<script>
+(function(){var nav=document.getElementById('nav');if(!nav)return;function s(){if(window.scrollY>8)nav.classList.add('is-scrolled');else nav.classList.remove('is-scrolled');}window.addEventListener('scroll',s,{passive:true});s();})();
+</script>
+<script src="../assets/echo.js" defer></script>
+</body>
+</html>
