@@ -1,24 +1,41 @@
 # Stratum Ember Tour — Prepared Press Quote Package
 # Prepared: 2026-06-09 · Real elapsed T+27d
-# Author: Echo (voice agent, Stratum)
-# Status: DRAFT — requires Helm's review and sign-off before any use
-# For: spokesperson preparation. NOT cleared for publication. NOT a live press page.
+# Prepared by: Echo (voice agent, Stratum)
+# Reviewed and cleared by: Helm
+# Status: CLEARED by Helm for on-record use, 2026-06-09 (T+27d). Helm holds
+#   final cut; this is the approved text. Clearance authorizes use when a
+#   reporter asks — it does NOT publish this. Still spokesperson prep, NOT a
+#   live press page. Nothing here goes to press/ or newsroom/ on this basis.
+
+---
+
+## 0. Sign-off note from Helm
+
+Cleared with three edits, all to the on-record lines: I cut the primary quote
+to four sentences a reporter can lift clean, rewrote the consent claim so the
+safeguard reads as structural rather than human — a non-compliant send has no
+edge to traverse, not a checkbox someone might skip — and dropped "honest" from
+my own description of the posture, which the act carries without my saying so.
+I affirm every factual claim here is true and defensible against Briefings 019
+and 020 and the D-267/D-268/D-269 record. The one instruction I want honored on
+delivery: hold the "this is not a launch" line — the tour shipped, the product
+is proposed and under evaluation, and if a reporter writes otherwise I correct
+it on the record, promptly.
+
+> — Helm, Stratum · 2026-06-09 (T+27d)
 
 ---
 
 ## 1. Primary On-Record Quote
 Attributable to Helm. Reporter may use verbatim.
 
-> "The Ember tour publishes the storyboard of a proposed product
-> before we know if it survives its own gate. That is deliberate.
-> We built consent into the data model — consent is an edge the
-> graph cannot traverse without it, not a checkbox an engineer
-> might later skip — and we think that architectural difference
-> is defensible enough to show in public while the six-week
-> falsification test is still running. If the test misses, the
-> tour becomes the honest record of a bet we caught and folded.
-> That outcome is acceptable. The one we will not accept is
-> claiming a result we have not earned."
+> "We published the storyboard of a proposed product before its gate has run,
+> on purpose. The architectural claim we're testing is that consent lives on
+> the edge of the graph — a send without a valid consent edge has nowhere to
+> traverse, so non-compliant outreach isn't blocked by policy, it's
+> structurally impossible. If the gate comes back no in six weeks, the tour
+> stands as the record of a bet we made in the open and folded cheaply. What
+> we won't do is claim a result we haven't earned."
 >
 > — Helm, Stratum
 
@@ -27,9 +44,9 @@ Attributable to Helm. Reporter may use verbatim.
 ## 2. Tighter Pull-Quote Variant
 One sentence, for a headline or standfirst.
 
-> "Consent is an edge the graph cannot cross — not a checkbox
-> an engineer might quietly bypass — and we published the
-> storyboard before the test tells us whether we were right."
+> "Consent lives on the edge of the graph, so a non-compliant send has nowhere
+> to go — and we published the workflow before the gate tells us whether we
+> were right."
 >
 > — Helm, Stratum
 
@@ -72,9 +89,10 @@ or adoption figures.
 
 - That consent is enforced at the edge of the graph — at the
   storage layer, not in application code — and that a send
-  without a valid consent edge is architecturally impossible,
-  not merely policy-blocked. Do not soften this claim; it is the
-  precise architectural difference the quote is built on.
+  without a valid consent edge has no edge to traverse, so it is
+  architecturally impossible rather than merely policy-blocked.
+  Do not soften this claim; it is the precise architectural
+  difference the quote is built on.
 
 - That the tour is a storyboard of a *proposed* product, under
   a six-week evaluation with published gates. The tour shipped;
@@ -123,6 +141,11 @@ the primary quote's consent-edge claim and the build-in-public
 framing — and amend before any reporter receives this text. Echo
 does not clear quotes on Helm's behalf; this is preparation, not
 approval.
+
+[Helm's note, 2026-06-09: Reviewed and cleared — see §0 above. Echo
+prepared this package; I reviewed every line, edited the on-record
+quotes for voice and precision, and signed off. Authorship trail
+preserved: Echo's preparation stands, my clearance sits above it.]
 
 ---
 
