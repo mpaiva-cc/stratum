@@ -1,7 +1,7 @@
 ---
 layout: legacy
 title: "Stratum — Changelog · The honest log of what we shipped."
-description: "The Stratum product changelog. Foundation, Loam, Marble, and now Basalt — resumed at the Stratum Ember milestone. Private alpha; public GA targeted Q1 2027."
+description: "The Stratum product changelog. Foundation, Loam, Marble, Slate (Tenure), Flint (Cairn), and Basalt (the Stratum Ember milestone). Private alpha; public GA targeted Q1 2027."
 permalink: /changelog/index.html
 ---
 <!doctype html>
@@ -949,10 +949,10 @@ p { margin: 0 0 1.1em; }
   <p class="log-sub">
     The honest log of what we shipped, by version, by week. The Foundation,
     Loam, and Marble groups covered the people-graph schema, the connectors,
-    and the design language; the log then paused while Tenure and Cairn shipped
-    (recorded in the briefings) and resumes here at the Basalt group for the
-    Stratum Ember milestone. We write these for design partners, for our
-    chairman, and for ourselves.
+    and the design language; the log paused after Marble, then resumes with the
+    Slate (Tenure), Flint (Cairn), and Basalt (the Stratum Ember milestone)
+    groups. We write these for design partners, for our chairman, and for
+    ourselves.
   </p>
 
   <div class="log-note">
@@ -1041,7 +1041,7 @@ p { margin: 0 0 1.1em; }
           <div class="section-label">Known</div>
           <ul class="bullets">
             <li><span class="tag">ember</span> <strong>not shipped</strong> — proposed, under a six-week evaluation; the T+68d adoption gate decides standalone vs module vs shelve. Consent coverage at <code>100%</code> is a hard gate; below it the product does not ship</li>
-            <li><span class="tag">changelog</span> backfill for the Tenure and Cairn release groups is outstanding; recorded in <a href="../briefings/016.html">Briefings 016</a>–<a href="../briefings/018.html">018</a> meanwhile. The "resumed" date convention shifts to real-elapsed ISO at this entry</li>
+            <li><span class="tag">changelog</span> the Tenure (<code>v0.5.0</code> Slate) and Cairn (<code>v0.6.0</code> Flint) release groups are now backfilled below, from <a href="../briefings/016.html">Briefings 016</a>–<a href="../briefings/018.html">018</a>; the date convention shifts to real-elapsed ISO across the resumed block (v0.5.0 onward)</li>
             <li><span class="tag">focus</span> Ember is the last new product surface before consolidation (<code>RISK-FOCUS-008</code>); if the core is not assembling cheaply by T+47d it folds into Recruiter rather than standing up a line</li>
           </ul>
         </div>
@@ -1054,6 +1054,116 @@ p { margin: 0 0 1.1em; }
           <span class="name">Kernel</span> (eval probes) ·
           <span class="name">Tessera</span> (design · surfaces) ·
           <span class="name">Helm</span> (briefing 019)
+        </div>
+      </div>
+    </article>
+
+    <!-- ═══════════════════════════ v0.6.0 · CAIRN ═══════════════════════════ -->
+    <article class="entry">
+      <aside class="entry-rail">
+        <div class="entry-version"><span class="v">v</span>0.6.0</div>
+        <div class="entry-codename">Flint</div>
+        <div class="entry-date">Wed, 2026-05-20</div>
+        <div class="entry-build">build · cairn · main</div>
+        <div class="entry-shipped">
+          <span class="lbl">Shipped by</span>
+          <span class="names">Forge (eng)<br/>Kernel (eval)<br/>Pillar (compliance)</span>
+        </div>
+      </aside>
+
+      <div class="entry-body">
+        <p class="entry-summary">
+          The fourth product. Stratum Cairn — <em>agentic learning as closed
+          gaps, not catalogs of content</em>: a four-step loop (detect,
+          recommend, deliver, attest) whose unit of work is an attested skill,
+          not a catalog seat. Ratified 2026-05-20; the build clock started the
+          same morning and the first cycle closed on Cordova's tenant by
+          2026-06-03 with two stones placed. Two new agents, bounded by the
+          <code>014-T</code> trajectory predicate. Full arc in
+          <a href="../briefings/017.html">Briefing 017</a> (ratification) and
+          <a href="../briefings/018.html">Briefing 018</a> (the first cycle).
+        </p>
+
+        <div class="section-block is-added">
+          <div class="section-label">Added</div>
+          <ul class="bullets">
+            <li><span class="tag">product</span> Stratum Cairn ships as the fourth product line — the learning loop over the people graph; detect a gap from real work output, recommend an in-context intervention, deliver it, and attest closure by observing subsequent work, not quiz scores</li>
+            <li><span class="tag">agent</span> <strong>Talus</strong> and <strong>Hearth</strong> ship, bounded by the <code>014-T</code> trajectory predicate; Hearth's recommendation panel defaults to <em>match-confidence plus alternatives</em>, never just the top pick — the surface fix that earned the first attestor's trust</li>
+            <li><span class="tag">schema</span> schema-as-policy AEDT wall — a <code>cairn_stone</code> cannot connect to <code>comp_band</code> or <code>promotion_gate</code> in the type system; held across 47 production runs with zero agent attempts and no prompt-level guardrail</li>
+            <li><span class="tag">graph</span> <code>provisional</code> stone state added — a third state on the <code>014-T</code> consent-renewal axis, for a deferred external-validation window; ed25519-signed attestation provenance with 24-month retention</li>
+            <li><span class="tag">eval</span> eval set advanced <code>v1.3 → v1.5</code> during the build (attester-standing weight in v1.4; inherited-skill edge case in v1.5)</li>
+          </ul>
+        </div>
+
+        <div class="section-block is-known">
+          <div class="section-label">Known</div>
+          <ul class="bullets">
+            <li><span class="tag">cairn</span> Stone 002 (Mateo Cantú, AWS-D1.1 plate weld) is <code>provisional</code> pending Carmen Solís's external validation at Lincoln Electric on 2026-08-12; Stone 001 (Elena Vega, Kubernetes operator) is durable</li>
+            <li><span class="tag">customer</span> Halcyon (design partner two) queued behind the external validation by design; kickoff the week of 2026-08-17</li>
+          </ul>
+        </div>
+
+        <div class="contrib-line">
+          <span class="lbl">Contributors</span>
+          <span class="name">Forge</span> (eng · architecture) ·
+          <span class="name">Kernel</span> (eval) ·
+          <span class="name">Pillar</span> (compliance) ·
+          <span class="name">Vector</span> (customer) ·
+          <span class="name">Tessera</span> (stones ledger)
+        </div>
+      </div>
+    </article>
+
+    <!-- ═══════════════════════════ v0.5.0 · TENURE ═══════════════════════════ -->
+    <article class="entry">
+      <aside class="entry-rail">
+        <div class="entry-version"><span class="v">v</span>0.5.0</div>
+        <div class="entry-codename">Slate</div>
+        <div class="entry-date">Tue, 2026-05-19</div>
+        <div class="entry-build">build · tenure · main</div>
+        <div class="entry-shipped">
+          <span class="lbl">Shipped by</span>
+          <span class="names">Forge (eng)<br/>Cadence (CE)<br/>Compass (gtm)</span>
+        </div>
+      </aside>
+
+      <div class="entry-body">
+        <p class="entry-summary">
+          The third product. Stratum Tenure — the operating layer for the
+          <em>entire</em> employee lifecycle, not just Day-1: joiner, mover,
+          leaver, anniversary, leave, return. At an 8,000-EE customer that is
+          roughly <strong>144,000 events a year</strong> (395 a day); the 8,000
+          joiners are the wedge, the 130,000 other events the moat. Three new
+          agents, all bounded by the <code>014</code> decision-class. Ratified
+          by Helm / Forge / Compass with Cadence on 2026-05-19 (<a href="../briefings/016.html">Briefing 016</a>).
+        </p>
+
+        <div class="section-block is-added">
+          <div class="section-label">Added</div>
+          <ul class="bullets">
+            <li><span class="tag">product</span> Stratum Tenure ships as the third product line — the lifecycle operating layer over the people graph</li>
+            <li><span class="tag">agent</span> <strong>Threshold</strong> — "the line you cross." Owns the irreversible writes: pre-boarding through Day 30 plus termination day — equipment, identity, paperwork, payroll, asset reclaim</li>
+            <li><span class="tag">agent</span> <strong>Lattice</strong> — "the structure you join." Owns the relational moments: buddy assignment, manager check-in nudges, mentorship pairing, the choreography of team introductions; reversible, social-graph aware</li>
+            <li><span class="tag">agent</span> <strong>Ember</strong> — "the small warmth." Owns recognition: anniversaries, milestones, promotion announcements, leave acknowledgments, the goodbye note when someone retires; lowest failure-budget stakes</li>
+            <li><span class="tag">governance</span> all three agents bounded by the <code>014</code> decision-class; eight resolutions ratified, zero vetoed</li>
+          </ul>
+        </div>
+
+        <div class="section-block is-known">
+          <div class="section-label">Known</div>
+          <ul class="bullets">
+            <li><span class="tag">naming</span> the Tenure recognition agent <code>Ember</code> shares a name with the later <code>v0.7.0</code> product proposal <em>Stratum Ember</em> — a collision flagged for Tessera's naming review (both lean on "warmth"; the product name is still provisional)</li>
+            <li><span class="tag">tenure</span> 12-week build budget; lifecycle event connectors roll out through the budget window</li>
+          </ul>
+        </div>
+
+        <div class="contrib-line">
+          <span class="lbl">Contributors</span>
+          <span class="name">Forge</span> (eng) ·
+          <span class="name">Cadence</span> (customer engineering) ·
+          <span class="name">Compass</span> (gtm · pricing) ·
+          <span class="name">Kernel</span> (eval) ·
+          <span class="name">Eglin</span> (market read)
         </div>
       </div>
     </article>
