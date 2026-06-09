@@ -16,7 +16,7 @@ The ten-stage arc is structurally sound and tells the right story. The Gherkin-c
 - The two-column Gherkin-caption / cost-panel split below each Console screen reads as a magazine spread with a clear editorial grid. It survives the scroll test across all ten stages and is the right information architecture for a board tour — narrative left, proof right.
 - Stage 10's exit sequence (`4:1776`) achieves the right restraint. Eight rows, two human-action moments, one held action with a stop-circle icon — the defensive-AI state is present and correctly staged. The "held · awaits Recommend sign-off" language is the clearest Tier IV communication in the set.
 - The stage-banner treatment (dark-band `ink` background, lifecycle dot tracker top-right, agent badge far right) is consistent in layout across all ten stages. The breadcrumb pathways are all specific and accurate (`Stratum / Recruiter → Tenure / Maria Chen`, `Stratum / Tenure / Day 0 / Maria Chen`, `Stratum / Tenure / Leavers / Maria Chen`) — no placeholder breadcrumb text survived.
-- The agent-allocation frame (`4:2011`) is clean and correctly shows that Ember Bhatt costs slightly less than Lattice over the arc ($0.117 vs $0.123) while doing meaningfully different work — trajectory, notes, goodbye vs buddy, planning, pulse. That is a true product insight and it is clearly visible.
+- The agent-allocation frame (`4:2011`) is clean and correctly shows that Lantern Bhatt costs slightly less than Lattice over the arc ($0.117 vs $0.123) while doing meaningfully different work — trajectory, notes, goodbye vs buddy, planning, pulse. That is a true product insight and it is clearly visible.
 - The agentic trace rows (three per stage, JetBrains Mono, ochre text against ink background) are the best detail in the work. They make the Console feel like a real product surface rather than a wireframe because they ground the system in machine-generated specificity: `Threshold → bgc.order · provider=Checkr · package=standard · candidate_id=J-2026-0612`. This pattern is repeatable and the board will notice it.
 
 ---
@@ -44,8 +44,8 @@ The ten-stage arc is structurally sound and tells the right story. The Gherkin-c
 - **THEN + AND alternation in the Gherkin caption is technically valid but editorially flat.** Five AND clauses in sequence ("and A / and B / and C / and D / and E") reads as a list appended with a conjunction five times. The Gherkin reads like a log, not a story. One of those clauses — the one that matters — should be promoted to a THEN.
 
 ### Stage 05 · Day 30 · The first milestone (`4:1140`)
-- **"Ember begins quiet trajectory tracking · no visible action yet" in the Console activity list is the most important row on this frame** — it marks the handover from Threshold/Lattice to Ember. It is styled exactly like the other rows: same ochre dot, same body text, same indent. A board reader will not understand why it matters. It deserves a visual distinction: a different icon (eye, not circle), a section break, or a note in the metadata panel.
-- **EMBER STATUS value in the metadata panel: "Read-only · trajectory tracking initiated."** This is the only mention of Ember on this frame. The decision class chip in the cost panel still says TIER I · DECIDE, which is Lattice's class. Ember has a Tier IV class on this frame and it is not represented at all in the cost panel. The cost panel is representing one agent and ignoring the other.
+- **"Lantern begins quiet trajectory tracking · no visible action yet" in the Console activity list is the most important row on this frame** — it marks the handover from Threshold/Lattice to Lantern. It is styled exactly like the other rows: same ochre dot, same body text, same indent. A board reader will not understand why it matters. It deserves a visual distinction: a different icon (eye, not circle), a section break, or a note in the metadata panel.
+- **EMBER STATUS value in the metadata panel: "Read-only · trajectory tracking initiated."** This is the only mention of Lantern on this frame. The decision class chip in the cost panel still says TIER I · DECIDE, which is Lattice's class. Lantern has a Tier IV class on this frame and it is not represented at all in the cost panel. The cost panel is representing one agent and ignoring the other.
 - **Frame height (1040px) consistent over-measurement.** Same 80px air gap.
 
 ### Stage 06 · Day 90 · Maria moves teams (`4:1269`)
@@ -54,19 +54,19 @@ The ten-stage arc is structurally sound and tells the right story. The Gherkin-c
 - **Frame height (1128px) again over-tall.** Content ends around 1050px.
 
 ### Stage 07 · Year 1 · The first anniversary (`4:1410`)
-- **Stage 07 is deliberately quiet and four Console rows is correct for an Ember moment.** But the cost panel is on `paper` (light background) while every other stage's cost panel is on `ink` (dark background). This is the most significant layout inconsistency in the set. It is not a design choice that was documented; it reads as a build error. Stages 04, 05, 06 all use ink-background cost panels. Stage 07 switches to paper. Stage 08 returns to ink. Stages 09, 10 also vary. Either the paper-background cost panel is intentional for Ember-only stages (which would be a meaningful design choice worth keeping and documenting) or it is a drift. Investigate and standardise.
-- **Agent name in cost panel: "Ember" in ochre.** Same AAA failure noted in Stage 04. Ochre text on a paper-warm background at 18px normal weight does not pass AAA (ochre `#b8651f` on `paper-warm` `#f7f0e0` = 3.49:1). But `ochre-link` (#7a3d0a) on paper = 7.14:1, AAA. Use `ochre-link` for the agent name text colour, or use `ink` and differentiate by font weight.
-- **The Gherkin BUT is correct here.** "BUT the note is quiet — it names a concrete thing she shipped in her first year." This is a genuine contrastive outcome (Ember could have sent a generic note; she didn't). Noted as working, not a defect.
+- **Stage 07 is deliberately quiet and four Console rows is correct for an Lantern moment.** But the cost panel is on `paper` (light background) while every other stage's cost panel is on `ink` (dark background). This is the most significant layout inconsistency in the set. It is not a design choice that was documented; it reads as a build error. Stages 04, 05, 06 all use ink-background cost panels. Stage 07 switches to paper. Stage 08 returns to ink. Stages 09, 10 also vary. Either the paper-background cost panel is intentional for Lantern-only stages (which would be a meaningful design choice worth keeping and documenting) or it is a drift. Investigate and standardise.
+- **Agent name in cost panel: "Lantern" in ochre.** Same AAA failure noted in Stage 04. Ochre text on a paper-warm background at 18px normal weight does not pass AAA (ochre `#b8651f` on `paper-warm` `#f7f0e0` = 3.49:1). But `ochre-link` (#7a3d0a) on paper = 7.14:1, AAA. Use `ochre-link` for the agent name text colour, or use `ink` and differentiate by font weight.
+- **The Gherkin BUT is correct here.** "BUT the note is quiet — it names a concrete thing she shipped in her first year." This is a genuine contrastive outcome (Lantern could have sent a generic note; she didn't). Noted as working, not a defect.
 
 ### Stage 08 · Year 2 · Parental leave wraparound (`4:1530`)
-- **This is the Tier IV Read-only frame, and it does not show the human-decision moment.** The Console row says "Aisha reviews and sends the team announcement — Human action required · Aisha signs" with a pending dot. That is the human-action moment. But the frame shows no UX for that review — no modal, no preview panel, no sidebar. The board sees that a human must review, but cannot see what reviewing means. Stage 10 shows a held state for IdP revocation. Stage 08 should show the equivalent: Ember's drafted announcement with a review-and-send UI surface. This is the deepest miss in the set for the board presentation.
-- **DECISIONS USED: "2 of 24-month envelope (Suggest)"** is almost certainly correct for this stage — Ember drafts the announcement, Lattice maps coverage. Two decisions, Suggest tier. This is the one stage where the count looks right. Note it as a counterpoint to the undercount pattern.
-- **Gherkin BUT: "Aisha reviews and sends the announcement — Ember never posts publicly without a human hand on the keyboard."** This is the correct framing of the product truth. But the word "never" carries a product promise. If the architecture allows a configuration where an agent can auto-send, "never" is wrong. If "never" is a deliberate architectural constant (not a configuration), it should be "never by design" to be defensible in a board conversation.
+- **This is the Tier IV Read-only frame, and it does not show the human-decision moment.** The Console row says "Aisha reviews and sends the team announcement — Human action required · Aisha signs" with a pending dot. That is the human-action moment. But the frame shows no UX for that review — no modal, no preview panel, no sidebar. The board sees that a human must review, but cannot see what reviewing means. Stage 10 shows a held state for IdP revocation. Stage 08 should show the equivalent: Lantern's drafted announcement with a review-and-send UI surface. This is the deepest miss in the set for the board presentation.
+- **DECISIONS USED: "2 of 24-month envelope (Suggest)"** is almost certainly correct for this stage — Lantern drafts the announcement, Lattice maps coverage. Two decisions, Suggest tier. This is the one stage where the count looks right. Note it as a counterpoint to the undercount pattern.
+- **Gherkin BUT: "Aisha reviews and sends the announcement — Lantern never posts publicly without a human hand on the keyboard."** This is the correct framing of the product truth. But the word "never" carries a product promise. If the architecture allows a configuration where an agent can auto-send, "never" is wrong. If "never" is a deliberate architectural constant (not a configuration), it should be "never by design" to be defensible in a board conversation.
 
-### Stage 09 · Year 3 · Ember remembers on a Tuesday (`4:1656`)
+### Stage 09 · Year 3 · Lantern remembers on a Tuesday (`4:1656`)
 - **Frame height (975px) is the tightest in the set,** and this frame has the least content — three Console rows, a five-row metadata panel, a three-row trace, eight Gherkin lines. The 975px feels correct to content. No air-gap issue. This is one of two frames where the height was set to content, not vice-versa.
-- **Cost panel uses `paper` background (same drift as Stage 07).** Confirms the cost-panel background inconsistency is agent-driven (Ember stages = paper, Threshold/Lattice stages = ink) or coincidental. Either way it needs to be explicit.
-- **"ON-CALL CITED: On-call rotation redesign · cut 3am pages by 60%"** — this is a genuine product-truth row that makes the stage feel earned. The Ember note cites a real RFC and a real operational improvement. This is the best metadata row in the set. But the label "ON-CALL CITED" is an eyebrow-mono label in all-caps with no contextual introduction. A board reader not already in the product will not understand why the agent cites an RFC. A parenthetical annotation — `(referenced in Ember note)` — would close the gap without expanding the frame.
+- **Cost panel uses `paper` background (same drift as Stage 07).** Confirms the cost-panel background inconsistency is agent-driven (Lantern stages = paper, Threshold/Lattice stages = ink) or coincidental. Either way it needs to be explicit.
+- **"ON-CALL CITED: On-call rotation redesign · cut 3am pages by 60%"** — this is a genuine product-truth row that makes the stage feel earned. The Lantern note cites a real RFC and a real operational improvement. This is the best metadata row in the set. But the label "ON-CALL CITED" is an eyebrow-mono label in all-caps with no contextual introduction. A board reader not already in the product will not understand why the agent cites an RFC. A parenthetical annotation — `(referenced in Lantern note)` — would close the gap without expanding the frame.
 
 ### Stage 10 · Year 5 · Maria takes a Director role elsewhere (`4:1776`)
 - **The stop-circle icon on "IdP revocation · device reclaim · NOT yet armed · gated on Aisha approval" is the best accessibility-communicative moment in the set.** The visual plus the "Held" status plus the trace line "blocked · pending Recommend sign-off" makes the defensive-AI contract visible. This is what every Tier IV moment should look like. Stages 07, 08, 09 have human-required moments that do not reach this clarity.
@@ -81,7 +81,7 @@ The ten-stage arc is structurally sound and tells the right story. The Gherkin-c
 - **The per-card visual appears inconsistent.** Cards 01, 04, 05, 09, 10 read with slightly darker fills than cards 02, 03, 06, 07, 08. Whether this is a genuine fill drift or a rendering artifact from the chip colour (DECIDE chips appear slightly darker than SUGGEST chips against the card fill), it reads as unfinished. All card fills should be the same token.
 
 ### Tenure / Agent allocation (`4:2011`)
-- **Ember card accent bar is `ochre-deep` or similar red-brown; Threshold card is a dark bar; Lattice card is a dark bar.** The Ember card is visually differentiated by its ochre accent. Whether this is intentional (Ember is the relationship-layer agent) or accidental, it should be documented. If intentional, the other two cards should have accent colours too (moss for Threshold, plum for Lattice?) — that would align with the decision-class semantic colour system.
+- **Lantern card accent bar is `ochre-deep` or similar red-brown; Threshold card is a dark bar; Lattice card is a dark bar.** The Lantern card is visually differentiated by its ochre accent. Whether this is intentional (Lantern is the relationship-layer agent) or accidental, it should be documented. If intentional, the other two cards should have accent colours too (moss for Threshold, plum for Lattice?) — that would align with the decision-class semantic colour system.
 - **"5 decisions · mix of Decide + Suggest + Recommend" for Threshold** conflicts with the per-stage DECISIONS USED panels across stages 01, 02, 03, 06, 10 which each say "1 of 24-month envelope." If each stage consumes one decision, five stages = five decisions. That arithmetic checks out. But "1 decision per stage" is inconsistent with the Stage 03 cost panel that explicitly says "2 decisions this action." The accounting is internally inconsistent.
 - **Frame height (600px) leaves approximately 80px of blank space** after the three agent cards and their single dividing rule. Trim to ~520px.
 
@@ -90,7 +90,7 @@ The ten-stage arc is structurally sound and tells the right story. The Gherkin-c
 ## 4. What does not work — system-level
 
 ### Cost-panel background inconsistency
-The cost panel uses an `ink` (dark) background on Stages 01, 02, 03, 04, 05, 06, 08, 10 and a `paper` (light) background on Stages 07 and 09. These are both Ember-primary stages. If this is a deliberate signal ("Ember moments feel warmer"), it should be named and applied consistently to Stage 05's Ember status note and documented in the component model. If it is a build drift, fix it before the board presentation.
+The cost panel uses an `ink` (dark) background on Stages 01, 02, 03, 04, 05, 06, 08, 10 and a `paper` (light) background on Stages 07 and 09. These are both Lantern-primary stages. If this is a deliberate signal ("Lantern moments feel warmer"), it should be named and applied consistently to Stage 05's Lantern status note and documented in the component model. If it is a build drift, fix it before the board presentation.
 
 ### Agent name colour in cost panels
 Agent names in the cost panel use ochre (#b8651f) on `ink` (dark background) across most stages. Ochre on ink = 3.63:1. This is decoration-level contrast. Agent names are informational text. The correct token for agent names as coloured text on dark backgrounds does not exist in the Stratum palette — this is a Token gap. The candidates are: (a) use `ink-3-aaa` on paper (lose the colour distinction), (b) use `ochre-link` on paper (move the dark panel to paper), (c) create a `ochre-light` token at ≥7:1 on ink (requires Chairman approval). Report this as a Token gap; do not silently leave the AAA failure in place.
@@ -175,7 +175,7 @@ Frames: `4:864`, `4:1269`, and any stage with a visible undercount.
 
 **P0-5. Resolve cost-panel background inconsistency (ink vs paper).**
 Problem: Stages 07 and 09 render the cost panel on a paper (light) background. All other stages use the ink (dark) background. Reads as an error.
-Fix: If intentional (Ember stages = paper treatment), document it and apply consistently. If unintentional, standardise to ink background across all ten stages.
+Fix: If intentional (Lantern stages = paper treatment), document it and apply consistently. If unintentional, standardise to ink background across all ten stages.
 Owner: Tessera.
 Size: S.
 Frames: `4:1410`, `4:1656`.
@@ -186,7 +186,7 @@ Frames: `4:1410`, `4:1656`.
 
 **P1-1. Add a defensive-AI state frame.**
 Problem: The board never sees a frame where the agent's primary output is "held pending human." Stage 10's held row is buried. Stage 08's human-review moment has no UX surface shown.
-Fix: One dedicated frame — call it `Tenure / Stage 08b · Aisha reviews Ember's draft` — showing the Console with Ember's announcement draft in a review panel, with an approve/edit/reject action group. This is the Tier IV read-only moment with a visible human-decision surface.
+Fix: One dedicated frame — call it `Tenure / Stage 08b · Aisha reviews Lantern's draft` — showing the Console with Lantern's announcement draft in a review panel, with an approve/edit/reject action group. This is the Tier IV read-only moment with a visible human-decision surface.
 Owner: Tessera.
 Size: M.
 Frames: New frame alongside `4:1530`.
@@ -271,7 +271,7 @@ Frames: New section.
 
 **P3-3. Manager's view surface.**
 Problem: Priya Iyer and Aisha Bhatt are principals in this arc but neither has a visible Console surface. The board may ask "what does the manager see?"
-Fix: Two frames showing the manager's Tenure surface: (a) manager's pending actions queue (sign the offer, countersign the team move, approve the departure timing), (b) the 30-second review-and-send interface for Ember's parental leave draft.
+Fix: Two frames showing the manager's Tenure surface: (a) manager's pending actions queue (sign the offer, countersign the team move, approve the departure timing), (b) the 30-second review-and-send interface for Lantern's parental leave draft.
 Owner: Tessera.
 Size: M.
 Frames: New frames.
