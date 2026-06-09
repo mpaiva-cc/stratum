@@ -1,0 +1,802 @@
+---
+layout: legacy
+title: "Stratum Ember — The Tour"
+description: "A scripted preview of Stratum Ember, a proposed candidate-relationship product under a six-week evaluation. Four scenes on one consent-bound talent pool: identity-resolved rediscovery that does not decay, a nurture send stopped dead at an unconsented edge, the candidate-facing 'where do I stand' surface, and the moment a new requisition rediscovers the people who already said yes. The agent that runs it is unnamed — naming review is still open."
+permalink: /ember/tour/index.html
+---
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<!-- og-jsonld:start -->
+<meta name="description" content="{{ page.description | default: site.description | escape }}">
+<meta property="og:title" content="{{ page.title | default: site.title | escape }}">
+<meta property="og:description" content="{{ page.description | default: site.description | escape }}">
+<meta property="og:url" content="{{ page.url | absolute_url }}">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="{{ site.title | escape }}">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="{{ page.title | default: site.title | escape }}">
+<meta name="twitter:description" content="{{ page.description | default: site.description | escape }}">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":{{ page.title | jsonify }},"description":{{ page.description | jsonify }},"url":"{{ page.url | absolute_url }}","datePublished":"2026-06-08T00:00:00Z"}</script>
+<!-- og-jsonld:end -->
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{{ page.title }}</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght,SOFT,WONK@9..144,300..900,0..100,0..1&family=Newsreader:ital,opsz,wght@0,6..72,300..700;1,6..72,300..700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="{{ '/assets/styles.css?v=5' | relative_url }}">
+<style>
+/* ============================================================
+   Stratum Ember · The Tour
+   A scripted single-page walkthrough. Four scenes. One pool.
+   PROPOSED product — under a six-week evaluation, not yet built.
+   Mirrors the Tenure tour system (canonical primary breakpoint 900px).
+   WCAG 2.2 AAA: touch targets 44px, focus-visible, prefers-reduced-motion.
+   ============================================================ */
+:root {
+  --paper:#f4ecda; --paper-warm:#f7f0e0; --paper-deep:#ede4cf;
+  --paper-rule:#d8cdb6; --paper-rule-2:#c8b894;
+  --ink:#0e1626; --ink-2:#2a3344; --ink-3:#4b5365; --ink-3-aaa:#3d4456;
+  --ink-mute-aa:#404755;
+  --ochre:#b8651f; --ochre-link:#7a3d0a; --ochre-on-dark:#e5913c;
+  --moss:#4a5d3a; --plum:#6b3a4a;
+  --ok:#3d6b3a; --warn:#a76b1d; --info:#3a5d6b;
+  --display:"Fraunces","Newsreader",Georgia,serif;
+  --serif:"Newsreader","Iowan Old Style",Georgia,serif;
+  --mono:"JetBrains Mono",ui-monospace,Menlo,monospace;
+  --col:min(1180px,92vw);
+}
+* { box-sizing: border-box; }
+html, body { margin:0; padding:0; background:var(--paper); color:var(--ink); font-family:var(--serif); font-size:18px; line-height:1.65; -webkit-font-smoothing:antialiased; }
+a { color:var(--ochre-link); text-decoration:none; border-bottom:1px solid var(--ochre-link); }
+a:hover { color:var(--ochre); border-bottom-color:var(--ochre); }
+em { font-style:italic; }
+strong { font-weight:600; color:var(--ink); }
+main#main { padding-bottom: 5rem; }
+
+/* PROPOSED BANNER */
+.preview-banner {
+  width: 100%;
+  background: var(--ink);
+  color: var(--paper);
+  padding: .65rem 0;
+  font-family: var(--mono);
+  font-size: 11.5px;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  text-align: center;
+}
+.preview-banner .dot { display:inline-block; width:7px; height:7px; background:var(--ochre); border-radius:50%; margin-right:.7rem; vertical-align:middle; }
+.preview-banner strong { color:var(--paper); font-weight:600; letter-spacing:.16em; }
+.preview-banner em { font-style:normal; color:rgba(244,236,218,.7); margin-left:.7rem; font-weight:400; letter-spacing:.08em; }
+.preview-banner a { color:var(--ochre-on-dark); border-bottom:1px solid transparent; }
+.preview-banner a:hover { border-bottom-color:var(--ochre-on-dark); color:var(--ochre-on-dark); }
+
+/* HERO */
+.tour-hero { width:var(--col); margin:0 auto; padding:4.5rem 0 3rem; border-bottom:1px solid var(--paper-rule); }
+.tour-eyebrow { font-family:var(--mono); font-size:11px; letter-spacing:.26em; text-transform:uppercase; color:var(--ochre-link); margin-bottom:1.2rem; display:flex; gap:.7rem; align-items:center; flex-wrap:wrap; }
+.tour-eyebrow .pip { width:8px; height:8px; background:var(--ochre); border-radius:50%; display:inline-block; }
+.tour-eyebrow .sep { color:var(--paper-rule-2); }
+.tour-h1 { font-family:var(--display); font-weight:500; font-variation-settings:"opsz" 120; font-size:clamp(2.8rem,6vw,4.8rem); line-height:.98; letter-spacing:-.025em; margin:0 0 1rem; max-width:22ch; }
+.tour-h1 .dot { color:var(--ochre); }
+.tour-h1 em { font-style:normal; color:var(--ochre); }
+.tour-dek { font-family:var(--serif); font-size:1.3rem; line-height:1.5; color:var(--ink-2); max-width:64ch; margin:0 0 2rem; font-variation-settings:"opsz" 24; }
+
+/* CAST CARD - the pool */
+.cast {
+  display:grid; grid-template-columns:auto 1fr; gap:1.4rem;
+  padding:1.4rem 1.6rem; background:var(--paper-warm);
+  border:1px solid var(--paper-rule); border-left:4px solid var(--ink);
+  max-width: 640px;
+  margin-top: 1.5rem;
+}
+.cast-avatar {
+  width:64px; height:64px; border-radius:50%;
+  background: linear-gradient(135deg, var(--ochre) 0%, var(--ochre-link) 100%);
+  color:var(--paper); display:flex; align-items:center; justify-content:center;
+  font-family:var(--display); font-weight:600; font-size:1.45rem; letter-spacing:-.02em;
+}
+.cast-eyebrow { font-family:var(--mono); font-size:10.5px; letter-spacing:.22em; text-transform:uppercase; color:var(--ochre-link); margin-bottom:.35rem; }
+.cast-name { font-family:var(--display); font-weight:500; font-variation-settings:"opsz" 48; font-size:1.4rem; line-height:1.1; color:var(--ink); margin:0 0 .25rem; }
+.cast-meta { font-family:var(--mono); font-size:11.5px; color:var(--ink-3-aaa); line-height:1.5; }
+.cast-meta strong { color:var(--ink); }
+
+/* SCENE NAV STRIP */
+.scene-nav { width:var(--col); margin:2rem auto 0; padding:1rem 0; border-bottom:1px solid var(--paper-rule); display:flex; flex-wrap:wrap; gap:.5rem; }
+.scene-nav a { font-family:var(--mono); font-size:10.5px; letter-spacing:.14em; text-transform:uppercase; padding:.45rem .7rem; border:1px solid var(--paper-rule); border-radius:999px; color:var(--ink-2); text-decoration:none; transition:color .15s, border-color .15s; min-height:44px; display:inline-flex; align-items:center; }
+.scene-nav a:hover, .scene-nav a:focus-visible { color:var(--ochre-link); border-color:var(--ochre); }
+
+/* SCENE */
+.scene { width:var(--col); margin:0 auto; padding:3.5rem 0 1rem; border-bottom:1px solid var(--paper-rule); }
+.scene:last-of-type { border-bottom:0; }
+.scene-head { display:flex; flex-wrap:wrap; gap:.6rem 1rem; align-items:center; margin-bottom:1.2rem; font-family:var(--mono); font-size:11px; letter-spacing:.16em; text-transform:uppercase; }
+.scene-num { color:var(--ochre-link); font-weight:700; }
+.scene-when { color:var(--ink-3-aaa); }
+.scene-agent { padding:.25rem .6rem; border-radius:2px; font-weight:700; letter-spacing:.18em; }
+.scene-agent.ember { background:rgba(184,101,31,.08); color:var(--ochre-link); border:1px solid var(--ochre); }
+.scene-agent.candidate { background:rgba(107,58,74,.08); color:var(--plum); border:1px solid var(--plum); }
+.scene-class { padding:.2rem .55rem; border:1px solid currentColor; border-radius:999px; font-size:10px; letter-spacing:.16em; }
+.scene-class.decide { color:var(--moss); }
+.scene-class.recommend { color:var(--ochre-link); }
+.scene-class.suggest { color:var(--ink-3-aaa); }
+.scene-class.readonly { color:var(--plum); }
+.scene-class.blocked { color:var(--plum); }
+
+.scene-grid { display:grid; grid-template-columns:1fr 1.1fr; gap:2.6rem; align-items:start; }
+@media (max-width:900px) { .scene-grid { grid-template-columns:1fr; gap:1.6rem; } }
+
+.scene-h { font-family:var(--display); font-weight:500; font-variation-settings:"opsz" 72; font-size:clamp(1.7rem,3vw,2.4rem); line-height:1.1; letter-spacing:-.02em; margin:0 0 1rem; color:var(--ink); max-width:24ch; }
+.scene-h em { font-style:normal; color:var(--ochre); }
+.scene p { line-height:1.65; max-width:56ch; margin:0 0 .9rem; }
+.boundary { padding:.85rem 1.1rem; background:var(--paper-warm); border-left:3px solid var(--plum); font-family:var(--mono); font-size:11.5px; line-height:1.55; color:var(--ink-2); margin:1.2rem 0 0; }
+.boundary strong { color:var(--plum); letter-spacing:.06em; text-transform:uppercase; font-size:10.5px; display:block; margin-bottom:.35rem; }
+
+/* MOCKUPS — fake console panels */
+.mockup { background:var(--paper); border:1px solid var(--ink); border-radius:4px; font-family:var(--mono); overflow:hidden; box-shadow:0 6px 24px rgba(14,22,38,.08); }
+.mockup-bar { display:flex; align-items:center; gap:.7rem; padding:.6rem .9rem; background:var(--ink); color:var(--paper); font-size:10.5px; letter-spacing:.14em; text-transform:uppercase; }
+.mockup-bar .dot-r { width:8px; height:8px; border-radius:50%; background:#a13418; }
+.mockup-bar .dot-y { width:8px; height:8px; border-radius:50%; background:var(--ochre); }
+.mockup-bar .dot-g { width:8px; height:8px; border-radius:50%; background:var(--moss); }
+.mockup-bar .crumb { margin-left:.5rem; opacity:.85; font-weight:400; letter-spacing:.1em; }
+.mockup-bar .agent-badge { margin-left:auto; padding:.18rem .55rem; border:1px solid rgba(244,236,218,.3); border-radius:2px; font-size:9.5px; }
+.mockup-body { padding:1rem 1.1rem 1.2rem; font-size:12px; line-height:1.55; color:var(--ink); }
+.mockup-section { padding:.7rem 0; border-bottom:1px dotted var(--paper-rule); }
+.mockup-section:last-child { border-bottom:0; }
+.mockup-section .label { font-family:var(--mono); font-size:9.5px; letter-spacing:.22em; text-transform:uppercase; color:var(--ink-3-aaa); margin-bottom:.45rem; }
+.mockup-section .val { font-family:var(--display); font-weight:500; font-size:1.1rem; color:var(--ink); }
+.mockup-section .sub { font-family:var(--mono); font-size:10.5px; color:var(--ink-3-aaa); letter-spacing:.04em; margin-top:.2rem; }
+.mockup-row { display:flex; justify-content:space-between; align-items:baseline; padding:.4rem 0; gap:.8rem; }
+.mockup-row .k { color:var(--ink-3-aaa); }
+.mockup-row .v { color:var(--ink); font-weight:500; }
+.tag { display:inline-block; font-size:9.5px; letter-spacing:.14em; text-transform:uppercase; padding:.1rem .5rem; border:1px solid currentColor; border-radius:999px; }
+.tag.ok { color:var(--ok); }
+.tag.warn { color:var(--warn); }
+.tag.info { color:var(--info); }
+.tag.pending { color:var(--ink-3-aaa); }
+.tag.blocked { color:var(--plum); }
+
+/* Timeline-style steps inside mockups */
+.steps { list-style:none; padding:0; margin:.4rem 0 0; font-size:11.5px; }
+.steps li { display:grid; grid-template-columns:1.6rem 1fr auto; gap:.6rem; align-items:start; padding:.45rem 0; border-bottom:1px dotted var(--paper-rule); }
+.steps li:last-child { border-bottom:0; }
+.steps .marker { font-weight:700; }
+.steps .marker.done { color:var(--moss); }
+.steps .marker.human { color:var(--ochre); }
+.steps .marker.blocked { color:var(--plum); }
+.steps .marker.future { color:var(--ink-3-aaa); }
+.steps .desc { line-height:1.4; color:var(--ink); }
+.steps .desc .who { font-family:var(--mono); font-size:10px; letter-spacing:.12em; text-transform:uppercase; color:var(--ink-3-aaa); display:block; margin-top:.15rem; }
+.steps .when { font-family:var(--mono); font-size:10px; color:var(--ink-3-aaa); letter-spacing:.06em; white-space:nowrap; }
+
+/* Form-style preview */
+.form-preview { background:#fbf6e7; border:1px solid var(--paper-rule); padding:.8rem 1rem; margin-top:.6rem; }
+.form-preview .form-eyebrow { font-family:var(--mono); font-size:9.5px; letter-spacing:.2em; text-transform:uppercase; color:var(--ochre-link); margin-bottom:.5rem; }
+.form-preview .field { display:grid; grid-template-columns:1fr auto; gap:.5rem; padding:.35rem 0; border-bottom:1px dashed var(--paper-rule); font-size:11.5px; }
+.form-preview .field:last-of-type { border-bottom:0; }
+.form-preview .field .k { color:var(--ink-3-aaa); font-family:var(--mono); font-size:10px; letter-spacing:.1em; text-transform:uppercase; }
+.form-preview .field .v { color:var(--ink); }
+.form-preview .sig { margin-top:.6rem; padding-top:.5rem; border-top:1px solid var(--paper-rule); font-family:var(--display); font-style:italic; font-size:14px; color:var(--ink); }
+
+/* AGENT-LOG simulated entry */
+.agent-log { padding:.8rem 1rem; background:rgba(14,22,38,.04); border-left:3px solid var(--ink); margin-top:.7rem; font-family:var(--mono); font-size:11px; line-height:1.55; }
+.agent-log .ts { color:var(--ochre-link); font-weight:700; }
+.agent-log .actor { color:var(--ink); font-weight:700; }
+.agent-log .action { color:var(--ink-2); }
+.agent-log .action.block { color:var(--plum); font-weight:700; }
+.agent-log p { margin:.2rem 0 0; max-width:none; }
+
+/* CLOSING */
+.tour-close { width:var(--col); margin:5rem auto 0; padding:3rem 1rem; background:var(--ink); color:var(--paper); border-radius:4px; text-align:center; }
+.tour-close h2 { font-family:var(--display); font-weight:500; font-size:clamp(1.8rem,3vw,2.5rem); margin:0 0 1rem; color:var(--paper); max-width:32ch; margin-left:auto; margin-right:auto; line-height:1.15; }
+.tour-close p { color:rgba(244,236,218,.85); max-width:56ch; margin:0 auto 1.6rem; }
+.tour-close .cta-row { display:flex; gap:.8rem; justify-content:center; flex-wrap:wrap; }
+.tour-close .cta { display:inline-block; padding:.85rem 1.4rem; background:var(--ochre-link); color:var(--paper); font-family:var(--mono); font-size:12px; letter-spacing:.16em; text-transform:uppercase; text-decoration:none; border:1px solid var(--ochre-link); border-bottom:1px solid var(--ochre-link); min-height:44px; }
+.tour-close .cta:hover { background:var(--ochre-link); border-color:var(--ochre-link); color:var(--paper); }
+.tour-close .cta.ghost { background:transparent; color:var(--paper); border:1px solid var(--paper); }
+.tour-close .cta.ghost:hover { background:rgba(244,236,218,.1); color:var(--paper); border-color:var(--paper); }
+
+.colo-tag { text-align:center; font-family:var(--mono); font-size:10.5px; letter-spacing:.26em; text-transform:uppercase; color:var(--ink-mute-aa); margin:4rem auto 2rem; padding:1.4rem 0 0; border-top:1px dashed var(--paper-rule); width:var(--col); }
+.colo-tag a { color:var(--ochre-link); }
+
+@media (max-width: 540px) {
+  .scene-nav { gap:.35rem; }
+  .scene-nav a { font-size:9.5px; padding:.35rem .55rem; }
+  .cast { grid-template-columns:1fr; padding:1rem 1.1rem; }
+  .cast-avatar { width:48px; height:48px; font-size:1.1rem; }
+}
+
+/* ─────────────────────────────────── ARC-STRIP ── */
+.arc-strip {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3, .75rem);
+  padding: .35rem 1.2rem;
+  background: color-mix(in srgb, var(--ink) 96%, var(--paper));
+  border-bottom: 1px solid rgba(244,236,218,.1);
+  font-family: var(--mono, 'JetBrains Mono', monospace);
+  font-size: .72rem;
+  letter-spacing: .04em;
+  overflow: hidden;
+}
+.arc-strip__label {
+  color: rgba(244,236,218,.75);
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+.arc-strip__products {
+  display: flex;
+  gap: .75rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  flex: 1;
+}
+.arc-strip__item { color: rgba(244,236,218,.75); }
+.arc-strip__item a { color: inherit; text-decoration: none; }
+.arc-strip__item a:hover, .arc-strip__item a:focus-visible { color: rgba(244,236,218,.75); outline: 2px solid var(--ochre); outline-offset: 2px; }
+.arc-strip__item--current { color: var(--paper, #f4ecda); font-weight: 600; }
+.arc-strip__ch {
+  margin-left: .2rem;
+  opacity: .5;
+  font-size: .65rem;
+}
+.arc-strip__next {
+  color: var(--ochre);
+  text-decoration: none;
+  white-space: nowrap;
+  font-size: .72rem;
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
+}
+.arc-strip__next:hover, .arc-strip__next:focus-visible { text-decoration: underline; outline: 2px solid var(--ochre); outline-offset: 2px; }
+@media (max-width: 900px) {
+  .arc-strip__label { display: none; }
+  .arc-strip__ch { display: none; }
+  .arc-strip { padding: .3rem .8rem; }
+}
+@media (max-width: 480px) {
+  .arc-strip__next { display: none; }
+  .arc-strip__products { gap: .5rem; }
+}
+
+/* ARC FRAMING */
+.arc-framing {
+  width: var(--col);
+  margin: 1.5rem auto 0;
+}
+.arc-framing-inner {
+  display: flex;
+  gap: 1rem;
+  align-items: baseline;
+  padding: .9rem 1.2rem;
+  background: color-mix(in srgb, var(--moss) 6%, var(--paper-warm));
+  border: 1px solid color-mix(in srgb, var(--moss) 18%, transparent);
+  border-left: 3px solid var(--moss);
+  border-radius: 0 4px 4px 0;
+}
+.arc-framing__label {
+  font-family: var(--mono);
+  font-size: 9px;
+  letter-spacing: .2em;
+  text-transform: uppercase;
+  color: var(--moss);
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+.arc-framing__body {
+  font-family: var(--serif);
+  font-size: 13.5px;
+  line-height: 1.5;
+  color: var(--ink-3-aaa);
+  margin: 0;
+}
+.arc-framing__body strong { color: var(--ink); }
+
+/* SKIP LINK */
+.skip-link {
+  position: absolute;
+  left: -9999px;
+  top: 0;
+  background: var(--ink);
+  color: var(--paper);
+  padding: .5rem 1rem;
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  z-index: 200;
+  text-decoration: none;
+}
+.skip-link:focus { left: 1rem; top: 1rem; }
+
+/* MOBILE BAR */
+.mobile-bar {
+  position: sticky;
+  top: 0;
+  z-index: 60;
+  background: var(--ink);
+  color: var(--paper);
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+}
+.mobile-bar-inner {
+  width: var(--col);
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: .55rem 0;
+  min-height: 44px;
+}
+.mobile-bar a {
+  color: var(--paper);
+  border-bottom: 0;
+  opacity: .8;
+  transition: opacity .2s, color .2s;
+  text-decoration: none;
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
+  padding: 0 .4rem;
+}
+.mobile-bar a:hover { opacity: 1; color: var(--ochre); }
+.mobile-bar .mb-center {
+  color: var(--ochre-on-dark);
+  letter-spacing: .18em;
+}
+.mobile-bar .mb-center .sl { color: var(--paper); opacity: .6; }
+
+/* FOOTER */
+footer { background: var(--paper); border-top: 1px solid var(--paper-rule); padding: 2rem 0; }
+.footer-inner {
+  width: var(--col);
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1.4rem;
+}
+.footer-mark {
+  font-family: var(--display);
+  font-weight: 600;
+  font-size: 1.2rem;
+  color: var(--ink);
+  letter-spacing: -.02em;
+}
+.footer-mark .dot { color: var(--ochre); }
+.footer-mark .sub {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: .18em;
+  color: var(--ochre-link);
+  text-transform: uppercase;
+  margin-left: .4rem;
+  font-weight: 500;
+  vertical-align: 3px;
+}
+.footer-meta {
+  font-family: var(--mono);
+  font-size: 10.5px;
+  letter-spacing: .14em;
+  color: var(--ink-3-aaa);
+  text-transform: uppercase;
+}
+.footer-links {
+  display: flex;
+  gap: 1.4rem;
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+}
+.footer-links a {
+  color: var(--ink-3-aaa);
+  border-bottom: 0;
+  text-decoration: none;
+}
+.footer-links a:hover { color: var(--ochre); }
+
+/* ─────────────────────────────────────────── MOBILE ── */
+@media (max-width: 900px) {
+  .tour-hero { padding: 2.8rem 0 2rem; }
+  .tour-dek { font-size: 1.1rem; }
+}
+@media (max-width: 540px) {
+  .tour-hero { padding: 2rem 0 1.5rem; }
+  .tour-h1 { font-size: clamp(2rem, 7vw, 2.8rem); }
+  .tour-dek { font-size: 1rem; max-width: none; }
+  .scene { padding: 2rem 0 1.5rem; }
+  .scene-head { gap: .4rem .6rem; font-size: 10px; }
+}
+@media (max-width: 600px) {
+  .mockup { overflow-x: hidden; }
+  .steps li { grid-template-columns: 1.4rem 1fr; }
+  .steps .when { display: none; }
+  .form-preview .field { grid-template-columns: 1fr; }
+  .form-preview .field .v { text-align: left; }
+  .mockup-row { flex-wrap: wrap; gap: .3rem; }
+  .mockup-row .v { word-break: break-word; }
+  .arc-framing-inner { flex-direction: column; gap: .5rem; align-items: flex-start; }
+  .arc-framing__label { white-space: normal; }
+  .agent-log { font-size: 10.5px; overflow-x: auto; }
+  .agent-log p { white-space: normal; word-break: break-word; }
+}
+@media (max-width: 540px) {
+  .boundary { font-size: 11px; padding: .7rem .9rem; }
+  .tour-close { padding: 2rem .9rem; margin: 3rem auto 0; }
+  .tour-close h2 { font-size: clamp(1.5rem, 5vw, 1.9rem); }
+  .tour-close p { font-size: .95rem; }
+  .tour-close .cta { display: inline-flex; align-items: center; }
+  .footer-inner { flex-direction: column; align-items: flex-start; gap: 1rem; padding: 1.2rem 0; }
+  .footer-links { flex-wrap: wrap; gap: .8rem; }
+}
+@media (max-width: 414px) {
+  .preview-banner { font-size: 10px; padding: .55rem .4rem; }
+  .preview-banner em { display: block; margin-left: 0; margin-top: .2rem; }
+  .cast-meta { font-size: 10.5px; }
+  .colo-tag { font-size: 9.5px; letter-spacing: .16em; }
+}
+@media (max-width: 360px) {
+  .tour-h1 { font-size: clamp(1.75rem, 6vw, 2.2rem); }
+  .scene-h { font-size: clamp(1.5rem, 5vw, 1.9rem); }
+  .mockup-bar .crumb { display: none; }
+  .tour-close { padding: 1.5rem .7rem; }
+}
+@media (prefers-reduced-motion: reduce) {
+  * { transition: none; animation: none; }
+  html { scroll-behavior: auto; }
+}
+</style>
+</head>
+<body>
+{% include site-nav.html %}
+
+<!-- realtime-stamp -->
+<div class="rt-stamp" data-t0="2026-05-12T22:25:46-04:00" data-this="2026-06-08T12:00:00-04:00" style="position:fixed;bottom:8px;right:10px;z-index:9999;font-family:'JetBrains Mono',ui-monospace,Menlo,monospace;font-size:9.5px;letter-spacing:.08em;color:rgba(14,22,38,.55);background:rgba(244,236,218,.75);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);padding:.25rem .55rem;border-radius:999px;border:1px solid rgba(184,101,31,.25);pointer-events:none" aria-hidden="true"><span style="color:#b8651f">&#9679;</span> compiled at <strong style="color:#0e1626">T+26d</strong> real-elapsed &middot; narrative reach T+94d &middot; <span style="opacity:.6">2026-06-08</span></div>
+<!-- /realtime-stamp -->
+
+<a href="#main" class="skip-link">Skip to main content</a>
+
+<!-- Mobile bar -->
+<div class="mobile-bar" role="navigation" aria-label="Section navigation">
+  <div class="mobile-bar-inner">
+    <a href="../">← Ember</a>
+    <span class="mb-center">Ember <span class="sl">/</span> Tour</span>
+    <a href="../plan.html">Plan →</a>
+  </div>
+</div>
+
+<!-- arc-strip: Ember is the prequel to the four-product arc -->
+<nav class="arc-strip" aria-label="Stratum tour navigation">
+  <span class="arc-strip__label">Stratum tour</span>
+  <ol class="arc-strip__products">
+    <li class="arc-strip__item arc-strip__item--current" aria-current="step"><span>Ember</span><span class="arc-strip__ch">ch. 0 · proposed</span></li>
+    <li class="arc-strip__item"><a href="{{ '/recruiter/tour/' | relative_url }}">Recruiter</a><span class="arc-strip__ch">ch. 1</span></li>
+    <li class="arc-strip__item"><a href="{{ '/tenure/tour/' | relative_url }}">Tenure</a><span class="arc-strip__ch">ch. 2</span></li>
+    <li class="arc-strip__item"><a href="{{ '/tour/' | relative_url }}">Console</a><span class="arc-strip__ch">ch. 3</span></li>
+    <li class="arc-strip__item"><a href="{{ '/cairn/tour/' | relative_url }}">Cairn</a><span class="arc-strip__ch">ch. 4</span></li>
+  </ol>
+  <a class="arc-strip__next" href="{{ '/recruiter/tour/' | relative_url }}">Next: Recruiter →</a>
+</nav>
+<!-- /arc-strip -->
+
+<div class="preview-banner" role="status">
+  <span class="dot" aria-hidden="true"></span>
+  <strong>Proposed</strong>
+  <em>Under a six-week evaluation · not a launch · the <a href="../decision.html">T+68d gate</a> decides standalone vs module — read the <a href="../plan.html">plan</a></em>
+</div>
+
+<main id="main" tabindex="-1">
+
+<!-- ─────────────────────────────────────────── HERO ── -->
+<section class="tour-hero">
+  <div class="tour-eyebrow">
+    <span class="pip" aria-hidden="true"></span>
+    Stratum / Ember
+    <span class="sep">·</span>
+    The Tour
+    <span class="sep">·</span>
+    Four scenes · One pool · Proposed
+  </div>
+  <h1 class="tour-h1">Meet the pool. <em>Most of them aren't in a req.</em></h1>
+  <p class="tour-dek">
+    What follows is the storyboard for Stratum Ember — a <em>proposed</em> candidate-relationship product, under a six-week evaluation, not yet built. Four scenes on one consent-bound talent pool: how it stays identity-resolved and does not decay, why a nurture send stops dead at an unconsented edge, what a candidate sees when they ask <em>where do I stand</em>, and the moment a new requisition rediscovers the people who already said yes. The agent that runs Ember is unnamed — naming review is still open. When Ember is evaluated on a design partner's real graph, this is the workflow under test.
+  </p>
+  <div class="cast" aria-label="Meet the cast: Cordova's talent pool">
+    <div class="cast-avatar" aria-hidden="true">CM</div>
+    <div>
+      <div class="cast-eyebrow">The cast · Cordova's talent pool</div>
+      <h2 class="cast-name">1,240 warm relationships</h2>
+      <p class="cast-meta">
+        Cordova Manufacturing · sourcing &amp; talent-brand · run by Devin Cho, Sr Sourcer<br>
+        <strong>Most are not in any requisition. All are consented.</strong><br>
+        One — Elena Vega, final-round Platform Eng, Nov 2024 — is this tour's flagship.
+      </p>
+    </div>
+  </div>
+
+<!-- arc framing: the prequel to the four-product arc -->
+<div class="arc-framing" role="note" aria-label="How Ember fits the four-product arc">
+  <div class="arc-framing-inner">
+    <span class="arc-framing__label">Chapter 0 of 5 · the prequel</span>
+    <p class="arc-framing__body">
+      Elena Vega joined Cordova through Stratum Recruiter (<strong>chapter 1</strong>); Tenure ran her
+      first ninety days (chapter 2); Console tracked her analytics (chapter 3); Cairn attested
+      her skills (chapter 4). <strong>Before any of it, she was a name in a pool that didn't go
+      cold.</strong> Ember is how Cordova kept faith with her for eighteen months — until the role
+      and the person aligned. Ember is proposed, under evaluation; this storyboard shows what
+      is being tested, not what has shipped.
+    </p>
+  </div>
+</div>
+<!-- /arc framing -->
+
+<div id="scene-status" role="status" aria-live="polite" aria-atomic="true" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0"></div>
+<nav class="scene-nav" aria-label="Jump to scene">
+  <a href="#scene-1">01 · The pool that doesn't decay</a>
+  <a href="#scene-2">02 · Consent is an edge</a>
+  <a href="#scene-3">03 · Where do I stand?</a>
+  <a href="#scene-4">04 · Rediscovery</a>
+</nav>
+
+<!-- ─────────────────────────────────────────── SCENE 1 ── -->
+<section class="scene" id="scene-1" aria-label="Scene 1: the pool that doesn't decay">
+  <div class="scene-head">
+    <span class="scene-num">Scene 01 / 04</span>
+    <span class="scene-when">Any day · the live pool</span>
+    <span class="scene-agent ember">Ember</span>
+    <span class="scene-class decide">Decide</span>
+    <span class="scene-class readonly">Read-side</span>
+  </div>
+  <div class="scene-grid">
+    <div>
+      <h2 class="scene-h">A pool is not a list. It's a <em>live query</em> over a resolved identity.</h2>
+      <p>
+        Every incumbent CRM holds a talent pool as a static snapshot — a list that begins decaying the moment it's built, because the same person exists three times across the ATS, the old CRM, and a spreadsheet, and changes jobs without telling anyone. Ember's pool is a query: <em>"final-round Platform or Backend engineers, last 18 months."</em> It is maintained live as the graph changes, with identities reconciled continuously across Cordova's whole perimeter — ATS, HRIS, directory.
+      </p>
+      <p>
+        The dedup is the point. <strong>Renata Silva</strong> is a referral <em>and</em> a past applicant — one node, not two. <strong>Marcus Bell</strong> changed employers in 2025 — still the same node. <strong>Elena Vega</strong> reached final round in November 2024 and stayed warm. And <strong>Dana Okafor</strong> is in the pool but matched to nothing right now — which is the honest, ordinary case. Most of a pool is people who are not in a requisition today.
+      </p>
+      <div class="boundary">
+        <strong>Boundary</strong>
+        Pool maintenance and identity resolution are Decide, read-side. Ember reconciles identity continuously; it sends nothing from this screen. Entity resolution runs at &tau;&nbsp;=&nbsp;0.93 (Forge, Engineering Post 01) — above the threshold to merge, below it to hold apart and ask.
+      </div>
+    </div>
+    <div class="mockup" aria-label="Ember — talent pool panel">
+      <div class="mockup-bar">
+        <span class="dot-r" aria-hidden="true"></span><span class="dot-y" aria-hidden="true"></span><span class="dot-g" aria-hidden="true"></span>
+        <span class="crumb">Stratum / Ember / Pools / Cordova</span>
+        <span class="agent-badge">Ember · read-side</span>
+      </div>
+      <div class="mockup-body">
+        <div class="mockup-section">
+          <div class="label">Pool · live query · not a list</div>
+          <div class="val">Final-round Platform / Backend · last 18mo</div>
+          <div class="sub">1,240 people · 38 reached final round · updated live · 0 stale snapshots</div>
+        </div>
+        <div class="mockup-section">
+          <div class="label">Members · identity-resolved</div>
+          <ul class="steps">
+            <li><span class="marker done">●</span><span class="desc">Elena Vega · Sr Platform Eng · final round Nov 2024<span class="who">consent ✓ role-outreach · US</span></span><span class="when">warm</span></li>
+            <li><span class="marker done">●</span><span class="desc">Renata Silva · referral + past applicant <span class="tag info">resolved to 1 node (was 2)</span><span class="who">consent ✓ · US</span></span><span class="when">warm</span></li>
+            <li><span class="marker done">●</span><span class="desc">Marcus Bell · changed employers 2025 <span class="tag info">same node across job change</span><span class="who">consent ✓ · US</span></span><span class="when">warm</span></li>
+            <li><span class="marker future">○</span><span class="desc">Dana Okafor · past applicant 2024 <span class="tag pending">not matched</span><span class="who">consent ✓ · stay-in-touch</span></span><span class="when">in pool</span></li>
+            <li><span class="marker future">○</span><span class="desc">Tomas Vrba · event check-in, Munich 2025<span class="who">consent: event-followup only · EU</span></span><span class="when">in pool</span></li>
+          </ul>
+        </div>
+        <div class="agent-log">
+          <p><span class="ts">resolve</span> <span class="actor">Ember</span> <span class="action">→ merged Silva(referral#R-3391) + Silva(applicant#A-8842) · score=0.96 &gt; &tau; · one person</span></p>
+          <p><span class="ts">resolve</span> <span class="actor">Ember</span> <span class="action">→ Bell employer edge changed Acme→Northwind · identity held · node stable</span></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─────────────────────────────────────────── SCENE 2 ── -->
+<section class="scene" id="scene-2" aria-label="Scene 2: consent is an edge, not a checkbox">
+  <div class="scene-head">
+    <span class="scene-num">Scene 02 / 04</span>
+    <span class="scene-when">Devin builds a re-warm sequence</span>
+    <span class="scene-agent ember">Ember</span>
+    <span class="scene-class recommend">Recommend</span>
+    <span class="scene-class blocked">Consent-gated</span>
+  </div>
+  <div class="scene-grid">
+    <div>
+      <h2 class="scene-h">A nurture campaign is a <em>traversal</em> — and it stops dead at an unconsented edge.</h2>
+      <p>
+        Devin builds a re-warm sequence for the Platform pool: <em>"a role's coming in Q3 — let's reopen the conversation."</em> In an incumbent CRM, consent is a column — a flag on a contact record, enforced (if at all) in application code that a migration can quietly bypass. In Stratum, consent attaches to the <strong>edge</strong>, with scope, purpose, validity, issuer, and jurisdiction. The campaign expands across the graph; at each node it can only cross an edge whose consent covers <em>this</em> purpose in <em>this</em> jurisdiction.
+      </p>
+      <p>
+        Three sends queue. <strong>Tomas Vrba's does not.</strong> His only consent is event follow-up, in the EU — not role outreach. The send isn't flagged for review; it is <em>impossible</em>. Compliant nurture is not a setting Devin remembered to switch on — it is the only traversal the engine can perform. The <strong>consent-validity probe</strong> gates the whole campaign before a single message leaves.
+      </p>
+      <div class="boundary">
+        <strong>Boundary · consent is an edge</strong>
+        A send with no consent edge covering its purpose and jurisdiction cannot be performed, by construction — the defensible core no bolt-on CRM can retrofit. The agent <em>proposes</em> the valid sends; a human (Devin) presses send. Outreach is never auto-sent. The consent-validity probe must pass before any outreach is enabled at all.
+      </div>
+    </div>
+    <div class="mockup" aria-label="Ember — consent-gated nurture traversal">
+      <div class="mockup-bar">
+        <span class="dot-r" aria-hidden="true"></span><span class="dot-y" aria-hidden="true"></span><span class="dot-g" aria-hidden="true"></span>
+        <span class="crumb">Stratum / Ember / Nurture / Platform Q3</span>
+        <span class="agent-badge">Ember · proposes</span>
+      </div>
+      <div class="mockup-body">
+        <div class="mockup-section">
+          <div class="label">Campaign · traversal</div>
+          <div class="mockup-row"><span class="k">Purpose</span><span class="v">Role outreach · Platform · Q3</span></div>
+          <div class="mockup-row"><span class="k">Reach (in pool)</span><span class="v">4 nodes evaluated</span></div>
+          <div class="mockup-row"><span class="k">Probe gate</span><span class="v">consent-validity <span class="tag ok">PASS</span></span></div>
+        </div>
+        <div class="mockup-section">
+          <div class="label">Per-edge consent check</div>
+          <ul class="steps">
+            <li><span class="marker done">✓</span><span class="desc">Elena Vega · edge: role-outreach · US · valid<span class="who">queued · awaits Devin send</span></span><span class="when">queued</span></li>
+            <li><span class="marker done">✓</span><span class="desc">Marcus Bell · edge: role-outreach · US · valid<span class="who">queued · awaits Devin send</span></span><span class="when">queued</span></li>
+            <li><span class="marker done">✓</span><span class="desc">Renata Silva · edge: role-outreach · US · valid<span class="who">queued · awaits Devin send</span></span><span class="when">queued</span></li>
+            <li><span class="marker blocked">⊘</span><span class="desc">Tomas Vrba · edge: event-followup · EU <span class="tag blocked">blocked at edge</span><span class="who">purpose + jurisdiction mismatch · cannot send</span></span><span class="when">held</span></li>
+          </ul>
+        </div>
+        <div class="agent-log">
+          <p><span class="ts">traverse</span> <span class="actor">Ember</span> <span class="action">→ expand campaign(purpose=role-outreach, juris=US) across pool edges</span></p>
+          <p><span class="ts">stop</span> <span class="actor">Ember</span> <span class="action block">→ edge Vrba: consent=event-followup/EU ⊅ role-outreach/US · traversal cannot cross · 0 side effects</span></p>
+          <p><span class="ts">propose</span> <span class="actor">Ember</span> <span class="action">→ 3 valid sends staged for Devin · send is a human action (Recommend)</span></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─────────────────────────────────────────── SCENE 3 ── -->
+<section class="scene" id="scene-3" aria-label="Scene 3: where do I stand — the candidate transparency surface">
+  <div class="scene-head">
+    <span class="scene-num">Scene 03 / 04</span>
+    <span class="scene-when">Dana opens her candidate view</span>
+    <span class="scene-agent candidate">Candidate view</span>
+    <span class="scene-class readonly">Read-only</span>
+    <span class="scene-class blocked">Human controls</span>
+  </div>
+  <div class="scene-grid">
+    <div>
+      <h2 class="scene-h">The anti-ghosting surface: a <em>straight answer</em>, even when the answer is nothing.</h2>
+      <p>
+        The category spent a decade optimizing the recruiter's megaphone and almost nothing on the candidate's experience of being nurtured — which in practice means being added to a sequence and then ghosted. Recruiter already refuses the black-box match score and turns its decision-explanation layer toward the hiring team; Ember points that same layer at the <em>candidate</em>.
+      </p>
+      <p>
+        Dana Okafor isn't matched to anything right now. She opens her view and sees exactly that — <strong>not a manufactured "you're a top match," not fake urgency</strong>, just the honest status: in the talent community, no open role that fits, here is the data Cordova holds, and here is one button to revoke and one to download. Revocation propagates to the graph immediately and removes her from every future traversal. The transparency surface is load-bearing — undercut it and the whole differentiation collapses.
+      </p>
+      <div class="boundary">
+        <strong>Boundary · the human controls the relationship</strong>
+        Ember will not ship dark patterns — fake urgency, manufactured scarcity, opaque "top match" nudges. A candidate can always see what is held and revoke in one place; revocation is honored at the data layer, not the application layer. Honest status is shown even when it is "nothing right now."
+      </div>
+    </div>
+    <div class="mockup" aria-label="Candidate-facing — where do I stand">
+      <div class="mockup-bar">
+        <span class="dot-r" aria-hidden="true"></span><span class="dot-y" aria-hidden="true"></span><span class="dot-g" aria-hidden="true"></span>
+        <span class="crumb">stratum.ai/c/cordova · Dana Okafor</span>
+        <span class="agent-badge">Candidate view</span>
+      </div>
+      <div class="mockup-body">
+        <div class="mockup-section">
+          <div class="label">Where you stand</div>
+          <div class="val">Not currently matched to an open role</div>
+          <div class="sub">In Cordova's talent community since 2024-08 · you opted to stay in touch · last contact 2026-02</div>
+        </div>
+        <div class="mockup-section">
+          <div class="label">What Cordova holds about you</div>
+          <div class="mockup-row"><span class="k">Résumé</span><span class="v">on file · v2024-07</span></div>
+          <div class="mockup-row"><span class="k">Interview</span><span class="v">Backend, 2024 · declined: role filled</span></div>
+          <div class="mockup-row"><span class="k">Consent scope</span><span class="v">stay-in-touch · US <span class="tag ok">active</span></span></div>
+          <div class="mockup-row"><span class="k">Used for</span><span class="v">rediscovery when a fitting role opens — nothing else</span></div>
+        </div>
+        <div class="form-preview">
+          <div class="form-eyebrow">Your controls · honored at the data layer</div>
+          <div class="field"><span class="k">Stay in touch</span><span class="v">On ✓</span></div>
+          <div class="field"><span class="k">Revoke consent</span><span class="v">[ Revoke ] · removes you from all future outreach</span></div>
+          <div class="field"><span class="k">Your data</span><span class="v">[ Download ] · [ Request deletion ]</span></div>
+          <div class="sig">No urgency. No score. Just where you actually stand.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─────────────────────────────────────────── SCENE 4 ── -->
+<section class="scene" id="scene-4" aria-label="Scene 4: lifecycle-triggered rediscovery — the flagship moment">
+  <div class="scene-head">
+    <span class="scene-num">Scene 04 / 04</span>
+    <span class="scene-when">2026-04-21 · a Platform req opens</span>
+    <span class="scene-agent ember">Ember</span>
+    <span class="scene-class recommend">Recommend</span>
+    <span class="scene-class suggest">Cited · never scored</span>
+  </div>
+  <div class="scene-grid">
+    <div>
+      <h2 class="scene-h">The role you just posted <em>already has three people</em> who said yes to staying in touch.</h2>
+      <p>
+        On April 21, Cordova opens a Senior Platform Engineer requisition. The instant it posts, the graph surfaces the warm, consented people who fit that exact profile — three of them, Elena Vega among them, rediscovered from a relationship kept alive for eighteen months. This is the flagship moment: rediscovery isn't a search Devin remembers to run; it's triggered by the lifecycle event itself.
+      </p>
+      <p>
+        Ember drafts the outreach with <strong>cited reasoning</strong> — <em>why Elena, for this role</em>: final round Nov 2024, consented, skills match — never a black-box score. It <em>proposes</em>; Devin reads the reasons, edits, and sends. Elena replies. The handoff to Recruiter is a warm inbound, not a cold applicant — and that is where chapter 1 begins. The <strong>nurture-fairness probe</strong> runs before the list is ever proposed, checking the agent isn't prioritizing along a protected-class proxy.
+      </p>
+      <div class="boundary">
+        <strong>Boundary</strong>
+        The agent proposes; a human sends (Recommend, human-in-loop). "Why this person" is always cited, attested evidence — never an opaque match score. The nurture-fairness probe must pass before any rediscovery list is surfaced to a human.
+      </div>
+    </div>
+    <div class="mockup" aria-label="Ember — lifecycle-triggered rediscovery">
+      <div class="mockup-bar">
+        <span class="dot-r" aria-hidden="true"></span><span class="dot-y" aria-hidden="true"></span><span class="dot-g" aria-hidden="true"></span>
+        <span class="crumb">Stratum / Ember / Rediscovery / REQ Platform Eng</span>
+        <span class="agent-badge">Ember · proposes</span>
+      </div>
+      <div class="mockup-body">
+        <div class="mockup-section">
+          <div class="label">Requisition opened · trigger</div>
+          <div class="mockup-row"><span class="k">Req</span><span class="v">REQ-2026-0488 · Sr Platform Engineer</span></div>
+          <div class="mockup-row"><span class="k">Opened</span><span class="v">2026-04-21 · 09:03 PT</span></div>
+          <div class="mockup-row"><span class="k">Probe gate</span><span class="v">nurture-fairness <span class="tag ok">PASS</span></span></div>
+        </div>
+        <div class="mockup-section">
+          <div class="label">Rediscovered · warm + consented · cited</div>
+          <ul class="steps">
+            <li><span class="marker done">●</span><span class="desc">Elena Vega · final round Nov 2024 · Platform<span class="who">why: role-match + prior final round + consent ✓</span></span><span class="when">match 0.91</span></li>
+            <li><span class="marker done">●</span><span class="desc">Marcus Bell · final round Mar 2025 · Backend<span class="who">why: adjacent role + consent ✓ · now at Northwind</span></span><span class="when">match 0.84</span></li>
+            <li><span class="marker done">●</span><span class="desc">Renata Silva · referral + applicant · Platform<span class="who">why: referral signal + skills · consent ✓</span></span><span class="when">match 0.80</span></li>
+          </ul>
+        </div>
+        <div class="form-preview">
+          <div class="form-eyebrow">Ember · outreach draft · for Devin to review</div>
+          <p style="margin:.3rem 0 .6rem; font-family:var(--serif); font-size:13.5px; line-height:1.55">Elena —</p>
+          <p style="margin:0 0 .6rem; font-family:var(--serif); font-size:13.5px; line-height:1.55">When we last spoke in 2024 the Platform role wasn't the right time. One just opened that looks a lot more like the work you said you wanted. No pressure — would you like the details?</p>
+          <p style="margin:0; font-family:var(--serif); font-size:13.5px;">— Devin, Cordova</p>
+          <div class="sig">Edit · Send · Skip</div>
+        </div>
+        <div class="agent-log">
+          <p><span class="ts">09:03:11</span> <span class="actor">Ember</span> <span class="action">→ req.opened triggered rediscovery · pool query matched 3 consented nodes</span></p>
+          <p><span class="ts">09:03:12</span> <span class="actor">Ember</span> <span class="action">→ nurture-fairness probe PASS · no protected-class proxy in ranking features</span></p>
+          <p><span class="ts">09:03:12</span> <span class="actor">Ember</span> <span class="action">→ drafted cited outreach · proposed to Devin · handoff to Recruiter on reply (chapter 1)</span></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─────────────────────────────────────────── CLOSING ── -->
+<aside class="tour-close">
+  <h2>When Ember is evaluated on a design partner's real graph, this is the workflow under test.</h2>
+  <p>Mercator and Halcyon are the first design partners — running Ember at $0 through the T+68d evaluation in exchange for weekly feedback and a jointly-run consent-data audit. If sourcers adopt it unprompted and consent coverage holds at 100%, the standalone-vs-module call is made on that evidence. If they don't, we shelve it into the Recruiter backlog and say so — in public. The test is the point.</p>
+  <p class="tour-close-arc" style="font-family:var(--mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--ochre-on-dark);margin:0 0 1.2rem;">Next in Elena's arc: Recruiter — chapter 1</p>
+  <div class="cta-row">
+    <a class="cta" href="{{ '/recruiter/tour/' | relative_url }}">Recruiter tour →</a>
+    <a class="cta ghost" href="../plan.html">Read the plan</a>
+    <a class="cta ghost" href="mailto:partners@stratum.ai?subject=Ember%20design%20partner">Become a design partner</a>
+    <a class="cta ghost" href="../">Back to Ember</a>
+  </div>
+</aside>
+
+<footer>
+  <div class="footer-inner">
+    <span class="footer-mark">Stratum<span class="dot">.</span><span class="sub">/Ember</span></span>
+    <span class="footer-meta">&copy; Stratum &middot; AI-first HCM &middot; 2026 &middot; proposed · PLN-2026-004</span>
+    <div class="footer-links">
+      <a href="{{ '/' | relative_url }}">Home</a>
+      <a href="../">Ember</a>
+      <a href="../plan.html">Plan</a>
+      <a href="../decision.html">Decision</a>
+      <a href="{{ '/recruiter/tour/' | relative_url }}">Recruiter tour</a>
+      <a href="mailto:hello@stratum.ai">Contact</a>
+    </div>
+  </div>
+</footer>
+
+</main>
+<script src="{{ '/assets/echo.js' | relative_url }}" defer></script>
+</body>
+</html>
