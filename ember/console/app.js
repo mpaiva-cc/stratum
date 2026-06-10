@@ -813,6 +813,7 @@
     const ac = $('#ri-count-alerts');
     if (ac) { const u = local.alerts.filter(a => a.unread).length; ac.textContent = u; ac.classList.toggle('ri-count--accent', u > 0); }
     const rail = $('#rail'); if (rail) rail.classList.remove('is-open');
+    maybeGuide(state.view);
   }
 
   /* ── init ── */
@@ -899,6 +900,7 @@
 
   function tourStart() {
     if (tour.active) return;
+    closeGuide();                       // the spotlight tour and the page-guide drawer don't share the screen
     tour.active = true; tour.prevFocus = document.activeElement;
     document.body.style.overflow = 'hidden';
     if (!tour.nodes) tourBuild();
@@ -998,6 +1000,143 @@
       if (document.fonts && document.fonts.ready && document.fonts.ready.then) document.fonts.ready.then(kick);
       else setTimeout(kick, 400);
     }
+  }
+
+  /* ── prototype guide · per-view educational drawer ───────────────
+     An explainer layer, deliberately OFF the product's design system (legal-pad
+     yellow + a system sans font) so a viewer reads it as commentary, not a
+     feature. Pushes the shell so it never covers the controls it references;
+     sits below the topbar so the "top right" controls stay reachable. Auto-opens
+     once per view per session (suppressed during the tour and on first boot);
+     always reopenable from the right-edge handle. */
+  const GUIDE_OFF_KEY = 'ember_guide_off';
+  const GUIDE = {
+    pools: {
+      title: 'Pools',
+      lede: 'A pool is a group of people you already have a relationship with — past applicants, referrals, finalists — kept in one place.',
+      do: ['Click any person to open their profile.', 'Notice most people aren’t tied to an open job. That’s a healthy talent community, not a problem.', 'Search and remove-duplicates are free here — no per-search fees.'],
+      diff: 'A normal CRM stores a list that’s out of date the moment you export it. Ember’s pool updates itself and has already merged duplicate records into one person.',
+    },
+    nurture: {
+      title: 'Nurture',
+      lede: 'Nurture is staying in touch with people over time — a friendly check-in, not a job blast.',
+      do: ['Click “Preview traversal” to see who a campaign would reach.', 'Watch one message get blocked — that person never agreed to this kind of outreach.', 'A message only sends after you approve it.'],
+      diff: 'Other CRMs treat permission as a checkbox someone can forget or override. In Ember, if a person hasn’t agreed to this kind of message, there’s simply no way to contact them — it’s built into the data, not left to a setting.',
+    },
+    agent: {
+      title: 'Agent run',
+      lede: 'Let Ember’s assistant do the legwork — draft and line up messages for a whole group at once.',
+      do: ['Connect an AI key (top right) to run it for real.', 'Click “Run the nurture agent” and watch it work through everyone.', 'See it skip the people it isn’t allowed to contact, and queue the rest for your approval.'],
+      diff: 'Most “AI” in a CRM just writes copy and sends it. Ember’s assistant is fenced in: it physically can’t message someone who hasn’t agreed, because the system refuses the action — not because we asked it to behave.',
+    },
+    rediscovery: {
+      title: 'Rediscovery',
+      lede: 'When you post a job, Ember reminds you who you already know who fits it.',
+      do: ['Click “Open the requisition” to post a sample job.', 'See the warm matches, each with a plain reason why they fit.', 'Click “Propose outreach” to draft a message to one.'],
+      diff: 'A normal CRM makes you remember to dig through old applicants. Ember surfaces them the moment a job opens — and explains each match in plain words, not a mystery score.',
+    },
+    alerts: {
+      title: 'Alerts',
+      lede: 'A heads-up the moment a new role opens — with how many people you already know who fit it.',
+      do: ['Toggle which teams get notified when a role opens.', 'See the count of warm, willing people already in your pool for each opening.', 'Click through to act on one in Rediscovery.'],
+      diff: 'Other tools tell you a job opened. Ember also tells you who you already know who fits it — so a new role starts with warm contacts instead of a blank search.',
+    },
+    candidate: {
+      title: 'Candidate view',
+      lede: 'This is what a candidate sees about themselves — honest about where they stand.',
+      do: ['Switch between people with the name buttons.', 'Read the straight answer — even when it’s “nothing right now”.', 'Try “Ask about your data”, then run the grounding probe to see the answer fact-checked.'],
+      diff: 'Candidates usually get silence. Ember gives them a straight answer about their own data, lets them ask questions, and removes their info with one click — transparency most CRMs never offer the candidate at all.',
+    },
+    deliverability: {
+      title: 'Deliverability',
+      lede: 'The behind-the-scenes setup that makes sure your emails actually arrive.',
+      do: ['Review the dedicated sending domain and its authentication checks.', 'Note this isn’t your personal Outlook — it’s a separate, monitored channel.', 'Compare the spam-flag rate to a shared mailbox.'],
+      diff: 'Most recruiters send from their own inbox and hit a spam wall around a few hundred emails. Ember sends from dedicated, authenticated infrastructure so messages land in the inbox.',
+    },
+    permissions: {
+      title: 'Permissions',
+      lede: 'Who on your team can do what — look only, send messages, or change settings.',
+      do: ['Switch the role (top right) and watch controls turn on and off.', 'Notice clinical recruiters are view-only by default.', 'Only admins can manage permissions.'],
+      diff: 'It’s the same “who can decide vs. who can only view” control Ember applies to its AI — turned toward your team, so the wrong person can’t fire off a campaign.',
+    },
+    evals: {
+      title: 'Evals',
+      lede: 'Our own ongoing tests that check the assistant stays truthful and fair.',
+      do: ['Click “Run the eval set” to test the AI live.', 'Tick “Simulate a regression” and run again — watch a test go red.', 'Green-by-default proves nothing; this is built to be able to fail.'],
+      diff: 'No other CRM shows you its own AI safety tests — let alone lets you watch them fail on purpose. Ember treats “the AI behaves” as something to prove, not just claim.',
+    },
+  };
+  const guide = { open: false, lastView: null, seen: {}, autoOff: false, nodes: null };
+
+  function guideBuild() {
+    const handle = document.createElement('button');
+    handle.className = 'guide-handle'; handle.id = 'guide-handle'; handle.type = 'button';
+    handle.setAttribute('aria-expanded', 'false'); handle.setAttribute('aria-controls', 'guide-drawer');
+    handle.innerHTML = '<span class="gh-star" aria-hidden="true">✺</span> Why this page?';
+    const drawer = document.createElement('aside');
+    drawer.className = 'guide-drawer'; drawer.id = 'guide-drawer';
+    drawer.setAttribute('role', 'complementary'); drawer.setAttribute('aria-label', 'Prototype guide — an explainer, not a product feature');
+    drawer.innerHTML = `
+      <button class="gd-x" id="guide-x" type="button" aria-label="Close guide">✕</button>
+      <div class="gd-pad">
+        <div class="gd-eyebrow"><span aria-hidden="true">✺</span> Prototype Guide</div>
+        <div class="gd-meta">An explainer layer for this walkthrough — not a feature of Ember.</div>
+        <h3 class="gd-title" id="guide-title"></h3>
+        <p class="gd-lede" id="guide-lede"></p>
+        <div class="gd-h">Try this</div>
+        <ol class="gd-do" id="guide-do"></ol>
+        <div class="gd-h">Why Ember is different</div>
+        <div class="gd-diff" id="guide-diff"></div>
+        <div class="gd-foot"><span>Stratum Ember · prototype</span><button class="gd-off" id="guide-off" type="button">Stop auto-opening these</button></div>
+      </div>`;
+    document.body.appendChild(handle); document.body.appendChild(drawer);
+    guide.nodes = { handle, drawer };
+    handle.addEventListener('click', () => toggleGuide());
+    $('#guide-x', drawer).addEventListener('click', () => closeGuide());
+    $('#guide-off', drawer).addEventListener('click', () => {
+      guide.autoOff = true; try { localStorage.setItem(GUIDE_OFF_KEY, '1'); } catch (e) {}
+      closeGuide(); toast('Page guides won’t auto-open · <span class="tk">reopen anytime with “Why this page?”</span>');
+    });
+    drawer.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeGuide(); });
+  }
+  function guideRender(view) {
+    const g = GUIDE[view]; if (!g || !guide.nodes) return;
+    const d = guide.nodes.drawer;
+    $('#guide-title', d).textContent = g.title;
+    $('#guide-lede', d).textContent = g.lede;
+    $('#guide-do', d).innerHTML = g.do.map(s => `<li>${esc(s)}</li>`).join('');
+    $('#guide-diff', d).textContent = g.diff;
+  }
+  function openGuide() {
+    if (!guide.nodes) guideBuild();
+    if (!GUIDE[state.view]) return;          // no guide for this view
+    guideRender(state.view);
+    const tb = $('.topbar'); if (tb) guide.nodes.drawer.style.top = tb.offsetHeight + 'px'; // sit exactly under the topbar
+    document.body.classList.add('guide-open');
+    guide.open = true;
+    guide.nodes.handle.setAttribute('aria-expanded', 'true');
+    const x = $('#guide-x', guide.nodes.drawer); if (x) x.focus();
+  }
+  function closeGuide() {
+    if (!guide.open) return;
+    document.body.classList.remove('guide-open');
+    guide.open = false;
+    if (guide.nodes) { guide.nodes.handle.setAttribute('aria-expanded', 'false'); guide.nodes.handle.focus(); }
+  }
+  function toggleGuide() { guide.open ? closeGuide() : openGuide(); }
+  function maybeGuide(view) {
+    if (!GUIDE[view]) return;
+    if (!guide.nodes) guideBuild();          // handle visible from first paint
+    const changed = view !== guide.lastView;
+    const firstRender = guide.lastView === null;
+    guide.lastView = view;
+    if (guide.open) guideRender(view);        // keep an open drawer synced to the current page
+    if (!changed || firstRender) return;      // not a genuine navigation, or the boot paint
+    if (tour.active) return;                   // the coach-mark tour owns the screen
+    let off = guide.autoOff; if (!off) { try { off = !!localStorage.getItem(GUIDE_OFF_KEY); } catch (e) {} }
+    if (off || guide.seen[view]) return;
+    guide.seen[view] = true;
+    openGuide();
   }
 
   function boot() {
