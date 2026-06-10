@@ -1026,7 +1026,7 @@
     agent: {
       title: 'Agent run',
       lede: 'Let Ember’s assistant do the legwork — draft and line up messages for a whole group at once.',
-      do: ['Connect an AI key (top right) to run it for real.', 'Click “Run the nurture agent” and watch it work through everyone.', 'See it skip the people it isn’t allowed to contact, and queue the rest for your approval.'],
+      do: ['Click “Connect AI” (top right) and paste an AI key to run it for real.', 'Click “Run the nurture agent” and watch it work through everyone.', 'See it skip the people it isn’t allowed to contact, and queue the rest for your approval.'],
       diff: 'Most “AI” in a CRM just writes copy and sends it. Ember’s assistant is fenced in: it physically can’t message someone who hasn’t agreed, because the system refuses the action — not because we asked it to behave.',
     },
     rediscovery: {
@@ -1063,7 +1063,7 @@
       title: 'Evals',
       lede: 'Our own ongoing tests that check the assistant stays truthful and fair.',
       do: ['Click “Run the eval set” to test the AI live.', 'Tick “Simulate a regression” and run again — watch a test go red.', 'Green-by-default proves nothing; this is built to be able to fail.'],
-      diff: 'No other CRM shows you its own AI safety tests — let alone lets you watch them fail on purpose. Ember treats “the AI behaves” as something to prove, not just claim.',
+      diff: 'A few CRMs publish an AI audit; we don’t know another that lets you run its safety tests live and watch them fail on purpose. Ember treats “the AI behaves” as something to prove, not just claim.',
     },
   };
   const guide = { open: false, lastView: null, seen: {}, autoOff: false, nodes: null };
