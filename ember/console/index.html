@@ -53,11 +53,11 @@ permalink: /ember/console/index.html
       <span class="brand-meta">Prototype · Cordova Manufacturing · synthetic data</span>
     </div>
     <div class="topbar-right">
-      <button class="key-btn" id="key-btn" type="button">Connect AI</button>
-      <div class="agent-status" id="agent-status" data-state="idle" title="The Ember agent — live status">
+      <div class="ai-anchor"><button class="key-btn" id="key-btn" type="button">Connect AI</button><button class="ai-dot" type="button" data-aitip="connect" aria-label="Explain this AI feature"></button></div>
+      <div class="ai-anchor"><div class="agent-status" id="agent-status" data-state="idle" title="The Ember agent — live status">
         <span class="agent-orb" aria-hidden="true"></span>
         <span id="agent-status-label">Ember agent · ready</span>
-      </div>
+      </div><button class="ai-dot" type="button" data-aitip="status" aria-label="Explain this AI feature"></button></div>
       <label class="role-switch" for="role-select" title="Operator permissions — switch the signed-in role">
         <span class="role-switch-label">Role</span>
         <select id="role-select" aria-label="Operator role">
@@ -81,6 +81,7 @@ permalink: /ember/console/index.html
   <strong>Prototype</strong>
   <span>Stratum Ember is a <em>proposed</em> product under a six-week evaluation. This is a working prototype on synthetic data — not generally available. The <a href="../tour/">tour</a> is the storyboard; the <a href="../plan.html">plan</a> is PLN-2026-004.</span>
   <button class="tour-trigger" id="tour-trigger" type="button">★ Walk me through it</button>
+  <button class="ai-tips-toggle" id="ai-tips-toggle" type="button" aria-pressed="true">✦ AI tips: on</button>
 </div>
 
 <!-- ────────────────────────── APP SHELL ──────────────────────── -->

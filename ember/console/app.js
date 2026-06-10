@@ -93,6 +93,27 @@
   }
   const SPARK = '<span class="agent-chip"><span class="spark">✦</span> Ember</span>';
 
+  /* ── AI-feature hotspots · pulsing dots + tooltips ──
+     Element-level explainers: each dot is pinned to one AI feature and says what
+     THAT element is (the atom), not the page pitch (that's the guide drawer).
+     Copy lives here once; aiDot('key') emits the marker; a delegated handler
+     (initAiTips) shows the tooltip, so dots inside re-rendered views just work. */
+  const AI_TIPS = {
+    connect: "Bring your own AI key. With it, every AI surface runs live on Anthropic's Opus 4.8; without it you get a scripted preview. The key stays in this browser tab only.",
+    status: "Live status of Ember's assistant — it reads “working” the moment a real model call is running, so you can see when AI is actually in the loop.",
+    'pools-resolve': "The ✦ mark means this came from AI. Here it's matching identities across systems in real time and merging duplicate records into one person.",
+    'nurture-propose': "✦ marks what the AI produced — here, the suggested audience and the message draft. You review and send; there's no rule-builder to set up.",
+    'agent-refuse': "The assistant works the whole list through tools. The ⊘ refusals are enforced in code at the tool boundary — not a policy the AI was asked to follow.",
+    'redis-score': "This match score is a live model call reasoning over the candidate's real facts — not a stored or rules-based number.",
+    'redis-live': "“live” means a real Opus call wrote this rationale and draft, grounded in cited facts — it invents nothing.",
+    qa: "Answers come from the AI, grounded only in this one person's facts — never the rest of the pool.",
+    probe: "This checks the AI's answer against the facts on file and flags anything unsupported — it can catch the model making something up.",
+    evals: "These run the AI's own tests live. “Simulate a regression” feeds a known-bad answer so you can watch a test go red — proof the checks fail when they should.",
+  };
+  function aiDot(key) {
+    return `<button class="ai-dot" type="button" data-aitip="${key}" aria-label="Explain this AI feature"></button>`;
+  }
+
   // Stream text into an element token-by-token, like a model generating. Reduced-motion → instant.
   function streamText(el, text, opts) {
     opts = opts || {};
@@ -162,7 +183,7 @@
           <span class="chip accent">1,240 people · 38 final-round</span>
           <span class="chip">0 stale snapshots</span>
           <span class="chip">search &amp; dedup · free · no credits</span>
-          <span class="agent-chip"><span class="spark">✦</span> Ember resolving live</span>
+          <span class="agent-chip"><span class="spark">✦</span> Ember resolving live</span>${aiDot('pools-resolve')}
         </div>
       </div>
       <div class="card">
@@ -226,7 +247,7 @@
           <div class="field"><label>Audience</label><div class="readonly-chip">Final-round Platform/Backend pool · 4 in scope for this preview</div></div>
           <div class="field"><label>Purpose</label><div class="readonly-chip">${esc(CAMPAIGN.purpose)} · jurisdiction US</div></div>
           <div class="field"><label>Message · drafted by ${SPARK}</label><textarea id="camp-copy"${locked ? ' readonly' : ''}>When we last spoke the timing wasn't right. A role just opened that looks a lot more like the work you said you wanted — no pressure, want the details?</textarea></div>
-          <div class="agent-hint"><span><span class="ah-tag">✦ Ember proposes</span> the audience and the copy — you review and send. <strong>No campaign rules to set up</strong>; there is no rule-builder to configure.</span></div>
+          <div class="agent-hint"><span><span class="ah-tag">✦ Ember proposes</span> the audience and the copy — you review and send. <strong>No campaign rules to set up</strong>; there is no rule-builder to configure.</span>${aiDot('nurture-propose')}</div>
           <div class="field"><label>Deliverability</label><div class="field-note">Sending domain <b>talent.cordova.example</b> · SPF/DKIM/DMARC ✓ · 2,000/day · <b>not routed through your Outlook</b></div></div>
           <div class="field"><label>Usage</label><div class="field-note">Metered only on <b>consented conversations</b> and <b>rediscovery-influenced hires</b> — no per-seat, <b>no per-search credits</b>, internal candidates never charged.</div></div>
           <div class="btn-row">
@@ -287,7 +308,7 @@
           <div class="field"><label>Pool · ${POOL.length} candidates · purpose role-outreach / US</label>
             <ul class="ar-roster">${roster}</ul>
           </div>
-          <div class="agent-hint"><span><span class="ah-tag">✦ the moat, made provable</span> the consent edge is enforced at the <strong>tool boundary</strong>, not by asking the model nicely. Watch <code>stage_send</code> refuse Dana <em>and</em> Tomas — consent fails two ways (wrong scope, wrong jurisdiction) and the plane catches both.</span></div>
+          <div class="agent-hint"><span><span class="ah-tag">✦ the moat, made provable</span> the consent edge is enforced at the <strong>tool boundary</strong>, not by asking the model nicely. Watch <code>stage_send</code> refuse Dana <em>and</em> Tomas — consent fails two ways (wrong scope, wrong jurisdiction) and the plane catches both.</span>${aiDot('agent-refuse')}</div>
         </div></div>
         <div style="min-width:0">${panel}</div>
       </div>`;
@@ -354,7 +375,7 @@
       const why = live ? live.reason : p.redis.why;
       return `
         <div class="match-card">
-          <div class="mc-score">${esc(score)}<span>match</span></div>
+          <div class="mc-score">${esc(score)}<span>match</span>${aiDot('redis-score')}</div>
           <div><div class="mc-name">${esc(p.name)}${live ? ` <span class="live-tag">${esc(EmberAgent.MODEL)} · re-ranked</span>` : ''}</div><div class="mc-why"><b>why:</b> ${esc(why)}</div></div>
           <button class="btn ghost btn-propose ${can('campaign') ? '' : 'is-disabled'}" data-id="${id}" ${can('campaign') ? '' : 'disabled'}>Propose outreach</button>
         </div>`;
@@ -419,7 +440,7 @@
           out.classList.remove('streaming');
           out.innerHTML = esc(full).replace(/\n?DRAFT:\s*/, '\n\n<span class="draft-label">Draft</span> ');
           setAgent('idle');
-          const eb = $('#draft-eyebrow'); if (eb) eb.innerHTML = `${SPARK} <span class="live-tag">${esc(EmberAgent.MODEL)} · live</span> · cited rationale + draft · for ${esc(p.name)}`;
+          const eb = $('#draft-eyebrow'); if (eb) eb.innerHTML = `${SPARK} <span class="live-tag">${esc(EmberAgent.MODEL)} · live</span>${aiDot('redis-live')} · cited rationale + draft · for ${esc(p.name)}`;
           const da = $('#draft-actions'); if (da) da.style.display = '';
           const sb = $('#btn-redis-send'); if (sb) sb.addEventListener('click', () => toast('Outreach sent to ' + esc(p.name) + ' · <span class="tk">warm inbound → Recruiter</span>'));
         } catch (err) {
@@ -524,7 +545,7 @@
               </div>
               <div class="qa-input-row">
                 <input type="text" id="qa-input" placeholder="Ask a question about your data…" autocomplete="off">
-                <button class="btn accent" id="qa-ask">Ask</button>
+                <button class="btn accent" id="qa-ask">Ask</button>${aiDot('qa')}
               </div>
               <div class="qa-answer" id="qa-answer"></div>
               <div class="cand-honest qa-note">Answered only from what Cordova holds about <strong>you</strong> — never the rest of the pool — cited, and honest when the answer is nothing. Grounding here is <em>prompt-enforced</em> (a model can violate a prompt), so the honesty check below audits it.</div>
@@ -532,7 +553,7 @@
             <div class="cand-sec probe-sec">
               <div class="lab">Honesty check · the grounding probe</div>
               <p class="probe-intro">The consent edge is enforced in code — unfakeable. Q&amp;A grounding is only <em>asked</em> of the model, so we <strong>check</strong> it: the probe judges whether an answer asserts anything ${esc(p.name.split(' ')[0])}'s facts don't support. Watch it catch a fabrication, then pass the real answer.</p>
-              <button class="btn ghost" id="btn-grounding">Run the grounding probe</button>
+              <button class="btn ghost" id="btn-grounding">Run the grounding probe</button>${aiDot('probe')}
               <div class="probe-out" id="probe-out"></div>
             </div>
           </div>
@@ -742,7 +763,7 @@
         <p class="view-dek">Eval set <strong>v1</strong> — a versioned probe suite run live against ${esc(model)}, the way Kernel governs the agent surface. Three probes: the consent edge (enforced in <em>code</em> — green by construction), grounding, and fairness (enforced only by a <em>prompt</em> — so a judge audits them). An eval only means something if it can fail: flip <strong>Simulate a regression</strong> and watch the suite catch it.</p>
       </div>
       <div class="eval-controls">
-        <button class="btn accent" id="btn-run-evals">Run the eval set →</button>
+        <button class="btn accent" id="btn-run-evals">Run the eval set →</button>${aiDot('evals')}
         <label class="eval-toggle"><input type="checkbox" id="eval-regress" ${local.evalRegression ? 'checked' : ''}> Simulate a regression <span class="eval-toggle-note">(feed the grounding &amp; fairness probes a known-bad output)</span></label>
         ${live ? '' : '<span class="perm-note" style="color:var(--ink-mute)">deterministic probes run without a key · judged probes need one (Connect AI, top right)</span>'}
       </div>
@@ -901,6 +922,7 @@
   function tourStart() {
     if (tour.active) return;
     closeGuide();                       // the spotlight tour and the page-guide drawer don't share the screen
+    aitipHide(); document.body.classList.add('tour-running'); // hide the AI-feature dots while the tour owns the screen
     tour.active = true; tour.prevFocus = document.activeElement;
     document.body.style.overflow = 'hidden';
     if (!tour.nodes) tourBuild();
@@ -922,6 +944,7 @@
     document.removeEventListener('keydown', tour.onKey);
     window.removeEventListener('resize', tour.onResize);
     document.body.style.overflow = '';
+    document.body.classList.remove('tour-running'); // the AI-feature dots may return
     const rail = $('#rail'); if (rail) rail.classList.remove('is-open'); // close the drawer the tour may have opened
     if (tour.nodes) Object.values(tour.nodes).forEach(n => { n.style.display = 'none'; });
     if (seen) { try { localStorage.setItem(TOUR_KEY, '1'); } catch (e) {} }
@@ -1139,9 +1162,71 @@
     openGuide();
   }
 
+  /* ── AI-feature hotspot engine · one delegated handler, one reused tooltip ── */
+  const AITIP_OFF_KEY = 'ember_ai_tips_off';
+  const aitip = { node: null, activeDot: null, hideTimer: null };
+  function aitipNode() {
+    if (aitip.node) return aitip.node;
+    const t = document.createElement('div');
+    t.className = 'ai-tip'; t.id = 'ai-tip'; t.setAttribute('role', 'tooltip'); t.style.display = 'none';
+    document.body.appendChild(t);
+    t.addEventListener('pointerenter', () => { if (aitip.hideTimer) { clearTimeout(aitip.hideTimer); aitip.hideTimer = null; } });
+    t.addEventListener('pointerleave', () => aitipHide());
+    aitip.node = t; return t;
+  }
+  function aitipPlace(dot, t) {
+    const r = dot.getBoundingClientRect();
+    const vw = window.innerWidth, vh = window.innerHeight, gap = 10, tw = t.offsetWidth, th = t.offsetHeight;
+    let top = r.bottom + gap; if (top + th > vh - 8) top = r.top - gap - th;   // flip above if no room below
+    let left = r.left + r.width / 2 - tw / 2;
+    left = Math.max(8, Math.min(left, vw - tw - 8));
+    top = Math.max(8, Math.min(top, vh - th - 8));
+    t.style.left = left + 'px'; t.style.top = top + 'px';
+  }
+  function aitipShow(dot) {
+    const text = AI_TIPS[dot.getAttribute('data-aitip')]; if (!text) return;
+    const t = aitipNode();
+    t.innerHTML = `<span class="ai-tip-eyebrow">✦ AI feature</span>${esc(text)}`;
+    t.style.display = '';
+    if (aitip.activeDot && aitip.activeDot !== dot) aitip.activeDot.removeAttribute('aria-describedby');
+    aitip.activeDot = dot; dot.setAttribute('aria-describedby', 'ai-tip');
+    aitipPlace(dot, t);
+  }
+  function aitipHide() {
+    if (aitip.hideTimer) { clearTimeout(aitip.hideTimer); aitip.hideTimer = null; }
+    if (aitip.node) aitip.node.style.display = 'none';
+    if (aitip.activeDot) { aitip.activeDot.removeAttribute('aria-describedby'); aitip.activeDot = null; }
+  }
+  function initAiTips() {
+    const dotOf = (e) => (e.target.closest ? e.target.closest('.ai-dot') : null);
+    document.addEventListener('pointerover', (e) => { const d = dotOf(e); if (!d) return; if (aitip.hideTimer) { clearTimeout(aitip.hideTimer); aitip.hideTimer = null; } aitipShow(d); });
+    document.addEventListener('pointerout', (e) => { if (dotOf(e)) aitip.hideTimer = setTimeout(aitipHide, 140); }); // grace to cross onto the tip
+    document.addEventListener('focusin', (e) => { const d = dotOf(e); if (d) aitipShow(d); else if (aitip.activeDot) aitipHide(); });
+    document.addEventListener('click', (e) => {
+      const d = dotOf(e);
+      if (d) { e.preventDefault(); (aitip.activeDot === d && aitip.node && aitip.node.style.display !== 'none') ? aitipHide() : aitipShow(d); return; }
+      if (aitip.activeDot && !(aitip.node && aitip.node.contains(e.target))) aitipHide(); // click-away
+    });
+    document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && aitip.activeDot) { const d = aitip.activeDot; aitipHide(); if (d.focus) d.focus(); } });
+    window.addEventListener('resize', () => { if (aitip.activeDot && aitip.node && aitip.node.style.display !== 'none') aitipPlace(aitip.activeDot, aitip.node); });
+    // global on/off toggle (default ON)
+    let off = false; try { off = !!localStorage.getItem(AITIP_OFF_KEY); } catch (e) {}
+    document.body.classList.toggle('ai-tips-off', off);
+    const btn = $('#ai-tips-toggle');
+    const paint = () => { const o = document.body.classList.contains('ai-tips-off'); if (btn) { btn.setAttribute('aria-pressed', String(!o)); btn.textContent = o ? '✦ AI tips: off' : '✦ AI tips: on'; } };
+    if (btn) btn.addEventListener('click', () => {
+      const o = !document.body.classList.contains('ai-tips-off');
+      document.body.classList.toggle('ai-tips-off', o);
+      try { o ? localStorage.setItem(AITIP_OFF_KEY, '1') : localStorage.removeItem(AITIP_OFF_KEY); } catch (e) {}
+      if (o) aitipHide();
+      paint(); toast(o ? 'AI tips off · <span class="tk">the pulsing dots are hidden</span>' : 'AI tips on · <span class="tk">pulsing dots mark each AI feature</span>');
+    });
+    paint();
+  }
+
   function boot() {
     updateRt(); setInterval(updateRt, 60000);
-    initNav(); initRole(); initKey(); updateUser(); render(); initTour();
+    initNav(); initRole(); initKey(); updateUser(); render(); initTour(); initAiTips();
     const lb = $('#loadbar'); if (lb) { lb.style.width = '100%'; setTimeout(() => lb.classList.add('is-done'), 500); }
   }
   boot();

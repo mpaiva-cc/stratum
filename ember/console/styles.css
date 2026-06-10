@@ -311,6 +311,20 @@ body.guide-open .shell { margin-right:360px; }
 .gd-off { background:none; border:0; padding:0; font-family:var(--gd-sans); font-size:11px; color:var(--gd-meta); text-decoration:underline; cursor:pointer; }
 .gd-off:hover { color:var(--gd-ink); }
 @media (max-width:860px) { body.guide-open .shell { margin-right:0; } .guide-drawer { width:88vw; top:49px; } }
+
+/* ── AI-feature hotspots · pulsing dots + product-toned tooltips ── */
+.ai-anchor { position:relative; display:inline-flex; align-items:center; }
+.ai-dot { width:13px; height:13px; flex:0 0 auto; padding:0; border:1.5px solid var(--paper); border-radius:50%; background:var(--ochre); cursor:pointer; vertical-align:middle; margin-left:.4rem; animation:agent-pulse 1.6s ease-in-out infinite; }
+.ai-dot:hover, .ai-dot:focus-visible { background:var(--ochre-deep); }
+.ai-anchor > .ai-dot { position:absolute; top:-3px; right:-3px; margin:0; }
+body.ai-tips-off .ai-dot, body.tour-running .ai-dot { display:none; }
+.ai-tip { position:fixed; z-index:700; width:262px; max-width:calc(100vw - 16px); background:var(--paper-card); color:var(--ink); border:1px solid var(--paper-rule-2); border-left:3px solid var(--ochre); border-radius:var(--radius-lg); box-shadow:var(--shadow-md); padding:.7rem .9rem; font-family:var(--serif); font-size:13px; line-height:1.5; }
+.ai-tip .ai-tip-eyebrow { display:block; font-family:var(--mono); font-size:8.5px; letter-spacing:.16em; text-transform:uppercase; color:var(--ochre-deep); margin-bottom:.35rem; }
+.ai-tips-toggle { font-family:var(--mono); font-size:11px; letter-spacing:.04em; color:var(--ochre-deep); background:none; border:1px solid var(--ochre-soft); border-radius:999px; padding:.2rem .65rem; cursor:pointer; }
+.ai-tips-toggle:hover { background:var(--ochre-mist); }
+.ai-tips-toggle[aria-pressed="false"] { color:var(--ink-mute); border-color:var(--paper-rule-2); }
+@media (prefers-reduced-motion: reduce) { .ai-dot { box-shadow:0 0 0 3px rgba(184,101,31,.28); } }
+
 .cand-picker { display:flex; gap:.5rem; flex-wrap:wrap; margin-bottom:1.2rem; }
 .cand-picker button { font-family:var(--mono); font-size:11px; padding:.4rem .7rem; border:1px solid var(--paper-rule-2); background:var(--paper-card); border-radius:999px; color:var(--ink-2); }
 .cand-picker button.is-active { border-color:var(--ochre); color:var(--ochre-deep); background:var(--ochre-mist); }
