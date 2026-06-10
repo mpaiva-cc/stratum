@@ -628,7 +628,11 @@
         const why = r ? r.reason : (p.held ? p.held.note : p.role);
         return `<div class="match-card">
           ${scoreCell}
-          <div><div class="mc-name">${esc(p.name)} <span class="live-tag" style="color:var(--moss-deep)">${esc(p.consent.scope)}/${esc(p.consent.juris)}</span></div><div class="mc-why"><b>why:</b> ${esc(why)}</div></div>
+          <div>
+            <div class="mc-name">${esc(p.name)} <span class="consent-tag">${esc(p.consent.scope)}/${esc(p.consent.juris)}</span></div>
+            <div class="mc-meta">${esc(p.role)} · ${esc(p.last)}</div>
+            <div class="mc-why"><b>why:</b> ${esc(why)}</div>
+          </div>
           <button class="btn ghost btn-search-stage ${can('campaign') ? '' : 'is-disabled'}" data-id="${id}" ${can('campaign') ? '' : 'disabled'}>Stage outreach</button>
         </div>`;
       }).join('');
@@ -637,8 +641,11 @@
         <div class="card"><div class="card-pad">
           <div class="search-funnel">
             <span class="sf-pill">discovered <b>${out.population.length}</b></span><span class="sf-arrow" aria-hidden="true">→</span>
-            <span class="sf-pill sf-ok">contactable <b>${out.contactable.length}</b></span>
-            <span class="sf-pill sf-held">held at the edge <b>${out.held.length}</b></span>${aiDot('search-split')}
+            <span class="sf-split">
+              <span class="sf-pill sf-ok">contactable <b>${out.contactable.length}</b></span>
+              <span class="sf-plus" aria-hidden="true">+</span>
+              <span class="sf-pill sf-held">held <b>${out.held.length}</b></span>
+            </span>${aiDot('search-split')}
           </div>
           <p class="perm-note" style="margin:.55rem 0 1rem">Population: ${esc(out.roleFamily)}${out.jurisdiction !== 'any' ? ' · ' + esc(out.jurisdiction) : ''}. Who may be contacted is decided <strong>in code</strong> at the consent edge — not by the assistant.${rankings ? '' : ' Connect a key for live, cited fit scores.'}</p>
           ${cards || '<div class="empty">No contactable matches in this population.</div>'}

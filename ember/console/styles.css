@@ -456,6 +456,15 @@ body.ai-tips-off .ai-dot, body.tour-running .ai-dot { display:none; }
 .search-funnel .sf-held { border-color:var(--plum-soft); background:var(--plum-mist); color:var(--plum); }
 .search-funnel .sf-held b { color:var(--plum); }
 .search-funnel .sf-arrow { font-family:var(--mono); color:var(--ochre); font-weight:700; }
+/* the funnel reads as a SET SPLIT — discovered resolves into (contactable + held),
+   not a 3-step sequence. The dashed bracket groups the two outcomes; 9 = 7 + 2. */
+.search-funnel .sf-split { display:inline-flex; align-items:center; gap:.4rem; padding:.22rem .45rem; border:1px dashed var(--paper-rule-2); border-radius:999px; }
+.search-funnel .sf-plus { font-family:var(--mono); font-size:11px; font-weight:700; color:var(--ink-3-aaa); }
+/* consent-scope tag on a search result — a FACT about the person, styled apart from
+   the "live model" provenance mark (.live-tag) it used to borrow */
+.consent-tag { font-family:var(--mono); color:var(--moss-deep); background:rgba(74,93,58,.12); border:1px solid var(--moss-soft); border-radius:999px; padding:.06rem .45rem; font-size:9px; letter-spacing:.1em; text-transform:uppercase; }
+/* role · recency line on a search-shortlist card — what a recruiter shortlists on */
+.match-card .mc-meta { font-family:var(--mono); font-size:9.5px; letter-spacing:.04em; color:var(--ink-3-aaa); margin-top:.25rem; }
 
 /* reusable "✦ Ember" provenance mark on every AI-produced artifact */
 .agent-chip { display:inline-flex; align-items:center; gap:.32rem; font-family:var(--mono); font-size:9px; letter-spacing:.12em; text-transform:uppercase; color:var(--ochre-deep); background:var(--ochre-mist); border:1px solid var(--ochre-soft); border-radius:999px; padding:.14rem .5rem; vertical-align:middle; }
