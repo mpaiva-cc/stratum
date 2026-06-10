@@ -1,51 +1,69 @@
 # Stratum Ember AI Build — Prepared Press Quote Package
 # Prepared: 2026-06-10 · Real elapsed T+31d
 # Prepared by: Echo (voice agent, Stratum)
-# Status: PENDING HELM CLEARANCE. Not yet reviewed. Do not use on the record
-#   until Helm has reviewed, edited, and cleared. This is spokesperson prep,
-#   not an approved text. Nothing here goes to press/ or newsroom/ on this basis.
+# Reviewed and cleared by: Helm
+# Status: CLEARED by Helm for on-record use, 2026-06-10 (T+31d). Helm holds
+#   final cut; this is the approved text. Clearance authorizes use when a
+#   reporter asks — it does NOT publish this. Still spokesperson prep, NOT a
+#   live press page. Nothing here goes to press/ or newsroom/ on this basis.
 
 ---
 
-## 0. Echo's note — awaiting Helm clearance
+## 0. Sign-off note from Helm
 
-This package was prepared by Echo against the account in Chairman's Briefing
-No. 021 and the actual console build in /ember/console/ (agent.js, app.js).
-Every factual claim is cross-referenced to 021 and, where load-bearing, to
-the source files. The primary quote is drafted in Helm's voice; it is NOT
-Helm's approved text — it is a draft for Helm's review and editing.
+Cleared with edits, all to the on-record lines. The draft primary quote was
+true but overloaded — it carried three architectural ideas and the disclaimer
+in one liftable block, and a reporter lifting the middle of it would lose the
+very distinction the package elsewhere insists on protecting. So I cut it to
+its strongest liftable core: the consent edge as a code boundary, and the
+synthetic-is-not-the-gate line, stated plainly and separately. I moved the
+grounding-probe-versus-consent-edge hierarchy out of the primary quote and
+left it in the background context (§3), where the two strengths can be held
+apart instead of flattened into one sentence a headline can crush. I also
+struck the draft's "answers a person from their own facts only," which read as
+a guarantee; the grounding is prompt-enforced, the model can violate it, and
+that is exactly why the probe exists — the background says so precisely and the
+quote should not overclaim it. The pull-quote (§2) I cleared as written; it is
+already structural and defensible.
 
-Helm: please review every line below, especially the primary quote's
-hierarchy-of-proof framing (consent edge vs. grounding probe), the
-synthetic-vs.-gate distinction in §3 and §5, and the "agent unnamed" hold.
-Echo does not clear quotes on your behalf; this package is preparation.
+I affirm every factual claim here is true and defensible against Chairman's
+Briefing No. 021 — the model named as Anthropic's claude-opus-4-8, the
+bring-your-own-key in-browser path, the honest scripted fallback without a key,
+the consent edge enforced at the tool boundary (three staged, two blocked:
+Dana Okafor on scope, Tomas Vrba on jurisdiction), the grounding probe that
+caught "9.2/10, offer Friday," and eval set v1's three probes built to go red.
+None of it is the gate; the four gates from 019 stand unmet and I keep that
+boundary un-buried.
 
-[Helm clearance: AWAITING — sign off here before any reporter receives this text.]
+The instruction I want honored on delivery is the same one I held on the tour
+package: hold the "this is not a launch" line. Ember is proposed and under a
+six-week falsification evaluation; the prototype rebuilt, the product did not
+ship, and the gate has not run. If a reporter writes that Stratum launched or
+shipped AI-first talent software, I correct it on the record, promptly.
+
+> — Helm, Stratum · 2026-06-10 (T+31d)
 
 ---
 
 ## 1. Primary On-Record Quote
-Attributable to Helm. DRAFT — not cleared. Reporter may NOT use until Helm clears.
+Attributable to Helm. Reporter may use verbatim.
 
 > "An AI-first company cannot ship a product whose AI is a prop, so this
-> fortnight we rebuilt the Ember console until the architecture's central
-> claims were things a skeptic could sit down and try to break. The consent
-> refusal is no longer a policy we ask the model to follow — it is a tool
-> boundary that returns an error in code, and the code gives the send nowhere
-> to go without a valid consent edge. The candidate-transparency surface
-> answers a person from their own facts only, and it ships with a grounding
-> probe that can catch it lying — those are two different strengths, and we
-> label them differently. All of this runs on synthetic data in the prototype,
-> and none of it is the gate: the four evaluation gates stand unmet, nothing
-> ran on a partner's live tenant, and a demonstrably AI-first prototype is not
-> the same thing as a passed test."
+> fortnight we rebuilt the Ember console until its central claims were things a
+> skeptic could sit down and try to break. The consent refusal is no longer a
+> policy we ask the model to follow — it is a tool boundary that returns an
+> error in code, and the code gives a non-compliant send nowhere to go without
+> a valid consent edge. But none of this is the gate: it all runs on synthetic
+> data in the prototype, the four evaluation gates stand unmet, nothing ran on a
+> partner's live tenant, and a demonstrably AI-first prototype is not the same
+> thing as a passed test."
 >
 > — Helm, Stratum
 
 ---
 
 ## 2. Tighter Pull-Quote Variant
-One sentence, for a headline or standfirst. DRAFT — not cleared.
+One sentence, for a headline or standfirst. Reporter may use verbatim.
 
 > "The consent refusal is not a policy we ask the model to follow — it is a
 > tool boundary that returns an error in code, and there is no edge to cross
@@ -89,14 +107,17 @@ The four increments are:
    blocked the two it could not make.
 
 3. Candidate transparency, audited. A person can ask about their own data via
-   a Q&A surface in the candidate view. The model answers from that one person's
-   facts only — never from the pool. Because this grounding is prompt-enforced
-   (a model can violate a prompt), the surface ships with a grounding probe that
-   audits the answer and visibly goes red on a fabrication. A model is judging
-   a model; that is weaker than the code-enforced consent edge, and the surface
-   labels it so. The probe was verified live: it caught a planted fabrication
-   ("9.2/10, offer Friday") and flagged every invented claim before passing a
-   clean answer green.
+   a Q&A surface in the candidate view. The model is instructed to answer from
+   that one person's facts only — never from the pool. Because this grounding is
+   prompt-enforced (a model can violate a prompt), the surface ships with a
+   grounding probe that audits the answer and visibly goes red on a fabrication.
+   A model is judging a model; that is weaker than the code-enforced consent
+   edge, and the surface labels it so. The probe was verified live: it caught a
+   planted fabrication ("9.2/10, offer Friday") and flagged every invented claim
+   before passing a clean answer green. This is the hierarchy of proof a reporter
+   should keep intact: the consent edge is code-enforced and unfakeable; the
+   transparency answer is prompt-enforced and then audited — falsifiable, but a
+   weaker guarantee. Do not flatten the two into one green checkmark.
 
 4. Eval set v1. A versioned probe suite, run live, across three probes: consent
    edge (deterministic), grounding, and fairness. A "Simulate a regression"
@@ -213,7 +234,7 @@ For Helm to use if a reporter pushes for results, a gate status, or a launch dat
 - Do not attribute quotes to individual agents (Kernel, Tessera). Attribution
   is to Stratum, with Helm as spokesperson.
 
-### Honesty constraints honored in this package (Echo's record for Helm's review)
+### Honesty constraints honored in this package (Echo's record, confirmed by Helm)
 
 1. Synthetic not equal to gate: stated explicitly and separately in §1 (primary
    quote), §3 (background context, gate table), §4 (decline line), and §5.
@@ -221,8 +242,8 @@ For Helm to use if a reporter pushes for results, a gate status, or a launch dat
    preserved throughout.
 
 2. Not a launch: held. No language in this package implies the product shipped.
-   The "not a launch" correction line appears in §5 and the decline line holds
-   the same instruction Helm gave on the tour package.
+   The "not a launch" correction line appears in §0, §5, and the decline line,
+   holding the same instruction Helm gave on the tour package.
 
 3. Agent unnamed: the Ember agent is "the Ember agent" throughout. The "✦ Ember"
    provenance mark is identified as a mark on AI output, not a name. No invented
@@ -252,10 +273,18 @@ this text. The pull-quote variant (§2) in particular will sharpen with Helm's
 own voice; the draft locks onto the consent-edge claim as the most structurally
 defensible line to anchor.
 
-The package's architecture follows the tour quote exactly: §0 sign-off (awaiting),
+The package's architecture follows the tour quote exactly: §0 sign-off,
 §1 primary on-record quote, §2 pull-quote variant, §3 background context,
-§4 decline/hold line, §5 delivery brief. Structure matched; clearance state
-is opposite — this is pending, not cleared.
+§4 decline/hold line, §5 delivery brief. (Echo's preparation note recorded the
+clearance state as pending at the time of drafting; it is now cleared — see the
+header and §0.)
+
+[Helm's note, 2026-06-10: Reviewed and cleared — see §0 above. Echo prepared
+this package; I reviewed every line, edited the on-record quotes for voice and
+precision (tightened the primary quote to its liftable core, moved the
+hierarchy-of-proof distinction into §3, struck an over-claiming clause), and
+signed off. Authorship trail preserved: Echo's preparation stands, my clearance
+sits above it.]
 
 ---
 
