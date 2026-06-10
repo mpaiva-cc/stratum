@@ -23,6 +23,7 @@
     ],
     subs: { 'Platform Engineering': true, 'Backend': true, 'Data': true, 'Clinical team': false },
     evalRegression: false,
+    searchRan: false,
   };
 
   // ── Phase 3b: eval-set fixtures (hardened for stability — verified 0 spurious flips over 10 runs) ──
@@ -55,8 +56,97 @@
       consent:{ scope:'event-followup', juris:'EU', valid:false }, dedup:null, matched:false, status:'in pool',
       redis:null, block:'consent: event-followup/EU ⊅ role-outreach/US',
       held:{ since:'2025-09', contact:'2025-09', resume:'—', note:'Event check-in, Munich · event follow-up only' } },
+
+    /* ── the wider pool · the population a search actually traverses ──
+       Same graph, more of it. Platform/infra is deliberately the largest family
+       (14 people) so a role query overflows the page cap and the agent must
+       narrow — and a US/role-outreach consent filter splits it into who we may
+       reach (7) vs who is in the pool but not contactable for this purpose. */
+    { id:'priya',  initials:'PN', name:'Priya Nair',     role:'Sr Infrastructure Engineer',   last:'Final round · Jan 2025',
+      consent:{ scope:'role-outreach', juris:'US', valid:true }, dedup:null, matched:false, status:'warm',
+      redis:null,
+      held:{ since:'2025-01', contact:'2026-03', resume:'v2025-01', note:'Infrastructure · reached final round' } },
+    { id:'omar',   initials:'OH', name:'Omar Haddad',    role:'Platform Engineer',            last:'Past applicant · 2025',
+      consent:{ scope:'stay-in-touch', juris:'US', valid:true }, dedup:null, matched:false, status:'in pool',
+      redis:null, block:'consent: stay-in-touch ⊅ role-outreach',
+      held:{ since:'2025-04', contact:'2026-01', resume:'v2025-03', note:'Platform · opted to stay in touch' } },
+    { id:'lin',    initials:'LZ', name:'Lin Zhao',       role:'Site Reliability Engineer',    last:'Referral · 2025',
+      consent:{ scope:'role-outreach', juris:'US', valid:true }, dedup:null, matched:false, status:'warm',
+      redis:null,
+      held:{ since:'2025-07', contact:'2026-02', resume:'v2025-07', note:'SRE · employee referral' } },
+    { id:'sofia',  initials:'SC', name:'Sofia Conti',    role:'Platform Engineer · Rome',     last:'Event check-in · 2025',
+      consent:{ scope:'event-followup', juris:'EU', valid:false }, dedup:null, matched:false, status:'in pool',
+      redis:null, block:'consent: event-followup/EU ⊅ role-outreach/US',
+      held:{ since:'2025-10', contact:'2025-10', resume:'—', note:'Event check-in, Rome · event follow-up only' } },
+    { id:'derek',  initials:'DM', name:'Derek Mwangi',   role:'DevOps Engineer',              last:'Past applicant · 2025',
+      consent:{ scope:'role-outreach', juris:'US', valid:true }, dedup:null, matched:false, status:'in pool',
+      redis:null,
+      held:{ since:'2025-05', contact:'2025-12', resume:'v2025-05', note:'DevOps · applied, role closed' } },
+    { id:'hana',   initials:'HK', name:'Hana Kim',       role:'Backend Engineer',             last:'Final round · Feb 2025',
+      consent:{ scope:'role-outreach', juris:'US', valid:true }, dedup:null, matched:false, status:'warm',
+      redis:null,
+      held:{ since:'2025-02', contact:'2026-02', resume:'v2025-02', note:'Backend · reached final round' } },
+    { id:'malik',  initials:'MJ', name:'Malik Johnson',  role:'Data Engineer',                last:'Past applicant · 2025',
+      consent:{ scope:'role-outreach', juris:'US', valid:true }, dedup:null, matched:false, status:'in pool',
+      redis:null,
+      held:{ since:'2025-03', contact:'2025-11', resume:'v2025-03', note:'Data · applied, role closed' } },
+    { id:'ines',   initials:'IM', name:'Inês Moreira',   role:'ML Engineer',                  last:'Past applicant · 2025',
+      consent:{ scope:'stay-in-touch', juris:'US', valid:true }, dedup:null, matched:false, status:'in pool',
+      redis:null, block:'consent: stay-in-touch ⊅ role-outreach',
+      held:{ since:'2025-06', contact:'2026-01', resume:'v2025-06', note:'ML · opted to stay in touch' } },
+    { id:'tariq',  initials:'TA', name:'Tariq Aziz',     role:'Frontend Engineer',            last:'Past applicant · 2024',
+      consent:{ scope:'stay-in-touch', juris:'US', valid:true }, dedup:null, matched:false, status:'in pool',
+      redis:null, block:'consent: stay-in-touch ⊅ role-outreach',
+      held:{ since:'2024-12', contact:'2025-12', resume:'v2024-11', note:'Frontend · opted to stay in touch' } },
+    { id:'greta',  initials:'GH', name:'Greta Hoffmann', role:'Sr Platform Engineer · Berlin',last:'Past applicant · 2025',
+      consent:{ scope:'role-outreach', juris:'EU', valid:false }, dedup:null, matched:false, status:'in pool',
+      redis:null, block:'consent: role-outreach/EU ⊅ role-outreach/US (jurisdiction)',
+      held:{ since:'2025-08', contact:'2026-01', resume:'v2025-08', note:'Platform, Berlin · consent scoped to EU' } },
+    { id:'noah',   initials:'NK', name:'Noah Klein',     role:'Backend Engineer',             last:'Referral · 2025',
+      consent:{ scope:'role-outreach', juris:'US', valid:true }, dedup:null, matched:false, status:'in pool',
+      redis:null,
+      held:{ since:'2025-09', contact:'2026-02', resume:'v2025-09', note:'Backend · employee referral' } },
+    { id:'carmen', initials:'CR', name:'Carmen Ruiz',    role:'Site Reliability Engineer',    last:'Final round · Apr 2025',
+      consent:{ scope:'role-outreach', juris:'US', valid:true }, dedup:null, matched:false, status:'warm',
+      redis:null,
+      held:{ since:'2025-04', contact:'2026-03', resume:'v2025-04', note:'SRE · reached final round' } },
+    { id:'dmitri', initials:'DV', name:'Dmitri Volkov',  role:'Platform Engineer',            last:'Past applicant · 2025',
+      consent:{ scope:'role-outreach', juris:'US', valid:true }, dedup:'two ATS records (typo in surname) → 1 node', matched:false, status:'in pool',
+      redis:null,
+      held:{ since:'2025-02', contact:'2025-12', resume:'v2025-02', note:'Platform · applied, role closed' } },
+    { id:'amara',  initials:'AE', name:'Amara Eze',      role:'Data Engineer',                last:'Referral · 2025',
+      consent:{ scope:'role-outreach', juris:'US', valid:true }, dedup:null, matched:false, status:'in pool',
+      redis:null,
+      held:{ since:'2025-07', contact:'2026-01', resume:'v2025-07', note:'Data · employee referral' } },
+    { id:'felix',  initials:'FB', name:'Felix Bauer',    role:'Infrastructure Engineer · Munich', last:'Event check-in · 2025',
+      consent:{ scope:'event-followup', juris:'EU', valid:false }, dedup:null, matched:false, status:'in pool',
+      redis:null, block:'consent: event-followup/EU ⊅ role-outreach/US',
+      held:{ since:'2025-11', contact:'2025-11', resume:'—', note:'Event check-in, Munich · event follow-up only' } },
+    { id:'yuki',   initials:'YT', name:'Yuki Tanaka',    role:'Mobile Engineer',              last:'Past applicant · 2025',
+      consent:{ scope:'role-outreach', juris:'US', valid:true }, dedup:null, matched:false, status:'in pool',
+      redis:null,
+      held:{ since:'2025-05', contact:'2025-12', resume:'v2025-05', note:'Mobile · applied, role closed' } },
+    { id:'rosa',   initials:'RD', name:'Rosa Delgado',   role:'Backend Engineer',             last:'Past applicant · 2025',
+      consent:{ scope:'role-outreach', juris:'US', valid:true }, dedup:null, matched:false, status:'in pool',
+      redis:null,
+      held:{ since:'2025-06', contact:'2026-01', resume:'v2025-06', note:'Backend · applied, role closed' } },
+    { id:'sam',    initials:'SW', name:'Sam Whitaker',   role:'DevOps Engineer',              last:'Past applicant · 2024',
+      consent:{ scope:'stay-in-touch', juris:'US', valid:true }, dedup:null, matched:false, status:'in pool',
+      redis:null, block:'consent: stay-in-touch ⊅ role-outreach',
+      held:{ since:'2024-10', contact:'2025-11', resume:'v2024-09', note:'DevOps · opted to stay in touch' } },
+    { id:'nadia',  initials:'NP', name:'Nadia Petrova',  role:'Sr Platform Engineer',         last:'Final round · Mar 2025',
+      consent:{ scope:'role-outreach', juris:'US', valid:true }, dedup:null, matched:false, status:'warm',
+      redis:null,
+      held:{ since:'2025-03', contact:'2026-03', resume:'v2025-03', note:'Platform · reached final round' } },
+    { id:'theo',   initials:'TL', name:'Theo Lindqvist', role:'Site Reliability Engineer · Stockholm', last:'Past applicant · 2025',
+      consent:{ scope:'role-outreach', juris:'EU', valid:false }, dedup:null, matched:false, status:'in pool',
+      redis:null, block:'consent: role-outreach/EU ⊅ role-outreach/US (jurisdiction)',
+      held:{ since:'2025-09', contact:'2026-02', resume:'v2025-09', note:'SRE, Stockholm · consent scoped to EU' } },
   ];
   const byId = (id) => POOL.find(p => p.id === id);
+  /* FEATURED · the original five — the cast the focused demos (agent run,
+     candidate picker) walk through. Search and Pools traverse the whole POOL. */
+  const FEATURED = ['elena','marcus','renata','dana','tomas'].map(byId);
   const CAMPAIGN = { audience: ['elena','marcus','renata','tomas'], purpose:'Role outreach · Platform · Q3' };
 
   /* ── roles / operator permissions ── */
@@ -106,6 +196,8 @@
     'agent-refuse': "The assistant works the whole list through tools. The ⊘ refusals are enforced in code at the tool boundary — not a policy the AI was asked to follow.",
     'redis-score': "This match score is a live model call reasoning over the candidate's real facts — not a stored or rules-based number.",
     'redis-live': "“live” means a real Opus call wrote this rationale and draft, grounded in cited facts — it invents nothing.",
+    'search-loop': "There's no keyword index here. The AI decides what to query, sees the graph paginate, and narrows — a real tool-use loop you can watch step. Each step is a live model call.",
+    'search-split': "Who's contactable isn't decided by the AI — Ember derives it in code at the consent edge. The AI finds the population; the consent plane splits it into who you may reach and who is held back.",
     qa: "Answers come from the AI, grounded only in this one person's facts — never the rest of the pool.",
     probe: "This checks the AI's answer against the facts on file and flags anything unsupported — it can catch the model making something up.",
     evals: "These run the AI's own tests live. “Simulate a regression” feeds a known-bad answer so you can watch a test go red — proof the checks fail when they should.",
@@ -272,7 +364,7 @@
     const live = !!(window.EmberAgent && EmberAgent.hasKey());
     const locked = !can('campaign');
     const model = (window.EmberAgent && EmberAgent.MODEL) || 'claude-opus-4-8';
-    const roster = POOL.map(p => `
+    const roster = FEATURED.map(p => `
       <li class="ar-cand">
         <span class="ar-name">${esc(p.name)}</span>
         <span class="ar-role">${esc(p.role)}</span>
@@ -305,7 +397,7 @@
       </div>
       <div class="split ar-split">
         <div class="card"><div class="card-pad">
-          <div class="field"><label>Pool · ${POOL.length} candidates · purpose role-outreach / US</label>
+          <div class="field"><label>Pool · ${FEATURED.length} candidates · purpose role-outreach / US</label>
             <ul class="ar-roster">${roster}</ul>
           </div>
           <div class="agent-hint"><span><span class="ah-tag">✦ the moat, made provable</span> the consent edge is enforced at the <strong>tool boundary</strong>, not by asking the model nicely. Watch <code>stage_send</code> refuse Dana <em>and</em> Tomas — consent fails two ways (wrong scope, wrong jurisdiction) and the plane catches both.</span>${aiDot('agent-refuse')}</div>
@@ -326,7 +418,7 @@
       };
       const restore = () => { setAgent('idle'); btn.disabled = false; btn.classList.remove('is-disabled'); btn.textContent = 'Run again →'; local.agentRan = true; };
       try {
-        await EmberAgent.runNurtureAgent(POOL, (ev) => {
+        await EmberAgent.runNurtureAgent(FEATURED, (ev) => {
           if (ev.type === 'round') {
             if (ev.text) append(`<div class="run-think"><span class="rt-k">round ${ev.round} · ${esc(EmberAgent.MODEL)}</span> ${esc(ev.text)}</div>`);
           } else if (ev.type === 'tool') {
@@ -476,6 +568,142 @@
     }); });
   }
 
+  /* ── Phase 4: agentic search over the graph ──
+     "Search" is the model reasoning over real graph facts via query_graph — it
+     decides what to query, sees the graph paginate (cap 6), and narrows. Ember
+     finds who MATCHES; contactability is derived in code at the consent edge. */
+  const SEARCH_Q = 'Senior platform / infrastructure engineers in the US we could approach about a reliability role';
+  function searchHTML() {
+    const live = !!(window.EmberAgent && EmberAgent.hasKey());
+    const model = (window.EmberAgent && EmberAgent.MODEL) || 'claude-opus-4-8';
+    return `
+      <div class="view-head">
+        <div class="view-rail">Search · agentic, over the graph</div>
+        <h2 class="view-h">Search is the AI <em>reasoning over the graph</em> — not a keyword box.</h2>
+        <p class="view-dek">There is no search index. You ask in plain language; ${esc(model)} decides what to query, watches the graph <strong>paginate</strong>, and <strong>narrows</strong> until it has an actionable set — a real tool-use loop you can watch step by step. It finds who <em>matches</em>; Ember derives who you may <em>contact</em> in code, at the consent edge. ${live ? '' : 'Connect a key (top right) to run it live — without one, the funnel below is still real (the query engine is just code); only the assistant’s words are scripted.'}</p>
+        <div class="chip-row">
+          <span class="agent-chip"><span class="spark">✦</span> Ember search</span>${aiDot('search-loop')}
+          <span class="chip">graph paginates · 6 per page</span>
+          <span class="chip">discovery ≠ contact</span>
+        </div>
+      </div>
+      <div class="card"><div class="card-pad">
+        <div class="field"><label for="search-q">Ask the graph</label>
+          <input id="search-q" type="text" value="${esc(SEARCH_Q)}" autocomplete="off" />
+        </div>
+        <div class="btn-row">
+          <button class="btn accent" id="btn-search">Search the graph →</button>
+          <span class="perm-note" style="color:var(--ink-mute)">${esc(model)} · read-only discovery · staging an outreach is still gated at the consent edge</span>
+        </div>
+      </div></div>
+      <div class="split ar-split" style="margin-top:1.1rem">
+        <div class="card"><div class="card-head"><span class="card-title">Trajectory · what the agent queried</span><span class="card-title">broad → narrow</span></div>
+          <div class="card-pad" style="padding-top:.5rem"><div class="run-log" id="search-traj" aria-live="polite"><div class="empty">Run a search to watch the agent size the population, then narrow it to an actionable set.</div></div></div>
+        </div>
+        <div style="min-width:0" id="search-results-wrap"><div class="card"><div class="card-pad"><div class="empty">Results — the contactable shortlist and who’s held at the consent edge — appear here.</div></div></div></div>
+      </div>`;
+  }
+  function afterSearch() {
+    const btn = $('#btn-search'); if (!btn) return;
+    const traj = $('#search-traj');
+    const resWrap = $('#search-results-wrap');
+    const fmtFilters = (f) => {
+      const parts = [];
+      if (f.role && f.role !== 'any') parts.push('role:' + f.role);
+      if (f.jurisdiction && f.jurisdiction !== 'any') parts.push(f.jurisdiction);
+      if (f.consent_scope && f.consent_scope !== 'any') parts.push(f.consent_scope);
+      if (f.status && f.status !== 'any') parts.push(f.status);
+      if (typeof f.max_months_since_contact === 'number') parts.push('≤' + f.max_months_since_contact + 'mo');
+      return parts.length ? parts.join(' · ') : 'any';
+    };
+    const append = (html) => { const w = document.createElement('div'); w.innerHTML = html.trim(); const n = w.firstElementChild; if (n) { traj.appendChild(n); n.scrollIntoView({ block: 'nearest' }); } };
+    const onQuery = (input, result) => append(`<div class="run-tool"><span class="rt-meta">query_graph</span> <span class="rt-dim">${esc(fmtFilters(input || {}))}</span> → <b>${result.total_matched}</b> match${result.total_matched === 1 ? '' : 'es'} · ${result.truncated ? '<span class="blk">truncated — narrow</span>' : '<span class="ok">actionable (' + result.returned + ')</span>'}</div>`);
+
+    const renderResults = (out, rankings) => {
+      const rankMap = {}; (rankings || []).forEach(r => { rankMap[r.candidate_id] = r; });
+      const order = out.contactable.slice().sort((a, b) => ((rankMap[b] && rankMap[b].score) || 0) - ((rankMap[a] && rankMap[a].score) || 0));
+      const cards = order.map(id => {
+        const p = byId(id); const r = rankMap[id];
+        const scoreCell = r ? `<div class="mc-score">${esc(Number(r.score).toFixed(2))}<span>fit</span></div>` : `<div class="mc-score">✓<span>in scope</span></div>`;
+        const why = r ? r.reason : (p.held ? p.held.note : p.role);
+        return `<div class="match-card">
+          ${scoreCell}
+          <div><div class="mc-name">${esc(p.name)} <span class="live-tag" style="color:var(--moss-deep)">${esc(p.consent.scope)}/${esc(p.consent.juris)}</span></div><div class="mc-why"><b>why:</b> ${esc(why)}</div></div>
+          <button class="btn ghost btn-search-stage ${can('campaign') ? '' : 'is-disabled'}" data-id="${id}" ${can('campaign') ? '' : 'disabled'}>Stage outreach</button>
+        </div>`;
+      }).join('');
+      const held = out.held.map(h => `<li class="edge"><span class="mk block">⊘</span><div><div class="who">${esc(h.name)}</div><div class="meta">${esc(h.reason)}</div></div><span class="st" style="color:var(--plum)">held</span></li>`).join('');
+      resWrap.innerHTML = `
+        <div class="card"><div class="card-pad">
+          <div class="search-funnel">
+            <span class="sf-pill">discovered <b>${out.population.length}</b></span><span class="sf-arrow" aria-hidden="true">→</span>
+            <span class="sf-pill sf-ok">contactable <b>${out.contactable.length}</b></span>
+            <span class="sf-pill sf-held">held at the edge <b>${out.held.length}</b></span>${aiDot('search-split')}
+          </div>
+          <p class="perm-note" style="margin:.55rem 0 1rem">Population: ${esc(out.roleFamily)}${out.jurisdiction !== 'any' ? ' · ' + esc(out.jurisdiction) : ''}. Who may be contacted is decided <strong>in code</strong> at the consent edge — not by the assistant.${rankings ? '' : ' Connect a key for live, cited fit scores.'}</p>
+          ${cards || '<div class="empty">No contactable matches in this population.</div>'}
+          ${held ? `<div class="card-head" style="margin-top:1.1rem"><span class="card-title">Held at the consent edge · ${out.held.length}</span><span class="card-title">found, not reachable for this purpose</span></div><ul class="edge-list">${held}</ul>` : ''}
+        </div></div>`;
+      $$('#view .btn-search-stage').forEach(b => { if (!b.disabled) b.addEventListener('click', () => {
+        const r = EmberAgent.stageSend(POOL, { candidate_id: b.dataset.id, body: '(search → stage)' });
+        if (r.is_error) toast('⊘ ' + esc(r.content), 'block');
+        else toast('Staged outreach to ' + esc(r.candidate) + ' · <span class="tk">awaiting human approval</span>');
+      }); });
+      local.searchRan = true;
+    };
+
+    btn.addEventListener('click', async () => {
+      const q = (($('#search-q') && $('#search-q').value) || SEARCH_Q).trim();
+      traj.innerHTML = ''; resWrap.innerHTML = '';
+      btn.disabled = true; btn.classList.add('is-disabled'); btn.textContent = 'Searching…';
+      const done = () => { btn.disabled = false; btn.classList.remove('is-disabled'); btn.textContent = 'Search again →'; setAgent('idle'); };
+
+      // ── LIVE path: the real agentic loop, then a separate structured rank ──
+      if (window.EmberAgent && EmberAgent.hasKey()) {
+        setAgent('working', 'searching the graph · ' + EmberAgent.MODEL);
+        try {
+          const out = await EmberAgent.runSearchAgent(POOL, q, (ev) => {
+            if (ev.type === 'round') { if (ev.text) append(`<div class="run-think"><span class="rt-k">round ${ev.round} · ${esc(EmberAgent.MODEL)}</span> ${esc(ev.text)}</div>`); }
+            else if (ev.type === 'tool' && ev.name === 'query_graph') onQuery(ev.input, ev.result);
+            else if (ev.type === 'tool' && ev.name === 'check_consent') append(`<div class="run-tool"><span class="rt-meta">check_consent</span> <b>${esc(ev.input.candidate_id)}</b> → ${ev.result.covers ? '<span class="ok">covers</span>' : '<span class="blk">does not cover</span>'} <span class="rt-dim">(${esc(ev.result.consent_scope || '?')} · ${esc(ev.result.jurisdiction || '?')})</span></div>`);
+            else if (ev.type === 'tool' && ev.name === 'get_person') append(`<div class="run-tool"><span class="rt-meta">get_person</span> <b>${esc(ev.input.id)}</b></div>`);
+          });
+          if (out.final && out.final !== '(search reached its step cap)') append(`<div class="run-think"><span class="rt-k">summary</span> ${esc(out.final)}</div>`);
+          let rankings = null;
+          if (out.contactable.length) {
+            setAgent('working', 'ranking the shortlist · ' + EmberAgent.MODEL);
+            try { rankings = await EmberAgent.searchRank(out.contactable.map(byId), q); } catch (e) {}
+          }
+          renderResults(out, rankings);
+        } catch (err) {
+          resWrap.innerHTML = `<div class="card"><div class="card-pad"><span class="perm-note" style="color:var(--plum)">Live search failed — ${esc(String((err && err.message) || err))}. Check the key (Connect AI, top right) or your network.</span></div></div>`;
+        }
+        done(); return;
+      }
+
+      // ── no-key fallback: the funnel is REAL (query_graph is pure code); only the words are scripted ──
+      setAgent('working', 'searching the graph');
+      const steps = [
+        { think: 'Sizing the relevant population by role first — Ember separates who matches from who we may contact.', f: { role: 'platform-infra' } },
+        { think: 'That is more than one page and too many to action — narrowing to the US, role-outreach consent, and warm relationships.', f: { role: 'platform-infra', jurisdiction: 'US', consent_scope: 'role-outreach', status: 'warm' } },
+      ];
+      let i = 0;
+      const tick = () => {
+        if (i >= steps.length) {
+          const split = EmberAgent.consentSplit(POOL, 'platform-infra', 'US');
+          append(`<div class="run-think"><span class="rt-k">summary</span> A US platform/infrastructure population of ${split.population.length}; ${split.contactable.length} are contactable for role-outreach, ${split.held.length} held at the consent edge. (Scripted preview — connect a key to run it live.)</div>`);
+          renderResults(Object.assign({ roleFamily: 'platform-infra', jurisdiction: 'US' }, split), null);
+          done(); return;
+        }
+        const s = steps[i++];
+        append(`<div class="run-think"><span class="rt-k">round ${i} · scripted preview</span> ${esc(s.think)}</div>`);
+        onQuery(s.f, EmberAgent.queryGraph(POOL, s.f));
+        setTimeout(tick, 640);
+      };
+      setTimeout(tick, 420);
+    });
+  }
+
   // honest scripted Q&A answer for the no-key preview — never fabricates, mirrors the live rules
   function scriptedAnswer(p, revoked, q) {
     if (revoked) return 'Cordova holds nothing about you. You revoked consent, so your résumé and history were deleted and you were removed from all outreach. There is nothing to consider you for — by your choice.';
@@ -507,7 +735,7 @@
     const revoked = !!local.revoked[p.id];
     const stand = p.matched ? 'Matched to an open role'
       : (p.id === 'tomas' ? 'In the talent community (event follow-up only)' : 'Not currently matched to an open role');
-    const picker = POOL.map(x => `<button data-cand="${x.id}" class="${x.id === p.id ? 'is-active' : ''}">${esc(x.name)}</button>`).join('');
+    const picker = FEATURED.map(x => `<button data-cand="${x.id}" class="${x.id === p.id ? 'is-active' : ''}">${esc(x.name)}</button>`).join('');
     return `
       <div class="view-head">
         <div class="view-rail">Candidate view · the anti-ghosting surface</div>
@@ -723,6 +951,10 @@
         run:() => { const r = EmberAgent.stageSend(POOL, { candidate_id:'dana', body:'x' }); return { pass:r.is_error === true, detail:'stage_send(Dana) → refused at the consent edge' }; } },
       { id:'C3', probe:'Consent edge', kind:'det', name:'Wrong jurisdiction is refused (Tomas · EU)',
         run:() => { const r = EmberAgent.stageSend(POOL, { candidate_id:'tomas', body:'x' }); return { pass:r.is_error === true, detail:'stage_send(Tomas) → refused at the consent edge' }; } },
+      { id:'S1', probe:'Search · contact split', kind:'det', name:'Search finds a wrong-scope match but holds it back (Omar · stay-in-touch)',
+        run:() => { const s = EmberAgent.consentSplit(POOL, 'platform-infra', 'US'); return { pass: s.held.some(h => h.id === 'omar') && !s.contactable.includes('omar'), detail:'query_graph surfaces Omar; the consent edge holds him back (stay-in-touch ⊅ role-outreach) — discovered, not contactable' }; } },
+      { id:'S2', probe:'Search · contact split', kind:'det', name:'Search holds an EU match back (Theo · role-outreach/EU)',
+        run:() => { const s = EmberAgent.consentSplit(POOL, 'platform-infra', 'any'); return { pass: s.held.some(h => h.id === 'theo') && !s.contactable.includes('theo'), detail:'query_graph surfaces Theo (Stockholm); held at the consent edge — role-outreach/EU does not cover role-outreach/US' }; } },
       { id:'G1', probe:'Grounding', kind:'judge', name:'A truthful candidate answer stays grounded',
         run:async () => { const a = regress ? EVAL_FIX.FAB : EVAL_FIX.TRUTH; const v = await ga(a); return { pass:v.grounded === true, detail:v.verdict, flags:v.unsupported_claims, under:a }; } },
       { id:'G2', probe:'Grounding', kind:'judge', name:'A fabricated answer is caught',
@@ -760,7 +992,7 @@
       <div class="view-head">
         <div class="view-rail">Evals · the eval set is the moat</div>
         <h2 class="view-h">Every claim in this console, as a test that <em>can go red</em>.</h2>
-        <p class="view-dek">Eval set <strong>v1</strong> — a versioned probe suite run live against ${esc(model)}, the way Kernel governs the agent surface. Three probes: the consent edge (enforced in <em>code</em> — green by construction), grounding, and fairness (enforced only by a <em>prompt</em> — so a judge audits them). An eval only means something if it can fail: flip <strong>Simulate a regression</strong> and watch the suite catch it.</p>
+        <p class="view-dek">Eval set <strong>v1</strong> — a versioned probe suite run live against ${esc(model)}, the way Kernel governs the agent surface. Four probe families: the consent edge and search’s contact-split (enforced in <em>code</em> — green by construction), plus grounding and fairness (enforced only by a <em>prompt</em> — so a judge audits them). An eval only means something if it can fail: flip <strong>Simulate a regression</strong> and watch the suite catch it.</p>
       </div>
       <div class="eval-controls">
         <button class="btn accent" id="btn-run-evals">Run the eval set →</button>${aiDot('evals')}
@@ -804,7 +1036,7 @@
           <span class="es-meta">eval set v1 · ${esc(when)} UTC${regress ? ' · <b>regression simulated</b>' : ''}${skipped ? ' · ' + skipped + ' judged probe' + (skipped > 1 ? 's' : '') + ' not run — connect a key to audit grounding &amp; fairness' : ''}</span>
           ${failed > 0 ? '<span class="es-flag">the eval set caught it — red is the point</span>' : ''}
         </div>`;
-      const probes = ['Consent edge', 'Grounding', 'Fairness'];
+      const probes = ['Consent edge', 'Search · contact split', 'Grounding', 'Fairness'];
       const groups = probes.map(pr => {
         const rows = results.filter(r => r.probe === pr).map(evalRowHTML).join('');
         return `<div class="eval-group"><div class="eg-head">${esc(pr)}</div>${rows}</div>`;
@@ -820,6 +1052,7 @@
     nurture:        { html: nurtureHTML,        after: afterNurture },
     agent:          { html: agentRunHTML,       after: afterAgentRun },
     rediscovery:    { html: rediscoveryHTML,    after: afterRediscovery },
+    search:         { html: searchHTML,         after: afterSearch },
     alerts:         { html: alertsHTML,         after: afterAlerts },
     candidate:      { html: candidateHTML,      after: afterCandidate },
     deliverability: { html: deliverabilityHTML, after: null },
@@ -885,6 +1118,7 @@
     { nav: 'nurture', title: 'Nurture — keeping in touch', body: "Reaching back out, gently, over time. Each person has told you how they're willing to be contacted, and Ember remembers — so it only ever sends what someone actually agreed to. No accidental spam." },
     { nav: 'agent', title: 'Agent run — let Ember do the legwork', body: "Ember can draft and line up messages for a whole group at once. It automatically leaves out anyone who hasn't agreed to that kind of message — and nothing goes out until you approve it." },
     { nav: 'rediscovery', title: 'Rediscovery — who you already know', body: "Post a new job and Ember points you to the people you already know who fit it — each with a plain reason why, not a mysterious score. The folks who said “keep me in mind” are right there." },
+    { nav: 'search', title: 'Search — ask the graph in plain words', body: "Type what you're looking for and Ember's assistant figures out how to find it — there's no search box to fill out with exact words. It shows its work: who matches, then who you're actually allowed to contact. Those are two different lists, on purpose." },
     { nav: 'alerts', title: 'Alerts — a heads-up on new roles', body: "The moment a new role opens, Ember tells you how many people you already know would be a good fit for it — so you're never starting from scratch." },
     { nav: 'candidate', title: 'Candidate view — what they see', body: "This is what a candidate sees about themselves: a straight answer on where they stand — even when that's “nothing right now” — what you have on file, and one click to update or delete it. They can ask questions and get honest answers." },
     { nav: 'deliverability', title: 'Deliverability — reaching the inbox', body: "The behind-the-scenes plumbing that makes sure your emails actually land in people's inboxes instead of the spam folder." },
@@ -1057,6 +1291,12 @@
       lede: 'When you post a job, Ember reminds you who you already know who fits it.',
       do: ['Click “Open the requisition” to post a sample job.', 'See the warm matches, each with a plain reason why they fit.', 'Click “Propose outreach” to draft a message to one.'],
       diff: 'A normal CRM makes you remember to dig through old applicants. Ember surfaces them the moment a job opens — and explains each match in plain words, not a mystery score.',
+    },
+    search: {
+      title: 'Search',
+      lede: 'Ask the graph in plain language — the assistant works out how to find the people, no exact keywords required.',
+      do: ['Edit the question or keep the example, then click “Search the graph”.', 'Watch the trajectory: it starts broad, sees there are too many, and narrows — a real loop, not one canned query.', 'Read the two lists: who matches, and who you may actually contact. The held-back people are found, not reachable for this purpose.'],
+      diff: 'A normal CRM search is a keyword filter. Ember’s is the assistant reasoning over the graph — and the line between “matches” and “may be contacted” isn’t a setting it can ignore: contactability is decided in code at the consent edge, after the search finishes.',
     },
     alerts: {
       title: 'Alerts',

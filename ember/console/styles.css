@@ -393,6 +393,16 @@ body.ai-tips-off .ai-dot, body.tour-running .ai-dot { display:none; }
 .run-summary { font-family:var(--serif); font-size:13.5px; line-height:1.55; color:var(--ink); background:var(--ochre-mist); border:1px solid var(--ochre-soft); border-radius:var(--radius-lg); padding:.8rem 1rem; }
 .run-summary .run-final { font-family:var(--mono); font-size:11px; color:var(--ink-3-aaa); margin-top:.5rem; line-height:1.6; }
 
+/* ── Phase 4: agentic-search funnel (discovered → contactable / held) ── */
+.search-funnel { display:flex; align-items:center; flex-wrap:wrap; gap:.5rem; }
+.search-funnel .sf-pill { font-family:var(--mono); font-size:10px; letter-spacing:.1em; text-transform:uppercase; padding:.3rem .65rem; border-radius:999px; border:1px solid var(--paper-rule-2); background:var(--paper-card); color:var(--ink-3-aaa); }
+.search-funnel .sf-pill b { font-size:12.5px; color:var(--ink); margin-left:.3rem; }
+.search-funnel .sf-ok { border-color:var(--moss-soft); background:rgba(74,93,58,.1); color:var(--moss-deep); }
+.search-funnel .sf-ok b { color:var(--moss-deep); }
+.search-funnel .sf-held { border-color:var(--plum-soft); background:var(--plum-mist); color:var(--plum); }
+.search-funnel .sf-held b { color:var(--plum); }
+.search-funnel .sf-arrow { font-family:var(--mono); color:var(--ochre); font-weight:700; }
+
 /* reusable "✦ Ember" provenance mark on every AI-produced artifact */
 .agent-chip { display:inline-flex; align-items:center; gap:.32rem; font-family:var(--mono); font-size:9px; letter-spacing:.12em; text-transform:uppercase; color:var(--ochre-deep); background:var(--ochre-mist); border:1px solid var(--ochre-soft); border-radius:999px; padding:.14rem .5rem; vertical-align:middle; }
 .agent-chip .spark { color:var(--ochre); font-size:10px; line-height:1; }

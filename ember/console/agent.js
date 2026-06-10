@@ -270,5 +270,152 @@ window.EmberAgent = (() => {
     return JSON.parse(text);
   }
 
-  return { hasKey, getKey: get, setKey: set, clearKey: clear, rankWithRationale, rankCandidates, runNurtureAgent, checkConsent, stageSend, candidateFacts, answerCandidate, groundingProbe, fairnessProbe, MODEL };
+  // ── Phase 4: agentic search over the people graph ──
+  // There is no keyword index. "Search" is the model reasoning over real graph
+  // facts via tools — deciding what to query, seeing it paginate, and narrowing.
+  // roleFamily makes the query_graph `role` filter an honest, documented CATEGORY
+  // match (not exact string), so "platform-infra" groups Platform / Infrastructure
+  // / SRE / DevOps titles the way a real talent graph would.
+  function roleFamily(roleStr) {
+    const r = (roleStr || '').toLowerCase();
+    if (/platform|infrastructure|reliability|sre|devops/.test(r)) return 'platform-infra';
+    if (/data engineer|\bml\b|machine learning/.test(r)) return 'data-ml';
+    if (/backend/.test(r)) return 'backend';
+    if (/frontend|front-end|mobile/.test(r)) return 'frontend-mobile';
+    return 'other';
+  }
+  const ROLE_FAMILIES = ['platform-infra', 'backend', 'data-ml', 'frontend-mobile'];
+  // months between a YYYY-MM string and the prototype "now" (2026-06)
+  function monthsSince(ym) {
+    if (!ym || ym === '—') return 9999;
+    const m = /^(\d{4})-(\d{2})/.exec(ym); if (!m) return 9999;
+    return (2026 - +m[1]) * 12 + (6 - +m[2]);
+  }
+
+  // query_graph — deterministic filter with a hard page cap. The graph is large;
+  // a broad query OVERFLOWS the cap (truncated:true) so the agent must narrow.
+  // It deliberately does NOT expose "contactable" — that judgement is code's, at
+  // the consent edge, not a filter the model can lean on.
+  const PAGE_CAP = 6;
+  function queryGraph(pool, input) {
+    const f = input || {};
+    let rows = pool.filter(p => {
+      if (f.role && f.role !== 'any' && roleFamily(p.role) !== f.role) return false;
+      if (f.jurisdiction && f.jurisdiction !== 'any' && p.consent.juris !== f.jurisdiction) return false;
+      if (f.consent_scope && f.consent_scope !== 'any' && p.consent.scope !== f.consent_scope) return false;
+      if (f.status && f.status !== 'any' && p.status !== f.status) return false;
+      if (typeof f.max_months_since_contact === 'number' && monthsSince((p.held || {}).contact) > f.max_months_since_contact) return false;
+      return true;
+    });
+    // warm first, then most-recent contact — a stable, explainable order
+    rows.sort((a, b) => (a.status === 'warm' ? 0 : 1) - (b.status === 'warm' ? 0 : 1) || monthsSince((a.held || {}).contact) - monthsSince((b.held || {}).contact));
+    const total = rows.length;
+    const page = rows.slice(0, PAGE_CAP);
+    return {
+      total_matched: total,
+      returned: page.length,
+      truncated: total > PAGE_CAP,
+      filters_applied: { role: f.role || 'any', jurisdiction: f.jurisdiction || 'any', consent_scope: f.consent_scope || 'any', status: f.status || 'any', max_months_since_contact: (typeof f.max_months_since_contact === 'number' ? f.max_months_since_contact : null) },
+      results: page.map(p => ({ id: p.id, name: p.name, role: p.role, role_family: roleFamily(p.role), last: p.last, status: p.status, consent_scope: p.consent.scope, jurisdiction: p.consent.juris })),
+      note: total > PAGE_CAP ? `Showing ${page.length} of ${total}. Narrow the query (jurisdiction, consent_scope, status, recency) to reach an actionable set.` : `All ${total} matches shown.`,
+    };
+  }
+  function getPerson(pool, input) {
+    const p = pool.find(x => x.id === (input || {}).id);
+    if (!p) return { error: 'unknown id' };
+    const h = p.held || {};
+    return { id: p.id, name: p.name, role: p.role, role_family: roleFamily(p.role), last: p.last, status: p.status,
+      consent_scope: p.consent.scope, jurisdiction: p.consent.juris, identity: p.dedup || 'single resolved identity',
+      history: h.note || '—', since: h.since || '—', last_contact: h.contact || '—' };
+  }
+
+  // The agentic search loop: the model queries the graph, sees it paginate, and
+  // narrows — broad population first, then an actionable set. Capped at 6 rounds.
+  async function runSearchAgent(pool, query, cb) {
+    const tools = [
+      { name: 'query_graph', description: 'Search the people graph. All filters are optional and AND together. The graph is large and paginates: at most 6 rows are returned per call, with total_matched and truncated so you know when a query is too broad to act on. This tells you who MATCHES — not who may be contacted. Honored filters ONLY (anything else is ignored): role, jurisdiction, consent_scope, status, max_months_since_contact.',
+        input_schema: { type: 'object', properties: {
+          role: { type: 'string', enum: ROLE_FAMILIES.concat(['any']), description: 'role family: platform-infra (Platform/Infrastructure/SRE/DevOps), backend, data-ml, frontend-mobile, or any' },
+          jurisdiction: { type: 'string', enum: ['US', 'EU', 'any'] },
+          consent_scope: { type: 'string', enum: ['role-outreach', 'stay-in-touch', 'event-followup', 'any'], description: 'the consent scope ON FILE — a fact, not a permission to contact' },
+          status: { type: 'string', enum: ['warm', 'in pool', 'any'] },
+          max_months_since_contact: { type: 'integer', description: 'only people contacted within this many months' },
+        }, required: [] } },
+      { name: 'check_consent', description: 'Check one candidate’s consent edge — returns the scope/jurisdiction on file and whether it covers a purpose. Read-only.',
+        input_schema: { type: 'object', properties: { candidate_id: { type: 'string' }, purpose: { type: 'string' }, jurisdiction: { type: 'string' } }, required: ['candidate_id'] } },
+      { name: 'get_person', description: 'Fetch one person’s full graph facts by id. Read-only.',
+        input_schema: { type: 'object', properties: { id: { type: 'string' } }, required: ['id'] } },
+    ];
+    const system = [
+      'You are Ember’s search agent over a consent-native people graph (Cordova Manufacturing, ~1,240 people, synthetic data).',
+      'You answer a recruiter’s search by REASONING over real graph facts via tools — there is no keyword index; you decide what to query.',
+      'The graph paginates: query_graph returns at most 6 rows with total_matched and truncated. A truncated result is too broad to act on — narrow it.',
+      'Ember separates DISCOVERY from CONTACT. Work in that order:',
+      '1) First establish the relevant POPULATION by role (and jurisdiction, if the request names one) and see how many match.',
+      '2) Then narrow to an ACTIONABLE set using facts (consent_scope, status, recency) until the result is no longer truncated.',
+      'Never claim someone may be contacted — Ember derives contactability in code at the consent edge after you finish. Your job is to find and explain, citing facts (role, last touch, consent scope) for the people you surface.',
+      'Be concise between tool calls. When you have a focused, non-truncated set that fits the request, stop and give a 2–3 sentence summary: the population you found and how you narrowed it.',
+    ].join('\n');
+    const messages = [{ role: 'user', content: `Recruiter search: "${query}"\n\nFind the people in the graph who fit. Start broad to size the population, then narrow to an actionable set. Cite facts.` }];
+    let lastRole = 'any', lastJuris = 'any', queryCount = 0;
+    for (let round = 1; round <= 6; round++) {
+      const msg = await callOnce({ model: MODEL, max_tokens: 1100, system, tools, messages });
+      const text = (msg.content || []).filter(b => b.type === 'text').map(b => b.text).join('').trim();
+      const toolUses = (msg.content || []).filter(b => b.type === 'tool_use');
+      if (cb) cb({ type: 'round', round, text, stop: msg.stop_reason });
+      if (msg.stop_reason !== 'tool_use') return finalizeSearch(pool, lastRole, lastJuris, text, queryCount, cb, false);
+      const results = [];
+      for (const tu of toolUses) {
+        let result;
+        if (tu.name === 'query_graph') {
+          result = queryGraph(pool, tu.input); queryCount++;
+          if (tu.input && tu.input.role && tu.input.role !== 'any') lastRole = tu.input.role;
+          if (tu.input && tu.input.jurisdiction && tu.input.jurisdiction !== 'any') lastJuris = tu.input.jurisdiction;
+        } else if (tu.name === 'check_consent') result = checkConsent(pool, tu.input);
+        else if (tu.name === 'get_person') result = getPerson(pool, tu.input);
+        else result = { error: 'unknown tool' };
+        if (cb) cb({ type: 'tool', name: tu.name, input: tu.input, result });
+        results.push({ type: 'tool_result', tool_use_id: tu.id, content: JSON.stringify(result) });
+      }
+      messages.push({ role: 'assistant', content: msg.content });
+      messages.push({ role: 'user', content: results });
+    }
+    return finalizeSearch(pool, lastRole, lastJuris, '(search reached its step cap)', queryCount, cb, true);
+  }
+  // Deterministic consent split over a role/jurisdiction population.
+  // Contactability is CODE-derived here (coversRoleOutreachUS), never model-asserted.
+  // Shared by the live finalize and the no-key scripted path — one source of truth.
+  function consentSplit(pool, roleFam, juris) {
+    const population = pool.filter(p => (roleFam === 'any' || roleFamily(p.role) === roleFam) && (juris === 'any' || p.consent.juris === juris));
+    const contactable = population.filter(coversRoleOutreachUS).map(p => p.id);
+    const held = population.filter(p => !coversRoleOutreachUS(p)).map(p => ({
+      id: p.id, name: p.name, scope: p.consent.scope, juris: p.consent.juris,
+      reason: p.consent.juris !== 'US' ? `consent is ${p.consent.scope}/${p.consent.juris} — wrong jurisdiction for role-outreach/US` : `consent is ${p.consent.scope} — does not cover role-outreach`,
+    }));
+    return { population: population.map(p => p.id), contactable, held };
+  }
+  function finalizeSearch(pool, roleFam, juris, finalText, queryCount, cb, capped) {
+    const split = consentSplit(pool, roleFam, juris);
+    const out = Object.assign({ final: finalText, roleFamily: roleFam, jurisdiction: juris, queryCount, capped: !!capped }, split);
+    if (cb) cb(Object.assign({ type: 'done' }, out));
+    return out;
+  }
+  // Separate structured call (kept apart from the tool loop): score + cite the
+  // contactable shortlist, grounded only in facts.
+  async function searchRank(cands, query) {
+    const schema = { type: 'object', additionalProperties: false, required: ['rankings'], properties: { rankings: { type: 'array', items: {
+      type: 'object', additionalProperties: false, required: ['candidate_id', 'score', 'reason'],
+      properties: { candidate_id: { type: 'string' }, score: { type: 'number' }, reason: { type: 'string' } } } } } };
+    const facts = cands.map(c => `- id=${c.id} | ${c.name} | ${c.role} | last: ${c.last} | consent: ${c.consent.scope}/${c.consent.juris} | ${c.held ? c.held.note : ''}`).join('\n');
+    const msg = await callOnce({
+      model: MODEL, max_tokens: 900,
+      system: 'You rank candidates for a recruiter search inside Stratum Ember. Score each 0.0–1.0 on genuine fit to the search intent, grounded ONLY in the facts given; never invent. The reason must be one sentence citing the specific facts in brackets, e.g. [final round, Nov 2024]. Output JSON only.',
+      messages: [{ role: 'user', content: `Search intent: "${query}"\nCandidates (already confirmed contactable for role-outreach/US):\n${facts}\n\nRank by fit (highest first) with a score and a one-sentence cited reason for each candidate_id.` }],
+      output_config: { format: { type: 'json_schema', schema } },
+    });
+    const text = (msg.content || []).filter(b => b.type === 'text').map(b => b.text).join('');
+    return JSON.parse(text).rankings;
+  }
+
+  return { hasKey, getKey: get, setKey: set, clearKey: clear, rankWithRationale, rankCandidates, runNurtureAgent, checkConsent, stageSend, candidateFacts, answerCandidate, groundingProbe, fairnessProbe, runSearchAgent, queryGraph, getPerson, searchRank, roleFamily, consentSplit, MODEL };
 })();
