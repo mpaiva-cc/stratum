@@ -67,6 +67,23 @@
     clearTimeout(toast._t);
     toast._t = setTimeout(() => t.classList.remove('is-show'), 3200);
   }
+  /* ── agent presence: the AI made visible ── */
+  function setAgent(st, msg) {
+    const el = $('#agent-status'); if (!el) return;
+    el.dataset.state = st;
+    const l = $('#agent-status-label'); if (l) l.textContent = st === 'working' ? ('Ember · ' + msg + '…') : 'Ember agent · ready';
+  }
+  function thinkingHTML(msg) {
+    return `<div class="thinking"><span class="agent-chip"><span class="spark">✦</span> Ember</span><span class="thinking-msg">${esc(msg)}<span class="dots"><i></i><i></i><i></i></span></span></div>`;
+  }
+  // Show a brief "agent is working" beat in `slot`, then run `done` (which renders the result).
+  function agentWork(msg, slot, done, delay) {
+    setAgent('working', msg);
+    if (slot) slot.innerHTML = `<div class="card"><div class="card-pad">${thinkingHTML(msg)}</div></div>`;
+    setTimeout(() => { setAgent('idle'); done(); }, delay || 720);
+  }
+  const SPARK = '<span class="agent-chip"><span class="spark">✦</span> Ember</span>';
+
   function updateRt() {
     const el = $('.rt-stamp'); if (!el) return;
     const t0 = new Date(el.getAttribute('data-t0')).getTime();
@@ -109,6 +126,7 @@
           <span class="chip accent">1,240 people · 38 final-round</span>
           <span class="chip">0 stale snapshots</span>
           <span class="chip">search &amp; dedup · free · no credits</span>
+          <span class="agent-chip"><span class="spark">✦</span> Ember resolving live</span>
         </div>
       </div>
       <div class="card">
@@ -153,6 +171,7 @@
           <ul class="edge-list">${edges}</ul>
           <div class="probe-gate">consent-validity probe <span class="badge ok">pass</span> · gates the campaign before a message leaves</div>
           <div class="logline">
+            <p style="margin-bottom:.4rem">${SPARK} <span style="color:var(--ink-3-aaa)">agent log</span></p>
             <p><span class="ts">traverse</span> expand campaign(purpose=role-outreach, juris=US) across pool edges</p>
             <p><span class="blk">stop</span> edge Vrba: consent=event-followup/EU ⊅ role-outreach/US · traversal cannot cross · 0 side effects</p>
             ${local.sent ? '<p><span class="ts">send</span> 3 valid sends dispatched · 1 held at edge</p>' : '<p><span class="ts">propose</span> 3 valid sends staged · send is a human action</p>'}
@@ -170,8 +189,8 @@
           <div class="field"><label>Campaign</label><input type="text" id="camp-name" value="Platform Q3 · re-warm"${locked ? ' readonly' : ''}></div>
           <div class="field"><label>Audience</label><div class="readonly-chip">Final-round Platform/Backend pool · 4 in scope for this preview</div></div>
           <div class="field"><label>Purpose</label><div class="readonly-chip">${esc(CAMPAIGN.purpose)} · jurisdiction US</div></div>
-          <div class="field"><label>Message · agent-drafted</label><textarea id="camp-copy"${locked ? ' readonly' : ''}>When we last spoke the timing wasn't right. A role just opened that looks a lot more like the work you said you wanted — no pressure, want the details?</textarea></div>
-          <div class="agent-hint"><span><span class="ah-tag">Ember proposes</span> the audience and the copy — you review and send. <strong>No campaign rules to set up</strong>; there is no rule-builder to configure.</span></div>
+          <div class="field"><label>Message · drafted by ${SPARK}</label><textarea id="camp-copy"${locked ? ' readonly' : ''}>When we last spoke the timing wasn't right. A role just opened that looks a lot more like the work you said you wanted — no pressure, want the details?</textarea></div>
+          <div class="agent-hint"><span><span class="ah-tag">✦ Ember proposes</span> the audience and the copy — you review and send. <strong>No campaign rules to set up</strong>; there is no rule-builder to configure.</span></div>
           <div class="field"><label>Deliverability</label><div class="field-note">Sending domain <b>talent.cordova.example</b> · SPF/DKIM/DMARC ✓ · 2,000/day · <b>not routed through your Outlook</b></div></div>
           <div class="field"><label>Usage</label><div class="field-note">Metered only on <b>consented conversations</b> and <b>rediscovery-influenced hires</b> — no per-seat, <b>no per-search credits</b>, internal candidates never charged.</div></div>
           <div class="btn-row">
@@ -180,11 +199,14 @@
             ${locked ? '<span class="perm-note">view-only — campaigns are restricted to sourcers &amp; admins</span>' : ''}
           </div>
         </div></div>
-        ${right}
+        <div id="nurture-result" style="min-width:0">${right}</div>
       </div>`;
   }
   function afterNurture() {
-    const pv = $('#btn-preview'); if (pv) pv.addEventListener('click', () => { local.previewed = true; local.sent = false; render(); toast('Traversal previewed · <span class="tk">1 send blocked at the consent edge</span>', 'block'); });
+    const pv = $('#btn-preview'); if (pv) pv.addEventListener('click', () => {
+      local.sent = false;
+      agentWork('evaluating consent edges', $('#nurture-result'), () => { local.previewed = true; render(); toast('Traversal previewed · <span class="tk">1 send blocked at the consent edge</span>', 'block'); });
+    });
     const sd = $('#btn-send'); if (sd && !sd.disabled) sd.addEventListener('click', () => { local.sent = true; render(); toast('3 consented sends dispatched · <span class="tk">Tomas Vrba held at the edge</span>'); });
   }
 
@@ -200,7 +222,8 @@
           <div><div class="tc-k">Requisition · ready to open</div><div class="tc-v">REQ-2026-0488 · Sr Platform Engineer</div></div>
           <button class="btn accent ${can('rediscover') ? '' : 'is-disabled'}" id="btn-openreq" ${can('rediscover') ? '' : 'disabled'}>Open the requisition →</button>
         </div>
-        ${can('rediscover') ? '' : '<p class="perm-note" style="margin-top:1rem">view-only — triggering rediscovery is restricted to sourcers &amp; admins</p>'}`;
+        ${can('rediscover') ? '' : '<p class="perm-note" style="margin-top:1rem">view-only — triggering rediscovery is restricted to sourcers &amp; admins</p>'}
+        <div id="redis-result"></div>`;
     }
     const cards = ['elena','marcus','renata'].map(id => {
       const p = byId(id);
@@ -216,7 +239,7 @@
         <div class="view-rail">Rediscovery · REQ-2026-0488 opened</div>
         <h2 class="view-h">Three warm, consented matches — <em>cited, never scored</em>.</h2>
         <p class="view-dek">The nurture-fairness probe runs before any list is proposed. Every match shows <strong>why this person</strong> — attested reasoning, never a black-box score.</p>
-        <div class="chip-row"><span class="chip"><span class="badge ok" style="border:0;padding:0">nurture-fairness probe · pass</span></span><span class="chip accent">3 rediscovered</span><span class="chip">rediscovery · free · pay only on influenced hires</span></div>
+        <div class="chip-row"><span class="agent-chip"><span class="spark">✦</span> surfaced by Ember</span><span class="chip"><span class="badge ok" style="border:0;padding:0">nurture-fairness probe · pass</span></span><span class="chip accent">3 rediscovered</span><span class="chip">rediscovery · free · pay only on influenced hires</span></div>
       </div>
       <p class="redis-flag">The role you just posted already has <em>three people</em> who said yes to staying in touch.</p>
       ${cards}
@@ -224,20 +247,24 @@
   }
   function afterRediscovery() {
     const ob = $('#btn-openreq'); if (ob && !ob.disabled) ob.addEventListener('click', () => {
-      local.redisOpen = true; $('#ri-count-redis').textContent = '3';
-      const al = local.alerts.find(x => x.id === 'a-488'); if (al) al.unread = false; // the team's alert for this req is now seen
-      render(); toast('REQ-2026-0488 opened · <span class="tk">subscribed teams notified · 3 consented matches</span>');
+      agentWork('searching the graph for warm, consented matches', $('#redis-result'), () => {
+        local.redisOpen = true; const rc = $('#ri-count-redis'); if (rc) rc.textContent = '3';
+        const al = local.alerts.find(x => x.id === 'a-488'); if (al) al.unread = false; // the team's alert for this req is now seen
+        render(); toast('REQ-2026-0488 opened · <span class="tk">subscribed teams notified · 3 consented matches</span>');
+      });
     });
     $$('#view .btn-propose').forEach(b => { if (!b.disabled) b.addEventListener('click', () => {
       const p = byId(b.dataset.id);
-      $('#propose-slot').innerHTML = `
-        <div class="draft">
-          <div class="draft-eyebrow">Ember · cited outreach draft · for ${esc(p.name)} · review &amp; send</div>
-          <p>${esc(p.name.split(' ')[0])} — when we last spoke the Platform role wasn't the right time. One just opened that looks a lot more like the work you wanted. No pressure — want the details?</p>
-          <div class="btn-row"><button class="btn accent" id="btn-redis-send">Send</button><span class="perm-note" style="color:var(--ink-mute)">handoff to Recruiter on reply (chapter 1)</span></div>
-        </div>`;
-      $('#btn-redis-send').addEventListener('click', () => toast('Outreach sent to ' + esc(p.name) + ' · <span class="tk">warm inbound → Recruiter</span>'));
-      $('#propose-slot').scrollIntoView({ block:'nearest' });
+      agentWork('drafting cited outreach for ' + esc(p.name.split(' ')[0]), $('#propose-slot'), () => {
+        $('#propose-slot').innerHTML = `
+          <div class="draft">
+            <div class="draft-eyebrow">${SPARK} cited outreach draft · for ${esc(p.name)} · review &amp; send</div>
+            <p>${esc(p.name.split(' ')[0])} — when we last spoke the Platform role wasn't the right time. One just opened that looks a lot more like the work you wanted. No pressure — want the details?</p>
+            <div class="btn-row"><button class="btn accent" id="btn-redis-send">Send</button><span class="perm-note" style="color:var(--ink-mute)">handoff to Recruiter on reply (chapter 1)</span></div>
+          </div>`;
+        $('#btn-redis-send').addEventListener('click', () => toast('Outreach sent to ' + esc(p.name) + ' · <span class="tk">warm inbound → Recruiter</span>'));
+        $('#propose-slot').scrollIntoView({ block:'nearest' });
+      });
     }); });
   }
 
