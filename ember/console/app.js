@@ -848,9 +848,142 @@
     });
     paint();
   }
+  /* ── guided tour · coach marks ──────────────────────────────────
+     A self-contained spotlight tour. Drives state.view + render() to walk the
+     AI-first arc. The overlay lives on <body> (outside #view) so render() can't
+     clear it. Steps target stable default-state anchors only. Auto-starts once
+     (after fonts load, so anchors measure correctly); replay from the banner. */
+  const TOUR_KEY = 'ember_tour_seen';
+  const TOUR = [
+    { center: true, title: 'Welcome to Ember', body: "A candidate-relationship console on the people graph. Take sixty seconds — I'll show you what makes it AI-first, not AI-flavored." },
+    { view: 'pools', sel: '#view .view-h', title: 'A pool is a live query', body: 'Identities are reconciled continuously across the ATS, HRIS and directory. Most of a pool is people in no requisition today — the ordinary, honest state.' },
+    { sel: '#key-btn', place: 'bottom', title: 'Bring your own key', body: 'Connect an Anthropic key and the surfaces run live on Opus 4.8 — grounded, cited reasoning. Without one, you get an honest scripted preview.' },
+    { view: 'nurture', sel: '#view .view-h', title: 'Consent is an edge, not a checkbox', body: 'A campaign is a graph traversal. A send with no consent edge for its purpose and jurisdiction is structurally impossible — not a rule the agent was told to obey.' },
+    { view: 'agent', sel: '#view .agent-hint', title: 'The agent refuses in code', body: "Ember's agent works the whole pool through two tools. stage_send returns an error for anyone it can't lawfully contact — the consent edge enforced at the tool boundary, not by asking the model nicely." },
+    { view: 'rediscovery', sel: '#view .view-h', title: 'The role already has people who said yes', body: 'Open a requisition and the graph surfaces warm, consented matches — each with a cited reason, never a black-box score.' },
+    { view: 'candidate', sel: '#view .qa-sec', title: "A straight answer — even when it's nothing", body: 'Candidates can ask about their own data, grounded only in their own facts. A grounding probe audits every answer — and can catch the model fabricating.' },
+    { view: 'evals', sel: '#view .view-h', title: 'Every claim, as a test that can go red', body: 'Eval set v1 runs the consent, grounding and fairness probes live. Flip “Simulate a regression” and watch the suite catch it — an eval that cannot fail proves nothing.' },
+    { center: true, title: "That's Ember", body: 'Connect a key (top right) to run it live, or explore on the scripted preview. You can replay this walkthrough anytime from the prototype banner.' },
+  ];
+  const tour = { i: 0, active: false, prevFocus: null, nodes: null, onKey: null, onResize: null };
+
+  function tourBuild() {
+    const back = document.createElement('div'); back.className = 'tour-backdrop';
+    const ring = document.createElement('div'); ring.className = 'tour-ring'; ring.setAttribute('aria-hidden', 'true');
+    const tip = document.createElement('div');
+    tip.className = 'tour-tip'; tip.setAttribute('role', 'dialog'); tip.setAttribute('aria-modal', 'true'); tip.setAttribute('aria-labelledby', 'tour-tip-title');
+    tip.innerHTML = `
+      <button class="tour-x" id="tour-x" type="button" aria-label="End tour">✕</button>
+      <div class="tour-step" id="tour-step"></div>
+      <h3 class="tour-title" id="tour-tip-title"></h3>
+      <p class="tour-body" id="tour-body"></p>
+      <div class="tour-dots" id="tour-dots" aria-hidden="true"></div>
+      <div class="tour-nav">
+        <button class="btn ghost" id="tour-back" type="button">Back</button>
+        <button class="btn ghost" id="tour-skip" type="button">Skip</button>
+        <button class="btn accent" id="tour-next" type="button">Next</button>
+      </div>`;
+    document.body.appendChild(back); document.body.appendChild(ring); document.body.appendChild(tip);
+    tour.nodes = { back, ring, tip };
+    back.addEventListener('click', (e) => { e.stopPropagation(); }); // catch stray clicks; don't advance/exit
+    $('#tour-x', tip).addEventListener('click', () => tourEnd(true));
+    $('#tour-skip', tip).addEventListener('click', () => tourEnd(true));
+    $('#tour-back', tip).addEventListener('click', () => tourGo(tour.i - 1));
+    $('#tour-next', tip).addEventListener('click', () => tourGo(tour.i + 1));
+  }
+
+  function tourStart() {
+    if (tour.active) return;
+    tour.active = true; tour.prevFocus = document.activeElement;
+    document.body.style.overflow = 'hidden';
+    if (!tour.nodes) tourBuild();
+    Object.values(tour.nodes).forEach(n => { n.style.display = ''; });
+    tour.onKey = (e) => {
+      if (e.key === 'Escape') { e.preventDefault(); tourEnd(true); }
+      else if (e.key === 'ArrowRight' || e.key === 'Enter') { e.preventDefault(); tourGo(tour.i + 1); }
+      else if (e.key === 'ArrowLeft') { e.preventDefault(); tourGo(tour.i - 1); }
+    };
+    tour.onResize = () => { if (tour.active) tourGo(tour.i); };
+    document.addEventListener('keydown', tour.onKey);
+    window.addEventListener('resize', tour.onResize);
+    tourGo(0);
+  }
+
+  function tourEnd(seen) {
+    if (!tour.active) return;
+    tour.active = false;
+    document.removeEventListener('keydown', tour.onKey);
+    window.removeEventListener('resize', tour.onResize);
+    document.body.style.overflow = '';
+    if (tour.nodes) Object.values(tour.nodes).forEach(n => { n.style.display = 'none'; });
+    if (seen) { try { localStorage.setItem(TOUR_KEY, '1'); } catch (e) {} }
+    const trigger = $('#tour-trigger');
+    if (tour.prevFocus && tour.prevFocus.focus) tour.prevFocus.focus();
+    else if (trigger) trigger.focus();
+  }
+
+  function tourCenter() {
+    const { back, ring, tip } = tour.nodes;
+    ring.style.display = 'none';
+    back.classList.add('is-dim');
+    tip.style.left = ''; tip.style.top = '';
+    tip.classList.add('is-center');
+  }
+  function tourPlace(target, step) {
+    const { back, ring, tip } = tour.nodes;
+    const r = target.getBoundingClientRect();
+    if (!r.width && !r.height) { tourCenter(); return; }   // safety: vanished/zero-size
+    back.classList.remove('is-dim');
+    tip.classList.remove('is-center');
+    const pad = 6;
+    ring.style.display = '';
+    ring.style.left = (r.left - pad) + 'px'; ring.style.top = (r.top - pad) + 'px';
+    ring.style.width = (r.width + pad * 2) + 'px'; ring.style.height = (r.height + pad * 2) + 'px';
+    const vw = window.innerWidth, vh = window.innerHeight, gap = 14;
+    const tw = tip.offsetWidth, th = tip.offsetHeight;
+    const place = step.place || (r.bottom + gap + th <= vh ? 'bottom' : (r.top - gap - th >= 0 ? 'top' : 'bottom'));
+    let top = place === 'top' ? r.top - gap - th : r.bottom + gap;
+    let left = r.left + r.width / 2 - tw / 2;
+    left = Math.max(8, Math.min(left, vw - tw - 8));
+    top = Math.max(8, Math.min(top, vh - th - 8));
+    tip.style.left = left + 'px'; tip.style.top = top + 'px';
+  }
+
+  function tourGo(i) {
+    if (!tour.active) return;
+    if (i < 0) i = 0;
+    if (i >= TOUR.length) { tourEnd(true); return; }
+    tour.i = i; const step = TOUR[i]; const tip = tour.nodes.tip;
+    if (step.view && state.view !== step.view) { state.view = step.view; render(); }
+    $('#tour-step', tip).textContent = 'Step ' + (i + 1) + ' of ' + TOUR.length;
+    $('#tour-tip-title', tip).textContent = step.title;
+    $('#tour-body', tip).textContent = step.body;
+    $('#tour-dots', tip).innerHTML = TOUR.map((_, k) => `<i class="${k === i ? 'on' : ''}"></i>`).join('');
+    $('#tour-back', tip).style.visibility = i === 0 ? 'hidden' : '';
+    $('#tour-next', tip).textContent = i === TOUR.length - 1 ? 'Done' : 'Next';
+    const target = (!step.center && step.sel) ? $(step.sel) : null;
+    if (target) {
+      target.scrollIntoView({ block: 'center', inline: 'nearest' }); // instant (smooth would race the measure)
+      requestAnimationFrame(() => { if (tour.active && tour.i === i) tourPlace(target, step); });
+    } else {
+      tourCenter();
+    }
+    requestAnimationFrame(() => { const n = $('#tour-next', tip); if (n && tour.active) n.focus(); });
+  }
+
+  function initTour() {
+    const t = $('#tour-trigger'); if (t) t.addEventListener('click', () => tourStart());
+    let seen = false; try { seen = !!localStorage.getItem(TOUR_KEY); } catch (e) {}
+    if (!seen) {
+      const kick = () => requestAnimationFrame(() => requestAnimationFrame(() => tourStart()));
+      if (document.fonts && document.fonts.ready && document.fonts.ready.then) document.fonts.ready.then(kick);
+      else setTimeout(kick, 400);
+    }
+  }
+
   function boot() {
     updateRt(); setInterval(updateRt, 60000);
-    initNav(); initRole(); initKey(); updateUser(); render();
+    initNav(); initRole(); initKey(); updateUser(); render(); initTour();
     const lb = $('#loadbar'); if (lb) { lb.style.width = '100%'; setTimeout(() => lb.classList.add('is-done'), 500); }
   }
   boot();
