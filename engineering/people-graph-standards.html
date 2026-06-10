@@ -738,7 +738,7 @@ p { margin: 0 0 1.15em; }
       traversal predicate &mdash; is a design we own and that no external standard
       dictates, because no external standard is about the thing we built. Pillar
       owns that internal model; the schema versions v1 / v2 / v3 and the
-      entity-resolution pipeline are hers (<a href="/engineering/#post-01">Post 01</a>).
+      entity-resolution pipeline are hers (<a href="{{ '/engineering/#post-01' | relative_url }}">Post 01</a>).
       This addendum is the conformance envelope <em>around</em> her data layer,
       not a revision to it.
     </p>
@@ -769,7 +769,7 @@ p { margin: 0 0 1.15em; }
       <span class="inline-mono">meta.lastModified</span> for change
       detection, the PATCH semantics for deltas. Our security architecture
       already exposes SCIM management as a
-      <a href="/security/#access">tenant-admin capability</a>. This is the
+      <a href="{{ '/security/#access' | relative_url }}">tenant-admin capability</a>. This is the
       cleanest &ldquo;adopt&rdquo; on the list: a customer who provisions via
       SCIM gets a conformant endpoint, and the conformance is testable with
       their existing IdP.
@@ -784,7 +784,7 @@ p { margin: 0 0 1.15em; }
       <span class="inline-mono">tx_from</span>,
       <span class="inline-mono">tx_to</span> &mdash; is a UTC-normalized ISO 8601
       instant with a <span class="inline-mono">Z</span> suffix. You can see it
-      in the edge projection in <a href="/engineering/people-graph-substrate.html">Post 05 §V</a>:
+      in the edge projection in <a href="{{ '/engineering/people-graph-substrate.html' | relative_url }}">Post 05 §V</a>:
       <span class="inline-mono">"2025-04-15T11:22:08.514Z"</span>. Durations
       in our query layer use ISO 8601 duration notation too &mdash;
       <span class="inline-mono">P12M</span>, <span class="inline-mono">P14D</span>
@@ -802,7 +802,7 @@ p { margin: 0 0 1.15em; }
       status, because the Chairman will be asked it: we are SOC 2 Type II
       <em>under active observation with Vanta</em>, audit period
       T+&minus;66d&nbsp;&rarr;&nbsp;T+208d, report expected Q1&nbsp;2027. The
-      full posture is in the <a href="/security/">security architecture
+      full posture is in the <a href="{{ '/security/' | relative_url }}">security architecture
       document</a>. SOC 2 is not a data-model standard &mdash; it says nothing
       about graphs &mdash; but it is the standard that determined our
       <em>substrate choice</em>, which is why it belongs here and not in a
@@ -861,7 +861,7 @@ p { margin: 0 0 1.15em; }
       types at the connector boundary <em>pre-collapses</em> the source
       vocabulary before the resolver runs &mdash; and graph-confirmation in the
       0.82&ndash;0.93 review band
-      (<a href="/engineering/#post-01">Post&nbsp;01</a>) depends on
+      (<a href="{{ '/engineering/#post-01' | relative_url }}">Post&nbsp;01</a>) depends on
       <span class="inline-mono">source_record</span> attributes staying close to
       source-system truth. Two concrete costs Pillar named: the
       contractor&rarr;employee <span class="inline-mono">prior_id</span> chain
@@ -971,7 +971,7 @@ p { margin: 0 0 1.15em; }
       <span class="inline-mono">purpose</span> token, and edges outside that
       purpose are not minimized by policy &mdash; they are <em>structurally
       unreachable</em>. Data-minimization is also why we
-      <a href="/security/#data">do not persist raw HRIS records</a>: the source
+      <a href="{{ '/security/#data' | relative_url }}">do not persist raw HRIS records</a>: the source
       is consumed by the resolver and discarded; we keep the resolved entity
       and a provenance hash. GDPR informs the consent plane; it does not get
       its own subsystem.
@@ -1011,7 +1011,7 @@ p { margin: 0 0 1.15em; }
       Org Ontology&apos;s vocabulary (§A.III) and the obvious next step would be
       to store the graph as RDF triples and query it with SPARQL. We do not. We
       run a labeled property graph on Apache AGE over Postgres
-      (<a href="/engineering/people-graph-substrate.html">Post 05 §III</a>). The
+      (<a href="{{ '/engineering/people-graph-substrate.html' | relative_url }}">Post 05 §III</a>). The
       reason is that our edges are <em>heavy</em> &mdash; every edge carries two
       time intervals, a confidence score, a source pointer, and a consent-scope
       list. In RDF, an edge is a bare triple; attaching four attributes to it
@@ -1045,7 +1045,7 @@ p { margin: 0 0 1.15em; }
       The incumbent HRIS handles time with slowly-changing-dimension type 2 &mdash;
       versioned rows in every table, the analyst responsible for remembering
       the temporal predicate on every join
-      (<a href="/research/people-graph-360.html">the 360 brief addendum §XI.i</a>
+      (<a href="{{ '/research/people-graph-360.html' | relative_url }}">the 360 brief addendum §XI.i</a>
       walks an employee through it). SCD2 is a real, well-understood pattern
       and we diverge from it on purpose. Our time lives on edges, uniformly,
       and we carry <em>two</em> times where SCD2 carries one. The cost is that
@@ -1155,7 +1155,7 @@ p { margin: 0 0 1.15em; }
       arrives, I expect we will adopt it at the boundary and keep our internal
       shape, which is the pattern this entire addendum describes. If we are
       lucky we will have helped shape it. The
-      <a href="/cairn/architecture.html">014-T trajectory predicate</a> and the
+      <a href="{{ '/cairn/architecture.html' | relative_url }}">014-T trajectory predicate</a> and the
       MCP work are early bets in that direction.
     </p>
 
@@ -1166,7 +1166,7 @@ p { margin: 0 0 1.15em; }
       skill graph (Post 05 §VIII), and our own skill URI &mdash; the
       <span class="inline-mono">skill://&hellip;</span> form that anchors the
       <span class="inline-mono">stone.skill_uri = s.uri</span> join in the Cairn
-      stone-placement traversal (<a href="/cairn/architecture.html">Cairn
+      stone-placement traversal (<a href="{{ '/cairn/architecture.html' | relative_url }}">Cairn
       architecture, §II</a>) &mdash; is the <strong>primary key</strong>. Pillar
       ratified this and made the status honest, which I want to carry rather than
       round up: the <span class="inline-mono">skill</span> node carries our
@@ -1203,7 +1203,7 @@ p { margin: 0 0 1.15em; }
       <strong>From Pillar (resolved).</strong> The vocabulary and
       connector-mapping decisions in §A.III land on her layer, not mine &mdash;
       she owns schema v1 / v2 / v3 and the entity-resolution pipeline
-      (<a href="/engineering/#post-01">Post 01</a>) &mdash; so the conformance
+      (<a href="{{ '/engineering/#post-01' | relative_url }}">Post 01</a>) &mdash; so the conformance
       <em>envelope</em> I wrote went to her for ratification before anything
       hardened. Her ruling, integrated above: the W3C Org alignment is
       vocabulary-and-concepts mapped to URI-addressed forms at render, not in
@@ -1242,11 +1242,11 @@ p { margin: 0 0 1.15em; }
     <div class="footnotes">
       <div class="ftn-h">Footnotes · References</div>
       <ol>
-        <li id="fn1">NYC Local Law 144 (Automated Employment Decision Tools), effective July 2023; EU AI Act, high-risk employment provisions, effective August 2, 2026. Provenance requirements summarized in Eglin&apos;s research brief, <a href="/research/people-graph-360.html#s7">§VII</a>.</li>
+        <li id="fn1">NYC Local Law 144 (Automated Employment Decision Tools), effective July 2023; EU AI Act, high-risk employment provisions, effective August 2, 2026. Provenance requirements summarized in Eglin&apos;s research brief, <a href="{{ '/research/people-graph-360.html#s7' | relative_url }}">§VII</a>.</li>
         <li id="fn2">SCIM 2.0: RFC 7643 (Core Schema) and RFC 7644 (Protocol), IETF, 2015. We consume User and Group resources at the connector boundary.</li>
         <li id="fn3">HR Open Standards (hropenstandards.org) is the standards body that absorbed the former HR-XML Consortium vocabulary. ISO/IEC 30414:2018 is &ldquo;Human resource management — Guidelines for internal and external human capital reporting&rdquo; — a reporting-metrics standard, not a data model.</li>
         <li id="fn4">W3C Organization Ontology (vocab-org, 2014) and schema.org/Person supply vocabulary; we store a labeled property graph on Apache AGE, not RDF. Entity-resolution methodology descends from Christophides et&nbsp;al. (2020); bitemporal extensions from Snodgrass (1999). See Post 05 footnotes.</li>
-        <li id="fn5">Security posture, cert status, and the no-raw-persistence claim are drawn from the <a href="/security/">Stratum security architecture document</a>, current as of its last revision. Cert status is stated there and not rounded up here.</li>
+        <li id="fn5">Security posture, cert status, and the no-raw-persistence claim are drawn from the <a href="{{ '/security/' | relative_url }}">Stratum security architecture document</a>, current as of its last revision. Cert status is stated there and not rounded up here.</li>
       </ol>
     </div>
 
@@ -1271,10 +1271,10 @@ p { margin: 0 0 1.15em; }
     This is Addendum A to <em>Post 05 — The people graph as substrate</em>. It answers a direct question from the Chairman about industry-standards alignment and is the conformance envelope around Pillar&apos;s data layer.
   </p>
   <div class="links">
-    <a href="/engineering/"><span class="ar">←</span> Back to the engineering index</a>
-    <a href="/engineering/people-graph-substrate.html">Post 05 — the substrate <span class="ar">→</span></a>
-    <a href="/research/people-graph-360.html">Eglin&apos;s 360&deg; brief <span class="ar">→</span></a>
-    <a href="/graph/">The live people graph <span class="ar">→</span></a>
+    <a href="{{ '/engineering/' | relative_url }}"><span class="ar">←</span> Back to the engineering index</a>
+    <a href="{{ '/engineering/people-graph-substrate.html' | relative_url }}">Post 05 — the substrate <span class="ar">→</span></a>
+    <a href="{{ '/research/people-graph-360.html' | relative_url }}">Eglin&apos;s 360&deg; brief <span class="ar">→</span></a>
+    <a href="{{ '/graph/' | relative_url }}">The live people graph <span class="ar">→</span></a>
   </div>
 </section>
 
@@ -1290,39 +1290,39 @@ p { margin: 0 0 1.15em; }
     <div class="footer-col">
       <h4>Product</h4>
       <ul>
-        <li><a href="/product/index.html#product">People graph</a></li>
-        <li><a href="/product/index.html#product">Console</a></li>
-        <li><a href="/cairn/">Cairn</a></li>
-        <li><a href="/product/index.html#pricing">Pricing</a></li>
+        <li><a href="{{ '/product/index.html#product' | relative_url }}">People graph</a></li>
+        <li><a href="{{ '/product/index.html#product' | relative_url }}">Console</a></li>
+        <li><a href="{{ '/cairn/' | relative_url }}">Cairn</a></li>
+        <li><a href="{{ '/product/index.html#pricing' | relative_url }}">Pricing</a></li>
       </ul>
     </div>
 
     <div class="footer-col">
       <h4>Company</h4>
       <ul>
-        <li><a href="/product/index.html#team">About</a></li>
-        <li><a href="/careers/">Careers</a></li>
-        <li><a href="/customers/">Customers</a></li>
-        <li><a href="/engineering/">Engineering</a></li>
+        <li><a href="{{ '/product/index.html#team' | relative_url }}">About</a></li>
+        <li><a href="{{ '/careers/' | relative_url }}">Careers</a></li>
+        <li><a href="{{ '/customers/' | relative_url }}">Customers</a></li>
+        <li><a href="{{ '/engineering/' | relative_url }}">Engineering</a></li>
       </ul>
     </div>
 
     <div class="footer-col">
       <h4>Resources</h4>
       <ul>
-        <li><a href="/engineering/#post-01">Entity resolution</a></li>
-        <li><a href="/engineering/#post-02">Compliance posture</a></li>
-        <li><a href="/engineering/people-graph-substrate.html">The substrate</a></li>
-        <li><a href="/research/people-graph-360.html">Industry 360&deg;</a></li>
+        <li><a href="{{ '/engineering/#post-01' | relative_url }}">Entity resolution</a></li>
+        <li><a href="{{ '/engineering/#post-02' | relative_url }}">Compliance posture</a></li>
+        <li><a href="{{ '/engineering/people-graph-substrate.html' | relative_url }}">The substrate</a></li>
+        <li><a href="{{ '/research/people-graph-360.html' | relative_url }}">Industry 360&deg;</a></li>
       </ul>
     </div>
 
     <div class="footer-col">
       <h4>Trust</h4>
       <ul>
-        <li><a href="/security/">SOC 2 · ISO 27001</a></li>
-        <li><a href="/security/">GDPR · DPA</a></li>
-        <li><a href="/security/">EU AI Act stance</a></li>
+        <li><a href="{{ '/security/' | relative_url }}">SOC 2 · ISO 27001</a></li>
+        <li><a href="{{ '/security/' | relative_url }}">GDPR · DPA</a></li>
+        <li><a href="{{ '/security/' | relative_url }}">EU AI Act stance</a></li>
       </ul>
     </div>
 
@@ -1330,7 +1330,7 @@ p { margin: 0 0 1.15em; }
 
   <div class="footer-foot">
     <span>Stratum, Inc. · Palo Alto · 2026 · All rights reserved.</span>
-    <a class="briefing-link" href="/">← Back to the Chairman&apos;s Briefing · <strong>Briefing</strong></a>
+    <a class="briefing-link" href="{{ '/' | relative_url }}">← Back to the Chairman&apos;s Briefing · <strong>Briefing</strong></a>
   </div>
 </footer>
 

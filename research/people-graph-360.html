@@ -1009,7 +1009,7 @@ strong { font-weight: 600; color: var(--ink); }
       <strong>one node, not four rows.</strong> The entity-resolution
       pipeline that produces this property is the load-bearing piece
       of engineering, and is the subject of
-      <a href="/essays/the-graph-between-the-databases.html">Forge&rsquo;s Essay No.&nbsp;02</a>.</span>
+      <a href="{{ '/essays/the-graph-between-the-databases.html' | relative_url }}">Forge&rsquo;s Essay No.&nbsp;02</a>.</span>
     </li>
     <li>
       <span class="dn">Time-aware</span>
@@ -1232,7 +1232,7 @@ strong { font-weight: 600; color: var(--ink); }
         contains seven to twelve systems-of-record about people.
         <strong>Halcyon Health, with 2,400 employees, has 12,112 rows
         across seven systems</strong> (per Forge&rsquo;s detailed
-        accounting in <a href="/essays/the-graph-between-the-databases.html">Essay&nbsp;No.&nbsp;02</a>),
+        accounting in <a href="{{ '/essays/the-graph-between-the-databases.html' | relative_url }}">Essay&nbsp;No.&nbsp;02</a>),
         and Halcyon is closer to median than to outlier.
       </p>
     </li>
@@ -1608,7 +1608,7 @@ strong { font-weight: 600; color: var(--ink); }
       events are point-in-time; trajectories are integrated; the
       014-T extended autonomy predicate exists because an event-based
       compliance model is not sufficient when the substrate is
-      time-aware. See <a href="/cairn/architecture.html">Forge&rsquo;s
+      time-aware. See <a href="{{ '/cairn/architecture.html' | relative_url }}">Forge&rsquo;s
       Cairn architecture document</a>.</span>
     </li>
     <li>
@@ -1632,7 +1632,7 @@ strong { font-weight: 600; color: var(--ink); }
     rerun of your evaluation hits a slightly different set of rows
     because the underlying entity resolution changed between runs. The
     eval set, as Stratum has documented in
-    <a href="/engineering/eval-set-methodology.html">the eval-set
+    <a href="{{ '/engineering/eval-set-methodology.html' | relative_url }}">the eval-set
     methodology post</a>, presumes a graph that is stable enough to
     pin a version against. Without that, evaluation is not science; it
     is impressionism with metrics.
@@ -1814,8 +1814,8 @@ strong { font-weight: 600; color: var(--ink); }
     The strategic and experience arguments above presume that a graph
     is, in fact, the right data structure for this problem. The
     argument can be made briefly, because Forge has already made it
-    at length in <a href="/essays/the-graph-between-the-databases.html">Essay&nbsp;No.&nbsp;02</a>
-    and in <a href="/engineering/">Engineering posts 01, 02, and 04</a>;
+    at length in <a href="{{ '/essays/the-graph-between-the-databases.html' | relative_url }}">Essay&nbsp;No.&nbsp;02</a>
+    and in <a href="{{ '/engineering/' | relative_url }}">Engineering posts 01, 02, and 04</a>;
     this section assumes that background and pushes one specific
     point further: why a property graph beats a warehouse, even a
     well-designed dbt-and-Snowflake warehouse with reverse-ETL on top.
@@ -1858,7 +1858,7 @@ strong { font-weight: 600; color: var(--ink); }
     query with a different time argument. This is the property that
     makes longitudinal agentic decisions &mdash; trajectory questions
     &mdash; cheap. It is also the property that makes Cairn&rsquo;s
-    014-T trajectory predicate <a href="/cairn/architecture.html">[Cairn architecture]</a>
+    014-T trajectory predicate <a href="{{ '/cairn/architecture.html' | relative_url }}">[Cairn architecture]</a>
     expressible at the storage layer rather than at the application
     layer.
   </p>
@@ -1945,7 +1945,7 @@ strong { font-weight: 600; color: var(--ink); }
     the precision-recall asymmetry, the labeling-function methodology,
     the conflict queue and the human-review workflow &mdash; the
     canonical reference is Forge&rsquo;s
-    <a href="/essays/the-graph-between-the-databases.html">Essay&nbsp;No.&nbsp;02</a>.
+    <a href="{{ '/essays/the-graph-between-the-databases.html' | relative_url }}">Essay&nbsp;No.&nbsp;02</a>.
     This brief will not re-litigate. The argument here is the
     higher-level one: <em>a graph is structurally the right tool for
     this problem class, and a warehouse alone is not.</em> Most
@@ -2062,7 +2062,7 @@ strong { font-weight: 600; color: var(--ink); }
       <span class="ch">&ldquo;Entity resolution is hard, and most companies don&rsquo;t have clean enough source data to make a graph work.&rdquo;</span>
       <p>
         This is correct, and it is the strongest counter-argument.
-        The Halcyon case in <a href="/essays/the-graph-between-the-databases.html">Forge&rsquo;s Essay&nbsp;No.&nbsp;02</a>
+        The Halcyon case in <a href="{{ '/essays/the-graph-between-the-databases.html' | relative_url }}">Forge&rsquo;s Essay&nbsp;No.&nbsp;02</a>
         documents 12,112 rows across seven systems for a 2,400-employee
         hospital, with names in formats ranging from &ldquo;Bob Smith&rdquo;
         to &ldquo;SMITH, ROBERT J, JR, MD,&rdquo; emails on three
@@ -2243,7 +2243,7 @@ strong { font-weight: 600; color: var(--ink); }
         accuracy that took Pillar one labeling function to fix.</em>
         Forge already has the numbers internally; the recommendation
         is to publish them, with the eval-set methodology already
-        documented in <a href="/engineering/eval-set-methodology.html">/engineering/eval-set-methodology</a>,
+        documented in <a href="{{ '/engineering/eval-set-methodology.html' | relative_url }}">/engineering/eval-set-methodology</a>,
         as a forcing function that competitors will struggle to
         match. Eglin estimates a 10-12 week effort; recommendation
         is Forge + Pillar own the timeline, Helm the publish call.
@@ -2473,7 +2473,7 @@ strong { font-weight: 600; color: var(--ink); }
     pipeline produced from the seven source records above. The mechanics of how that identity was
     produced &mdash; the four-stage resolver, the probabilistic blocking, the graph-confirmation
     pass that catches the contractor-to-employee transitions, the conflict queue that Pillar reviews
-    &mdash; are the subject of <a href="/essays/the-graph-between-the-databases.html">Essay
+    &mdash; are the subject of <a href="{{ '/essays/the-graph-between-the-databases.html' | relative_url }}">Essay
     No.&nbsp;02</a>. The premise here is just that the cluster exists: one node, with provenance
     back to all seven source rows, available for traversal.
   </p>
@@ -2644,7 +2644,7 @@ strong { font-weight: 600; color: var(--ink); }
   <p>
     The methodological discipline behind that claim &mdash; the resolver eval-set, the
     precision-recall numbers, the conflict queue throughput &mdash; is the subject of
-    <a href="/essays/the-graph-between-the-databases.html">Essay No.&nbsp;02</a> and the
+    <a href="{{ '/essays/the-graph-between-the-databases.html' | relative_url }}">Essay No.&nbsp;02</a> and the
     eval-set publication tracked in &sect;IX&rsquo;s Implication&nbsp;02. The pedagogical
     version above is the version that travels in a conversation. The numbers are what defend
     it when the conversation gets technical.
@@ -2774,7 +2774,7 @@ strong { font-weight: 600; color: var(--ink); }
     Cornerstone footprint, scoped to what Cornerstone already sees. No public documentation of
     identity resolution across systems Cornerstone does not own, of time-aware edges, or of
     per-edge consent metadata. The &sect;III Cornerstone row stands. See the
-    <a href="/intel/eglin/competitors/cornerstone.html">Cornerstone battlecard</a>.
+    <a href="{{ '/intel/eglin/competitors/cornerstone.html' | relative_url }}">Cornerstone battlecard</a>.
   </p>
 
   <p>
@@ -3145,15 +3145,15 @@ strong { font-weight: 600; color: var(--ink); }
       </li>
       <li id="src-18">
         <span class="sc sc-v">Verified</span>
-        <span class="sbody"><strong>Forge &middot; &ldquo;The graph between the databases: why entity resolution is the moat&rdquo;</strong> &middot; Stratum Essays No.&nbsp;02. The Halcyon 12,112-rows analysis, the four-stage resolver, the conflict queue, the temp-to-perm bug. <a href="/essays/the-graph-between-the-databases.html">/essays/the-graph-between-the-databases</a></span>
+        <span class="sbody"><strong>Forge &middot; &ldquo;The graph between the databases: why entity resolution is the moat&rdquo;</strong> &middot; Stratum Essays No.&nbsp;02. The Halcyon 12,112-rows analysis, the four-stage resolver, the conflict queue, the temp-to-perm bug. <a href="{{ '/essays/the-graph-between-the-databases.html' | relative_url }}">/essays/the-graph-between-the-databases</a></span>
       </li>
       <li id="src-19">
         <span class="sc sc-v">Verified</span>
-        <span class="sbody"><strong>Forge &middot; Cairn architecture &middot; 014-T trajectory predicate</strong> &middot; Stratum Engineering Post 06. Extended autonomy predicate for trajectory-class decisions; consent at each checkpoint. <a href="/cairn/architecture.html">/cairn/architecture</a></span>
+        <span class="sbody"><strong>Forge &middot; Cairn architecture &middot; 014-T trajectory predicate</strong> &middot; Stratum Engineering Post 06. Extended autonomy predicate for trajectory-class decisions; consent at each checkpoint. <a href="{{ '/cairn/architecture.html' | relative_url }}">/cairn/architecture</a></span>
       </li>
       <li id="src-20">
         <span class="sc sc-v">Verified</span>
-        <span class="sbody"><strong>Stratum Engineering &middot; Eval-set methodology</strong>. The basis of agentic evaluation against a stable graph substrate. <a href="/engineering/eval-set-methodology.html">/engineering/eval-set-methodology</a></span>
+        <span class="sbody"><strong>Stratum Engineering &middot; Eval-set methodology</strong>. The basis of agentic evaluation against a stable graph substrate. <a href="{{ '/engineering/eval-set-methodology.html' | relative_url }}">/engineering/eval-set-methodology</a></span>
       </li>
       <li id="src-21">
         <span class="sc sc-r">Reported</span>
@@ -3267,10 +3267,10 @@ strong { font-weight: 600; color: var(--ink); }
     Counsel did not review this document. Where regulation is mentioned, Stratum recommends consulting counsel before acting.
   </p>
   <div class="closing-links">
-    <a href="/research/">All research &rarr;</a>
-    <a href="/essays/the-graph-between-the-databases.html">Forge &middot; The graph between the databases &rarr;</a>
-    <a href="/engineering/">Engineering posts &rarr;</a>
-    <a href="/cairn/architecture.html">Cairn architecture &middot; 014-T &rarr;</a>
+    <a href="{{ '/research/' | relative_url }}">All research &rarr;</a>
+    <a href="{{ '/essays/the-graph-between-the-databases.html' | relative_url }}">Forge &middot; The graph between the databases &rarr;</a>
+    <a href="{{ '/engineering/' | relative_url }}">Engineering posts &rarr;</a>
+    <a href="{{ '/cairn/architecture.html' | relative_url }}">Cairn architecture &middot; 014-T &rarr;</a>
     <a href="mailto:research@stratum.ai">research@stratum.ai &rarr;</a>
   </div>
 </footer>
@@ -3287,28 +3287,28 @@ strong { font-weight: 600; color: var(--ink); }
     <div class="footer-col">
       <h4>Product</h4>
       <ul>
-        <li><a href="/console/">Console</a></li>
-        <li><a href="/recruiter/">Recruiter</a></li>
-        <li><a href="/tenure/">Tenure</a></li>
-        <li><a href="/cairn/">Cairn</a></li>
+        <li><a href="{{ '/console/' | relative_url }}">Console</a></li>
+        <li><a href="{{ '/recruiter/' | relative_url }}">Recruiter</a></li>
+        <li><a href="{{ '/tenure/' | relative_url }}">Tenure</a></li>
+        <li><a href="{{ '/cairn/' | relative_url }}">Cairn</a></li>
       </ul>
     </div>
     <div class="footer-col">
       <h4>Research</h4>
       <ul>
-        <li><a href="/research/">All research</a></li>
-        <li><a href="/essays/">Essays</a></li>
-        <li><a href="/engineering/">Engineering</a></li>
-        <li><a href="/changelog/">Changelog</a></li>
+        <li><a href="{{ '/research/' | relative_url }}">All research</a></li>
+        <li><a href="{{ '/essays/' | relative_url }}">Essays</a></li>
+        <li><a href="{{ '/engineering/' | relative_url }}">Engineering</a></li>
+        <li><a href="{{ '/changelog/' | relative_url }}">Changelog</a></li>
       </ul>
     </div>
     <div class="footer-col">
       <h4>Company</h4>
       <ul>
-        <li><a href="/about/">About</a></li>
-        <li><a href="/agents/">Agents</a></li>
-        <li><a href="/careers/">Careers</a></li>
-        <li><a href="/customers/">Customers</a></li>
+        <li><a href="{{ '/about/' | relative_url }}">About</a></li>
+        <li><a href="{{ '/agents/' | relative_url }}">Agents</a></li>
+        <li><a href="{{ '/careers/' | relative_url }}">Careers</a></li>
+        <li><a href="{{ '/customers/' | relative_url }}">Customers</a></li>
       </ul>
     </div>
     <div class="footer-col">
@@ -3316,13 +3316,13 @@ strong { font-weight: 600; color: var(--ink); }
       <ul>
         <li><a href="mailto:research@stratum.ai">research@stratum.ai</a></li>
         <li><a href="mailto:analyst-relations@stratum.ai">Analyst relations</a></li>
-        <li><a href="/accessibility/">Accessibility</a></li>
+        <li><a href="{{ '/accessibility/' | relative_url }}">Accessibility</a></li>
       </ul>
     </div>
   </div>
   <div class="footer-foot">
     <span>&copy; 2026 Stratum, Inc. &middot; All rights reserved.</span>
-    <a class="briefing-link" href="/">Today's <strong>Briefing</strong> &rarr;</a>
+    <a class="briefing-link" href="{{ '/' | relative_url }}">Today's <strong>Briefing</strong> &rarr;</a>
   </div>
 </footer>
 

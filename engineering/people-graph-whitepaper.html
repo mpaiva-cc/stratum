@@ -916,7 +916,7 @@ p { margin: 0 0 1.15em; }
       list of consent scopes, and traversal is gated on them (§4). The full
       diagram and the rationale for running this as a property graph on
       Postgres with Apache AGE — rather than a graph-native engine — is in
-      <a href="/engineering/people-graph-substrate.html">Engineering Post 05,
+      <a href="{{ '/engineering/people-graph-substrate.html' | relative_url }}">Engineering Post 05,
       §§II–III</a>. The short version: we chose the substrate that the SOC 2
       controls were already audited against, and we accept the traversal-depth
       cost that buys.
@@ -998,7 +998,7 @@ p { margin: 0 0 1.15em; }
       was <strong>0.012%</strong>, entirely in the
       <span class="inline-mono">person_current</span> materialized view — a
       correctness improvement, not a regression. The full migration account is
-      <a href="/engineering/people-graph-substrate.html">Post 05 §VII</a>.
+      <a href="{{ '/engineering/people-graph-substrate.html' | relative_url }}">Post 05 §VII</a>.
       This is a deliberate divergence from the warehouse&apos;s
       slowly-changing-dimension (SCD2) pattern: SCD2 carries one time on
       versioned rows and puts the temporal join predicate on the analyst&apos;s
@@ -1034,7 +1034,7 @@ p { margin: 0 0 1.15em; }
       is recoverable. We built that to a property, &ldquo;everything the agent
       saw is recoverable,&rdquo; rather than to a standard, because no
       decision-provenance standard for people graphs exists yet (§7). The
-      mechanism is detailed in <a href="/engineering/people-graph-substrate.html">Post
+      mechanism is detailed in <a href="{{ '/engineering/people-graph-substrate.html' | relative_url }}">Post
       05 §VI</a>, and it is the same consent edge the Ember console now refuses
       at in <em>code</em>, not prose.
     </p>
@@ -1048,7 +1048,7 @@ p { margin: 0 0 1.15em; }
       The resolver that produces <span class="inline-mono">person</span> nodes
       from <span class="inline-mono">source_record</span> nodes is the
       probabilistic-plus-graph-confirmation pipeline documented in
-      <a href="/engineering/#post-01">Engineering Post 01</a>. It descends
+      <a href="{{ '/engineering/#post-01' | relative_url }}">Engineering Post 01</a>. It descends
       methodologically from the Christophides et&nbsp;al. survey of entity
       resolution [R1] and the weak-supervision line of work from Snorkel
       [R2]; the bitemporal extensions follow Snodgrass [R3]. The pipeline
@@ -1101,7 +1101,7 @@ p { margin: 0 0 1.15em; }
       The clearest evidence that this is one graph and not four products
       stapled together is that each product is a <em>query</em> over the same
       substrate. The full worked traversals are in
-      <a href="/engineering/people-graph-substrate.html">Post 05 §VIII</a>;
+      <a href="{{ '/engineering/people-graph-substrate.html' | relative_url }}">Post 05 §VIII</a>;
       here is the proof in one view.
     </p>
 
@@ -1133,8 +1133,8 @@ p { margin: 0 0 1.15em; }
       and made its status honest. The <span class="inline-mono">skill</span>
       node carries <strong>our own <span class="inline-mono">skill://…</span>
       URI as its primary key</strong> — the form that anchors the Cairn
-      stone-placement join (<a href="/engineering/people-graph-substrate.html">Post
-      05 §VIII</a>; field defined in the <a href="/cairn/architecture.html">Cairn
+      stone-placement join (<a href="{{ '/engineering/people-graph-substrate.html' | relative_url }}">Post
+      05 §VIII</a>; field defined in the <a href="{{ '/cairn/architecture.html' | relative_url }}">Cairn
       architecture, §II</a>) — with <span class="inline-mono">esco_uri</span>
       and <span class="inline-mono">onet_code</span> as optional crosswalk
       properties <em>where coverage exists</em>. That coverage is
@@ -1161,7 +1161,7 @@ p { margin: 0 0 1.15em; }
       model, storing nothing in its shape. We <strong>diverge</strong> when we
       considered its model for the substrate and chose a different internal
       shape, for a reason we can name. The full argument is
-      <a href="/engineering/people-graph-standards.html">Addendum A</a>; the map
+      <a href="{{ '/engineering/people-graph-standards.html' | relative_url }}">Addendum A</a>; the map
       below is its summary, with Pillar&apos;s two data-layer amendments
       integrated.
     </p>
@@ -1318,7 +1318,7 @@ p { margin: 0 0 1.15em; }
 
     <p>
       The full posture, controls, and subprocessor list are in the
-      <a href="/security/">Stratum security architecture document</a>, where the
+      <a href="{{ '/security/' | relative_url }}">Stratum security architecture document</a>, where the
       same status is stated and not rounded up. When SOC 2 goes to report and
       27001 audits, we will publish the diff. Until then, this paragraph is the
       one to quote in a procurement conversation.
@@ -1333,7 +1333,7 @@ p { margin: 0 0 1.15em; }
         <li>R. T. Snodgrass, <em>Developing Time-Oriented Database Applications in SQL</em>, Morgan Kaufmann, 1999. The bitemporal foundations underneath §3 (valid-time vs. transaction-time).</li>
         <li>NYC Local Law 144 (Automated Employment Decision Tools), effective July 2023; EU AI Act, high-risk employment provisions, effective 2 August 2026. The decision-provenance requirements §§4 and 7 anticipate.</li>
         <li>SCIM 2.0: IETF RFC 7643 (Core Schema) and RFC 7644 (Protocol), 2015. The provisioning interface adopted at the connector boundary (§2).</li>
-        <li>Companion artifacts: Engineering <a href="/engineering/people-graph-substrate.html">Post 05 — the substrate</a>; <a href="/engineering/people-graph-standards.html">Addendum A — the conformance map</a>; <a href="/engineering/#post-01">Post 01 — entity resolution</a>; <a href="/cairn/architecture.html">Cairn architecture</a>; the <a href="/security/">security architecture document</a>; and the live graph at <a href="/graph/">/graph/</a>. Forthcoming (Pillar): a v3.x W3C&nbsp;Org/schema.org crosswalk and a connector-boundary spec.</li>
+        <li>Companion artifacts: Engineering <a href="{{ '/engineering/people-graph-substrate.html' | relative_url }}">Post 05 — the substrate</a>; <a href="{{ '/engineering/people-graph-standards.html' | relative_url }}">Addendum A — the conformance map</a>; <a href="{{ '/engineering/#post-01' | relative_url }}">Post 01 — entity resolution</a>; <a href="{{ '/cairn/architecture.html' | relative_url }}">Cairn architecture</a>; the <a href="{{ '/security/' | relative_url }}">security architecture document</a>; and the live graph at <a href="{{ '/graph/' | relative_url }}">/graph/</a>. Forthcoming (Pillar): a v3.x W3C&nbsp;Org/schema.org crosswalk and a connector-boundary spec.</li>
       </ol>
     </div>
 
@@ -1381,10 +1381,10 @@ p { margin: 0 0 1.15em; }
     This is <em>WP-01</em>, the people-graph technical white-paper, commissioned by the Chairman at T+90d. It is co-authored by Forge (architecture &amp; conformance) and Pillar (schema &amp; data layer), and its data-layer claims are ratified by Pillar. It synthesizes Engineering Post 05 and Addendum A into one citable artifact for the Chairman, procurement, and the board.
   </p>
   <div class="links">
-    <a href="/engineering/"><span class="ar">←</span> Engineering index</a>
-    <a href="/engineering/people-graph-substrate.html">Post 05 — the substrate <span class="ar">→</span></a>
-    <a href="/engineering/people-graph-standards.html">Addendum A — standards <span class="ar">→</span></a>
-    <a href="/graph/">The live people graph <span class="ar">→</span></a>
+    <a href="{{ '/engineering/' | relative_url }}"><span class="ar">←</span> Engineering index</a>
+    <a href="{{ '/engineering/people-graph-substrate.html' | relative_url }}">Post 05 — the substrate <span class="ar">→</span></a>
+    <a href="{{ '/engineering/people-graph-standards.html' | relative_url }}">Addendum A — standards <span class="ar">→</span></a>
+    <a href="{{ '/graph/' | relative_url }}">The live people graph <span class="ar">→</span></a>
   </div>
 </section>
 
@@ -1400,39 +1400,39 @@ p { margin: 0 0 1.15em; }
     <div class="footer-col">
       <h4>Product</h4>
       <ul>
-        <li><a href="/product/index.html#product">People graph</a></li>
-        <li><a href="/product/index.html#product">Console</a></li>
-        <li><a href="/cairn/">Cairn</a></li>
-        <li><a href="/product/index.html#pricing">Pricing</a></li>
+        <li><a href="{{ '/product/index.html#product' | relative_url }}">People graph</a></li>
+        <li><a href="{{ '/product/index.html#product' | relative_url }}">Console</a></li>
+        <li><a href="{{ '/cairn/' | relative_url }}">Cairn</a></li>
+        <li><a href="{{ '/product/index.html#pricing' | relative_url }}">Pricing</a></li>
       </ul>
     </div>
 
     <div class="footer-col">
       <h4>Company</h4>
       <ul>
-        <li><a href="/product/index.html#team">About</a></li>
-        <li><a href="/careers/">Careers</a></li>
-        <li><a href="/customers/">Customers</a></li>
-        <li><a href="/engineering/">Engineering</a></li>
+        <li><a href="{{ '/product/index.html#team' | relative_url }}">About</a></li>
+        <li><a href="{{ '/careers/' | relative_url }}">Careers</a></li>
+        <li><a href="{{ '/customers/' | relative_url }}">Customers</a></li>
+        <li><a href="{{ '/engineering/' | relative_url }}">Engineering</a></li>
       </ul>
     </div>
 
     <div class="footer-col">
       <h4>Resources</h4>
       <ul>
-        <li><a href="/engineering/people-graph-substrate.html">The substrate</a></li>
-        <li><a href="/engineering/people-graph-standards.html">Standards (Addendum A)</a></li>
-        <li><a href="/engineering/#post-01">Entity resolution</a></li>
-        <li><a href="/research/people-graph-360.html">Industry 360°</a></li>
+        <li><a href="{{ '/engineering/people-graph-substrate.html' | relative_url }}">The substrate</a></li>
+        <li><a href="{{ '/engineering/people-graph-standards.html' | relative_url }}">Standards (Addendum A)</a></li>
+        <li><a href="{{ '/engineering/#post-01' | relative_url }}">Entity resolution</a></li>
+        <li><a href="{{ '/research/people-graph-360.html' | relative_url }}">Industry 360°</a></li>
       </ul>
     </div>
 
     <div class="footer-col">
       <h4>Trust</h4>
       <ul>
-        <li><a href="/security/">SOC 2 · ISO 27001</a></li>
-        <li><a href="/security/">GDPR · DPA</a></li>
-        <li><a href="/security/">EU AI Act stance</a></li>
+        <li><a href="{{ '/security/' | relative_url }}">SOC 2 · ISO 27001</a></li>
+        <li><a href="{{ '/security/' | relative_url }}">GDPR · DPA</a></li>
+        <li><a href="{{ '/security/' | relative_url }}">EU AI Act stance</a></li>
       </ul>
     </div>
 
@@ -1440,7 +1440,7 @@ p { margin: 0 0 1.15em; }
 
   <div class="footer-foot">
     <span>Stratum, Inc. · Palo Alto · 2026 · All rights reserved.</span>
-    <a class="briefing-link" href="/">← Back to the Chairman&apos;s Briefing · <strong>Briefing</strong></a>
+    <a class="briefing-link" href="{{ '/' | relative_url }}">← Back to the Chairman&apos;s Briefing · <strong>Briefing</strong></a>
   </div>
 </footer>
 

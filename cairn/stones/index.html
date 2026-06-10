@@ -561,9 +561,9 @@ strong { font-weight: 600; color: var(--ink); }
 
 <!-- MOBILE BAR -->
 <div class="mob-bar" role="navigation" aria-label="Page navigation">
-  <a href="/cairn/" aria-label="Back to Cairn">← Cairn</a>
+  <a href="{{ '/cairn/' | relative_url }}" aria-label="Back to Cairn">← Cairn</a>
   <span class="mob-bar-mark">Stones ledger</span>
-  <a href="/cairn/plan.html" aria-label="Cairn plan">Plan →</a>
+  <a href="{{ '/cairn/plan.html' | relative_url }}" aria-label="Cairn plan">Plan →</a>
 </div>
 
 <!-- RT-STAMP -->
@@ -803,8 +803,8 @@ strong { font-weight: 600; color: var(--ink); }
             External validation completed 2026-08-12 at 14:15 PT. Carmen signed off on all five plates
             and a fifth plate completed live during the site visit. AWS D1.1 criteria met.<br>
             <span class="crypto">Cryptographic provenance: <code>ed25519:7e3a...c2f9</code></span><br>
-            Attestation node: <a href="/decisions/cairn/T-cordova-mateo-cantu-aws-d1.1-pressure-vessel/A-002/manifest.json">/decisions/cairn/T-cordova-mateo-cantu-aws-d1.1-pressure-vessel/A-002/manifest.json</a><br>
-            <a href="/cairn/carmen-findings.html">→ See findings report</a>
+            Attestation node: <a href="{{ '/decisions/cairn/T-cordova-mateo-cantu-aws-d1.1-pressure-vessel/A-002/manifest.json' | relative_url }}">/decisions/cairn/T-cordova-mateo-cantu-aws-d1.1-pressure-vessel/A-002/manifest.json</a><br>
+            <a href="{{ '/cairn/carmen-findings.html' | relative_url }}">→ See findings report</a>
           </div>
         </div>
       </section>
@@ -862,7 +862,7 @@ strong { font-weight: 600; color: var(--ink); }
           Carmen's findings included one classifier-improvement recommendation (Stone-002-related).
           v1.1 of the AWS-D1.1 visual classifier targeted W12: the difference between a weld that
           passes D1.1 and a weld that passes D1.1 but trends toward failure under pressure-cycle
-          fatigue. <a href="/cairn/carmen-findings.html">→ See findings report</a> for details.
+          fatigue. <a href="{{ '/cairn/carmen-findings.html' | relative_url }}">→ See findings report</a> for details.
         </p>
       </section>
 
@@ -1134,7 +1134,7 @@ strong { font-weight: 600; color: var(--ink); }
             <em>inventory service</em>, not the orders service as originally drafted.
             Correction incorporated. Stone placed after correction.<br>
             <span class="crypto">Cryptographic provenance: <code>ed25519:2c4f…8a31</code></span><br>
-            Full audit trail: <a href="/decisions/cairn/T-cordova-elena-vega-k8s-operator/A-001/">/decisions/cairn/T-cordova-elena-vega-k8s-operator/A-001/</a>
+            Full audit trail: <a href="{{ '/decisions/cairn/T-cordova-elena-vega-k8s-operator/A-001/' | relative_url }}">/decisions/cairn/T-cordova-elena-vega-k8s-operator/A-001/</a>
           </div>
         </div>
       </section>
@@ -1224,7 +1224,7 @@ strong { font-weight: 600; color: var(--ink); }
     <div>Total stones: <strong>2</strong> <span class="sep">·</span> 2 verified <span class="sep">·</span> 0 provisional</div>
     <div>Customers active: <strong>1</strong> <span class="sep">·</span> Cordova</div>
     <div>Methodology revision: <strong>cairn-stones-ledger-v1.1</strong> <span class="sep">·</span> updated 2026-08-12</div>
-    <div>Decision class reference: <a href="/ledger/" style="border-bottom:1px solid var(--ochre-link)">Decisions ledger</a></div>
+    <div>Decision class reference: <a href="{{ '/ledger/' | relative_url }}" style="border-bottom:1px solid var(--ochre-link)">Decisions ledger</a></div>
   </div>
   <div class="footer-byline">
     <span class="agent-sig">Tessera</span>
@@ -1238,7 +1238,7 @@ strong { font-weight: 600; color: var(--ink); }
 </footer>
 
 <nav class="return-nav" aria-label="Return navigation">
-  <a href="/cairn/">← Back to Cairn</a>
+  <a href="{{ '/cairn/' | relative_url }}">← Back to Cairn</a>
 </nav>
 
 </main>
