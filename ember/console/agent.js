@@ -20,6 +20,44 @@ window.EmberAgent = (() => {
   const clear = () => { try { sessionStorage.removeItem(STORE); } catch (e) {} };
   const hasKey = () => !!get();
   const MODEL = 'claude-opus-4-8';
+  const API = 'https://api.anthropic.com/v1/messages';
+  const headers = () => ({
+    'content-type': 'application/json',
+    'x-api-key': get(),
+    'anthropic-version': '2023-06-01',
+    'anthropic-dangerous-direct-browser-access': 'true',
+  });
+
+  // Shared SSE streaming transport. Streams text via onToken(chunk); resolves to the full text. Throws on HTTP error.
+  async function streamMessages(body, onToken) {
+    const res = await fetch(API, { method: 'POST', headers: headers(), body: JSON.stringify(Object.assign({ stream: true }, body)) });
+    if (!res.ok || !res.body) {
+      let detail = String(res.status);
+      try { detail = (await res.text()).slice(0, 300); } catch (e) {}
+      throw new Error('Anthropic ' + res.status + ' · ' + detail);
+    }
+    const reader = res.body.getReader();
+    const dec = new TextDecoder();
+    let buf = '', full = '';
+    for (;;) {
+      const { done, value } = await reader.read();
+      if (done) break;
+      buf += dec.decode(value, { stream: true });
+      let nl;
+      while ((nl = buf.indexOf('\n')) >= 0) {
+        const line = buf.slice(0, nl); buf = buf.slice(nl + 1);
+        if (line.indexOf('data:') !== 0) continue;          // skip "event:" and blank lines
+        const data = line.slice(5).trim();
+        if (!data || data === '[DONE]') continue;
+        let ev; try { ev = JSON.parse(data); } catch (e) { continue; } // ignore ping etc.
+        if (ev.type === 'content_block_delta' && ev.delta && ev.delta.type === 'text_delta') {
+          full += ev.delta.text;
+          if (onToken) onToken(ev.delta.text);
+        }
+      }
+    }
+    return full;
+  }
 
   const SYSTEM = [
     'You are the rediscovery agent inside Stratum Ember, an AI-first candidate-relationship product.',
@@ -51,62 +89,15 @@ window.EmberAgent = (() => {
 
   // Streams text via onToken(chunk); resolves to the full text. Throws on HTTP error.
   async function rankWithRationale(c, req, recruiter, onToken) {
-    const res = await fetch('https://api.anthropic.com/v1/messages', {
-      method: 'POST',
-      headers: {
-        'content-type': 'application/json',
-        'x-api-key': get(),
-        'anthropic-version': '2023-06-01',
-        'anthropic-dangerous-direct-browser-access': 'true',
-      },
-      body: JSON.stringify({
-        model: MODEL,
-        max_tokens: 700,
-        stream: true,
-        system: SYSTEM,
-        messages: [{ role: 'user', content: userPrompt(c, req, recruiter) }],
-      }),
-    });
-    if (!res.ok || !res.body) {
-      let detail = String(res.status);
-      try { detail = (await res.text()).slice(0, 300); } catch (e) {}
-      throw new Error('Anthropic ' + res.status + ' · ' + detail);
-    }
-    const reader = res.body.getReader();
-    const dec = new TextDecoder();
-    let buf = '', full = '';
-    for (;;) {
-      const { done, value } = await reader.read();
-      if (done) break;
-      buf += dec.decode(value, { stream: true });
-      let nl;
-      while ((nl = buf.indexOf('\n')) >= 0) {
-        const line = buf.slice(0, nl); buf = buf.slice(nl + 1);
-        if (line.indexOf('data:') !== 0) continue;          // skip "event:" and blank lines
-        const data = line.slice(5).trim();
-        if (!data || data === '[DONE]') continue;
-        let ev; try { ev = JSON.parse(data); } catch (e) { continue; } // ignore ping etc.
-        if (ev.type === 'content_block_delta' && ev.delta && ev.delta.type === 'text_delta') {
-          full += ev.delta.text;
-          if (onToken) onToken(ev.delta.text);
-        }
-      }
-    }
-    return full;
+    return streamMessages({
+      model: MODEL, max_tokens: 700, system: SYSTEM,
+      messages: [{ role: 'user', content: userPrompt(c, req, recruiter) }],
+    }, onToken);
   }
 
   // non-streaming single call → the full message JSON
   async function callOnce(body) {
-    const res = await fetch('https://api.anthropic.com/v1/messages', {
-      method: 'POST',
-      headers: {
-        'content-type': 'application/json',
-        'x-api-key': get(),
-        'anthropic-version': '2023-06-01',
-        'anthropic-dangerous-direct-browser-access': 'true',
-      },
-      body: JSON.stringify(body),
-    });
+    const res = await fetch(API, { method: 'POST', headers: headers(), body: JSON.stringify(body) });
     if (!res.ok) {
       let detail = String(res.status);
       try { detail = (await res.text()).slice(0, 300); } catch (e) {}
@@ -187,5 +178,77 @@ window.EmberAgent = (() => {
     return { staged, blocked, capped: true };
   }
 
-  return { hasKey, getKey: get, setKey: set, clearKey: clear, rankWithRationale, rankCandidates, runNurtureAgent, checkConsent, stageSend, MODEL };
+  // ── Phase 3: candidate-facing Q&A, grounded to ONE person's facts ──
+  // The complete fact set for a single candidate — this is ALL the model may use.
+  // Never pass the pool: a privacy surface must not answer about anyone but the asker.
+  function candidateFacts(c, revoked) {
+    if (revoked) return [
+      `- Name: ${c.name}`,
+      '- Consent: REVOKED by this person.',
+      '- Data held: nothing. Résumé deleted, history deleted.',
+      '- Status: removed from all outreach and from every future traversal.',
+      '- Used for: nothing.',
+    ].join('\n');
+    const h = c.held || {};
+    const stand = c.matched ? 'Matched to an open role; a recruiter will reach out.'
+      : (c.consent.valid ? 'Not currently matched to any open role; in the talent community.'
+                         : 'In the talent community for event follow-up only; not matched to any role.');
+    return [
+      `- Name: ${c.name}`,
+      `- Current/last role on file: ${c.role}`,
+      `- Status: ${stand}`,
+      `- In Cordova's talent community since: ${h.since || '—'}`,
+      `- Last contact: ${h.contact || '—'}`,
+      `- Résumé on file: ${h.resume || '—'}`,
+      `- History note: ${h.note || '—'}`,
+      `- Consent: scope=${c.consent.scope}, jurisdiction=${c.consent.juris}, valid_for_role_outreach=${c.consent.valid}`,
+      `- Used for: ${c.consent.valid ? 'rediscovery when a fitting role opens — nothing else' : 'event follow-up only'}`,
+      '- No interview scores, ratings, ranked comparisons, panel feedback, or hiring decisions are on file for this person.',
+    ].join('\n');
+  }
+
+  const QA_SYSTEM = [
+    'You are the candidate-facing transparency surface inside Stratum Ember. A person is asking about THEIR OWN data, held by Cordova Manufacturing.',
+    'You are given the COMPLETE set of facts on file for this one person. Answer ONLY from these facts.',
+    'Rules:',
+    '- Cite the specific facts you rely on, briefly.',
+    '- If the answer is not in the facts, say so plainly — e.g. "Cordova does not hold that" / "that is not on file." NEVER invent interview scores, feedback, rankings, timelines, employers, or outcomes.',
+    '- Never promise a job, an interview, a callback, or any outcome. If asked "will I get the job?", say honestly that you cannot promise that, and state what the status actually is.',
+    '- No urgency, no flattery, no score-talk, no "top match."',
+    '- If consent is revoked, the only honest answer is that nothing is held and the person has been removed from all outreach.',
+    '- Be brief and direct: a straight answer, even when the answer is nothing. 1–4 sentences.',
+  ].join('\n');
+
+  // Streamed candidate answer, grounded to exactly one person.
+  async function answerCandidate(c, revoked, question, onToken) {
+    return streamMessages({
+      model: MODEL, max_tokens: 500, system: QA_SYSTEM,
+      messages: [{ role: 'user', content: `Facts on file for ${c.name} (the only facts you may use):\n${candidateFacts(c, revoked)}\n\nThe person asks: "${question}"\n\nAnswer them directly, grounded only in these facts.` }],
+    }, onToken);
+  }
+
+  // ── Phase 3: the grounding probe — the proof the Q&A surface can't fabricate ──
+  // Q&A grounding is prompt-enforced (a model CAN violate a prompt), unlike Phase 2's
+  // consent edge which is code-enforced. So we check it: given the ground-truth facts
+  // and an answer, the judge flags any claim the facts do not support. It can go RED.
+  async function groundingProbe(factsText, answerText) {
+    const schema = {
+      type: 'object', additionalProperties: false, required: ['grounded', 'verdict', 'unsupported_claims'],
+      properties: {
+        grounded: { type: 'boolean' },
+        verdict: { type: 'string' },
+        unsupported_claims: { type: 'array', items: { type: 'string' } },
+      },
+    };
+    const msg = await callOnce({
+      model: MODEL, max_tokens: 700,
+      system: 'You are a strict grounding auditor. You receive a SET OF FACTS and an ANSWER a system gave to a person about their own data. Decide whether the answer asserts anything NOT entailed by the facts. List every unsupported claim — fabricated scores, ratings, panel feedback, promised outcomes, timelines, employers, anything the facts do not state. grounded=true ONLY if every assertion in the answer is supported by the facts; a promise of a job/interview/outcome the facts do not guarantee is unsupported. Be concise and literal.',
+      messages: [{ role: 'user', content: `FACTS:\n${factsText}\n\nANSWER:\n${answerText}\n\nReturn grounded, a one-line verdict, and the list of unsupported claims (empty if fully grounded).` }],
+      output_config: { format: { type: 'json_schema', schema } },
+    });
+    const text = (msg.content || []).filter(b => b.type === 'text').map(b => b.text).join('');
+    return JSON.parse(text);
+  }
+
+  return { hasKey, getKey: get, setKey: set, clearKey: clear, rankWithRationale, rankCandidates, runNurtureAgent, checkConsent, stageSend, candidateFacts, answerCandidate, groundingProbe, MODEL };
 })();

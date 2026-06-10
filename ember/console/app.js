@@ -15,7 +15,7 @@
 
   /* ── state ── */
   const state = { view: 'pools', role: 'sourcer' };
-  const local = { previewed: false, sent: false, redisOpen: false, proposed: false, cand: 'dana', revoked: {}, rankResults: null, agentRan: false,
+  const local = { previewed: false, sent: false, redisOpen: false, proposed: false, cand: 'dana', revoked: {}, rankResults: null, agentRan: false, lastQA: null,
     alerts: [
       { id:'a-488', req:'REQ-2026-0488', title:'Sr Platform Engineer',     dept:'Engineering',     opened:'just now',  matches:3, unread:true },
       { id:'a-471', req:'REQ-2026-0471', title:'Data Engineer',            dept:'Data',            opened:'2h ago',    matches:5, unread:true },
@@ -446,6 +446,32 @@
     }); });
   }
 
+  // honest scripted Q&A answer for the no-key preview — never fabricates, mirrors the live rules
+  function scriptedAnswer(p, revoked, q) {
+    if (revoked) return 'Cordova holds nothing about you. You revoked consent, so your résumé and history were deleted and you were removed from all outreach. There is nothing to consider you for — by your choice.';
+    const ql = q.toLowerCase();
+    if (/(get the job|an offer|be hired|will i|my chances)/.test(ql))
+      return "I can't promise that — no offer or hiring decision is on file. What is true: " + (p.matched ? 'a role opened that fits your background, and a recruiter will reach out.' : "you're in Cordova's talent community and will be surfaced if a fitting role opens. Nothing more is promised.");
+    if (/(feedback|score|rating|how did i do|interview)/.test(ql))
+      return 'Cordova holds no interview scores, ratings, or panel feedback for you — none is on file, so there is nothing to share.';
+    if (/(hold|have on me|my data|about me|stored)/.test(ql))
+      return 'On file: your résumé (' + p.held.resume + '), that you ' + p.held.note + ', and your consent (' + p.consent.scope + ' · ' + p.consent.juris + '). It is used only for rediscovery when a fitting role opens — nothing else.';
+    return "You're in Cordova's talent community since " + p.held.since + ' because you opted to stay in touch (' + p.held.note + '). Your data is used only for rediscovery when a fitting role opens — nothing else.';
+  }
+  // one row of the grounding probe — RED if the judge found unsupported claims, GREEN if grounded
+  function probeRowHTML(label, answer, r) {
+    const red = !r.grounded;
+    const flags = (r.unsupported_claims && r.unsupported_claims.length)
+      ? `<ul class="pr-flags">${r.unsupported_claims.map(c => `<li>${esc(c)}</li>`).join('')}</ul>` : '';
+    return `
+      <div class="probe-row ${red ? 'is-red' : 'is-green'}">
+        <div class="pr-head"><span class="pr-verdict">${red ? '⊘ RED · ungrounded' : '✓ GREEN · grounded'}</span><span class="pr-label">${esc(label)}${r.illustration ? ' · illustration' : ''}</span></div>
+        <div class="pr-answer">“${esc(answer)}”</div>
+        ${r.verdict ? `<div class="pr-line">${esc(r.verdict)}</div>` : ''}
+        ${flags}
+      </div>`;
+  }
+
   function candidateHTML() {
     const p = byId(local.cand);
     const revoked = !!local.revoked[p.id];
@@ -479,6 +505,27 @@
               </div>
               <div class="cand-honest" style="font-size:.9rem;margin-top:.7rem">No urgency. No score. Just where you actually stand.</div>
             </div>
+            <div class="cand-sec qa-sec">
+              <div class="lab">Ask about your data <span class="agent-chip"><span class="spark">✦</span> Ember</span></div>
+              <div class="qa-suggest">
+                <button class="qa-chip" data-q="Why am I in this pool?">Why am I in this pool?</button>
+                <button class="qa-chip" data-q="What does Cordova hold about me?">What do you hold about me?</button>
+                <button class="qa-chip" data-q="Am I being considered for a role right now?">Am I being considered right now?</button>
+                <button class="qa-chip" data-q="Will I get the job?">Will I get the job?</button>
+              </div>
+              <div class="qa-input-row">
+                <input type="text" id="qa-input" placeholder="Ask a question about your data…" autocomplete="off">
+                <button class="btn accent" id="qa-ask">Ask</button>
+              </div>
+              <div class="qa-answer" id="qa-answer"></div>
+              <div class="cand-honest qa-note">Answered only from what Cordova holds about <strong>you</strong> — never the rest of the pool — cited, and honest when the answer is nothing. Grounding here is <em>prompt-enforced</em> (a model can violate a prompt), so the honesty check below audits it.</div>
+            </div>
+            <div class="cand-sec probe-sec">
+              <div class="lab">Honesty check · the grounding probe</div>
+              <p class="probe-intro">The consent edge is enforced in code — unfakeable. Q&amp;A grounding is only <em>asked</em> of the model, so we <strong>check</strong> it: the probe judges whether an answer asserts anything ${esc(p.name.split(' ')[0])}'s facts don't support. Watch it catch a fabrication, then pass the real answer.</p>
+              <button class="btn ghost" id="btn-grounding">Run the grounding probe</button>
+              <div class="probe-out" id="probe-out"></div>
+            </div>
           </div>
         </div>
       </div>`;
@@ -489,6 +536,65 @@
       local.revoked[local.cand] = true; render(); toast('Consent revoked · <span class="tk">removed from every future traversal, at the data layer</span>', 'block');
     });
     const dl = $('#btn-download'); if (dl) dl.addEventListener('click', () => toast('Data export prepared · <span class="tk">honest by default</span>'));
+
+    // ── Phase 3: candidate Q&A — grounded to THIS person only ──
+    const p = byId(local.cand);
+    const revoked = !!local.revoked[local.cand];
+    const live = () => window.EmberAgent && EmberAgent.hasKey();
+    const qaInput = $('#qa-input'), qaAsk = $('#qa-ask'), qaAnswer = $('#qa-answer');
+    function doAsk(q) {
+      q = (q || '').trim(); if (!q || !qaAnswer) return;
+      if (live()) {
+        qaAnswer.innerHTML = `<div class="qa-eyebrow">${SPARK} <span class="live-tag">${esc(EmberAgent.MODEL)} · live</span> · grounded to ${esc(p.name)} only</div><div class="qa-text agent-stream streaming" id="qa-text"></div>`;
+        setAgent('working', 'answering · grounded to ' + p.name.split(' ')[0]);
+        const out = $('#qa-text');
+        EmberAgent.answerCandidate(p, revoked, q, (t) => { out.textContent += t; })
+          .then(full => { out.classList.remove('streaming'); setAgent('idle'); local.lastQA = { q, answer: full, cand: local.cand }; })
+          .catch(err => { out.classList.remove('streaming'); out.innerHTML = `<span class="perm-note" style="color:var(--plum)">Live call failed — ${esc(String((err && err.message) || err))}. Check the key (Connect AI, top right).</span>`; setAgent('idle'); });
+      } else {
+        const ans = scriptedAnswer(p, revoked, q);
+        qaAnswer.innerHTML = `<div class="qa-eyebrow">${SPARK} scripted preview · connect a key for a live, grounded answer</div><div class="qa-text" id="qa-text"></div>`;
+        streamText($('#qa-text'), ans, { speed: 16 });
+        local.lastQA = { q, answer: ans, cand: local.cand };
+      }
+    }
+    if (qaAsk) qaAsk.addEventListener('click', () => doAsk(qaInput && qaInput.value));
+    if (qaInput) qaInput.addEventListener('keydown', e => { if (e.key === 'Enter') doAsk(qaInput.value); });
+    $$('#view .qa-chip').forEach(b => b.addEventListener('click', () => { if (qaInput) qaInput.value = b.dataset.q; doAsk(b.dataset.q); }));
+
+    // ── Phase 3: the grounding probe — watch it go RED on a fabrication, GREEN on the real answer ──
+    const gb = $('#btn-grounding');
+    if (gb) gb.addEventListener('click', async () => {
+      const out = $('#probe-out'); if (!out) return;
+      const first = p.name.split(' ')[0];
+      const facts = EmberAgent.candidateFacts(p, revoked);
+      const FABRICATED = `Great news, ${first} — you scored 9.2 out of 10 on your final onsite, the panel said you were the strongest candidate they'd seen all year, and we're fast-tracking you for an offer by Friday.`;
+      const GROUNDED = (local.lastQA && local.lastQA.cand === local.cand)
+        ? local.lastQA.answer
+        : (revoked
+            ? 'Cordova holds nothing about you; your consent is revoked and you have been removed from all outreach.'
+            : `Cordova holds your résumé (${p.held.resume}) and that you ${p.held.note}. Your consent is ${p.consent.scope}/${p.consent.juris}. Your data is used only for rediscovery when a fitting role opens — nothing is promised.`);
+      const groundedLabel = (local.lastQA && local.lastQA.cand === local.cand) ? 'Ember’s actual answer (above)' : 'Ember’s grounded answer';
+      if (live()) {
+        out.innerHTML = `<div class="card"><div class="card-pad">${thinkingHTML('auditing two answers for grounding · ' + EmberAgent.MODEL)}</div></div>`;
+        setAgent('working', 'grounding audit · ' + EmberAgent.MODEL);
+        try {
+          const [bad, good] = await Promise.all([
+            EmberAgent.groundingProbe(facts, FABRICATED),
+            EmberAgent.groundingProbe(facts, GROUNDED),
+          ]);
+          out.innerHTML = probeRowHTML('A fabricated answer', FABRICATED, bad) + probeRowHTML(groundedLabel, GROUNDED, good);
+          setAgent('idle');
+        } catch (err) {
+          out.innerHTML = `<div class="run-tool is-blocked">Probe failed — ${esc(String((err && err.message) || err))}. Check the key (Connect AI, top right).</div>`;
+          setAgent('idle');
+        }
+      } else {
+        out.innerHTML =
+          probeRowHTML('A fabricated answer', FABRICATED, { grounded: false, verdict: 'Asserts facts that are not on file.', unsupported_claims: ['an interview score of 9.2/10 (no scores are on file)', '“strongest candidate they’d seen all year” (no feedback is on file)', '“fast-tracking … an offer by Friday” (no decision or timeline is on file)'], illustration: true }) +
+          probeRowHTML(groundedLabel, GROUNDED, { grounded: true, verdict: 'Every claim traces to a fact on file.', unsupported_claims: [], illustration: true });
+      }
+    });
   }
 
   function deliverabilityHTML() {
