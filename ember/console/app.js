@@ -854,16 +854,21 @@
      clear it. Steps target stable default-state anchors only. Auto-starts once
      (after fonts load, so anchors measure correctly); replay from the banner. */
   const TOUR_KEY = 'ember_tour_seen';
+  // Plain-language walkthrough of every menu item — written for buyers new to recruiting tools.
+  // Jargon ("consent", "edge", "pool") is explained in everyday terms on first use.
   const TOUR = [
-    { center: true, title: 'Welcome to Ember', body: "A candidate-relationship console on the people graph. Take sixty seconds — I'll show you what makes it AI-first, not AI-flavored." },
-    { view: 'pools', sel: '#view .view-h', title: 'A pool is a live query', body: 'Identities are reconciled continuously across the ATS, HRIS and directory. Most of a pool is people in no requisition today — the ordinary, honest state.' },
-    { sel: '#key-btn', place: 'bottom', title: 'Bring your own key', body: 'Connect an Anthropic key and the surfaces run live on Opus 4.8 — grounded, cited reasoning. Without one, you get an honest scripted preview.' },
-    { view: 'nurture', sel: '#view .view-h', title: 'Consent is an edge, not a checkbox', body: 'A campaign is a graph traversal. A send with no consent edge for its purpose and jurisdiction is structurally impossible — not a rule the agent was told to obey.' },
-    { view: 'agent', sel: '#view .agent-hint', title: 'The agent refuses in code', body: "Ember's agent works the whole pool through two tools. stage_send returns an error for anyone it can't lawfully contact — the consent edge enforced at the tool boundary, not by asking the model nicely." },
-    { view: 'rediscovery', sel: '#view .view-h', title: 'The role already has people who said yes', body: 'Open a requisition and the graph surfaces warm, consented matches — each with a cited reason, never a black-box score.' },
-    { view: 'candidate', sel: '#view .qa-sec', title: "A straight answer — even when it's nothing", body: 'Candidates can ask about their own data, grounded only in their own facts. A grounding probe audits every answer — and can catch the model fabricating.' },
-    { view: 'evals', sel: '#view .view-h', title: 'Every claim, as a test that can go red', body: 'Eval set v1 runs the consent, grounding and fairness probes live. Flip “Simulate a regression” and watch the suite catch it — an eval that cannot fail proves nothing.' },
-    { center: true, title: "That's Ember", body: 'Connect a key (top right) to run it live, or explore on the scripted preview. You can replay this walkthrough anytime from the prototype banner.' },
+    { center: true, title: 'Welcome to Ember', body: "Ember helps you keep in touch with people you've already met — past applicants, referrals, people who nearly got the job — and reach back out when the right role opens. Here's a quick tour of the menu on the left." },
+    { sel: '#key-btn', place: 'bottom', title: 'Connect AI (optional)', body: "Paste an AI key here to watch Ember's assistant work for real. No key? You'll see a guided preview instead. Nothing is stored beyond this browser tab." },
+    { nav: 'pools', title: 'Pools — your living address book', body: "A “pool” is just an address book that keeps itself up to date: the people you've talked to before, in one place, never going stale. Most aren't applying for anything right now — and that's normal." },
+    { nav: 'nurture', title: 'Nurture — keeping in touch', body: "Reaching back out, gently, over time. Each person has told you how they're willing to be contacted, and Ember remembers — so it only ever sends what someone actually agreed to. No accidental spam." },
+    { nav: 'agent', title: 'Agent run — let Ember do the legwork', body: "Ember can draft and line up messages for a whole group at once. It automatically leaves out anyone who hasn't agreed to that kind of message — and nothing goes out until you approve it." },
+    { nav: 'rediscovery', title: 'Rediscovery — who you already know', body: "Post a new job and Ember points you to the people you already know who fit it — each with a plain reason why, not a mysterious score. The folks who said “keep me in mind” are right there." },
+    { nav: 'alerts', title: 'Alerts — a heads-up on new roles', body: "The moment a new role opens, Ember tells you how many people you already know would be a good fit for it — so you're never starting from scratch." },
+    { nav: 'candidate', title: 'Candidate view — what they see', body: "This is what a candidate sees about themselves: a straight answer on where they stand — even when that's “nothing right now” — what you have on file, and one click to update or delete it. They can ask questions and get honest answers." },
+    { nav: 'deliverability', title: 'Deliverability — reaching the inbox', body: "The behind-the-scenes plumbing that makes sure your emails actually land in people's inboxes instead of the spam folder." },
+    { nav: 'permissions', title: 'Permissions — who can do what', body: "Some teammates can only look; others can send messages or change settings. You decide who can do what." },
+    { nav: 'evals', title: 'Evals — proof the AI behaves', body: "Our own ongoing tests that check the assistant stays truthful and fair. We can even make a test fail on purpose, to prove the safety checks really catch problems." },
+    { center: true, title: "That's the tour", body: "Connect a key up top to try the live assistant, or just click around to explore. You can replay this walkthrough anytime from the “Walk me through it” button in the banner." },
   ];
   const tour = { i: 0, active: false, prevFocus: null, nodes: null, onKey: null, onResize: null };
 
@@ -915,6 +920,7 @@
     document.removeEventListener('keydown', tour.onKey);
     window.removeEventListener('resize', tour.onResize);
     document.body.style.overflow = '';
+    const rail = $('#rail'); if (rail) rail.classList.remove('is-open'); // close the drawer the tour may have opened
     if (tour.nodes) Object.values(tour.nodes).forEach(n => { n.style.display = 'none'; });
     if (seen) { try { localStorage.setItem(TOUR_KEY, '1'); } catch (e) {} }
     const trigger = $('#tour-trigger');
@@ -929,21 +935,26 @@
     tip.style.left = ''; tip.style.top = '';
     tip.classList.add('is-center');
   }
-  function tourPlace(target, step) {
+  function tourPlace(target, place) {
     const { back, ring, tip } = tour.nodes;
     const r = target.getBoundingClientRect();
-    if (!r.width && !r.height) { tourCenter(); return; }   // safety: vanished/zero-size
+    const vw = window.innerWidth, vh = window.innerHeight;
+    // safety: vanished, zero-size, or fully off-screen (e.g. closed rail on a tiny viewport)
+    if ((!r.width && !r.height) || r.right < 8 || r.left > vw - 8) { tourCenter(); return; }
     back.classList.remove('is-dim');
     tip.classList.remove('is-center');
     const pad = 6;
     ring.style.display = '';
     ring.style.left = (r.left - pad) + 'px'; ring.style.top = (r.top - pad) + 'px';
     ring.style.width = (r.width + pad * 2) + 'px'; ring.style.height = (r.height + pad * 2) + 'px';
-    const vw = window.innerWidth, vh = window.innerHeight, gap = 14;
-    const tw = tip.offsetWidth, th = tip.offsetHeight;
-    const place = step.place || (r.bottom + gap + th <= vh ? 'bottom' : (r.top - gap - th >= 0 ? 'top' : 'bottom'));
-    let top = place === 'top' ? r.top - gap - th : r.bottom + gap;
-    let left = r.left + r.width / 2 - tw / 2;
+    const gap = 14, tw = tip.offsetWidth, th = tip.offsetHeight;
+    let top, left;
+    let p = place || (r.bottom + gap + th <= vh ? 'bottom' : (r.top - gap - th >= 0 ? 'top' : 'bottom'));
+    if (p === 'right' && r.right + gap + tw > vw - 8) p = 'bottom';   // no room to the side → drop below
+    if (p === 'right')      { left = r.right + gap;          top = r.top; }
+    else if (p === 'left')  { left = r.left - gap - tw;      top = r.top; }
+    else if (p === 'top')   { left = r.left + r.width / 2 - tw / 2; top = r.top - gap - th; }
+    else                    { left = r.left + r.width / 2 - tw / 2; top = r.bottom + gap; }
     left = Math.max(8, Math.min(left, vw - tw - 8));
     top = Math.max(8, Math.min(top, vh - th - 8));
     tip.style.left = left + 'px'; tip.style.top = top + 'px';
@@ -954,17 +965,25 @@
     if (i < 0) i = 0;
     if (i >= TOUR.length) { tourEnd(true); return; }
     tour.i = i; const step = TOUR[i]; const tip = tour.nodes.tip;
-    if (step.view && state.view !== step.view) { state.view = step.view; render(); }
+    const view = step.view || step.nav;                 // nav steps imply switching to that view
+    if (view && state.view !== view) { state.view = view; render(); }
+    const rail = $('#rail');                            // nav steps spotlight the menu item itself
+    if (rail) {
+      if (step.nav && window.innerWidth <= 860) rail.classList.add('is-open'); // reveal the drawer on mobile
+      else rail.classList.remove('is-open');
+    }
     $('#tour-step', tip).textContent = 'Step ' + (i + 1) + ' of ' + TOUR.length;
     $('#tour-tip-title', tip).textContent = step.title;
     $('#tour-body', tip).textContent = step.body;
     $('#tour-dots', tip).innerHTML = TOUR.map((_, k) => `<i class="${k === i ? 'on' : ''}"></i>`).join('');
     $('#tour-back', tip).style.visibility = i === 0 ? 'hidden' : '';
     $('#tour-next', tip).textContent = i === TOUR.length - 1 ? 'Done' : 'Next';
-    const target = (!step.center && step.sel) ? $(step.sel) : null;
+    const sel = step.nav ? `.rail-item[data-view="${step.nav}"]` : step.sel;
+    const place = step.place || (step.nav ? 'right' : 'bottom');
+    const target = (!step.center && sel) ? $(sel) : null;
     if (target) {
       target.scrollIntoView({ block: 'center', inline: 'nearest' }); // instant (smooth would race the measure)
-      requestAnimationFrame(() => { if (tour.active && tour.i === i) tourPlace(target, step); });
+      requestAnimationFrame(() => { if (tour.active && tour.i === i) tourPlace(target, place); });
     } else {
       tourCenter();
     }
