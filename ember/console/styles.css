@@ -234,6 +234,15 @@ button { font-family:inherit; cursor:pointer; }
 .agent-status[data-state="working"] .agent-orb { background:var(--ochre-on-dark, #e5913c); animation:agent-pulse 1.1s ease-in-out infinite; }
 @keyframes agent-pulse { 0%{box-shadow:0 0 0 0 rgba(229,145,60,.6);} 70%{box-shadow:0 0 0 8px rgba(229,145,60,0);} 100%{box-shadow:0 0 0 0 rgba(229,145,60,0);} }
 
+/* BYO-key connect button + live indicators */
+.key-btn { font-family:var(--mono); font-size:10px; letter-spacing:.1em; text-transform:uppercase; color:var(--ochre-soft); background:rgba(184,101,31,.14); border:1px solid rgba(184,101,31,.34); border-radius:999px; padding:.34rem .65rem; white-space:nowrap; }
+.key-btn:hover { color:var(--paper); border-color:var(--ochre); }
+.key-btn.is-live { color:#cdd9bf; border-color:var(--moss); background:rgba(74,93,58,.22); }
+.key-btn.is-live::before { content:"●"; color:#8fb36e; margin-right:.35rem; font-size:8px; vertical-align:middle; }
+.live-tag { color:var(--moss-deep); background:rgba(74,93,58,.12); border:1px solid var(--moss-soft); border-radius:999px; padding:.06rem .45rem; font-size:9px; letter-spacing:.1em; text-transform:uppercase; }
+.agent-stream { white-space:pre-wrap; font-family:var(--serif); font-size:13.5px; line-height:1.62; color:var(--ink); margin:.2rem 0; min-height:1.5em; }
+.draft-label { font-family:var(--mono); font-size:9px; letter-spacing:.16em; text-transform:uppercase; color:var(--ochre-link); border:1px solid var(--ochre-soft); border-radius:3px; padding:.05rem .35rem; margin-right:.2rem; }
+
 /* reusable "✦ Ember" provenance mark on every AI-produced artifact */
 .agent-chip { display:inline-flex; align-items:center; gap:.32rem; font-family:var(--mono); font-size:9px; letter-spacing:.12em; text-transform:uppercase; color:var(--ochre-deep); background:var(--ochre-mist); border:1px solid var(--ochre-soft); border-radius:999px; padding:.14rem .5rem; vertical-align:middle; }
 .agent-chip .spark { color:var(--ochre); font-size:10px; line-height:1; }

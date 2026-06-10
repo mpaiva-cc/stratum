@@ -284,6 +284,39 @@
       const p = byId(b.dataset.id);
       const first = p.name.split(' ')[0];
       const slot = $('#propose-slot');
+
+      // ── LIVE path: a real Claude call, grounded + cited, streamed ──
+      if (window.EmberAgent && EmberAgent.hasKey()) {
+        slot.innerHTML = `
+          <div class="draft">
+            <div class="draft-eyebrow" id="draft-eyebrow">${SPARK} <span class="live-tag">${esc(EmberAgent.MODEL)} · live</span> · reasoning about ${esc(p.name)} · REQ-2026-0488</div>
+            <div class="agent-stream streaming" id="agent-stream"></div>
+            <div class="btn-row" id="draft-actions" style="display:none"><button class="btn accent" id="btn-redis-send">Send</button><span class="perm-note" style="color:var(--ink-mute)">handoff to Recruiter on reply (chapter 1)</span></div>
+          </div>`;
+        slot.scrollIntoView({ block: 'nearest' });
+        setAgent('working', 'reasoning · ' + EmberAgent.MODEL);
+        const out = $('#agent-stream');
+        try {
+          const full = await EmberAgent.rankWithRationale(
+            p,
+            { id: 'REQ-2026-0488', title: 'Senior Platform Engineer', dept: 'Engineering' },
+            'Devin',
+            (t) => { out.textContent += t; });
+          out.classList.remove('streaming');
+          out.innerHTML = esc(full).replace(/\n?DRAFT:\s*/, '\n\n<span class="draft-label">Draft</span> ');
+          setAgent('idle');
+          const eb = $('#draft-eyebrow'); if (eb) eb.innerHTML = `${SPARK} <span class="live-tag">${esc(EmberAgent.MODEL)} · live</span> · cited rationale + draft · for ${esc(p.name)}`;
+          const da = $('#draft-actions'); if (da) da.style.display = '';
+          const sb = $('#btn-redis-send'); if (sb) sb.addEventListener('click', () => toast('Outreach sent to ' + esc(p.name) + ' · <span class="tk">warm inbound → Recruiter</span>'));
+        } catch (err) {
+          out.classList.remove('streaming');
+          out.innerHTML = `<span class="perm-note" style="color:var(--plum)">Live call failed — ${esc(String((err && err.message) || err))}. Check the key (Connect AI, top right) or your network.</span>`;
+          setAgent('idle');
+        }
+        return;
+      }
+
+      // ── scripted fallback (no key connected) ──
       slot.innerHTML = `
         <div class="draft">
           <div class="draft-eyebrow" id="draft-eyebrow">${SPARK} reasoning · ${esc(p.name)} · REQ-2026-0488</div>
@@ -466,9 +499,30 @@
       toast('Now acting as <span class="tk">' + esc(ROLES[state.role].name) + '</span>');
     });
   }
+  function initKey() {
+    const btn = $('#key-btn'); if (!btn) return;
+    const paint = () => {
+      const live = window.EmberAgent && EmberAgent.hasKey();
+      btn.textContent = live ? 'AI · live' : 'Connect AI';
+      btn.classList.toggle('is-live', live);
+      btn.title = live
+        ? 'Anthropic key connected (this tab only). Rediscovery runs live on ' + EmberAgent.MODEL + '. Click to disconnect.'
+        : 'Connect your Anthropic API key to run rediscovery live on Opus 4.8 (stored only in this tab). Without it, the console plays a scripted preview.';
+    };
+    btn.addEventListener('click', () => {
+      if (window.EmberAgent && EmberAgent.hasKey()) {
+        if (window.confirm('Disconnect the Anthropic key from this tab?')) { EmberAgent.clearKey(); toast('Disconnected · <span class="tk">back to scripted preview</span>'); }
+      } else if (window.EmberAgent) {
+        const k = window.prompt('Paste your Anthropic API key (sk-ant-…).\n\nStored only in this browser tab (sessionStorage), used to call Claude directly for live rediscovery. Not sent anywhere else.');
+        if (k && k.trim()) { EmberAgent.setKey(k.trim()); toast('Connected · <span class="tk">rediscovery now runs live on ' + esc(EmberAgent.MODEL) + '</span>'); }
+      }
+      paint();
+    });
+    paint();
+  }
   function boot() {
     updateRt(); setInterval(updateRt, 60000);
-    initNav(); initRole(); updateUser(); render();
+    initNav(); initRole(); initKey(); updateUser(); render();
     const lb = $('#loadbar'); if (lb) { lb.style.width = '100%'; setTimeout(() => lb.classList.add('is-done'), 500); }
   }
   boot();
