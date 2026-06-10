@@ -326,34 +326,47 @@ button { font-family:inherit; cursor:pointer; }
 .tour-nav .btn { font-size:10px; padding:.45rem .8rem; }
 .tour-nav #tour-skip { margin-right:auto; }
 
-/* ── prototype guide · educational drawer (INTENTIONALLY off the product design system:
-      legal-pad yellow + a system sans font, so it reads as an annotation, not a feature) ── */
-.guide-drawer, .guide-handle { --gd-sans:ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif; --gd-paper:#fbf6cf; --gd-ink:#33301a; --gd-amber:#5f5300; --gd-meta:#585226; --gd-margin:#d9b8b8; }
-.guide-handle { position:fixed; right:0; top:50%; transform:translateY(-50%); z-index:590; display:inline-flex; align-items:center; gap:.4rem; writing-mode:vertical-rl; font-family:var(--gd-sans); font-size:12px; font-weight:700; letter-spacing:.02em; color:var(--gd-ink); background:#fde74c; border:2px solid var(--gd-ink); border-right:0; border-radius:9px 0 0 9px; padding:.95rem .5rem; cursor:pointer; box-shadow:-3px 3px 0 rgba(58,54,24,.28); }
-.guide-handle:hover { background:#ffe600; }
+/* ── prototype guide · educational drawer
+      Reframed from off-system legal-pad Post-it to an on-brand "editor's field note":
+      brand manila paper (a deeper stock than the product cards), the brand type stack
+      (Newsreader / Fraunces / JetBrains Mono), and PLUM as its signature — our
+      oversight/meta accent, distinct from the product's ochre, so the drawer reads as
+      commentary ABOUT Ember, not part of it. The italic-serif voice, the ruled margin,
+      and the "not a feature of Ember" framing carry the distinction. All text clears
+      WCAG AAA on the manila: plum --gd-accent 8.16:1, muted --gd-muted 7.45:1. ── */
+.guide-drawer, .guide-handle {
+  --gd-paper:#efe4cb; --gd-paper-2:#e7d9bd; --gd-ink:#241f29;
+  --gd-accent:#5e3340; --gd-muted:#46414e; --gd-rule:#cdbf9f;
+}
+/* handle: a confident solid-plum tab (cream text) — echoes the candidate transparency
+   bar, the other plum "meta/oversight" surface. Louder than an outline, still not a
+   product CTA. Cream-on-plum 8.16:1 (AAA). */
+.guide-handle { position:fixed; right:0; top:50%; transform:translateY(-50%); z-index:590; display:inline-flex; align-items:center; gap:.45rem; writing-mode:vertical-rl; font-family:var(--mono); font-size:11px; font-weight:600; letter-spacing:.14em; text-transform:uppercase; color:var(--gd-paper); background:var(--gd-accent); border:1px solid var(--gd-accent); border-right:0; border-radius:var(--radius-lg) 0 0 var(--radius-lg); padding:1.05rem .6rem; cursor:pointer; box-shadow:-4px 4px 16px -2px rgba(94,51,64,.42); transition:background .15s,box-shadow .15s,padding-right .15s; }
+.guide-handle:hover { background:#4a2733; box-shadow:-6px 5px 20px -2px rgba(94,51,64,.55); padding-right:.85rem; }
 .guide-handle .gh-star { writing-mode:horizontal-tb; font-size:13px; }
 body.guide-open .guide-handle { display:none; }
 
-.guide-drawer { position:fixed; top:49px; right:0; bottom:0; z-index:600; width:360px; max-width:88vw; font-family:var(--gd-sans); color:var(--gd-ink); background:var(--gd-paper); background-image:linear-gradient(90deg,transparent 0,transparent 18px,var(--gd-margin) 18px,var(--gd-margin) 19px,transparent 19px); background-repeat:no-repeat; border-left:2px solid var(--gd-ink); box-shadow:-10px 0 34px rgba(14,22,38,.28); transform:translateX(102%); transition:transform .26s ease; overflow-y:auto; }
+.guide-drawer { position:fixed; top:49px; right:0; bottom:0; z-index:600; width:360px; max-width:88vw; font-family:var(--serif); color:var(--gd-ink); background:var(--gd-paper); background-image:linear-gradient(90deg,transparent 0,transparent 21px,var(--gd-rule) 21px,var(--gd-rule) 22px,transparent 22px); background-repeat:no-repeat; border-left:3px solid var(--gd-accent); box-shadow:-10px 0 34px rgba(14,22,38,.28); transform:translateX(102%); transition:transform .26s ease; overflow-y:auto; }
 body.guide-open .guide-drawer { transform:translateX(0); }
 body.guide-open .shell { margin-right:360px; }
 .shell { transition:margin-right .26s ease; }
 
-.guide-drawer .gd-x { position:absolute; top:.6rem; right:.7rem; background:none; border:0; color:var(--gd-ink); font-size:15px; line-height:1; cursor:pointer; padding:.2rem; opacity:.7; }
-.guide-drawer .gd-x:hover { opacity:1; }
-.gd-pad { padding:1.15rem 1.35rem 1.8rem; }
-.gd-eyebrow { display:flex; align-items:center; gap:.45rem; font-size:11px; font-weight:800; letter-spacing:.13em; text-transform:uppercase; color:var(--gd-amber); }
-.gd-eyebrow span { font-size:13px; }
-.gd-meta { font-size:11.5px; font-style:italic; color:var(--gd-meta); margin:.25rem 0 1.1rem; }
-.gd-title { font-family:var(--gd-sans); font-size:1.3rem; font-weight:800; letter-spacing:-.01em; color:#262309; margin:0 0 .35rem; }
-.gd-lede { font-size:13.5px; line-height:1.5; margin:0 0 1rem; }
-.gd-h { font-size:10.5px; font-weight:800; letter-spacing:.1em; text-transform:uppercase; color:var(--gd-amber); margin:1.1rem 0 .45rem; }
-.gd-do { margin:0; padding-left:1.15rem; font-size:13px; line-height:1.5; }
-.gd-do li { margin:.32rem 0; }
-.gd-diff { font-size:13px; line-height:1.55; color:var(--gd-ink); background:#fdeeb0; border-left:3px solid #b88600; border-radius:0 4px 4px 0; padding:.65rem .85rem; }
-.gd-foot { margin-top:1.4rem; padding-top:.8rem; border-top:1px dashed #c4b86a; display:flex; justify-content:space-between; align-items:center; gap:.6rem; font-size:11px; color:var(--gd-meta); }
-.gd-off { background:none; border:0; padding:0; font-family:var(--gd-sans); font-size:11px; color:var(--gd-meta); text-decoration:underline; cursor:pointer; }
-.gd-off:hover { color:var(--gd-ink); }
+.guide-drawer .gd-x { position:absolute; top:.6rem; right:.7rem; background:none; border:0; color:var(--gd-muted); font-size:15px; line-height:1; cursor:pointer; padding:.2rem; opacity:.8; }
+.guide-drawer .gd-x:hover { opacity:1; color:var(--gd-accent); }
+.gd-pad { padding:1.2rem 1.4rem 1.9rem 2.1rem; }
+.gd-eyebrow { display:flex; align-items:center; gap:.45rem; font-family:var(--mono); font-size:9.5px; font-weight:700; letter-spacing:.18em; text-transform:uppercase; color:var(--gd-accent); }
+.gd-eyebrow span { font-size:12px; }
+.gd-meta { font-family:var(--serif); font-style:italic; font-size:12.5px; line-height:1.45; color:var(--gd-muted); margin:.3rem 0 1.15rem; }
+.gd-title { font-family:var(--display); font-weight:500; font-variation-settings:"opsz" 40; font-size:1.5rem; letter-spacing:-.01em; color:var(--gd-ink); margin:0 0 .4rem; }
+.gd-lede { font-family:var(--serif); font-size:14px; line-height:1.55; margin:0 0 1rem; color:var(--gd-ink); }
+.gd-h { font-family:var(--mono); font-size:9.5px; font-weight:700; letter-spacing:.16em; text-transform:uppercase; color:var(--gd-accent); margin:1.2rem 0 .5rem; }
+.gd-do { margin:0; padding-left:1.15rem; font-family:var(--serif); font-size:13.5px; line-height:1.55; color:var(--gd-ink); }
+.gd-do li { margin:.35rem 0; }
+.gd-do li::marker { color:var(--gd-accent); }
+.gd-diff { font-family:var(--serif); font-size:13.5px; line-height:1.6; color:var(--gd-ink); background:var(--gd-paper-2); border-left:3px solid var(--gd-accent); border-radius:0 var(--radius) var(--radius) 0; padding:.7rem .9rem; }
+.gd-foot { margin-top:1.5rem; padding-top:.85rem; border-top:1px dashed var(--gd-rule); display:flex; justify-content:space-between; align-items:center; gap:.6rem; font-family:var(--mono); font-size:9.5px; letter-spacing:.06em; text-transform:uppercase; color:var(--gd-muted); }
+.gd-off { background:none; border:0; padding:0; font-family:var(--mono); font-size:9.5px; letter-spacing:.06em; text-transform:uppercase; color:var(--gd-muted); text-decoration:underline; cursor:pointer; }
+.gd-off:hover { color:var(--gd-accent); }
 @media (max-width:860px) { body.guide-open .shell { margin-right:0; } .guide-drawer { width:88vw; top:49px; } }
 
 /* ── AI-feature hotspots · pulsing dots + product-toned tooltips ── */
