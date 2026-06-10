@@ -15,7 +15,14 @@
 
   /* ── state ── */
   const state = { view: 'pools', role: 'sourcer' };
-  const local = { previewed: false, sent: false, redisOpen: false, proposed: false, cand: 'dana', revoked: {} };
+  const local = { previewed: false, sent: false, redisOpen: false, proposed: false, cand: 'dana', revoked: {},
+    alerts: [
+      { id:'a-488', req:'REQ-2026-0488', title:'Sr Platform Engineer',     dept:'Engineering',     opened:'just now',  matches:3, unread:true },
+      { id:'a-471', req:'REQ-2026-0471', title:'Data Engineer',            dept:'Data',            opened:'2h ago',    matches:5, unread:true },
+      { id:'a-466', req:'REQ-2026-0466', title:'Site Reliability Engineer', dept:'Infrastructure',  opened:'yesterday', matches:2, unread:false },
+    ],
+    subs: { 'Platform Engineering': true, 'Backend': true, 'Data': true, 'Clinical team': false },
+  };
 
   /* ── data: Cordova's pool (same cast as the tour) ── */
   const POOL = [
@@ -217,7 +224,9 @@
   }
   function afterRediscovery() {
     const ob = $('#btn-openreq'); if (ob && !ob.disabled) ob.addEventListener('click', () => {
-      local.redisOpen = true; $('#ri-count-redis').textContent = '3'; render(); toast('REQ-2026-0488 opened · <span class="tk">graph surfaced 3 consented matches</span>');
+      local.redisOpen = true; $('#ri-count-redis').textContent = '3';
+      const al = local.alerts.find(x => x.id === 'a-488'); if (al) al.unread = false; // the team's alert for this req is now seen
+      render(); toast('REQ-2026-0488 opened · <span class="tk">subscribed teams notified · 3 consented matches</span>');
     });
     $$('#view .btn-propose').forEach(b => { if (!b.disabled) b.addEventListener('click', () => {
       const p = byId(b.dataset.id);
@@ -323,11 +332,47 @@
       <p class="field-note" style="margin-top:1rem;font-size:11px">Signed in as <b>${esc(ROLES[state.role].who)}</b> · ${esc(ROLES[state.role].name)}. The highlighted column is the active role.</p>`;
   }
 
+  function alertsHTML() {
+    const canEdit = can('campaign'); // managing subscriptions is a sourcer/admin action
+    const subs = Object.entries(local.subs).map(([team, on]) =>
+      `<button class="sub ${on ? 'is-on' : ''}" data-team="${esc(team)}" ${canEdit ? '' : 'disabled'}>${on ? '✓' : '+'} ${esc(team)}</button>`).join('');
+    const feed = local.alerts.map(a => `
+      <div class="alert-item ${a.unread ? 'is-unread' : ''}">
+        <span class="ai-dot"></span>
+        <div class="ai-body">
+          <div class="ai-title">${esc(a.title)} <span class="ai-req">${esc(a.req)}</span></div>
+          <div class="ai-meta">${esc(a.dept)} · opened ${esc(a.opened)} · ${a.unread ? '<b>new</b>' : 'read'}</div>
+        </div>
+        <div class="ai-right"><span class="badge warm">${a.matches} warm in pool</span><button class="btn ghost ai-view" data-id="${esc(a.id)}">View rediscovery →</button></div>
+      </div>`).join('');
+    return `
+      <div class="view-head">
+        <div class="view-rail">Alerts · new openings</div>
+        <h2 class="view-h">New openings, <em>the moment they post</em>.</h2>
+        <p class="view-dek">No more waiting on a report every couple of weeks. When a requisition opens, the subscribed team is notified — and Ember says how many warm, consented people are <strong>already in your pool</strong> for it. (The rediscovery angle is what keeps this an Ember surface, not a generic ATS broadcast.)</p>
+      </div>
+      <div class="card"><div class="card-head"><span class="card-title">Notify these teams</span><span class="card-title">${canEdit ? 'click to toggle' : 'view-only'}</span></div>
+        <div class="card-pad"><div class="chip-row">${subs}</div>${canEdit ? '' : '<div class="perm-note" style="margin-top:.6rem">view-only — subscriptions are managed by sourcers &amp; admins</div>'}</div>
+      </div>
+      <div class="card" style="margin-top:1.2rem"><div class="card-head"><span class="card-title">Recent openings</span><button class="btn ghost" id="mark-read" style="font-size:10px;padding:.4rem .7rem">Mark all read</button></div>
+        <div class="card-pad" style="padding-top:.2rem;padding-bottom:.2rem">${feed || '<div class="empty">No new openings.</div>'}</div>
+      </div>`;
+  }
+  function afterAlerts() {
+    $$('#view .sub').forEach(b => { if (!b.disabled) b.addEventListener('click', () => { local.subs[b.dataset.team] = !local.subs[b.dataset.team]; render(); toast((local.subs[b.dataset.team] ? 'Subscribed · ' : 'Unsubscribed · ') + '<span class="tk">' + esc(b.dataset.team) + '</span>'); }); });
+    const mr = $('#mark-read'); if (mr) mr.addEventListener('click', () => { local.alerts.forEach(a => a.unread = false); render(); toast('All alerts marked read'); });
+    $$('#view .ai-view').forEach(b => b.addEventListener('click', () => {
+      const a = local.alerts.find(x => x.id === b.dataset.id); if (a) a.unread = false;
+      local.redisOpen = true; state.view = 'rediscovery'; render();
+    }));
+  }
+
   /* ── router ── */
   const VIEWS = {
     pools:          { html: poolsHTML,          after: afterPools },
     nurture:        { html: nurtureHTML,        after: afterNurture },
     rediscovery:    { html: rediscoveryHTML,    after: afterRediscovery },
+    alerts:         { html: alertsHTML,         after: afterAlerts },
     candidate:      { html: candidateHTML,      after: afterCandidate },
     deliverability: { html: deliverabilityHTML, after: null },
     permissions:    { html: permissionsHTML,    after: null },
@@ -337,6 +382,8 @@
     $('#view').innerHTML = v.html();
     if (v.after) v.after();
     $$('.rail-item').forEach(b => b.classList.toggle('is-active', b.dataset.view === state.view));
+    const ac = $('#ri-count-alerts');
+    if (ac) { const u = local.alerts.filter(a => a.unread).length; ac.textContent = u; ac.classList.toggle('ri-count--accent', u > 0); }
     const rail = $('#rail'); if (rail) rail.classList.remove('is-open');
   }
 
