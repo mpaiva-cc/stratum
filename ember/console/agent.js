@@ -250,5 +250,25 @@ window.EmberAgent = (() => {
     return JSON.parse(text);
   }
 
-  return { hasKey, getKey: get, setKey: set, clearKey: clear, rankWithRationale, rankCandidates, runNurtureAgent, checkConsent, stageSend, candidateFacts, answerCandidate, groundingProbe, MODEL };
+  // ── Phase 3b: the fairness probe — does a hiring rationale lean on a protected-class proxy? ──
+  async function fairnessProbe(reasonText) {
+    const schema = {
+      type: 'object', additionalProperties: false, required: ['clean', 'verdict', 'proxies'],
+      properties: {
+        clean: { type: 'boolean' },
+        verdict: { type: 'string' },
+        proxies: { type: 'array', items: { type: 'string' } },
+      },
+    };
+    const msg = await callOnce({
+      model: MODEL, max_tokens: 600,
+      system: 'You audit a hiring rationale for fairness. Decide whether it relies on any protected-class attribute or proxy — age, race, sex or gender, national origin, religion, disability, pregnancy, marital/family status, or a stand-in for one (e.g. "culture fit," "younger/fresher," location used as a nationality proxy, "digital native"). List every proxy you find. clean=true ONLY if the rationale relies solely on job-relevant qualifications and evidence. Be concise and literal.',
+      messages: [{ role: 'user', content: `RATIONALE:\n${reasonText}\n\nReturn clean, a one-line verdict, and the list of protected-class proxies you found (empty if clean).` }],
+      output_config: { format: { type: 'json_schema', schema } },
+    });
+    const text = (msg.content || []).filter(b => b.type === 'text').map(b => b.text).join('');
+    return JSON.parse(text);
+  }
+
+  return { hasKey, getKey: get, setKey: set, clearKey: clear, rankWithRationale, rankCandidates, runNurtureAgent, checkConsent, stageSend, candidateFacts, answerCandidate, groundingProbe, fairnessProbe, MODEL };
 })();
