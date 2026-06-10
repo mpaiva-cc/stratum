@@ -84,6 +84,33 @@
   }
   const SPARK = '<span class="agent-chip"><span class="spark">✦</span> Ember</span>';
 
+  // Stream text into an element token-by-token, like a model generating. Reduced-motion → instant.
+  function streamText(el, text, opts) {
+    opts = opts || {};
+    const reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    return new Promise((resolve) => {
+      if (!el) { resolve(); return; }
+      if (reduce) { el.textContent = text; resolve(); return; }
+      el.textContent = ''; el.classList.add('streaming');
+      const toks = text.match(/\S+\s*|\s+/g) || [text];
+      let i = 0; const speed = opts.speed || 22;
+      const step = () => {
+        if (i >= toks.length) { el.classList.remove('streaming'); resolve(); return; }
+        el.textContent += toks[i++];
+        setTimeout(step, speed);
+      };
+      setTimeout(step, speed);
+    });
+  }
+  async function streamLines(container, lines, opts) {
+    if (!container) return;
+    for (const line of lines) {
+      const d = document.createElement('div'); d.className = 'stream-line';
+      container.appendChild(d);
+      await streamText(d, line, opts);
+    }
+  }
+
   function updateRt() {
     const el = $('.rt-stamp'); if (!el) return;
     const t0 = new Date(el.getAttribute('data-t0')).getTime();
@@ -253,18 +280,31 @@
         render(); toast('REQ-2026-0488 opened · <span class="tk">subscribed teams notified · 3 consented matches</span>');
       });
     });
-    $$('#view .btn-propose').forEach(b => { if (!b.disabled) b.addEventListener('click', () => {
+    $$('#view .btn-propose').forEach(b => { if (!b.disabled) b.addEventListener('click', async () => {
       const p = byId(b.dataset.id);
-      agentWork('drafting cited outreach for ' + esc(p.name.split(' ')[0]), $('#propose-slot'), () => {
-        $('#propose-slot').innerHTML = `
-          <div class="draft">
-            <div class="draft-eyebrow">${SPARK} cited outreach draft · for ${esc(p.name)} · review &amp; send</div>
-            <p>${esc(p.name.split(' ')[0])} — when we last spoke the Platform role wasn't the right time. One just opened that looks a lot more like the work you wanted. No pressure — want the details?</p>
-            <div class="btn-row"><button class="btn accent" id="btn-redis-send">Send</button><span class="perm-note" style="color:var(--ink-mute)">handoff to Recruiter on reply (chapter 1)</span></div>
-          </div>`;
-        $('#btn-redis-send').addEventListener('click', () => toast('Outreach sent to ' + esc(p.name) + ' · <span class="tk">warm inbound → Recruiter</span>'));
-        $('#propose-slot').scrollIntoView({ block:'nearest' });
-      });
+      const first = p.name.split(' ')[0];
+      const slot = $('#propose-slot');
+      slot.innerHTML = `
+        <div class="draft">
+          <div class="draft-eyebrow" id="draft-eyebrow">${SPARK} reasoning · ${esc(p.name)} · REQ-2026-0488</div>
+          <div class="rationale" id="rationale"></div>
+          <p class="draft-msg" id="draft-msg"></p>
+          <div class="btn-row" id="draft-actions" style="display:none"><button class="btn accent" id="btn-redis-send">Send</button><span class="perm-note" style="color:var(--ink-mute)">handoff to Recruiter on reply (chapter 1)</span></div>
+        </div>`;
+      slot.scrollIntoView({ block: 'nearest' });
+      setAgent('working', 'reasoning about ' + esc(first));
+      await streamLines($('#rationale'), [
+        'Why ' + first + ' for this requisition:',
+        '· ' + p.redis.why + ' (' + p.redis.score + ' match)',
+        '· consent valid for role-outreach in ' + p.consent.juris + ' — the send can cross this edge',
+        '· nurture-fairness probe passed — no protected-class proxy in the ranking',
+      ], { speed: 16 });
+      setAgent('working', 'drafting outreach');
+      const eb = $('#draft-eyebrow'); if (eb) eb.innerHTML = `${SPARK} cited outreach draft · for ${esc(p.name)} · review &amp; send`;
+      await streamText($('#draft-msg'), first + " — when we last spoke the Platform role wasn't the right time. One just opened that looks a lot more like the work you wanted. No pressure — want the details?", { speed: 24 });
+      setAgent('idle');
+      const da = $('#draft-actions'); if (da) da.style.display = '';
+      const sb = $('#btn-redis-send'); if (sb) sb.addEventListener('click', () => toast('Outreach sent to ' + esc(p.name) + ' · <span class="tk">warm inbound → Recruiter</span>'));
     }); });
   }
 
