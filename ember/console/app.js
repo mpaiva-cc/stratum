@@ -15,7 +15,7 @@
 
   /* ── state ── */
   const state = { view: 'pools', role: 'sourcer' };
-  const local = { previewed: false, sent: false, redisOpen: false, proposed: false, cand: 'dana', revoked: {},
+  const local = { previewed: false, sent: false, redisOpen: false, proposed: false, cand: 'dana', revoked: {}, rankResults: null, agentRan: false,
     alerts: [
       { id:'a-488', req:'REQ-2026-0488', title:'Sr Platform Engineer',     dept:'Engineering',     opened:'just now',  matches:3, unread:true },
       { id:'a-471', req:'REQ-2026-0471', title:'Data Engineer',            dept:'Data',            opened:'2h ago',    matches:5, unread:true },
@@ -237,6 +237,89 @@
     const sd = $('#btn-send'); if (sd && !sd.disabled) sd.addEventListener('click', () => { local.sent = true; render(); toast('3 consented sends dispatched · <span class="tk">Tomas Vrba held at the edge</span>'); });
   }
 
+  /* ── Agent run · the consent-bounded tool-use loop (Phase 2) ── */
+  function agentRunHTML() {
+    const live = !!(window.EmberAgent && EmberAgent.hasKey());
+    const locked = !can('campaign');
+    const model = (window.EmberAgent && EmberAgent.MODEL) || 'claude-opus-4-8';
+    const roster = POOL.map(p => `
+      <li class="ar-cand">
+        <span class="ar-name">${esc(p.name)}</span>
+        <span class="ar-role">${esc(p.role)}</span>
+        ${consentBadge(p)}
+      </li>`).join('');
+    let panel;
+    if (!live) {
+      panel = `<div class="card"><div class="card-pad"><div class="empty">Connect an Anthropic key (<b>Connect AI</b>, top right) to run the live agent.<br>The agent is given the pool and two tools — it stages outreach for the candidates it <em>can</em>, and the consent plane refuses the rest. Without a key this surface stays idle — there is no scripted stand-in for the loop; the refusal has to be real to mean anything.</div></div></div>`;
+    } else if (locked) {
+      panel = `<div class="card"><div class="card-pad"><div class="empty">Running the agent is a sourcer/admin action. You are signed in view-only.<br>Switch the role (top right) to <b>Sourcer</b> or <b>Admin</b> to run it.</div></div></div>`;
+    } else {
+      panel = `
+        <div class="card"><div class="card-pad">
+          <div class="ar-tools">
+            <div class="ar-tool"><span class="ar-tool-k">tool</span> <code>check_consent</code><span class="ar-tool-d">read-only · returns the consent scope on file</span></div>
+            <div class="ar-tool"><span class="ar-tool-k">tool</span> <code>stage_send</code><span class="ar-tool-d">guarded · <b>returns <code>is_error</code></b> for any send consent does not cover</span></div>
+          </div>
+          <div class="btn-row">
+            <button class="btn accent" id="btn-run-agent">Run the nurture agent →</button>
+            <span class="perm-note" style="color:var(--ink-mute)">${esc(model)} · stages only · a human approves every send</span>
+          </div>
+          <div class="run-log" id="run-log" aria-live="polite"></div>
+        </div></div>`;
+    }
+    return `
+      <div class="view-head">
+        <div class="view-rail">Agent run · consent-bounded tool use</div>
+        <h2 class="view-h">The agent works the whole pool — and the consent plane <em>refuses</em> what it must.</h2>
+        <p class="view-dek">This is the live agentic loop. ${esc(model)} is handed the pool and two tools and told to stage outreach for <strong>every</strong> candidate — no pre-filtering. It has no authority to send: <code>stage_send</code> is a guarded tool that returns <code>is_error</code> for anyone whose consent does not cover role-outreach in the US. You watch the refusals fire in the run log — and the agent adapt. <strong>Two</strong> edges it cannot cross, failing two different ways: Dana Okafor (<em>stay-in-touch</em> — wrong scope) and Tomas Vrba (<em>event-followup / EU</em> — wrong jurisdiction).</p>
+      </div>
+      <div class="split ar-split">
+        <div class="card"><div class="card-pad">
+          <div class="field"><label>Pool · ${POOL.length} candidates · purpose role-outreach / US</label>
+            <ul class="ar-roster">${roster}</ul>
+          </div>
+          <div class="agent-hint"><span><span class="ah-tag">✦ the moat, made provable</span> the consent edge is enforced at the <strong>tool boundary</strong>, not by asking the model nicely. Watch <code>stage_send</code> refuse Dana <em>and</em> Tomas — consent fails two ways (wrong scope, wrong jurisdiction) and the plane catches both.</span></div>
+        </div></div>
+        <div style="min-width:0">${panel}</div>
+      </div>`;
+  }
+  function afterAgentRun() {
+    const btn = $('#btn-run-agent'); if (!btn || btn.disabled) return;
+    btn.addEventListener('click', async () => {
+      const log = $('#run-log'); if (!log) return;
+      log.innerHTML = '';
+      btn.disabled = true; btn.classList.add('is-disabled'); btn.textContent = 'Working the pool…';
+      setAgent('working', 'working the pool · ' + EmberAgent.MODEL);
+      const append = (html) => {
+        const wrap = document.createElement('div'); wrap.innerHTML = html.trim();
+        const node = wrap.firstElementChild; if (node) { log.appendChild(node); node.scrollIntoView({ block: 'nearest' }); }
+      };
+      const restore = () => { setAgent('idle'); btn.disabled = false; btn.classList.remove('is-disabled'); btn.textContent = 'Run again →'; local.agentRan = true; };
+      try {
+        await EmberAgent.runNurtureAgent(POOL, (ev) => {
+          if (ev.type === 'round') {
+            if (ev.text) append(`<div class="run-think"><span class="rt-k">round ${ev.round} · ${esc(EmberAgent.MODEL)}</span> ${esc(ev.text)}</div>`);
+          } else if (ev.type === 'tool') {
+            if (ev.name === 'check_consent') {
+              const r = ev.result || {};
+              append(`<div class="run-tool"><span class="rt-meta">check_consent</span> <b>${esc(ev.input.candidate_id)}</b> → ${r.covers ? '<span class="ok">covers role-outreach/US</span>' : '<span class="blk">does not cover</span>'} <span class="rt-dim">(${esc(r.consent_scope || '?')} · ${esc(r.jurisdiction || '?')})</span></div>`);
+            } else if (ev.name === 'stage_send') {
+              const r = ev.result || {};
+              if (r.is_error) append(`<div class="run-tool is-blocked"><span class="rt-meta">stage_send</span> <span class="blk">⊘ refused at the consent edge</span> — ${esc(r.content)}</div>`);
+              else append(`<div class="run-tool"><span class="rt-meta">stage_send</span> <span class="ok">✓ staged</span> — ${esc(r.content)}</div>`);
+            }
+          } else if (ev.type === 'done') {
+            append(`<div class="run-summary"><b>Run complete.</b> ${ev.staged.length} staged · ${ev.blocked.length} refused at the consent edge${ev.capped ? ' · stopped at the 5-round cap' : ''}. Nothing was sent — staging awaits a human.${ev.text ? `<div class="run-final">${esc(ev.text)}</div>` : ''}</div>`);
+            restore();
+          }
+        });
+      } catch (err) {
+        append(`<div class="run-tool is-blocked">Live run failed — ${esc(String((err && err.message) || err))}. Check the key (Connect AI, top right) or your network.</div>`);
+        restore();
+      }
+    });
+  }
+
   function rediscoveryHTML() {
     if (!local.redisOpen) {
       return `
@@ -252,12 +335,18 @@
         ${can('rediscover') ? '' : '<p class="perm-note" style="margin-top:1rem">view-only — triggering rediscovery is restricted to sourcers &amp; admins</p>'}
         <div id="redis-result"></div>`;
     }
-    const cards = ['elena','marcus','renata'].map(id => {
+    const rr = local.rankResults;
+    let order = ['elena','marcus','renata'];
+    if (rr) order = order.slice().sort((a, b) => ((rr[b] && rr[b].score) || 0) - ((rr[a] && rr[a].score) || 0));
+    const cards = order.map(id => {
       const p = byId(id);
+      const live = rr && rr[id];
+      const score = live ? Number(live.score).toFixed(2) : p.redis.score;
+      const why = live ? live.reason : p.redis.why;
       return `
         <div class="match-card">
-          <div class="mc-score">${p.redis.score}<span>match</span></div>
-          <div><div class="mc-name">${esc(p.name)}</div><div class="mc-why"><b>why:</b> ${esc(p.redis.why)}</div></div>
+          <div class="mc-score">${esc(score)}<span>match</span></div>
+          <div><div class="mc-name">${esc(p.name)}${live ? ` <span class="live-tag">${esc(EmberAgent.MODEL)} · re-ranked</span>` : ''}</div><div class="mc-why"><b>why:</b> ${esc(why)}</div></div>
           <button class="btn ghost btn-propose ${can('campaign') ? '' : 'is-disabled'}" data-id="${id}" ${can('campaign') ? '' : 'disabled'}>Propose outreach</button>
         </div>`;
     }).join('');
@@ -273,12 +362,28 @@
       <div id="propose-slot"></div>`;
   }
   function afterRediscovery() {
-    const ob = $('#btn-openreq'); if (ob && !ob.disabled) ob.addEventListener('click', () => {
-      agentWork('searching the graph for warm, consented matches', $('#redis-result'), () => {
+    const ob = $('#btn-openreq'); if (ob && !ob.disabled) ob.addEventListener('click', async () => {
+      const slot = $('#redis-result');
+      const finishOpen = () => {
         local.redisOpen = true; const rc = $('#ri-count-redis'); if (rc) rc.textContent = '3';
         const al = local.alerts.find(x => x.id === 'a-488'); if (al) al.unread = false; // the team's alert for this req is now seen
         render(); toast('REQ-2026-0488 opened · <span class="tk">subscribed teams notified · 3 consented matches</span>');
-      });
+      };
+      // ── LIVE path: a real Opus re-rank of the warm pool, grounded + cited ──
+      if (window.EmberAgent && EmberAgent.hasKey()) {
+        slot.innerHTML = `<div class="card"><div class="card-pad">${thinkingHTML('re-ranking the warm pool live · ' + EmberAgent.MODEL)}</div></div>`;
+        setAgent('working', 're-ranking · ' + EmberAgent.MODEL);
+        try {
+          const cands = ['elena','marcus','renata'].map(byId);
+          const rankings = await EmberAgent.rankCandidates(cands, { id:'REQ-2026-0488', title:'Senior Platform Engineer', dept:'Engineering' });
+          local.rankResults = {}; rankings.forEach(r => { local.rankResults[r.candidate_id] = r; });
+        } catch (err) {
+          local.rankResults = null;
+          toast('Live re-rank failed — <span class="tk">scripted scores shown</span>', 'block');
+        }
+        setAgent('idle'); finishOpen(); return;
+      }
+      agentWork('searching the graph for warm, consented matches', slot, finishOpen);
     });
     $$('#view .btn-propose').forEach(b => { if (!b.disabled) b.addEventListener('click', async () => {
       const p = byId(b.dataset.id);
@@ -471,6 +576,7 @@
   const VIEWS = {
     pools:          { html: poolsHTML,          after: afterPools },
     nurture:        { html: nurtureHTML,        after: afterNurture },
+    agent:          { html: agentRunHTML,       after: afterAgentRun },
     rediscovery:    { html: rediscoveryHTML,    after: afterRediscovery },
     alerts:         { html: alertsHTML,         after: afterAlerts },
     candidate:      { html: candidateHTML,      after: afterCandidate },
