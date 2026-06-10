@@ -101,6 +101,7 @@
           <span class="chip live">Final-round Platform / Backend · last 18mo</span>
           <span class="chip accent">1,240 people · 38 final-round</span>
           <span class="chip">0 stale snapshots</span>
+          <span class="chip">search &amp; dedup · free · no credits</span>
         </div>
       </div>
       <div class="card">
@@ -163,8 +164,9 @@
           <div class="field"><label>Audience</label><div class="readonly-chip">Final-round Platform/Backend pool · 4 in scope for this preview</div></div>
           <div class="field"><label>Purpose</label><div class="readonly-chip">${esc(CAMPAIGN.purpose)} · jurisdiction US</div></div>
           <div class="field"><label>Message · agent-drafted</label><textarea id="camp-copy"${locked ? ' readonly' : ''}>When we last spoke the timing wasn't right. A role just opened that looks a lot more like the work you said you wanted — no pressure, want the details?</textarea></div>
-          <div class="agent-hint"><span><span class="ah-tag">Ember proposes</span> the audience and the copy — you review and send. There is no rule-builder to configure.</span></div>
+          <div class="agent-hint"><span><span class="ah-tag">Ember proposes</span> the audience and the copy — you review and send. <strong>No campaign rules to set up</strong>; there is no rule-builder to configure.</span></div>
           <div class="field"><label>Deliverability</label><div class="field-note">Sending domain <b>talent.cordova.example</b> · SPF/DKIM/DMARC ✓ · 2,000/day · <b>not routed through your Outlook</b></div></div>
+          <div class="field"><label>Usage</label><div class="field-note">Metered only on <b>consented conversations</b> and <b>rediscovery-influenced hires</b> — no per-seat, <b>no per-search credits</b>, internal candidates never charged.</div></div>
           <div class="btn-row">
             <button class="btn ghost" id="btn-preview">Preview traversal</button>
             <button class="btn accent ${(!local.previewed || local.sent || locked) ? 'is-disabled' : ''}" id="btn-send" ${(!local.previewed || local.sent || locked) ? 'disabled' : ''}>${local.sent ? 'Sent · 3 of 4' : 'Send 3 queued'}</button>
@@ -207,7 +209,7 @@
         <div class="view-rail">Rediscovery · REQ-2026-0488 opened</div>
         <h2 class="view-h">Three warm, consented matches — <em>cited, never scored</em>.</h2>
         <p class="view-dek">The nurture-fairness probe runs before any list is proposed. Every match shows <strong>why this person</strong> — attested reasoning, never a black-box score.</p>
-        <div class="chip-row"><span class="chip"><span class="badge ok" style="border:0;padding:0">nurture-fairness probe · pass</span></span><span class="chip accent">3 rediscovered</span></div>
+        <div class="chip-row"><span class="chip"><span class="badge ok" style="border:0;padding:0">nurture-fairness probe · pass</span></span><span class="chip accent">3 rediscovered</span><span class="chip">rediscovery · free · pay only on influenced hires</span></div>
       </div>
       <p class="redis-flag">The role you just posted already has <em>three people</em> who said yes to staying in touch.</p>
       ${cards}
