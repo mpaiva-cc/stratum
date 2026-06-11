@@ -664,14 +664,17 @@ permalink: /engineering/people-graph-playground.html
     transition: background .1s, color .1s, border-color .1s;
   }
 
-  /* round only the outer edges of the pill group */
+  /* round the outer edges of the pill group — first and last pill only.
+     Copy is always the final child (JS always appends it last), so the pill
+     immediately before it is reliably :nth-last-child(2). Neither :first-of-type
+     nor :last-of-type work here because Copy is also a <button>; source-order
+     selectors are the only stable approach. */
   .pg-fmt-pill:first-child {
     border-radius: 2px 0 0 2px;
   }
-  /* last pill = last element before Copy; target by last-of-type since Copy is a
-     distinct element type if we could use :last-of-type — but both are <button>.
-     Instead: always rely on the active/hover z-index to surface the right border,
-     and accept flat end. The group reads as segmented from the merged borders. */
+  .pg-fmt-pill:nth-last-child(2) {
+    border-radius: 0 2px 2px 0;
+  }
 
   /* hover: ink-tinted paper wash + border upgrade */
   .pg-fmt-pill:hover:not(.is-active) {
