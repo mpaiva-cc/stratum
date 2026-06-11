@@ -1416,7 +1416,7 @@ section {
 
     <p>BYOK Anthropic — a feature offered to enterprise customers who hold their own Anthropic enterprise contract — operates entirely client-side. The customer's Anthropic API key is stored in the customer's browser localStorage on the Console session, never transits Stratum's servers, and is used to call Anthropic directly from the customer's browser for the inference paths that support it. Stratum servers never see the key; if the key is rotated, the customer rotates it client-side and we observe a single page refresh in our session logs. This is a niche feature (3 customers using it as of this writing) and the technical detail is in <em>SEC-2026-BYOK-CLIENT</em>, available under NDA.</p>
 
-    <h3 class="sub-h"><span class="sub-id">V.4</span>Backup &amp; disaster recovery</h3>
+    <h3 class="sub-h" id="continuity"><span class="sub-id">V.4</span>Backup &amp; disaster recovery</h3>
 
     <p>Backups are continuous. RDS PostgreSQL ships WAL segments to S3 every 15 seconds with cross-region replication to <code>us-west-2</code>. The replicated bucket is encrypted with a separate KMS key in the DR region; the keys are not the same, the regions are not the same, the IAM trust paths are not the same. Point-in-time recovery is supported for any moment in the prior 7 days; older recovery points are restorable from the daily snapshot archive (retained 35 days). Snowflake data shares replicate to a passive replica in the DR region with the same WAL frequency.</p>
 
