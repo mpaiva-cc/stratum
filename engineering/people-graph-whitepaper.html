@@ -1028,6 +1028,99 @@ pre.gq-query {
 pre.gq-query em, .gq-output em,
 pre.gq-query strong, .gq-output strong { color: inherit; }
 
+/* ── WEX worked-example dataframes · dark console treatment ──────────────────────────────
+   Design intent: the four .wex .dataframe blocks (Examples 1–4, §9) carry real graph
+   data — node/edge/result — so they read as console output, not as reference tables.
+   They get the same dark surface as .gq-query / .gq-output to form one cohesive
+   console system across all code/data examples.
+
+   Scoping: every rule uses .wex .dataframe as the compound selector (0,2,0),
+   which beats the global .dataframe (0,1,0) without touching it. The global
+   .dataframe rules and .std-table rules are NOT altered here.
+
+   Syntax spans override (all scoped to .wex .dataframe — no global rule touched):
+   The global .dataframe .c/.k/.s/.n colors are tuned for paper; they fail on --ink.
+   Lifted -soft equivalents, all computed against --ink #0e1626:
+     #e8dfc8 code text     : 13.62:1 AAA ✓
+     #e6c79b .k / .em      : 11.20:1 AAA ✓  (--ochre-soft; same as gq-query accent)
+     #c5cdb1 .s            : 10.97:1 AAA ✓  (--moss-soft;  same as gq-output accent)
+     #d4aab8 .n (plum-soft): 8.82:1  AAA ✓  (lifted desaturated rose — preserves hue)
+     #a0a8b4 .c (comment)  : 7.54:1  AAA ✓  (lifted cool-gray — muted but still AAA)
+
+   All dark-surface overrides are scoped under @media screen so the global paper-era
+   .dataframe span colors reassert automatically in print — no explicit print resets
+   needed for the spans (the print block below handles the container only).
+
+   Contrast bar for non-text element (left-border):
+     --ochre-soft on --ink : 11.20:1 → 3:1 non-text ✓
+   ──────────────────────────────────────────────────────────────────────────────── */
+
+@media screen {
+  /* container: dark ink surface, ochre-soft accent border (matches gq-query) */
+  .wex .dataframe {
+    background: var(--ink);
+    color: #e8dfc8;
+    border-left: 3px solid var(--ochre-soft);
+  }
+  /* syntax spans — lifted -soft variants (see contrast table above) */
+  .wex .dataframe .k  { color: #e6c79b; }          /* --ochre-soft: 11.20:1 */
+  .wex .dataframe .em { color: #e6c79b; }          /* --ochre-soft: 11.20:1 */
+  .wex .dataframe .s  { color: #c5cdb1; }          /* --moss-soft:  10.97:1 */
+  .wex .dataframe .n  { color: #d4aab8; }          /* plum-soft:     8.82:1 */
+  .wex .dataframe .c  { color: #a0a8b4; }          /* comment:       7.54:1 */
+  /* defensive: global strong { color: var(--ink) } must not invert on dark surface */
+  .wex .dataframe em,
+  .wex .dataframe strong { color: inherit; }
+}
+
+/* ── print / PDF: invert .wex .dataframe back to light ──────────────────────────────────
+   Specificity (.wex .dataframe = 0,2,0) beats the global print .dataframe (0,1,0),
+   so we must also provide a print-block override at the same or higher specificity.
+   The span colors below inherit from the global print body color (#111); the
+   @media-screen-scoped span rules above do not apply in print. ── */
+@media print {
+  .wex .dataframe {
+    background: #f6f6f2;
+    color: #1a1a1a;
+    border-left-color: #8a4711;   /* ochre-deep — legible on light print surface */
+  }
+}
+
+/* ── QUERY-CARD Cypher fragments (.qc-q) · dark console treatment ────────────────────────
+   The .qc-q spans inside .query-card are literal Cypher — same console family.
+   The .query-card itself stays on paper-warm (label + prose stay light);
+   only the Cypher fragment goes dark. We wrap it in a positioned block with
+   ink background, ochre-soft left-border, and #e8dfc8 mono text.
+
+   .qc-q is display:block — direct dark treatment on the element.
+   No compound-selector risk: .qc-q only exists inside .query-card.
+   We extend the existing .query-card .qc-q rule (0,2,0); the original is (0,2,0)
+   so we match specificity — this block must come AFTER the original rule in source order.
+
+   Contrast:
+     #e8dfc8 on --ink #0e1626 : 13.62:1 AAA ✓
+     --ochre-soft left-border  : 11.20:1 (≥3:1 non-text ✓)
+   ──────────────────────────────────────────────────────────────────────────────── */
+
+@media screen {
+  .query-card .qc-q {
+    background: var(--ink);
+    color: #e8dfc8;
+    border-left: 3px solid var(--ochre-soft);
+    padding: .55rem .8rem .55rem calc(.8rem + 3px);  /* 3px left added for border */
+    border-radius: 2px;
+    margin-top: .7rem;
+  }
+}
+
+@media print {
+  .query-card .qc-q {
+    background: #f6f6f2;
+    color: #111;
+    border-left-color: #8a4711;
+  }
+}
+
 </style>
 
 <style id="mob-bar-css">

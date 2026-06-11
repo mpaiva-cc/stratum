@@ -660,6 +660,41 @@ p { margin: 0 0 1.15em; }
   .footer-grid { display: none; }
   a { color: #000; border-bottom: 0; }
 }
+
+/* ── .json-sample (applied_for edge embed) · dark console treatment ──────────────────────
+   .json-sample is a literal JSON edge instance (real data, verbatim from
+   applied_for.json) — it belongs to the console/data family, not the reference
+   property-table family. The .dataframe at schema-ref line ~981 (scorecard
+   sub-object field listing) is a schema reference/type-annotation block whose
+   true siblings are the surrounding .prop property tables — it stays on paper.
+
+   Only .json-sample goes dark. Scoped rule: 0,1,0 — same as the original
+   .json-sample rule; this block is placed after it in source order so it wins
+   by source-order cascade on matching specificity. No global rule is touched.
+
+   Contrast (identical console surface as WP-01):
+     #e8dfc8 on --ink #0e1626 : 13.62:1 AAA ✓ (code text)
+     --ochre-soft left-border  : 11.20:1 (≥3:1 non-text ✓)
+   The .json-sample has no syntax-highlight spans — no per-span overrides needed.
+   ──────────────────────────────────────────────────────────────────────────────── */
+
+@media screen {
+  .json-sample {
+    background: var(--ink);
+    color: #e8dfc8;
+    border-color: transparent;           /* suppress the paper hairline rule */
+    border-left: 3px solid var(--ochre-soft);
+  }
+}
+
+@media print {
+  .json-sample {
+    background: #f6f6f2;
+    color: #1a1a1a;
+    border: 1px solid #999;
+    border-left: 3px solid #8a4711;
+  }
+}
 </style>
 
 <style id="mob-bar-css">
