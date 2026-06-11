@@ -1,0 +1,58 @@
+name: Link check
+
+# Two complementary checks:
+#
+#   1. baseurl-guard (BLOCKING) — catches the exact bug class that shipped
+#      404s under the /stratum baseurl: internal href/src that bypass the
+#      relative_url filter. html-proofer structurally cannot catch this
+#      (the file resolves locally with or without the baseurl prefix), so
+#      this source-level guard is the real protection. Fast, no build.
+#
+#   2. htmlproofer (REPORT-ONLY) — builds the site and checks that linked
+#      pages and images actually exist, plus in-page/cross-page anchors.
+#      Non-blocking for now: the site carries pre-existing link rot (dead
+#      pages + dangling #main skip links + section-anchor mismatches) that
+#      is tracked for separate remediation. Flip `continue-on-error` to
+#      false once that backlog is cleared, to make dead links gate merges.
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  baseurl-guard:
+    name: baseurl-aware links (blocking)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Guard against baseurl-unaware internal links
+        run: ./script/check-baseurl-links.sh
+
+  htmlproofer:
+    name: dead links & images (report-only)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      # The site itself builds server-side on GitHub Pages (Ruby 4.x in the
+      # repo narrative); here we just need *a* working Jekyll to render _site
+      # for checking, so we pin a real, runner-available Ruby.
+      - uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: '3.3'
+          bundler-cache: true
+      - name: Build site
+        run: bundle exec jekyll build
+      - name: Install html-proofer
+        run: gem install html-proofer -v '~> 5.2' --no-document
+      - name: Check links, images & anchors
+        continue-on-error: true
+        run: |
+          htmlproofer ./_site \
+            --disable-external \
+            --swap-urls "^/stratum/:/" \
+            --no-enforce-https \
+            --ignore-empty-alt
