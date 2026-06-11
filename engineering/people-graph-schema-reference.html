@@ -940,7 +940,7 @@ completed_at    <span class="s">ts</span>     <span class="c"># ISO 8601 UTC</sp
     <div class="edge-spec"><span class="k">candidate</span> <span class="ar">→</span> <span class="k">skill</span> · <b>has_skill</b> · envelope&apos;s <span class="inline-mono">confidence</span> required (fit-score threshold 0.55); extra: <span class="inline-mono">attested_level enum opt</span> · consent: <span class="scope">["recruiter.ats", "recruiter.scoring"]</span></div>
 
     <h3><span class="n-kind">edge</span> applied_for <span class="sbadge ratified">ratified v3.2</span></h3>
-    <div class="edge-spec"><span class="k">candidate</span> <span class="ar">→</span> <span class="k">requisition</span> · extra: <span class="inline-mono">applied_at ts req</span> (valid_from on the edge) · consent: <span class="scope">["recruiter.ats"]</span></div>
+    <div class="edge-spec"><span class="k">candidate</span> <span class="ar">→</span> <span class="k">requisition</span> · extra: <span class="inline-mono">applied_at ts req</span> (the application-submission date; the edge&rsquo;s <span class="inline-mono">valid_from</span> — distinct from <span class="inline-mono">candidate.stage_entered</span>, which is the entry date of the <em>current</em> stage, not the application) · consent: <span class="scope">["recruiter.ats"]</span></div>
     <p>
       Today the link is a denormalized <span class="inline-mono">candidate.requisition_id</span>
       fk. Normalizing it into a first-class bitemporal edge enables tracking the
@@ -950,9 +950,12 @@ completed_at    <span class="s">ts</span>     <span class="c"># ISO 8601 UTC</sp
       existing <span class="inline-mono">candidate.requisition_id</span> fk; the fk
       stays authoritative through a dual-read window; then it is deprecated and
       reads cut over to the edge. Migrate to <span class="inline-mono">applied_for</span>;
-      do not write new dependencies on the fk. (Generator emission of the edge —
-      <span class="inline-mono">console/data/_generate_ats.py</span> — and the
-      dual-read window are a scheduled Pillar follow-up.)
+      do not write new dependencies on the fk. (The generator
+      <span class="inline-mono">console/data/_generate_ats.py</span> now emits the
+      edge to <span class="inline-mono">console/data/applied_for.json</span> — 3,756
+      edges, one per application, terminal-stage applications carrying a closed
+      <span class="inline-mono">valid_to</span>; the <span class="inline-mono">candidate.requisition_id</span>
+      fk is retained through the dual-read window.)
     </p>
 
     <!-- ── VI ── -->
