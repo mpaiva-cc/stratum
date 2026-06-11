@@ -630,7 +630,7 @@ p { margin: 0 0 1.15em; }
 <body>
 
 <!-- realtime-stamp -->
-<div class="rt-stamp" data-t0="2026-05-12T22:25:46-04:00" data-this="2026-05-22T11:42:18-04:00" style="position:fixed;bottom:8px;right:10px;z-index:9999;font-family:'JetBrains Mono',ui-monospace,Menlo,monospace;font-size:9.5px;letter-spacing:.08em;color:rgba(14,22,38,.55);background:rgba(244,236,218,.75);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);padding:.25rem .55rem;border-radius:999px;border:1px solid rgba(184,101,31,.25);pointer-events:none"><span style="color:#b8651f">●</span> compiled at <strong style="color:#0e1626">T+229:16:32.000</strong> · <span style="opacity:.6">2026-05-22T15:42:18.000Z</span></div>
+<div class="rt-stamp" data-t0="2026-05-12T22:25:46-04:00" data-this="2026-06-10T14:55:00-04:00" style="position:fixed;bottom:8px;right:10px;z-index:9999;font-family:'JetBrains Mono',ui-monospace,Menlo,monospace;font-size:9.5px;letter-spacing:.08em;color:rgba(14,22,38,.55);background:rgba(244,236,218,.75);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);padding:.25rem .55rem;border-radius:999px;border:1px solid rgba(184,101,31,.25);pointer-events:none"><span style="color:#b8651f">●</span> compiled at <strong style="color:#0e1626">T+688:29:14.000</strong> · <span style="opacity:.6">2026-06-10T18:55:00.000Z</span></div>
 <!-- /realtime-stamp -->
 
 <!-- ─────────────────────────────── MOBILE BAR ── -->
@@ -1096,10 +1096,18 @@ p { margin: 0 0 1.15em; }
       rewrites. Every customer&apos;s graph carries the schema version it
       was last migrated to; every read passes through a thin compatibility
       shim that knows how to project earlier-version edges onto the
-      current schema for query purposes. We have shipped three schema
-      versions to date. The first two were small. The v2&rarr;v3 migration,
-      which made bitemporality first-class, was the one that broke things.
-      It is worth walking through.
+      current schema for query purposes. We have shipped three <em>core</em>
+      schema versions to date &mdash; v1, v2, v3, the graph-rewrite lineage
+      that ends with bitemporality. The first two were small. The
+      v2&rarr;v3 migration, which made bitemporality first-class, was the
+      one that broke things. The two layers that came after &mdash; v4,
+      Tenure&apos;s additive <span class="inline-mono">event</span> layer,
+      and v5, Cairn&apos;s additive stone/gap/trajectory layer &mdash; are
+      not graph rewrites; they ride on top of v3 without touching an
+      existing edge, which is why they are not counted among the
+      &ldquo;three.&rdquo; The full ratified version history, core and
+      additive, is in <a href="{{ '/engineering/people-graph-whitepaper.html#s10' | relative_url }}">WP-01
+      &sect;&nbsp;10</a>. The v2&rarr;v3 rewrite is worth walking through.
     </p>
 
     <p>
@@ -1242,7 +1250,7 @@ p { margin: 0 0 1.15em; }
     </p>
 
     <div class="dataframe"><span class="c">// "lifecycle events warranting a nudge in the next 14 days"</span>
-<span class="k">MATCH</span> (p:person)-[:employed_by]-&gt;(:org {tenant: $tenant})
+<span class="k">MATCH</span> (p:person)-[:employed_by]-&gt;(:org_unit {tenant: $tenant})
 <span class="k">MATCH</span> (p)-[e:has_event]-&gt;(ev:event)
 <span class="k">WHERE</span> ev.due_at <span class="k">BETWEEN</span> $today <span class="k">AND</span> $today + <span class="s">"P14D"</span>
   <span class="k">AND</span> ev.type <span class="k">IN</span> [<span class="s">"anniversary"</span>, <span class="s">"review_due"</span>, <span class="s">"trial_end"</span>]

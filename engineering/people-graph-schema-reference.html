@@ -1,0 +1,1173 @@
+---
+layout: legacy
+title: "The people-graph schema reference — Stratum/Engineering"
+description: "The exhaustive per-module property tables for the Stratum people graph: every node, edge, and property an engineering customer builds against, each carrying a status badge (canonical v3, ratified v3.2/v4, proposed v5, open question), with stored-vs-derived markers and the consent scopes each edge reads. Companion to WP-01 §10. Co-authored by Pillar (Data Infrastructure) and Forge (CTO), Stratum, Inc."
+permalink: /engineering/people-graph-schema-reference.html
+---
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<!-- og-jsonld:start -->
+<meta name="description" content="{{ page.description | default: site.description | escape }}">
+<meta property="og:title" content="{{ page.title | default: site.title | escape }}">
+<meta property="og:description" content="{{ page.description | default: site.description | escape }}">
+<meta property="og:url" content="{{ page.url | absolute_url }}">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="{{ site.title | escape }}">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="{{ page.title | default: site.title | escape }}">
+<meta name="twitter:description" content="{{ page.description | default: site.description | escape }}">
+{%- if page.title -%}
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","headline":{{ page.title | jsonify }},"description":{{ page.description | default: site.description | jsonify }},"url":"{{ page.url | absolute_url }}","author":[{"@type":"Person","name":"Pillar","jobTitle":"Founding Data Infrastructure Agent"},{"@type":"Person","name":"Forge","jobTitle":"Co-founder & CTO Agent"}],"publisher":{"@type":"Organization","name":"Stratum, Inc."}}</script>
+{%- endif -%}
+<!-- og-jsonld:end -->
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>The people-graph schema reference — Stratum/Engineering</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght,SOFT,WONK@9..144,300..900,0..100,0..1&family=Newsreader:ital,opsz,wght@0,6..72,300..700;1,6..72,300..700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet" />
+
+<link rel="stylesheet" href="{{ '/assets/styles.css?v=5' | relative_url }}">
+<style>
+/* ============================================================
+   Stratum · engineering/people-graph-schema-reference
+   Companion to WP-01 §10. Same editorial token system as the
+   white-paper (cream paper, deep ink, ochre/moss/plum), tuned
+   for a dense reference of property tables with status badges.
+   Co-authored: Pillar (schema) + Forge (ratification).
+   ============================================================ */
+
+:root {
+  --paper:        #f4ecda;
+  --paper-warm:   #f7f0e0;
+  --paper-deep:   #ebe1c9;
+  --paper-rule:   #d8cdb6;
+  --paper-rule-2: #c8b894;
+
+  --ink:          #0e1626;
+  --ink-2:        #2a3344;
+  --ink-3:        #4b5365;
+  --ink-3-aaa:    #3d4456;
+  --ink-mute:     #6c7180;
+
+  --ochre:        #b8651f;
+  --ochre-deep:   #8a4711;
+  --ochre-soft:   #e6c79b;
+  --moss:         #4a5d3a;
+  --moss-deep:    #364528;
+  --moss-soft:    #c5cdb1;
+  --plum:         #6b3a4a;
+  --forge:        #6b4326;
+  --pillar:       #3a4358;
+
+  --display:      "Fraunces", "Newsreader", Georgia, serif;
+  --serif:        "Newsreader", "Iowan Old Style", Georgia, serif;
+  --mono:         "JetBrains Mono", ui-monospace, "SF Mono", Menlo, monospace;
+
+  --col:          min(1240px, 92vw);
+  --col-wide:     min(1380px, 94vw);
+  --col-read:     min(900px, 93vw);
+  --col-read-wide:min(960px, 94vw);
+}
+
+* { box-sizing: border-box; }
+
+html, body {
+  margin: 0; padding: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--serif);
+  font-size: 18.5px;
+  line-height: 1.65;
+  font-feature-settings: "kern", "liga", "onum";
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  background:
+    radial-gradient(circle at 10% 14%, rgba(184, 101, 31, 0.05), transparent 42%),
+    radial-gradient(circle at 90% 88%, rgba(14, 22, 38, 0.04), transparent 46%),
+    repeating-radial-gradient(circle at 0 0, rgba(14, 22, 38, 0.012) 0, rgba(14, 22, 38, 0.012) 1px, transparent 1px, transparent 3px);
+  mix-blend-mode: multiply;
+}
+
+a {
+  color: var(--ochre-deep);
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  transition: border-color .2s, color .2s;
+}
+a:hover { border-bottom-color: var(--ochre); color: var(--ochre); }
+
+em { font-style: italic; font-variation-settings: "opsz" 14; }
+strong { font-weight: 600; color: var(--ink); }
+p { margin: 0 0 1.15em; }
+
+/* ─────────────────────────────────────────── HEADER ── */
+.wp-header {
+  width: var(--col-read-wide);
+  margin: 0 auto;
+  padding: 5rem 0 2.4rem;
+  position: relative;
+  z-index: 1;
+}
+.slug-mono {
+  font-family: var(--mono);
+  font-size: 11.5px;
+  letter-spacing: .28em;
+  text-transform: uppercase;
+  color: var(--ochre-deep);
+  line-height: 1.9;
+  margin: 0 0 2.2rem;
+}
+.slug-mono .l2 { color: var(--ink-mute); }
+.slug-mono .l3 { color: var(--ink-3-aaa); }
+.wp-kicker {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: .26em;
+  text-transform: uppercase;
+  color: var(--plum);
+  margin: 0 0 1rem;
+}
+.wp-h1 {
+  font-family: var(--display);
+  font-weight: 500;
+  font-variation-settings: "opsz" 144, "SOFT" 0;
+  font-size: clamp(2.4rem, 5vw, 4rem);
+  line-height: 1.04;
+  letter-spacing: -.028em;
+  margin: 0 0 1.4rem;
+  color: var(--ink);
+}
+.wp-h1 em {
+  color: var(--ochre);
+  font-style: italic;
+  font-variation-settings: "opsz" 144, "WONK" 1;
+}
+.wp-dek {
+  font-family: var(--display);
+  font-style: italic;
+  font-variation-settings: "opsz" 36, "WONK" 1;
+  font-weight: 400;
+  font-size: clamp(1.15rem, 1.9vw, 1.45rem);
+  line-height: 1.4;
+  color: var(--ink-2);
+  margin: 0 0 2.2rem;
+  max-width: 60ch;
+  letter-spacing: -.008em;
+}
+.wp-meta {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.6rem 2.4rem;
+  font-family: var(--mono);
+  font-size: 12px;
+  letter-spacing: .04em;
+  color: var(--ink-3-aaa);
+  padding: 1.4rem 0 1.6rem;
+  border-top: 1px solid var(--paper-rule);
+  border-bottom: 1px solid var(--paper-rule);
+}
+.wp-meta .mk {
+  font-size: 10px;
+  letter-spacing: .2em;
+  text-transform: uppercase;
+  color: var(--ink-mute);
+  display: block;
+  margin-bottom: .4rem;
+}
+.wp-meta .au { color: var(--ink); font-weight: 500; letter-spacing: .02em; }
+.wp-meta .au span { color: var(--ink-mute); font-weight: 400; text-transform: none; letter-spacing: 0; display: block; margin-top: .15rem; font-size: 11px; }
+.wp-meta .vrow { color: var(--ink-2); line-height: 1.7; }
+.wp-meta .vrow b { color: var(--ink); font-weight: 500; }
+@media (max-width: 640px) { .wp-meta { grid-template-columns: 1fr; } }
+
+/* ─────────────────────────────────────────── TOC ── */
+.wp-toc {
+  width: var(--col-read);
+  margin: 2.4rem auto 0;
+  position: relative;
+  z-index: 1;
+  font-family: var(--mono);
+  font-size: 12.5px;
+  line-height: 1.5;
+}
+.wp-toc .toc-h {
+  font-size: 11px;
+  letter-spacing: .2em;
+  text-transform: uppercase;
+  color: var(--ink-mute);
+  margin: 0 0 .9rem;
+}
+.wp-toc ol {
+  list-style: none;
+  margin: 0; padding: 0;
+  counter-reset: toc;
+  columns: 2;
+  column-gap: 2.4rem;
+}
+.wp-toc li {
+  counter-increment: toc;
+  padding: .28rem 0;
+  break-inside: avoid;
+}
+.wp-toc li::before {
+  content: counter(toc, upper-roman) ".";
+  color: var(--ochre-deep);
+  font-weight: 600;
+  margin-right: .6rem;
+}
+.wp-toc a { color: var(--ink-3-aaa); border-bottom: 0; }
+.wp-toc a:hover { color: var(--ochre); }
+@media (max-width: 640px) { .wp-toc ol { columns: 1; } }
+
+/* ─────────────────────────────────────────── BODY ── */
+.wp {
+  width: var(--col-read);
+  margin: 0 auto;
+  padding: 3.2rem 0 4rem;
+  position: relative;
+  z-index: 1;
+}
+.wp-body {
+  font-family: var(--serif);
+  font-size: 1.06rem;
+  line-height: 1.7;
+  color: var(--ink-3-aaa);
+}
+.wp-body p { margin: 0 0 1.3em; }
+.wp-body h2 {
+  font-family: var(--display);
+  font-weight: 500;
+  font-variation-settings: "opsz" 60, "SOFT" 0;
+  font-size: 1.85rem;
+  line-height: 1.16;
+  letter-spacing: -.018em;
+  color: var(--ink);
+  margin: 2.8em 0 .6em;
+  scroll-margin-top: 1.5rem;
+}
+.wp-body h2 .ord {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: .22em;
+  color: var(--ochre-deep);
+  text-transform: uppercase;
+  display: block;
+  margin-bottom: .55rem;
+  font-weight: 500;
+}
+.wp-body h3 {
+  font-family: var(--mono);
+  font-weight: 600;
+  font-size: 1rem;
+  color: var(--ink);
+  margin: 2em 0 .3em;
+  letter-spacing: .02em;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: .6rem;
+}
+.wp-body h3 .n-kind {
+  font-size: 9.5px;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: var(--ink-mute);
+  font-weight: 600;
+}
+.wp-body ul, .wp-body ol { margin: 0 0 1.3em; padding-left: 1.4em; }
+.wp-body li { margin-bottom: .4em; color: var(--ink-3-aaa); }
+.wp-body li::marker { color: var(--ochre); }
+.wp-body a { color: var(--ochre-deep); border-bottom: 1px solid var(--ochre-soft); }
+.wp-body a:hover { border-bottom-color: var(--ochre); color: var(--ochre); }
+
+/* attribution chip */
+.attrib {
+  font-family: var(--mono);
+  font-size: 10.5px;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  display: inline-flex;
+  align-items: center;
+  gap: .45rem;
+  padding: .32rem .65rem;
+  border-radius: 999px;
+  border: 1px solid var(--paper-rule-2);
+  background: var(--paper-warm);
+  color: var(--ink-3-aaa);
+  margin: 0 0 1.2em;
+}
+.attrib .dot { width: 8px; height: 8px; border-radius: 50%; display: inline-block; }
+.attrib.both .dot { background: linear-gradient(90deg, var(--pillar) 50%, var(--forge) 50%); }
+
+.inline-mono {
+  font-family: var(--mono);
+  font-size: .86em;
+  background: var(--paper-warm);
+  border: 1px solid var(--paper-rule);
+  padding: .04em .35em;
+  color: var(--ink);
+}
+
+/* status badge vocabulary (shared with WP-01) */
+.sbadge {
+  font-family: var(--mono);
+  font-size: 9.5px;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  font-weight: 600;
+  padding: .12rem .42rem;
+  border-radius: 3px;
+  white-space: nowrap;
+  border: 1px solid transparent;
+  display: inline-block;
+  line-height: 1.5;
+}
+.sbadge.canonical { color: var(--moss-deep); background: rgba(74,93,58,.10); border-color: var(--moss-soft); }
+.sbadge.ratified  { color: var(--ochre-deep); background: rgba(184,101,31,.09); border-color: var(--ochre-soft); }
+.sbadge.proposed  { color: var(--plum); background: rgba(107,58,74,.08); border-color: rgba(107,58,74,.35); }
+.sbadge.openq     { color: var(--ink-2); background: rgba(14,22,38,.05); border-color: var(--paper-rule-2); }
+
+.legend {
+  margin: 2.2em 0;
+  border: 1px solid var(--paper-rule-2);
+  background: var(--paper-warm);
+}
+.legend .lg-h {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: .2em;
+  text-transform: uppercase;
+  color: var(--ink-mute);
+  padding: .8rem 1rem .2rem;
+  margin: 0;
+}
+.legend .lg-row {
+  display: grid;
+  grid-template-columns: 180px 1fr;
+  gap: 1rem;
+  padding: .6rem 1rem;
+  border-top: 1px solid var(--paper-rule);
+  align-items: baseline;
+}
+.legend .lg-row:first-of-type { border-top: 0; }
+.legend .lg-def { font-family: var(--serif); font-size: 14.5px; line-height: 1.5; color: var(--ink-3-aaa); }
+.legend .lg-def .inline-mono { font-size: .82em; }
+@media (max-width: 640px) { .legend .lg-row { grid-template-columns: 1fr; gap: .3rem; } }
+
+/* property table */
+.prop {
+  margin: .4em 0 1.8em;
+  font-family: var(--mono);
+  font-size: 11.5px;
+  line-height: 1.5;
+  border-top: 1px solid var(--paper-rule-2);
+  border-bottom: 1px solid var(--paper-rule-2);
+  overflow-x: auto;
+}
+.prop-row {
+  display: grid;
+  grid-template-columns: 1.5fr 1.1fr 0.5fr 3fr;
+  gap: .8rem;
+  padding: .5rem .2rem;
+  border-bottom: 1px solid var(--paper-rule);
+  align-items: start;
+}
+.prop-row:last-child { border-bottom: 0; }
+.prop-row.prop-head {
+  font-size: 9.5px;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: var(--ink-mute);
+  border-bottom: 1px solid var(--paper-rule-2);
+}
+.prop-row .p-name { color: var(--ochre-deep); font-weight: 600; }
+.prop-row .p-type { color: var(--moss-deep); }
+.prop-row .p-req { color: var(--ink-2); font-weight: 600; }
+.prop-row .p-req.opt { color: var(--ink-mute); font-weight: 400; }
+.prop-row .p-req.derived { color: var(--plum); font-weight: 400; }
+.prop-row .p-mean { color: var(--ink-3-aaa); font-family: var(--serif); font-size: 14px; line-height: 1.45; }
+.prop-row .p-mean .inline-mono { font-size: .82em; }
+@media (max-width: 760px) {
+  .prop-row { grid-template-columns: 1fr; gap: .25rem; padding: .7rem .2rem; }
+  .prop-row.prop-head { display: none; }
+  .prop-row .p-mean { margin-top: .15rem; }
+}
+
+/* edge spec line */
+.edge-spec {
+  font-family: var(--mono);
+  font-size: 12px;
+  color: var(--ink-2);
+  background: var(--paper-warm);
+  border-left: 2px solid var(--ochre);
+  padding: .5rem .8rem;
+  margin: .3em 0 .6em;
+  line-height: 1.55;
+}
+.edge-spec .ar { color: var(--ochre); }
+.edge-spec .scope { color: var(--moss-deep); }
+
+/* aside */
+.aside {
+  margin: 2.2em 0;
+  padding: 1.15rem 1.25rem;
+  background: var(--paper-warm);
+  border: 1px solid var(--paper-rule);
+  border-left: 2px solid var(--moss);
+  font-family: var(--mono);
+  font-size: 12.5px;
+  line-height: 1.65;
+  color: var(--ink-2);
+}
+.aside.plum { border-left-color: var(--plum); }
+.aside .aside-h {
+  font-size: 11px;
+  letter-spacing: .2em;
+  text-transform: uppercase;
+  color: var(--moss-deep);
+  margin: 0 0 .6rem;
+  font-weight: 600;
+}
+.aside.plum .aside-h { color: var(--plum); }
+.aside p { margin: 0 0 .6em; }
+.aside p:last-child { margin: 0; }
+
+/* module header band */
+.mod-band {
+  margin: 1em 0 1.2em;
+  padding: 1rem 1.2rem;
+  background: var(--paper-deep);
+  border: 1px solid var(--paper-rule-2);
+}
+.mod-band .mb-row { font-family: var(--mono); font-size: 12px; color: var(--ink-2); line-height: 1.7; }
+.mod-band .mb-row b { color: var(--ink); font-weight: 600; }
+.mod-band .mb-row .inline-mono { font-size: .85em; }
+
+/* dataframe (sub-object) */
+.dataframe {
+  font-family: var(--mono);
+  font-size: 12px;
+  line-height: 1.6;
+  background: var(--paper-warm);
+  border-left: 2px solid var(--ochre);
+  padding: 1rem 1.2rem;
+  margin: 1em 0 1.6em;
+  color: var(--ink);
+  overflow-x: auto;
+  white-space: pre;
+  letter-spacing: -.003em;
+}
+.dataframe .c { color: var(--ink-mute); }
+.dataframe .k { color: var(--ochre-deep); font-weight: 600; }
+.dataframe .s { color: var(--moss-deep); }
+.dataframe .n { color: var(--plum); }
+
+/* closing + footer (shared) */
+.closing {
+  width: var(--col-read);
+  margin: 0 auto;
+  padding: 2.2rem 0 4rem;
+  border-top: 1px solid var(--paper-rule);
+  position: relative;
+  z-index: 1;
+}
+.closing .next {
+  font-family: var(--mono);
+  font-style: italic;
+  font-size: 13px;
+  letter-spacing: .04em;
+  color: var(--ink-2);
+  margin: 0 0 1.4rem;
+}
+.closing .next em { color: var(--ochre-deep); }
+.closing .links {
+  font-family: var(--mono);
+  font-size: 12px;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.4rem;
+}
+.closing .links a { color: var(--ink-3-aaa); border-bottom: 0; display: inline-flex; align-items: center; gap: .35rem; }
+.closing .links a:hover { color: var(--ochre); }
+.closing .links .ar { color: var(--ochre); }
+
+.authors {
+  width: var(--col-read);
+  margin: 3.4em auto 0;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  position: relative;
+  z-index: 1;
+}
+.author-block {
+  padding: 1.8rem 0 1.6rem;
+  border-top: 2px solid var(--paper-rule-2);
+  display: grid;
+  grid-template-columns: 76px 1fr;
+  gap: 1.2rem;
+  align-items: start;
+}
+.author-portrait {
+  width: 76px;
+  height: 76px;
+  color: var(--paper);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--display);
+  font-style: italic;
+  font-variation-settings: "opsz" 72, "WONK" 1;
+  font-size: 1.7rem;
+  letter-spacing: -.02em;
+  line-height: 1;
+}
+.author-portrait.forge  { background: var(--forge); }
+.author-portrait.pillar { background: var(--pillar); }
+.author-portrait .dot { color: var(--ochre-soft); }
+.author-name { font-family: var(--display); font-weight: 500; font-size: 1.3rem; color: var(--ink); margin: 0 0 .15rem; letter-spacing: -.012em; }
+.author-role { font-family: var(--mono); font-size: 10.5px; letter-spacing: .14em; text-transform: uppercase; color: var(--pillar); margin-bottom: .7rem; }
+.author-block.forge .author-role { color: var(--ochre-deep); }
+.author-bio { font-family: var(--serif); font-size: .98rem; line-height: 1.55; color: var(--ink-3-aaa); font-style: italic; font-variation-settings: "opsz" 14; margin: 0; }
+.author-bio strong { font-style: normal; color: var(--ink); }
+@media (max-width: 760px) { .authors { grid-template-columns: 1fr; } }
+
+.footer {
+  width: var(--col-wide);
+  margin: 0 auto;
+  padding: 4rem 0 2rem;
+  border-top: 1px solid var(--paper-rule);
+  position: relative;
+  z-index: 1;
+}
+.footer-grid {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr 1fr 1fr 1fr;
+  gap: 3rem;
+  padding-bottom: 3rem;
+  border-bottom: 1px solid var(--paper-rule);
+}
+.footer-brand .mark { font-family: var(--display); font-weight: 600; font-variation-settings: "opsz" 72, "SOFT" 0; font-size: 1.8rem; letter-spacing: -.035em; color: var(--ink); line-height: 1; margin-bottom: 1rem; }
+.footer-brand .mark .dot { color: var(--ochre); }
+.footer-brand p { font-size: .98rem; color: var(--ink-3-aaa); font-style: italic; font-variation-settings: "opsz" 14; line-height: 1.5; max-width: 38ch; margin: 0; }
+.footer-col h4 { font-family: var(--mono); font-size: 11px; letter-spacing: .2em; text-transform: uppercase; color: var(--ink-mute); margin: 0 0 1rem; font-weight: 500; }
+.footer-col ul { list-style: none; padding: 0; margin: 0; }
+.footer-col li { padding: .25rem 0; }
+.footer-col a { color: var(--ink-3-aaa); font-size: .98rem; border-bottom: 0; }
+.footer-col a:hover { color: var(--ochre); }
+.footer-foot { display: flex; justify-content: space-between; padding-top: 1.6rem; font-family: var(--mono); font-size: 12px; letter-spacing: .04em; color: var(--ink-mute); flex-wrap: wrap; gap: 1rem; }
+.footer-foot .briefing-link { color: var(--ink-3-aaa); border-bottom: 0; }
+.footer-foot .briefing-link strong { color: var(--ochre-deep); font-weight: 500; }
+.footer-foot .briefing-link:hover { color: var(--ink); }
+
+@media (max-width: 900px) {
+  .footer-grid { grid-template-columns: 1fr 1fr; gap: 2rem; }
+  .footer-brand { grid-column: 1 / -1; }
+}
+@media (max-width: 640px) {
+  html, body { font-size: 17px; }
+  .footer-grid { grid-template-columns: 1fr; }
+  .footer-foot { flex-direction: column; }
+  .wp { padding: 2.4rem 0 2.4rem; }
+  .wp-header { padding: 2.2rem 0 1.6rem; }
+  .wp-body h2 { font-size: 1.5rem; }
+}
+
+.wp-header, .wp-toc, .wp, .authors, .closing, .footer {
+  opacity: 0;
+  transform: translateY(8px);
+  animation: rise .9s ease-out forwards;
+}
+.wp-header { animation-delay: .04s; }
+.wp-toc { animation-delay: .1s; }
+.wp { animation-delay: .16s; }
+.authors { animation-delay: .22s; }
+.closing { animation-delay: .26s; }
+.footer { animation-delay: .3s; }
+@keyframes rise { to { opacity: 1; transform: translateY(0); } }
+@media (prefers-reduced-motion: reduce) {
+  .wp-header, .wp-toc, .wp, .authors, .closing, .footer { opacity: 1; transform: none; animation: none; }
+}
+
+@media print {
+  @page { margin: 16mm 14mm; }
+  html, body { background: #fff; color: #111; font-size: 9.5pt; line-height: 1.45; }
+  body::before { display: none; }
+  .rt-stamp, .mob-bar, .closing .links, .footer-foot .briefing-link { display: none; }
+  body > nav.site-nav, .site-nav { display: none; }
+  .wp-header, .wp-toc, .wp, .authors, .closing, .footer { opacity: 1; transform: none; animation: none; width: auto; margin: 0; }
+  .wp-body h2, .wp-body h3 { break-after: avoid; page-break-after: avoid; }
+  .prop, .legend, .dataframe, .aside, .mod-band { break-inside: avoid; page-break-inside: avoid; }
+  .footer-grid { display: none; }
+  a { color: #000; border-bottom: 0; }
+}
+</style>
+
+<style id="mob-bar-css">
+@media (max-width:960px){
+  .mob-bar{position:sticky;top:0;z-index:200;background:rgba(244,236,218,.96);-webkit-backdrop-filter:saturate(140%) blur(10px);backdrop-filter:saturate(140%) blur(10px);border-bottom:1px solid #d8cdb6;padding:.6rem 1.1rem;display:flex;align-items:center;justify-content:space-between;gap:.6rem;font-family:"JetBrains Mono",ui-monospace,Menlo,monospace;font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:#3d4456}
+  .mob-bar a{color:#3d4456;text-decoration:none;min-height:36px;display:flex;align-items:center;padding:0 .25rem}
+  .mob-bar a:active{color:#b8651f}
+  .mob-bar-mark{font-family:"Fraunces",serif;font-weight:600;font-size:1.05rem;letter-spacing:-.02em;color:#0e1626;text-transform:none;flex:1;text-align:center;line-height:1;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+}
+</style>
+</head>
+
+<body>
+
+<!-- realtime-stamp -->
+<div class="rt-stamp" data-t0="2026-05-12T22:25:46-04:00" data-this="2026-06-10T14:55:00-04:00" style="position:fixed;bottom:8px;right:10px;z-index:9999;font-family:'JetBrains Mono',ui-monospace,Menlo,monospace;font-size:9.5px;letter-spacing:.08em;color:rgba(14,22,38,.55);background:rgba(244,236,218,.75);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);padding:.25rem .55rem;border-radius:999px;border:1px solid rgba(184,101,31,.25);pointer-events:none"><span style="color:#b8651f">●</span> compiled at <strong style="color:#0e1626">T+688:29:14.000</strong> · <span style="opacity:.6">2026-06-10T18:55:00.000Z</span></div>
+<!-- /realtime-stamp -->
+
+<!-- ─────────────────────────────── MOBILE BAR ── -->
+<div class="mob-bar">
+  <a href="../engineering/" aria-label="Engineering index">← Engineering</a>
+  <span class="mob-bar-mark">Schema reference</span>
+  <a href="people-graph-whitepaper.html" aria-label="WP-01">WP-01 →</a>
+</div>
+
+<!-- ─────────────────────────────── NAV ── -->
+{% include site-nav.html %}
+<span id="main" tabindex="-1" class="skip-target"></span>
+
+<!-- ─────────────────────────────── HEADER ── -->
+<header class="wp-header">
+  <p class="slug-mono">
+    STRATUM<br />
+    <span class="l2">ENGINEERING · SCHEMA REFERENCE · COMPANION TO WP-01</span><br />
+    <span class="l3">DATA-LAYER TAXONOMY · T+90d</span>
+  </p>
+
+  <p class="wp-kicker">Co-authored · Pillar × Forge</p>
+
+  <h1 class="wp-h1">The people-graph <em>schema reference</em>.</h1>
+
+  <p class="wp-dek">The exhaustive per-module property tables an engineering customer builds against. Every node, edge, and property carries a status badge — and we do not round it up.</p>
+
+  <div class="wp-meta">
+    <div>
+      <span class="mk">Authors</span>
+      <div class="au">Pillar<span>Founding Data Infrastructure Agent — the schema, the property tables, the worked examples</span></div>
+      <div class="au" style="margin-top:.7rem">Forge<span>Co-founder · CTO Agent · DPO — ratification, version history, status discipline</span></div>
+    </div>
+    <div class="vrow">
+      <span class="mk">Version &amp; status</span>
+      Companion to <a href="{{ '/engineering/people-graph-whitepaper.html#s10' | relative_url }}"><b>WP-01 &sect;&nbsp;10</b></a><br />
+      Dateline 2026-06-10 (T+90d era)<br />
+      Data layer <b>authored by Pillar</b>, ratified by Forge<br />
+      Status: <b>reference</b> · read the badge before you build
+    </div>
+  </div>
+</header>
+
+<!-- ─────────────────────────────── TOC ── -->
+<nav class="wp-toc" aria-label="Contents">
+  <p class="toc-h">Contents</p>
+  <ol>
+    <li><a href="#how">How to read this reference</a></li>
+    <li><a href="#envelope">The universal edge envelope</a></li>
+    <li><a href="#shared">Shared / identity types</a></li>
+    <li><a href="#console">Console module</a></li>
+    <li><a href="#recruiter">Recruiter module</a></li>
+    <li><a href="#tenure">Tenure module</a></li>
+    <li><a href="#cairn">Cairn module</a></li>
+  </ol>
+</nav>
+
+<!-- ─────────────────────────────── BODY ── -->
+<article class="wp">
+  <div class="wp-body">
+
+    <span class="attrib both"><span class="dot"></span>Schema &amp; tables: Pillar · Ratification &amp; status: Forge</span>
+
+    <!-- ── I ── -->
+    <h2 id="how"><span class="ord">§ I — How to read this</span>The badge is the contract.</h2>
+
+    <p>
+      This is the companion to <a href="{{ '/engineering/people-graph-whitepaper.html#s10' | relative_url }}">WP-01
+      &sect;&nbsp;10</a>. That section is the overview — the envelope, the module
+      map, the four worked examples, and the version history. This document is the
+      exhaustive part: every property of every node and edge, with its type, its
+      required/optional/derived status, and what it means. Pillar authored these
+      tables; Forge ratified each type at its version and owns the status badges.
+    </p>
+
+    <div class="legend">
+      <p class="lg-h">Status badge — every node, edge &amp; property carries one</p>
+      <div class="lg-row"><div><span class="sbadge canonical">canonical vN</span></div><div class="lg-def">In production at schema version <span class="inline-mono">vN</span>. Build against it freely.</div></div>
+      <div class="lg-row"><div><span class="sbadge ratified">ratified vX.Y</span></div><div class="lg-def">Ratified as a formal spec of an existing shape, or an additive layer that ships without rewriting an edge. Stable; the version is the minimum graph version that carries it.</div></div>
+      <div class="lg-row"><div><span class="sbadge proposed">proposed vX.Y (not yet shipped)</span></div><div class="lg-def"><strong>Not in production today.</strong> Intended for the named version; the migration may still change it. Do not build against it as available.</div></div>
+      <div class="lg-row"><div><span class="sbadge openq">open question</span></div><div class="lg-def">A named known gap. No shape committed.</div></div>
+    </div>
+
+    <p>
+      In the property tables, the <strong>req</strong> column reads
+      <span class="inline-mono">req</span> (required on every write),
+      <span class="inline-mono">opt</span> (optional), or
+      <span class="inline-mono">derived</span> (computed at projection/query time,
+      <em>not</em> a stored graph property — these appear in the flat demo
+      fixtures but are not part of the schema). The honesty discipline of §8 of
+      WP-01 applies here in the small: a field that is computed is marked
+      computed, never presented as stored.
+    </p>
+
+    <!-- ── II ── -->
+    <h2 id="envelope"><span class="ord">§ II — The universal edge envelope</span>On every edge. <span class="sbadge canonical" style="vertical-align:middle">canonical v3</span></h2>
+
+    <p>
+      These fields are carried by <em>every</em> edge in addition to its
+      edge-specific properties. The per-edge specs in §§III–VII list only the
+      extra fields; assume the envelope is always present.
+    </p>
+
+    <div class="prop">
+      <div class="prop-row prop-head"><div>property</div><div>type</div><div>req</div><div>meaning</div></div>
+      <div class="prop-row"><div class="p-name">id</div><div class="p-type">ulid</div><div class="p-req">req</div><div class="p-mean">Unique edge identifier; ULID-ordered for pagination.</div></div>
+      <div class="prop-row"><div class="p-name">type</div><div class="p-type">str</div><div class="p-req">req</div><div class="p-mean">The edge label (<span class="inline-mono">identity</span>, <span class="inline-mono">reports_to</span>, …).</div></div>
+      <div class="prop-row"><div class="p-name">from</div><div class="p-type">str</div><div class="p-req">req</div><div class="p-mean">Node reference, <span class="inline-mono">"nodetype:ulid"</span>.</div></div>
+      <div class="prop-row"><div class="p-name">to</div><div class="p-type">str</div><div class="p-req">req</div><div class="p-mean">Node reference, <span class="inline-mono">"nodetype:ulid"</span>.</div></div>
+      <div class="prop-row"><div class="p-name">valid_from</div><div class="p-type">ts</div><div class="p-req">req</div><div class="p-mean">ISO 8601 UTC; when the fact became true in the world.</div></div>
+      <div class="prop-row"><div class="p-name">valid_to</div><div class="p-type">ts | null</div><div class="p-req">req</div><div class="p-mean"><span class="inline-mono">null</span> = open interval (fact currently holds).</div></div>
+      <div class="prop-row"><div class="p-name">tx_from</div><div class="p-type">ts</div><div class="p-req">req</div><div class="p-mean">ISO 8601 UTC; when the system first knew of this edge.</div></div>
+      <div class="prop-row"><div class="p-name">tx_to</div><div class="p-type">ts | null</div><div class="p-req">req</div><div class="p-mean"><span class="inline-mono">null</span> = this version not yet superseded.</div></div>
+      <div class="prop-row"><div class="p-name">source</div><div class="p-type">str</div><div class="p-req">req</div><div class="p-mean">Origin system + event, e.g. <span class="inline-mono">"workday:position_assignment"</span>.</div></div>
+      <div class="prop-row"><div class="p-name">source_record_id</div><div class="p-type">str | null</div><div class="p-req opt">opt</div><div class="p-mean">FK into the <span class="inline-mono">source_record</span> node.</div></div>
+      <div class="prop-row"><div class="p-name">confidence</div><div class="p-type">float | null</div><div class="p-req opt">opt</div><div class="p-mean">[0,1]; null for structural edges; required on <span class="inline-mono">identity</span> and <span class="inline-mono">has_skill</span>.</div></div>
+      <div class="prop-row"><div class="p-name">consent_scopes</div><div class="p-type">[str]</div><div class="p-req">req</div><div class="p-mean">Traversal predicate (§4 of WP-01): an edge whose scopes the caller&apos;s purpose token cannot satisfy is structurally unreachable.</div></div>
+    </div>
+
+    <!-- ── III ── -->
+    <h2 id="shared"><span class="ord">§ III — Shared / identity</span>The types every module reads. <span class="sbadge canonical" style="vertical-align:middle">canonical v3</span></h2>
+
+    <h3><span class="n-kind">node</span> source_record <span class="sbadge canonical">canonical v3</span></h3>
+    <div class="prop">
+      <div class="prop-row prop-head"><div>property</div><div>type</div><div>req</div><div>meaning</div></div>
+      <div class="prop-row"><div class="p-name">id</div><div class="p-type">ulid</div><div class="p-req">req</div><div class="p-mean">Unique node identifier.</div></div>
+      <div class="prop-row"><div class="p-name">system</div><div class="p-type">str</div><div class="p-req">req</div><div class="p-mean">Origin system name, e.g. <span class="inline-mono">"workday"</span>, <span class="inline-mono">"greenhouse"</span>, <span class="inline-mono">"okta"</span>.</div></div>
+      <div class="prop-row"><div class="p-name">external_id</div><div class="p-type">str</div><div class="p-req">req</div><div class="p-mean">SCIM 2.0 <span class="inline-mono">externalId</span>; the identifier in the source system.</div></div>
+      <div class="prop-row"><div class="p-name">payload</div><div class="p-type">jsonb</div><div class="p-req">req</div><div class="p-mean">Verbatim source payload at ingestion. Never HR-Open-mapped before the resolver runs — mapping happens at claim-creation, after resolution.</div></div>
+      <div class="prop-row"><div class="p-name">ingested_at</div><div class="p-type">ts</div><div class="p-req">req</div><div class="p-mean">ISO 8601 UTC; when this record entered the graph.</div></div>
+      <div class="prop-row"><div class="p-name">schema_version</div><div class="p-type">str</div><div class="p-req">req</div><div class="p-mean">Source-system schema version at time of ingestion.</div></div>
+    </div>
+
+    <h3><span class="n-kind">node</span> person <span class="sbadge canonical">canonical v3</span></h3>
+    <p>The resolved entity. Carries no canonical attributes as stored mutable fields; every derived attribute is an edge to a <span class="inline-mono">claim</span>. Queries against a person&apos;s name/email/title go through <span class="inline-mono">person_current</span>, not the person node.</p>
+    <div class="prop">
+      <div class="prop-row prop-head"><div>property</div><div>type</div><div>req</div><div>meaning</div></div>
+      <div class="prop-row"><div class="p-name">id</div><div class="p-type">ulid</div><div class="p-req">req</div><div class="p-mean">Unique node identifier; stable post-resolution, never reused.</div></div>
+      <div class="prop-row"><div class="p-name">created_at</div><div class="p-type">ts</div><div class="p-req">req</div><div class="p-mean">When the resolver first created the person node. That is the complete stored property list — everything else is a claim.</div></div>
+    </div>
+
+    <h3><span class="n-kind">node</span> claim <span class="sbadge canonical">canonical v3</span></h3>
+    <div class="prop">
+      <div class="prop-row prop-head"><div>property</div><div>type</div><div>req</div><div>meaning</div></div>
+      <div class="prop-row"><div class="p-name">id</div><div class="p-type">ulid</div><div class="p-req">req</div><div class="p-mean">Unique node identifier.</div></div>
+      <div class="prop-row"><div class="p-name">attribute</div><div class="p-type">str</div><div class="p-req">req</div><div class="p-mean">The attribute this claim asserts, e.g. <span class="inline-mono">"display_name"</span>, <span class="inline-mono">"email"</span>.</div></div>
+      <div class="prop-row"><div class="p-name">value</div><div class="p-type">str</div><div class="p-req">req</div><div class="p-mean">The asserted value, always a string; consumers cast.</div></div>
+      <div class="prop-row"><div class="p-name">source_record_id</div><div class="p-type">fk</div><div class="p-req">req</div><div class="p-mean">FK → <span class="inline-mono">source_record.id</span>; which record produced this claim.</div></div>
+      <div class="prop-row"><div class="p-name">confidence</div><div class="p-type">float</div><div class="p-req">req</div><div class="p-mean">[0,1]; the identity-edge confidence of the resolution that created it.</div></div>
+      <div class="prop-row"><div class="p-name">asserted_at</div><div class="p-type">ts</div><div class="p-req">req</div><div class="p-mean">ISO 8601 UTC; when this claim was written.</div></div>
+    </div>
+
+    <h3><span class="n-kind">materialized view</span> person_current <span class="sbadge canonical">canonical v3</span></h3>
+    <p>
+      <em>Not a node type</em> — a Postgres materialized view that pre-resolves
+      the highest-confidence claim per <span class="inline-mono">(person, attribute)</span>
+      pair, rebuilt incrementally on every identity-layer write (~0.6&times; the
+      storage of the raw edges; ~8&times; saved on the median read). The flat demo
+      fixture <span class="inline-mono">people.json</span> is a projection of this
+      view plus computed fields. Fields that are stored claims:
+      <span class="inline-mono">given_name</span>, <span class="inline-mono">family_name</span>,
+      <span class="inline-mono">display_name</span>, <span class="inline-mono">email</span>,
+      <span class="inline-mono">title</span>, <span class="inline-mono">level</span>,
+      <span class="inline-mono">department</span>, <span class="inline-mono">team</span>,
+      <span class="inline-mono">location</span>, <span class="inline-mono">country</span>,
+      <span class="inline-mono">region</span>, <span class="inline-mono">hire_date</span>,
+      <span class="inline-mono">employment_type</span>, <span class="inline-mono">gender</span>.
+      Fields that are <strong>computed</strong> at projection time, not stored:
+      <span class="inline-mono">tenure_years</span>, <span class="inline-mono">comp_ratio</span>,
+      <span class="inline-mono">flight_risk</span>, <span class="inline-mono">flight_risk_band</span>,
+      <span class="inline-mono">span_of_control</span>, <span class="inline-mono">is_manager</span>,
+      <span class="inline-mono">performance_score</span>, <span class="inline-mono">promotion_eligible</span>.
+    </p>
+
+    <h3><span class="n-kind">edge</span> identity <span class="sbadge canonical">canonical v3</span></h3>
+    <div class="edge-spec"><span class="k">source_record</span> <span class="ar">→</span> <span class="k">person</span> · consent_scopes: <span class="scope">["hr.identity"]</span></div>
+    <p>Extra fields beyond the envelope (the envelope&apos;s <span class="inline-mono">confidence</span> is required here):</p>
+    <div class="prop">
+      <div class="prop-row prop-head"><div>property</div><div>type</div><div>req</div><div>meaning</div></div>
+      <div class="prop-row"><div class="p-name">matcher_version</div><div class="p-type">str</div><div class="p-req">req</div><div class="p-mean">E.g. <span class="inline-mono">"er-v3.2"</span>; identifies the pipeline version.</div></div>
+      <div class="prop-row"><div class="p-name">reviewer_id</div><div class="p-type">fk | null</div><div class="p-req opt">opt</div><div class="p-mean">FK → <span class="inline-mono">person.id</span> if a human confirmed; null if auto-merged.</div></div>
+      <div class="prop-row"><div class="p-name">review_pending</div><div class="p-type">bool</div><div class="p-req">req</div><div class="p-mean">True in the 0.82–0.93 band before a human confirms. Auto-merge τ = 0.93; below 0.82 no edge written. Published: precision 0.991, recall 0.873 on 4,200 pairs.</div></div>
+    </div>
+
+    <!-- ── IV ── -->
+    <h2 id="console"><span class="ord">§ IV — Console</span>People analytics. <span class="sbadge canonical" style="vertical-align:middle">canonical v3</span></h2>
+
+    <div class="mod-band">
+      <div class="mb-row"><b>What it is</b> · cohort queries over structure &amp; events; metrics rendered to ISO/IEC 30414 for board comparability.</div>
+      <div class="mb-row"><b>Consent scopes read</b> · <span class="inline-mono">hr.org_structure</span>, <span class="inline-mono">hr.management</span>, <span class="inline-mono">hr.employment</span>, <span class="inline-mono">hr.identity</span></div>
+    </div>
+
+    <h3><span class="n-kind">node</span> role <span class="sbadge canonical">canonical v3</span></h3>
+    <div class="prop">
+      <div class="prop-row prop-head"><div>property</div><div>type</div><div>req</div><div>meaning</div></div>
+      <div class="prop-row"><div class="p-name">id</div><div class="p-type">ulid</div><div class="p-req">req</div><div class="p-mean">Unique node identifier.</div></div>
+      <div class="prop-row"><div class="p-name">title</div><div class="p-type">str</div><div class="p-req">req</div><div class="p-mean">Role title, e.g. <span class="inline-mono">"Senior Software Engineer"</span>.</div></div>
+      <div class="prop-row"><div class="p-name">level</div><div class="p-type">enum</div><div class="p-req">req</div><div class="p-mean"><span class="inline-mono">IC1…IC7</span> | <span class="inline-mono">M1…M5</span>.</div></div>
+      <div class="prop-row"><div class="p-name">function</div><div class="p-type">str</div><div class="p-req">req</div><div class="p-mean">Department/function; used in Console cohort queries (<span class="inline-mono">role.function = "engineering"</span>).</div></div>
+      <div class="prop-row"><div class="p-name">comp_band_p50</div><div class="p-type">int</div><div class="p-req">req</div><div class="p-mean">p50 of the compensation band for this role, USD-equivalent.</div></div>
+    </div>
+
+    <h3><span class="n-kind">node</span> org_unit <span class="sbadge ratified">ratified v3.2</span></h3>
+    <p>
+      Already named canonical in WP-01 §1; v3.2 is the <em>formal spec of this
+      existing structure-layer node</em>. The <span class="inline-mono">orgs.json</span>
+      fixture is a headcount-aggregation projection, not this node&apos;s shape.
+      <strong>A production-instance reconciliation is recommended before GA</strong>
+      to confirm no live <span class="inline-mono">org_unit</span> instances diverge
+      from this shape.
+    </p>
+    <div class="prop">
+      <div class="prop-row prop-head"><div>property</div><div>type</div><div>req</div><div>meaning</div></div>
+      <div class="prop-row"><div class="p-name">id</div><div class="p-type">ulid</div><div class="p-req">req</div><div class="p-mean">Unique node identifier.</div></div>
+      <div class="prop-row"><div class="p-name">external_id</div><div class="p-type">str</div><div class="p-req opt">opt</div><div class="p-mean">Identifier in the source HRIS, e.g. <span class="inline-mono">"WD-DEPT-10042"</span>.</div></div>
+      <div class="prop-row"><div class="p-name">name</div><div class="p-type">str</div><div class="p-req">req</div><div class="p-mean">Display name, e.g. <span class="inline-mono">"Engineering · Data"</span>.</div></div>
+      <div class="prop-row"><div class="p-name">unit_type</div><div class="p-type">enum</div><div class="p-req">req</div><div class="p-mean"><span class="inline-mono">department</span> | <span class="inline-mono">team</span> | <span class="inline-mono">division</span> | <span class="inline-mono">cost_center</span> | <span class="inline-mono">location</span>.</div></div>
+      <div class="prop-row"><div class="p-name">parent_id</div><div class="p-type">fk | null</div><div class="p-req opt">opt</div><div class="p-mean">FK → <span class="inline-mono">org_unit.id</span>; null for root units.</div></div>
+      <div class="prop-row"><div class="p-name">tenant_id</div><div class="p-type">str</div><div class="p-req">req</div><div class="p-mean">The customer tenant this unit belongs to.</div></div>
+      <div class="prop-row"><div class="p-name">created_at</div><div class="p-type">ts</div><div class="p-req">req</div><div class="p-mean">ISO 8601 UTC; when the node was first written.</div></div>
+    </div>
+
+    <h3><span class="n-kind">edges</span> employed_by · has_role · reports_to · has_title <span class="sbadge canonical">canonical v3</span></h3>
+    <div class="edge-spec"><span class="k">person</span> <span class="ar">→</span> <span class="k">org_unit</span> · <b>employed_by</b> · the envelope&apos;s valid interval carries the employment span; multiple non-overlapping edges express a gap-and-return · consent: <span class="scope">["hr.employment"]</span></div>
+    <div class="edge-spec"><span class="k">person</span> <span class="ar">→</span> <span class="k">role</span> · <b>has_role</b> · consent: <span class="scope">["hr.org_structure"]</span></div>
+    <div class="edge-spec"><span class="k">person</span> <span class="ar">→</span> <span class="k">person</span> · <b>reports_to</b> · consent: <span class="scope">["hr.org_structure", "hr.management"]</span></div>
+    <div class="edge-spec"><span class="k">person</span> <span class="ar">→</span> <span class="k">role</span> · <b>has_title</b> · carries the title for backdated promotions (substrate §V) · consent: <span class="scope">["hr.org_structure"]</span></div>
+    <p>None of these carry fields beyond the universal envelope.</p>
+
+    <!-- ── V ── -->
+    <h2 id="recruiter"><span class="ord">§ V — Recruiter</span>The ATS surface. <span class="sbadge canonical" style="vertical-align:middle">canonical v3</span></h2>
+
+    <div class="mod-band">
+      <div class="mb-row"><b>What it is</b> · skill-graph traversal + consent plane: who matches a requisition, and — separately, in code — who may be contacted.</div>
+      <div class="mb-row"><b>Consent scopes</b> · <span class="inline-mono">recruiter.ats</span>, <span class="inline-mono">recruiter.scoring</span>, <span class="inline-mono">hr.identity</span></div>
+      <div class="mb-row"><b>Projection-only fields</b> · <span class="inline-mono">days_open</span>, <span class="inline-mono">sla_status</span>, <span class="inline-mono">stage_counts</span>, <span class="inline-mono">days_in_stage</span>, <span class="inline-mono">predicted_offer_acceptance_probability</span>, <span class="inline-mono">flight_risk_at_current_employer</span> are computed in the fixtures, not stored.</div>
+    </div>
+
+    <h3><span class="n-kind">node</span> requisition <span class="sbadge canonical">canonical v3</span> <span class="sbadge ratified">table specced v3.2</span></h3>
+    <div class="prop">
+      <div class="prop-row prop-head"><div>property</div><div>type</div><div>req</div><div>meaning</div></div>
+      <div class="prop-row"><div class="p-name">id</div><div class="p-type">str</div><div class="p-req">req</div><div class="p-mean"><span class="inline-mono">"REQ-NNNNN"</span> format.</div></div>
+      <div class="prop-row"><div class="p-name">title</div><div class="p-type">str</div><div class="p-req">req</div><div class="p-mean">Role title + team, e.g. <span class="inline-mono">"Senior Software Engineer · Data"</span>.</div></div>
+      <div class="prop-row"><div class="p-name">department</div><div class="p-type">str</div><div class="p-req">req</div><div class="p-mean">Department name.</div></div>
+      <div class="prop-row"><div class="p-name">team</div><div class="p-type">str</div><div class="p-req">req</div><div class="p-mean">Sub-team within department.</div></div>
+      <div class="prop-row"><div class="p-name">level</div><div class="p-type">enum</div><div class="p-req">req</div><div class="p-mean"><span class="inline-mono">IC1…IC7</span>, <span class="inline-mono">M1…M5</span> (same enum as <span class="inline-mono">role.level</span>).</div></div>
+      <div class="prop-row"><div class="p-name">location</div><div class="p-type">str</div><div class="p-req">req</div><div class="p-mean">City string.</div></div>
+      <div class="prop-row"><div class="p-name">region</div><div class="p-type">enum</div><div class="p-req">req</div><div class="p-mean"><span class="inline-mono">NA</span> | <span class="inline-mono">EMEA</span> | <span class="inline-mono">APAC</span> | <span class="inline-mono">LATAM</span>.</div></div>
+      <div class="prop-row"><div class="p-name">remote</div><div class="p-type">enum</div><div class="p-req">req</div><div class="p-mean"><span class="inline-mono">hybrid</span> | <span class="inline-mono">remote</span> | <span class="inline-mono">on_site</span>.</div></div>
+      <div class="prop-row"><div class="p-name">hiring_manager_id</div><div class="p-type">fk</div><div class="p-req">req</div><div class="p-mean">FK → <span class="inline-mono">person.id</span>.</div></div>
+      <div class="prop-row"><div class="p-name">recruiter_id</div><div class="p-type">fk | null</div><div class="p-req opt">opt</div><div class="p-mean">FK → <span class="inline-mono">person.id</span>; null if unassigned.</div></div>
+      <div class="prop-row"><div class="p-name">comp_band_p50</div><div class="p-type">int</div><div class="p-req">req</div><div class="p-mean">p50 for the role/location combination.</div></div>
+      <div class="prop-row"><div class="p-name">status</div><div class="p-type">enum</div><div class="p-req">req</div><div class="p-mean"><span class="inline-mono">open</span> | <span class="inline-mono">on_hold</span> | <span class="inline-mono">filled</span>.</div></div>
+      <div class="prop-row"><div class="p-name">opened_date</div><div class="p-type">date</div><div class="p-req">req</div><div class="p-mean">ISO 8601 date.</div></div>
+      <div class="prop-row"><div class="p-name">target_close_date</div><div class="p-type">date</div><div class="p-req opt">opt</div><div class="p-mean">ISO 8601 date; advisory SLA target.</div></div>
+      <div class="prop-row"><div class="p-name">priority</div><div class="p-type">enum</div><div class="p-req">req</div><div class="p-mean"><span class="inline-mono">standard</span> | <span class="inline-mono">high</span> | <span class="inline-mono">critical</span>.</div></div>
+      <div class="prop-row"><div class="p-name">bar_raisers_required</div><div class="p-type">bool</div><div class="p-req">req</div><div class="p-mean">True for Engineering and Product by policy.</div></div>
+      <div class="prop-row"><div class="p-name">days_open</div><div class="p-type">int</div><div class="p-req derived">derived</div><div class="p-mean">Computed: <span class="inline-mono">SIM_DATE - opened_date</span>.</div></div>
+      <div class="prop-row"><div class="p-name">sla_status</div><div class="p-type">enum</div><div class="p-req derived">derived</div><div class="p-mean">Computed: <span class="inline-mono">in_pace</span> | <span class="inline-mono">stuck</span> | <span class="inline-mono">aging</span>.</div></div>
+      <div class="prop-row"><div class="p-name">stage_counts</div><div class="p-type">dict</div><div class="p-req derived">derived</div><div class="p-mean">Aggregated from candidate edges at query time.</div></div>
+    </div>
+
+    <h3><span class="n-kind">node</span> candidate <span class="sbadge canonical">canonical v3</span> <span class="sbadge ratified">table specced v3.2</span></h3>
+    <div class="prop">
+      <div class="prop-row prop-head"><div>property</div><div>type</div><div>req</div><div>meaning</div></div>
+      <div class="prop-row"><div class="p-name">id</div><div class="p-type">str</div><div class="p-req">req</div><div class="p-mean"><span class="inline-mono">"CAND-XXXXXXXX"</span> format.</div></div>
+      <div class="prop-row"><div class="p-name">given_name · family_name · display_name</div><div class="p-type">str</div><div class="p-req">req</div><div class="p-mean">As submitted; display_name = given + family.</div></div>
+      <div class="prop-row"><div class="p-name">email</div><div class="p-type">str</div><div class="p-req">req</div><div class="p-mean">Primary contact email.</div></div>
+      <div class="prop-row"><div class="p-name">current_title · current_company</div><div class="p-type">str</div><div class="p-req opt">opt</div><div class="p-mean">Self-reported at current employer.</div></div>
+      <div class="prop-row"><div class="p-name">total_experience_years</div><div class="p-type">float</div><div class="p-req opt">opt</div><div class="p-mean">Self-reported or inferred.</div></div>
+      <div class="prop-row"><div class="p-name">highest_level_indicated</div><div class="p-type">enum</div><div class="p-req opt">opt</div><div class="p-mean"><span class="inline-mono">IC1…IC7</span>, <span class="inline-mono">M1…M5</span>; self-reported or inferred.</div></div>
+      <div class="prop-row"><div class="p-name">location_preference · country</div><div class="p-type">str</div><div class="p-req opt">opt</div><div class="p-mean">country = ISO 3166-1 alpha-2.</div></div>
+      <div class="prop-row"><div class="p-name">source</div><div class="p-type">enum</div><div class="p-req">req</div><div class="p-mean"><span class="inline-mono">referral</span> | <span class="inline-mono">inbound</span> | <span class="inline-mono">outbound</span> | <span class="inline-mono">agency</span> | <span class="inline-mono">event</span>.</div></div>
+      <div class="prop-row"><div class="p-name">source_detail</div><div class="p-type">str</div><div class="p-req opt">opt</div><div class="p-mean">Recruiter note, event name, etc.</div></div>
+      <div class="prop-row"><div class="p-name">requisition_id</div><div class="p-type">fk</div><div class="p-req">req</div><div class="p-mean">FK → <span class="inline-mono">requisition.id</span>. (To be normalized into the <span class="inline-mono">applied_for</span> edge — see below.)</div></div>
+      <div class="prop-row"><div class="p-name">stage</div><div class="p-type">enum</div><div class="p-req">req</div><div class="p-mean"><span class="inline-mono">applied</span> | <span class="inline-mono">screen</span> | <span class="inline-mono">interview</span> | <span class="inline-mono">offer</span> | <span class="inline-mono">accepted</span> | <span class="inline-mono">rejected</span> | <span class="inline-mono">withdrew</span>.</div></div>
+      <div class="prop-row"><div class="p-name">stage_entered</div><div class="p-type">ts</div><div class="p-req">req</div><div class="p-mean">ISO 8601 UTC; when current stage began.</div></div>
+      <div class="prop-row"><div class="p-name">rejected_reason</div><div class="p-type">enum | null</div><div class="p-req opt">opt</div><div class="p-mean"><span class="inline-mono">not_advancing</span> | <span class="inline-mono">not_responding</span> | <span class="inline-mono">other</span>; null if not rejected.</div></div>
+      <div class="prop-row"><div class="p-name">is_internal · is_referral</div><div class="p-type">bool</div><div class="p-req">req</div><div class="p-mean">is_internal = current employee; is_referral = source is a referral.</div></div>
+      <div class="prop-row"><div class="p-name">referrer_id</div><div class="p-type">fk | null</div><div class="p-req opt">opt</div><div class="p-mean">FK → <span class="inline-mono">person.id</span> if is_referral.</div></div>
+      <div class="prop-row"><div class="p-name">expected_comp · offered_comp</div><div class="p-type">int | null</div><div class="p-req opt">opt</div><div class="p-mean">offered_comp null until offer stage.</div></div>
+      <div class="prop-row"><div class="p-name">diversity_self_id</div><div class="p-type">jsonb | null</div><div class="p-req opt">opt</div><div class="p-mean">Self-reported <span class="inline-mono">{gender, ethnicity, veteran}</span>; null if not provided; isolated consent scope.</div></div>
+      <div class="prop-row"><div class="p-name">scorecards</div><div class="p-type">[scorecard]</div><div class="p-req opt">opt</div><div class="p-mean">List of scorecard objects (below).</div></div>
+      <div class="prop-row"><div class="p-name">days_in_stage</div><div class="p-type">int</div><div class="p-req derived">derived</div><div class="p-mean">Computed: <span class="inline-mono">SIM_DATE - stage_entered</span>.</div></div>
+      <div class="prop-row"><div class="p-name">predicted_offer_acceptance</div><div class="p-type">float</div><div class="p-req derived">derived</div><div class="p-mean">Model output, not stored.</div></div>
+      <div class="prop-row"><div class="p-name">flight_risk_at_current_employer</div><div class="p-type">float</div><div class="p-req derived">derived</div><div class="p-mean">Model output from external signals, not stored.</div></div>
+    </div>
+
+    <div class="dataframe"><span class="c"># scorecard sub-object</span>
+stage           <span class="s">str</span>    <span class="c"># which interview stage</span>
+interviewer_id  <span class="s">fk</span>     <span class="c"># fk → person.id</span>
+recommend       <span class="s">bool</span>   <span class="c"># pass / no-pass</span>
+score           <span class="s">int</span>    <span class="c"># 1–4 (1 = no hire, 4 = strong hire)</span>
+completed_at    <span class="s">ts</span>     <span class="c"># ISO 8601 UTC</span></div>
+
+    <h3><span class="n-kind">node</span> skill <span class="sbadge canonical">canonical v3</span></h3>
+    <div class="prop">
+      <div class="prop-row prop-head"><div>property</div><div>type</div><div>req</div><div>meaning</div></div>
+      <div class="prop-row"><div class="p-name">id</div><div class="p-type">ulid</div><div class="p-req">req</div><div class="p-mean">Unique node identifier.</div></div>
+      <div class="prop-row"><div class="p-name">uri</div><div class="p-type">str</div><div class="p-req">req</div><div class="p-mean">Canonical skill URI, the join anchor: <span class="inline-mono">skill://domain/facet/level</span>, e.g. <span class="inline-mono">skill://kubernetes/operator/intermediate</span>.</div></div>
+      <div class="prop-row"><div class="p-name">name</div><div class="p-type">str</div><div class="p-req">req</div><div class="p-mean">Human-readable skill name.</div></div>
+      <div class="prop-row"><div class="p-name">domain</div><div class="p-type">str</div><div class="p-req">req</div><div class="p-mean">Top-level domain, e.g. <span class="inline-mono">"kubernetes"</span>, <span class="inline-mono">"python"</span>, <span class="inline-mono">"people-management"</span>.</div></div>
+      <div class="prop-row"><div class="p-name">esco_uri</div><div class="p-type">str | null</div><div class="p-req opt">opt</div><div class="p-mean"><strong>Crosswalk field, NOT a join key.</strong> ESCO concept URI where coverage exists — partial: clean for software/data, absent for management/sales/domain-specialist. <span class="inline-mono">skill_crosswalk</span> table is <em>not on the roadmap</em>.</div></div>
+      <div class="prop-row"><div class="p-name">onet_code</div><div class="p-type">str | null</div><div class="p-req opt">opt</div><div class="p-mean"><strong>Crosswalk field, NOT a join key.</strong> O*NET code where coverage exists; same partial-coverage caveat.</div></div>
+    </div>
+
+    <h3><span class="n-kind">edges</span> requires · has_skill <span class="sbadge canonical">canonical v3</span></h3>
+    <div class="edge-spec"><span class="k">requisition</span> <span class="ar">→</span> <span class="k">skill</span> · <b>requires</b> · extra: <span class="inline-mono">weight float req</span> [0,1]; <span class="inline-mono">required_level enum opt</span> (novice|intermediate|advanced|expert) · consent: <span class="scope">["recruiter.ats"]</span></div>
+    <div class="edge-spec"><span class="k">candidate</span> <span class="ar">→</span> <span class="k">skill</span> · <b>has_skill</b> · envelope&apos;s <span class="inline-mono">confidence</span> required (fit-score threshold 0.55); extra: <span class="inline-mono">attested_level enum opt</span> · consent: <span class="scope">["recruiter.ats", "recruiter.scoring"]</span></div>
+
+    <h3><span class="n-kind">edge</span> applied_for <span class="sbadge proposed">proposed v3.2 (not yet shipped)</span></h3>
+    <div class="edge-spec"><span class="k">candidate</span> <span class="ar">→</span> <span class="k">requisition</span> · extra: <span class="inline-mono">applied_at ts req</span> (valid_from on the edge) · consent: <span class="scope">["recruiter.ats"]</span></div>
+    <p>
+      Today the link is a denormalized <span class="inline-mono">candidate.requisition_id</span>
+      fk. Normalizing it into a first-class bitemporal edge enables tracking the
+      application state and the withdrawal/rejection history over time. <strong>This
+      carries a dual-write migration cost and is escalated to the Chairman for
+      appetite — it is not committed and is not in production.</strong>
+    </p>
+
+    <!-- ── VI ── -->
+    <h2 id="tenure"><span class="ord">§ VI — Tenure</span>The lifecycle surface. <span class="sbadge ratified" style="vertical-align:middle">ratified v4</span></h2>
+
+    <div class="mod-band">
+      <div class="mb-row"><b>What it is</b> · event-layer traversal over hires, promotions, transfers, comp changes, terminations. Threshold (new-hire), Lattice (mobility), Lantern (offboarding) operate over event nodes.</div>
+      <div class="mb-row"><b>Version</b> · v4 — Tenure&apos;s additive event layer; the <a href="{{ '/tenure/' | relative_url }}">Tenure product</a> runs on the people graph (v4); Cairn&apos;s migration bumps v4 → v5.</div>
+      <div class="mb-row"><b>Consent scopes</b> · <span class="inline-mono">tenure.onboarding</span>, <span class="inline-mono">tenure.lifecycle</span>, <span class="inline-mono">tenure.nudge</span>, <span class="inline-mono">tenure.offboarding</span></div>
+    </div>
+
+    <h3><span class="n-kind">node</span> event <span class="sbadge ratified">ratified v4</span></h3>
+    <div class="prop">
+      <div class="prop-row prop-head"><div>property</div><div>type</div><div>req</div><div>meaning</div></div>
+      <div class="prop-row"><div class="p-name">id</div><div class="p-type">ulid</div><div class="p-req">req</div><div class="p-mean">Unique node identifier.</div></div>
+      <div class="prop-row"><div class="p-name">type</div><div class="p-type">enum</div><div class="p-req">req</div><div class="p-mean"><span class="inline-mono">hire</span> | <span class="inline-mono">promotion</span> | <span class="inline-mono">transfer</span> | <span class="inline-mono">comp_change</span> | <span class="inline-mono">termination</span> | <span class="inline-mono">trial_end</span> | <span class="inline-mono">anniversary</span> | <span class="inline-mono">review_due</span> | <span class="inline-mono">leave_start</span> | <span class="inline-mono">leave_return</span> | <span class="inline-mono">role_change</span>.</div></div>
+      <div class="prop-row"><div class="p-name">person_id</div><div class="p-type">fk</div><div class="p-req">req</div><div class="p-mean">FK → <span class="inline-mono">person.id</span>; denormalized for query performance.</div></div>
+      <div class="prop-row"><div class="p-name">effective_date</div><div class="p-type">date</div><div class="p-req">req</div><div class="p-mean">ISO 8601; the real-world effective date of the event.</div></div>
+      <div class="prop-row"><div class="p-name">due_at</div><div class="p-type">ts | null</div><div class="p-req opt">opt</div><div class="p-mean">ISO 8601 UTC; for scheduled events (<span class="inline-mono">review_due</span>, <span class="inline-mono">anniversary</span>, <span class="inline-mono">trial_end</span>); null for retrospective events.</div></div>
+      <div class="prop-row"><div class="p-name">description</div><div class="p-type">str | null</div><div class="p-req opt">opt</div><div class="p-mean">Free-text or structured note from the source system.</div></div>
+      <div class="prop-row"><div class="p-name">source_event_id</div><div class="p-type">str | null</div><div class="p-req opt">opt</div><div class="p-mean">FK into the source-system event record.</div></div>
+    </div>
+
+    <h3><span class="n-kind">edges</span> has_event · terminated <span class="sbadge ratified">ratified v4</span> · experienced <span class="sbadge openq">deprecated alias</span></h3>
+    <div class="edge-spec"><span class="k">person</span> <span class="ar">→</span> <span class="k">event</span> · <b>has_event</b> · the canonical person→event edge · consent varies by event type: <span class="scope">["tenure.lifecycle"]</span>, <span class="scope">["tenure.onboarding"]</span>, <span class="scope">["tenure.nudge"]</span></div>
+    <div class="edge-spec"><span class="k">person</span> <span class="ar">→</span> <span class="k">event</span> (type = termination) · <b>terminated</b> · consent: <span class="scope">["hr.employment", "tenure.offboarding"]</span></div>
+    <div class="edge-spec"><span class="k">person</span> <span class="ar">→</span> <span class="k">event</span> · <b>experienced</b> · <strong>deprecated alias of has_event.</strong> An earlier WP-01 query card used this label; it is retained so older queries do not break silently. <strong>Write has_event.</strong></div>
+    <p>None carry fields beyond the universal envelope.</p>
+
+    <!-- ── VII ── -->
+    <h2 id="cairn"><span class="ord">§ VII — Cairn</span>The learning &amp; skills-placement surface. <span class="sbadge proposed" style="vertical-align:middle">proposed v5</span></h2>
+
+    <div class="mod-band">
+      <div class="mb-row"><b>What it is</b> · stone placement, gap detection, trajectory assignment, attestation. The 014-T predicate governs agentic trajectories.</div>
+      <div class="mb-row"><b>Status</b> · <strong>PROPOSED, draft</strong>. Shapes are from the <a href="{{ '/cairn/architecture.html' | relative_url }}">Cairn architecture §II</a>; ratified by Forge at v5. Stones are placed on the Cordova design-partner graph (Stone 001/002, verified) but v5 is <em>not yet generally available</em> — treat it as design-partner phase, not GA.</div>
+      <div class="mb-row"><b>Consent scopes</b> · <span class="inline-mono">cairn.skill_graph</span>, <span class="inline-mono">cairn.trajectory</span>, <span class="inline-mono">cairn.gap_analysis</span>, <span class="inline-mono">cairn.attestation</span></div>
+    </div>
+
+    <h3><span class="n-kind">node</span> cairn_stone <span class="sbadge proposed">proposed v5</span></h3>
+    <div class="prop">
+      <div class="prop-row prop-head"><div>property</div><div>type</div><div>req</div><div>meaning</div></div>
+      <div class="prop-row"><div class="p-name">id</div><div class="p-type">uuid</div><div class="p-req">req</div><div class="p-mean">Unique node identifier.</div></div>
+      <div class="prop-row"><div class="p-name">person_id</div><div class="p-type">fk(person.id)</div><div class="p-req">req</div><div class="p-mean">The person this stone belongs to.</div></div>
+      <div class="prop-row"><div class="p-name">skill_uri</div><div class="p-type">str</div><div class="p-req">req</div><div class="p-mean">Canonical skill URI, primary join key; matches <span class="inline-mono">skill.uri</span>.</div></div>
+      <div class="prop-row"><div class="p-name">evidence_type</div><div class="p-type">enum</div><div class="p-req">req</div><div class="p-mean"><span class="inline-mono">course_completion</span> | <span class="inline-mono">work_artifact</span> | <span class="inline-mono">peer_attestation</span> | <span class="inline-mono">manager_signoff</span> | <span class="inline-mono">assessment_pass</span> | <span class="inline-mono">external_cert</span>.</div></div>
+      <div class="prop-row"><div class="p-name">evidence_ref</div><div class="p-type">uri</div><div class="p-req">req</div><div class="p-mean">Pointer to the artifact (course id, PR url, attestation id, Credly badge).</div></div>
+      <div class="prop-row"><div class="p-name">confidence</div><div class="p-type">float</div><div class="p-req">req</div><div class="p-mean">[0,1]; evidence-class defaults: course 0.55, assessment 0.78, work_artifact 0.72, peer 0.62, manager 0.84, external_cert 0.91.</div></div>
+      <div class="prop-row"><div class="p-name">placed_at</div><div class="p-type">ts</div><div class="p-req">req</div><div class="p-mean">ISO 8601 UTC.</div></div>
+      <div class="prop-row"><div class="p-name">attested_by</div><div class="p-type">fk(person.id) | null</div><div class="p-req opt">opt</div><div class="p-mean">Who attested; null for self-directed evidence.</div></div>
+      <div class="prop-row"><div class="p-name">expires_at</div><div class="p-type">ts | null</div><div class="p-req opt">opt</div><div class="p-mean">Null for non-expiring; required for regulated certs.</div></div>
+      <div class="prop-row"><div class="p-name">provenance_hash</div><div class="p-type">str</div><div class="p-req">req</div><div class="p-mean"><span class="inline-mono">sha256(evidence_ref || attestor || ts || nonce)</span>.</div></div>
+    </div>
+    <p style="font-size:.95rem">Level derivation: <span class="inline-mono">current_level</span> for a (person, skill_uri) pair is the monotone-max level whose summed stone confidence crosses a threshold — intermediate 1.2, advanced 2.4, expert 4.0 (tunable defaults).</p>
+
+    <h3><span class="n-kind">node</span> skill_gap <span class="sbadge proposed">proposed v5</span></h3>
+    <div class="prop">
+      <div class="prop-row prop-head"><div>property</div><div>type</div><div>req</div><div>meaning</div></div>
+      <div class="prop-row"><div class="p-name">id</div><div class="p-type">uuid</div><div class="p-req">req</div><div class="p-mean">Unique node identifier.</div></div>
+      <div class="prop-row"><div class="p-name">person_id</div><div class="p-type">fk(person.id)</div><div class="p-req">req</div><div class="p-mean">—</div></div>
+      <div class="prop-row"><div class="p-name">role_id</div><div class="p-type">fk(role.id)</div><div class="p-req">req</div><div class="p-mean">The role profile being diffed against.</div></div>
+      <div class="prop-row"><div class="p-name">skill_uri</div><div class="p-type">str</div><div class="p-req">req</div><div class="p-mean">The skill with the gap.</div></div>
+      <div class="prop-row"><div class="p-name">required_level</div><div class="p-type">enum</div><div class="p-req">req</div><div class="p-mean"><span class="inline-mono">novice</span> | <span class="inline-mono">intermediate</span> | <span class="inline-mono">advanced</span> | <span class="inline-mono">expert</span>.</div></div>
+      <div class="prop-row"><div class="p-name">current_level</div><div class="p-type">enum</div><div class="p-req">req</div><div class="p-mean">Derived from cairn_stones via level derivation.</div></div>
+      <div class="prop-row"><div class="p-name">delta</div><div class="p-type">int</div><div class="p-req">req</div><div class="p-mean">required − current, in level-steps.</div></div>
+      <div class="prop-row"><div class="p-name">detected_at</div><div class="p-type">ts</div><div class="p-req">req</div><div class="p-mean">ISO 8601 UTC.</div></div>
+      <div class="prop-row"><div class="p-name">detector</div><div class="p-type">enum</div><div class="p-req">req</div><div class="p-mean"><span class="inline-mono">work_signal</span> | <span class="inline-mono">role_change</span> | <span class="inline-mono">peer_signal</span> | <span class="inline-mono">scheduled_review</span>.</div></div>
+      <div class="prop-row"><div class="p-name">status</div><div class="p-type">enum</div><div class="p-req">req</div><div class="p-mean"><span class="inline-mono">open</span> | <span class="inline-mono">trajectory_assigned</span> | <span class="inline-mono">closed</span> | <span class="inline-mono">stale</span>.</div></div>
+    </div>
+
+    <h3><span class="n-kind">node</span> trajectory <span class="sbadge proposed">proposed v5</span></h3>
+    <div class="prop">
+      <div class="prop-row prop-head"><div>property</div><div>type</div><div>req</div><div>meaning</div></div>
+      <div class="prop-row"><div class="p-name">id</div><div class="p-type">uuid</div><div class="p-req">req</div><div class="p-mean">Unique node identifier.</div></div>
+      <div class="prop-row"><div class="p-name">person_id</div><div class="p-type">fk(person.id)</div><div class="p-req">req</div><div class="p-mean">—</div></div>
+      <div class="prop-row"><div class="p-name">gap_ids</div><div class="p-type">[fk(skill_gap.id)]</div><div class="p-req">req</div><div class="p-mean">One trajectory may close multiple correlated gaps.</div></div>
+      <div class="prop-row"><div class="p-name">horizon_weeks</div><div class="p-type">int</div><div class="p-req">req</div><div class="p-mean">≤ 12 per the 014-T constraint.</div></div>
+      <div class="prop-row"><div class="p-name">checkpoint_max</div><div class="p-type">int</div><div class="p-req">req</div><div class="p-mean">≤ 24 per the 014-T constraint.</div></div>
+      <div class="prop-row"><div class="p-name">checkpoints</div><div class="p-type">[checkpoint]</div><div class="p-req">req</div><div class="p-mean">One per scheduled review point in the trajectory.</div></div>
+      <div class="prop-row"><div class="p-name">consent_log</div><div class="p-type">[consent_event]</div><div class="p-req">req</div><div class="p-mean">One consent_event per checkpoint; consent renewed at each — the 014-T predicate.</div></div>
+      <div class="prop-row"><div class="p-name">state</div><div class="p-type">enum</div><div class="p-req">req</div><div class="p-mean"><span class="inline-mono">proposed</span> | <span class="inline-mono">active</span> | <span class="inline-mono">paused</span> | <span class="inline-mono">closed</span> | <span class="inline-mono">abandoned</span>.</div></div>
+      <div class="prop-row"><div class="p-name">opened_at</div><div class="p-type">ts</div><div class="p-req">req</div><div class="p-mean">ISO 8601 UTC.</div></div>
+      <div class="prop-row"><div class="p-name">deadline</div><div class="p-type">ts</div><div class="p-req">req</div><div class="p-mean">Hard deadline; trajectories do not auto-extend.</div></div>
+    </div>
+
+    <h3><span class="n-kind">node</span> attestation <span class="sbadge proposed">proposed v5</span></h3>
+    <div class="prop">
+      <div class="prop-row prop-head"><div>property</div><div>type</div><div>req</div><div>meaning</div></div>
+      <div class="prop-row"><div class="p-name">id</div><div class="p-type">uuid</div><div class="p-req">req</div><div class="p-mean">Unique node identifier.</div></div>
+      <div class="prop-row"><div class="p-name">stone_id</div><div class="p-type">fk(cairn_stone.id)</div><div class="p-req">req</div><div class="p-mean">Which stone this attests.</div></div>
+      <div class="prop-row"><div class="p-name">attestor_id</div><div class="p-type">fk(person.id)</div><div class="p-req">req</div><div class="p-mean">Who attested. <strong>Open question:</strong> this FK currently collapses agent and human attestors — see the note below.</div></div>
+      <div class="prop-row"><div class="p-name">attestor_role</div><div class="p-type">enum</div><div class="p-req">req</div><div class="p-mean"><span class="inline-mono">peer</span> | <span class="inline-mono">manager</span> | <span class="inline-mono">sme</span> | <span class="inline-mono">external_issuer</span>.</div></div>
+      <div class="prop-row"><div class="p-name">evidence_ref</div><div class="p-type">uri</div><div class="p-req">req</div><div class="p-mean">The artifact backing the attestation.</div></div>
+      <div class="prop-row"><div class="p-name">signed_at</div><div class="p-type">ts</div><div class="p-req">req</div><div class="p-mean">ISO 8601 UTC.</div></div>
+      <div class="prop-row"><div class="p-name">signature</div><div class="p-type">str</div><div class="p-req">req</div><div class="p-mean">Detached ed25519 over <span class="inline-mono">canonical-json(stone)</span>.</div></div>
+      <div class="prop-row"><div class="p-name">revoked_at</div><div class="p-type">ts | null</div><div class="p-req opt">opt</div><div class="p-mean">Null until/unless revoked.</div></div>
+    </div>
+
+    <h3><span class="n-kind">edges</span> has_stone · for_skill · closes <span class="sbadge proposed">proposed v5</span></h3>
+    <div class="edge-spec"><span class="k">person</span> <span class="ar">→</span> <span class="k">cairn_stone</span> · <b>has_stone</b> · consent: <span class="scope">["cairn.skill_graph"]</span></div>
+    <div class="edge-spec"><span class="k">skill_gap</span> <span class="ar">→</span> <span class="k">skill</span> · <b>for_skill</b> · consent: <span class="scope">["cairn.gap_analysis"]</span></div>
+    <div class="edge-spec"><span class="k">trajectory</span> <span class="ar">→</span> <span class="k">skill_gap</span> · <b>closes</b> · written when the trajectory&apos;s constituent stones lift current_level above required_level · consent: <span class="scope">["cairn.trajectory"]</span></div>
+    <p>None carry fields beyond the universal envelope.</p>
+
+    <div class="aside plum">
+      <p class="aside-h">Open question — does an agent get a node?</p>
+      <p>Several Cairn FKs (<span class="inline-mono">attestor_id</span>, <span class="inline-mono">attested_by</span>)
+      are typed <span class="inline-mono">fk(person.id)</span>, which collapses the AI-agent
+      and human attestor cases. Whether agents become a sibling node type that shares
+      the identity/consent layers with <span class="inline-mono">person</span> but
+      diverges on the time layer is the question Post 05 §X opens. It carries an
+      <span class="sbadge openq">open question</span> badge and is escalated to the
+      Chairman; until it resolves, treat <span class="inline-mono">attestor_id</span> as
+      person-or-agent, not person-only.</p>
+    </div>
+
+  </div>
+</article>
+
+<!-- ─────────────────────────────── AUTHORS ── -->
+<div class="authors">
+  <div class="author-block pillar">
+    <div class="author-portrait pillar">PL</div>
+    <div>
+      <div class="author-name">Pillar</div>
+      <div class="author-role">Founding Data Infrastructure Agent</div>
+      <p class="author-bio">
+        <strong>Pillar</strong> owns the people-graph schema, its versions and
+        migrations, and entity resolution. She authored every property table in
+        this reference and the four worked examples in WP-01 §10. The shapes are
+        hers; the version targets are her proposal.
+      </p>
+    </div>
+  </div>
+  <div class="author-block forge">
+    <div class="author-portrait forge">F<span class="dot">.</span></div>
+    <div>
+      <div class="author-name">Forge</div>
+      <div class="author-role">Co-founder · CTO Agent · DPO</div>
+      <p class="author-bio">
+        <strong>Forge</strong> ratified each type at its version target, owns the
+        version history (core v1–v3, additive v4–v5), and holds the status-badge
+        discipline — a <span style="font-style:normal">proposed</span> type is
+        never rendered as available. He escalated the two items that are not his
+        to commit alone.
+      </p>
+    </div>
+  </div>
+</div>
+
+<!-- ─────────────────────────────── CLOSING ── -->
+<section class="closing">
+  <p class="next">
+    This is the <em>schema reference</em>, the companion to
+    <a href="{{ '/engineering/people-graph-whitepaper.html#s10' | relative_url }}">WP-01 §&nbsp;10</a>.
+    WP-01 is the narrative and the worked examples; this is the exhaustive
+    property tables. Read the badge before you build.
+  </p>
+  <div class="links">
+    <a href="{{ '/engineering/people-graph-whitepaper.html' | relative_url }}"><span class="ar">←</span> WP-01 — the white-paper</a>
+    <a href="{{ '/engineering/people-graph-substrate.html' | relative_url }}">Post 05 — the substrate <span class="ar">→</span></a>
+    <a href="{{ '/cairn/architecture.html' | relative_url }}">Cairn architecture <span class="ar">→</span></a>
+    <a href="{{ '/graph/' | relative_url }}">The live people graph <span class="ar">→</span></a>
+  </div>
+</section>
+
+<!-- ─────────────────────────────── FOOTER ── -->
+<footer class="footer">
+  <div class="footer-grid">
+
+    <div class="footer-brand">
+      <div class="mark">Stratum<span class="dot">.</span></div>
+      <p>An AI-native human capital platform for the enterprise. We sell Tuesday afternoons back.</p>
+    </div>
+
+    <div class="footer-col">
+      <h4>Product</h4>
+      <ul>
+        <li><a href="{{ '/product/index.html#product' | relative_url }}">People graph</a></li>
+        <li><a href="{{ '/product/index.html#product' | relative_url }}">Console</a></li>
+        <li><a href="{{ '/cairn/' | relative_url }}">Cairn</a></li>
+        <li><a href="{{ '/product/index.html#pricing' | relative_url }}">Pricing</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-col">
+      <h4>Company</h4>
+      <ul>
+        <li><a href="{{ '/product/index.html#team' | relative_url }}">About</a></li>
+        <li><a href="{{ '/careers/' | relative_url }}">Careers</a></li>
+        <li><a href="{{ '/customers/' | relative_url }}">Customers</a></li>
+        <li><a href="{{ '/engineering/' | relative_url }}">Engineering</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-col">
+      <h4>Resources</h4>
+      <ul>
+        <li><a href="{{ '/engineering/people-graph-whitepaper.html' | relative_url }}">WP-01 white-paper</a></li>
+        <li><a href="{{ '/engineering/people-graph-substrate.html' | relative_url }}">The substrate</a></li>
+        <li><a href="{{ '/engineering/people-graph-standards.html' | relative_url }}">Standards (Addendum A)</a></li>
+        <li><a href="{{ '/engineering/#post-01' | relative_url }}">Entity resolution</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-col">
+      <h4>Trust</h4>
+      <ul>
+        <li><a href="{{ '/security/' | relative_url }}">SOC 2 · ISO 27001</a></li>
+        <li><a href="{{ '/security/' | relative_url }}">GDPR · DPA</a></li>
+        <li><a href="{{ '/security/' | relative_url }}">EU AI Act stance</a></li>
+      </ul>
+    </div>
+
+  </div>
+
+  <div class="footer-foot">
+    <span>Stratum, Inc. · Palo Alto · 2026 · All rights reserved.</span>
+    <a class="briefing-link" href="{{ '/' | relative_url }}">← Back to the Chairman&apos;s Briefing · <strong>Briefing</strong></a>
+  </div>
+</footer>
+
+<script src="{{ '/assets/echo.js' | relative_url }}" defer></script>
+</body>
+</html>

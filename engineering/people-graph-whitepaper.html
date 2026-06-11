@@ -510,6 +510,122 @@ p { margin: 0 0 1.15em; }
   letter-spacing: -.014em;
 }
 
+/* ── status badge vocabulary (shared with the schema-reference companion) ── */
+.sbadge {
+  font-family: var(--mono);
+  font-size: 9.5px;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  font-weight: 600;
+  padding: .12rem .42rem;
+  border-radius: 3px;
+  white-space: nowrap;
+  border: 1px solid transparent;
+  display: inline-block;
+  line-height: 1.5;
+}
+.sbadge.canonical { color: var(--moss-deep); background: rgba(74,93,58,.10); border-color: var(--moss-soft); }
+.sbadge.ratified  { color: var(--ochre-deep); background: rgba(184,101,31,.09); border-color: var(--ochre-soft); }
+.sbadge.proposed  { color: var(--plum); background: rgba(107,58,74,.08); border-color: rgba(107,58,74,.35); }
+.sbadge.openq     { color: var(--ink-2); background: rgba(14,22,38,.05); border-color: var(--paper-rule-2); }
+
+/* version/status legend block */
+.legend {
+  margin: 2.2em 0;
+  border: 1px solid var(--paper-rule-2);
+  background: var(--paper-warm);
+}
+.legend .lg-h {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: .2em;
+  text-transform: uppercase;
+  color: var(--ink-mute);
+  padding: .8rem 1rem .2rem;
+  margin: 0;
+}
+.legend .lg-row {
+  display: grid;
+  grid-template-columns: 150px 1fr;
+  gap: 1rem;
+  padding: .6rem 1rem;
+  border-top: 1px solid var(--paper-rule);
+  align-items: baseline;
+}
+.legend .lg-row:first-of-type { border-top: 0; }
+.legend .lg-def {
+  font-family: var(--serif);
+  font-size: 14.5px;
+  line-height: 1.5;
+  color: var(--ink-3-aaa);
+}
+.legend .lg-def .inline-mono { font-size: .82em; }
+@media (max-width: 640px) { .legend .lg-row { grid-template-columns: 1fr; gap: .3rem; } }
+
+/* compact module taxonomy table */
+.tax-table {
+  margin: 1.8em 0;
+  font-family: var(--mono);
+  font-size: 12px;
+  line-height: 1.5;
+  border-top: 1px solid var(--paper-rule-2);
+  border-bottom: 1px solid var(--paper-rule-2);
+}
+.tax-row {
+  display: grid;
+  grid-template-columns: 1.1fr 1.5fr 0.9fr;
+  gap: 1rem;
+  padding: .7rem 0;
+  border-bottom: 1px solid var(--paper-rule);
+  align-items: start;
+}
+.tax-row:last-child { border-bottom: 0; }
+.tax-row.tax-head {
+  font-size: 10px;
+  letter-spacing: .16em;
+  text-transform: uppercase;
+  color: var(--ink-mute);
+  border-bottom: 1px solid var(--paper-rule-2);
+}
+.tax-row .tax-mod { color: var(--ink); font-weight: 600; }
+.tax-row .tax-types { color: var(--ink-3-aaa); }
+.tax-row .tax-types .inline-mono { font-size: .82em; }
+.tax-row .tax-ver { padding-top: .05rem; }
+@media (max-width: 640px) {
+  .tax-row { grid-template-columns: 1fr; gap: .3rem; padding: .9rem 0; }
+  .tax-row.tax-head { display: none; }
+}
+
+/* worked-example wrapper */
+.wex {
+  margin: 2.2em 0;
+  padding: 1.3rem 1.4rem;
+  background: var(--paper-warm);
+  border: 1px solid var(--paper-rule);
+  border-top: 2px solid var(--pillar);
+}
+.wex .wex-k {
+  font-family: var(--mono);
+  font-size: 10.5px;
+  letter-spacing: .16em;
+  text-transform: uppercase;
+  color: var(--pillar);
+  margin: 0 0 .4rem;
+}
+.wex .wex-t {
+  font-family: var(--display);
+  font-weight: 500;
+  font-style: italic;
+  font-variation-settings: "opsz" 24, "WONK" 1;
+  font-size: 1.18rem;
+  color: var(--ink);
+  margin: 0 0 .6rem;
+  letter-spacing: -.005em;
+}
+.wex p { font-size: 1rem; line-height: 1.6; margin: 0 0 .9em; }
+.wex p:last-child { margin: 0; }
+.wex .dataframe { margin: 1.1em 0; }
+
 /* references */
 .references {
   margin-top: 3.4em;
@@ -831,8 +947,9 @@ p { margin: 0 0 1.15em; }
     </div>
     <div class="vrow">
       <span class="mk">Version &amp; status</span>
-      <b>WP-01 · v1.0</b> · published T+90d<br />
+      <b>WP-01 · v1.1</b> · published T+90d<br />
       Dateline 2026-06-10 (T+90d era)<br />
+      v1.1 adds &sect;&nbsp;10 (graph composition) + the <a href="{{ '/engineering/people-graph-schema-reference.html' | relative_url }}">schema reference</a><br />
       Companion to <b>Engineering Post 05</b> &amp; <b>Addendum A</b><br />
       Data layer <b>ratified by Pillar</b> at T+90d<br />
       Status: <b>citable</b> · supersedes nothing
@@ -886,6 +1003,7 @@ p { margin: 0 0 1.15em; }
     <li><a href="#s7">Standards-conformance posture</a></li>
     <li><a href="#s8">What this repo shows vs. what production runs</a></li>
     <li><a href="#s9">Certification status, stated exactly</a></li>
+    <li><a href="#s10">How the graph is composed — taxonomy &amp; worked examples</a></li>
   </ol>
 </nav>
 
@@ -1119,8 +1237,8 @@ p { margin: 0 0 1.15em; }
       </div>
       <div class="query-card">
         <div class="qc-h">Tenure</div>
-        <p>Event-layer traversal: the lifecycle of a person across hires, promotions, transfers, exits — a walk over <span class="inline-mono">event</span> nodes.</p>
-        <span class="qc-q">MATCH (p)-[:experienced]-&gt;(e:event) ORDER BY valid_from</span>
+        <p>Event-layer traversal: the lifecycle of a person across hires, promotions, transfers, exits — a walk over <span class="inline-mono">event</span> nodes via the canonical <span class="inline-mono">has_event</span> edge (the <span class="inline-mono">experienced</span> label is a deprecated alias; §10).</p>
+        <span class="qc-q">MATCH (p)-[:has_event]-&gt;(e:event) ORDER BY valid_from</span>
       </div>
       <div class="query-card">
         <div class="qc-h">Cairn</div>
@@ -1325,6 +1443,338 @@ p { margin: 0 0 1.15em; }
       one to quote in a procurement conversation.
     </p>
 
+    <!-- ─────────────────────────── 10 ── -->
+    <h2 id="s10"><span class="ord">§ 10 — How the graph is composed</span>The taxonomy a customer builds against, with worked examples.</h2>
+
+    <span class="attrib both"><span class="dot"></span>Taxonomy &amp; examples: Pillar · Ratification, version history &amp; conformance: Forge</span>
+
+    <p>
+      The sections above are the architecture. This one is the
+      <em>reference</em>: the node and edge types an engineering customer
+      builds queries against, the universal envelope every edge carries, the
+      version each type was ratified at, and four worked examples with real
+      values so the shapes are not abstract. Pillar authored the schema, the
+      property tables, and the examples; I ratified the types at their version
+      targets and own the status discipline below. The exhaustive
+      per-property tables for every module live in the companion
+      <a href="{{ '/engineering/people-graph-schema-reference.html' | relative_url }}">people-graph
+      schema reference</a> &mdash; this section is the overview and the worked
+      examples that make it concrete. <strong>Read the status badge on every
+      type before you build against it.</strong> A type marked
+      <span class="sbadge proposed">proposed</span> is not yet shipped; treating
+      it as available is a support ticket you write for yourself.
+    </p>
+
+    <h3>The status vocabulary, and why we do not round it up</h3>
+
+    <div class="legend">
+      <p class="lg-h">Status legend — every node, edge &amp; property below carries exactly one</p>
+      <div class="lg-row">
+        <div><span class="sbadge canonical">canonical vN</span></div>
+        <div class="lg-def">Ratified and in production at schema version <span class="inline-mono">vN</span>. Build against it freely.</div>
+      </div>
+      <div class="lg-row">
+        <div><span class="sbadge ratified">ratified vX.Y</span></div>
+        <div class="lg-def">Ratified at this version as a formal spec of a shape that already exists, or as an additive layer that ships without rewriting an existing edge. Stable to build against; the version tells you the minimum graph version that carries it.</div>
+      </div>
+      <div class="lg-row">
+        <div><span class="sbadge proposed">proposed vX.Y (not yet shipped)</span></div>
+        <div class="lg-def">A shape we intend to ship at the named version. <strong>Not in production today.</strong> Do not build against it as if it were available — the migration may still change it, and one of these (<span class="inline-mono">applied_for</span>) is pending a Chairman appetite call.</div>
+      </div>
+      <div class="lg-row">
+        <div><span class="sbadge openq">open question</span></div>
+        <div class="lg-def">A known gap we are naming rather than papering over. No shape is committed; the FK or edge may be union-typed later.</div>
+      </div>
+    </div>
+
+    <h3>The version history, core and additive</h3>
+
+    <p>
+      One coherent history, so a customer sees a single timeline rather than
+      three documents disagreeing. <strong>v1, v2, v3 are the <em>core</em>
+      migrations</strong> &mdash; graph rewrites, the lineage that ends with
+      bitemporality made first-class in the v2&rarr;v3 migration
+      (<a href="{{ '/engineering/people-graph-substrate.html' | relative_url }}">Post 05 §VII</a>).
+      When the substrate says &ldquo;three schema versions,&rdquo; it counts
+      these three rewrites. <strong>v4 and v5 are <em>additive extension
+      layers</em></strong>: they introduce new node and edge types that ride on
+      top of v3 without touching an existing edge, so they are not rewrites and
+      are not counted among the &ldquo;three.&rdquo;
+    </p>
+
+    <div class="std-table">
+      <div class="std-row std-head">
+        <div>Version</div><div>Status</div><div>What it introduced</div>
+      </div>
+      <div class="std-row">
+        <div class="std-name">v1 → v2 → v3<span class="std-ref">core · graph rewrites</span></div>
+        <div class="std-stance adopt">Canonical · shipped</div>
+        <div class="std-note">The identity-as-edge, claim, structure, requisition/candidate/skill layers, and the bitemporal promotion (v2→v3). This is the production substrate §§2–6 describe.</div>
+      </div>
+      <div class="std-row">
+        <div class="std-name">v3.2<span class="std-ref">additive · structure</span></div>
+        <div class="std-stance inform">Ratified · part proposed</div>
+        <div class="std-note">Formal spec of the <span class="inline-mono">org_unit</span> node and the full <span class="inline-mono">requisition</span>/<span class="inline-mono">candidate</span>/<span class="inline-mono">skill</span> property tables that already exist in v3, plus the <span class="inline-mono">applied_for</span> edge as <span class="sbadge proposed">proposed</span> (not yet shipped).</div>
+      </div>
+      <div class="std-row">
+        <div class="std-name">v4<span class="std-ref">additive · Tenure event layer</span></div>
+        <div class="std-stance adopt">Ratified · shipped</div>
+        <div class="std-note">The <span class="inline-mono">event</span> node and <span class="inline-mono">has_event</span> / <span class="inline-mono">terminated</span> edges. Tenure&apos;s event layer; the people graph the <a href="{{ '/tenure/' | relative_url }}">Tenure</a> product runs on is labelled v4. Cairn&apos;s migration bumps v4 → v5.</div>
+      </div>
+      <div class="std-row">
+        <div class="std-name">v5<span class="std-ref">additive · Cairn</span></div>
+        <div class="std-stance diverge">Proposed · draft</div>
+        <div class="std-note">The <span class="inline-mono">cairn_stone</span> / <span class="inline-mono">skill_gap</span> / <span class="inline-mono">trajectory</span> / <span class="inline-mono">attestation</span> nodes and the <span class="inline-mono">has_stone</span> / <span class="inline-mono">for_skill</span> / <span class="inline-mono">closes</span> edges, per the <a href="{{ '/cairn/architecture.html' | relative_url }}">Cairn architecture §II</a>. Draft; in design-partner use on the Cordova graph, not yet generally available.</div>
+      </div>
+    </div>
+
+    <h3>The universal edge envelope — stated once</h3>
+
+    <p>
+      Every edge in the graph carries these fields in addition to its own
+      edge-specific properties. They are defined here once and not repeated per
+      type. <span class="inline-mono">valid_from</span>/<span class="inline-mono">valid_to</span>
+      are world-truth time; <span class="inline-mono">tx_from</span>/<span class="inline-mono">tx_to</span>
+      are system-knowledge time (§3). A query that does not bind both axes may
+      be right for one reading of &ldquo;truth&rdquo; and wrong for the other.
+      <span class="inline-mono">consent_scopes</span> is a traversal predicate,
+      not a filter (§4): an edge whose scopes the caller&apos;s purpose token
+      cannot satisfy is structurally unreachable during path expansion.
+    </p>
+
+    <div class="dataframe"><span class="c">// universal edge envelope — on every edge, canonical v3</span>
+<span class="k">id</span>                <span class="s">ulid</span>        <span class="c">// ULID-ordered for pagination</span>
+<span class="k">type</span>              <span class="s">str</span>         <span class="c">// the edge label (identity, reports_to, has_event…)</span>
+<span class="k">from</span>              <span class="s">str</span>         <span class="c">// node reference: "nodetype:ulid"</span>
+<span class="k">to</span>                <span class="s">str</span>         <span class="c">// node reference: "nodetype:ulid"</span>
+<span class="k">valid_from</span>        <span class="s">ts</span>          <span class="c">// when the fact became true in the world</span>
+<span class="k">valid_to</span>          <span class="s">ts | null</span>   <span class="c">// null = open interval (fact currently holds)</span>
+<span class="k">tx_from</span>           <span class="s">ts</span>          <span class="c">// when the system first knew of this edge</span>
+<span class="k">tx_to</span>             <span class="s">ts | null</span>   <span class="c">// null = this version not yet superseded</span>
+<span class="k">source</span>            <span class="s">str</span>         <span class="c">// origin system + event, e.g. "workday:position_assignment"</span>
+<span class="k">source_record_id</span>  <span class="s">str | null</span>  <span class="c">// fk into source_record (optional)</span>
+<span class="k">confidence</span>        <span class="s">float|null</span>  <span class="c">// [0,1]; required on identity and has_skill, null for structural edges</span>
+<span class="k">consent_scopes</span>    <span class="s">[str]</span>       <span class="c">// traversal gated on these — required</span></div>
+    <div class="dataframe-caption">Fig. 3 · The envelope every edge carries. Per-type tables in the companion add only the edge-specific fields.</div>
+
+    <h3>Module taxonomy — the overview</h3>
+
+    <p>
+      Stratum is one graph traversed by five surfaces. Four contribute node and
+      edge types; Ember contributes none &mdash; it is a read-only traversal
+      surface gated by the same consent predicate as every other query. The
+      exhaustive property tables are in the companion reference; this is the map.
+    </p>
+
+    <div class="tax-table">
+      <div class="tax-row tax-head">
+        <div>Module</div><div>Node / edge types it contributes</div><div>Version</div>
+      </div>
+      <div class="tax-row">
+        <div class="tax-mod">Shared / identity</div>
+        <div class="tax-types"><span class="inline-mono">source_record</span>, <span class="inline-mono">person</span>, <span class="inline-mono">claim</span> nodes; <span class="inline-mono">person_current</span> view; <span class="inline-mono">identity</span> edge</div>
+        <div class="tax-ver"><span class="sbadge canonical">canonical v3</span></div>
+      </div>
+      <div class="tax-row">
+        <div class="tax-mod">Console<span style="display:block;font-weight:400;color:var(--ink-mute);font-size:10px">people analytics</span></div>
+        <div class="tax-types"><span class="inline-mono">role</span> node, <span class="inline-mono">org_unit</span> node; <span class="inline-mono">employed_by</span>, <span class="inline-mono">has_role</span>, <span class="inline-mono">reports_to</span>, <span class="inline-mono">has_title</span> edges</div>
+        <div class="tax-ver"><span class="sbadge canonical">canonical v3</span><br /><span class="sbadge ratified">org_unit ratified v3.2</span></div>
+      </div>
+      <div class="tax-row">
+        <div class="tax-mod">Recruiter<span style="display:block;font-weight:400;color:var(--ink-mute);font-size:10px">ATS</span></div>
+        <div class="tax-types"><span class="inline-mono">requisition</span>, <span class="inline-mono">candidate</span>, <span class="inline-mono">skill</span> nodes; <span class="inline-mono">requires</span>, <span class="inline-mono">has_skill</span> edges; <span class="inline-mono">applied_for</span> edge</div>
+        <div class="tax-ver"><span class="sbadge canonical">canonical v3</span><br /><span class="sbadge proposed">applied_for proposed v3.2</span></div>
+      </div>
+      <div class="tax-row">
+        <div class="tax-mod">Tenure<span style="display:block;font-weight:400;color:var(--ink-mute);font-size:10px">lifecycle</span></div>
+        <div class="tax-types"><span class="inline-mono">event</span> node; <span class="inline-mono">has_event</span>, <span class="inline-mono">terminated</span> edges (<span class="inline-mono">experienced</span> = deprecated alias of <span class="inline-mono">has_event</span>)</div>
+        <div class="tax-ver"><span class="sbadge ratified">ratified v4</span></div>
+      </div>
+      <div class="tax-row">
+        <div class="tax-mod">Cairn<span style="display:block;font-weight:400;color:var(--ink-mute);font-size:10px">skills / stones</span></div>
+        <div class="tax-types"><span class="inline-mono">cairn_stone</span>, <span class="inline-mono">skill_gap</span>, <span class="inline-mono">trajectory</span>, <span class="inline-mono">attestation</span> nodes; <span class="inline-mono">has_stone</span>, <span class="inline-mono">for_skill</span>, <span class="inline-mono">closes</span> edges</div>
+        <div class="tax-ver"><span class="sbadge proposed">proposed v5</span></div>
+      </div>
+      <div class="tax-row">
+        <div class="tax-mod">Ember<span style="display:block;font-weight:400;color:var(--ink-mute);font-size:10px">agentic search</span></div>
+        <div class="tax-types"><em>No schema types.</em> A read-only traversal surface over the existing graph, gated by the same consent predicate.</div>
+        <div class="tax-ver">—</div>
+      </div>
+    </div>
+
+    <div class="aside">
+      <p class="aside-h">On the repo fixtures, restated for this section</p>
+      <p>The flat records in <span class="inline-mono">/console/data/people.json</span>,
+      <span class="inline-mono">requisitions.json</span>, and
+      <span class="inline-mono">candidates.json</span> are valid-time-only
+      projection snapshots for the Tessera demo (§8). Several of their fields are
+      computed at projection time, not stored graph properties &mdash;
+      <span class="inline-mono">flight_risk</span>,
+      <span class="inline-mono">comp_ratio</span>,
+      <span class="inline-mono">days_open</span>,
+      <span class="inline-mono">sla_status</span>,
+      <span class="inline-mono">predicted_offer_acceptance_probability</span>.
+      The companion reference marks stored vs. derived for every field.</p>
+    </div>
+
+    <h3>Four worked examples, with real values</h3>
+
+    <p>
+      Every property used below appears in a module table in the companion
+      reference; every value is traceable to a specific field. The examples are
+      Pillar&apos;s, finalized for this paper.
+    </p>
+
+    <div class="wex">
+      <p class="wex-k">Example 1 · identity · canonical v3</p>
+      <p class="wex-t">Noa Lindqvist resolves from two source records.</p>
+      <p>Noa appears in Greenhouse (an ATS candidate who accepted three years
+      ago) and Workday (current employee). The resolver matches at confidence
+      <strong>0.991</strong> &mdash; above <span class="inline-mono">&tau;&nbsp;=&nbsp;0.93</span>,
+      so it auto-merges (§5). Two <span class="inline-mono">source_record</span>
+      nodes survive; one <span class="inline-mono">person</span> node is created;
+      one <span class="inline-mono">identity</span> edge per source points at it.
+      Removing either edge dissolves that source&apos;s contribution without
+      deleting anything &mdash; the merge is reversible by construction (§2).</p>
+      <div class="dataframe"><span class="c">// Workday source → person, the higher-confidence anchor</span>
+(<span class="k">sr:source_record</span> {system:<span class="s">"workday"</span>, external_id:<span class="s">"WD-44213"</span>})
+  -[<span class="em">:identity</span> {
+      confidence:      <span class="n">0.991</span>,
+      matcher_version: <span class="s">"er-v3.2"</span>,
+      valid_from:      <span class="s">"2023-01-17T11:14:09Z"</span>, valid_to: <span class="s">null</span>,
+      tx_from:         <span class="s">"2023-01-17T11:14:09Z"</span>, tx_to:   <span class="s">null</span>,
+      reviewer_id:     <span class="s">null</span>,    <span class="c">// auto-merged above the band</span>
+      review_pending:  <span class="n">false</span>,
+      consent_scopes:  [<span class="s">"hr.identity"</span>]
+  }]-&gt;(<span class="k">p:person</span> {id:<span class="s">"per_8f31…"</span>})
+
+<span class="c">// canonical attributes are claims, anchored to the Workday record</span>
+<span class="k">claim</span> {attribute:<span class="s">"display_name"</span>, value:<span class="s">"Noa Lindqvist"</span>, confidence:<span class="n">0.991</span>}
+<span class="k">claim</span> {attribute:<span class="s">"email"</span>,        value:<span class="s">"noa.lindqvist@tessera.example"</span>}
+<span class="c">// person_current resolves to the highest-confidence claim per attribute</span></div>
+    </div>
+
+    <div class="wex">
+      <p class="wex-k">Example 2 · bitemporal reorg · org_unit ratified v3.2</p>
+      <p class="wex-t">The Data team is elevated to its own org_unit — backdated.</p>
+      <p>On 2025-04-01 the &ldquo;Engineering · Data&rdquo; team becomes its own
+      unit, &ldquo;Engineering · Data Platform.&rdquo; The change is entered in
+      Workday on 2025-04-14, backdated to April 1. We close the old
+      <span class="inline-mono">employed_by</span> edge and open a new one. The
+      bitemporal fields are what make both a then-correct and a now-correct
+      answer reconstructable (§3): a Console query run on April 10 correctly
+      returned the old unit (the new edge&apos;s <span class="inline-mono">tx_from</span>
+      is April 14); the same query today returns Data Platform.</p>
+      <div class="dataframe"><span class="c">// new employed_by edge — backdated effective date, later knowledge</span>
+<span class="k">org_unit</span> {id:<span class="s">"ou_01HWKQ9…"</span>, name:<span class="s">"Engineering · Data Platform"</span>,
+          unit_type:<span class="s">"team"</span>, parent_id:<span class="s">"ou_01HWK…"</span>, tenant_id:<span class="s">"tessera-bank"</span>}
+
+(<span class="k">p:person</span> {id:<span class="s">"per_8f31…"</span>})  <span class="c">// Noa</span>
+  -[<span class="em">:employed_by</span> {
+      valid_from: <span class="s">"2025-04-01T00:00:00Z"</span>,  <span class="c">// true in the world (backdated)</span>
+      valid_to:   <span class="s">null</span>,                       <span class="c">// open — current</span>
+      tx_from:    <span class="s">"2025-04-14T10:00:00Z"</span>,  <span class="c">// when we knew (Workday entry)</span>
+      tx_to:      <span class="s">null</span>,
+      source:     <span class="s">"workday:position_assignment"</span>,
+      consent_scopes: [<span class="s">"hr.employment"</span>, <span class="s">"hr.org_structure"</span>]
+  }]-&gt;(<span class="k">o:org_unit</span> {id:<span class="s">"ou_01HWKQ9…"</span>})</div>
+    </div>
+
+    <div class="wex">
+      <p class="wex-k">Example 3 · candidate matching · canonical v3</p>
+      <p class="wex-t">REQ-00053 scores candidates by skill-graph overlap.</p>
+      <p>A Staff Software Engineer requisition (IC5, London) carries weighted
+      <span class="inline-mono">requires</span> edges to skill nodes. The
+      Recruiter fit-score traversal walks from the requisition to its required
+      skills, then to candidates who hold those skills above the evidence
+      threshold, summing <span class="inline-mono">has_skill.confidence × requires.weight</span>.
+      The <span class="inline-mono">skill</span> node&apos;s own
+      <span class="inline-mono">skill://…</span> URI is the join anchor;
+      <span class="inline-mono">esco_uri</span>/<span class="inline-mono">onet_code</span>
+      are optional, partial crosswalk fields, never join keys.</p>
+      <div class="dataframe"><span class="c">// REQ-00053 fit-score traversal — Recruiter</span>
+<span class="k">MATCH</span> (req:requisition {id: <span class="s">"REQ-00053"</span>})-[<span class="em">:requires</span>]-&gt;(s:skill)
+<span class="k">MATCH</span> (c:candidate)-[h<span class="em">:has_skill</span>]-&gt;(s)
+<span class="k">WHERE</span> h.confidence &gt;= <span class="n">0.55</span>
+<span class="k">WITH</span> c, sum(h.confidence * s.weight) <span class="k">AS</span> fit_score
+<span class="k">RETURN</span> c, fit_score
+<span class="k">ORDER BY</span> fit_score <span class="k">DESC</span>
+<span class="k">LIMIT</span> <span class="n">50</span>
+<span class="c">// requires{weight:0.35, required_level:"advanced"} → skill://apache-spark/streaming/advanced</span>
+<span class="c">// requires{weight:0.30, required_level:"intermediate"} → skill://python/data-engineering/intermediate</span></div>
+    </div>
+
+    <div class="wex">
+      <p class="wex-k">Example 4 · onboarding packet · has_event ratified v4</p>
+      <p class="wex-t">Tenure assembles Noa&apos;s onboarding window — two traversals.</p>
+      <p>Tenure&apos;s Threshold agent needs the lifecycle events due in the next
+      14 days and the org-structure context as of the start date. Both
+      traversals bind both bitemporal axes (§3) and the consent predicate (§4).
+      The first walks <span class="inline-mono">has_event</span> &mdash; the
+      canonical person→event edge; <span class="inline-mono">experienced</span> is
+      a deprecated alias, kept only so older queries do not silently break. A
+      customer should write <span class="inline-mono">has_event</span>.</p>
+      <div class="dataframe"><span class="c">// 1 — lifecycle events due in the next 14 days (consent-gated)</span>
+<span class="k">MATCH</span> (p:person {id: <span class="s">"per_8f31…"</span>})-[<span class="em">:employed_by</span>]-&gt;(o:org_unit {tenant_id: <span class="s">"tessera-bank"</span>})
+<span class="k">MATCH</span> (p)-[e<span class="em">:has_event</span>]-&gt;(ev:event)
+<span class="k">WHERE</span> ev.due_at <span class="k">BETWEEN</span> $today <span class="k">AND</span> $today + <span class="s">"P14D"</span>
+  <span class="k">AND</span> ev.type <span class="k">IN</span> [<span class="s">"anniversary"</span>, <span class="s">"review_due"</span>, <span class="s">"trial_end"</span>]
+  <span class="k">AND</span> <span class="s">"tenure.nudge"</span> <span class="k">IN</span> e.consent_scopes
+<span class="k">RETURN</span> p, ev <span class="k">ORDER BY</span> ev.due_at
+
+<span class="c">// 2 — who Noa reports to + her role, as of her start date (both axes bound)</span>
+<span class="k">MATCH</span> (p:person {id: <span class="s">"per_8f31…"</span>})-[r<span class="em">:reports_to</span>]-&gt;(mgr:person)
+<span class="k">WHERE</span> r.valid_from &lt;= <span class="s">"2023-01-17T00:00:00Z"</span>
+  <span class="k">AND</span> (r.valid_to <span class="k">IS NULL</span> <span class="k">OR</span> r.valid_to &gt; <span class="s">"2023-01-17T00:00:00Z"</span>)
+  <span class="k">AND</span> r.tx_from &lt;= <span class="s">"2023-01-17T12:00:00Z"</span>
+<span class="k">WITH</span> p, mgr
+<span class="k">MATCH</span> (p)-[hr<span class="em">:has_role</span>]-&gt;(role:role)
+<span class="k">WHERE</span> hr.valid_from &lt;= <span class="s">"2023-01-17T00:00:00Z"</span>
+  <span class="k">AND</span> (hr.valid_to <span class="k">IS NULL</span> <span class="k">OR</span> hr.valid_to &gt; <span class="s">"2023-01-17T00:00:00Z"</span>)
+<span class="k">RETURN</span> mgr.id <span class="k">AS</span> manager, role.title, role.level, role.function</div>
+    </div>
+
+    <p class="pull">
+      A schema a customer builds against is a contract. The version badge is the
+      clause that says when the contract takes effect — and we do not round it up.
+    </p>
+
+    <h3>The six decisions this section resolved</h3>
+
+    <p>
+      Pillar surfaced six open decisions before this could be published. As CTO
+      and the named DPO I resolved the four that are mine; two carry a clear
+      recommendation to the Chairman rather than a silent commitment.
+    </p>
+
+    <ul>
+      <li><strong>The v4 gap (resolved).</strong> v4 <em>is</em> Tenure&apos;s event layer — not merely inferred: the <a href="{{ '/tenure/' | relative_url }}">Tenure product</a> already runs on &ldquo;the people graph (v4),&rdquo; and Cairn&apos;s migration script bumps v4 → v5. The version history above is now consistent across the substrate, Cairn, and this paper: v1–v3 core, v4–v5 additive.</li>
+      <li><strong><span class="inline-mono">has_event</span> vs. <span class="inline-mono">experienced</span> (resolved).</strong> <span class="inline-mono">has_event</span> is canonical (it is what the substrate and all four examples use). <span class="inline-mono">experienced</span> is a deprecated alias, documented as such, retained so older queries do not break silently. The §6 query card now uses <span class="inline-mono">has_event</span>.</li>
+      <li><strong><span class="inline-mono">org_unit</span> status (resolved).</strong> v3.2 is the <em>formal specification of an existing structure-layer node</em> — <span class="inline-mono">org_unit</span> was already named canonical in §1; this gives it a ratified shape. <em>Recommendation to the Chairman:</em> run a production-instance reconciliation of any divergent <span class="inline-mono">org_unit</span> shapes before this goes GA, since the spec is being published as authoritative.</li>
+      <li><strong><span class="inline-mono">applied_for</span> normalization (escalated).</strong> Today the candidate→requisition link is a denormalized <span class="inline-mono">candidate.requisition_id</span> fk. Normalizing it into a first-class bitemporal edge has a dual-write migration cost. Published here as <span class="sbadge proposed">proposed v3.2 (not yet shipped)</span>. <em>Recommendation to the Chairman: confirm appetite for the migration before we commit it.</em></li>
+      <li><strong><span class="inline-mono">skill_crosswalk</span> table (resolved).</strong> <strong>Not on the roadmap.</strong> <span class="inline-mono">esco_uri</span> and <span class="inline-mono">onet_code</span> stay optional, partial-coverage crosswalk fields, never join keys; the <span class="inline-mono">skill://…</span> URI is the anchor. We are not promising comprehensive crosswalk coverage we do not intend to build.</li>
+      <li><strong>The <span class="inline-mono">agent</span> node type (open question, escalated).</strong> Named as a known gap, not deferred silently: several Cairn FKs (<span class="inline-mono">attestor_id</span>) currently collapse agent and human into <span class="inline-mono">fk(person.id)</span>. Whether agents get a sibling node type that shares identity/consent but diverges on the time layer is the question Post 05 §X opens; it is a Chairman/founder-vote-level decision and carries an <span class="sbadge openq">open question</span> badge until then.</li>
+    </ul>
+
+    <div class="aside plum">
+      <p class="aside-h">Escalated to the Chairman</p>
+      <p>Two items above are not mine to commit alone: the <span class="inline-mono">applied_for</span>
+      migration appetite (a dual-write window with a real cost), and the
+      <span class="inline-mono">agent</span> node-type decision (it touches the
+      Compact-level model of who is an actor). Both publish honestly today — one
+      as <span class="sbadge proposed">proposed</span>, one as
+      <span class="sbadge openq">open question</span> — so a customer is never
+      misled while the calls are pending.</p>
+    </div>
+
+    <p>
+      The full per-property tables for every type above — required/optional flags,
+      enums, stored-vs-derived markers, and the consent scopes each edge reads —
+      are in the companion
+      <a href="{{ '/engineering/people-graph-schema-reference.html' | relative_url }}">people-graph
+      schema reference</a>. This section is the overview that section expands.
+    </p>
+
     <!-- ─────────────────────────── REFERENCES ── -->
     <div class="references">
       <div class="ref-h">References</div>
@@ -1334,7 +1784,7 @@ p { margin: 0 0 1.15em; }
         <li>R. T. Snodgrass, <em>Developing Time-Oriented Database Applications in SQL</em>, Morgan Kaufmann, 1999. The bitemporal foundations underneath §3 (valid-time vs. transaction-time).</li>
         <li>NYC Local Law 144 (Automated Employment Decision Tools), effective July 2023; EU AI Act, high-risk employment provisions, effective 2 August 2026. The decision-provenance requirements §§4 and 7 anticipate.</li>
         <li>SCIM 2.0: IETF RFC 7643 (Core Schema) and RFC 7644 (Protocol), 2015. The provisioning interface adopted at the connector boundary (§2).</li>
-        <li>Companion artifacts: Engineering <a href="{{ '/engineering/people-graph-substrate.html' | relative_url }}">Post 05 — the substrate</a>; <a href="{{ '/engineering/people-graph-standards.html' | relative_url }}">Addendum A — the conformance map</a>; <a href="{{ '/engineering/#post-01' | relative_url }}">Post 01 — entity resolution</a>; <a href="{{ '/cairn/architecture.html' | relative_url }}">Cairn architecture</a>; the <a href="{{ '/security/' | relative_url }}">security architecture document</a>; and the live graph at <a href="{{ '/graph/' | relative_url }}">/graph/</a>. Forthcoming (Pillar): a v3.x W3C&nbsp;Org/schema.org crosswalk and a connector-boundary spec.</li>
+        <li>Companion artifacts: Engineering <a href="{{ '/engineering/people-graph-substrate.html' | relative_url }}">Post 05 — the substrate</a>; <a href="{{ '/engineering/people-graph-standards.html' | relative_url }}">Addendum A — the conformance map</a>; <a href="{{ '/engineering/#post-01' | relative_url }}">Post 01 — entity resolution</a>; <a href="{{ '/cairn/architecture.html' | relative_url }}">Cairn architecture</a>; the <a href="{{ '/security/' | relative_url }}">security architecture document</a>; and the live graph at <a href="{{ '/graph/' | relative_url }}">/graph/</a>; and the <a href="{{ '/engineering/people-graph-schema-reference.html' | relative_url }}">people-graph schema reference</a> (the exhaustive per-module property tables, companion to &sect;&nbsp;10). Forthcoming (Pillar): a v3.x W3C&nbsp;Org/schema.org crosswalk and a connector-boundary spec.</li>
       </ol>
     </div>
 
@@ -1384,6 +1834,7 @@ p { margin: 0 0 1.15em; }
   <div class="links">
     <a href="{{ '/engineering/' | relative_url }}"><span class="ar">←</span> Engineering index</a>
     <a href="{{ '/engineering/people-graph-substrate.html' | relative_url }}">Post 05 — the substrate <span class="ar">→</span></a>
+    <a href="{{ '/engineering/people-graph-schema-reference.html' | relative_url }}">Schema reference <span class="ar">→</span></a>
     <a href="{{ '/engineering/people-graph-standards.html' | relative_url }}">Addendum A — standards <span class="ar">→</span></a>
     <a href="{{ '/graph/' | relative_url }}">The live people graph <span class="ar">→</span></a>
   </div>
