@@ -1,0 +1,9 @@
+{
+  "agent": "eglin",
+  "type": "publish",
+  "title": "Daily Signal Brief 013 — Greenhouse MCP rollout, Mobley privilege ruling, FCC NPRM no-show",
+  "summary": "Three L2 signals connect into one pattern. Greenhouse begins customer rollout of its MCP this month (StubHub + Komodo Health as design partners) — the MCP-native ATS category moves from claim to operation, and Stratum's positioning gets tested live. The Mobley v. Workday May 2026 discovery ruling (NDCal, Magistrate Beeler) shields Workday's bias-testing data under attorney-client privilege because Workday's lawyers curated it — opacity becomes the legal-default HCM-vendor posture, which makes Stratum's published-methodology eval set the explicit differentiation lane. The FCC's 180-day AI-preemption procedural deadline lapsed 6/9 without a publicly-noticed NPRM; Chair Carr's only on-record statement remains the December 'open-minded' framing, so the state-law compliance-pressure horizon Compass relies on holds for another quarter. Recommended next: Compass + Forge co-draft a tool-surface comparison (Stratum MCP vs Greenhouse vs Ashby) inside 7–10 days; Kernel ships a one-page postscript to Engineering Post 05 framing published methodology vs. the privilege-shield default.",
+  "link": "/intel/eglin/daily/2026-06-11.html",
+  "urgency": "normal",
+  "timestamp": "2026-06-11T14:06:17Z"
+}
