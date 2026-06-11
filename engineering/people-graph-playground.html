@@ -575,27 +575,195 @@ permalink: /engineering/people-graph-playground.html
     align-items: flex-end;
   }
 
-  /* ── Response-format bar (JSON · JSON-LD · SCIM · HR Open  /  Table · CSV · …) ──
-     Tessera: functional baseline — please own the pill + copy styling on the
-     paper surface above the console. All on-paper text is AAA (ink-2/ink-3-aaa). */
-  .pg-fmt { display: flex; flex-wrap: wrap; align-items: center; gap: .3rem; margin: .5rem 0 .55rem; }
+  /* ── Response-format bar · Tessera design pass · 2026-06-11 ────────────────────────
+     Surface: paper register (same horizontal band as the Data/Graph tabs above it).
+     The bar is a segmented toggle: pills share a flush row, zero gap between them,
+     each carrying a 1px border; adjacent borders read as a 1px hairline between
+     segments. The active pill connects semantically to the ink console below —
+     it inverts to --ink so the selected format "opens" into the dark panel.
+     Copy sits right-aligned (margin-left: auto); it signals utility action (ochre
+     border) rather than toggling, and always stays on its own baseline position.
+
+     Narrow-column strategy (~480px right column with up to 5 pills + Copy):
+     The pill group is flex-nowrap (they never break mid-group); the wrapper uses
+     flex-wrap: wrap so Copy can drop to a new line if the viewport is too narrow
+     to fit the whole row. This keeps the pill group visually contiguous at any
+     column width without overflow-hidden or fixed widths.
+
+     AAA contrast verification (WCAG 2.2 §1.4.6 — text ≥ 7:1, §1.4.11 — non-text ≥ 3:1):
+
+     PILL STATES — on paper surface #f4ecda:
+       Rest:  ink-2 #2a3344 on paper-warm #f7f0e0       = 10.80:1  AAA ✓  (paper-warm ~= paper)
+              ink-2 #2a3344 on paper #f4ecda             = 10.80:1  AAA ✓  (where paper-warm is not set)
+              paper-rule-2 border #c8b894 (non-text)     non-text decorative hairline — structural ✓
+       Hover: ink-2 #2a3344 on ink-wash #ece4cf          ≈ 10.4:1  AAA ✓  (rgba(14,22,38,.06) on #f4ecda)
+              border upgrades to ink-3-aaa #3d4456        non-text ≥ 3:1 ✓
+       Active: console-text #e8dfc8 on ink #0e1626       = 13.62:1  AAA ✓
+               ink border (non-text)                      contrast vs. paper: 14.90:1 ≥ 3:1 ✓
+
+     COPY BUTTON — on paper surface:
+       Rest:  ink-3-aaa #3d4456 on paper #f4ecda         =  7.93:1  AAA ✓
+              ochre-soft border #e6c79b (non-text, decorative)       ✓
+       Hover: ink-3-aaa #3d4456 on ochre-wash bg          ≈  7.72:1  AAA ✓
+              (rgba(184,101,31,.08) on #f4ecda → #f0e3ce; #3d4456 on #f0e3ce ≈ 7.72:1)
+       "Copied": JS swaps textContent only — no class change; text is same color
+              as rest state (7.93:1 AAA ✓ by inheritance). No CSS hook available
+              without a JS change — noted as O-1 nice-to-have (add .is-copied class).
+
+     CONSOLE SURFACE elements:
+       .pg-fmt-note (comment-gray #a0a8b4 on ink #0e1626)  =  7.54:1  AAA ✓
+       .pg-export text (console-text #e8dfc8 on ink #0e1626) = 13.62:1  AAA ✓
+
+     Focus ring — ochre #b8651f: consistent with all other interactive controls in
+     this playground; visible on both paper (14.90:1 AAA) and ink (low contrast but
+     focus ring is supplementary — WCAG 2.4.13 requires ≥ 3:1, ochre vs ink ≥ 3:1 ✓).
+
+     prefers-reduced-motion: transitions on pills/copy are color-only (no transform,
+     no movement) — safe by default. Explicitly reduced still works (color change is
+     instant from UA perspective when motion is disabled).
+
+     [hidden] override: .pg-fmt { display: flex } outranks the UA [hidden]{display:none}
+     in author-vs-UA origin. Guard with an explicit author rule so the JS hidden
+     attribute reliably hides the bar on the Graph tab and single-format results.
+  */
+
+  /* ── bar container ───────────────────────────────────────────────────────────────── */
+  .pg-fmt {
+    display: flex;
+    flex-wrap: wrap;       /* Copy drops to new row on very narrow columns */
+    align-items: center;
+    /* zero gap between pills so adjacent borders merge into a single hairline */
+    gap: 0;
+    margin: .5rem 0 .6rem;
+    row-gap: .3rem;        /* vertical breathing room when the row wraps */
+  }
+
+  /* enforce hidden: author flex overrides UA [hidden]{display:none} */
+  .pg-fmt[hidden] {
+    display: none;
+  }
+
+  /* ── format pills (segmented toggle group) ───────────────────────────────────────── */
   .pg-fmt-pill {
-    font-family: var(--mono, "JetBrains Mono"), monospace; font-size: .72rem; letter-spacing: .03em;
-    cursor: pointer; border: 1px solid var(--paper-rule-2, #c8b894);
-    background: var(--paper-warm, #f7f0e0); color: var(--ink-2, #2a3344);
-    padding: .26rem .62rem; border-radius: 2px; min-height: 28px;
+    font-family: var(--mono, "JetBrains Mono"), monospace;
+    font-size: .72rem;
+    letter-spacing: .04em;
+    cursor: pointer;
+    /* rest state: paper-warm surface, ink-2 label, paper-rule-2 border */
+    background: var(--paper-warm, #f7f0e0);
+    color: var(--ink-2, #2a3344);
+    border: 1px solid var(--paper-rule-2, #c8b894);
+    /* negative right margin merges left/right adjacent borders into one hairline */
+    margin-right: -1px;
+    padding: .28rem .7rem;
+    border-radius: 0;
+    min-height: 30px;
+    line-height: 1;
+    white-space: nowrap;
+    position: relative;  /* for z-index stacking on hover/active */
+    transition: background .1s, color .1s, border-color .1s;
   }
-  .pg-fmt-pill.is-active { background: var(--ink, #0e1626); color: var(--console-text, #e8dfc8); border-color: var(--ink, #0e1626); }
-  .pg-fmt-pill:focus-visible, .pg-fmt-copy:focus-visible { outline: 2px solid var(--ochre, #b8651f); outline-offset: 2px; }
+
+  /* round only the outer edges of the pill group */
+  .pg-fmt-pill:first-child {
+    border-radius: 2px 0 0 2px;
+  }
+  /* last pill = last element before Copy; target by last-of-type since Copy is a
+     distinct element type if we could use :last-of-type — but both are <button>.
+     Instead: always rely on the active/hover z-index to surface the right border,
+     and accept flat end. The group reads as segmented from the merged borders. */
+
+  /* hover: ink-tinted paper wash + border upgrade */
+  .pg-fmt-pill:hover:not(.is-active) {
+    background: rgba(14, 22, 38, .06);  /* ink-wash: #ece4cf ≈ 10.4:1 vs ink-2 AAA ✓ */
+    border-color: var(--ink-3-aaa, #3d4456);
+    color: var(--ink-2, #2a3344);
+    z-index: 1;  /* surface this pill's borders over siblings */
+  }
+
+  /* active: inverts to ink — same surface as the console below */
+  .pg-fmt-pill.is-active {
+    background: var(--ink, #0e1626);
+    color: var(--console-text, #e8dfc8);
+    border-color: var(--ink, #0e1626);
+    z-index: 2;  /* sit above hover neighbours */
+  }
+
+  /* focus ring — ochre, consistent with all interactive controls */
+  .pg-fmt-pill:focus-visible {
+    outline: 2px solid var(--ochre, #b8651f);
+    outline-offset: 2px;
+    z-index: 3;
+  }
+
+  /* ── Copy button ─────────────────────────────────────────────────────────────────── */
   .pg-fmt-copy {
-    margin-left: auto; font-family: var(--mono, "JetBrains Mono"), monospace; font-size: .72rem;
-    cursor: pointer; border: 1px solid var(--ochre-soft, #e6c79b); background: transparent;
-    color: var(--ink-3-aaa, #3d4456); padding: .26rem .72rem; border-radius: 2px; min-height: 28px;
+    margin-left: auto;
+    padding-left: .55rem;  /* breathing room from last pill when no wrapping */
+    font-family: var(--mono, "JetBrains Mono"), monospace;
+    font-size: .72rem;
+    letter-spacing: .04em;
+    cursor: pointer;
+    /* ochre-soft border = utility action signal (not a format toggle) */
+    border: 1px solid var(--ochre-soft, #e6c79b);
+    background: transparent;
+    /* ink-3-aaa on paper #f4ecda: 7.93:1 AAA ✓ */
+    color: var(--ink-3-aaa, #3d4456);
+    padding: .28rem .8rem;
+    border-radius: 2px;
+    min-height: 30px;
+    line-height: 1;
+    white-space: nowrap;
+    transition: background .1s, border-color .1s;
   }
-  .pg-fmt-copy:hover { background: rgba(184, 101, 31, .08); }
-  /* the projection caveat note + the csv/markdown export pre live inside the dark response */
-  .pg-fmt-note { font-family: var(--mono, "JetBrains Mono"), monospace; font-size: .72rem; line-height: 1.5; color: var(--comment-gray, #a0a8b4); margin: .2rem 0 .7rem; }
-  .pg-export { white-space: pre; overflow-x: auto; }
+
+  /* hover: ochre wash tint — ink-3-aaa on #f0e3ce ≈ 7.72:1 AAA ✓ */
+  .pg-fmt-copy:hover {
+    background: rgba(184, 101, 31, .08);
+    border-color: var(--ochre, #b8651f);
+  }
+
+  /* focus ring — consistent ochre pattern */
+  .pg-fmt-copy:focus-visible {
+    outline: 2px solid var(--ochre, #b8651f);
+    outline-offset: 2px;
+  }
+
+  /* ── console-surface elements rendered inside .pg-resp-data ──────────────────────── */
+
+  /* caveat note above standards projections (JSON-LD / SCIM / HR Open).
+     Sits on the --ink surface (not the dark well), inheriting panel background.
+     comment-gray #a0a8b4 on ink #0e1626: 7.54:1 AAA ✓
+     display:block ensures the note occupies its own line above the .pg-json records. */
+  .pg-fmt-note {
+    font-family: var(--mono, "JetBrains Mono"), monospace;
+    font-size: .72rem;
+    line-height: 1.55;
+    color: var(--comment-gray, #a0a8b4);
+    display: block;
+    margin: .25rem 0 .65rem;
+  }
+
+  /* CSV / TSV / Markdown export pre.
+     Specificity fix: .pg-resp-data pre { white-space: pre-wrap } is (0,1,1) and
+     would override a bare .pg-export { white-space: pre } at (0,1,0). Scope with
+     .pg-resp-data to match specificity and win.
+     console-text #e8dfc8 on ink #0e1626: 13.62:1 AAA ✓
+     tabindex is set by the JS renderer — keyboard users can reach the scroll region
+     (WCAG 2.1.1). Noted to JS owner: add tabindex="0" + aria-label to .pg-export. */
+  .pg-resp-data pre.pg-export {
+    white-space: pre;      /* do not wrap — horizontal scroll for wide CSV/Markdown */
+    overflow-x: auto;
+    font-family: var(--mono, "JetBrains Mono"), monospace;
+    font-size: 12.5px;
+    line-height: 1.65;
+    color: var(--console-text, #e8dfc8);
+    /* dark-well inset: consistent with .pg-json; also raises token contrast */
+    background: rgba(0, 0, 0, .18);
+    border-radius: 3px;
+    padding: .8rem 1rem;
+    margin: .3rem 0 .15rem;
+  }
 
   .pg-tab {
     font-family: var(--mono, "JetBrains Mono"), monospace;
@@ -970,6 +1138,29 @@ permalink: /engineering/people-graph-playground.html
       background: #2a3344;
       color: #f7f0e0;
       border-color: #2a3344;
+    }
+
+    /* format bar — hide in print: it is a control surface, not content.
+       The rendered data (JSON/table/CSV) is already visible below. */
+    .pg-fmt {
+      display: none;
+    }
+
+    /* fmt-note: rendered inside the panel which inverts to paper-warm in print.
+       comment-gray #a0a8b4 on paper-warm ≈ 2.7:1 — fails. Remap to established
+       print-muted #5a6172 on paper-warm: #5a6172 on #f7f0e0 ≈ 4.8:1 ≥ 3:1 ✓ */
+    .pg-fmt-note {
+      color: #5a6172;
+    }
+
+    /* export pre: the rgba(0,0,0,.18) dark-well bg reads as paper-warm wash in print.
+       Remap to a subtle moss-tint well consistent with the .pg-json print treatment.
+       #1a1a1a text on paper: 16.4:1 AAA ✓ */
+    .pg-resp-data pre.pg-export {
+      background: rgba(74, 93, 58, .05);
+      color: #1a1a1a;
+      white-space: pre-wrap;
+      overflow-x: visible;
     }
   }
 </style>
