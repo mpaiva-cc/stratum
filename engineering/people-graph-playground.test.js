@@ -177,3 +177,78 @@ test('subgraph: a node cap truncates and flags it', () => {
   assert.equal(sg.truncated, true);
   assert.ok(sg.matched > 10);
 });
+
+// ───────────────────────── format projections (standards trio + exports)
+const rahul = () => data.byId.person['EMP-00001'];
+const anika = () => data.byId.person['EMP-00457'];
+
+test('JSON-LD: schema.org/Person + W3C Org, no internal signals', () => {
+  const j = GP.toJsonLd(rahul(), anika());
+  assert.equal(j['@type'], 'Person');
+  assert.equal(j['@id'], 'https://graph.tessera.example/people/EMP-00001');
+  assert.equal(j.givenName, 'Rahul');
+  assert.equal(j.jobTitle, 'Senior Operations Manager');
+  assert.equal(j.gender, 'https://schema.org/Female');
+  assert.equal(j.employmentType, 'FULL_TIME');
+  assert.equal(j.worksFor.name, 'Operations · Business Ops');
+  assert.equal(j['org:reportsTo'].name, 'Anika Aguilar');
+  // internal analytics must NOT leak in
+  ['flight_risk', 'comp_total', 'comp_ratio', 'performance_score', 'last_review', 'level', 'span_of_control']
+    .forEach(k => assert.ok(!(k in j), `JSON-LD must not contain ${k}`));
+});
+
+test('SCIM 2.0 User: core + enterprise extension, no gender', () => {
+  const s = GP.toScim(rahul(), anika());
+  assert.deepEqual(s.schemas, ['urn:ietf:params:scim:schemas:core:2.0:User', 'urn:ietf:params:scim:schemas:extension:enterprise:2.0:User']);
+  assert.equal(s.userName, 'rahul.ahmadi1@tessera.example');
+  assert.equal(s.name.givenName, 'Rahul');
+  assert.equal(s.title, 'Senior Operations Manager');
+  assert.equal(s.userType, 'Employee');
+  assert.equal(s.active, true);
+  const ent = s['urn:ietf:params:scim:schemas:extension:enterprise:2.0:User'];
+  assert.equal(ent.employeeNumber, 'EMP-00001');
+  assert.equal(ent.manager.value, 'EMP-00457');
+  assert.equal(ent.manager.displayName, 'Anika Aguilar');
+  assert.ok(!('gender' in s), 'SCIM User has no gender attribute');
+  assert.ok(!('flight_risk' in s) && !('comp_total' in s));
+});
+
+test('HR Open: Worker subset with reportsTo', () => {
+  const h = GP.toHrOpen(rahul(), anika());
+  assert.equal(h.worker.workerID.idValue, 'EMP-00001');
+  assert.equal(h.worker.person.personName.givenName, 'Rahul');
+  assert.equal(h.worker.person.gender.codeValue, 'F');
+  assert.equal(h.worker.workAssignment.jobTitle, 'Senior Operations Manager');
+  assert.equal(h.worker.workAssignment.organizationalUnit[0].nameCode.codeValue, 'Operations');
+  assert.equal(h.worker.workAssignment.organizationalUnit[1].typeCode, 'Team');
+  assert.equal(h.worker.workAssignment.reportsTo[0].formattedName, 'Anika Aguilar');
+});
+
+test('CSV / TSV / Markdown render a projection table', () => {
+  const r = GP.runQuery(GP.parseQuery('MATCH (p:person) WHERE p.id IN ["EMP-00001","EMP-00457"] RETURN p.id, p.display_name'), data);
+  assert.equal(GP.toCsv(r.columns, r.rows), 'p.id,p.display_name\nEMP-00001,Rahul Ahmadi\nEMP-00457,Anika Aguilar');
+  assert.ok(GP.toTsv(r.columns, r.rows).indexOf('EMP-00001\tRahul Ahmadi') !== -1);
+  assert.ok(GP.toMarkdown(r.columns, r.rows).startsWith('| p.id | p.display_name |\n| --- | --- |'));
+});
+
+test('CSV quotes fields containing commas', () => {
+  // a title with a comma would be quoted; synthesize via a record-shaped projection
+  const out = GP.toCsv(['a'], [['x,y']]);
+  assert.equal(out, 'a\n"x,y"');
+});
+
+test('availableFormats: person record vs projection vs non-person record', () => {
+  const person = GP.runQuery(GP.parseQuery('MATCH (p:person) WHERE p.id="EMP-00001" RETURN p'), data);
+  assert.deepEqual(GP.availableFormats(person).map(f => f.id), ['json', 'jsonld', 'scim', 'hropen']);
+  const table = GP.runQuery(GP.parseQuery('MATCH (p:person) WHERE p.id="EMP-00001" RETURN p.id'), data);
+  assert.deepEqual(GP.availableFormats(table).map(f => f.id), ['table', 'csv', 'tsv', 'markdown', 'json']);
+  const req = GP.runQuery(GP.parseQuery('MATCH (r:requisition) WHERE r.id="REQ-00001" RETURN r'), data);
+  assert.deepEqual(GP.availableFormats(req).map(f => f.id), ['json']); // not a person → JSON only
+});
+
+test('rawText returns copyable text per format', () => {
+  const person = GP.runQuery(GP.parseQuery('MATCH (p:person) WHERE p.id="EMP-00001" RETURN p'), data);
+  assert.ok(GP.rawText(person, 'scim', data).indexOf('"userName": "rahul.ahmadi1@tessera.example"') !== -1);
+  const table = GP.runQuery(GP.parseQuery('MATCH (p:person) WHERE p.id="EMP-00001" RETURN p.id, p.title'), data);
+  assert.ok(GP.rawText(table, 'csv', data).startsWith('p.id,p.title'));
+});

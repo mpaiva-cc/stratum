@@ -703,10 +703,192 @@
       + '<svg class="pg-graph-svg" viewBox="0 0 ' + W + ' ' + H + '" preserveAspectRatio="xMidYMid meet" role="img" aria-label="' + e2(meta) + '">' + svg + '</svg>';
   }
 
+  // ───────────────────────────────────────────────────── format projections
+  // Render-time crosswalks (Pillar's mapping spec). NOT stored shapes — these
+  // project a person record into standards-conformant forms on demand. The
+  // not-mapped fields (flight_risk, comp_*, performance_score, level, etc.) are
+  // Stratum-internal analytics and are deliberately omitted from these standards.
+  function slug(s) { return String(s).toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, ''); }
+  var IRI = 'https://graph.tessera.example';
+  var GENDER_SCHEMA = { woman: 'https://schema.org/Female', man: 'https://schema.org/Male', nonbinary: 'NonBinary' };
+  var GENDER_HROPEN = { woman: { codeValue: 'F', shortName: 'Female' }, man: { codeValue: 'M', shortName: 'Male' }, nonbinary: { codeValue: 'UN', shortName: 'Non-binary' } };
+  var EMP_SCHEMA = { full_time: 'FULL_TIME', part_time: 'PART_TIME', contractor: 'CONTRACTOR', intern: 'INTERN' };
+  var EMP_SCIM = { full_time: 'Employee', part_time: 'Employee', contractor: 'Contractor', intern: 'Intern' };
+  var EMP_HROPEN = { full_time: 'Employee', part_time: 'PartTime', contractor: 'Contractor', intern: 'Intern' };
+
+  function isPersonRecord(rec) {
+    return !!(rec && typeof rec === 'object' && 'given_name' in rec && 'department' in rec);
+  }
+
+  function toJsonLd(rec, mgr) {
+    var o = {
+      '@context': { '@vocab': 'https://schema.org/', org: 'http://www.w3.org/ns/org#' },
+      '@type': 'Person',
+      '@id': IRI + '/people/' + rec.id,
+      givenName: rec.given_name, familyName: rec.family_name, name: rec.display_name,
+      email: rec.email, jobTitle: rec.title
+    };
+    if (rec.gender) o.gender = GENDER_SCHEMA[rec.gender] || rec.gender;
+    o.worksFor = { '@type': ['Organization', 'org:Organization'], '@id': IRI + '/orgs/' + slug(rec.department + ' ' + rec.team), name: rec.department + ' · ' + rec.team };
+    o['org:memberOf'] = { '@type': 'org:Organization', '@id': IRI + '/orgs/' + slug(rec.department) };
+    if (rec.manager_id) {
+      o['org:reportsTo'] = { '@type': 'Person', '@id': IRI + '/people/' + rec.manager_id };
+      if (mgr) { o['org:reportsTo'].name = mgr.display_name; o['org:reportsTo'].jobTitle = mgr.title; }
+    }
+    if (rec.location || rec.country) {
+      o.address = { '@type': 'PostalAddress' };
+      if (rec.location) o.address.addressLocality = rec.location;
+      if (rec.country) o.address.addressCountry = rec.country;
+    }
+    if (rec.hire_date) o.startDate = rec.hire_date;
+    if (rec.employment_type) o.employmentType = EMP_SCHEMA[rec.employment_type] || rec.employment_type;
+    return o;
+  }
+
+  function toScim(rec, mgr) {
+    var o = {
+      schemas: ['urn:ietf:params:scim:schemas:core:2.0:User', 'urn:ietf:params:scim:schemas:extension:enterprise:2.0:User'],
+      id: rec.id, externalId: rec.id, userName: rec.email,
+      name: { givenName: rec.given_name, familyName: rec.family_name, formatted: rec.display_name },
+      displayName: rec.display_name, emails: [{ value: rec.email, primary: true }],
+      title: rec.title, userType: EMP_SCIM[rec.employment_type] || 'Employee', active: true
+    };
+    if (rec.location || rec.country) {
+      var addr = { type: 'work', primary: true };
+      if (rec.location) addr.locality = rec.location;
+      if (rec.country) addr.country = rec.country;
+      o.addresses = [addr];
+    }
+    var ent = { employeeNumber: rec.id, department: rec.department, organization: rec.department + ' · ' + rec.team };
+    if (rec.manager_id) { ent.manager = { value: rec.manager_id }; if (mgr) ent.manager.displayName = mgr.display_name; }
+    o['urn:ietf:params:scim:schemas:extension:enterprise:2.0:User'] = ent;
+    return o;
+  }
+
+  function toHrOpen(rec, mgr) {
+    var person = {
+      personName: { givenName: rec.given_name, familyName: rec.family_name, formattedName: rec.display_name },
+      communication: { email: [{ emailUri: rec.email, useCode: 'Work' }] }
+    };
+    if (rec.gender) person.gender = GENDER_HROPEN[rec.gender] || { codeValue: 'UN', shortName: rec.gender };
+    var wa = {
+      jobCode: { codeValue: rec.level, shortName: rec.level }, jobTitle: rec.title,
+      hireDate: rec.hire_date, seniorityDate: rec.hire_date,
+      organizationalUnit: [
+        { nameCode: { codeValue: rec.department, shortName: rec.department }, typeCode: 'Department' },
+        { nameCode: { codeValue: rec.team, shortName: rec.team }, typeCode: 'Team' }
+      ]
+    };
+    if (rec.manager_id) { var rt = { workerID: { idValue: rec.manager_id } }; if (mgr) { rt.formattedName = mgr.display_name; rt.positionTitle = mgr.title; } wa.reportsTo = [rt]; }
+    return {
+      documentID: { idValue: rec.id, schemeAgencyName: 'Tessera' },
+      worker: {
+        workerID: { idValue: rec.id, schemeAgencyName: 'Tessera' }, person: person,
+        workerTypeCode: EMP_HROPEN[rec.employment_type] || 'Employee',
+        primaryWorkLocation: { cityName: rec.location, countryCode: rec.country }, workAssignment: wa
+      }
+    };
+  }
+
+  function _cell(v, sep) {
+    if (v === null || v === undefined) return '';
+    var s = typeof v === 'object' ? JSON.stringify(v) : String(v);
+    return s.replace(/[\r\n]+/g, ' ');
+  }
+  function toCsv(columns, rows) {
+    function q(v) { var s = _cell(v); return /[",]/.test(s) ? '"' + s.replace(/"/g, '""') + '"' : s; }
+    return [columns.map(q).join(',')].concat(rows.map(function (r) { return r.map(q).join(','); })).join('\n');
+  }
+  function toTsv(columns, rows) {
+    function t(v) { return _cell(v).replace(/\t/g, ' '); }
+    return [columns.map(t).join('\t')].concat(rows.map(function (r) { return r.map(t).join('\t'); })).join('\n');
+  }
+  function toMarkdown(columns, rows) {
+    function m(v) { return _cell(v).replace(/\|/g, '\\|'); }
+    var head = '| ' + columns.map(m).join(' | ') + ' |';
+    var rule = '| ' + columns.map(function () { return '---'; }).join(' | ') + ' |';
+    return [head, rule].concat(rows.map(function (r) { return '| ' + r.map(m).join(' | ') + ' |'; })).join('\n');
+  }
+
+  // which formats apply to a result shape
+  function availableFormats(result) {
+    if (!result || !result.rows || !result.rows.length) return [];
+    var obj = null;
+    result.rows[0].forEach(function (c) { if (obj === null && c && typeof c === 'object') obj = c; });
+    if (obj) {
+      return isPersonRecord(obj)
+        ? [{ id: 'json', label: 'JSON' }, { id: 'jsonld', label: 'JSON-LD' }, { id: 'scim', label: 'SCIM' }, { id: 'hropen', label: 'HR Open' }]
+        : [{ id: 'json', label: 'JSON' }];
+    }
+    return [{ id: 'table', label: 'Table' }, { id: 'csv', label: 'CSV' }, { id: 'tsv', label: 'TSV' }, { id: 'markdown', label: 'Markdown' }, { id: 'json', label: 'JSON' }];
+  }
+
+  // the projected object(s) for a record-producing format, with manager resolved
+  function _objectsFor(result, format, data) {
+    return result.rows.map(function (r) {
+      if (format === 'json') {
+        if (r.length === 1 && r[0] && typeof r[0] === 'object') return r[0];
+        var o = {}; result.columns.forEach(function (c, i) { o[c] = r[i]; }); return o;
+      }
+      var rec = null; r.forEach(function (c) { if (rec === null && c && typeof c === 'object') rec = c; });
+      if (!rec) return null;
+      var mgr = (data && rec.manager_id && data.byId && data.byId.person) ? data.byId.person[rec.manager_id] : null;
+      return format === 'jsonld' ? toJsonLd(rec, mgr) : format === 'scim' ? toScim(rec, mgr) : toHrOpen(rec, mgr);
+    }).filter(function (x) { return x !== null; });
+  }
+
+  // raw text of the current view (for copy-to-clipboard)
+  function rawText(result, format, data) {
+    if (!result || !result.rows) return '';
+    if (format === 'csv') return toCsv(result.columns, result.rows);
+    if (format === 'tsv') return toTsv(result.columns, result.rows);
+    if (format === 'markdown') return toMarkdown(result.columns, result.rows);
+    if (format === 'table') return toCsv(result.columns, result.rows); // copy a table as CSV
+    var objs = _objectsFor(result, format, data);
+    return JSON.stringify(objs.length === 1 ? objs[0] : objs, null, 2);
+  }
+
+  var FORMAT_LABEL = { json: 'JSON', jsonld: 'JSON-LD · schema.org/Person + W3C Org', scim: 'SCIM 2.0 User', hropen: 'HR Open Standards', csv: 'CSV', tsv: 'TSV', markdown: 'Markdown' };
+
+  // render a result in a chosen format (browser)
+  function renderAs(target, result, queryText, format, data) {
+    if (result instanceof QueryError || (result && result.name === 'QueryError')) { renderResponse(target, result, queryText); return; }
+    format = format || (availableFormats(result)[0] || { id: 'table' }).id;
+    var html = '<div class="pg-resp-code"><div class="pg-resp-h">Query</div><pre>' + esc(queryText) + '</pre></div>';
+    var cols = result.columns, rows = result.rows;
+    if (!rows.length) {
+      html += '<div class="pg-resp-data"><div class="pg-resp-h">Response · 0 rows</div><p class="pg-empty">0 rows — the query ran but matched nothing.</p></div>';
+    } else if (format === 'table') {
+      html += '<div class="pg-resp-data"><div class="pg-resp-h">Response · ' + rows.length + (rows.length === 1 ? ' row' : ' rows') + '</div><table class="pg-table"><thead><tr>'
+        + cols.map(function (c) { return '<th>' + esc(c) + '</th>'; }).join('') + '</tr></thead><tbody>'
+        + rows.map(function (r) { return '<tr>' + r.map(function (c) { return '<td>' + fmt(c) + '</td>'; }).join('') + '</tr>'; }).join('')
+        + '</tbody></table></div>';
+    } else if (format === 'csv' || format === 'tsv' || format === 'markdown') {
+      var txt = format === 'csv' ? toCsv(cols, rows) : format === 'tsv' ? toTsv(cols, rows) : toMarkdown(cols, rows);
+      html += '<div class="pg-resp-data"><div class="pg-resp-h">Response · ' + FORMAT_LABEL[format] + '</div><pre class="pg-export">' + esc(txt) + '</pre></div>';
+    } else {
+      var objs = _objectsFor(result, format, data);
+      var note = (format !== 'json') ? '<p class="pg-fmt-note">Render-time projection — not a stored shape. Stratum-internal signals (flight_risk, comp, performance) are intentionally omitted.</p>' : '';
+      html += '<div class="pg-resp-data"><div class="pg-resp-h">Response · ' + FORMAT_LABEL[format] + ' · ' + objs.length + (objs.length === 1 ? ' record' : ' records') + '</div>' + note
+        + objs.map(function (o) { return '<pre class="pg-json" tabindex="0" aria-label="' + FORMAT_LABEL[format] + ' record">' + syntaxHighlight(o) + '</pre>'; }).join('') + '</div>';
+    }
+    target.innerHTML = html;
+  }
+
   var api = {
     QueryError: QueryError,
     subgraph: subgraph,
     renderGraph: renderGraph,
+    availableFormats: availableFormats,
+    renderAs: renderAs,
+    rawText: rawText,
+    toJsonLd: toJsonLd,
+    toScim: toScim,
+    toHrOpen: toHrOpen,
+    toCsv: toCsv,
+    toTsv: toTsv,
+    toMarkdown: toMarkdown,
+    isPersonRecord: isPersonRecord,
     buildData: buildData,
     loadFixtures: loadFixtures,
     tokenize: tokenize,

@@ -575,6 +575,28 @@ permalink: /engineering/people-graph-playground.html
     align-items: flex-end;
   }
 
+  /* ── Response-format bar (JSON · JSON-LD · SCIM · HR Open  /  Table · CSV · …) ──
+     Tessera: functional baseline — please own the pill + copy styling on the
+     paper surface above the console. All on-paper text is AAA (ink-2/ink-3-aaa). */
+  .pg-fmt { display: flex; flex-wrap: wrap; align-items: center; gap: .3rem; margin: .5rem 0 .55rem; }
+  .pg-fmt-pill {
+    font-family: var(--mono, "JetBrains Mono"), monospace; font-size: .72rem; letter-spacing: .03em;
+    cursor: pointer; border: 1px solid var(--paper-rule-2, #c8b894);
+    background: var(--paper-warm, #f7f0e0); color: var(--ink-2, #2a3344);
+    padding: .26rem .62rem; border-radius: 2px; min-height: 28px;
+  }
+  .pg-fmt-pill.is-active { background: var(--ink, #0e1626); color: var(--console-text, #e8dfc8); border-color: var(--ink, #0e1626); }
+  .pg-fmt-pill:focus-visible, .pg-fmt-copy:focus-visible { outline: 2px solid var(--ochre, #b8651f); outline-offset: 2px; }
+  .pg-fmt-copy {
+    margin-left: auto; font-family: var(--mono, "JetBrains Mono"), monospace; font-size: .72rem;
+    cursor: pointer; border: 1px solid var(--ochre-soft, #e6c79b); background: transparent;
+    color: var(--ink-3-aaa, #3d4456); padding: .26rem .72rem; border-radius: 2px; min-height: 28px;
+  }
+  .pg-fmt-copy:hover { background: rgba(184, 101, 31, .08); }
+  /* the projection caveat note + the csv/markdown export pre live inside the dark response */
+  .pg-fmt-note { font-family: var(--mono, "JetBrains Mono"), monospace; font-size: .72rem; line-height: 1.5; color: var(--comment-gray, #a0a8b4); margin: .2rem 0 .7rem; }
+  .pg-export { white-space: pre; overflow-x: auto; }
+
   .pg-tab {
     font-family: var(--mono, "JetBrains Mono"), monospace;
     font-size: .8rem;
@@ -986,6 +1008,7 @@ permalink: /engineering/people-graph-playground.html
         <button type="button" class="pg-tab is-active" id="pg-tab-data" role="tab" aria-selected="true" aria-controls="pg-response">Data</button>
         <button type="button" class="pg-tab" id="pg-tab-graph" role="tab" aria-selected="false" aria-controls="pg-graph">Graph</button>
       </div>
+      <div class="pg-fmt" id="pg-fmt" aria-label="Response format" hidden></div>
       <div id="pg-response" class="pg-response" role="tabpanel" aria-labelledby="pg-tab-data"><p class="pg-hint">Loading the graph…</p></div>
       <div id="pg-graph" class="pg-response pg-graph" role="tabpanel" aria-labelledby="pg-tab-graph" hidden></div>
     </section>
@@ -1005,7 +1028,9 @@ permalink: /engineering/people-graph-playground.html
   var seedsEl = document.getElementById('pg-seeds');
   var tabData = document.getElementById('pg-tab-data');
   var tabGraph = document.getElementById('pg-tab-graph');
+  var fmtEl = document.getElementById('pg-fmt');
   var DATA = null;
+  var lastResult = null, lastQuery = '', lastFormats = [], currentFormat = null;
 
   function esc(s) { return String(s).replace(/[&<>]/g, function (c) { return ({ '&': '&amp;', '<': '&lt;', '>': '&gt;' })[c]; }); }
 
@@ -1013,6 +1038,7 @@ permalink: /engineering/people-graph-playground.html
     var dataActive = which === 'data';
     respEl.hidden = !dataActive;
     graphEl.hidden = dataActive;
+    fmtEl.hidden = !(dataActive && lastFormats.length > 1);
     tabData.classList.toggle('is-active', dataActive);
     tabGraph.classList.toggle('is-active', !dataActive);
     tabData.setAttribute('aria-selected', String(dataActive));
@@ -1020,6 +1046,31 @@ permalink: /engineering/people-graph-playground.html
   }
   tabData.addEventListener('click', function () { showTab('data'); });
   tabGraph.addEventListener('click', function () { showTab('graph'); });
+
+  // the response-format pill bar (JSON · JSON-LD · SCIM · HR Open, or Table · CSV · …)
+  function renderFmtBar() {
+    if (lastFormats.length < 2) { fmtEl.hidden = true; fmtEl.innerHTML = ''; return; }
+    fmtEl.innerHTML = lastFormats.map(function (f) {
+      return '<button type="button" class="pg-fmt-pill' + (f.id === currentFormat ? ' is-active' : '') +
+        '" data-fmt="' + f.id + '" aria-pressed="' + (f.id === currentFormat) + '">' + esc(f.label) + '</button>';
+    }).join('') + '<button type="button" class="pg-fmt-copy" id="pg-copy" title="Copy this view to the clipboard">Copy</button>';
+    [].forEach.call(fmtEl.querySelectorAll('.pg-fmt-pill'), function (b) {
+      b.addEventListener('click', function () { currentFormat = b.getAttribute('data-fmt'); renderData(); });
+    });
+    var cp = document.getElementById('pg-copy');
+    cp.addEventListener('click', function () {
+      var txt = GP.rawText(lastResult, currentFormat, DATA);
+      var done = function () { cp.textContent = 'Copied'; setTimeout(function () { cp.textContent = 'Copy'; }, 1400); };
+      if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(txt).then(done, done);
+      else { var ta = document.createElement('textarea'); ta.value = txt; document.body.appendChild(ta); ta.select(); try { document.execCommand('copy'); } catch (e) { } document.body.removeChild(ta); done(); }
+    });
+    fmtEl.hidden = !(graphEl.hidden);
+  }
+
+  function renderData() {
+    GP.renderAs(respEl, lastResult, lastQuery, currentFormat, DATA);
+    renderFmtBar();
+  }
 
   GP.SEED_QUERIES.forEach(function (s) {
     var b = document.createElement('button');
@@ -1032,10 +1083,12 @@ permalink: /engineering/people-graph-playground.html
       noteEl.textContent = s.note;
       if (s.runnable) execute();
       else {
+        lastResult = null; lastFormats = []; currentFormat = null;
         respEl.innerHTML = '<div class="pg-resp-code"><div class="pg-resp-h">Query</div><pre>' + esc(s.cypher) +
           '</pre></div><div class="pg-resp-data pg-resp-err"><div class="pg-resp-h">Not executable here</div><pre>' +
           esc(s.note) + '</pre></div>';
         graphEl.innerHTML = '<p class="pg-empty">No graph — this concept query runs over the full graph, not the static projection.</p>';
+        renderFmtBar();
         showTab('data');
       }
     });
@@ -1048,10 +1101,16 @@ permalink: /engineering/people-graph-playground.html
     if (!text) return;
     try {
       var ast = GP.parseQuery(text);
-      GP.renderResponse(respEl, GP.runQuery(ast, DATA), text);
+      lastResult = GP.runQuery(ast, DATA);
+      lastQuery = text;
+      lastFormats = GP.availableFormats(lastResult);
+      currentFormat = lastFormats.length ? lastFormats[0].id : null;
+      renderData();
       GP.renderGraph(graphEl, GP.subgraph(ast, DATA));
     } catch (e) {
-      GP.renderResponse(respEl, e, text);
+      lastResult = null; lastFormats = []; currentFormat = null;
+      GP.renderAs(respEl, e, text, null, DATA);
+      renderFmtBar();
       graphEl.innerHTML = '<p class="pg-empty">No graph — the query did not run.</p>';
     }
   }
