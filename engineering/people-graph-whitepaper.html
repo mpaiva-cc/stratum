@@ -1002,6 +1002,7 @@ pre.gq-query {
   margin: 0 0 .85rem;
   border-radius: 0 0 3px 3px;
   overflow-x: auto;
+  white-space: pre;
 }
 
 /* ── output header: moss-soft label (10.97:1 AAA on --ink) */
@@ -1023,6 +1024,9 @@ pre.gq-query {
   font-family: var(--serif);
   line-height: 1.55;
 }
+/* defensive: any global em/strong rule must not recolor content on the dark console surface */
+pre.gq-query em, .gq-output em,
+pre.gq-query strong, .gq-output strong { color: inherit; }
 
 </style>
 
