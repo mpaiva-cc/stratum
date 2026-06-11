@@ -1254,7 +1254,7 @@ permalink: /engineering/people-graph-playground.html
     var cp = document.getElementById('pg-copy');
     cp.addEventListener('click', function () {
       var txt = GP.rawText(lastResult, currentFormat, DATA);
-      var done = function () { cp.textContent = 'Copied'; setTimeout(function () { cp.textContent = 'Copy'; }, 1400); };
+      var done = function () { cp.textContent = 'Copied'; cp.classList.add('is-copied'); setTimeout(function () { cp.textContent = 'Copy'; cp.classList.remove('is-copied'); }, 1400); };
       if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(txt).then(done, done);
       else { var ta = document.createElement('textarea'); ta.value = txt; document.body.appendChild(ta); ta.select(); try { document.execCommand('copy'); } catch (e) { } document.body.removeChild(ta); done(); }
     });

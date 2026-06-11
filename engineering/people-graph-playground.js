@@ -865,7 +865,7 @@
         + '</tbody></table></div>';
     } else if (format === 'csv' || format === 'tsv' || format === 'markdown') {
       var txt = format === 'csv' ? toCsv(cols, rows) : format === 'tsv' ? toTsv(cols, rows) : toMarkdown(cols, rows);
-      html += '<div class="pg-resp-data"><div class="pg-resp-h">Response · ' + FORMAT_LABEL[format] + '</div><pre class="pg-export">' + esc(txt) + '</pre></div>';
+      html += '<div class="pg-resp-data"><div class="pg-resp-h">Response · ' + FORMAT_LABEL[format] + '</div><pre class="pg-export" tabindex="0" aria-label="' + FORMAT_LABEL[format] + ' export">' + esc(txt) + '</pre></div>';
     } else {
       var objs = _objectsFor(result, format, data);
       var note = (format !== 'json') ? '<p class="pg-fmt-note">Render-time projection — not a stored shape. Stratum-internal signals (flight_risk, comp, performance) are intentionally omitted.</p>' : '';
