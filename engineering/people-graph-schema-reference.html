@@ -903,7 +903,7 @@ p { margin: 0 0 1.15em; }
       <div class="prop-row"><div class="p-name">location_preference · country</div><div class="p-type">str</div><div class="p-req opt">opt</div><div class="p-mean">country = ISO 3166-1 alpha-2.</div></div>
       <div class="prop-row"><div class="p-name">source</div><div class="p-type">enum</div><div class="p-req">req</div><div class="p-mean"><span class="inline-mono">referral</span> | <span class="inline-mono">inbound</span> | <span class="inline-mono">outbound</span> | <span class="inline-mono">agency</span> | <span class="inline-mono">event</span>.</div></div>
       <div class="prop-row"><div class="p-name">source_detail</div><div class="p-type">str</div><div class="p-req opt">opt</div><div class="p-mean">Recruiter note, event name, etc.</div></div>
-      <div class="prop-row"><div class="p-name">requisition_id</div><div class="p-type">fk</div><div class="p-req">req</div><div class="p-mean">FK → <span class="inline-mono">requisition.id</span>. (To be normalized into the <span class="inline-mono">applied_for</span> edge — see below.)</div></div>
+      <div class="prop-row"><div class="p-name">requisition_id</div><div class="p-type">fk</div><div class="p-req">req</div><div class="p-mean">FK → <span class="inline-mono">requisition.id</span>. <strong>Deprecation path:</strong> normalized into the ratified <span class="inline-mono">applied_for</span> edge (see below). Authoritative during the dual-read window; migrate reads to the edge, after which this fk is deprecated.</div></div>
       <div class="prop-row"><div class="p-name">stage</div><div class="p-type">enum</div><div class="p-req">req</div><div class="p-mean"><span class="inline-mono">applied</span> | <span class="inline-mono">screen</span> | <span class="inline-mono">interview</span> | <span class="inline-mono">offer</span> | <span class="inline-mono">accepted</span> | <span class="inline-mono">rejected</span> | <span class="inline-mono">withdrew</span>.</div></div>
       <div class="prop-row"><div class="p-name">stage_entered</div><div class="p-type">ts</div><div class="p-req">req</div><div class="p-mean">ISO 8601 UTC; when current stage began.</div></div>
       <div class="prop-row"><div class="p-name">rejected_reason</div><div class="p-type">enum | null</div><div class="p-req opt">opt</div><div class="p-mean"><span class="inline-mono">not_advancing</span> | <span class="inline-mono">not_responding</span> | <span class="inline-mono">other</span>; null if not rejected.</div></div>
@@ -939,14 +939,20 @@ completed_at    <span class="s">ts</span>     <span class="c"># ISO 8601 UTC</sp
     <div class="edge-spec"><span class="k">requisition</span> <span class="ar">→</span> <span class="k">skill</span> · <b>requires</b> · extra: <span class="inline-mono">weight float req</span> [0,1]; <span class="inline-mono">required_level enum opt</span> (novice|intermediate|advanced|expert) · consent: <span class="scope">["recruiter.ats"]</span></div>
     <div class="edge-spec"><span class="k">candidate</span> <span class="ar">→</span> <span class="k">skill</span> · <b>has_skill</b> · envelope&apos;s <span class="inline-mono">confidence</span> required (fit-score threshold 0.55); extra: <span class="inline-mono">attested_level enum opt</span> · consent: <span class="scope">["recruiter.ats", "recruiter.scoring"]</span></div>
 
-    <h3><span class="n-kind">edge</span> applied_for <span class="sbadge proposed">proposed v3.2 (not yet shipped)</span></h3>
+    <h3><span class="n-kind">edge</span> applied_for <span class="sbadge ratified">ratified v3.2</span></h3>
     <div class="edge-spec"><span class="k">candidate</span> <span class="ar">→</span> <span class="k">requisition</span> · extra: <span class="inline-mono">applied_at ts req</span> (valid_from on the edge) · consent: <span class="scope">["recruiter.ats"]</span></div>
     <p>
       Today the link is a denormalized <span class="inline-mono">candidate.requisition_id</span>
       fk. Normalizing it into a first-class bitemporal edge enables tracking the
       application state and the withdrawal/rejection history over time. <strong>This
-      carries a dual-write migration cost and is escalated to the Chairman for
-      appetite — it is not committed and is not in production.</strong>
+      edge is ratified at v3.2 — the Chairman greenlit the migration.</strong>
+      <strong>Rollout:</strong> the edge is <em>dual-written</em> alongside the
+      existing <span class="inline-mono">candidate.requisition_id</span> fk; the fk
+      stays authoritative through a dual-read window; then it is deprecated and
+      reads cut over to the edge. Migrate to <span class="inline-mono">applied_for</span>;
+      do not write new dependencies on the fk. (Generator emission of the edge —
+      <span class="inline-mono">console/data/_generate_ats.py</span> — and the
+      dual-read window are a scheduled Pillar follow-up.)
     </p>
 
     <!-- ── VI ── -->
@@ -1089,8 +1095,9 @@ completed_at    <span class="s">ts</span>     <span class="c"># ISO 8601 UTC</sp
         <strong>Forge</strong> ratified each type at its version target, owns the
         version history (core v1–v3, additive v4–v5), and holds the status-badge
         discipline — a <span style="font-style:normal">proposed</span> type is
-        never rendered as available. He escalated the two items that are not his
-        to commit alone.
+        never rendered as available. He escalated the two items that were not his to commit
+        alone — the Chairman has since ratified the <span class="inline-mono">applied_for</span>
+        migration and deferred the <span class="inline-mono">agent</span> node type as an open question.
       </p>
     </div>
   </div>

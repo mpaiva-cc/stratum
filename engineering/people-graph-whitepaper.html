@@ -1479,7 +1479,7 @@ p { margin: 0 0 1.15em; }
       </div>
       <div class="lg-row">
         <div><span class="sbadge proposed">proposed vX.Y (not yet shipped)</span></div>
-        <div class="lg-def">A shape we intend to ship at the named version. <strong>Not in production today.</strong> Do not build against it as if it were available — the migration may still change it, and one of these (<span class="inline-mono">applied_for</span>) is pending a Chairman appetite call.</div>
+        <div class="lg-def">A shape we intend to ship at the named version. <strong>Not in production today.</strong> Do not build against it as if it were available — the migration may still change it. The v5 (Cairn) layer carries this badge.</div>
       </div>
       <div class="lg-row">
         <div><span class="sbadge openq">open question</span></div>
@@ -1513,8 +1513,8 @@ p { margin: 0 0 1.15em; }
       </div>
       <div class="std-row">
         <div class="std-name">v3.2<span class="std-ref">additive · structure</span></div>
-        <div class="std-stance inform">Ratified · part proposed</div>
-        <div class="std-note">Formal spec of the <span class="inline-mono">org_unit</span> node and the full <span class="inline-mono">requisition</span>/<span class="inline-mono">candidate</span>/<span class="inline-mono">skill</span> property tables that already exist in v3, plus the <span class="inline-mono">applied_for</span> edge as <span class="sbadge proposed">proposed</span> (not yet shipped).</div>
+        <div class="std-stance adopt">Ratified</div>
+        <div class="std-note">Formal spec of the <span class="inline-mono">org_unit</span> node and the full <span class="inline-mono">requisition</span>/<span class="inline-mono">candidate</span>/<span class="inline-mono">skill</span> property tables that already exist in v3, plus the <span class="inline-mono">applied_for</span> edge, now <span class="sbadge ratified">ratified v3.2</span>. The edge ships via a dual-write rollout: it is written alongside the existing <span class="inline-mono">candidate.requisition_id</span> fk, then the fk is deprecated after a dual-read window. During that window the fk remains authoritative — migrate reads to the edge.</div>
       </div>
       <div class="std-row">
         <div class="std-name">v4<span class="std-ref">additive · Tenure event layer</span></div>
@@ -1583,7 +1583,7 @@ p { margin: 0 0 1.15em; }
       <div class="tax-row">
         <div class="tax-mod">Recruiter<span style="display:block;font-weight:400;color:var(--ink-mute);font-size:10px">ATS</span></div>
         <div class="tax-types"><span class="inline-mono">requisition</span>, <span class="inline-mono">candidate</span>, <span class="inline-mono">skill</span> nodes; <span class="inline-mono">requires</span>, <span class="inline-mono">has_skill</span> edges; <span class="inline-mono">applied_for</span> edge</div>
-        <div class="tax-ver"><span class="sbadge canonical">canonical v3</span><br /><span class="sbadge proposed">applied_for proposed v3.2</span></div>
+        <div class="tax-ver"><span class="sbadge canonical">canonical v3</span><br /><span class="sbadge ratified">applied_for ratified v3.2</span></div>
       </div>
       <div class="tax-row">
         <div class="tax-mod">Tenure<span style="display:block;font-weight:400;color:var(--ink-mute);font-size:10px">lifecycle</span></div>
@@ -1751,20 +1751,22 @@ p { margin: 0 0 1.15em; }
       <li><strong>The v4 gap (resolved).</strong> v4 <em>is</em> Tenure&apos;s event layer — not merely inferred: the <a href="{{ '/tenure/' | relative_url }}">Tenure product</a> already runs on &ldquo;the people graph (v4),&rdquo; and Cairn&apos;s migration script bumps v4 → v5. The version history above is now consistent across the substrate, Cairn, and this paper: v1–v3 core, v4–v5 additive.</li>
       <li><strong><span class="inline-mono">has_event</span> vs. <span class="inline-mono">experienced</span> (resolved).</strong> <span class="inline-mono">has_event</span> is canonical (it is what the substrate and all four examples use). <span class="inline-mono">experienced</span> is a deprecated alias, documented as such, retained so older queries do not break silently. The §6 query card now uses <span class="inline-mono">has_event</span>.</li>
       <li><strong><span class="inline-mono">org_unit</span> status (resolved).</strong> v3.2 is the <em>formal specification of an existing structure-layer node</em> — <span class="inline-mono">org_unit</span> was already named canonical in §1; this gives it a ratified shape. <em>Recommendation to the Chairman:</em> run a production-instance reconciliation of any divergent <span class="inline-mono">org_unit</span> shapes before this goes GA, since the spec is being published as authoritative.</li>
-      <li><strong><span class="inline-mono">applied_for</span> normalization (escalated).</strong> Today the candidate→requisition link is a denormalized <span class="inline-mono">candidate.requisition_id</span> fk. Normalizing it into a first-class bitemporal edge has a dual-write migration cost. Published here as <span class="sbadge proposed">proposed v3.2 (not yet shipped)</span>. <em>Recommendation to the Chairman: confirm appetite for the migration before we commit it.</em></li>
+      <li><strong><span class="inline-mono">applied_for</span> normalization (resolved — ratified by the Chairman).</strong> Today the candidate→requisition link is a denormalized <span class="inline-mono">candidate.requisition_id</span> fk. Normalizing it into a first-class bitemporal edge is now <span class="sbadge ratified">ratified v3.2</span>: the Chairman greenlit the migration. <strong>Rollout is a dual-write window</strong> — <span class="inline-mono">applied_for</span> is written alongside the existing <span class="inline-mono">candidate.requisition_id</span> fk; after a dual-read window the fk is deprecated. The fk stays authoritative until then, so customers should migrate reads to the edge. (Generator emission of the edge is a scheduled Pillar follow-up.)</li>
       <li><strong><span class="inline-mono">skill_crosswalk</span> table (resolved).</strong> <strong>Not on the roadmap.</strong> <span class="inline-mono">esco_uri</span> and <span class="inline-mono">onet_code</span> stay optional, partial-coverage crosswalk fields, never join keys; the <span class="inline-mono">skill://…</span> URI is the anchor. We are not promising comprehensive crosswalk coverage we do not intend to build.</li>
       <li><strong>The <span class="inline-mono">agent</span> node type (open question, escalated).</strong> Named as a known gap, not deferred silently: several Cairn FKs (<span class="inline-mono">attestor_id</span>) currently collapse agent and human into <span class="inline-mono">fk(person.id)</span>. Whether agents get a sibling node type that shares identity/consent but diverges on the time layer is the question Post 05 §X opens; it is a Chairman/founder-vote-level decision and carries an <span class="sbadge openq">open question</span> badge until then.</li>
     </ul>
 
     <div class="aside plum">
-      <p class="aside-h">Escalated to the Chairman</p>
-      <p>Two items above are not mine to commit alone: the <span class="inline-mono">applied_for</span>
-      migration appetite (a dual-write window with a real cost), and the
-      <span class="inline-mono">agent</span> node-type decision (it touches the
-      Compact-level model of who is an actor). Both publish honestly today — one
-      as <span class="sbadge proposed">proposed</span>, one as
-      <span class="sbadge openq">open question</span> — so a customer is never
-      misled while the calls are pending.</p>
+      <p class="aside-h">Chairman rulings</p>
+      <p>Two items above were not mine to commit alone. The
+      <span class="inline-mono">applied_for</span> migration (a dual-write window
+      with a real cost) is now <strong>ratified</strong> — the Chairman confirmed
+      appetite, and it ships via the dual-write/dual-read rollout described above.
+      The <span class="inline-mono">agent</span> node-type decision (it touches the
+      Compact-level model of who is an actor) <strong>remains an
+      <span class="sbadge openq">open question</span></strong>, deferred by ruling.
+      Both publish honestly today — one ratified-and-rolling-out, one still an
+      open question — so a customer is never misled.</p>
     </div>
 
     <p>
