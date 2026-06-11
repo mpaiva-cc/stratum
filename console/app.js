@@ -157,13 +157,15 @@ async function loadData() {
   const bar = $('#loadbar');
   bar.style.width = '15%';
   try {
-    const [people, orgs, reqs, cands, meta] = await Promise.all([
+    const [people, orgs, reqs, cands, meta, appliedForEdges] = await Promise.all([
       fetch('data/people.json').then(r => r.json()),
       fetch('data/orgs.json').then(r => r.json()),
       // ATS files — soft-fail (if missing, hiring tab simply shows empty)
       fetch('data/requisitions.json').then(r => r.ok ? r.json() : []).catch(() => []),
       fetch('data/candidates.json').then(r => r.ok ? r.json() : []).catch(() => []),
       fetch('data/ats_meta.json').then(r => r.ok ? r.json() : null).catch(() => null),
+      // edge-graph: applied_for v3.2 — candidate→requisition authoritative read path
+      fetch('data/applied_for.json').then(r => r.ok ? r.json() : []).catch(() => []),
     ]);
     bar.style.width = '75%';
     state.people = people;
@@ -173,6 +175,13 @@ async function loadData() {
     state.candidates = cands || [];
     state.atsMeta = meta;
     state.byReqId = new Map((reqs || []).map(r => [r.id, r]));
+    // v3.2 edge index: candidateId → requisitionId (applied_for is authoritative post-cutover)
+    state.reqIdByCandidate = new Map(
+      (appliedForEdges || []).map(e => [
+        e.from.replace('candidate:', ''),
+        e.to.replace('requisition:', ''),
+      ])
+    );
     bar.style.width = '100%';
     setTimeout(() => bar.classList.add('is-done'), 250);
   } catch (e) {
@@ -186,6 +195,21 @@ async function loadData() {
       </div>`;
     throw e;
   }
+}
+
+// ─────────────────────────────────────────────────────────────
+// EDGE RESOLVER — applied_for v3.2 cutover
+// Edge is authoritative post-v3.2-cutover; fk fallback is deprecated
+// and will be removed when requisition_id is dropped from the generator.
+// ─────────────────────────────────────────────────────────────
+function reqIdOf(c) {
+  const fromEdge = state.reqIdByCandidate && state.reqIdByCandidate.get(c.id);
+  if (fromEdge) return fromEdge;
+  if (c.requisition_id) {
+    console.warn('[reqIdOf] edge missing for', c.id, '— falling back to fk', c.requisition_id);
+    return c.requisition_id;
+  }
+  return undefined;
 }
 
 // ─────────────────────────────────────────────────────────────
@@ -1975,7 +1999,7 @@ function renderHiringPipeline() {
   const totals = { applied: 0, screen: 0, interview: 0, offer: 0, accepted: 0 };
   // We compute from the candidates dataset for accuracy of pipeline state
   state.candidates.forEach(c => {
-    const req = state.byReqId.get(c.requisition_id);
+    const req = state.byReqId.get(reqIdOf(c));
     if (!req || req.status !== 'open') return;
     if (totals[c.stage] != null) totals[c.stage] += 1;
   });
@@ -1985,7 +2009,7 @@ function renderHiringPipeline() {
   // by walking candidates: every candidate touched 'applied'.
   let totalApplied = 0;
   state.candidates.forEach(c => {
-    const req = state.byReqId.get(c.requisition_id);
+    const req = state.byReqId.get(reqIdOf(c));
     if (!req || req.status !== 'open') return;
     totalApplied += 1;  // every candidate started here
   });
@@ -1995,7 +2019,7 @@ function renderHiringPipeline() {
     screen: 0, interview: 0, offer: 0, accepted: 0,
   };
   state.candidates.forEach(c => {
-    const req = state.byReqId.get(c.requisition_id);
+    const req = state.byReqId.get(reqIdOf(c));
     if (!req || req.status !== 'open') return;
     const order = ['applied','screen','interview','offer','accepted'];
     const idx = order.indexOf(c.stage);
@@ -2178,7 +2202,7 @@ function openReqDrawer(reqId) {
   if (!r) return;
   const hm = state.byId.get(r.hiring_manager_id);
   const rec = state.byId.get(r.recruiter_id);
-  const cands = state.candidates.filter(c => c.requisition_id === reqId);
+  const cands = state.candidates.filter(c => reqIdOf(c) === reqId);
   const byStage = {};
   ['applied','screen','interview','offer','accepted','rejected','withdrew'].forEach(s => byStage[s] = []);
   cands.forEach(c => { if (byStage[c.stage]) byStage[c.stage].push(c); });
@@ -3007,9 +3031,9 @@ Use tools — do not assume.`,
       if (f.stage_in && !f.stage_in.includes(c.stage)) return false;
       if (f.source && c.source !== f.source) return false;
       if (f.source_in && !f.source_in.includes(c.source)) return false;
-      if (f.requisition_id && c.requisition_id !== f.requisition_id) return false;
+      if (f.requisition_id && reqIdOf(c) !== f.requisition_id) return false;
       if (f.requisition_department) {
-        const req = state.byReqId.get(c.requisition_id);
+        const req = state.byReqId.get(reqIdOf(c));
         if (!req || req.department !== f.requisition_department) return false;
       }
       if (typeof f.days_in_stage_gt === 'number' && !(c.days_in_stage > f.days_in_stage_gt)) return false;
@@ -3054,7 +3078,7 @@ Use tools — do not assume.`,
       total_experience_years: c.total_experience_years,
       highest_level_indicated: c.highest_level_indicated,
       source: c.source,
-      requisition_id: c.requisition_id,
+      requisition_id: reqIdOf(c),  // edge-resolved; key name retained for API compat
       stage: c.stage,
       days_in_stage: c.days_in_stage,
       stage_entered: c.stage_entered,
@@ -3123,10 +3147,10 @@ Use tools — do not assume.`,
     const get = (row, dim) => {
       // For candidates, allow accessing the req's department via virtual dim
       if (entity === 'candidates' && dim === 'department') {
-        const req = state.byReqId.get(row.requisition_id);
+        const req = state.byReqId.get(reqIdOf(row));
         return req ? req.department : '—';
       }
-      if (dim === 'requisition_id') return row.requisition_id;
+      if (dim === 'requisition_id') return reqIdOf(row);
       return row[dim];
     };
 
@@ -5173,7 +5197,7 @@ const DEMO = (() => {
           </thead>
           <tbody>
             ${top8.map((r, i) => {
-              const cands = state.candidates.filter(c => c.requisition_id === r.id && c.stage === 'offer');
+              const cands = state.candidates.filter(c => reqIdOf(c) === r.id && c.stage === 'offer');
               const off = cands.length ? cands[0].offered_comp : null;
               return `
                 <tr>
@@ -5380,7 +5404,7 @@ const DEMO = (() => {
     ).sort((a,b) => b.predicted_offer_acceptance_probability - a.predicted_offer_acceptance_probability);
 
     const cardsHtml = atRisk.map((c, i) => {
-      const req = state.byReqId.get(c.requisition_id);
+      const req = state.byReqId.get(reqIdOf(c));
       const titleSafe = req ? req.title : 'Unknown role';
       return `
         <div style="padding:.8rem 1rem; border-bottom:1px solid var(--paper-rule); display:grid; grid-template-columns:1fr auto auto auto; gap:14px; align-items:center;">

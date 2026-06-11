@@ -42,16 +42,25 @@
     setInterval(updateRtStamp, 1000);
 
     try {
-      const [reqs, cands, people] = await Promise.all([
+      const [reqs, cands, people, appliedForEdges] = await Promise.all([
         fetch('../../console/data/requisitions.json').then(r => r.json()),
         fetch('../../console/data/candidates.json').then(r => r.json()),
         fetch('../../console/data/people.json').then(r => r.json()),
+        // edge-graph: applied_for v3.2 — candidate→requisition authoritative read path
+        fetch('../../console/data/applied_for.json').then(r => r.ok ? r.json() : []).catch(() => []),
       ]);
       state.reqs = reqs;
       state.candidates = cands;
       state.people = people;
       state.peopleById = Object.fromEntries(people.map(p => [p.id, p]));
       state.reqsById = Object.fromEntries(reqs.map(r => [r.id, r]));
+      // v3.2 edge index: candidateId → requisitionId (applied_for is authoritative post-cutover)
+      state.reqIdByCandidate = new Map(
+        (appliedForEdges || []).map(e => [
+          e.from.replace('candidate:', ''),
+          e.to.replace('requisition:', ''),
+        ])
+      );
 
       setLoad(70);
       initFilters();
@@ -389,12 +398,25 @@
     });
   }
 
+  // ────────────────────────── EDGE RESOLVER ──────────────
+  // Edge is authoritative post-v3.2-cutover; fk fallback is deprecated
+  // and will be removed when requisition_id is dropped from the generator.
+  function reqIdOf(c) {
+    const fromEdge = state.reqIdByCandidate && state.reqIdByCandidate.get(c.id);
+    if (fromEdge) return fromEdge;
+    if (c.requisition_id) {
+      console.warn('[reqIdOf] edge missing for', c.id, '— falling back to fk', c.requisition_id);
+      return c.requisition_id;
+    }
+    return undefined;
+  }
+
   // ────────────────────────── CANDIDATE TABLE ─────────────
   function filteredCands() {
     const f = state.filters.cand;
     return state.candidates.filter(c => {
       if (f.stage && c.stage !== f.stage) return false;
-      if (f.req && c.requisition_id !== f.req) return false;
+      if (f.req && reqIdOf(c) !== f.req) return false;
       if (f.source && c.source !== f.source) return false;
       if (f.country && c.country !== f.country) return false;
       if (f.q) {
@@ -415,7 +437,7 @@
     const page = cands.slice(start, start + state.candPerPage);
 
     tbody.innerHTML = page.map(c => {
-      const r = state.reqsById[c.requisition_id];
+      const r = state.reqsById[reqIdOf(c)];
       const match = matchScore(c);
       return `
         <tr data-id="${c.id}">
@@ -428,7 +450,7 @@
               </div>
             </div>
           </td>
-          <td>${r ? r.title : c.requisition_id}<br><span class="cand-email">${c.requisition_id}</span></td>
+          <td>${r ? r.title : reqIdOf(c)}<br><span class="cand-email">${reqIdOf(c)}</span></td>
           <td><span class="status-pill ${c.stage}">${c.stage}</span></td>
           <td><strong>${c.days_in_stage}</strong></td>
           <td><span class="match-chip ${matchTier(match)}">M: ${match}</span></td>
@@ -503,7 +525,7 @@
   function kanbanCandidates() {
     const stages = ['applied','screen','interview','offer','accepted'];
     let pool = state.candidates.filter(c => stages.includes(c.stage));
-    if (state.filters.kb.req) pool = pool.filter(c => c.requisition_id === state.filters.kb.req);
+    if (state.filters.kb.req) pool = pool.filter(c => reqIdOf(c) === state.filters.kb.req);
     if (state.filters.kb.q) {
       const q = state.filters.kb.q;
       pool = pool.filter(c => `${c.display_name} ${c.current_title} ${c.current_company}`.toLowerCase().includes(q));
@@ -526,7 +548,7 @@
       const shown = list.slice(0, 60);
       const body = col.querySelector('.kb-body');
       body.innerHTML = shown.map(c => {
-        const r = state.reqsById[c.requisition_id];
+        const r = state.reqsById[reqIdOf(c)];
         const m = matchScore(c);
         return `
           <div class="kb-card" draggable="true" data-id="${c.id}" data-stage="${c.stage}">
@@ -534,7 +556,7 @@
               <div class="kb-avatar">${initials(c.display_name)}</div>
               <div style="min-width:0; flex:1;">
                 <div class="kb-name" title="${c.display_name}">${c.display_name}</div>
-                <div class="kb-role" title="${r ? r.title : c.requisition_id}">${r ? r.title.slice(0,30) : c.requisition_id}</div>
+                <div class="kb-role" title="${r ? r.title : reqIdOf(c)}">${r ? r.title.slice(0,30) : reqIdOf(c)}</div>
               </div>
             </div>
             <div class="kb-meta">
@@ -666,14 +688,14 @@
       return;
     }
     list.innerHTML = schedState.pending.map(c => {
-      const r = state.reqsById[c.requisition_id];
+      const r = state.reqsById[reqIdOf(c)];
       return `
         <li class="pending-item" data-id="${c.id}">
           <div class="pn-row">
             <div class="pn-name">${c.display_name}</div>
             <button class="pn-btn" data-id="${c.id}">Schedule →</button>
           </div>
-          <div class="pn-meta">${r ? r.title : c.requisition_id} · ${c.days_in_stage}d waiting · needs 4-person panel</div>
+          <div class="pn-meta">${r ? r.title : reqIdOf(c)} · ${c.days_in_stage}d waiting · needs 4-person panel</div>
         </li>
       `;
     }).join('');
@@ -831,7 +853,7 @@
     schedState.selectedInterviewerIds = [];
     schedState.selectedSlot = null;
     const c = state.candidates.find(c => c.id === candId);
-    const r = c ? state.reqsById[c.requisition_id] : null;
+    const r = c ? state.reqsById[reqIdOf(c)] : null;
     schedState.message = `Hi ${c ? c.display_name.split(' ')[0] : 'there'},\n\nThanks for your interest in the ${r ? r.title : 'role'} role at Tessera Bank. We'd like to schedule the next round of interviews. Please confirm the time below works for you, and let us know if you need any accommodations.\n\nLooking forward to it.\n\nSofia\nStratum Recruiter`;
     renderSchedBottom();
     setTimeout(() => $('#sched-bottom-card')?.scrollIntoView({ behavior: 'smooth', block: 'start' }), 50);
@@ -847,7 +869,7 @@
   function renderScheduleWorkflow(card) {
     const c = state.candidates.find(c => c.id === schedState.activeCandidateId);
     if (!c) { cancelScheduleWorkflow(); return; }
-    const r = state.reqsById[c.requisition_id];
+    const r = state.reqsById[reqIdOf(c)];
     card.classList.remove('ai-card');
 
     const deptMatch = r ? state.people.filter(p => p.department === r.department) : state.people;
@@ -879,7 +901,7 @@
             <div class="sw-step-title">Candidate &amp; requisition</div>
             <div class="sw-confirm">
               <div><span class="sw-k">Candidate</span><span class="sw-v">${c.display_name} · ${c.email || (c.display_name.toLowerCase().split(' ').join('.') + '@example.com')}</span></div>
-              <div><span class="sw-k">Requisition</span><span class="sw-v">${r ? `${r.id} · ${r.title}` : c.requisition_id}</span></div>
+              <div><span class="sw-k">Requisition</span><span class="sw-v">${r ? `${r.id} · ${r.title}` : reqIdOf(c)}</span></div>
               <div><span class="sw-k">Stage</span><span class="sw-v">${c.stage} · day ${c.days_in_stage}</span></div>
             </div>
           </div>
@@ -1044,7 +1066,7 @@
   function renderOffers() {
     const offers = state.candidates.filter(c => c.stage === 'offer').slice(0, 12);
     $('#offer-grid').innerHTML = offers.map(c => {
-      const r = state.reqsById[c.requisition_id];
+      const r = state.reqsById[reqIdOf(c)];
       const comp = c.offered_comp || c.expected_comp || (r ? r.comp_band_p50 : 0);
       const prob = Math.round((c.predicted_offer_acceptance_probability || 0.6) * 100);
       const statusPool = ['extended','extended','pending','accepted','declined'];
@@ -1054,7 +1076,7 @@
           <div class="offer-head">
             <div>
               <div class="offer-cand-name">${c.display_name}</div>
-              <div class="offer-role">${r ? r.title : c.requisition_id}</div>
+              <div class="offer-role">${r ? r.title : reqIdOf(c)}</div>
             </div>
             <span class="status-pill ${status}">${status}</span>
           </div>
@@ -1885,7 +1907,7 @@
     if (!r) return;
     const hm = state.peopleById[r.hiring_manager_id];
     const rec = state.peopleById[r.recruiter_id];
-    const reqCands = state.candidates.filter(c => c.requisition_id === id);
+    const reqCands = state.candidates.filter(c => reqIdOf(c) === id);
 
     $('#drawer-head').innerHTML = `
       <div class="drawer-eyebrow">§ Requisition · ${r.id}</div>
@@ -2066,7 +2088,7 @@
   function openCandDrawer(id) {
     const c = state.candidates.find(x => x.id === id);
     if (!c) return;
-    const r = state.reqsById[c.requisition_id];
+    const r = state.reqsById[reqIdOf(c)];
     const match = matchScore(c);
 
     $('#drawer-head').innerHTML = `
@@ -2121,7 +2143,7 @@
         <div class="drawer-section">
           <div class="dsec-label">§ Applied to</div>
           <div class="dsec-body">
-            <p><strong>${r ? r.title : c.requisition_id}</strong> · ${r ? r.department + ' · ' + r.location : ''}</p>
+            <p><strong>${r ? r.title : reqIdOf(c)}</strong> · ${r ? r.department + ' · ' + r.location : ''}</p>
             <p>Entered ${c.stage} on <strong>${c.stage_entered}</strong> · ${c.days_in_stage}d in stage.</p>
             <p>Predicted offer acceptance probability: <strong style="color:var(--ochre);">${Math.round((c.predicted_offer_acceptance_probability||0.6)*100)}%</strong></p>
           </div>
@@ -2275,7 +2297,7 @@
   function openOfferDrawer(id) {
     const c = state.candidates.find(x => x.id === id);
     if (!c) return;
-    const r = state.reqsById[c.requisition_id];
+    const r = state.reqsById[reqIdOf(c)];
     const comp = c.offered_comp || c.expected_comp || (r ? r.comp_band_p50 : 100000);
     const bonus = Math.round(comp * 0.15);
     const equity = Math.round(comp * 0.5);
@@ -2285,7 +2307,7 @@
     $('#drawer-head').innerHTML = `
       <div class="drawer-eyebrow">§ Offer · ${c.id}</div>
       <h2 class="drawer-title">${c.display_name}</h2>
-      <div class="drawer-subtitle">${r ? r.title : c.requisition_id} · ${r ? r.location : ''}</div>
+      <div class="drawer-subtitle">${r ? r.title : reqIdOf(c)} · ${r ? r.location : ''}</div>
       <div class="drawer-meta">
         <span class="drawer-meta-item"><span class="k">Status</span><span class="v">extended</span></span>
         <span class="drawer-meta-item"><span class="k">Sent</span><span class="v">${c.stage_entered}</span></span>
@@ -2692,7 +2714,7 @@ Workflow:
     tool_summarizeCandidate({ candidate_id }) {
       const c = state.candidates.find(x => x.id === candidate_id);
       if (!c) return { error: `Candidate ${candidate_id} not found.` };
-      const r = c.requisition_id ? state.reqsById[c.requisition_id] : null;
+      const r = reqIdOf(c) ? state.reqsById[reqIdOf(c)] : null;
       return {
         candidate: LLM.projectCandidate(c),
         requisition: r ? LLM.projectReq(r) : null,
@@ -2774,7 +2796,7 @@ Workflow:
         is_referral: c.is_referral, is_internal: c.is_internal,
         expected_comp: c.expected_comp, offered_comp: c.offered_comp,
         predicted_offer_acceptance_probability: c.predicted_offer_acceptance_probability,
-        requisition_id: c.requisition_id,
+        requisition_id: reqIdOf(c),  // edge-resolved; key name retained for API compat
       };
     },
     projectReq(r) {
@@ -3005,7 +3027,7 @@ Workflow:
 
       const userMsg =
 `Summarize candidate ${c.id} (${c.display_name}) for the recruiter. ` +
-(c.requisition_id ? `They are being considered for requisition ${c.requisition_id} (${r ? r.title : 'unknown role'}). ` : '') +
+(reqIdOf(c) ? `They are being considered for requisition ${reqIdOf(c)} (${r ? r.title : 'unknown role'}). ` : '') +
 `Call summarize_candidate first to get the data, then write a 3-sentence summary covering experience, fit for the role, and any flags. End with a one-line recommendation. Cite candidate id and requisition id.`;
 
       try {
@@ -3101,7 +3123,7 @@ Stream the prose for the JD into your text response (sections: About the role / 
       mark && mark.classList.add('is-live');
 
       const userMsg =
-`Draft a formal offer letter for candidate ${c.id} (${c.display_name}) for requisition ${r ? r.id : c.requisition_id} (${r ? r.title : 'role'}). ` +
+`Draft a formal offer letter for candidate ${c.id} (${c.display_name}) for requisition ${r ? r.id : reqIdOf(c)} (${r ? r.title : 'role'}). ` +
 `Call get_candidate_offer_context first to retrieve the comp band, hiring manager, start date, and expiry. Then produce a complete offer letter with: greeting, role + reporting line, full comp breakdown (base, bonus, equity, sign-on), start date, expiry, and a warm closing signed by Sofia Vargas. Use plain text — no markdown, no HTML. Keep tone professional and specific.`;
 
       try {

@@ -1240,10 +1240,12 @@ async function boot() {
   setInterval(updateRtStamp, 1000);
 
   try {
-    const [reqs, cands, people] = await Promise.all([
+    const [reqs, cands, people, appliedForEdges] = await Promise.all([
       fetch('../../console/data/requisitions.json').then(r => r.json()),
       fetch('../../console/data/candidates.json').then(r => r.json()),
       fetch('../../console/data/people.json').then(r => r.json()),
+      // edge-graph: applied_for v3.2 — candidate→requisition authoritative read path
+      fetch('../../console/data/applied_for.json').then(r => r.ok ? r.json() : []).catch(() => []),
     ]);
     state.reqs = reqs;
     state.cands = cands;
@@ -1251,6 +1253,13 @@ async function boot() {
     state.reqsById   = Object.fromEntries(reqs.map(r => [r.id, r]));
     state.peopleById = Object.fromEntries(people.map(p => [p.id, p]));
     state.candsById  = Object.fromEntries(cands.map(c => [c.id, c]));
+    // v3.2 edge index: candidateId → requisitionId (applied_for is authoritative post-cutover)
+    state.reqIdByCandidate = new Map(
+      (appliedForEdges || []).map(e => [
+        e.from.replace('candidate:', ''),
+        e.to.replace('requisition:', ''),
+      ])
+    );
 
     // Filter to David's world
     state.myReqs = MY_REQ_IDS
@@ -1258,7 +1267,7 @@ async function boot() {
       .filter(Boolean);
 
     const myReqSet = new Set(MY_REQ_IDS);
-    const myCands = cands.filter(c => myReqSet.has(c.requisition_id));
+    const myCands = cands.filter(c => myReqSet.has(reqIdOf(c)));
 
     // Waiting on David: stage in interview/offer, days_in_stage > 3
     state.waiting = myCands
@@ -1341,6 +1350,19 @@ function reqCardHtml(r) {
   `;
 }
 
+// ── EDGE RESOLVER ─────────────────────────────────────────
+// Edge is authoritative post-v3.2-cutover; fk fallback is deprecated
+// and will be removed when requisition_id is dropped from the generator.
+function reqIdOf(c) {
+  const fromEdge = state.reqIdByCandidate && state.reqIdByCandidate.get(c.id);
+  if (fromEdge) return fromEdge;
+  if (c.requisition_id) {
+    console.warn('[reqIdOf] edge missing for', c.id, '— falling back to fk', c.requisition_id);
+    return c.requisition_id;
+  }
+  return undefined;
+}
+
 // ── WAITING ────────────────────────────────────────────────
 function renderWaiting() {
   const wrap = $('#waiting-list');
@@ -1364,18 +1386,18 @@ function matchScoreFor(c) {
 }
 
 function waitCardHtml(c) {
-  const req = state.reqsById[c.requisition_id];
+  const req = state.reqsById[reqIdOf(c)];
   const match = matchScoreFor(c);
   const matchCls = match >= 0.8 ? '' : match >= 0.65 ? 'mid' : 'low';
   const stageLine = c.stage === 'offer'
-    ? `Awaiting your <strong>offer approval</strong> for ${esc(req?.title || c.requisition_id)}.`
-    : `Awaiting your <strong>scorecard</strong> from technical screen — ${esc(req?.title || c.requisition_id)}.`;
+    ? `Awaiting your <strong>offer approval</strong> for ${esc(req?.title || reqIdOf(c))}.`
+    : `Awaiting your <strong>scorecard</strong> from technical screen — ${esc(req?.title || reqIdOf(c))}.`;
   return `
     <article class="wait-card" data-cand="${esc(c.id)}" tabindex="0">
       <div class="top">
         <span class="name">${esc(c.display_name)}</span>
         <span class="title">${esc(c.current_title)} · ${esc(c.current_company)}</span>
-        <span class="req-tag">${esc(c.requisition_id)}</span>
+        <span class="req-tag">${esc(reqIdOf(c))}</span>
       </div>
       <div class="action-line">${stageLine}</div>
       <div class="meta-side">
@@ -1459,7 +1481,7 @@ function compBreakdownFor(c) {
 }
 
 function compRatioFor(c) {
-  const req = state.reqsById[c.requisition_id];
+  const req = state.reqsById[reqIdOf(c)];
   if (!req || !req.comp_band_p50 || !c.offered_comp) return null;
   return c.offered_comp / req.comp_band_p50;
 }
@@ -1472,7 +1494,7 @@ function ratioCls(r) {
 }
 
 function offerCardHtml(c) {
-  const req = state.reqsById[c.requisition_id];
+  const req = state.reqsById[reqIdOf(c)];
   const b = compBreakdownFor(c);
   const ratio = compRatioFor(c);
   const pred = c.predicted_offer_acceptance_probability || 0;
@@ -1482,7 +1504,7 @@ function offerCardHtml(c) {
       <div class="head">
         <div>
           <h3 class="who">${esc(c.display_name)}</h3>
-          <div class="role">${esc(req?.title || c.current_title)} <span class="sep">·</span> ${esc(c.requisition_id)}</div>
+          <div class="role">${esc(req?.title || c.current_title)} <span class="sep">·</span> ${esc(reqIdOf(c))}</div>
         </div>
         ${decision ? `<span class="pill ${decision.decision === 'approve' ? 'in_pace' : decision.decision === 'decline' ? 'stuck' : 'aging'}">${esc(decision.decision)}d</span>` : `<span class="pill action">Action needed</span>`}
       </div>
@@ -1599,7 +1621,7 @@ document.addEventListener('keydown', e => { if (e.key === 'Escape') closeDrawer(
 function openReqDrawer(reqId) {
   const r = state.reqsById[reqId];
   if (!r) return;
-  const myReqCands = state.cands.filter(c => c.requisition_id === reqId);
+  const myReqCands = state.cands.filter(c => reqIdOf(c) === reqId);
   const sc = r.stage_counts;
   const slowestInInterview = myReqCands
     .filter(c => c.stage === 'interview')
@@ -1662,7 +1684,7 @@ function openReqDrawer(reqId) {
 function openCandDrawer(candId, focus) {
   const c = state.candsById[candId];
   if (!c) { toast('Candidate not found in dataset'); return; }
-  const req = state.reqsById[c.requisition_id];
+  const req = state.reqsById[reqIdOf(c)];
   const match = matchScoreFor(c);
   const isOffer = c.stage === 'offer';
   const wantsScorecard = focus === 'scorecard' || (!isOffer && focus !== 'offer');
