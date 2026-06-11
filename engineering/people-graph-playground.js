@@ -657,17 +657,25 @@
         pos[n.id] = { x: cx + R2 * Math.cos(ang), y: cy + R2 * Math.sin(ang) };
       });
     }
-    var svg = '';
+    var NODE_R = 22;
+    // arrowhead marker for edge direction
+    var svg = '<defs><marker id="gv-arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path class="gv-arrowhead" d="M0,0 L10,5 L0,10 z"/></marker></defs>';
     sg.edges.forEach(function (ed) {
       var a = pos[ed.from], b = pos[ed.to];
-      if (a && b) svg += '<line class="gv-edge" x1="' + a.x.toFixed(1) + '" y1="' + a.y.toFixed(1) + '" x2="' + b.x.toFixed(1) + '" y2="' + b.y.toFixed(1) + '"/>';
+      if (!a || !b) return;
+      var dx = b.x - a.x, dy = b.y - a.y, len = Math.sqrt(dx * dx + dy * dy) || 1, ux = dx / len, uy = dy / len;
+      // start at the source node edge, stop at the target node edge so the arrow sits at the boundary
+      var ax = a.x + ux * NODE_R, ay = a.y + uy * NODE_R, bx = b.x - ux * NODE_R, by = b.y - uy * NODE_R;
+      svg += '<line class="gv-edge" x1="' + ax.toFixed(1) + '" y1="' + ay.toFixed(1) + '" x2="' + bx.toFixed(1) + '" y2="' + by.toFixed(1) + '" marker-end="url(#gv-arrow)"/>'
+        + '<text class="gv-edge-label" x="' + (a.x + dx * 0.46).toFixed(1) + '" y="' + (a.y + dy * 0.46).toFixed(1) + '" text-anchor="middle" dy="-3">' + e2(ed.type) + '</text>';
     });
     sg.nodes.forEach(function (n) {
       var p = pos[n.id]; if (!p) return;
       var short = String(n.id).replace(/^(EMP|REQ|CAND)-0*/, '');
       var lbl = n.name || n.id; if (lbl.length > 18) lbl = lbl.slice(0, 17) + '…';
+      var title = (n.label ? n.label + ': ' : '') + (n.name || n.id) + (n.rec && n.rec.title ? ' · ' + n.rec.title : '') + ' (' + n.id + ')';
       svg += '<g class="gv-node gv-node--' + (n.label || 'node') + '" transform="translate(' + p.x.toFixed(1) + ',' + p.y.toFixed(1) + ')">'
-        + '<title>' + e2((n.label ? n.label + ': ' : '') + (n.name || n.id) + ' (' + n.id + ')') + '</title>'
+        + '<title>' + e2(title) + '</title>'
         + '<circle r="22"/>'
         + '<text class="gv-id" y="4" text-anchor="middle">' + e2(short) + '</text>'
         + '<text class="gv-name" y="40" text-anchor="middle">' + e2(lbl) + '</text>'
