@@ -18,6 +18,8 @@ permalink: /:path:output_ext
 exclude:
   - agent-outbox/
   - scripts/
+  - "**/*.test.js"
+  - docs/superpowers/
   - .claude/
   - .githooks/
   - README.md
