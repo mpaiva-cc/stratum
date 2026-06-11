@@ -62,13 +62,13 @@ test('retention-risk: 8 rows, sorted desc, top score is the real max', () => {
   assert.equal(r.rows[0][fr], trueTop);
 });
 
-test('span-of-control under EMP-00457 = 9 (matches stored span_of_control)', () => {
-  const r = run(GP.SEED_QUERIES.find(q => q.id === 'span-of-control').cypher);
+test('reports_to: manager EMP-00457 has 9 reports', () => {
+  const r = run('MATCH (p:person)-[:reports_to]->(m:person) WHERE m.id = "EMP-00457" RETURN p.id, p.display_name, p.title');
   assert.equal(r.rows.length, 9);
 });
 
-test('comp-ratio outliers: 5 rows, sorted desc', () => {
-  const r = run(GP.SEED_QUERIES.find(q => q.id === 'comp-ratio').cypher);
+test('comp-ratio: Operations/Business Ops top 5 sorted desc', () => {
+  const r = run('MATCH (p:person) WHERE p.department = "Operations" AND p.team = "Business Ops" RETURN p.id, p.display_name, p.comp_ratio ORDER BY p.comp_ratio DESC LIMIT 5');
   assert.equal(r.rows.length, 5);
   const cr = r.columns.indexOf('p.comp_ratio');
   for (let i = 1; i < r.rows.length; i++) assert.ok(r.rows[i - 1][cr] >= r.rows[i][cr]);
@@ -81,8 +81,8 @@ test('application-history: the real applied_for edge for CAND-00000001', () => {
   assert.equal(r.rows[0][r.columns.indexOf('e.valid_to')], '2026-04-24');
 });
 
-test('pipeline-aging: 5 open reqs, sorted by days_open desc', () => {
-  const r = run(GP.SEED_QUERIES.find(q => q.id === 'pipeline-aging').cypher);
+test('pipeline aging: 5 open reqs sorted by days_open desc', () => {
+  const r = run('MATCH (r:requisition) WHERE r.status = "open" RETURN r.id, r.title, r.days_open ORDER BY r.days_open DESC LIMIT 5');
   assert.equal(r.rows.length, 5);
   const d = r.columns.indexOf('r.days_open');
   for (let i = 1; i < r.rows.length; i++) assert.ok(r.rows[i - 1][d] >= r.rows[i][d]);
@@ -122,4 +122,28 @@ test('open reqs total = 125 of 140', () => {
   assert.equal(r.rows[0][0], 125);
   const all = run('MATCH (r:requisition) RETURN count(*) AS n');
   assert.equal(all.rows[0][0], 140);
+});
+
+test('RETURN p returns the whole record (every schema field)', () => {
+  const r = run('MATCH (p:person) WHERE p.id = "EMP-00001" RETURN p');
+  assert.equal(r.rows.length, 1);
+  const rec = r.rows[0][0];
+  assert.equal(typeof rec, 'object');
+  assert.equal(rec.id, 'EMP-00001');
+  // a representative spread across the schema groups
+  ['display_name', 'department', 'team', 'comp_ratio', 'flight_risk', 'tenure_years', 'manager_id']
+    .forEach(k => assert.ok(k in rec, `record should carry ${k}`));
+});
+
+test('reports_to from a person returns the manager record (RETURN m)', () => {
+  const r = run('MATCH (p:person)-[:reports_to]->(m:person) WHERE p.id = "EMP-00001" RETURN m');
+  assert.equal(r.rows.length, 1);
+  assert.equal(r.rows[0][0].id, 'EMP-00457');
+});
+
+test('every runnable seed executes and returns ≥1 row', () => {
+  GP.SEED_QUERIES.filter(q => q.runnable).forEach(q => {
+    const r = run(q.cypher);
+    assert.ok(r.rows.length >= 1, `seed ${q.id} should return rows`);
+  });
 });

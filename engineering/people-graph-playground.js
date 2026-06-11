@@ -245,11 +245,12 @@
         item.col = item.alias || (fn + '(' + (arg.kind === 'star' ? '*' : arg.kind === 'ref' ? arg.var + '.' + arg.prop : arg.var) + ')');
         return item;
       }
-      // plain ref var.prop
-      var ref = parseRef();
-      var it = { kind: 'ref', var: ref.var, prop: ref.prop };
-      if (isKw('AS')) { next(); it.alias = eatId(); }
-      it.col = it.alias || (ref.var + '.' + ref.prop);
+      // plain ref (var.prop) OR a bare node variable (the whole record, e.g. RETURN p)
+      var vname = eatId();
+      var it;
+      if (isOp('.')) { next(); it = { kind: 'ref', var: vname, prop: eatId() }; it.col = vname + '.' + it.prop; }
+      else { it = { kind: 'node', var: vname }; it.col = vname; }
+      if (isKw('AS')) { next(); it.alias = eatId(); it.col = it.alias; }
       return it;
     }
 
@@ -390,7 +391,10 @@
 
     if (!hasAgg) {
       rows = bindings.map(function (b) {
-        return items.map(function (it) { return getProp(b, it); });
+        return items.map(function (it) {
+          if (it.kind === 'node') return b[it.var]; // whole record (RETURN p)
+          return getProp(b, it);
+        });
       });
     } else {
       var groupItems = items.filter(function (it) { return it.kind === 'ref'; });
@@ -430,34 +434,39 @@
   // ───────────────────────────────────────────────────── seed queries
   var SEED_QUERIES = [
     {
-      id: 'retention-risk', title: 'Retention risk', runnable: true,
-      note: 'Top flight-risk people in Engineering. Real flight_risk scores from people.json.',
+      id: 'person-record', title: 'A person — full record', runnable: true,
+      note: 'The whole person record for EMP-00001 (Rahul Ahmadi). RETURN p returns the entire node, so you can see every field of the people schema at once — identity, role, org, compensation, and the derived signals.',
+      cypher: 'MATCH (p:person)\nWHERE p.id = "EMP-00001"\nRETURN p'
+    },
+    {
+      id: 'person-manager', title: 'Their manager', runnable: true,
+      note: 'Follow the reports_to edge (derived from manager_id) from EMP-00001 to their manager, and return that manager’s full record.',
+      cypher: 'MATCH (p:person)-[:reports_to]->(m:person)\nWHERE p.id = "EMP-00001"\nRETURN m'
+    },
+    {
+      id: 'person-signals', title: 'Their key signals', runnable: true,
+      note: 'Project specific fields of one person — title, level, tenure, comp-ratio, flight-risk, last review. comp_ratio, tenure_years, and flight_risk are derived at projection time, not raw stored facts.',
+      cypher: 'MATCH (p:person)\nWHERE p.id = "EMP-00001"\nRETURN p.title, p.level, p.tenure_years, p.comp_ratio, p.flight_risk, p.last_review'
+    },
+    {
+      id: 'person-team', title: 'Their team', runnable: true,
+      note: 'The people who share EMP-00001’s manager (EMP-00457) — the team they sit on. Two reports_to edges meeting at the same manager.',
+      cypher: 'MATCH (peer:person)-[:reports_to]->(m:person)\nWHERE m.id = "EMP-00457"\nRETURN peer.id, peer.display_name, peer.title'
+    },
+    {
+      id: 'retention-risk', title: 'Retention risk (cohort)', runnable: true,
+      note: 'A cohort query: top flight-risk people in Engineering, real flight_risk scores from people.json.',
       cypher: 'MATCH (p:person)\nWHERE p.department = "Engineering"\nRETURN p.id, p.display_name, p.title, p.flight_risk\nORDER BY p.flight_risk DESC\nLIMIT 8'
-    },
-    {
-      id: 'pipeline-aging', title: 'Pipeline aging', runnable: true,
-      note: 'Open requisitions by how long they have been open.',
-      cypher: 'MATCH (r:requisition)\nWHERE r.status = "open"\nRETURN r.id, r.title, r.days_open\nORDER BY r.days_open DESC\nLIMIT 5'
-    },
-    {
-      id: 'span-of-control', title: 'Span of control', runnable: true,
-      note: 'Direct reports under a manager, via the reports_to edge (derived from manager_id).',
-      cypher: 'MATCH (p:person)-[:reports_to]->(m:person)\nWHERE m.id = "EMP-00457"\nRETURN p.id, p.display_name, p.title'
-    },
-    {
-      id: 'comp-ratio', title: 'Comp-ratio outliers', runnable: true,
-      note: 'Highest comp-ratios in Operations / Business Ops.',
-      cypher: 'MATCH (p:person)\nWHERE p.department = "Operations" AND p.team = "Business Ops"\nRETURN p.id, p.display_name, p.comp_ratio\nORDER BY p.comp_ratio DESC\nLIMIT 5'
-    },
-    {
-      id: 'application-history', title: 'Application history', runnable: true,
-      note: 'A candidate’s applications via the real applied_for edge. Closed valid_to = withdrawn/rejected.',
-      cypher: 'MATCH (c:candidate)-[e:applied_for]->(r:requisition)\nWHERE c.id = "CAND-00000001"\nRETURN r.id, r.title, e.applied_at, e.valid_to'
     },
     {
       id: 'headcount', title: 'Headcount by department', runnable: true,
       note: 'Implicit grouping: count people per department.',
       cypher: 'MATCH (p:person)\nRETURN p.department, count(*) AS headcount\nORDER BY headcount DESC'
+    },
+    {
+      id: 'application-history', title: 'A candidate’s applications', runnable: true,
+      note: 'A different node type and the real applied_for edge: a candidate’s applications, with the bitemporal interval. Closed valid_to = withdrawn/rejected.',
+      cypher: 'MATCH (c:candidate)-[e:applied_for]->(r:requisition)\nWHERE c.id = "CAND-00000001"\nRETURN r.id, r.title, e.applied_at, e.valid_to'
     },
     {
       id: 'identity-concept', title: 'Identity resolution (concept)', runnable: false,
@@ -485,9 +494,20 @@
       return;
     }
     var cols = result.columns, rows = result.rows;
-    html += '<div class="pg-resp-data"><div class="pg-resp-h">Response · ' + rows.length + (rows.length === 1 ? ' row' : ' rows') + '</div>';
+    // JSON mode: any returned cell is a whole record (object) — e.g. RETURN p.
+    // Show the raw record(s) so the people data format / schema is visible.
+    var jsonMode = rows.some(function (r) { return r.some(function (c) { return c && typeof c === 'object'; }); });
+    var unit = jsonMode ? (rows.length === 1 ? ' record' : ' records') : (rows.length === 1 ? ' row' : ' rows');
+    html += '<div class="pg-resp-data"><div class="pg-resp-h">Response · ' + rows.length + unit + '</div>';
     if (!rows.length) {
       html += '<p class="pg-empty">0 rows — the query ran but matched nothing.</p>';
+    } else if (jsonMode) {
+      rows.forEach(function (r) {
+        var obj;
+        if (r.length === 1) obj = r[0];                            // RETURN p → the record itself
+        else { obj = {}; cols.forEach(function (c, i) { obj[c] = r[i]; }); } // RETURN p, m → keyed
+        html += '<pre class="pg-json">' + esc(JSON.stringify(obj, null, 2)) + '</pre>';
+      });
     } else {
       html += '<table class="pg-table"><thead><tr>';
       cols.forEach(function (c) { html += '<th>' + esc(c) + '</th>'; });
