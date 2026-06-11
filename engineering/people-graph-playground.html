@@ -541,6 +541,35 @@ permalink: /engineering/people-graph-playground.html
        .jn (plum-soft)  → #6b3a4a (plum print dark)
        .jz (comment)    → #5a6172 (muted print dark)
   */
+
+  /* ── Result tabs (Data / Graph) ─────────────────────────────────────────────── */
+  .pg-tabs { display: flex; gap: .3rem; margin: 0 0 .55rem; }
+  .pg-tab {
+    font-family: var(--mono, "JetBrains Mono"), monospace;
+    font-size: .78rem; letter-spacing: .04em; cursor: pointer;
+    border: 1px solid var(--paper-rule-2, #c8b894);
+    background: var(--paper-warm, #f7f0e0);
+    color: var(--ink-2, #2a3344);
+    padding: .32rem .85rem; border-radius: 3px 3px 0 0;
+  }
+  .pg-tab.is-active { background: var(--ink, #0e1626); color: var(--console-text, #e8dfc8); border-color: var(--ink, #0e1626); }
+  .pg-tab:focus-visible { outline: 2px solid var(--ochre, #b8651f); outline-offset: 2px; }
+
+  /* ── Graph viz panel ──────────────────────────────────────────────────────────
+     Tessera: the node-link graph view. Please own the visual — .gv-node--person /
+     --requisition / --candidate fills, .gv-edge strokes, and the .gv-id (on-node) /
+     .gv-name (under-node) labels, all at AAA on the --ink surface, consistent with
+     the dark console. Functional baseline below. */
+  .pg-graph { background: var(--ink, #0e1626); padding: .9rem 1rem 1.1rem; min-width: 0; }
+  .pg-graph-svg { width: 100%; height: auto; display: block; margin-top: .4rem; }
+  .gv-edge { stroke: var(--comment-gray, #a0a8b4); stroke-width: 1.5; }
+  .gv-node circle { fill: var(--console-text, #e8dfc8); stroke: var(--ink, #0e1626); stroke-width: 2.5; }
+  .gv-node--person circle { fill: var(--ochre-soft, #e6c79b); }
+  .gv-node--requisition circle { fill: var(--moss-soft, #c5cdb1); }
+  .gv-node--candidate circle { fill: var(--plum-soft, #d4aab8); }
+  .gv-id { font-family: var(--mono, "JetBrains Mono"), monospace; font-size: 11px; font-weight: 700; fill: var(--ink, #0e1626); }
+  .gv-name { font-family: var(--mono, "JetBrains Mono"), monospace; font-size: 11px; fill: var(--console-text, #e8dfc8); }
+
   @media print {
     .pg-editor {
       background: #f7f0e0;
@@ -674,7 +703,12 @@ permalink: /engineering/people-graph-playground.html
     </section>
     <section class="pg-right">
       <span class="pg-label">Result</span>
-      <div id="pg-response" class="pg-response"><p class="pg-hint">Loading the graph…</p></div>
+      <div class="pg-tabs" role="tablist" aria-label="Result view">
+        <button type="button" class="pg-tab is-active" id="pg-tab-data" role="tab" aria-selected="true" aria-controls="pg-response">Data</button>
+        <button type="button" class="pg-tab" id="pg-tab-graph" role="tab" aria-selected="false" aria-controls="pg-graph">Graph</button>
+      </div>
+      <div id="pg-response" class="pg-response" role="tabpanel" aria-labelledby="pg-tab-data"><p class="pg-hint">Loading the graph…</p></div>
+      <div id="pg-graph" class="pg-response pg-graph" role="tabpanel" aria-labelledby="pg-tab-graph" hidden></div>
     </section>
   </div>
 </main>
@@ -687,11 +721,26 @@ permalink: /engineering/people-graph-playground.html
   var GP = window.GraphPlayground;
   var qEl = document.getElementById('pg-query');
   var respEl = document.getElementById('pg-response');
+  var graphEl = document.getElementById('pg-graph');
   var noteEl = document.getElementById('pg-note');
   var seedsEl = document.getElementById('pg-seeds');
+  var tabData = document.getElementById('pg-tab-data');
+  var tabGraph = document.getElementById('pg-tab-graph');
   var DATA = null;
 
   function esc(s) { return String(s).replace(/[&<>]/g, function (c) { return ({ '&': '&amp;', '<': '&lt;', '>': '&gt;' })[c]; }); }
+
+  function showTab(which) {
+    var dataActive = which === 'data';
+    respEl.hidden = !dataActive;
+    graphEl.hidden = dataActive;
+    tabData.classList.toggle('is-active', dataActive);
+    tabGraph.classList.toggle('is-active', !dataActive);
+    tabData.setAttribute('aria-selected', String(dataActive));
+    tabGraph.setAttribute('aria-selected', String(!dataActive));
+  }
+  tabData.addEventListener('click', function () { showTab('data'); });
+  tabGraph.addEventListener('click', function () { showTab('graph'); });
 
   GP.SEED_QUERIES.forEach(function (s) {
     var b = document.createElement('button');
@@ -703,9 +752,13 @@ permalink: /engineering/people-graph-playground.html
       qEl.value = s.cypher;
       noteEl.textContent = s.note;
       if (s.runnable) execute();
-      else respEl.innerHTML = '<div class="pg-resp-code"><div class="pg-resp-h">Query</div><pre>' + esc(s.cypher) +
-        '</pre></div><div class="pg-resp-data pg-resp-err"><div class="pg-resp-h">Not executable here</div><pre>' +
-        esc(s.note) + '</pre></div>';
+      else {
+        respEl.innerHTML = '<div class="pg-resp-code"><div class="pg-resp-h">Query</div><pre>' + esc(s.cypher) +
+          '</pre></div><div class="pg-resp-data pg-resp-err"><div class="pg-resp-h">Not executable here</div><pre>' +
+          esc(s.note) + '</pre></div>';
+        graphEl.innerHTML = '<p class="pg-empty">No graph — this concept query runs over the full graph, not the static projection.</p>';
+        showTab('data');
+      }
     });
     seedsEl.appendChild(b);
   });
@@ -715,10 +768,12 @@ permalink: /engineering/people-graph-playground.html
     var text = qEl.value.trim();
     if (!text) return;
     try {
-      var res = GP.runQuery(GP.parseQuery(text), DATA);
-      GP.renderResponse(respEl, res, text);
+      var ast = GP.parseQuery(text);
+      GP.renderResponse(respEl, GP.runQuery(ast, DATA), text);
+      GP.renderGraph(graphEl, GP.subgraph(ast, DATA));
     } catch (e) {
       GP.renderResponse(respEl, e, text);
+      graphEl.innerHTML = '<p class="pg-empty">No graph — the query did not run.</p>';
     }
   }
 

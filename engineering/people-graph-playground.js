@@ -432,6 +432,46 @@
   }
 
   // ───────────────────────────────────────────────────── seed queries
+  // ───────────────────────────────────────────────────── subgraph (for the viz)
+  // The matched subgraph: distinct nodes + edges the query's pattern traversed,
+  // honoring WHERE. RETURN (p)-[:reports_to]->(m) over a manager → a hub + spokes;
+  // RETURN p → a single node. Capped for legibility.
+  function subgraph(ast, data, cap) {
+    cap = cap || 48;
+    var bindings = applyWhere(bindPattern(ast.pattern, data), ast.where);
+    var nodes0 = ast.pattern.nodes;
+    var rel = ast.pattern.rels[0];
+    var map = Object.create(null);
+    var edges = [];
+    var truncated = false;
+    function add(rec, label) {
+      if (!rec) return null;
+      if (!map[rec.id]) {
+        if (Object.keys(map).length >= cap) { truncated = true; return null; }
+        map[rec.id] = { id: rec.id, label: label || null, name: rec.display_name || rec.title || rec.id, rec: rec };
+      }
+      return map[rec.id];
+    }
+    bindings.forEach(function (b) {
+      if (rel) {
+        var a = add(b[nodes0[0].var], nodes0[0].label);
+        var c = add(b[nodes0[1].var], nodes0[1].label);
+        if (a && c) edges.push({ from: a.id, to: c.id, type: rel.type });
+      } else {
+        add(b[nodes0[0].var], nodes0[0].label);
+      }
+    });
+    var seen = Object.create(null), uedges = [];
+    edges.forEach(function (e) {
+      var k = e.from + '>' + e.to + ':' + e.type;
+      if (!seen[k]) { seen[k] = 1; uedges.push(e); }
+    });
+    return {
+      nodes: Object.keys(map).map(function (k) { return map[k]; }),
+      edges: uedges, truncated: truncated, matched: bindings.length
+    };
+  }
+
   var SEED_QUERIES = [
     {
       id: 'person-record', title: 'A person — full record', runnable: true,
@@ -584,8 +624,68 @@
   }
 
   // ───────────────────────────────────────────────────── exports
+  // ───────────────────────────────────────────────────── graph renderer (browser)
+  // Render a matched subgraph as an SVG node-link diagram. Highest-degree node is
+  // centered (hub-and-spoke for a manager + reports); a relationship-less match is
+  // laid out on a ring. Node colour is by label (styled in CSS: .gv-node--person etc).
+  function renderGraph(target, sg) {
+    if (!sg || !sg.nodes.length) {
+      target.innerHTML = '<p class="pg-empty">No nodes to draw for this query.</p>';
+      return;
+    }
+    function e2(s) { return String(s).replace(/[&<>"]/g, function (c) { return ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' })[c]; }); }
+    var W = 640, H = 460, cx = W / 2, cy = H / 2;
+    var deg = Object.create(null);
+    sg.nodes.forEach(function (n) { deg[n.id] = 0; });
+    sg.edges.forEach(function (e) { deg[e.from] = (deg[e.from] || 0) + 1; deg[e.to] = (deg[e.to] || 0) + 1; });
+    var pos = Object.create(null);
+    if (sg.edges.length) {
+      var center = sg.nodes.slice().sort(function (a, b) { return (deg[b.id] || 0) - (deg[a.id] || 0); })[0];
+      pos[center.id] = { x: cx, y: cy };
+      var ring = sg.nodes.filter(function (n) { return n.id !== center.id; });
+      var R = Math.min(W, H) / 2 - 80;
+      ring.forEach(function (n, i) {
+        var ang = (-Math.PI / 2) + (2 * Math.PI * i / Math.max(ring.length, 1));
+        pos[n.id] = { x: cx + R * Math.cos(ang), y: cy + R * Math.sin(ang) };
+      });
+    } else if (sg.nodes.length === 1) {
+      pos[sg.nodes[0].id] = { x: cx, y: cy };
+    } else {
+      var R2 = Math.min(W, H) / 2 - 70;
+      sg.nodes.forEach(function (n, i) {
+        var ang = (-Math.PI / 2) + (2 * Math.PI * i / sg.nodes.length);
+        pos[n.id] = { x: cx + R2 * Math.cos(ang), y: cy + R2 * Math.sin(ang) };
+      });
+    }
+    var svg = '';
+    sg.edges.forEach(function (ed) {
+      var a = pos[ed.from], b = pos[ed.to];
+      if (a && b) svg += '<line class="gv-edge" x1="' + a.x.toFixed(1) + '" y1="' + a.y.toFixed(1) + '" x2="' + b.x.toFixed(1) + '" y2="' + b.y.toFixed(1) + '"/>';
+    });
+    sg.nodes.forEach(function (n) {
+      var p = pos[n.id]; if (!p) return;
+      var short = String(n.id).replace(/^(EMP|REQ|CAND)-0*/, '');
+      var lbl = n.name || n.id; if (lbl.length > 18) lbl = lbl.slice(0, 17) + '…';
+      svg += '<g class="gv-node gv-node--' + (n.label || 'node') + '" transform="translate(' + p.x.toFixed(1) + ',' + p.y.toFixed(1) + ')">'
+        + '<title>' + e2((n.label ? n.label + ': ' : '') + (n.name || n.id) + ' (' + n.id + ')') + '</title>'
+        + '<circle r="22"/>'
+        + '<text class="gv-id" y="4" text-anchor="middle">' + e2(short) + '</text>'
+        + '<text class="gv-name" y="40" text-anchor="middle">' + e2(lbl) + '</text>'
+        + '</g>';
+    });
+    var types = {}; sg.edges.forEach(function (e) { types[e.type] = 1; });
+    var meta = 'Graph · ' + sg.nodes.length + ' node' + (sg.nodes.length === 1 ? '' : 's')
+      + ' · ' + sg.edges.length + ' edge' + (sg.edges.length === 1 ? '' : 's')
+      + (Object.keys(types).length ? ' · ' + Object.keys(types).join(', ') : '')
+      + (sg.truncated ? ' · showing ' + sg.nodes.length + ' of ' + sg.matched : '');
+    target.innerHTML = '<div class="pg-resp-h">' + e2(meta) + '</div>'
+      + '<svg class="pg-graph-svg" viewBox="0 0 ' + W + ' ' + H + '" preserveAspectRatio="xMidYMid meet" role="img" aria-label="' + e2(meta) + '">' + svg + '</svg>';
+  }
+
   var api = {
     QueryError: QueryError,
+    subgraph: subgraph,
+    renderGraph: renderGraph,
     buildData: buildData,
     loadFixtures: loadFixtures,
     tokenize: tokenize,

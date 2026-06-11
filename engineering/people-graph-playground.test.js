@@ -147,3 +147,33 @@ test('every runnable seed executes and returns ≥1 row', () => {
     assert.ok(r.rows.length >= 1, `seed ${q.id} should return rows`);
   });
 });
+
+// ───────────────────────── subgraph (graph viz)
+test('subgraph: RETURN p is a single labelled node, no edges', () => {
+  const sg = GP.subgraph(GP.parseQuery('MATCH (p:person) WHERE p.id = "EMP-00001" RETURN p'), data);
+  assert.equal(sg.nodes.length, 1);
+  assert.equal(sg.edges.length, 0);
+  assert.equal(sg.nodes[0].id, 'EMP-00001');
+  assert.equal(sg.nodes[0].label, 'person');
+});
+
+test('subgraph: a manager hub is 1 manager + 9 reports with 9 edges', () => {
+  const sg = GP.subgraph(GP.parseQuery('MATCH (peer:person)-[:reports_to]->(m:person) WHERE m.id = "EMP-00457" RETURN peer.id'), data);
+  assert.equal(sg.nodes.length, 10);
+  assert.equal(sg.edges.length, 9);
+  assert.ok(sg.edges.every(e => e.type === 'reports_to'));
+});
+
+test('subgraph: applied_for links a candidate to a requisition', () => {
+  const sg = GP.subgraph(GP.parseQuery('MATCH (c:candidate)-[e:applied_for]->(r:requisition) WHERE c.id = "CAND-00000001" RETURN r.id'), data);
+  assert.equal(sg.edges.length, 1);
+  assert.equal(sg.edges[0].type, 'applied_for');
+  assert.deepEqual(sg.nodes.map(n => n.label).sort(), ['candidate', 'requisition']);
+});
+
+test('subgraph: a node cap truncates and flags it', () => {
+  const sg = GP.subgraph(GP.parseQuery('MATCH (p:person) RETURN p.id'), data, 10);
+  assert.equal(sg.nodes.length, 10);
+  assert.equal(sg.truncated, true);
+  assert.ok(sg.matched > 10);
+});
