@@ -198,18 +198,19 @@ async function loadData() {
 }
 
 // ─────────────────────────────────────────────────────────────
-// EDGE RESOLVER — applied_for v3.2 cutover
-// Edge is authoritative post-v3.2-cutover; fk fallback is deprecated
-// and will be removed when requisition_id is dropped from the generator.
+// EDGE RESOLVER — applied_for v3.2 fk removed
+// Edge is the sole candidate→req source; candidate.requisition_id fk
+// was removed at v3.2 and is no longer present in candidates.json.
 // ─────────────────────────────────────────────────────────────
+const _reqIdOfWarnedIds = new Set();
 function reqIdOf(c) {
   const fromEdge = state.reqIdByCandidate && state.reqIdByCandidate.get(c.id);
   if (fromEdge) return fromEdge;
-  if (c.requisition_id) {
-    console.warn('[reqIdOf] edge missing for', c.id, '— falling back to fk', c.requisition_id);
-    return c.requisition_id;
+  if (!_reqIdOfWarnedIds.has(c.id)) {
+    _reqIdOfWarnedIds.add(c.id);
+    console.warn('[reqIdOf] edge missing for', c.id, '— applied_for index incomplete?');
   }
-  return undefined;
+  return null;
 }
 
 // ─────────────────────────────────────────────────────────────
@@ -2539,7 +2540,7 @@ The Console also has an ATS dataset attached:
 
 Requisition fields: id, title, department, team, level, location, region, remote, hiring_manager_id, recruiter_id, comp_band_p50, status (open|on_hold|filled|closed), opened_date, target_close_date, days_open, priority (critical|high|standard), stage_counts {applied, screen, interview, offer, accepted}, bar_raisers_required, sla_status (in_pace|aging|stuck).
 
-Candidate fields: id, display_name, current_title, current_company, total_experience_years, highest_level_indicated, location_preference, country, source, source_detail, requisition_id, stage, stage_entered, days_in_stage, rejected_reason, scorecards, diversity_self_id (aggregate only), expected_comp, offered_comp, is_internal, is_referral, referrer_id, flight_risk_at_current_employer, predicted_offer_acceptance_probability.
+Candidate fields: id, display_name, current_title, current_company, total_experience_years, highest_level_indicated, location_preference, country, source, source_detail, requisition_id (edge-resolved via applied_for graph edge; not a stored field as of v3.2 — the fk has been removed from candidates.json), stage, stage_entered, days_in_stage, rejected_reason, scorecards, diversity_self_id (aggregate only), expected_comp, offered_comp, is_internal, is_referral, referrer_id, flight_risk_at_current_employer, predicted_offer_acceptance_probability.
 
 ATS tools: \`query_requisitions\`, \`query_candidates\`, \`aggregate_pipeline\`.
 

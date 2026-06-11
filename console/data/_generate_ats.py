@@ -24,10 +24,11 @@ applied_for.json — the graph edge fixture (schema v3.2, ratified by the Chairm
   · One edge per candidate (1:1 with candidates.json).
   · Carries the full universal edge envelope (§ II of the schema reference) plus
     the edge-specific property `applied_at`.
-  · Dual-write: candidate.requisition_id is kept on the projection object
-    (dual-read window). Do not write new dependencies on that FK; the
-    authoritative path is the edge. The FK will be deprecated once the
-    Console projection cuts over to the applied_for edge.
+  · v3.2 fk removed: candidate.requisition_id has been dropped from
+    candidates.json (fk removal completed; edge is the sole candidate→req
+    source). The fk is still carried on the in-memory candidate dict during
+    generation (edge builder and Q4 diagnostic read it) but is stripped
+    from the serialized output via a non-mutating projection.
   · Edge emission uses a LOCAL random.Random(424244) instance — never the
     module-level random — so the existing candidate/requisition outputs remain
     byte-for-byte identical after this change.
@@ -580,12 +581,8 @@ def build_candidates(reqs):
                 "country": country_code,
                 "source": source,
                 "source_detail": source_detail,
-                # DEPRECATED (dual-read window): this FK is the pre-v3.2 denormalized
-                # link to the requisition. Authoritative during the dual-read window;
-                # do not write new dependencies on it. The canonical path is the
-                # applied_for edge in applied_for.json (schema ref §V, ratified v3.2).
-                # Migrate reads to the edge; this field will be dropped after the
-                # Console projection cuts over.
+                # Internal — used by build_applied_for_edges and Q4 diagnostic;
+                # stripped from candidates.json at serialization (v3.2 fk removal).
                 "requisition_id": req["id"],
                 "stage": final_stage,
                 "stage_entered": entered.isoformat(),
@@ -614,7 +611,6 @@ def build_candidates(reqs):
                     "candidate_id": cand["id"],
                     "display_name": display,
                     "stage": final_stage,
-                    "requisition_id": req["id"],
                     "requisition_title": req["title"],
                     "department": dept,
                     "days_ago": days_in_stage,
@@ -805,23 +801,28 @@ def main():
         r.pop("_seeded_aging", None)
         r.pop("_seeded_on_hold", None)
 
-    # Write
+    # Build applied_for edges FIRST (edge builder reads cand["requisition_id"]
+    # from the in-memory dict; the fk has been removed from the serialized
+    # output but must survive on the in-memory object until edges exist).
+    # The local RNG (seed 424244) is never the module-level random, so
+    # requisitions.json stays byte-for-byte identical to pre-v3.2 output.
+    reqs_by_id = {r["id"]: r for r in reqs}
+    edges = build_applied_for_edges(reqs_by_id, cands)
+
+    # Write — candidates.json strips requisition_id via non-mutating projection
+    # (fk removed at v3.2; applied_for edge is the sole candidate→req source).
+    _STRIP_FROM_CAND = {"requisition_id"}
     with open(os.path.join(HERE, "requisitions.json"), "w") as f:
         json.dump(reqs, f, separators=(",", ":"))
     with open(os.path.join(HERE, "candidates.json"), "w") as f:
-        json.dump(cands, f, separators=(",", ":"))
+        json.dump([{k: v for k, v in c.items() if k not in _STRIP_FROM_CAND} for c in cands],
+                  f, separators=(",", ":"))
     meta = build_meta(reqs, cands)
     # Also stash a recent-movement ticker (top 30 most recent)
     movement.sort(key=lambda m: m["days_ago"])
     meta["movement_recent"] = movement[:30]
     with open(os.path.join(HERE, "ats_meta.json"), "w") as f:
         json.dump(meta, f, indent=2)
-
-    # Build and write applied_for edges (dual-write; separate post-pass so
-    # the global RNG is never perturbed; candidate/requisition files stay
-    # byte-for-byte identical to pre-v3.2 output).
-    reqs_by_id = {r["id"]: r for r in reqs}
-    edges = build_applied_for_edges(reqs_by_id, cands)
     with open(os.path.join(HERE, "applied_for.json"), "w") as f:
         json.dump(edges, f, separators=(",", ":"))
 

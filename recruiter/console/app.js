@@ -399,16 +399,17 @@
   }
 
   // ────────────────────────── EDGE RESOLVER ──────────────
-  // Edge is authoritative post-v3.2-cutover; fk fallback is deprecated
-  // and will be removed when requisition_id is dropped from the generator.
+  // Edge is the sole candidate→req source; candidate.requisition_id fk
+  // was removed at v3.2 and is no longer present in candidates.json.
+  const _reqIdOfWarnedIds = new Set();
   function reqIdOf(c) {
     const fromEdge = state.reqIdByCandidate && state.reqIdByCandidate.get(c.id);
     if (fromEdge) return fromEdge;
-    if (c.requisition_id) {
-      console.warn('[reqIdOf] edge missing for', c.id, '— falling back to fk', c.requisition_id);
-      return c.requisition_id;
+    if (!_reqIdOfWarnedIds.has(c.id)) {
+      _reqIdOfWarnedIds.add(c.id);
+      console.warn('[reqIdOf] edge missing for', c.id, '— applied_for index incomplete?');
     }
-    return undefined;
+    return null;
   }
 
   // ────────────────────────── CANDIDATE TABLE ─────────────
