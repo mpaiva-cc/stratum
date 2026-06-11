@@ -2,8 +2,9 @@
 """
 Stratum Console · synthetic ATS data generator
 -----------------------------------------------
-Generates console/data/requisitions.json, candidates.json, ats_meta.json
-on top of the existing people.json (Tessera Bank, 2,000 employees).
+Generates console/data/requisitions.json, candidates.json, ats_meta.json,
+and applied_for.json on top of the existing people.json (Tessera Bank,
+2,000 employees).
 
 Run once from the console/data directory:
     cd console/data && python3 _generate_ats.py
@@ -18,6 +19,21 @@ Deliberately-seeded headlines (the four hiring demo answers):
   · Referrals convert 22% applied→accepted vs ~4% for agencies (5.5x)
   · Time-to-fill medians by dept: Eng 47d · Sales 31d · Product 62d · Design 78d
   · 4 offers-at-risk: predicted_accept > 0.7 AND days_in_stage > 7
+
+applied_for.json — the graph edge fixture (schema v3.2, ratified by the Chairman)
+  · One edge per candidate (1:1 with candidates.json).
+  · Carries the full universal edge envelope (§ II of the schema reference) plus
+    the edge-specific property `applied_at`.
+  · Dual-write: candidate.requisition_id is kept on the projection object
+    (dual-read window). Do not write new dependencies on that FK; the
+    authoritative path is the edge. The FK will be deprecated once the
+    Console projection cuts over to the applied_for edge.
+  · Edge emission uses a LOCAL random.Random(424244) instance — never the
+    module-level random — so the existing candidate/requisition outputs remain
+    byte-for-byte identical after this change.
+  · applied_for.json is placed at console/data/ alongside the other fixture
+    files because no graph/edges fixture existed before; this is the repo's
+    first graph-edge file.
 """
 
 import json
@@ -29,6 +45,10 @@ from datetime import date, timedelta
 random.seed(424243)  # +1 offset from the people generator (424242)
 
 SIM_DATE = date(2026, 5, 12)
+
+# Ingestion timestamp — all synthetic edges share this tx_from.
+# In production this would be the wall-clock time of the ETL run.
+TX_INGESTION_TS = "2026-05-12T00:00:00Z"
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 
@@ -560,6 +580,12 @@ def build_candidates(reqs):
                 "country": country_code,
                 "source": source,
                 "source_detail": source_detail,
+                # DEPRECATED (dual-read window): this FK is the pre-v3.2 denormalized
+                # link to the requisition. Authoritative during the dual-read window;
+                # do not write new dependencies on it. The canonical path is the
+                # applied_for edge in applied_for.json (schema ref §V, ratified v3.2).
+                # Migrate reads to the edge; this field will be dropped after the
+                # Console projection cuts over.
                 "requisition_id": req["id"],
                 "stage": final_stage,
                 "stage_entered": entered.isoformat(),
@@ -668,6 +694,105 @@ def build_meta(reqs, cands):
     }
 
 
+# ──────────────────────────────────────────────────────────── APPLIED_FOR EDGES
+
+# Stages that terminate an application; the applied_for valid interval closes
+# at stage_entered when the candidate reaches one of these.
+_CLOSED_STAGES = {"rejected", "withdrew"}
+
+def build_applied_for_edges(reqs_by_id, cands):
+    """Emit one applied_for edge per candidate.
+
+    Schema reference: schema §V (ATS module), applied_for edge, ratified v3.2.
+    Envelope: §II universal edge envelope (id, type, from, to, valid_from,
+    valid_to, tx_from, tx_to, source, source_record_id, confidence,
+    consent_scopes) plus edge-specific `applied_at`.
+
+    IMPORTANT — uses a LOCAL random.Random instance (seed 424244) so the
+    global random state driven by build_requisitions / build_candidates is
+    never touched. Calling this function does not shift any downstream draws.
+
+    applied_at derivation:
+      The candidate object carries `stage_entered` = the date the candidate
+      entered their CURRENT stage, not their application date. For candidates
+      beyond the `applied` stage this is NOT the application date. We derive
+      `applied_at` as a uniform random date in [req_open, stage_entered] using
+      the local RNG, seeded deterministically per candidate so regeneration is
+      idempotent. The real production value would come directly from the ATS
+      application timestamp.
+
+      SPEC DISCREPANCY NOTED: the ratified spec says
+        `applied_at` = "the application/stage-entry date already in the data"
+      but `stage_entered` is not the application date for multi-stage candidates.
+      Flagged for a schema-reference doc follow-up (Pillar → Forge).
+
+    source field (envelope):
+      The envelope `source` (schema ref: "origin system + event, e.g.
+      'workday:position_assignment'") is distinct from `candidate.source`
+      (channel: referral/inbound/agency/…). We emit `"greenhouse:application"`
+      for all ATS edges. The candidate channel is available on the node object;
+      it does not belong on the edge envelope.
+
+    id format:
+      The spec says ULID. Synthetic fixtures use prefixed-sequential IDs
+      (REQ-, CAND-). We follow the same convention: APPFOR-{n:08d}. Real
+      ULIDs are a production graph-store concern.
+
+    Placement:
+      No edge/graph fixture existed before this change. New file:
+      console/data/applied_for.json — co-located with the other flat fixture
+      files, keyed by edge type per the established file-per-concept pattern.
+    """
+    _rng = random.Random(424244)  # local RNG — never use the module-level random here
+
+    edges = []
+    for idx, cand in enumerate(cands):
+        edge_id = f"APPFOR-{idx + 1:08d}"
+        req_id  = cand["requisition_id"]
+        req     = reqs_by_id.get(req_id)
+
+        # Derive applied_at: uniform in [req_open, stage_entered]
+        req_open    = date.fromisoformat(req["opened_date"]) if req else SIM_DATE
+        stage_entered = date.fromisoformat(cand["stage_entered"])
+        # The lower bound must be <= upper bound; clamp to avoid negative ranges.
+        lo = req_open
+        hi = stage_entered
+        if lo > hi:
+            lo = hi  # degenerate case: stage_entered < req_opened (data anomaly)
+        delta_days = (hi - lo).days
+        applied_days = _rng.randint(0, max(0, delta_days))
+        applied_at = (lo + timedelta(days=applied_days)).isoformat()
+
+        # valid_to: open (null) for active/in-progress applications;
+        # closed at stage_entered for rejected / withdrew candidates.
+        stage = cand["stage"]
+        if stage in _CLOSED_STAGES:
+            valid_to = cand["stage_entered"]  # interval closes when they exited
+        else:
+            valid_to = None  # application currently holds (accepted, offer, screen, etc.)
+
+        edge = {
+            # ── universal edge envelope (schema ref §II) ──────────────────
+            "id":               edge_id,
+            "type":             "applied_for",
+            "from":             f"candidate:{cand['id']}",
+            "to":               f"requisition:{req_id}",
+            "valid_from":       applied_at,
+            "valid_to":         valid_to,
+            "tx_from":          TX_INGESTION_TS,
+            "tx_to":            None,
+            "source":           "greenhouse:application",
+            "source_record_id": None,
+            "confidence":       None,
+            "consent_scopes":   ["recruiter.ats"],
+            # ── edge-specific property (schema ref §V, applied_for) ───────
+            "applied_at":       applied_at,
+        }
+        edges.append(edge)
+
+    return edges
+
+
 # ──────────────────────────────────────────────────────────── MAIN
 
 def main():
@@ -692,10 +817,44 @@ def main():
     with open(os.path.join(HERE, "ats_meta.json"), "w") as f:
         json.dump(meta, f, indent=2)
 
+    # Build and write applied_for edges (dual-write; separate post-pass so
+    # the global RNG is never perturbed; candidate/requisition files stay
+    # byte-for-byte identical to pre-v3.2 output).
+    reqs_by_id = {r["id"]: r for r in reqs}
+    edges = build_applied_for_edges(reqs_by_id, cands)
+    with open(os.path.join(HERE, "applied_for.json"), "w") as f:
+        json.dump(edges, f, separators=(",", ":"))
+
     # ── Verification prints (must match the four demo headlines) ──
     print(f"\nrequisitions.json: {len(reqs)} reqs")
     print(f"candidates.json:   {len(cands)} candidates")
     print(f"ats_meta.json:     written")
+    print(f"applied_for.json:  {len(edges)} edges")
+
+    # applied_for edge verification
+    closed  = sum(1 for e in edges if e["valid_to"] is not None)
+    open_e  = sum(1 for e in edges if e["valid_to"] is None)
+    closed_stages = sum(1 for c in cands if c["stage"] in _CLOSED_STAGES)
+    prop_ok = all(
+        e["type"] == "applied_for"
+        and e["from"].startswith("candidate:")
+        and e["to"].startswith("requisition:")
+        and e["confidence"] is None
+        and e["consent_scopes"] == ["recruiter.ats"]
+        and e["source"] == "greenhouse:application"
+        and e["tx_to"] is None
+        and e["applied_at"] == e["valid_from"]
+        for e in edges
+    )
+    print(f"\n[EDGE] Total: {len(edges)}  (1:1 with candidates)")
+    print(f"[EDGE] Open valid_to=null: {open_e}  Closed valid_to!=null: {closed}")
+    print(f"[EDGE] rejected+withdrew candidates: {closed_stages}  "
+          f"(closed edge count {'matches' if closed == closed_stages else 'MISMATCH — check'})")
+    print(f"[EDGE] Envelope property check: {'PASS' if prop_ok else 'FAIL'}")
+    print(f"\n[EDGE] Sample edge (idx=0):")
+    sample = edges[0]
+    for k, v in sample.items():
+        print(f"       {k:20s}: {json.dumps(v)}")
 
     # 1. Stuck-at-offer breakdown
     stuck = [r for r in reqs if r["sla_status"] == "stuck"]
