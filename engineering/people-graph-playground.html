@@ -123,27 +123,27 @@ permalink: /engineering/people-graph-playground.html
     padding: 0 1.5rem;
   }
 
+  /* Two-column console layout. Flexbox (not grid): with flex-basis:0 + min-width:0
+     each column shrinks correctly and long content (a tall JSON record, a wide
+     table) scrolls inside its own panel instead of ballooning the column and
+     overflowing the page. An earlier grid version overflowed and the columns
+     overlapped. */
   .pg-layout {
-    display: grid;
-    grid-template-columns: minmax(0,1fr) minmax(0,1.1fr);
+    display: flex;
     gap: 1.2rem;
-    align-items: start;
+    align-items: flex-start;
   }
+  .pg-left  { flex: 1 1 0; min-width: 0; }
+  .pg-right { flex: 1.15 1 0; min-width: 0; }
 
-  /* Sticky left column: the editor + seeds are short; the response panel can be
-     very tall when showing a 28-field record. Rather than leave dead space below
-     the editor, stick it so it travels with the reader as they scroll the record.
-     top: 1.25rem gives a comfortable gap from the viewport edge.
-     The sticky context is the .pg-layout grid row, which is tall enough. */
-  .pg-left {
-    position: sticky;
-    top: 1.25rem;
-  }
+  /* Long lines scroll inside their panel, never widen the column. */
+  .pg-json,
+  .pg-resp-data pre,
+  .pg-resp-code pre { max-width: 100%; overflow-x: auto; }
 
   @media (max-width: 820px) {
-    .pg-layout { grid-template-columns: 1fr; }
-    /* Unstick on mobile — single column stacks vertically; sticky would hide content */
-    .pg-left { position: static; top: auto; }
+    .pg-layout { flex-direction: column; }
+    .pg-left, .pg-right { flex: 1 1 auto; }
   }
 
   /* seed chips — stay on paper; ink text (14.90:1 AAA), ochre hover ring signal */
