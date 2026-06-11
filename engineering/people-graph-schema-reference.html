@@ -317,6 +317,53 @@ p { margin: 0 0 1.15em; }
   padding: .04em .35em;
   color: var(--ink);
 }
+.fixture-link {
+  font-family: var(--mono);
+  font-size: .86em;
+  color: var(--ochre-deep);
+  background: rgba(184,101,31,.06);
+  border: 1px solid var(--ochre-soft);
+  padding: .04em .35em;
+  text-decoration: none;
+}
+.fixture-link:hover { background: rgba(184,101,31,.16); }
+.livebox {
+  margin: 2.2em 0;
+  border: 1px solid var(--paper-rule-2);
+  background: var(--paper-warm);
+  padding: .9rem 1.1rem 1.05rem;
+}
+.livebox .lb-h {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: .2em;
+  text-transform: uppercase;
+  color: var(--ink-mute);
+  margin: 0 0 .55rem;
+}
+.livebox p { margin: .35rem 0; line-height: 1.6; }
+.livebox .lb-links { display: flex; flex-wrap: wrap; gap: .45rem .7rem; margin-top: .6rem; }
+.json-sample {
+  font-family: var(--mono);
+  font-size: 12px;
+  line-height: 1.5;
+  background: var(--paper-warm);
+  border: 1px solid var(--paper-rule);
+  border-left: 3px solid var(--ochre-soft);
+  padding: .9rem 1rem;
+  overflow-x: auto;
+  color: var(--ink);
+  margin: 1em 0 .3em;
+  white-space: pre;
+}
+.json-cap {
+  font-family: var(--mono);
+  font-size: 10.5px;
+  letter-spacing: .03em;
+  line-height: 1.6;
+  color: var(--ink-mute);
+  margin: 0 0 1.2em;
+}
 
 /* status badge vocabulary (shared with WP-01) */
 .sbadge {
@@ -724,6 +771,20 @@ p { margin: 0 0 1.15em; }
     </p>
 
     <!-- ── II ── -->
+    <div class="livebox">
+      <p class="lb-h">See the live data</p>
+      <p>This reference describes the shapes; the synthetic <b>Tessera Bank</b> graph fills them in. You can see it two ways.</p>
+      <p><b>Rendered</b> — the <a href="{{ '/console/' | relative_url }}">Stratum Console</a> and <a href="{{ '/recruiter/console/' | relative_url }}">Recruiter console</a> read this graph live and render it interactively.</p>
+      <p><b>Raw</b> — the served graph fixtures below (large JSON; this is the actual generated data, distinct from the illustrative worked examples in WP-01&nbsp;&sect;&nbsp;10):</p>
+      <div class="lb-links">
+        <a class="fixture-link" href="{{ '/console/data/people.json' | relative_url }}">people.json</a>
+        <a class="fixture-link" href="{{ '/console/data/orgs.json' | relative_url }}">orgs.json</a>
+        <a class="fixture-link" href="{{ '/console/data/requisitions.json' | relative_url }}">requisitions.json</a>
+        <a class="fixture-link" href="{{ '/console/data/candidates.json' | relative_url }}">candidates.json</a>
+        <a class="fixture-link" href="{{ '/console/data/applied_for.json' | relative_url }}">applied_for.json</a>
+      </div>
+    </div>
+
     <h2 id="envelope"><span class="ord">§ II — The universal edge envelope</span>On every edge. <span class="sbadge canonical" style="vertical-align:middle">canonical v3</span></h2>
 
     <p>
@@ -787,7 +848,7 @@ p { margin: 0 0 1.15em; }
       the highest-confidence claim per <span class="inline-mono">(person, attribute)</span>
       pair, rebuilt incrementally on every identity-layer write (~0.6&times; the
       storage of the raw edges; ~8&times; saved on the median read). The flat demo
-      fixture <span class="inline-mono">people.json</span> is a projection of this
+      fixture <a class="fixture-link" href="{{ '/console/data/people.json' | relative_url }}">people.json</a> is a projection of this
       view plus computed fields. Fields that are stored claims:
       <span class="inline-mono">given_name</span>, <span class="inline-mono">family_name</span>,
       <span class="inline-mono">display_name</span>, <span class="inline-mono">email</span>,
@@ -834,7 +895,7 @@ p { margin: 0 0 1.15em; }
     <h3><span class="n-kind">node</span> org_unit <span class="sbadge ratified">ratified v3.2</span></h3>
     <p>
       Already named canonical in WP-01 §1; v3.2 is the <em>formal spec of this
-      existing structure-layer node</em>. The <span class="inline-mono">orgs.json</span>
+      existing structure-layer node</em>. The <a class="fixture-link" href="{{ '/console/data/orgs.json' | relative_url }}">orgs.json</a>
       fixture is a headcount-aggregation projection, not this node&apos;s shape.
       <strong>A production-instance reconciliation is recommended before GA</strong>
       to confirm no live <span class="inline-mono">org_unit</span> instances diverge
@@ -952,11 +1013,27 @@ completed_at    <span class="s">ts</span>     <span class="c"># ISO 8601 UTC</sp
       reads cut over to the edge. Migrate to <span class="inline-mono">applied_for</span>;
       do not write new dependencies on the fk. (The generator
       <span class="inline-mono">console/data/_generate_ats.py</span> now emits the
-      edge to <span class="inline-mono">console/data/applied_for.json</span> — 3,756
+      edge to <a class="fixture-link" href="{{ '/console/data/applied_for.json' | relative_url }}">console/data/applied_for.json</a> — 3,756
       edges, one per application, terminal-stage applications carrying a closed
       <span class="inline-mono">valid_to</span>; the <span class="inline-mono">candidate.requisition_id</span>
       fk is retained through the dual-read window.)
     </p>
+    <div class="json-sample">{
+  "id": "APPFOR-00000001",
+  "type": "applied_for",
+  "from": "candidate:CAND-00000001",
+  "to": "requisition:REQ-00001",
+  "valid_from": "2026-03-31",
+  "valid_to": "2026-04-24",
+  "tx_from": "2026-05-12T00:00:00Z",
+  "tx_to": null,
+  "source": "greenhouse:application",
+  "source_record_id": null,
+  "confidence": null,
+  "consent_scopes": ["recruiter.ats"],
+  "applied_at": "2026-03-31"
+}</div>
+    <p class="json-cap">A real edge, pulled from <a class="fixture-link" href="{{ '/console/data/applied_for.json' | relative_url }}">applied_for.json</a> (edge&nbsp;1 of&nbsp;3,756). This application reached a terminal stage, so <span class="inline-mono">valid_to</span> is closed (2026-03-31&nbsp;→&nbsp;2026-04-24) — the withdrawal/rejection history the fk could never hold. <span class="inline-mono">confidence</span> is <span class="inline-mono">null</span> (structural edge); <span class="inline-mono">applied_at</span> equals <span class="inline-mono">valid_from</span>.</p>
 
     <!-- ── VI ── -->
     <h2 id="tenure"><span class="ord">§ VI — Tenure</span>The lifecycle surface. <span class="sbadge ratified" style="vertical-align:middle">ratified v4</span></h2>
