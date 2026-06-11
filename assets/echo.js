@@ -335,7 +335,7 @@
       </div>
 
       <div class="echo-foot">
-        Echo is Stratum's voice agent. <b>Double-click any paragraph</b> to hear just that part. Your settings persist locally; your OpenAI key, if set, never leaves your browser.
+        Echo is Stratum's voice agent. <b>Double-click any paragraph</b> to start listening from there. Your settings persist locally; your OpenAI key, if set, never leaves your browser.
         <br><a href="/stratum/agents/" tabindex="-1">Meet the agents →</a>
       </div>
     </div>
@@ -789,11 +789,10 @@
     updateProgress();
   }
 
-  // ── double-click a paragraph → read just that one block ────
-  // A tight "read me this bit" gesture, complementary to the whole-page Listen
-  // button. Maps the clicked block to its chunk and plays only that text, on
-  // either engine. Independent of the page-reading pipeline (no until-bounds in
-  // the loops), so it can't desync the whole-page read.
+  // ── double-click a paragraph → start reading from there ────
+  // Maps the clicked block to its chunk and starts the normal page read from
+  // that point through to the end — a "skip to here" gesture. Reuses the
+  // whole-page engine (play()); just sets the start index (and the OpenAI batch).
   function indexForElement(target) {
     if (state.chunks.length === 0) state.chunks = extractChunks();
     const block = target.closest(READABLE_SELECTOR);
@@ -809,49 +808,19 @@
     return idx;
   }
 
-  function playParagraph(idx) {
+  function playFromParagraph(idx) {
     if (!state.chunks[idx]) return;
-    stop();                                   // cancel anything in flight (uses prior engine), clears highlight
+    stop();                                   // cancel anything in flight (uses prior engine), reset indices + highlight
     const s = captureSettings();
-    state.engine = s.useOpenAI ? 'openai' : 'browser';
     state.index = idx;
-    const chunk = state.chunks[idx];
-    setPlaying(true);
-    highlight(idx);
-    updateProgress();
-    setStatus('Playing · this paragraph', 'ok');
-
-    if (state.engine === 'openai') {
-      const key = getOpenAIKey();
-      if (!key) { setStatus('Add OpenAI key', 'warn'); setPlaying(false); return; }
-      const myKey = ++state.abortKey;
-      const pseudoBatch = { text: chunk.text, indices: [idx], firstIdx: idx, lastIdx: idx };
-      fetchBatchAudio(pseudoBatch, s, key, myKey).then(url => {
-        if (!url || myKey !== state.abortKey || !state.playing) { if (url) URL.revokeObjectURL(url); return; }
-        const audio = new Audio(url);
-        state.audio = audio;
-        audio.addEventListener('ended', () => { URL.revokeObjectURL(url); if (myKey === state.abortKey) { stop(); setStatus('Finished'); } }, { once: true });
-        audio.addEventListener('error', () => { URL.revokeObjectURL(url); if (myKey === state.abortKey) { stop(); setStatus('Audio error', 'err'); } }, { once: true });
-        audio.play().catch(() => {});
-      }).catch(e => { if (!e.aborted) { setStatus(e.message || 'OpenAI error', 'err'); stop(); } });
-      return;
+    if (s.useOpenAI) {
+      // start at the batch that contains this paragraph so OpenAI begins cleanly here
+      if (state.batches.length === 0) state.batches = groupIntoBatches(state.chunks);
+      const b = state.batches.findIndex(batch => batch.indices.includes(idx));
+      state.batchIdx = b >= 0 ? b : 0;
+      state.index = b >= 0 ? state.batches[b].firstIdx : idx;
     }
-
-    // browser engine
-    if (!('speechSynthesis' in window)) { setStatus('Browser TTS not supported', 'err'); setPlaying(false); return; }
-    window.speechSynthesis.cancel();
-    const speakNow = () => {
-      if (!state.playing) return;
-      if (!voices.length) { requestAnimationFrame(speakNow); return; }  // voices still loading (Safari first-run)
-      const u = new SpeechSynthesisUtterance(chunk.text);
-      u.rate = s.rate; u.pitch = s.pitch;
-      const v = voices.find(v => v.voiceURI === s.voiceURI) || voices[0];
-      if (v) u.voice = v;
-      u.onend = () => { if (state.playing) { stop(); setStatus('Finished'); } };
-      u.onerror = (e) => { if (e.error !== 'interrupted') setStatus('Speech error · ' + e.error, 'err'); };
-      window.speechSynthesis.speak(u);
-    };
-    speakNow();
+    play();                                   // reads from state.index to the end of the page
   }
 
   document.addEventListener('dblclick', (e) => {
@@ -861,7 +830,7 @@
     if (idx < 0) return;                       // not a readable block — keep the native double-click
     const sel = window.getSelection && window.getSelection();
     if (sel && sel.removeAllRanges) sel.removeAllRanges();  // clear the incidental word-selection
-    playParagraph(idx);
+    playFromParagraph(idx);
   });
 
   // ── wiring ─────────────────────────────────────────────────
