@@ -404,7 +404,7 @@
         var groups = Object.create(null);
         var order = [];
         bindings.forEach(function (b) {
-          var key = groupItems.map(function (it) { return JSON.stringify(getProp(b, it)); }).join('');
+          var key = groupItems.map(function (it) { return JSON.stringify(getProp(b, it)); }).join('');
           if (!groups[key]) { groups[key] = []; order.push(key); }
           groups[key].push(b);
         });
@@ -485,6 +485,64 @@
     if (v === null || v === undefined) return '∅';
     return esc(v);
   }
+
+  // ── syntaxHighlight ────────────────────────────────────────────────────────────
+  // Escape-then-colorize: HTML-escape the JSON string first so the span tags are
+  // safe, then apply a single-pass regex to wrap token classes around the escaped
+  // text. The `&quot;` entity (from esc()) represents the JSON double-quote; we
+  // match it in the regex below.
+  //
+  // Token classes (colors defined in .pg-json CSS rules):
+  //   .jk  key strings     — the quoted string immediately before a colon + space
+  //   .js  value strings   — all other quoted strings
+  //   .jn  numbers and booleans (true/false)
+  //   .jz  null
+  //   everything else (braces, brackets, colons, commas) is unstyled body text
+  //
+  // The regex operates on HTML-escaped output where " has become &quot;, so we
+  // match the &quot; entity in both the key and value string patterns.
+  // Caveat: this is a display-only highlighter, not a JSON parser. It handles
+  // the JSON.stringify(obj, null, 2) output format reliably but is not a general
+  // JSON syntax highlighter.
+  function syntaxHighlight(obj) {
+    // Step 1: HTML-escape the formatted JSON string.
+    var escaped = esc(JSON.stringify(obj, null, 2));
+
+    // Step 2: single-pass token colorization over the escaped string.
+    // Pattern breakdown:
+    //   (&quot;[^&]*(?:&amp;[^&]*)*&quot;)\s*:   → key (quoted string before colon)
+    //   (&quot;[^&]*(?:&amp;[^&]*)*&quot;)        → value string
+    //   (-?\d+(?:\.\d+)?(?:[eE][+-]?\d+)?)        → number
+    //   \b(true|false)\b                           → boolean
+    //   \b(null)\b                                 → null
+    //
+    // The &quot; entity replaces " after HTML escaping. Key strings are
+    // specifically those followed by optional whitespace and then a colon.
+    // We process key before value so the greedy alternation picks the right class.
+    return escaped.replace(
+      /(&quot;(?:[^&]|&amp;|&lt;|&gt;)*&quot;)(\s*:)|(&quot;(?:[^&]|&amp;|&lt;|&gt;)*&quot;)|(-?\d+(?:\.\d+)?(?:[eE][+-]?\d+)?)|(\btrue\b|\bfalse\b)|(\bnull\b)/g,
+      function (match, key, colon, str, num, bool, nul) {
+        if (key !== undefined) {
+          // key string + the colon that follows it
+          return '<span class="jk">' + key + '</span>' + colon;
+        }
+        if (str !== undefined) {
+          return '<span class="js">' + str + '</span>';
+        }
+        if (num !== undefined) {
+          return '<span class="jn">' + num + '</span>';
+        }
+        if (bool !== undefined) {
+          return '<span class="jn">' + bool + '</span>';
+        }
+        if (nul !== undefined) {
+          return '<span class="jz">' + nul + '</span>';
+        }
+        return match;
+      }
+    );
+  }
+
   function renderResponse(target, result, queryText) {
     var html = '';
     html += '<div class="pg-resp-code"><div class="pg-resp-h">Query</div><pre>' + esc(queryText) + '</pre></div>';
@@ -506,7 +564,9 @@
         var obj;
         if (r.length === 1) obj = r[0];                            // RETURN p → the record itself
         else { obj = {}; cols.forEach(function (c, i) { obj[c] = r[i]; }); } // RETURN p, m → keyed
-        html += '<pre class="pg-json">' + esc(JSON.stringify(obj, null, 2)) + '</pre>';
+        // tabindex="0" makes the horizontally-scrollable pre reachable by keyboard
+        // (WCAG 2.1.1 Keyboard — scrollable regions must be focusable).
+        html += '<pre class="pg-json" tabindex="0" aria-label="JSON record">' + syntaxHighlight(obj) + '</pre>';
       });
     } else {
       html += '<table class="pg-table"><thead><tr>';
@@ -533,6 +593,7 @@
     runQuery: runQuery,
     SEED_QUERIES: SEED_QUERIES,
     renderResponse: renderResponse,
+    syntaxHighlight: syntaxHighlight,
     EDGES: EDGES,
     LABELS: LABELS
   };
