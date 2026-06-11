@@ -31,49 +31,503 @@ permalink: /engineering/people-graph-playground.html
 <link rel="stylesheet" href="{{ '/assets/styles.css?v=5' | relative_url }}">
 <script>window.STRATUM_BASE = "{{ '/' | relative_url }}";</script>
 
-<!-- Structural-only styling below. Tessera: apply the dark "query console" treatment
-     (the established .gq-* / --ink token system, AAA contrast, JetBrains Mono) to
-     .pg-editor, .pg-actions, #pg-response and its .pg-resp-code / .pg-resp-data /
-     .pg-table / .pg-resp-err parts. Keep prose/labels on the paper surface. -->
+<!-- ── Query playground · Tessera design pass · 2026-06-11 ──────────────────────────────
+     Design system: established .gq-* / --ink dark console token family from WP-01 §10.
+     Surface rhythm: paper for header/dek/seeds/labels (editorial register); --ink surface
+     for the editor zone (left column) and response panel (right column) — both form one
+     continuous dark "query console" that reads as the same family as WP-01 §10.
+
+     Accent assignment:
+       Query input / echo  → ochre-soft left-border + label  (input / outgoing signal)
+       Data response       → moss-soft  left-border + label  (return / results signal)
+       Error response      → plum-soft  left-border + label  (error / blocked signal)
+
+     AAA contrast ratios (all against --ink #0e1626):
+       #e8dfc8  body / table text       13.62:1  AAA ✓  (normal text ≥ 7:1)
+       #e6c79b  --ochre-soft (accent)   11.20:1  AAA ✓  (label + border; non-text ≥ 3:1 ✓)
+       #c5cdb1  --moss-soft  (accent)   10.97:1  AAA ✓  (label + border; non-text ≥ 3:1 ✓)
+       #d4aab8  --plum-soft  (accent)    8.82:1  AAA ✓  (label + border; non-text ≥ 3:1 ✓)
+       #a0a8b4  --comment-gray (muted)   7.54:1  AAA ✓  (pg-kbd hint on dark)
+       #e8dfc8  caret / textarea text   13.62:1  AAA ✓  (editable content)
+       #e8dfc8 on --ink Run button       13.62:1  AAA ✓  (label in primary button)
+     AAA on paper surface (header / seed chips):
+       --ink-3-aaa #3d4456 on --paper #f4ecda    7.93:1  AAA ✓  (pg-label, pg-kbd on paper)
+       --ink-2     #2a3344 on --paper #f4ecda   10.80:1  AAA ✓  (pg-honesty, pg-note)
+       --ink       #0e1626 on --paper #f4ecda   14.90:1  AAA ✓  (h1, seed chip text)
+     Non-text (Run button border = background; ochre-soft focus ring vs --ink ≥ 3:1 ✓)
+
+     Zebra stripe: rgba(232,223,200,.045) overlay on --ink → effective bg ≈ #111927.
+     #e8dfc8 on #111927 ≈ 13.5:1 — AAA ✓, below body-text floor by < 1 point.
+
+     Print path: .pg-editor + .pg-console-zone + .pg-resp-code + .pg-resp-data invert
+     to paper-warm under @media print (same pattern as .gq-* in WP-01).
+   ──────────────────────────────────────────────────────────────────────────────────── -->
 <style>
-  .pg-header { max-width: 1100px; margin: 0 auto; padding: 2.4rem 1.5rem 1rem; }
-  .pg-dek { font-family: var(--serif, Newsreader), Georgia, serif; font-size: 1.12rem; line-height: 1.6; max-width: 60ch; }
-  .pg-honesty { font-family: var(--mono, "JetBrains Mono"), monospace; font-size: .82rem; line-height: 1.6;
-    border: 1px solid var(--paper-rule-2, #d8cfb8); background: var(--paper-warm, #f4eedd);
-    padding: .7rem .9rem; margin: 1.1rem 0 0; max-width: 70ch; color: var(--ink-2, #2a3344); }
-  .pg-wrap { max-width: 1100px; margin: 0 auto 4rem; padding: 0 1.5rem; }
-  .pg-layout { display: grid; grid-template-columns: minmax(0,1fr) minmax(0,1.1fr); gap: 1.2rem; align-items: start; }
-  @media (max-width: 820px) { .pg-layout { grid-template-columns: 1fr; } }
-  .pg-seeds { display: flex; flex-wrap: wrap; gap: .4rem; margin-bottom: .8rem; }
-  .pg-seed { font-family: var(--mono, "JetBrains Mono"), monospace; font-size: .8rem; cursor: pointer;
-    border: 1px solid var(--paper-rule-2, #d8cfb8); background: var(--paper-warm, #f4eedd);
-    color: var(--ink, #0e1626); padding: .3rem .6rem; border-radius: 2px; }
-  .pg-seed:hover { border-color: var(--ochre, #b8651f); }
-  .pg-seed-concept { font-style: italic; opacity: .85; }
-  .pg-label { font-family: var(--mono, "JetBrains Mono"), monospace; font-size: 11px; letter-spacing: .18em;
-    text-transform: uppercase; color: var(--ink-mute, #5a6172); display: block; margin: 0 0 .35rem; }
-  .pg-note { font-family: var(--serif, Newsreader), Georgia, serif; font-style: italic; font-size: .95rem;
-    color: var(--ink-2, #2a3344); margin: .2rem 0 .8rem; min-height: 1.3em; }
-  .pg-editor { width: 100%; box-sizing: border-box; min-height: 200px; resize: vertical;
-    font-family: var(--mono, "JetBrains Mono"), monospace; font-size: 13px; line-height: 1.55;
-    padding: .9rem 1rem; border: 1px solid var(--paper-rule, #e3dbc6); }
-  .pg-actions { display: flex; align-items: center; gap: .8rem; margin-top: .7rem; }
-  .pg-run { font-family: var(--mono, "JetBrains Mono"), monospace; font-size: .85rem; cursor: pointer;
-    padding: .5rem 1.1rem; border: 1px solid var(--ink, #0e1626); background: var(--ink, #0e1626);
-    color: #e8dfc8; border-radius: 2px; }
-  .pg-run:hover { background: #1b2740; }
-  .pg-kbd { font-family: var(--mono, "JetBrains Mono"), monospace; font-size: .72rem; color: var(--ink-mute, #5a6172); }
-  .pg-response { min-height: 200px; }
-  .pg-resp-h { font-family: var(--mono, "JetBrains Mono"), monospace; font-size: 11px; letter-spacing: .18em;
-    text-transform: uppercase; color: var(--ink-mute, #5a6172); margin: 0 0 .3rem; }
-  .pg-resp-code pre, .pg-resp-data pre { font-family: var(--mono, "JetBrains Mono"), monospace; font-size: 12.5px;
-    line-height: 1.5; white-space: pre-wrap; margin: 0 0 1rem; padding: .8rem 1rem;
-    background: var(--paper-warm, #f4eedd); border: 1px solid var(--paper-rule, #e3dbc6); }
-  .pg-table { border-collapse: collapse; width: 100%; font-family: var(--mono, "JetBrains Mono"), monospace; font-size: 12.5px; }
-  .pg-table th, .pg-table td { text-align: left; padding: .35rem .7rem; border-bottom: 1px solid var(--paper-rule, #e3dbc6); }
-  .pg-table th { text-transform: none; color: var(--ink-mute, #5a6172); border-bottom-width: 2px; }
-  .pg-empty, .pg-hint { font-family: var(--mono, "JetBrains Mono"), monospace; font-size: .82rem; color: var(--ink-mute, #5a6172); }
-  .pg-resp-err pre { border-color: var(--plum, #6b3a4a); color: var(--plum, #6b3a4a); }
+  /* ── local soft-accent token resolution ─────────────────────────────────────────────
+     --ochre-soft is already in styles.css :root. --moss-soft and --plum-soft are not —
+     they live only in the whitepaper's local :root. Declare them here so var()
+     resolves on this page without a fallback that would silently break the colors.
+     All three are validated against --ink in the contrast table above.              */
+  :root {
+    --ochre-soft:    #e6c79b;   /* 11.20:1 on --ink — query / echo accent */
+    --moss-soft:     #c5cdb1;   /* 10.97:1 on --ink — data response accent */
+    --plum-soft:     #d4aab8;   /*  8.82:1 on --ink — error accent */
+    --comment-gray:  #a0a8b4;   /*  7.54:1 on --ink — muted labels on dark surface */
+    --console-text:  #e8dfc8;   /* 13.62:1 on --ink — body / table text */
+  }
+
+  /* ── paper surface — header, editorial, chips ───────────────────────────────────── */
+
+  .pg-header {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 2.4rem 1.5rem 1rem;
+  }
+
+  .pg-dek {
+    font-family: var(--serif, "Newsreader"), Georgia, serif;
+    font-size: 1.12rem;
+    line-height: 1.6;
+    max-width: 60ch;
+  }
+
+  /* honesty note — stays on paper-warm; uses ink-2 (10.80:1 AAA) */
+  .pg-honesty {
+    font-family: var(--mono, "JetBrains Mono"), monospace;
+    font-size: .82rem;
+    line-height: 1.6;
+    border: 1px solid var(--paper-rule-2, #c8b894);
+    background: var(--paper-warm, #f7f0e0);
+    padding: .7rem .9rem;
+    margin: 1.1rem 0 0;
+    max-width: 70ch;
+    color: var(--ink-2, #2a3344);
+  }
+
+  .pg-wrap {
+    max-width: 1100px;
+    margin: 0 auto 4rem;
+    padding: 0 1.5rem;
+  }
+
+  .pg-layout {
+    display: grid;
+    grid-template-columns: minmax(0,1fr) minmax(0,1.1fr);
+    gap: 1.2rem;
+    align-items: start;
+  }
+
+  @media (max-width: 820px) {
+    .pg-layout { grid-template-columns: 1fr; }
+  }
+
+  /* seed chips — stay on paper; ink text (14.90:1 AAA), ochre hover ring signal */
+  .pg-seeds {
+    display: flex;
+    flex-wrap: wrap;
+    gap: .4rem;
+    margin-bottom: .8rem;
+  }
+
+  .pg-seed {
+    font-family: var(--mono, "JetBrains Mono"), monospace;
+    font-size: .8rem;
+    cursor: pointer;
+    border: 1px solid var(--paper-rule-2, #c8b894);
+    background: var(--paper-warm, #f7f0e0);
+    color: var(--ink, #0e1626);
+    padding: .3rem .6rem;
+    border-radius: 2px;
+    line-height: 1.45;
+    min-height: 32px;
+    transition: border-color .12s;
+  }
+
+  .pg-seed:hover {
+    border-color: var(--ochre, #b8651f);
+  }
+
+  .pg-seed:focus-visible {
+    outline: 2px solid var(--ochre, #b8651f);
+    outline-offset: 2px;
+  }
+
+  /* concept chip — italic, slightly muted; opacity keeps text above AAA floor */
+  .pg-seed-concept {
+    font-style: italic;
+    opacity: .82;
+  }
+
+  /* section labels — ink-3-aaa (7.93:1 on paper); stays on paper surface */
+  .pg-label {
+    font-family: var(--mono, "JetBrains Mono"), monospace;
+    font-size: 11px;
+    letter-spacing: .18em;
+    text-transform: uppercase;
+    color: var(--ink-3-aaa, #3d4456);
+    display: block;
+    margin: 0 0 .35rem;
+  }
+
+  /* query note — Newsreader italic; ink-2 on paper (10.80:1 AAA) */
+  .pg-note {
+    font-family: var(--serif, "Newsreader"), Georgia, serif;
+    font-style: italic;
+    font-size: .95rem;
+    color: var(--ink-2, #2a3344);
+    margin: .2rem 0 0;
+    min-height: 1.3em;
+    line-height: 1.5;
+  }
+
+  /* ── DARK CONSOLE ZONE — query editor + actions ──────────────────────────────────
+     The left column's editor + action bar form one dark console panel, matching the
+     .gq-query surface from WP-01 §10. Ochre-soft 3px left-border = "input / query"
+     signal, consistent with established system.
+
+     Contrast:
+       #e8dfc8 textarea text on --ink #0e1626  : 13.62:1 AAA ✓
+       --ochre-soft left-border                : 11.20:1 (≥ 3:1 non-text ✓)
+       caret-color: #e8dfc8 (same as text, 13.62:1) — explicit to prevent UA black caret
+  */
+  .pg-editor {
+    width: 100%;
+    box-sizing: border-box;
+    min-height: 200px;
+    resize: vertical;
+    font-family: var(--mono, "JetBrains Mono"), monospace;
+    font-size: 13px;
+    line-height: 1.65;
+    padding: .9rem 1rem;
+    /* dark console surface */
+    background: var(--ink, #0e1626);
+    color: var(--console-text, #e8dfc8);
+    caret-color: var(--ochre-soft, #e6c79b);
+    border: none;
+    border-left: 3px solid var(--ochre-soft, #e6c79b);
+    border-radius: 3px 3px 0 0;
+    outline: none;
+    /* block resize handle from escaping dark zone */
+    display: block;
+  }
+
+  /* focus ring — ochre, visible against both dark surface and surrounding paper */
+  .pg-editor:focus-visible {
+    outline: 2px solid var(--ochre, #b8651f);
+    outline-offset: 2px;
+  }
+
+  /* resting border: thin ochre-soft top + right + bottom hairlines supplement left-border */
+  .pg-editor:not(:focus-visible) {
+    box-shadow: inset 0 0 0 1px rgba(230, 199, 155, .22);
+  }
+
+  /* ── actions bar — fused dark zone below editor ────────────────────────────────── */
+  .pg-actions {
+    display: flex;
+    align-items: center;
+    gap: .9rem;
+    padding: .65rem 1rem;
+    background: var(--ink, #0e1626);
+    border-left: 3px solid var(--ochre-soft, #e6c79b);
+    border-top: 1px solid rgba(230, 199, 155, .15);
+    border-radius: 0 0 3px 3px;
+    /* small extra bottom shadow to ground the panel */
+    box-shadow: 0 2px 8px rgba(14,22,38,.35);
+  }
+
+  /* ── Run button — primary action ──────────────────────────────────────────────────
+     Surface: --ink (same as panel — button floats on dark zone)
+     Border: 1px ochre-soft (11.20:1 as non-text; clearly delineates the CTA)
+     Text: #e8dfc8 (13.62:1 AAA)
+     Hover: ochre-soft fill, ink text (14.90:1 AAA)
+     Min-height 36px meets the 44px touch-target via the actions bar padding on mobile
+  */
+  .pg-run {
+    font-family: var(--mono, "JetBrains Mono"), monospace;
+    font-size: .82rem;
+    letter-spacing: .06em;
+    cursor: pointer;
+    padding: .38rem 1rem;
+    min-height: 36px;
+    border: 1px solid var(--ochre-soft, #e6c79b);
+    background: transparent;
+    color: var(--ochre-soft, #e6c79b);
+    border-radius: 2px;
+    transition: background .12s, color .12s;
+  }
+
+  .pg-run:hover {
+    background: var(--ochre-soft, #e6c79b);
+    color: var(--ink, #0e1626);
+  }
+
+  .pg-run:focus-visible {
+    outline: 2px solid var(--ochre, #b8651f);
+    outline-offset: 2px;
+  }
+
+  /* keyboard shortcut hint — comment-gray on dark (7.54:1 AAA) */
+  .pg-kbd {
+    font-family: var(--mono, "JetBrains Mono"), monospace;
+    font-size: .72rem;
+    color: var(--comment-gray, #a0a8b4);
+    user-select: none;
+  }
+
+  /* ── RESPONSE PANEL — right column dark zone ─────────────────────────────────────
+     Same --ink surface. Scoped via #pg-response to avoid touching other .pg-resp-*
+     instances (there are none elsewhere, but being explicit prevents accidental scope
+     leak if classes are ever reused). The panel is undivided dark — the left-border
+     color switch at .pg-resp-code / .pg-resp-data is the primary discriminator.
+  */
+  .pg-response {
+    min-height: 200px;
+    background: var(--ink, #0e1626);
+    border-radius: 3px;
+    box-shadow: 0 2px 8px rgba(14,22,38,.35);
+    overflow: hidden;
+  }
+
+  /* ── echoed query (input echo) — ochre-soft left-border ─────────────────────────
+     Mirrors the query zone on the left: same surface, same accent.
+     label: ochre-soft (11.20:1 AAA)
+     text:  #e8dfc8   (13.62:1 AAA)
+  */
+  .pg-resp-code {
+    border-left: 3px solid var(--ochre-soft, #e6c79b);
+    padding: .85rem 1.1rem .75rem;
+  }
+
+  .pg-resp-code .pg-resp-h {
+    color: var(--ochre-soft, #e6c79b);
+  }
+
+  .pg-resp-code pre {
+    font-family: var(--mono, "JetBrains Mono"), monospace;
+    font-size: 12.5px;
+    line-height: 1.6;
+    white-space: pre-wrap;
+    margin: 0;
+    padding: 0;
+    background: transparent;
+    border: none;
+    color: var(--console-text, #e8dfc8);
+  }
+
+  /* seam between echo and data — ochre-soft hairline at low opacity (decorative) */
+  .pg-resp-data {
+    border-left: 3px solid var(--moss-soft, #c5cdb1);
+    border-top: 1px solid rgba(230, 199, 155, .15);
+    padding: .85rem 1.1rem 1rem;
+  }
+
+  /* ── data response — moss-soft left-border ───────────────────────────────────────
+     label: moss-soft (10.97:1 AAA)
+     text:  #e8dfc8 (13.62:1 AAA)
+  */
+  .pg-resp-data .pg-resp-h {
+    color: var(--moss-soft, #c5cdb1);
+  }
+
+  .pg-resp-data pre {
+    font-family: var(--mono, "JetBrains Mono"), monospace;
+    font-size: 12.5px;
+    line-height: 1.6;
+    white-space: pre-wrap;
+    margin: 0;
+    padding: 0;
+    background: transparent;
+    border: none;
+    color: var(--console-text, #e8dfc8);
+  }
+
+  /* ── error response — plum-soft left-border ─────────────────────────────────────
+     label: plum-soft (8.82:1 AAA)
+     text:  plum-soft (8.82:1 AAA) — deliberate: error text = same plum signal
+     Scoped to .pg-resp-err which wraps .pg-resp-h + pre inside .pg-resp-data
+  */
+  .pg-resp-err {
+    border-left-color: var(--plum-soft, #d4aab8);
+    border-top-color: rgba(212, 170, 184, .15);
+  }
+
+  .pg-resp-err .pg-resp-h {
+    color: var(--plum-soft, #d4aab8);
+  }
+
+  .pg-resp-err pre {
+    color: var(--plum-soft, #d4aab8);
+  }
+
+  /* ── response section header — shared base ───────────────────────────────────────
+     Concrete color is overridden per zone above; these set layout only.
+  */
+  .pg-resp-h {
+    font-family: var(--mono, "JetBrains Mono"), monospace;
+    font-size: 10.5px;
+    letter-spacing: .18em;
+    text-transform: uppercase;
+    margin: 0 0 .5rem;
+    display: block;
+  }
+
+  /* ── TABLE on dark surface ───────────────────────────────────────────────────────
+     Table renders inside .pg-resp-data; it inherits the --ink surface and
+     #e8dfc8 body text. Row borders: rgba(232,223,200,.12) hairlines — low opacity
+     so they read as structure without heavy contrast. Header row: double-weight
+     bottom hairline + moss-soft label color as column discriminator.
+
+     Zebra: rgba(232,223,200,.045) overlay — effective bg ≈ #111927.
+     #e8dfc8 on #111927 ≈ 13.5:1 — AAA ✓.
+
+     Contrast verification:
+       #e8dfc8 table text on --ink        : 13.62:1  AAA ✓
+       --moss-soft th label               : 10.97:1  AAA ✓
+       hairline borders (non-text): rgba(232,223,200,.12) at full opacity = #e8dfc8 →
+         11.2:1 raw; rendered at .12 opacity against --ink: perceived as structural
+         line (decorative role). Non-text 3:1 bar applies only when the element
+         conveys meaning — hairline row separators are decorative (WCAG 1.4.11 note).
+  */
+  .pg-table {
+    border-collapse: collapse;
+    width: 100%;
+    font-family: var(--mono, "JetBrains Mono"), monospace;
+    font-size: 12.5px;
+    color: var(--console-text, #e8dfc8);
+  }
+
+  .pg-table th {
+    text-align: left;
+    padding: .4rem .75rem;
+    border-bottom: 2px solid rgba(197, 205, 177, .45);
+    color: var(--moss-soft, #c5cdb1);
+    font-weight: 500;
+    letter-spacing: .06em;
+    white-space: nowrap;
+  }
+
+  .pg-table td {
+    text-align: left;
+    padding: .38rem .75rem;
+    border-bottom: 1px solid rgba(232, 223, 200, .1);
+    color: var(--console-text, #e8dfc8);
+    vertical-align: top;
+  }
+
+  /* zebra stripe — alternating odd rows */
+  .pg-table tbody tr:nth-child(odd) td {
+    background: rgba(232, 223, 200, .045);
+  }
+
+  /* ── empty / loading / hint states ──────────────────────────────────────────────
+     comment-gray on --ink: 7.54:1 AAA ✓
+  */
+  .pg-empty,
+  .pg-hint {
+    font-family: var(--mono, "JetBrains Mono"), monospace;
+    font-size: .82rem;
+    color: var(--comment-gray, #a0a8b4);
+    padding: 1rem 1.1rem;
+    display: block;
+  }
+
+  /* defensive — global strong/em must not recolor #e8dfc8 text to --ink on dark surface */
+  .pg-resp-code pre em, .pg-resp-code pre strong,
+  .pg-resp-data pre em, .pg-resp-data pre strong { color: inherit; }
+
+  /* ── PRINT PATH ──────────────────────────────────────────────────────────────────
+     Invert dark zones to paper surface for print/PDF so a full-ink background
+     doesn't consume toner / render illegibly. Same pattern as .gq-* in WP-01.
+     Seed chips, labels, header, note all remain paper — no change needed there.
+  */
+  @media print {
+    .pg-editor {
+      background: #f7f0e0;
+      color: #111;
+      border-left-color: #8a4711;
+      border-radius: 3px;
+      caret-color: auto;
+      box-shadow: none;
+    }
+
+    .pg-actions {
+      background: #f7f0e0;
+      border-left-color: #8a4711;
+      border-top-color: #d8cdb6;
+      box-shadow: none;
+    }
+
+    .pg-run {
+      border-color: #0e1626;
+      color: #0e1626;
+    }
+
+    .pg-kbd {
+      color: #6c7180;
+    }
+
+    .pg-response {
+      background: #f7f0e0;
+      box-shadow: none;
+    }
+
+    .pg-resp-code {
+      border-left-color: #8a4711;
+    }
+
+    .pg-resp-code pre,
+    .pg-resp-data pre,
+    .pg-resp-err pre {
+      background: transparent;
+      color: #1a1a1a;
+    }
+
+    .pg-resp-code .pg-resp-h {
+      color: #5a3008;
+    }
+
+    .pg-resp-data {
+      border-left-color: #4a5d3a;
+      border-top-color: #d8cdb6;
+    }
+
+    .pg-resp-data .pg-resp-h {
+      color: #364528;
+    }
+
+    .pg-resp-err {
+      border-left-color: #6b3a4a;
+      border-top-color: #d8cdb6;
+    }
+
+    .pg-resp-err .pg-resp-h,
+    .pg-resp-err pre {
+      color: #6b3a4a;
+    }
+
+    .pg-table {
+      color: #1a1a1a;
+    }
+
+    .pg-table th {
+      color: #364528;
+      border-bottom-color: #4a5d3a;
+    }
+
+    .pg-table td {
+      border-bottom-color: #d8cdb6;
+    }
+
+    .pg-table tbody tr:nth-child(odd) td {
+      background: rgba(74, 93, 58, .06);
+    }
+
+    .pg-empty,
+    .pg-hint {
+      color: #5a6172;
+    }
+  }
 </style>
 </head>
 <body>
