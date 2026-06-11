@@ -48,8 +48,8 @@ permalink: /engineering/people-graph-playground.html
        .jn  numbers/bools   → --plum-soft   #d4aab8   8.82:1 on --ink  AAA ✓
        .jz  null            → --comment-gray #a0a8b4   7.54:1 on --ink  AAA ✓
        braces/colons/commas → --console-text #e8dfc8  13.62:1 on --ink  AAA ✓
-       bg card overlay      → rgba(255,255,255,.032)  effective bg #121928
-                              #a0a8b4 on #121928 ≈ 7.50:1 — AAA ✓ (tightest color verified)
+       bg dark well         → rgba(0,0,0,.18)  effective bg #0b121f
+                              #a0a8b4 on #0b121f ≈ 8.08:1 — AAA ✓ (darkening raises all ratios)
      Color alone does not convey meaning: keys are visually discriminated from values
      by position (left of colon) and by quoting context, satisfying WCAG 1.4.1.
 
@@ -400,13 +400,13 @@ permalink: /engineering/people-graph-playground.html
   /* ── JSON RECORD BLOCK — .pg-json ────────────────────────────────────────────────
      Rendered when RETURN p or RETURN m returns a whole node object.
      Sits inside .pg-resp-data (which already carries the moss-soft left-border and
-     --ink background). The block gets a faint card lift — a very low-opacity white
+     --ink background). The block gets a dark-well inset — a low-opacity black
      overlay — to distinguish the record body from the surrounding panel chrome
-     without introducing a competing left accent.
+     without introducing a competing left accent. Darkening raises all token ratios.
 
-     Surface: rgba(255,255,255,.032) overlay on --ink → effective bg #121928.
-     The tightest color on this surface is --comment-gray #a0a8b4 (used for .jz null):
-       #a0a8b4 on #121928 ≈ 7.50:1 — AAA ✓ (re-verified against lifted surface).
+     Surface: rgba(0,0,0,.18) overlay on --ink #0e1626 → effective bg #0b121f.
+     Tightest color: --comment-gray #a0a8b4 (used for .jz null):
+       #a0a8b4 on #0b121f = 8.08:1 — AAA ✓ (verified; raised from 7.54 by well).
 
      Horizontal scroll (pre, not pre-wrap): a 28-field record is tall, not wide,
      but long string values (e.g. full bio) should scroll rather than reflow at
@@ -431,8 +431,8 @@ permalink: /engineering/people-graph-playground.html
     font-family: var(--mono, "JetBrains Mono"), monospace;
     font-size: 12.5px;
     line-height: 1.75;
-    /* card lift: very faint white overlay differentiates record from panel chrome */
-    background: rgba(255, 255, 255, .032);
+    /* dark well: black overlay deepens surface, raises all token contrast ratios */
+    background: rgba(0, 0, 0, .18);
     border-radius: 3px;
     padding: .9rem 1rem;
     margin: .5rem 0 .25rem;
@@ -450,11 +450,19 @@ permalink: /engineering/people-graph-playground.html
     margin-top: .75rem;
   }
 
+  /* focus ring — keyboard users tab into the scrollable record block (tabindex=0)
+     Mirror the existing ochre focus pattern used on .pg-editor and .pg-run.
+     WCAG 2.4.7 Focus Visible (AA) + 2.4.13 Focus Appearance (AAA)           */
+  .pg-json:focus-visible {
+    outline: 2px solid var(--ochre, #b8651f);
+    outline-offset: 2px;
+  }
+
   /* JSON syntax token colors */
   .pg-json .jk { color: var(--ochre-soft,  #e6c79b); }   /* key         11.20:1 AAA ✓ */
   .pg-json .js { color: var(--moss-soft,   #c5cdb1); }   /* string val  10.97:1 AAA ✓ */
   .pg-json .jn { color: var(--plum-soft,   #d4aab8); }   /* number/bool  8.82:1 AAA ✓ */
-  .pg-json .jz { color: var(--comment-gray,#a0a8b4); }   /* null         7.50:1 AAA ✓ (on lifted surface) */
+  .pg-json .jz { color: var(--comment-gray,#a0a8b4); }   /* null         8.08:1 AAA ✓ (on #0b121f dark well) */
 
   /* ── TABLE on dark surface ───────────────────────────────────────────────────────
      Table renders inside .pg-resp-data; it inherits the --ink surface and
