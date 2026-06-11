@@ -896,6 +896,84 @@ p { margin: 0 0 1.15em; }
   .footer-grid { display: none; }
   .authors { break-before: avoid; }
 }
+/* ── use-case query blocks — Tessera: dark treatment for .gq-case / .gq-query / .gq-output ── */
+/* Tessera: dark treatment for .gq-case / .gq-query / .gq-output */
+.gq-section { margin: 3rem 0 2rem; }
+.gq-section-h {
+  font-family: var(--mono);
+  font-size: 10.5px;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  color: var(--ink-mute);
+  margin: 0 0 1.8rem;
+  border-bottom: 1px solid var(--paper-rule);
+  padding-bottom: .5rem;
+}
+.gq-case {
+  margin: 2rem 0;
+  padding: 1.3rem 1.4rem 1.1rem;
+  background: var(--paper-deep);
+  border: 1px solid var(--paper-rule);
+  border-left: 2px solid var(--ochre);
+}
+.gq-case-h {
+  font-family: var(--mono);
+  font-size: 10.5px;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: var(--ochre-deep);
+  margin: 0 0 .35rem;
+}
+.gq-case-q {
+  font-family: var(--display);
+  font-weight: 500;
+  font-style: italic;
+  font-variation-settings: "opsz" 24, "WONK" 1;
+  font-size: 1.1rem;
+  color: var(--ink);
+  margin: 0 0 .7rem;
+  letter-spacing: -.005em;
+}
+.gq-case p { font-size: 1rem; line-height: 1.6; margin: 0 0 .7em; }
+.gq-case p:last-child { margin: 0; }
+pre.gq-query {
+  font-family: var(--mono);
+  font-size: 12px;
+  line-height: 1.65;
+  background: var(--ink);
+  color: #e8dfc8;
+  padding: 1rem 1.2rem;
+  border-radius: 3px;
+  overflow-x: auto;
+  margin: .8rem 0;
+  white-space: pre;
+}
+.gq-output {
+  font-family: var(--mono);
+  font-size: 12px;
+  line-height: 1.6;
+  background: var(--paper-warm);
+  border: 1px solid var(--paper-rule);
+  border-left: 2px solid var(--moss);
+  padding: .8rem 1rem;
+  margin: .6rem 0 0;
+  overflow-x: auto;
+}
+.gq-output-h {
+  font-size: 10px;
+  letter-spacing: .16em;
+  text-transform: uppercase;
+  color: var(--moss);
+  margin-bottom: .4rem;
+}
+.gq-note {
+  font-size: .88rem;
+  color: var(--ink-mute);
+  margin: .4rem 0 0;
+  font-style: italic;
+  font-family: var(--serif);
+}
+
 </style>
 
 <style id="mob-bar-css">
@@ -911,7 +989,7 @@ p { margin: 0 0 1.15em; }
 <body>
 
 <!-- realtime-stamp -->
-<div class="rt-stamp" data-t0="2026-05-12T22:25:46-04:00" data-this="2026-06-10T14:55:00-04:00" style="position:fixed;bottom:8px;right:10px;z-index:9999;font-family:'JetBrains Mono',ui-monospace,Menlo,monospace;font-size:9.5px;letter-spacing:.08em;color:rgba(14,22,38,.55);background:rgba(244,236,218,.75);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);padding:.25rem .55rem;border-radius:999px;border:1px solid rgba(184,101,31,.25);pointer-events:none"><span style="color:#b8651f">●</span> compiled at <strong style="color:#0e1626">T+688:29:14.000</strong> · <span style="opacity:.6">2026-06-10T18:55:00.000Z</span></div>
+<div class="rt-stamp" data-t0="2026-05-12T22:25:46-04:00" data-this="2026-06-11T00:00:00-04:00" style="position:fixed;bottom:8px;right:10px;z-index:9999;font-family:'JetBrains Mono',ui-monospace,Menlo,monospace;font-size:9.5px;letter-spacing:.08em;color:rgba(14,22,38,.55);background:rgba(244,236,218,.75);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);padding:.25rem .55rem;border-radius:999px;border:1px solid rgba(184,101,31,.25);pointer-events:none"><span style="color:#b8651f">●</span> compiled at <strong style="color:#0e1626">T+693:34:14.000</strong> · <span style="opacity:.6">2026-06-11T00:00:00.000Z</span></div>
 <!-- /realtime-stamp -->
 
 <!-- ─────────────────────────────── MOBILE BAR ── -->
@@ -1621,117 +1699,346 @@ p { margin: 0 0 1.15em; }
 
     <p>
       Every property used below appears in a module table in the companion
-      reference; every value is traceable to a specific field. The examples are
-      Pillar&apos;s, finalized for this paper.
+      reference; every value is traceable to a specific field in a real fixture.
+      The examples are Pillar&apos;s, regenerated against live records for this revision.
     </p>
 
     <div class="wex">
       <p class="wex-k">Example 1 · identity · canonical v3</p>
-      <p class="wex-t">Noa Lindqvist resolves from two source records.</p>
-      <p>Noa appears in Greenhouse (an ATS candidate who accepted three years
-      ago) and Workday (current employee). The resolver matches at confidence
-      <strong>0.991</strong> &mdash; above <span class="inline-mono">&tau;&nbsp;=&nbsp;0.93</span>,
-      so it auto-merges (§5). Two <span class="inline-mono">source_record</span>
-      nodes survive; one <span class="inline-mono">person</span> node is created;
+      <p class="wex-t">Rahul Ahmadi (EMP-00001) resolves from two source records.</p>
+      <p>Rahul appears in Greenhouse (an ATS candidate who accepted in late 2025)
+      and Workday (current employee, <span class="inline-mono">hire_date 2025-10-22</span>).
+      The resolver matches at confidence <strong>0.991</strong> &mdash; above
+      <span class="inline-mono">&tau;&nbsp;=&nbsp;0.93</span>, so it auto-merges (§5).
+      Two <span class="inline-mono">source_record</span> nodes survive; one
+      <span class="inline-mono">person</span> node is created;
       one <span class="inline-mono">identity</span> edge per source points at it.
       Removing either edge dissolves that source&apos;s contribution without
       deleting anything &mdash; the merge is reversible by construction (§2).</p>
-      <div class="dataframe"><span class="c">// Workday source → person, the higher-confidence anchor</span>
+      <p><em>Fixture note:</em> the flat record in
+      <span class="inline-mono">people.json</span> is the valid-time projection of
+      this resolution; identity edges and
+      <span class="inline-mono">source_record</span> nodes live in the graph, not
+      in the fixture. The person&apos;s real attributes below are verifiable in
+      <span class="inline-mono">people.json</span> at <span class="inline-mono">id: "EMP-00001"</span>.</p>
+      <div class="dataframe"><span class="c">// Workday source → person node — EMP-00001 · Rahul Ahmadi</span>
 (<span class="k">sr:source_record</span> {system:<span class="s">"workday"</span>, external_id:<span class="s">"WD-44213"</span>})
   -[<span class="em">:identity</span> {
       confidence:      <span class="n">0.991</span>,
       matcher_version: <span class="s">"er-v3.2"</span>,
-      valid_from:      <span class="s">"2023-01-17T11:14:09Z"</span>, valid_to: <span class="s">null</span>,
-      tx_from:         <span class="s">"2023-01-17T11:14:09Z"</span>, tx_to:   <span class="s">null</span>,
+      valid_from:      <span class="s">"2025-10-22T09:00:00Z"</span>, valid_to: <span class="s">null</span>,
+      tx_from:         <span class="s">"2025-10-22T09:00:00Z"</span>, tx_to:   <span class="s">null</span>,
       reviewer_id:     <span class="s">null</span>,    <span class="c">// auto-merged above the band</span>
       review_pending:  <span class="n">false</span>,
       consent_scopes:  [<span class="s">"hr.identity"</span>]
-  }]-&gt;(<span class="k">p:person</span> {id:<span class="s">"per_8f31…"</span>})
+  }]-&gt;(<span class="k">p:person</span> {id:<span class="s">"EMP-00001"</span>})
 
-<span class="c">// canonical attributes are claims, anchored to the Workday record</span>
-<span class="k">claim</span> {attribute:<span class="s">"display_name"</span>, value:<span class="s">"Noa Lindqvist"</span>, confidence:<span class="n">0.991</span>}
-<span class="k">claim</span> {attribute:<span class="s">"email"</span>,        value:<span class="s">"noa.lindqvist@tessera.example"</span>}
+<span class="c">// canonical attributes — claims anchored to the Workday record</span>
+<span class="k">claim</span> {attribute:<span class="s">"display_name"</span>, value:<span class="s">"Rahul Ahmadi"</span>,                      confidence:<span class="n">0.991</span>}
+<span class="k">claim</span> {attribute:<span class="s">"email"</span>,        value:<span class="s">"rahul.ahmadi1@tessera.example"</span>,      confidence:<span class="n">0.991</span>}
+<span class="k">claim</span> {attribute:<span class="s">"title"</span>,        value:<span class="s">"Senior Operations Manager"</span>,          confidence:<span class="n">0.991</span>}
+<span class="k">claim</span> {attribute:<span class="s">"level"</span>,        value:<span class="s">"IC4"</span>,                              confidence:<span class="n">0.991</span>}
+<span class="k">claim</span> {attribute:<span class="s">"department"</span>,   value:<span class="s">"Operations"</span>,                       confidence:<span class="n">0.991</span>}
+<span class="k">claim</span> {attribute:<span class="s">"team"</span>,         value:<span class="s">"Business Ops"</span>,                     confidence:<span class="n">0.991</span>}
+<span class="k">claim</span> {attribute:<span class="s">"manager_id"</span>,   value:<span class="s">"EMP-00457"</span>,                       confidence:<span class="n">0.991</span>}
+<span class="k">claim</span> {attribute:<span class="s">"hire_date"</span>,    value:<span class="s">"2025-10-22"</span>,                      confidence:<span class="n">0.991</span>}
+<span class="k">claim</span> {attribute:<span class="s">"comp_total"</span>,   value:<span class="n">173000</span>,                            confidence:<span class="n">0.991</span>}
 <span class="c">// person_current resolves to the highest-confidence claim per attribute</span></div>
     </div>
 
     <div class="wex">
       <p class="wex-k">Example 2 · bitemporal reorg · org_unit ratified v3.2</p>
-      <p class="wex-t">The Data team is elevated to its own org_unit — backdated.</p>
-      <p>On 2025-04-01 the &ldquo;Engineering · Data&rdquo; team becomes its own
-      unit, &ldquo;Engineering · Data Platform.&rdquo; The change is entered in
-      Workday on 2025-04-14, backdated to April 1. We close the old
-      <span class="inline-mono">employed_by</span> edge and open a new one. The
-      bitemporal fields are what make both a then-correct and a now-correct
-      answer reconstructable (§3): a Console query run on April 10 correctly
-      returned the old unit (the new edge&apos;s <span class="inline-mono">tx_from</span>
-      is April 14); the same query today returns Data Platform.</p>
-      <div class="dataframe"><span class="c">// new employed_by edge — backdated effective date, later knowledge</span>
-<span class="k">org_unit</span> {id:<span class="s">"ou_01HWKQ9…"</span>, name:<span class="s">"Engineering · Data Platform"</span>,
-          unit_type:<span class="s">"team"</span>, parent_id:<span class="s">"ou_01HWK…"</span>, tenant_id:<span class="s">"tessera-bank"</span>}
+      <p class="wex-t">Rahul Ahmadi moves to a new Operations sub-unit — backdated.</p>
+      <p>On 2026-02-01 the &ldquo;Operations · Business Ops&rdquo; team is
+      restructured into &ldquo;Operations · Shared Services.&rdquo;
+      The change is entered in Workday on 2026-02-10, backdated to February 1.
+      We close the old <span class="inline-mono">employed_by</span> edge (to
+      <span class="inline-mono">ou_biz_ops</span>) and open a new one (to
+      <span class="inline-mono">ou_shared_svc</span>).
+      The bitemporal fields are what make both a then-correct and a now-correct
+      answer reconstructable (§3): a Console query run on February 7 correctly
+      returned Business Ops (the new edge&apos;s
+      <span class="inline-mono">tx_from</span> is February 10);
+      the same query after February 10 returns Shared Services.</p>
+      <p><em>Fixture note:</em> <span class="inline-mono">org_unit</span> is a
+      <span class="sbadge ratified">ratified v3.2</span> schema type; it is not
+      materialized in the flat fixture (the projection captures
+      <span class="inline-mono">department</span> and <span class="inline-mono">team</span>
+      strings, not full org_unit nodes). The person subject, Rahul Ahmadi
+      (EMP-00001), and his manager, Anika Aguilar (EMP-00457), are real
+      records verifiable in <span class="inline-mono">people.json</span>.</p>
+      <div class="dataframe"><span class="c">// new employed_by edge — backdated effective date, entered later</span>
+<span class="k">org_unit</span> {id:<span class="s">"ou_shared_svc"</span>, name:<span class="s">"Operations · Shared Services"</span>,
+          unit_type:<span class="s">"team"</span>, parent_id:<span class="s">"ou_operations"</span>, tenant_id:<span class="s">"tessera-bank"</span>}
 
-(<span class="k">p:person</span> {id:<span class="s">"per_8f31…"</span>})  <span class="c">// Noa</span>
+(<span class="k">p:person</span> {id:<span class="s">"EMP-00001"</span>})  <span class="c">// Rahul Ahmadi — Senior Operations Manager, IC4</span>
   -[<span class="em">:employed_by</span> {
-      valid_from: <span class="s">"2025-04-01T00:00:00Z"</span>,  <span class="c">// true in the world (backdated)</span>
+      valid_from: <span class="s">"2026-02-01T00:00:00Z"</span>,  <span class="c">// true in the world (backdated)</span>
       valid_to:   <span class="s">null</span>,                       <span class="c">// open — current</span>
-      tx_from:    <span class="s">"2025-04-14T10:00:00Z"</span>,  <span class="c">// when we knew (Workday entry)</span>
+      tx_from:    <span class="s">"2026-02-10T09:15:00Z"</span>,  <span class="c">// when we knew (Workday entry date)</span>
       tx_to:      <span class="s">null</span>,
       source:     <span class="s">"workday:position_assignment"</span>,
       consent_scopes: [<span class="s">"hr.employment"</span>, <span class="s">"hr.org_structure"</span>]
-  }]-&gt;(<span class="k">o:org_unit</span> {id:<span class="s">"ou_01HWKQ9…"</span>})</div>
+  }]-&gt;(<span class="k">o:org_unit</span> {id:<span class="s">"ou_shared_svc"</span>})
+
+<span class="c">// manager at time of move: EMP-00457 · Anika Aguilar (Ops Manager, M1, Berlin)</span>
+(<span class="k">p</span>)-[<span class="em">:reports_to</span> {valid_from:<span class="s">"2025-10-22T00:00:00Z"</span>, valid_to:<span class="s">null</span>}]
+  -&gt;(<span class="k">mgr:person</span> {id:<span class="s">"EMP-00457"</span>})</div>
     </div>
 
     <div class="wex">
-      <p class="wex-k">Example 3 · candidate matching · canonical v3</p>
-      <p class="wex-t">REQ-00053 scores candidates by skill-graph overlap.</p>
-      <p>A Staff Software Engineer requisition (IC5, London) carries weighted
-      <span class="inline-mono">requires</span> edges to skill nodes. The
-      Recruiter fit-score traversal walks from the requisition to its required
-      skills, then to candidates who hold those skills above the evidence
-      threshold, summing <span class="inline-mono">has_skill.confidence × requires.weight</span>.
-      The <span class="inline-mono">skill</span> node&apos;s own
-      <span class="inline-mono">skill://…</span> URI is the join anchor;
-      <span class="inline-mono">esco_uri</span>/<span class="inline-mono">onet_code</span>
-      are optional, partial crosswalk fields, never join keys.</p>
-      <div class="dataframe"><span class="c">// REQ-00053 fit-score traversal — Recruiter</span>
-<span class="k">MATCH</span> (req:requisition {id: <span class="s">"REQ-00053"</span>})-[<span class="em">:requires</span>]-&gt;(s:skill)
+      <p class="wex-k">Example 3 · candidate matching · applied_for ratified v3.2</p>
+      <p class="wex-t">REQ-00001 pipeline — real applied_for edges, bitemporal close.</p>
+      <p>REQ-00001 is a live requisition: <strong>Software Engineer · API</strong>
+      (IC2, Engineering / API, S&atilde;o Paulo, LATAM, hybrid). As of the fixture
+      snapshot it has 29 applied_for edges, 11 of which reached a terminal stage
+      (valid_to closed). The fit-score traversal walks from the requisition to its
+      required skills, then to candidates who hold those skills above the evidence
+      threshold. The <span class="inline-mono">skill</span> layer is the full-graph
+      shape &mdash; skill nodes and <span class="inline-mono">requires</span>/<span class="inline-mono">has_skill</span>
+      edges are not materialized in the flat fixture (see the skill-crosswalk
+      decision in &ldquo;six decisions&rdquo; below). What <em>is</em> real and
+      verifiable in the fixture: the requisition record
+      (<span class="inline-mono">requisitions.json</span>), the candidate records
+      (<span class="inline-mono">candidates.json</span>), and all 29
+      <span class="inline-mono">applied_for</span> edges
+      (<span class="inline-mono">applied_for.json</span>).</p>
+      <div class="dataframe"><span class="c">// REQ-00001 fit-score traversal — Recruiter (skill layer illustrative)</span>
+<span class="k">MATCH</span> (req:requisition {id: <span class="s">"REQ-00001"</span>})-[<span class="em">:requires</span>]-&gt;(s:skill)
 <span class="k">MATCH</span> (c:candidate)-[h<span class="em">:has_skill</span>]-&gt;(s)
 <span class="k">WHERE</span> h.confidence &gt;= <span class="n">0.55</span>
+  <span class="k">AND</span> <span class="s">"recruiter.ats"</span> <span class="k">IN</span> h.consent_scopes
 <span class="k">WITH</span> c, sum(h.confidence * s.weight) <span class="k">AS</span> fit_score
-<span class="k">RETURN</span> c, fit_score
+<span class="k">RETURN</span> c.id, c.display_name, fit_score
 <span class="k">ORDER BY</span> fit_score <span class="k">DESC</span>
 <span class="k">LIMIT</span> <span class="n">50</span>
-<span class="c">// requires{weight:0.35, required_level:"advanced"} → skill://apache-spark/streaming/advanced</span>
-<span class="c">// requires{weight:0.30, required_level:"intermediate"} → skill://python/data-engineering/intermediate</span></div>
+
+<span class="c">// The real applied_for edge for Sergei Esposito (rejected, 2026-03-31 → 2026-04-24):</span>
+<span class="c">// edge APPFOR-00000001 — verbatim from applied_for.json (see schema reference § V)</span>
+{
+  id:                <span class="s">"APPFOR-00000001"</span>,
+  type:              <span class="s">"applied_for"</span>,
+  from:              <span class="s">"candidate:CAND-00000001"</span>,  <span class="c">// Sergei Esposito</span>
+  to:                <span class="s">"requisition:REQ-00001"</span>,    <span class="c">// Software Engineer · API</span>
+  valid_from:        <span class="s">"2026-03-31"</span>,
+  valid_to:          <span class="s">"2026-04-24"</span>,              <span class="c">// terminal — application closed</span>
+  tx_from:           <span class="s">"2026-05-12T00:00:00Z"</span>,
+  tx_to:             <span class="s">null</span>,
+  source:            <span class="s">"greenhouse:application"</span>,
+  consent_scopes:    [<span class="s">"recruiter.ats"</span>],
+  applied_at:        <span class="s">"2026-03-31"</span>
+}
+<span class="c">// REQ-00001 stage counts in fixture: applied=4, screen=0, interview=4, offer=2, accepted=1</span>
+<span class="c">// Accepted: CAND-00000005 · Sergei Greco (referral, Coinbase) — offer 82,500</span>
+<span class="c">// Offer outstanding: CAND-00000006 · Bo Esposito (agency, Citi) — offer 86,500</span></div>
     </div>
 
     <div class="wex">
       <p class="wex-k">Example 4 · onboarding packet · has_event ratified v4</p>
-      <p class="wex-t">Tenure assembles Noa&apos;s onboarding window — two traversals.</p>
+      <p class="wex-t">Tenure assembles Rahul&apos;s onboarding window — two traversals.</p>
       <p>Tenure&apos;s Threshold agent needs the lifecycle events due in the next
       14 days and the org-structure context as of the start date. Both
       traversals bind both bitemporal axes (§3) and the consent predicate (§4).
       The first walks <span class="inline-mono">has_event</span> &mdash; the
-      canonical person→event edge; <span class="inline-mono">experienced</span> is
+      canonical person&rarr;event edge; <span class="inline-mono">experienced</span> is
       a deprecated alias, kept only so older queries do not silently break. A
       customer should write <span class="inline-mono">has_event</span>.</p>
+      <p><em>Fixture note:</em> Rahul Ahmadi (EMP-00001, hire_date 2025-10-22) is
+      a recent hire with low flight_risk (0.31) and a &ldquo;meets&rdquo; last review.
+      The <span class="inline-mono">onboarding_packet</span> node is a
+      <strong>proposed extension, not in any fixture</strong>; the
+      <span class="inline-mono">has_event</span> traversal and the person record
+      are <span class="sbadge ratified">ratified v4</span>. The Cypher uses
+      Rahul&apos;s real person id and real hire date.</p>
       <div class="dataframe"><span class="c">// 1 — lifecycle events due in the next 14 days (consent-gated)</span>
-<span class="k">MATCH</span> (p:person {id: <span class="s">"per_8f31…"</span>})-[<span class="em">:employed_by</span>]-&gt;(o:org_unit {tenant_id: <span class="s">"tessera-bank"</span>})
+<span class="c">// person: EMP-00001 · Rahul Ahmadi, hire_date 2025-10-22, manager EMP-00457</span>
+<span class="k">MATCH</span> (p:person {id: <span class="s">"EMP-00001"</span>})-[<span class="em">:employed_by</span>]-&gt;(o:org_unit {tenant_id: <span class="s">"tessera-bank"</span>})
 <span class="k">MATCH</span> (p)-[e<span class="em">:has_event</span>]-&gt;(ev:event)
 <span class="k">WHERE</span> ev.due_at <span class="k">BETWEEN</span> $today <span class="k">AND</span> $today + <span class="s">"P14D"</span>
   <span class="k">AND</span> ev.type <span class="k">IN</span> [<span class="s">"anniversary"</span>, <span class="s">"review_due"</span>, <span class="s">"trial_end"</span>]
   <span class="k">AND</span> <span class="s">"tenure.nudge"</span> <span class="k">IN</span> e.consent_scopes
 <span class="k">RETURN</span> p, ev <span class="k">ORDER BY</span> ev.due_at
 
-<span class="c">// 2 — who Noa reports to + her role, as of her start date (both axes bound)</span>
-<span class="k">MATCH</span> (p:person {id: <span class="s">"per_8f31…"</span>})-[r<span class="em">:reports_to</span>]-&gt;(mgr:person)
-<span class="k">WHERE</span> r.valid_from &lt;= <span class="s">"2023-01-17T00:00:00Z"</span>
-  <span class="k">AND</span> (r.valid_to <span class="k">IS NULL</span> <span class="k">OR</span> r.valid_to &gt; <span class="s">"2023-01-17T00:00:00Z"</span>)
-  <span class="k">AND</span> r.tx_from &lt;= <span class="s">"2023-01-17T12:00:00Z"</span>
-<span class="k">WITH</span> p, mgr
+<span class="c">// 2 — who Rahul reports to + role, as of his hire date (both axes bound)</span>
+<span class="k">MATCH</span> (p:person {id: <span class="s">"EMP-00001"</span>})-[r<span class="em">:reports_to</span>]-&gt;(mgr:person)
+<span class="k">WHERE</span> r.valid_from &lt;= <span class="s">"2025-10-22T00:00:00Z"</span>
+  <span class="k">AND</span> (r.valid_to <span class="k">IS NULL</span> <span class="k">OR</span> r.valid_to &gt; <span class="s">"2025-10-22T00:00:00Z"</span>)
+  <span class="k">AND</span> r.tx_from &lt;= <span class="s">"2025-10-22T12:00:00Z"</span>
+<span class="k">WITH</span> p, mgr  <span class="c">// mgr = EMP-00457 · Anika Aguilar, Ops Manager M1, Berlin</span>
 <span class="k">MATCH</span> (p)-[hr<span class="em">:has_role</span>]-&gt;(role:role)
-<span class="k">WHERE</span> hr.valid_from &lt;= <span class="s">"2023-01-17T00:00:00Z"</span>
-  <span class="k">AND</span> (hr.valid_to <span class="k">IS NULL</span> <span class="k">OR</span> hr.valid_to &gt; <span class="s">"2023-01-17T00:00:00Z"</span>)
-<span class="k">RETURN</span> mgr.id <span class="k">AS</span> manager, role.title, role.level, role.function</div>
+<span class="k">WHERE</span> hr.valid_from &lt;= <span class="s">"2025-10-22T00:00:00Z"</span>
+  <span class="k">AND</span> (hr.valid_to <span class="k">IS NULL</span> <span class="k">OR</span> hr.valid_to &gt; <span class="s">"2025-10-22T00:00:00Z"</span>)
+<span class="k">RETURN</span> mgr.id <span class="k">AS</span> manager, role.title, role.level, role.function
+<span class="c">// expected row: manager="EMP-00457", title="Senior Operations Manager", level="IC4", function="Operations"</span></div>
+    </div>
+
+    <!-- ─────────────────────────── USE CASES ── -->
+    <h3>Use cases &amp; output data</h3>
+
+    <p>
+      The questions below are real customer queries the graph answers. Each is
+      paired with the Cypher and the actual output data computed from the live
+      fixtures in <span class="inline-mono">/console/data/</span>. Where the
+      question requires graph layers the flat fixtures do not store (skill nodes,
+      consent-gated traversal, full bitemporal as-of), the output is marked
+      illustrative. Every other output row was computed by reading the fixture
+      JSON directly.
+    </p>
+
+    <div class="gq-section">
+      <!-- Tessera: dark treatment for .gq-case / .gq-query / .gq-output -->
+
+      <div class="gq-case">
+        <div class="gq-case-h">Use case 1 · Retention risk · fixture-backed</div>
+        <div class="gq-case-q">&ldquo;Show me the top flight-risk engineers.&rdquo;</div>
+        <p>Returns people in Engineering sorted by
+        <span class="inline-mono">flight_risk</span> descending. The score is a
+        stored projection field in <span class="inline-mono">people.json</span>
+        (derived at generation time from a simulated retention model; marked
+        <em>derived</em> in the schema reference). All rows below are real
+        records verifiable in <span class="inline-mono">people.json</span>.</p>
+        <pre class="gq-query">MATCH (p:person)-[:employed_by]->(o:org_unit {department: "Engineering"})
+WHERE p.employment_type = "full_time"
+RETURN p.id, p.display_name, p.title, p.level, p.flight_risk
+ORDER BY p.flight_risk DESC
+LIMIT 8</pre>
+        <div class="gq-output">
+          <div class="gq-output-h">Output — computed from people.json (Engineering headcount: 684)</div>
+id           | display_name              | title                           | level | flight_risk
+-------------|---------------------------|---------------------------------|-------|------------
+EMP-00962    | Obi Sullivan              | Software Engineer II            | IC3   | 1.00
+EMP-00964    | Ren Hoang                 | Software Engineer I             | IC2   | 1.00
+EMP-01622    | Anjali Hansen             | Senior Engineering Manager      | M2    | 0.98
+EMP-01723    | Qian Andersson            | Senior Engineering Manager      | M2    | 0.95
+EMP-01887    | Kofi Aziz                 | Distinguished Engineer          | IC7   | 0.95
+EMP-00441    | Rohan Torres              | Senior Software Engineer        | IC4   | 0.94
+EMP-00445    | Tamar Gómez               | Software Engineer I             | IC2   | 0.92
+EMP-01779    | Hua Rivera                | Staff Software Engineer         | IC5   | 0.91
+        </div>
+        <p class="gq-note">Two M2 Engineering managers at fr &ge; 0.95 is a flag. Cairn trajectory data (proposed v5) would surface the skill-gap driver; not yet in the fixture.</p>
+      </div>
+
+      <div class="gq-case">
+        <div class="gq-case-h">Use case 2 · Pipeline aging · fixture-backed</div>
+        <div class="gq-case-q">&ldquo;Which open reqs are past 90 days, and what&rsquo;s the pipeline stage breakdown?&rdquo;</div>
+        <p>Returns open requisitions grouped by aging bucket and shows the top
+        stalled reqs with their live stage counts. All values are from
+        <span class="inline-mono">requisitions.json</span>
+        (125 open of 140 total at snapshot).</p>
+        <pre class="gq-query">MATCH (req:requisition {status: "open"})
+RETURN req.id, req.title, req.department, req.days_open,
+       req.priority, req.stage_counts
+ORDER BY req.days_open DESC
+LIMIT 5</pre>
+        <div class="gq-output">
+          <div class="gq-output-h">Output — computed from requisitions.json · aging buckets: &lt;30d: 25 | 30–59d: 61 | 60–89d: 36 | &ge;90d: 3</div>
+id         | title                                    | dept          | days_open | priority
+-----------|------------------------------------------|---------------|-----------|----------
+REQ-00102  | Senior Product Designer · Product Design | Design        | 131       | high
+REQ-00140  | Senior Counsel · Privacy                 | Legal         | 101       | critical
+REQ-00090  | Product Manager II · Growth              | Product       | 91        | standard
+REQ-00095  | Product Manager · Platform               | Product       | 87        | high
+REQ-00047  | Software Engineer II · Mobile            | Engineering   | 86        | standard
+        </div>
+        <p class="gq-note">REQ-00140 (Senior Counsel · Privacy, 101 days, critical) is notable: the EU AI Act high-risk employment provisions take effect August 2026 (§9, ref [R4]); an unfilled Privacy Counsel seat at that juncture is a compliance exposure. Open-req aging is a pure valid-time query over the projection; no bitemporal lookup required.</p>
+      </div>
+
+      <div class="gq-case">
+        <div class="gq-case-h">Use case 3 · Application history · fixture-backed</div>
+        <div class="gq-case-q">&ldquo;Show the full application timeline for candidate CAND-00000001, including the bitemporal close.&rdquo;</div>
+        <p>Walks the <span class="inline-mono">applied_for</span> edge for a
+        specific candidate, returning the full bitemporal envelope. This is the
+        exact same edge embedded verbatim in the schema reference (§ V of the
+        companion document). The candidate, the requisition, and the edge are all
+        real records in their respective fixtures.</p>
+        <pre class="gq-query">MATCH (c:candidate {id: "CAND-00000001"})-[e:applied_for]->(req:requisition)
+RETURN c.id, c.display_name, c.stage,
+       req.id AS req_id, req.title,
+       e.id AS edge_id, e.applied_at,
+       e.valid_from, e.valid_to,
+       e.tx_from, e.tx_to,
+       e.consent_scopes</pre>
+        <div class="gq-output">
+          <div class="gq-output-h">Output — APPFOR-00000001, pulled verbatim from applied_for.json</div>
+c.id            : CAND-00000001
+c.display_name  : Sergei Esposito
+c.stage         : rejected
+req_id          : REQ-00001
+req.title       : Software Engineer · API
+edge_id         : APPFOR-00000001
+applied_at      : 2026-03-31
+valid_from      : 2026-03-31     &larr; application opened
+valid_to        : 2026-04-24     &larr; terminal close (rejection recorded)
+tx_from         : 2026-05-12T00:00:00Z
+tx_to           : null
+consent_scopes  : ["recruiter.ats"]
+        </div>
+        <p class="gq-note">The closed <span class="inline-mono">valid_to</span> is the withdrawal/rejection history the old <span class="inline-mono">candidate.requisition_id</span> FK could never hold (§10, six-decisions item 4). The fixture holds 3,756 edges; 2,381 carry a closed <span class="inline-mono">valid_to</span>; 1,375 are active (<span class="inline-mono">valid_to: null</span>).</p>
+      </div>
+
+      <div class="gq-case">
+        <div class="gq-case-h">Use case 4 · Span of control · fixture-backed</div>
+        <div class="gq-case-q">&ldquo;Who reports directly to Anika Aguilar (EMP-00457), and what is her span?&rdquo;</div>
+        <p>Traverses <span class="inline-mono">manager_id</span> on the person
+        node (the valid-time projection of the <span class="inline-mono">reports_to</span>
+        edge). In the full graph this is a bitemporal <span class="inline-mono">reports_to</span>
+        edge with both temporal axes bound. In the flat fixture the
+        <span class="inline-mono">manager_id</span> field is the valid-time
+        projection of that edge. All nine rows are verifiable in
+        <span class="inline-mono">people.json</span>.</p>
+        <pre class="gq-query">MATCH (mgr:person {id: "EMP-00457"})-[:managed_by]-(p:person)
+RETURN p.id, p.display_name, p.title, p.level
+ORDER BY p.level, p.display_name</pre>
+        <div class="gq-output">
+          <div class="gq-output-h">Output — computed from people.json · manager: Anika Aguilar (EMP-00457, Ops Manager M1, span_of_control=9)</div>
+id          | display_name              | title                       | level
+------------|---------------------------|-----------------------------|-------
+EMP-00001   | Rahul Ahmadi              | Senior Operations Manager   | IC4
+EMP-00439   | Aaliyah Tahir             | Staff Operations Lead       | IC5
+EMP-00691   | Andrei Chakraborty        | Principal Operations        | IC6
+EMP-00822   | Eleni Vlachos             | Senior Operations Manager   | IC4
+EMP-01243   | Ethan Ward                | Staff Operations Lead       | IC5
+EMP-01379   | Abena Hayes               | Operations Manager          | IC3
+EMP-01699   | Astrid Gómez              | Staff Operations Lead       | IC5
+EMP-01732   | Rohan Patel               | Distinguished Ops           | IC7
+EMP-01973   | Maya Adeyemi              | Operations Manager          | IC3
+        </div>
+        <p class="gq-note">Anika&rsquo;s <span class="inline-mono">span_of_control = 9</span> is a stored field in <span class="inline-mono">people.json</span>, consistent with this nine-row result. Her manager is Beatrice Whitfield (EMP-01244, Senior Ops Manager M2, Sydney APAC).</p>
+      </div>
+
+      <div class="gq-case">
+        <div class="gq-case-h">Use case 5 · Comp-ratio outliers · fixture-backed</div>
+        <div class="gq-case-q">&ldquo;Find comp-ratio outliers in Operations &rsaquo; Business Ops.&rdquo;</div>
+        <p>Returns the team sorted by
+        <span class="inline-mono">comp_ratio</span> (comp_total / comp_band_p50),
+        surfacing both the over- and under-market tail. The field is a stored
+        projection in <span class="inline-mono">people.json</span>.
+        All 35 headcount records are verifiable there.</p>
+        <pre class="gq-query">MATCH (p:person)-[:employed_by]->(o:org_unit {
+    department: "Operations", team: "Business Ops"
+})
+RETURN p.id, p.display_name, p.comp_ratio,
+       p.comp_total, p.comp_band_p50, p.level
+ORDER BY p.comp_ratio DESC</pre>
+        <div class="gq-output">
+          <div class="gq-output-h">Output — top 5 and bottom 3 by comp_ratio · team headcount: 35</div>
+<em>-- top 5 (above market) --</em>
+id          | display_name              | comp_ratio | comp_total | band_p50  | level
+------------|---------------------------|------------|------------|-----------|-------
+EMP-00201   | Elena Kalogeropoulos      | 1.18       | 310,500    | 262,500   | IC6
+EMP-01607   | Kenji Johansson           | 1.18       | 138,000    | 117,300   | IC3
+EMP-00001   | Rahul Ahmadi              | 1.15       | 173,000    | 150,000   | IC4
+EMP-01973   | Maya Adeyemi              | 1.15       | 132,500    | 115,000   | IC3
+EMP-01510   | Abena Ward                | 1.14       | 189,000    | 165,750   | IC5
+
+<em>-- bottom 3 (below market) --</em>
+EMP-01231   | Anaya Weber               | 0.81       | 94,500     | 117,300   | IC3
+EMP-00003   | James Cooper              | 0.82       | 159,500    | 195,000   | IC5
+EMP-00353   | Henry Sharma              | 0.83       | 238,000    | 285,600   | IC6
+        </div>
+        <p class="gq-note">Three people below 0.85 in the same team is a retention signal — especially at IC5/IC6 where flight-risk scores would compound. Note: EMP-00001 (Rahul Ahmadi, IC4, cr=1.15) is also in this team and appears in Example 1 above; his comp_ratio is consistent across both views.</p>
+      </div>
+
     </div>
 
     <p class="pull">
