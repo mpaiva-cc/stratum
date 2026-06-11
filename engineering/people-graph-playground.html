@@ -700,6 +700,9 @@ permalink: /engineering/people-graph-playground.html
     stroke: var(--ink, #0e1626);
     stroke-width: 2.5px;
   }
+  /* one prominent relationship chip when every edge shares a type — ochre-soft 11.2:1 AAA */
+  .gv-rel-chip rect { fill: rgba(230, 199, 155, .10); stroke: var(--ochre-soft, #e6c79b); stroke-width: 1; }
+  .gv-rel-chip text { font-family: var(--mono, "JetBrains Mono"), monospace; font-size: 11px; font-weight: 600; letter-spacing: .04em; fill: var(--ochre-soft, #e6c79b); }
 
   /* ── node base — all node types ── */
   .gv-node circle {

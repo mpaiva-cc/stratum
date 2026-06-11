@@ -658,6 +658,10 @@
       });
     }
     var NODE_R = 22;
+    // when every edge is the same relationship type, name it ONCE in a prominent
+    // chip rather than tagging all N edges; mixed-type graphs label each edge.
+    var typeList = Object.keys(sg.edges.reduce(function (m, e) { m[e.type] = 1; return m; }, {}));
+    var uniform = typeList.length === 1 && sg.edges.length > 1;
     // arrowhead marker for edge direction
     var svg = '<defs><marker id="gv-arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path class="gv-arrowhead" d="M0,0 L10,5 L0,10 z"/></marker></defs>';
     sg.edges.forEach(function (ed) {
@@ -666,9 +670,18 @@
       var dx = b.x - a.x, dy = b.y - a.y, len = Math.sqrt(dx * dx + dy * dy) || 1, ux = dx / len, uy = dy / len;
       // start at the source node edge, stop at the target node edge so the arrow sits at the boundary
       var ax = a.x + ux * NODE_R, ay = a.y + uy * NODE_R, bx = b.x - ux * NODE_R, by = b.y - uy * NODE_R;
-      svg += '<line class="gv-edge" x1="' + ax.toFixed(1) + '" y1="' + ay.toFixed(1) + '" x2="' + bx.toFixed(1) + '" y2="' + by.toFixed(1) + '" marker-end="url(#gv-arrow)"/>'
-        + '<text class="gv-edge-label" x="' + (a.x + dx * 0.46).toFixed(1) + '" y="' + (a.y + dy * 0.46).toFixed(1) + '" text-anchor="middle" dy="-3">' + e2(ed.type) + '</text>';
+      svg += '<line class="gv-edge" x1="' + ax.toFixed(1) + '" y1="' + ay.toFixed(1) + '" x2="' + bx.toFixed(1) + '" y2="' + by.toFixed(1) + '" marker-end="url(#gv-arrow)"/>';
+      if (!uniform) {
+        svg += '<text class="gv-edge-label" x="' + (a.x + dx * 0.46).toFixed(1) + '" y="' + (a.y + dy * 0.46).toFixed(1) + '" text-anchor="middle" dy="-3">' + e2(ed.type) + '</text>';
+      }
     });
+    if (uniform) {
+      var rt = typeList[0], cw = rt.length * 7.2 + 34;
+      svg += '<g class="gv-rel-chip">'
+        + '<rect x="12" y="12" rx="3" width="' + cw.toFixed(0) + '" height="23"/>'
+        + '<text x="' + (12 + cw / 2).toFixed(1) + '" y="27.5" text-anchor="middle">' + e2(rt) + ' →</text>'
+        + '</g>';
+    }
     sg.nodes.forEach(function (n) {
       var p = pos[n.id]; if (!p) return;
       var short = String(n.id).replace(/^(EMP|REQ|CAND)-0*/, '');
