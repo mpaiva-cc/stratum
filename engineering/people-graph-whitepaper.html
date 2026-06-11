@@ -895,9 +895,29 @@ p { margin: 0 0 1.15em; }
   .wp-body a { border-bottom: 0; }
   .footer-grid { display: none; }
   .authors { break-before: avoid; }
+  /* gq- console panels: invert to light for print/PDF */
+  .gq-case { background: #f6f6f2; border-color: #999; }
+  pre.gq-query { background: #f6f6f2; color: #111; border-left-color: #8a4711; border-radius: 3px; }
+  .gq-output { background: #f6f6f2; color: #111; border-left-color: #4a5d3a; border-top-color: #ccc; border-radius: 3px; }
+  .gq-output-h { color: #364528; }
+  .gq-case-h, .gq-note { color: #1a1a1a; }
 }
-/* ── use-case query blocks — Tessera: dark treatment for .gq-case / .gq-query / .gq-output ── */
-/* Tessera: dark treatment for .gq-case / .gq-query / .gq-output */
+/* ── use-case query blocks · Tessera graph-query console treatment ──────────────────────────
+   Design intent: case label + Fraunces question + prose + note stay on the warm paper
+   surface; query (input) and output (result) zones are fused into a single dark "console
+   panel" using --ink as the surface. Accent signals — ochre-soft for input, moss-soft for
+   output — are carried as 3px left-borders and labels. The left-border color switch at the
+   seam between query and output is the primary input/result discriminator.
+
+   Contrast ratios (computed against actual surface hex):
+     #e8dfc8 code text on --ink #0e1626         : 13.62:1  AAA ✓ (normal text)
+     --ochre-soft #e6c79b on --ink #0e1626      : 11.20:1  AAA ✓ (query label + border)
+     --moss-soft  #c5cdb1 on --ink #0e1626      : 10.97:1  AAA ✓ (output label + border)
+     --ink-3-aaa  #3d4456 on --paper-deep #ebe1c9:  7.48:1  AAA ✓ (case-h, note)
+     --ink        #0e1626 on --paper-deep #ebe1c9: 13.90:1  AAA ✓ (case question)
+   O-1 remediation: case-h was ochre-deep 5.4:1 (AA only) → ink-3-aaa 7.48:1 AAA
+                    gq-note was ink-mute ~4.1:1 (AA only) → ink-3-aaa 7.48:1 AAA
+   ──────────────────────────────────────────────────────────────────────────────────────── */
 .gq-section { margin: 3rem 0 2rem; }
 .gq-section-h {
   font-family: var(--mono);
@@ -909,21 +929,28 @@ p { margin: 0 0 1.15em; }
   border-bottom: 1px solid var(--paper-rule);
   padding-bottom: .5rem;
 }
+
+/* ── case card: warm paper surface, no competing left-border —
+   the dark console zone below provides all structural weight */
 .gq-case {
-  margin: 2rem 0;
-  padding: 1.3rem 1.4rem 1.1rem;
+  margin: 0 0 2rem;
+  padding: 1.4rem 1.5rem 1.3rem;
   background: var(--paper-deep);
-  border: 1px solid var(--paper-rule);
-  border-left: 2px solid var(--ochre);
+  border: 1px solid var(--paper-rule-2);
+  border-radius: 2px;
 }
+
+/* ── case label: O-1 fix → ink-3-aaa (7.48:1 AAA on paper-deep) */
 .gq-case-h {
   font-family: var(--mono);
   font-size: 10.5px;
   letter-spacing: .14em;
   text-transform: uppercase;
-  color: var(--ochre-deep);
-  margin: 0 0 .35rem;
+  color: var(--ink-3-aaa);
+  margin: 0 0 .4rem;
 }
+
+/* ── Fraunces italic question: stays on paper — no change to color, fix margin rhythm */
 .gq-case-q {
   font-family: var(--display);
   font-weight: 500;
@@ -931,47 +958,70 @@ p { margin: 0 0 1.15em; }
   font-variation-settings: "opsz" 24, "WONK" 1;
   font-size: 1.1rem;
   color: var(--ink);
-  margin: 0 0 .7rem;
+  margin: 0 0 .65rem;
   letter-spacing: -.005em;
 }
-.gq-case p { font-size: 1rem; line-height: 1.6; margin: 0 0 .7em; }
+.gq-case p { font-size: 1rem; line-height: 1.6; margin: 0 0 .65em; color: var(--ink-2); }
 .gq-case p:last-child { margin: 0; }
+
+/* ── QUERY ZONE · dark console panel (top) ──────────────────────────────────────
+   Surface: --ink #0e1626
+   Accent:  --ochre-soft left-border (11.20:1 AAA; 3:1 non-text ✓)
+   Text:    #e8dfc8 warm white (13.62:1 AAA)
+   Fused with output below: border-radius only on top corners, zero bottom-margin */
 pre.gq-query {
+  font-family: var(--mono);
+  font-size: 12px;
+  line-height: 1.7;
+  background: var(--ink);
+  color: #e8dfc8;
+  padding: 1rem 1.25rem .95rem;
+  border-radius: 3px 3px 0 0;
+  border-left: 3px solid var(--ochre-soft);
+  overflow-x: auto;
+  margin: .85rem 0 0;
+  white-space: pre;
+}
+
+/* ── OUTPUT ZONE · dark console panel (bottom) ──────────────────────────────────
+   Surface: --ink #0e1626 (same as query — one continuous dark field)
+   Accent:  --moss-soft left-border (10.97:1 AAA; 3:1 non-text ✓)
+   Text:    #e8dfc8 warm white (13.62:1 AAA)
+   Seam:    1px top-border in --ochre-soft at low opacity — decorative only, not
+            the sole signal (the border-left color change carries the distinction)
+   Fused with query above: border-radius only on bottom corners, no top-margin */
+.gq-output {
   font-family: var(--mono);
   font-size: 12px;
   line-height: 1.65;
   background: var(--ink);
   color: #e8dfc8;
-  padding: 1rem 1.2rem;
-  border-radius: 3px;
-  overflow-x: auto;
-  margin: .8rem 0;
-  white-space: pre;
-}
-.gq-output {
-  font-family: var(--mono);
-  font-size: 12px;
-  line-height: 1.6;
-  background: var(--paper-warm);
-  border: 1px solid var(--paper-rule);
-  border-left: 2px solid var(--moss);
-  padding: .8rem 1rem;
-  margin: .6rem 0 0;
+  border-left: 3px solid var(--moss-soft);
+  border-top: 1px solid rgba(230, 199, 155, .18);
+  padding: .85rem 1.25rem 1rem;
+  margin: 0 0 .85rem;
+  border-radius: 0 0 3px 3px;
   overflow-x: auto;
 }
+
+/* ── output header: moss-soft label (10.97:1 AAA on --ink) */
 .gq-output-h {
+  font-family: var(--mono);
   font-size: 10px;
   letter-spacing: .16em;
   text-transform: uppercase;
-  color: var(--moss);
-  margin-bottom: .4rem;
+  color: var(--moss-soft);
+  margin-bottom: .5rem;
 }
+
+/* ── qualifying note: O-1 fix → ink-3-aaa (7.48:1 AAA on paper-deep) */
 .gq-note {
-  font-size: .88rem;
-  color: var(--ink-mute);
-  margin: .4rem 0 0;
+  font-size: .87rem;
+  color: var(--ink-3-aaa);
+  margin: .35rem 0 0;
   font-style: italic;
   font-family: var(--serif);
+  line-height: 1.55;
 }
 
 </style>
