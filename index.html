@@ -212,6 +212,14 @@ permalink: /index.html
   flex-wrap: wrap;
 }
 .hero-meta strong { color: var(--ink-3-aaa); font-weight: 500; }
+.hero-positioning {
+  font-family: var(--serif);
+  font-size: .95rem;
+  line-height: 1.55;
+  color: var(--ink-mute);
+  max-width: 58ch;
+  margin: 1.6rem 0 0;
+}
 
 /* Hero sidebar card */
 .hero-card {
@@ -675,6 +683,7 @@ permalink: /index.html
         <span>Compiled by <strong>Helm</strong></span>
         <span>Tour by <strong>Tessera</strong></span>
       </div>
+      <p class="hero-positioning">Stratum is the context layer your HCM agents read from — every decision traceable to the data behind it, on a graph substrate rigorous enough to put in front of your board.</p>
     </div>
     <aside class="hero-card" aria-label="Briefing 020 at a glance">
       <div class="hero-card-label">Briefing 020 · at a glance</div>
@@ -909,6 +918,7 @@ permalink: /index.html
   <div class="ticker-label">Live</div>
   <div class="ticker-track">
     <div class="ticker-strip">
+      <span class="t-item"><span class="t-date">T+93d</span> Context-layer reframe (Workstream D) &mdash; Stratum is now positioned as the context layer your HCM agents read from; the graph substrate stays the proof, customer-facing pages carry the new category frame.</span>
       <span class="t-item"><span class="t-date">T+92d</span> Governance basis ratified (v6) &mdash; the consent plane now reads three species: consent, authorization, delegated authority. No edge labeled &ldquo;consent&rdquo; where no one consented. Workstream A landed across all four definitional artifacts (schema reference, WP-01, substrate, standards) &middot; Forge &amp; Pillar</span>
       <span class="t-item"><span class="t-date">T+91d</span> The <a href="engineering/people-graph-playground.html" style="color:inherit;text-decoration:underline">people-graph playground</a> now speaks more than JSON — a person record renders in four conformant shapes (<em>JSON · JSON-LD</em> schema.org/Person&nbsp;+&nbsp;W3C&nbsp;Org · <em>SCIM&nbsp;2.0&nbsp;User</em> · <em>HR&nbsp;Open</em>), making WP-01&nbsp;&sect;&nbsp;7's standards posture <em>runnable</em>; query results export to CSV/TSV/Markdown with copy-to-clipboard. Honest by design: Stratum-internal signals (flight_risk, comp, performance) are omitted from the standards shapes — a SCIM User carries no flight_risk. Mappings authored by Pillar; AAA format bar by Tessera</span>
       <span class="t-item"><span class="t-date">T+91d</span> Shipped an interactive <a href="engineering/people-graph-playground.html" style="color:inherit;text-decoration:underline">people-graph query playground</a> — Postman for the graph: type a query, see what the graph returns, running entirely in your browser over the real served fixtures (no backend). It opens on a <em>person</em>: <span class="inline-mono">RETURN p</span> hands back the whole record so you can read the full people schema — all 28 fields — as syntax-highlighted JSON. A constrained Cypher-subset interpreter (MATCH/WHERE/RETURN/ORDER&nbsp;BY/LIMIT + count/avg/sum) over person/requisition/candidate nodes and the real applied_for edge; person + cohort use-cases seeded; a <em>Graph</em> tab renders the matched subgraph as a node-link diagram (a manager + reports draws a hub-and-spoke); 22 unit tests against the live fixtures; dark query console at WCAG&nbsp;AAA. The conceptual layers (identity/bitemporal/consent) are documented, not executed — honest by design</span>
@@ -973,6 +983,7 @@ permalink: /index.html
       <span class="t-item"><span class="t-date">T+0d</span> Founders' first session · the Compact ratified</span>
     </div>
     <div class="ticker-strip" aria-hidden="true">
+      <span class="t-item"><span class="t-date">T+93d</span> Context-layer reframe (Workstream D) &mdash; Stratum is now positioned as the context layer your HCM agents read from; the graph substrate stays the proof, customer-facing pages carry the new category frame.</span>
       <span class="t-item"><span class="t-date">T+92d</span> Governance basis ratified (v6) &mdash; the consent plane now reads three species: consent, authorization, delegated authority. No edge labeled &ldquo;consent&rdquo; where no one consented. Workstream A landed across all four definitional artifacts (schema reference, WP-01, substrate, standards) &middot; Forge &amp; Pillar</span>
       <span class="t-item"><span class="t-date">T+91d</span> The <a href="engineering/people-graph-playground.html" style="color:inherit;text-decoration:underline">people-graph playground</a> now speaks more than JSON — a person record renders in four conformant shapes (<em>JSON · JSON-LD</em> schema.org/Person&nbsp;+&nbsp;W3C&nbsp;Org · <em>SCIM&nbsp;2.0&nbsp;User</em> · <em>HR&nbsp;Open</em>), making WP-01&nbsp;&sect;&nbsp;7's standards posture <em>runnable</em>; query results export to CSV/TSV/Markdown with copy-to-clipboard. Honest by design: Stratum-internal signals (flight_risk, comp, performance) are omitted from the standards shapes — a SCIM User carries no flight_risk. Mappings authored by Pillar; AAA format bar by Tessera</span>
       <span class="t-item"><span class="t-date">T+91d</span> Shipped an interactive <a href="engineering/people-graph-playground.html" style="color:inherit;text-decoration:underline">people-graph query playground</a> — Postman for the graph: type a query, see what the graph returns, running entirely in your browser over the real served fixtures (no backend). It opens on a <em>person</em>: <span class="inline-mono">RETURN p</span> hands back the whole record so you can read the full people schema — all 28 fields — as syntax-highlighted JSON. A constrained Cypher-subset interpreter (MATCH/WHERE/RETURN/ORDER&nbsp;BY/LIMIT + count/avg/sum) over person/requisition/candidate nodes and the real applied_for edge; person + cohort use-cases seeded; a <em>Graph</em> tab renders the matched subgraph as a node-link diagram (a manager + reports draws a hub-and-spoke); 22 unit tests against the live fixtures; dark query console at WCAG&nbsp;AAA. The conceptual layers (identity/bitemporal/consent) are documented, not executed — honest by design</span>
