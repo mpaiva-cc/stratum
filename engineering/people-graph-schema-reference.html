@@ -760,6 +760,7 @@ p { margin: 0 0 1.15em; }
   <ol>
     <li><a href="#how">How to read this reference</a></li>
     <li><a href="#envelope">The universal edge envelope</a></li>
+    <li><a href="#basis">§ II.a — Governance basis</a></li>
     <li><a href="#shared">Shared / identity types</a></li>
     <li><a href="#console">Console module</a></li>
     <li><a href="#recruiter">Recruiter module</a></li>
@@ -842,8 +843,29 @@ p { margin: 0 0 1.15em; }
       <div class="prop-row"><div class="p-name">source</div><div class="p-type">str</div><div class="p-req">req</div><div class="p-mean">Origin system + event, e.g. <span class="inline-mono">"workday:position_assignment"</span>.</div></div>
       <div class="prop-row"><div class="p-name">source_record_id</div><div class="p-type">str | null</div><div class="p-req opt">opt</div><div class="p-mean">FK into the <span class="inline-mono">source_record</span> node.</div></div>
       <div class="prop-row"><div class="p-name">confidence</div><div class="p-type">float | null</div><div class="p-req opt">opt</div><div class="p-mean">[0,1]; null for structural edges; required on <span class="inline-mono">identity</span> and <span class="inline-mono">has_skill</span>.</div></div>
-      <div class="prop-row"><div class="p-name">consent_scopes</div><div class="p-type">[str]</div><div class="p-req">req</div><div class="p-mean">Traversal predicate (§4 of WP-01): an edge whose scopes the caller&apos;s purpose token cannot satisfy is structurally unreachable.</div></div>
+      <div class="prop-row"><div class="p-name">basis</div><div class="p-type">enum</div><div class="p-req">req</div><div class="p-mean">Governance species that gates this edge: <span class="inline-mono">consent</span> (a person / data subject), <span class="inline-mono">authorization</span> (device, location, org_unit, external_org), or <span class="inline-mono">delegated_authority</span> (agent). Defaults to <span class="inline-mono">consent</span>; every canonical-v3 edge is consent-basis and unchanged. See §&nbsp;II.a.</div></div>
+      <div class="prop-row"><div class="p-name">governance_scopes</div><div class="p-type">[str]</div><div class="p-req">req</div><div class="p-mean">Traversal predicate (§4 of WP-01): an edge whose scopes the caller&apos;s purpose token cannot satisfy is structurally unreachable. Read under the edge&apos;s <span class="inline-mono">basis</span>. <span class="inline-mono">consent_scopes</span> is retained as a <span class="sbadge openq">deprecated alias</span> so existing v3 queries do not break — write <span class="inline-mono">governance_scopes</span>.</div></div>
     </div>
+
+    <h2 id="basis"><span class="ord">§ II.a — Governance basis</span>The species the predicate reads. <span class="sbadge ratified" style="vertical-align:middle">ratified v6</span></h2>
+    <p>
+      The consent plane (§4 of WP-01) was person-shaped: it gated traversals on a
+      data subject&apos;s consent. As the graph admits non-person entities, the plane is
+      re-grounded as a <strong>governance basis</strong> with three species. The
+      predicate <em>mechanism</em> is unchanged; only the vocabulary generalises. We
+      never label an edge &ldquo;consent&rdquo; where no subject consented.
+    </p>
+    <div class="prop">
+      <div class="prop-row prop-head"><div>basis</div><div>applies to</div><div>grantor</div><div>scope validity</div></div>
+      <div class="prop-row"><div class="p-name">consent</div><div class="p-mean">person</div><div class="p-mean">the data subject</div><div class="p-mean">consent-grant validity</div></div>
+      <div class="prop-row"><div class="p-name">authorization</div><div class="p-mean">device, location, org_unit, external_org</div><div class="p-mean">the institution</div><div class="p-mean">policy validity</div></div>
+      <div class="prop-row"><div class="p-name">delegated_authority</div><div class="p-mean">agent</div><div class="p-mean">the company extending it</div><div class="p-mean">the agent&apos;s policy-version lifetime</div></div>
+    </div>
+    <p>
+      A caveat the DPO keeps on the record: a <span class="inline-mono">device&nbsp;&rarr;&nbsp;assigned_to&nbsp;&rarr;&nbsp;person</span>
+      edge still carries the <em>person&apos;s</em> consent. Non-person entities therefore add a
+      <em>second</em> basis an edge must satisfy — they do not simplify the plane.
+    </p>
 
     <!-- ── III ── -->
     <h2 id="shared"><span class="ord">§ III — Shared / identity</span>The types every module reads. <span class="sbadge canonical" style="vertical-align:middle">canonical v3</span></h2>
