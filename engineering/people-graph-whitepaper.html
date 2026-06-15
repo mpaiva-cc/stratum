@@ -1383,6 +1383,15 @@ pre.gq-query strong, .gq-output strong { color: inherit; }
       at in <em>code</em>, not prose.
     </p>
 
+    <p>
+      One generalisation §4 now carries: as the graph admits non-person entities, the
+      plane is re-grounded as a <strong>governance basis</strong> with three species —
+      <span class="inline-mono">consent</span> (person), <span class="inline-mono">authorization</span>
+      (device, location, org_unit), <span class="inline-mono">delegated_authority</span> (agent).
+      The predicate is unchanged; the vocabulary stops calling everything &ldquo;consent.&rdquo;
+      The full species table is §&nbsp;II.a of the companion schema reference.
+    </p>
+
     <!-- ─────────────────────────── 5 ── -->
     <h2 id="s5"><span class="ord">§ 5 — Entity resolution</span>Probabilistic, with a reviewed band.</h2>
 
@@ -1762,9 +1771,11 @@ pre.gq-query strong, .gq-output strong { color: inherit; }
       are world-truth time; <span class="inline-mono">tx_from</span>/<span class="inline-mono">tx_to</span>
       are system-knowledge time (§3). A query that does not bind both axes may
       be right for one reading of &ldquo;truth&rdquo; and wrong for the other.
-      <span class="inline-mono">consent_scopes</span> is a traversal predicate,
+      <span class="inline-mono">governance_scopes</span> is a traversal predicate,
       not a filter (§4): an edge whose scopes the caller&apos;s purpose token
-      cannot satisfy is structurally unreachable during path expansion.
+      cannot satisfy is structurally unreachable during path expansion. The scopes
+      are read under the edge&apos;s <span class="inline-mono">basis</span> — consent for a
+      person, authorization for an institutional entity, delegated authority for an agent.
     </p>
 
     <div class="dataframe"><span class="c">// universal edge envelope — on every edge, canonical v3</span>
@@ -1779,7 +1790,8 @@ pre.gq-query strong, .gq-output strong { color: inherit; }
 <span class="k">source</span>            <span class="s">str</span>         <span class="c">// origin system + event, e.g. "workday:position_assignment"</span>
 <span class="k">source_record_id</span>  <span class="s">str | null</span>  <span class="c">// fk into source_record (optional)</span>
 <span class="k">confidence</span>        <span class="s">float|null</span>  <span class="c">// [0,1]; required on identity and has_skill, null for structural edges</span>
-<span class="k">consent_scopes</span>    <span class="s">[str]</span>       <span class="c">// traversal gated on these — required</span></div>
+<span class="k">basis</span>             <span class="s">enum</span>        <span class="c">// consent | authorization | delegated_authority — default consent</span>
+<span class="k">governance_scopes</span> <span class="s">[str]</span>       <span class="c">// traversal gated on these, read under basis — required (alias: consent_scopes)</span></div>
     <div class="dataframe-caption">Fig. 3 · The envelope every edge carries. Per-type tables in the companion add only the edge-specific fields.</div>
 
     <h3>Module taxonomy — the overview</h3>
