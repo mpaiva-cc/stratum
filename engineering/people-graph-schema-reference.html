@@ -1,7 +1,7 @@
 ---
 layout: legacy
 title: "The people-graph schema reference — Stratum/Engineering"
-description: "The exhaustive per-module property tables for the Stratum people graph: every node, edge, and property an engineering customer builds against, each carrying a status badge (canonical v3, ratified v3.2/v4, proposed v5, open question), with stored-vs-derived markers and the consent scopes each edge reads. Companion to WP-01 §10. Co-authored by Pillar (Data Infrastructure) and Forge (CTO), Stratum, Inc."
+description: "The exhaustive per-module property tables for the Stratum people graph: every node, edge, and property an engineering customer builds against, each carrying a status badge (canonical v3, ratified v3.2/v4, proposed v5, open question), with stored-vs-derived markers and the governance scopes each edge reads. Companion to WP-01 §10. Co-authored by Pillar (Data Infrastructure) and Forge (CTO), Stratum, Inc."
 permalink: /engineering/people-graph-schema-reference.html
 ---
 <!doctype html>
@@ -450,6 +450,10 @@ p { margin: 0 0 1.15em; }
   .prop-row .p-mean { margin-top: .15rem; }
 }
 
+/* species (basis) table — wider middle columns than the property tables */
+.basis-table .prop-row { grid-template-columns: 1.1fr 1.7fr 1.5fr 1.6fr; }
+@media (max-width: 760px) { .basis-table .prop-row { grid-template-columns: 1fr; } }
+
 /* edge spec line */
 .edge-spec {
   font-family: var(--mono);
@@ -855,7 +859,7 @@ p { margin: 0 0 1.15em; }
       predicate <em>mechanism</em> is unchanged; only the vocabulary generalises. We
       never label an edge &ldquo;consent&rdquo; where no subject consented.
     </p>
-    <div class="prop">
+    <div class="prop basis-table">
       <div class="prop-row prop-head"><div>basis</div><div>applies to</div><div>grantor</div><div>scope validity</div></div>
       <div class="prop-row"><div class="p-name">consent</div><div class="p-mean">person</div><div class="p-mean">the data subject</div><div class="p-mean">consent-grant validity</div></div>
       <div class="prop-row"><div class="p-name">authorization</div><div class="p-mean">device, location, org_unit, external_org</div><div class="p-mean">the institution</div><div class="p-mean">policy validity</div></div>
