@@ -703,7 +703,7 @@ p { margin: 0 0 1.15em; }
   <div class="post-body">
 
     <p class="lede">
-      Post 05 described the substrate &mdash; four layers, one consent plane,
+      Post 05 described the substrate &mdash; four layers, one governance-basis plane,
       identity-as-edge, bitemporal time. It did not say which industry
       standards that substrate conforms to. The Chairman asked. The honest
       answer is that &ldquo;conforms to&rdquo; is the wrong verb for most of them,
@@ -974,7 +974,7 @@ p { margin: 0 0 1.15em; }
       unreachable</em>. Data-minimization is also why we
       <a href="{{ '/security/#data' | relative_url }}">do not persist raw HRIS records</a>: the source
       is consumed by the resolver and discarded; we keep the resolved entity
-      and a provenance hash. GDPR informs the consent plane; it does not get
+      and a provenance hash. GDPR informs the consent basis of the governance plane; it does not get
       its own subsystem.
     </p>
 
@@ -1029,14 +1029,14 @@ p { margin: 0 0 1.15em; }
 <span class="c">// it must carry require reification or a named graph.</span>
 :maria  org:reportsTo  :devon  .
 <span class="c">// ...and now where do valid_from / tx_from / confidence</span>
-<span class="c">// / consent_scopes attach? to a reified statement node.</span>
+<span class="c">// / governance_scopes attach? to a reified statement node.</span>
 
 <span class="c">// Property graph (ours): the attributes live on the edge.</span>
 (<span class="k">maria</span>)-[<span class="em">:reports_to</span> {
     valid_from: <span class="s">"2024-03-01T00:00:00Z"</span>,
     tx_from:    <span class="s">"2024-03-01T09:14:00Z"</span>,
     confidence: <span class="n">0.998</span>,
-    consent_scopes: [<span class="s">"hr.org_structure"</span>]
+    governance_scopes: [<span class="s">"hr.org_structure"</span>]
 }]-&gt;(<span class="k">devon</span>)</div>
     <div class="dataframe-caption">Fig. A1 · Heavy edges are native to a property graph and awkward in RDF. The hot path decides the model.</div>
 
