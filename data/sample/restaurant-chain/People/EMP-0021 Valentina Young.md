@@ -3,13 +3,16 @@ type: person
 id: EMP-0021
 name: Valentina Young
 status: active
+status_reason: active
+status_effective_date: 2026-03-30
+rehire_eligible: false
 employment_type: part_time
-hire_date: 2022-03-26
-email: "valentina.young@forkandflame.example"
+hire_date: 2025-09-15
+email: "valentina.young.emp-0021@forkandflame.example"
 works_at: "[[Store 01 - Austin Domain]]"
 in_department: "[[Kitchen (Department)]]"
 position: "[[Prep Cook]]"
-pay_rate: 16.95
+pay_rate: 17.07
 pay_unit: hour
 reports_to: "[[EMP-0005 Keira Perez]]"
 certifications:
@@ -17,12 +20,13 @@ certifications:
   - "[[Allergen Awareness]]"
 skills:
   - "[[Grill Station]]"
-  - "[[Saute Station]]"
-  - "[[Knife Skills]]"
 basis: consent
 ---
 
-**Prep Cook** at [[Store 01 - Austin Domain]] · Kitchen · since 2022-03-26.
+**Prep Cook** at [[Store 01 - Austin Domain]] · Kitchen · since 2025-09-15.
+
+Status: **active** (active) as of 2026-03-30
+Rehire eligible: no
 
 ## Works at
 
@@ -30,7 +34,7 @@ basis: consent
 
 ## Position
 
-- [[Prep Cook]] — paid 16.95/hour
+- [[Prep Cook]] — paid 17.07/hour
 
 ## Reports to
 
@@ -44,9 +48,7 @@ basis: consent
 ## Skills
 
 - [[Grill Station]]
-- [[Saute Station]]
-- [[Knife Skills]]
 
 ## Lifecycle
 
-- [[EMP-0021 - hired]] on 2022-03-26
+- [[EMP-0021 - hired]] on 2025-09-15

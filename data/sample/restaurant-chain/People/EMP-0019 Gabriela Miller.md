@@ -3,26 +3,32 @@ type: person
 id: EMP-0019
 name: Gabriela Miller
 status: active
-employment_type: full_time
-hire_date: 2023-11-16
-email: "gabriela.miller@forkandflame.example"
+status_reason: active
+status_effective_date: 2026-06-01
+rehire_eligible: false
+employment_type: part_time
+hire_date: 2022-12-12
+email: "gabriela.miller.emp-0019@forkandflame.example"
 works_at: "[[Store 01 - Austin Domain]]"
 in_department: "[[Front of House (Department)]]"
 position: "[[Server]]"
-pay_rate: 10.48
+pay_rate: 13.93
 pay_unit: hour
 reports_to: "[[EMP-0005 Keira Perez]]"
 certifications:
   - "[[Food Handler]]"
   - "[[TIPS Alcohol Service]]"
 skills:
+  - "[[Guest Recovery]]"
   - "[[Opening & Closing]]"
   - "[[POS Proficiency]]"
-  - "[[Guest Recovery]]"
 basis: consent
 ---
 
-**Server** at [[Store 01 - Austin Domain]] · Front of House · since 2023-11-16.
+**Server** at [[Store 01 - Austin Domain]] · Front of House · since 2022-12-12.
+
+Status: **active** (active) as of 2026-06-01
+Rehire eligible: no
 
 ## Works at
 
@@ -30,7 +36,7 @@ basis: consent
 
 ## Position
 
-- [[Server]] — paid 10.48/hour
+- [[Server]] — paid 13.93/hour
 
 ## Reports to
 
@@ -43,10 +49,10 @@ basis: consent
 
 ## Skills
 
+- [[Guest Recovery]]
 - [[Opening & Closing]]
 - [[POS Proficiency]]
-- [[Guest Recovery]]
 
 ## Lifecycle
 
-- [[EMP-0019 - hired]] on 2023-11-16
+- [[EMP-0019 - hired]] on 2022-12-12

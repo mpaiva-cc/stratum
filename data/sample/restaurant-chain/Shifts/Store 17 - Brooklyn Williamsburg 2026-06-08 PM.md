@@ -10,14 +10,14 @@ end: "23:30"
 crew_size: 8
 basis: authorization
 crew:
-  - "[[EMP-0404 Camila King]]"
-  - "[[EMP-0421 Uma Khan]]"
-  - "[[EMP-0424 Ella Wilson]]"
-  - "[[EMP-0423 Hassan Brown]]"
-  - "[[EMP-0417 Valentina Jones]]"
-  - "[[EMP-0406 Maria King]]"
-  - "[[EMP-0409 Liam Silva]]"
-  - "[[EMP-0412 Logan Jones]]"
+  - "[[EMP-0403 Diego Torres]]"
+  - "[[EMP-0406 Elijah Harris]]"
+  - "[[EMP-0425 Fatima Shah]]"
+  - "[[EMP-0402 Emily King]]"
+  - "[[EMP-0424 Emily Le]]"
+  - "[[EMP-0418 Aaron Santos]]"
+  - "[[EMP-0409 Emily Sanchez]]"
+  - "[[EMP-0423 Rohan Singh]]"
 ---
 
 PM shift at [[Store 17 - Brooklyn Williamsburg]] on 2026-06-08 (15:00-23:30).
@@ -28,11 +28,11 @@ PM shift at [[Store 17 - Brooklyn Williamsburg]] on 2026-06-08 (15:00-23:30).
 
 ## Crew
 
-- [[EMP-0404 Camila King]] (Shift Lead)
-- [[EMP-0421 Uma Khan]] (Dishwasher)
-- [[EMP-0424 Ella Wilson]] (Busser)
-- [[EMP-0423 Hassan Brown]] (Dishwasher)
-- [[EMP-0417 Valentina Jones]] (Line Cook)
-- [[EMP-0406 Maria King]] (Line Cook)
-- [[EMP-0409 Liam Silva]] (Line Cook)
-- [[EMP-0412 Logan Jones]] (Line Cook)
+- [[EMP-0403 Diego Torres]] (Head Chef)
+- [[EMP-0406 Elijah Harris]] (Line Cook)
+- [[EMP-0425 Fatima Shah]] (Busser)
+- [[EMP-0402 Emily King]] (Assistant Manager)
+- [[EMP-0424 Emily Le]] (Dishwasher)
+- [[EMP-0418 Aaron Santos]] (Line Cook)
+- [[EMP-0409 Emily Sanchez]] (Expo)
+- [[EMP-0423 Rohan Singh]] (Prep Cook)

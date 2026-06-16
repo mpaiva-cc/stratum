@@ -5,11 +5,11 @@ name: Detroit Corktown
 region: "[[Midwest Region]]"
 at_location: "[[Detroit Corktown (MI-15)]]"
 part_of: "[[Midwest Region]]"
-opened: 2018-01-08
-seats: 180
+opened: 2022-10-26
+seats: 110
 headcount: 25
 basis: authorization
-general_manager: "[[EMP-0351 Destiny Liu]]"
+general_manager: "[[EMP-0351 Diego Torres]]"
 ---
 
 Store in the [[Midwest Region]] · 25 staff.
@@ -28,28 +28,28 @@ Store in the [[Midwest Region]] · 25 staff.
 
 ## Roster (25)
 
-- [[EMP-0351 Destiny Liu]] — General Manager
-- [[EMP-0352 Ximena Ahmed]] — Assistant Manager
-- [[EMP-0353 Lucas Silva]] — Head Chef
-- [[EMP-0354 Keira Harris]] — Shift Lead
-- [[EMP-0355 Ella Diallo]] — Shift Lead
-- [[EMP-0356 Maria Ahmed]] — Bartender
-- [[EMP-0357 Isabella King]] — Line Cook
-- [[EMP-0358 Destiny Jackson]] — Server
-- [[EMP-0359 Aaron Singh]] — Server
-- [[EMP-0360 Amelia Walker]] — Line Cook
-- [[EMP-0361 Paloma Tran]] — Line Cook
-- [[EMP-0362 Jose Torres]] — Bartender
-- [[EMP-0363 Maria Wright]] — Expo
-- [[EMP-0364 Wei Davis]] — Server
-- [[EMP-0365 Evelyn Okafor]] — Line Cook
-- [[EMP-0366 Nadia Okafor]] — Server
-- [[EMP-0367 Elijah Brown]] — Line Cook
-- [[EMP-0368 Noah Anderson]] — Line Cook
-- [[EMP-0369 Henry Taylor]] — Dishwasher
-- [[EMP-0370 Ella Hernandez]] — Busser
-- [[EMP-0371 Quinn Rossi]] — Dishwasher
-- [[EMP-0372 Santiago Kim]] — Prep Cook
-- [[EMP-0373 Carlos Lewis]] — Busser
-- [[EMP-0374 Caleb Wright]] — Host
-- [[EMP-0375 Oscar Torres]] — Busser
+- [[EMP-0351 Diego Torres]] — General Manager
+- [[EMP-0352 Isabella Wilson]] — Assistant Manager
+- [[EMP-0353 Gabriela Tran]] — Head Chef
+- [[EMP-0354 Ines Williams]] — Shift Lead
+- [[EMP-0355 Ella Thomas]] — Shift Lead
+- [[EMP-0356 Sofia Moore]] — Server
+- [[EMP-0357 Daniela Moore]] — Line Cook
+- [[EMP-0358 Mason Davis]] — Bartender
+- [[EMP-0359 Camila Khan]] — Server
+- [[EMP-0360 Leo Ali]] — Line Cook
+- [[EMP-0361 Jamal Rossi]] — Line Cook
+- [[EMP-0362 Yara King]] — Server
+- [[EMP-0363 Abigail Okafor]] — Line Cook
+- [[EMP-0364 Elijah Khan]] — Line Cook
+- [[EMP-0365 Zayd Torres]] — Bartender
+- [[EMP-0366 Uma Kim]] — Line Cook
+- [[EMP-0367 Anaya Allen]] — Server
+- [[EMP-0368 Yuki Ahmed]] — Server
+- [[EMP-0369 Layla Harris]] — Server
+- [[EMP-0370 Brianna Nguyen]] — Server
+- [[EMP-0371 Zayd Johnson]] — Line Cook
+- [[EMP-0372 Felix Wright]] — Dishwasher
+- [[EMP-0373 Wanda Wang]] — Busser
+- [[EMP-0374 Aaron Shah]] — Busser
+- [[EMP-0375 Valentina Sanchez]] — Prep Cook

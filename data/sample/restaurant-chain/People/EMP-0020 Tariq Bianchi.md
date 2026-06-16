@@ -2,25 +2,33 @@
 type: person
 id: EMP-0020
 name: Tariq Bianchi
-status: active
-employment_type: full_time
-hire_date: 2025-08-24
-email: "tariq.bianchi@forkandflame.example"
+status: rehire_eligible
+status_reason: previous_good_standing
+status_effective_date: 2024-11-06
+rehire_eligible: false
+employment_type: part_time
+hire_date: 2024-11-06
+email: "tariq.bianchi.emp-0020@forkandflame.example"
 works_at: "[[Store 01 - Austin Domain]]"
 in_department: "[[Kitchen (Department)]]"
 position: "[[Line Cook]]"
-pay_rate: 20.97
+pay_rate: 19.86
 pay_unit: hour
 reports_to: "[[EMP-0004 Jaden Abara]]"
 certifications:
   - "[[Food Handler]]"
   - "[[Allergen Awareness]]"
 skills:
-  - "[[Grill Station]]"
+  - "[[Inventory & Ordering]]"
+  - "[[Knife Skills]]"
+  - "[[Saute Station]]"
 basis: consent
 ---
 
-**Line Cook** at [[Store 01 - Austin Domain]] · Kitchen · since 2025-08-24.
+**Line Cook** at [[Store 01 - Austin Domain]] · Kitchen · since 2024-11-06.
+
+Status: **rehire_eligible** (previous_good_standing) as of 2024-11-06
+Rehire eligible: no
 
 ## Works at
 
@@ -28,7 +36,7 @@ basis: consent
 
 ## Position
 
-- [[Line Cook]] — paid 20.97/hour
+- [[Line Cook]] — paid 19.86/hour
 
 ## Reports to
 
@@ -41,8 +49,10 @@ basis: consent
 
 ## Skills
 
-- [[Grill Station]]
+- [[Inventory & Ordering]]
+- [[Knife Skills]]
+- [[Saute Station]]
 
 ## Lifecycle
 
-- [[EMP-0020 - hired]] on 2025-08-24
+- [[EMP-0020 - hired]] on 2024-11-06

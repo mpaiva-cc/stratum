@@ -5,11 +5,11 @@ name: Chicago Loop
 region: "[[Midwest Region]]"
 at_location: "[[Chicago Loop (IL-11)]]"
 part_of: "[[Midwest Region]]"
-opened: 2023-09-29
-seats: 160
+opened: 2020-07-23
+seats: 90
 headcount: 25
 basis: authorization
-general_manager: "[[EMP-0251 Samir Ali]]"
+general_manager: "[[EMP-0251 Wei Pham]]"
 ---
 
 Store in the [[Midwest Region]] · 25 staff.
@@ -28,28 +28,28 @@ Store in the [[Midwest Region]] · 25 staff.
 
 ## Roster (25)
 
-- [[EMP-0251 Samir Ali]] — General Manager
-- [[EMP-0252 Nadia Wang]] — Assistant Manager
-- [[EMP-0253 Nadia Ahmed]] — Head Chef
-- [[EMP-0254 Emily Young]] — Shift Lead
-- [[EMP-0255 Kayla Harris]] — Shift Lead
-- [[EMP-0256 Connor Lewis]] — Server
-- [[EMP-0257 Nadia Ali]] — Server
-- [[EMP-0258 Connor Abara]] — Line Cook
-- [[EMP-0259 Hassan Pham]] — Line Cook
-- [[EMP-0260 Fatima Patel]] — Bartender
-- [[EMP-0261 Mason Ali]] — Server
-- [[EMP-0262 Keira Bianchi]] — Bartender
-- [[EMP-0263 Layla Okafor]] — Server
-- [[EMP-0264 Elena Nguyen]] — Server
-- [[EMP-0265 Omar Torres]] — Server
-- [[EMP-0266 Layla Garcia]] — Bartender
-- [[EMP-0267 Zayd Anderson]] — Server
-- [[EMP-0268 Daniela Ramirez]] — Bartender
-- [[EMP-0269 Gabriela Walker]] — Server
-- [[EMP-0270 Zayd Garcia]] — Host
-- [[EMP-0271 Noah Okafor]] — Prep Cook
-- [[EMP-0272 Kayla Russo]] — Prep Cook
-- [[EMP-0273 Jamal Jones]] — Prep Cook
-- [[EMP-0274 Destiny Shah]] — Busser
-- [[EMP-0275 Yara Wilson]] — Prep Cook
+- [[EMP-0251 Wei Pham]] — General Manager
+- [[EMP-0252 Grace Johnson]] — Assistant Manager
+- [[EMP-0253 Hassan Tran]] — Head Chef
+- [[EMP-0254 Jin Park]] — Shift Lead
+- [[EMP-0255 Abigail Singh]] — Shift Lead
+- [[EMP-0256 Nadia Rodriguez]] — Bartender
+- [[EMP-0257 Sofia Hernandez]] — Server
+- [[EMP-0258 Aaron Singh]] — Line Cook
+- [[EMP-0259 Wanda Wilson]] — Server
+- [[EMP-0260 Jaden Silva]] — Server
+- [[EMP-0261 Priya Harris]] — Line Cook
+- [[EMP-0262 Yara Tran]] — Bartender
+- [[EMP-0263 Priya Taylor]] — Server
+- [[EMP-0264 Omar Santos]] — Server
+- [[EMP-0265 Yuki Smith]] — Server
+- [[EMP-0266 Jamal Chen]] — Line Cook
+- [[EMP-0267 Kayla Moore]] — Server
+- [[EMP-0268 Yara Hernandez]] — Dishwasher
+- [[EMP-0269 Hassan Gonzalez]] — Prep Cook
+- [[EMP-0270 Kayla Davis]] — Dishwasher
+- [[EMP-0271 Aiden Clark]] — Prep Cook
+- [[EMP-0272 Gabriela Costa]] — Busser
+- [[EMP-0273 Bella Wang]] — Dishwasher
+- [[EMP-0274 Lucas Lopez]] — Busser
+- [[EMP-0275 Maria Smith]] — Prep Cook

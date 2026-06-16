@@ -1,6 +1,6 @@
 ---
 type: consent_grant
-id: CNS-0062
+id: CNS-0063
 person: "[[EMP-0016 Ximena Torres]]"
 scope: hr.certifications
 purpose: store operations

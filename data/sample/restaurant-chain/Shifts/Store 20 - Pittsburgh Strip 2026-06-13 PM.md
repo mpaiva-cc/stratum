@@ -7,19 +7,15 @@ date: 2026-06-13
 daypart: PM
 start: "15:00"
 end: "23:30"
-crew_size: 10
+crew_size: 6
 basis: authorization
 crew:
-  - "[[EMP-0492 Mateo Anderson]]"
-  - "[[EMP-0493 Yara Wang]]"
-  - "[[EMP-0497 Lucas Ali]]"
-  - "[[EMP-0476 Ines Santos]]"
-  - "[[EMP-0488 Rosa Lopez]]"
-  - "[[EMP-0487 Mateo Costa]]"
-  - "[[EMP-0484 Ethan King]]"
-  - "[[EMP-0495 Rosa Liu]]"
-  - "[[EMP-0494 Noah Ramirez]]"
-  - "[[EMP-0498 Ava Kim]]"
+  - "[[EMP-0492 Liam Santos]]"
+  - "[[EMP-0477 Henry Rossi]]"
+  - "[[EMP-0497 Evelyn Jones]]"
+  - "[[EMP-0490 Rosa Taylor]]"
+  - "[[EMP-0484 Zane Taylor]]"
+  - "[[EMP-0498 Ethan Patel]]"
 ---
 
 PM shift at [[Store 20 - Pittsburgh Strip]] on 2026-06-13 (15:00-23:30).
@@ -30,13 +26,9 @@ PM shift at [[Store 20 - Pittsburgh Strip]] on 2026-06-13 (15:00-23:30).
 
 ## Crew
 
-- [[EMP-0492 Mateo Anderson]] (Dishwasher)
-- [[EMP-0493 Yara Wang]] (Busser)
-- [[EMP-0497 Lucas Ali]] (Prep Cook)
-- [[EMP-0476 Ines Santos]] (General Manager)
-- [[EMP-0488 Rosa Lopez]] (Line Cook)
-- [[EMP-0487 Mateo Costa]] (Line Cook)
-- [[EMP-0484 Ethan King]] (Line Cook)
-- [[EMP-0495 Rosa Liu]] (Host)
-- [[EMP-0494 Noah Ramirez]] (Dishwasher)
-- [[EMP-0498 Ava Kim]] (Host)
+- [[EMP-0492 Liam Santos]] (Server)
+- [[EMP-0477 Henry Rossi]] (Assistant Manager)
+- [[EMP-0497 Evelyn Jones]] (Busser)
+- [[EMP-0490 Rosa Taylor]] (Server)
+- [[EMP-0484 Zane Taylor]] (Line Cook)
+- [[EMP-0498 Ethan Patel]] (Busser)

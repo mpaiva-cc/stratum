@@ -1,11 +1,11 @@
 ---
 type: employment_event
 id: EVT-0210
-person: "[[EMP-0210 Sofia Abara]]"
+person: "[[EMP-0210 Evelyn Rossi]]"
 kind: hire
-date: 2024-06-26
+date: 2023-10-19
 store: "[[Store 09 - Portland Pearl]]"
 basis: consent
 ---
 
-[[EMP-0210 Sofia Abara]] hired as Bartender at [[Store 09 - Portland Pearl]] on 2024-06-26.
+[[EMP-0210 Evelyn Rossi]] hired as Server at [[Store 09 - Portland Pearl]] on 2023-10-19.

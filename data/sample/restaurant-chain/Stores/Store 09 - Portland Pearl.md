@@ -5,11 +5,11 @@ name: Portland Pearl
 region: "[[West Region]]"
 at_location: "[[Portland Pearl (OR-09)]]"
 part_of: "[[West Region]]"
-opened: 2019-04-05
-seats: 180
+opened: 2017-08-15
+seats: 90
 headcount: 25
 basis: authorization
-general_manager: "[[EMP-0201 Sofia Jackson]]"
+general_manager: "[[EMP-0201 Ximena Ahmed]]"
 ---
 
 Store in the [[West Region]] · 25 staff.
@@ -28,28 +28,28 @@ Store in the [[West Region]] · 25 staff.
 
 ## Roster (25)
 
-- [[EMP-0201 Sofia Jackson]] — General Manager
-- [[EMP-0202 Carlos Lewis]] — Assistant Manager
-- [[EMP-0203 Valentina Bianchi]] — Head Chef
-- [[EMP-0204 Wei Ali]] — Shift Lead
-- [[EMP-0205 Rohan Tran]] — Shift Lead
-- [[EMP-0206 Elijah Miller]] — Line Cook
-- [[EMP-0207 Ella Harris]] — Line Cook
-- [[EMP-0208 Arjun Smith]] — Server
-- [[EMP-0209 Liam Shah]] — Server
-- [[EMP-0210 Sofia Abara]] — Bartender
-- [[EMP-0211 Samir Pham]] — Server
-- [[EMP-0212 Henry Ali]] — Server
-- [[EMP-0213 Hana Romano]] — Server
-- [[EMP-0214 Rohan Williams]] — Line Cook
-- [[EMP-0215 Min Pham]] — Server
-- [[EMP-0216 Rohan Rossi]] — Bartender
-- [[EMP-0217 Henry Harris]] — Line Cook
-- [[EMP-0218 Mateo Young]] — Busser
-- [[EMP-0219 Grace Scott]] — Busser
-- [[EMP-0220 Emily Brown]] — Dishwasher
-- [[EMP-0221 Logan Harris]] — Host
-- [[EMP-0222 Paloma Santos]] — Host
-- [[EMP-0223 Aiden Wright]] — Dishwasher
-- [[EMP-0224 Destiny White]] — Prep Cook
-- [[EMP-0225 Camila Rossi]] — Prep Cook
+- [[EMP-0201 Ximena Ahmed]] — General Manager
+- [[EMP-0202 Lucas Garcia]] — Assistant Manager
+- [[EMP-0203 Ines Wilson]] — Head Chef
+- [[EMP-0204 Santiago Perez]] — Shift Lead
+- [[EMP-0205 Keira Okafor]] — Shift Lead
+- [[EMP-0206 Maria Anderson]] — Bartender
+- [[EMP-0207 Daniela Santos]] — Server
+- [[EMP-0208 Victor Davis]] — Line Cook
+- [[EMP-0209 Santiago Patel]] — Server
+- [[EMP-0210 Evelyn Rossi]] — Server
+- [[EMP-0211 Valentina Liu]] — Line Cook
+- [[EMP-0212 Kayla Singh]] — Expo
+- [[EMP-0213 Diego Pham]] — Server
+- [[EMP-0214 Aiden Martinez]] — Line Cook
+- [[EMP-0215 Andres Bianchi]] — Server
+- [[EMP-0216 Noah Ali]] — Line Cook
+- [[EMP-0217 Abigail Park]] — Server
+- [[EMP-0218 Brianna Wright]] — Server
+- [[EMP-0219 Liam Park]] — Dishwasher
+- [[EMP-0220 Tariq Moore]] — Busser
+- [[EMP-0221 Wei Williams]] — Prep Cook
+- [[EMP-0222 Oscar Smith]] — Prep Cook
+- [[EMP-0223 Hassan Harris]] — Host
+- [[EMP-0224 Gabriela Khan]] — Busser
+- [[EMP-0225 Kayla Taylor]] — Host

@@ -1,10 +1,10 @@
 ---
 type: onboarding_task
 id: ONB-0005
-person: "[[EMP-0128 Henry Hernandez]]"
+person: "[[EMP-0128 Hana Williams]]"
 task: Uniform issue
-status: pending
+status: done
 basis: authorization
 ---
 
-Onboarding task for [[EMP-0128 Henry Hernandez]]: Uniform issue.
+Onboarding task for [[EMP-0128 Hana Williams]]: Uniform issue.

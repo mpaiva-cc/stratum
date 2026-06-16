@@ -7,16 +7,18 @@ date: 2026-06-12
 daypart: PM
 start: "15:00"
 end: "23:30"
-crew_size: 7
+crew_size: 9
 basis: authorization
 crew:
-  - "[[EMP-0446 Arjun Johnson]]"
-  - "[[EMP-0449 Yara Williams]]"
-  - "[[EMP-0434 Ximena Moore]]"
-  - "[[EMP-0429 Valentina Sanchez]]"
-  - "[[EMP-0450 Camila Abara]]"
-  - "[[EMP-0428 Aaron Shah]]"
-  - "[[EMP-0437 Fatima Chen]]"
+  - "[[EMP-0426 Uma Patel]]"
+  - "[[EMP-0441 Zane Ali]]"
+  - "[[EMP-0436 Aria Wright]]"
+  - "[[EMP-0446 Hana Clark]]"
+  - "[[EMP-0431 Andres Shah]]"
+  - "[[EMP-0442 Mateo Torres]]"
+  - "[[EMP-0438 Anaya Moore]]"
+  - "[[EMP-0434 Paloma Garcia]]"
+  - "[[EMP-0427 Aria Wilson]]"
 ---
 
 PM shift at [[Store 18 - Philadelphia Fishtown]] on 2026-06-12 (15:00-23:30).
@@ -27,10 +29,12 @@ PM shift at [[Store 18 - Philadelphia Fishtown]] on 2026-06-12 (15:00-23:30).
 
 ## Crew
 
-- [[EMP-0446 Arjun Johnson]] (Dishwasher)
-- [[EMP-0449 Yara Williams]] (Busser)
-- [[EMP-0434 Ximena Moore]] (Server)
-- [[EMP-0429 Valentina Sanchez]] (Shift Lead)
-- [[EMP-0450 Camila Abara]] (Prep Cook)
-- [[EMP-0428 Aaron Shah]] (Head Chef)
-- [[EMP-0437 Fatima Chen]] (Server)
+- [[EMP-0426 Uma Patel]] (General Manager)
+- [[EMP-0441 Zane Ali]] (Server)
+- [[EMP-0436 Aria Wright]] (Server)
+- [[EMP-0446 Hana Clark]] (Dishwasher)
+- [[EMP-0431 Andres Shah]] (Server)
+- [[EMP-0442 Mateo Torres]] (Line Cook)
+- [[EMP-0438 Anaya Moore]] (Line Cook)
+- [[EMP-0434 Paloma Garcia]] (Server)
+- [[EMP-0427 Aria Wilson]] (Assistant Manager)

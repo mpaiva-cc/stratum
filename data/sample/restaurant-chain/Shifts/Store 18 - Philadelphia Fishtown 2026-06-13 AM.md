@@ -7,18 +7,16 @@ date: 2026-06-13
 daypart: AM
 start: "07:00"
 end: "15:30"
-crew_size: 9
+crew_size: 7
 basis: authorization
 crew:
-  - "[[EMP-0434 Ximena Moore]]"
-  - "[[EMP-0444 Keira Romano]]"
-  - "[[EMP-0440 Yuki Shah]]"
-  - "[[EMP-0432 Harper Mensah]]"
-  - "[[EMP-0442 Yuki Ahmed]]"
-  - "[[EMP-0428 Aaron Shah]]"
-  - "[[EMP-0427 Wanda Wang]]"
-  - "[[EMP-0448 Aiden Wilson]]"
-  - "[[EMP-0430 Connor Wang]]"
+  - "[[EMP-0438 Anaya Moore]]"
+  - "[[EMP-0434 Paloma Garcia]]"
+  - "[[EMP-0430 Uma Costa]]"
+  - "[[EMP-0440 Mason Jackson]]"
+  - "[[EMP-0448 Carlos White]]"
+  - "[[EMP-0439 Kayla Abara]]"
+  - "[[EMP-0435 Aiden Santos]]"
 ---
 
 AM shift at [[Store 18 - Philadelphia Fishtown]] on 2026-06-13 (07:00-15:30).
@@ -29,12 +27,10 @@ AM shift at [[Store 18 - Philadelphia Fishtown]] on 2026-06-13 (07:00-15:30).
 
 ## Crew
 
-- [[EMP-0434 Ximena Moore]] (Server)
-- [[EMP-0444 Keira Romano]] (Host)
-- [[EMP-0440 Yuki Shah]] (Bartender)
-- [[EMP-0432 Harper Mensah]] (Line Cook)
-- [[EMP-0442 Yuki Ahmed]] (Server)
-- [[EMP-0428 Aaron Shah]] (Head Chef)
-- [[EMP-0427 Wanda Wang]] (Assistant Manager)
-- [[EMP-0448 Aiden Wilson]] (Dishwasher)
-- [[EMP-0430 Connor Wang]] (Shift Lead)
+- [[EMP-0438 Anaya Moore]] (Line Cook)
+- [[EMP-0434 Paloma Garcia]] (Server)
+- [[EMP-0430 Uma Costa]] (Shift Lead)
+- [[EMP-0440 Mason Jackson]] (Server)
+- [[EMP-0448 Carlos White]] (Dishwasher)
+- [[EMP-0439 Kayla Abara]] (Server)
+- [[EMP-0435 Aiden Santos]] (Line Cook)

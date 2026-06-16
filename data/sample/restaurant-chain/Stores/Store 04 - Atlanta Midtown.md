@@ -5,11 +5,11 @@ name: Atlanta Midtown
 region: "[[South Region]]"
 at_location: "[[Atlanta Midtown (GA-04)]]"
 part_of: "[[South Region]]"
-opened: 2018-04-14
-seats: 160
+opened: 2021-04-01
+seats: 180
 headcount: 25
 basis: authorization
-general_manager: "[[EMP-0076 Valentina Sanchez]]"
+general_manager: "[[EMP-0076 Noah Wilson]]"
 ---
 
 Store in the [[South Region]] · 25 staff.
@@ -28,28 +28,28 @@ Store in the [[South Region]] · 25 staff.
 
 ## Roster (25)
 
-- [[EMP-0076 Valentina Sanchez]] — General Manager
-- [[EMP-0077 Hassan Russo]] — Assistant Manager
-- [[EMP-0078 Wei Moore]] — Head Chef
-- [[EMP-0079 Mia Lopez]] — Shift Lead
-- [[EMP-0080 Min Costa]] — Shift Lead
-- [[EMP-0081 Paloma White]] — Server
-- [[EMP-0082 Bella Shah]] — Server
-- [[EMP-0083 Isabella Okafor]] — Server
-- [[EMP-0084 Paloma Kim]] — Line Cook
-- [[EMP-0085 Rohan Wilson]] — Bartender
-- [[EMP-0086 Mateo Costa]] — Line Cook
-- [[EMP-0087 Zayd Harris]] — Line Cook
-- [[EMP-0088 Kayla Clark]] — Server
-- [[EMP-0089 Zayd King]] — Server
-- [[EMP-0090 Samir Martinez]] — Line Cook
-- [[EMP-0091 Mason Diallo]] — Server
-- [[EMP-0092 Isabella Mensah]] — Server
-- [[EMP-0093 Henry Gonzalez]] — Server
-- [[EMP-0094 Liam Silva]] — Server
-- [[EMP-0095 Felix Allen]] — Server
-- [[EMP-0096 Evelyn Harris]] — Server
-- [[EMP-0097 Caleb Moore]] — Expo
-- [[EMP-0098 Quinn Ahmed]] — Dishwasher
-- [[EMP-0099 Lucas Patel]] — Busser
-- [[EMP-0100 Felix Ahmed]] — Prep Cook
+- [[EMP-0076 Noah Wilson]] — General Manager
+- [[EMP-0077 Omar Ramirez]] — Assistant Manager
+- [[EMP-0078 Valentina Clark]] — Head Chef
+- [[EMP-0079 Diego Anderson]] — Shift Lead
+- [[EMP-0080 Henry Clark]] — Shift Lead
+- [[EMP-0081 Ella Smith]] — Server
+- [[EMP-0082 Isabella King]] — Line Cook
+- [[EMP-0083 Felix Pham]] — Line Cook
+- [[EMP-0084 Hana Silva]] — Line Cook
+- [[EMP-0085 Keira Mensah]] — Expo
+- [[EMP-0086 Paloma Singh]] — Line Cook
+- [[EMP-0087 Mason Patel]] — Server
+- [[EMP-0088 Rosa Ali]] — Expo
+- [[EMP-0089 Omar Perez]] — Bartender
+- [[EMP-0090 Elijah Tran]] — Line Cook
+- [[EMP-0091 Henry Santos]] — Server
+- [[EMP-0092 Abigail Johnson]] — Bartender
+- [[EMP-0093 Caleb Lewis]] — Line Cook
+- [[EMP-0094 Felix Khan]] — Server
+- [[EMP-0095 Ethan Scott]] — Server
+- [[EMP-0096 Harper Torres]] — Dishwasher
+- [[EMP-0097 Jin Jackson]] — Dishwasher
+- [[EMP-0098 Destiny Liu]] — Dishwasher
+- [[EMP-0099 Wanda King]] — Prep Cook
+- [[EMP-0100 Evelyn Torres]] — Busser

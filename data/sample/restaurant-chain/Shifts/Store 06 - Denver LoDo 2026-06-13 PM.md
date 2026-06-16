@@ -10,15 +10,15 @@ end: "23:30"
 crew_size: 9
 basis: authorization
 crew:
-  - "[[EMP-0148 Paloma Walker]]"
-  - "[[EMP-0136 Sofia Moore]]"
-  - "[[EMP-0129 Yuki Smith]]"
-  - "[[EMP-0142 Omar Chen]]"
-  - "[[EMP-0137 Hassan Ramirez]]"
-  - "[[EMP-0141 Keira Martinez]]"
-  - "[[EMP-0149 Ines Nguyen]]"
-  - "[[EMP-0144 Gabriela Smith]]"
-  - "[[EMP-0126 Valentina Wilson]]"
+  - "[[EMP-0129 Quinn Torres]]"
+  - "[[EMP-0130 Hassan Kim]]"
+  - "[[EMP-0133 Quinn Garcia]]"
+  - "[[EMP-0136 Andres White]]"
+  - "[[EMP-0146 Felix Singh]]"
+  - "[[EMP-0140 Ximena Allen]]"
+  - "[[EMP-0128 Hana Williams]]"
+  - "[[EMP-0150 Grace Sanchez]]"
+  - "[[EMP-0131 Priya Miller]]"
 ---
 
 PM shift at [[Store 06 - Denver LoDo]] on 2026-06-13 (15:00-23:30).
@@ -29,12 +29,12 @@ PM shift at [[Store 06 - Denver LoDo]] on 2026-06-13 (15:00-23:30).
 
 ## Crew
 
-- [[EMP-0148 Paloma Walker]] (Host)
-- [[EMP-0136 Sofia Moore]] (Bartender)
-- [[EMP-0129 Yuki Smith]] (Shift Lead)
-- [[EMP-0142 Omar Chen]] (Host)
-- [[EMP-0137 Hassan Ramirez]] (Line Cook)
-- [[EMP-0141 Keira Martinez]] (Server)
-- [[EMP-0149 Ines Nguyen]] (Prep Cook)
-- [[EMP-0144 Gabriela Smith]] (Prep Cook)
-- [[EMP-0126 Valentina Wilson]] (General Manager)
+- [[EMP-0129 Quinn Torres]] (Shift Lead)
+- [[EMP-0130 Hassan Kim]] (Shift Lead)
+- [[EMP-0133 Quinn Garcia]] (Line Cook)
+- [[EMP-0136 Andres White]] (Line Cook)
+- [[EMP-0146 Felix Singh]] (Busser)
+- [[EMP-0140 Ximena Allen]] (Line Cook)
+- [[EMP-0128 Hana Williams]] (Head Chef)
+- [[EMP-0150 Grace Sanchez]] (Host)
+- [[EMP-0131 Priya Miller]] (Server)

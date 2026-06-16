@@ -10,13 +10,13 @@ end: "23:30"
 crew_size: 7
 basis: authorization
 crew:
-  - "[[EMP-0471 Rohan Torres]]"
-  - "[[EMP-0455 Ella Liu]]"
-  - "[[EMP-0465 Henry Nguyen]]"
-  - "[[EMP-0451 Layla Miller]]"
-  - "[[EMP-0472 Zayd Allen]]"
-  - "[[EMP-0467 Ximena Williams]]"
-  - "[[EMP-0459 Jamal Scott]]"
+  - "[[EMP-0452 Camila Anderson]]"
+  - "[[EMP-0462 Quinn Ahmed]]"
+  - "[[EMP-0460 Yuki Lopez]]"
+  - "[[EMP-0473 Victor Nguyen]]"
+  - "[[EMP-0453 Samir King]]"
+  - "[[EMP-0455 Jose Anderson]]"
+  - "[[EMP-0472 Liam Mensah]]"
 ---
 
 PM shift at [[Store 19 - DC Navy Yard]] on 2026-06-09 (15:00-23:30).
@@ -27,10 +27,10 @@ PM shift at [[Store 19 - DC Navy Yard]] on 2026-06-09 (15:00-23:30).
 
 ## Crew
 
-- [[EMP-0471 Rohan Torres]] (Dishwasher)
-- [[EMP-0455 Ella Liu]] (Shift Lead)
-- [[EMP-0465 Henry Nguyen]] (Server)
-- [[EMP-0451 Layla Miller]] (General Manager)
-- [[EMP-0472 Zayd Allen]] (Dishwasher)
-- [[EMP-0467 Ximena Williams]] (Busser)
-- [[EMP-0459 Jamal Scott]] (Line Cook)
+- [[EMP-0452 Camila Anderson]] (Assistant Manager)
+- [[EMP-0462 Quinn Ahmed]] (Line Cook)
+- [[EMP-0460 Yuki Lopez]] (Bartender)
+- [[EMP-0473 Victor Nguyen]] (Dishwasher)
+- [[EMP-0453 Samir King]] (Head Chef)
+- [[EMP-0455 Jose Anderson]] (Shift Lead)
+- [[EMP-0472 Liam Mensah]] (Busser)

@@ -5,11 +5,11 @@ name: Seattle Ballard
 region: "[[West Region]]"
 at_location: "[[Seattle Ballard (WA-08)]]"
 part_of: "[[West Region]]"
-opened: 2018-06-16
-seats: 90
+opened: 2020-07-03
+seats: 180
 headcount: 25
 basis: authorization
-general_manager: "[[EMP-0176 Imani Shah]]"
+general_manager: "[[EMP-0176 Aria Clark]]"
 ---
 
 Store in the [[West Region]] · 25 staff.
@@ -28,28 +28,28 @@ Store in the [[West Region]] · 25 staff.
 
 ## Roster (25)
 
-- [[EMP-0176 Imani Shah]] — General Manager
-- [[EMP-0177 Anaya Perez]] — Assistant Manager
-- [[EMP-0178 Maria Romano]] — Head Chef
-- [[EMP-0179 Priya Young]] — Shift Lead
-- [[EMP-0180 Omar Kim]] — Shift Lead
-- [[EMP-0181 Wei Lopez]] — Line Cook
-- [[EMP-0182 Liam Liu]] — Server
-- [[EMP-0183 Mason Rodriguez]] — Line Cook
-- [[EMP-0184 Jaden Shah]] — Line Cook
-- [[EMP-0185 Jaden Thomas]] — Server
-- [[EMP-0186 Anaya Bianchi]] — Line Cook
-- [[EMP-0187 Keira Perez]] — Line Cook
-- [[EMP-0188 Connor Martinez]] — Expo
-- [[EMP-0189 Jaden King]] — Server
-- [[EMP-0190 Priya Diallo]] — Line Cook
-- [[EMP-0191 Fatima Jones]] — Server
-- [[EMP-0192 Priya Garcia]] — Server
-- [[EMP-0193 Jaden Jones]] — Busser
-- [[EMP-0194 Santiago Anderson]] — Busser
-- [[EMP-0195 Rohan Pham]] — Busser
-- [[EMP-0196 Omar Gonzalez]] — Busser
-- [[EMP-0197 Wanda Taylor]] — Host
-- [[EMP-0198 Aiden Patel]] — Busser
-- [[EMP-0199 Elena Ali]] — Dishwasher
-- [[EMP-0200 Omar Ali]] — Busser
+- [[EMP-0176 Aria Clark]] — General Manager
+- [[EMP-0177 Elijah Wang]] — Assistant Manager
+- [[EMP-0178 Abigail Mensah]] — Head Chef
+- [[EMP-0179 Ximena Harris]] — Shift Lead
+- [[EMP-0180 Victor Williams]] — Shift Lead
+- [[EMP-0181 Tariq Jackson]] — Line Cook
+- [[EMP-0182 Min Wright]] — Server
+- [[EMP-0183 Nadia Chen]] — Server
+- [[EMP-0184 Jose Gonzalez]] — Line Cook
+- [[EMP-0185 Caleb Allen]] — Server
+- [[EMP-0186 Ella Nguyen]] — Server
+- [[EMP-0187 Valentina King]] — Server
+- [[EMP-0188 Paloma Bianchi]] — Server
+- [[EMP-0189 Min Anderson]] — Server
+- [[EMP-0190 Jose Wilson]] — Server
+- [[EMP-0191 Layla Pham]] — Bartender
+- [[EMP-0192 Carlos Scott]] — Busser
+- [[EMP-0193 Noah Jones]] — Prep Cook
+- [[EMP-0194 Layla Johnson]] — Host
+- [[EMP-0195 Elijah Johnson]] — Prep Cook
+- [[EMP-0196 Sofia Okafor]] — Host
+- [[EMP-0197 Mateo Lewis]] — Busser
+- [[EMP-0198 Quinn Shah]] — Dishwasher
+- [[EMP-0199 Logan Wright]] — Host
+- [[EMP-0200 Liam Perez]] — Dishwasher

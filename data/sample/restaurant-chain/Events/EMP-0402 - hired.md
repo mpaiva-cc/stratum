@@ -1,11 +1,11 @@
 ---
 type: employment_event
 id: EVT-0402
-person: "[[EMP-0402 Kayla Jones]]"
+person: "[[EMP-0402 Emily King]]"
 kind: hire
-date: 2023-04-26
+date: 2026-01-16
 store: "[[Store 17 - Brooklyn Williamsburg]]"
 basis: consent
 ---
 
-[[EMP-0402 Kayla Jones]] hired as Assistant Manager at [[Store 17 - Brooklyn Williamsburg]] on 2023-04-26.
+[[EMP-0402 Emily King]] hired as Assistant Manager at [[Store 17 - Brooklyn Williamsburg]] on 2026-01-16.

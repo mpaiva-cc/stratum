@@ -10,13 +10,13 @@ end: "23:30"
 crew_size: 7
 basis: authorization
 crew:
-  - "[[EMP-0377 Logan Taylor]]"
-  - "[[EMP-0389 Anaya King]]"
-  - "[[EMP-0390 Felix Singh]]"
-  - "[[EMP-0382 Rohan Kim]]"
-  - "[[EMP-0392 Ines Mensah]]"
-  - "[[EMP-0393 Noah Mensah]]"
-  - "[[EMP-0386 Omar Harris]]"
+  - "[[EMP-0389 Oscar Abara]]"
+  - "[[EMP-0391 Rohan Torres]]"
+  - "[[EMP-0377 Santiago Sanchez]]"
+  - "[[EMP-0383 Kayla Taylor]]"
+  - "[[EMP-0387 Ximena Williams]]"
+  - "[[EMP-0392 Zayd Allen]]"
+  - "[[EMP-0399 Omar Diallo]]"
 ---
 
 PM shift at [[Store 16 - Boston Seaport]] on 2026-06-10 (15:00-23:30).
@@ -27,10 +27,10 @@ PM shift at [[Store 16 - Boston Seaport]] on 2026-06-10 (15:00-23:30).
 
 ## Crew
 
-- [[EMP-0377 Logan Taylor]] (Assistant Manager)
-- [[EMP-0389 Anaya King]] (Bartender)
-- [[EMP-0390 Felix Singh]] (Server)
-- [[EMP-0382 Rohan Kim]] (Line Cook)
-- [[EMP-0392 Ines Mensah]] (Line Cook)
-- [[EMP-0393 Noah Mensah]] (Line Cook)
-- [[EMP-0386 Omar Harris]] (Expo)
+- [[EMP-0389 Oscar Abara]] (Line Cook)
+- [[EMP-0391 Rohan Torres]] (Dishwasher)
+- [[EMP-0377 Santiago Sanchez]] (Assistant Manager)
+- [[EMP-0383 Kayla Taylor]] (Line Cook)
+- [[EMP-0387 Ximena Williams]] (Server)
+- [[EMP-0392 Zayd Allen]] (Dishwasher)
+- [[EMP-0399 Omar Diallo]] (Prep Cook)

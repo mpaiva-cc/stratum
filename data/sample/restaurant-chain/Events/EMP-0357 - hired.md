@@ -1,11 +1,11 @@
 ---
 type: employment_event
 id: EVT-0357
-person: "[[EMP-0357 Isabella King]]"
+person: "[[EMP-0357 Daniela Moore]]"
 kind: hire
-date: 2022-06-05
+date: 2025-04-30
 store: "[[Store 15 - Detroit Corktown]]"
 basis: consent
 ---
 
-[[EMP-0357 Isabella King]] hired as Line Cook at [[Store 15 - Detroit Corktown]] on 2022-06-05.
+[[EMP-0357 Daniela Moore]] hired as Line Cook at [[Store 15 - Detroit Corktown]] on 2025-04-30.

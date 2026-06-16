@@ -10,13 +10,13 @@ end: "15:30"
 crew_size: 7
 basis: authorization
 crew:
-  - "[[EMP-0369 Henry Taylor]]"
-  - "[[EMP-0363 Maria Wright]]"
-  - "[[EMP-0351 Destiny Liu]]"
-  - "[[EMP-0354 Keira Harris]]"
-  - "[[EMP-0353 Lucas Silva]]"
-  - "[[EMP-0356 Maria Ahmed]]"
-  - "[[EMP-0370 Ella Hernandez]]"
+  - "[[EMP-0375 Valentina Sanchez]]"
+  - "[[EMP-0369 Layla Harris]]"
+  - "[[EMP-0370 Brianna Nguyen]]"
+  - "[[EMP-0368 Yuki Ahmed]]"
+  - "[[EMP-0360 Leo Ali]]"
+  - "[[EMP-0352 Isabella Wilson]]"
+  - "[[EMP-0371 Zayd Johnson]]"
 ---
 
 AM shift at [[Store 15 - Detroit Corktown]] on 2026-06-14 (07:00-15:30).
@@ -27,10 +27,10 @@ AM shift at [[Store 15 - Detroit Corktown]] on 2026-06-14 (07:00-15:30).
 
 ## Crew
 
-- [[EMP-0369 Henry Taylor]] (Dishwasher)
-- [[EMP-0363 Maria Wright]] (Expo)
-- [[EMP-0351 Destiny Liu]] (General Manager)
-- [[EMP-0354 Keira Harris]] (Shift Lead)
-- [[EMP-0353 Lucas Silva]] (Head Chef)
-- [[EMP-0356 Maria Ahmed]] (Bartender)
-- [[EMP-0370 Ella Hernandez]] (Busser)
+- [[EMP-0375 Valentina Sanchez]] (Prep Cook)
+- [[EMP-0369 Layla Harris]] (Server)
+- [[EMP-0370 Brianna Nguyen]] (Server)
+- [[EMP-0368 Yuki Ahmed]] (Server)
+- [[EMP-0360 Leo Ali]] (Line Cook)
+- [[EMP-0352 Isabella Wilson]] (Assistant Manager)
+- [[EMP-0371 Zayd Johnson]] (Line Cook)

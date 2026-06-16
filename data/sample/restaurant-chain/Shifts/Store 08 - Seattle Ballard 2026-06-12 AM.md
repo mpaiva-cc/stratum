@@ -7,19 +7,15 @@ date: 2026-06-12
 daypart: AM
 start: "07:00"
 end: "15:30"
-crew_size: 10
+crew_size: 6
 basis: authorization
 crew:
-  - "[[EMP-0197 Wanda Taylor]]"
-  - "[[EMP-0178 Maria Romano]]"
-  - "[[EMP-0199 Elena Ali]]"
-  - "[[EMP-0187 Keira Perez]]"
-  - "[[EMP-0189 Jaden King]]"
-  - "[[EMP-0181 Wei Lopez]]"
-  - "[[EMP-0191 Fatima Jones]]"
-  - "[[EMP-0192 Priya Garcia]]"
-  - "[[EMP-0194 Santiago Anderson]]"
-  - "[[EMP-0195 Rohan Pham]]"
+  - "[[EMP-0187 Valentina King]]"
+  - "[[EMP-0196 Sofia Okafor]]"
+  - "[[EMP-0199 Logan Wright]]"
+  - "[[EMP-0188 Paloma Bianchi]]"
+  - "[[EMP-0195 Elijah Johnson]]"
+  - "[[EMP-0182 Min Wright]]"
 ---
 
 AM shift at [[Store 08 - Seattle Ballard]] on 2026-06-12 (07:00-15:30).
@@ -30,13 +26,9 @@ AM shift at [[Store 08 - Seattle Ballard]] on 2026-06-12 (07:00-15:30).
 
 ## Crew
 
-- [[EMP-0197 Wanda Taylor]] (Host)
-- [[EMP-0178 Maria Romano]] (Head Chef)
-- [[EMP-0199 Elena Ali]] (Dishwasher)
-- [[EMP-0187 Keira Perez]] (Line Cook)
-- [[EMP-0189 Jaden King]] (Server)
-- [[EMP-0181 Wei Lopez]] (Line Cook)
-- [[EMP-0191 Fatima Jones]] (Server)
-- [[EMP-0192 Priya Garcia]] (Server)
-- [[EMP-0194 Santiago Anderson]] (Busser)
-- [[EMP-0195 Rohan Pham]] (Busser)
+- [[EMP-0187 Valentina King]] (Server)
+- [[EMP-0196 Sofia Okafor]] (Host)
+- [[EMP-0199 Logan Wright]] (Host)
+- [[EMP-0188 Paloma Bianchi]] (Server)
+- [[EMP-0195 Elijah Johnson]] (Prep Cook)
+- [[EMP-0182 Min Wright]] (Server)

@@ -1,11 +1,11 @@
 ---
 type: employment_event
 id: EVT-0317
-person: "[[EMP-0317 Jaden Silva]]"
+person: "[[EMP-0317 Aiden Johnson]]"
 kind: hire
-date: 2025-07-20
+date: 2023-02-27
 store: "[[Store 13 - Columbus Short North]]"
 basis: consent
 ---
 
-[[EMP-0317 Jaden Silva]] hired as Prep Cook at [[Store 13 - Columbus Short North]] on 2025-07-20.
+[[EMP-0317 Aiden Johnson]] hired as Line Cook at [[Store 13 - Columbus Short North]] on 2023-02-27.

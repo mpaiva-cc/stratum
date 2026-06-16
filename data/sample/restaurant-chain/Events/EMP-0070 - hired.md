@@ -1,11 +1,11 @@
 ---
 type: employment_event
 id: EVT-0070
-person: "[[EMP-0070 Priya Bianchi]]"
+person: "[[EMP-0070 Amelia Davis]]"
 kind: hire
-date: 2021-09-22
+date: 2022-05-15
 store: "[[Store 03 - Dallas Knox]]"
 basis: consent
 ---
 
-[[EMP-0070 Priya Bianchi]] hired as Busser at [[Store 03 - Dallas Knox]] on 2021-09-22.
+[[EMP-0070 Amelia Davis]] hired as Dishwasher at [[Store 03 - Dallas Knox]] on 2022-05-15.

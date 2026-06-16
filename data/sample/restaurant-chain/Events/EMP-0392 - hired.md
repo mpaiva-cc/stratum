@@ -1,11 +1,11 @@
 ---
 type: employment_event
 id: EVT-0392
-person: "[[EMP-0392 Ines Mensah]]"
+person: "[[EMP-0392 Zayd Allen]]"
 kind: hire
-date: 2021-09-11
+date: 2023-05-21
 store: "[[Store 16 - Boston Seaport]]"
 basis: consent
 ---
 
-[[EMP-0392 Ines Mensah]] hired as Line Cook at [[Store 16 - Boston Seaport]] on 2021-09-11.
+[[EMP-0392 Zayd Allen]] hired as Dishwasher at [[Store 16 - Boston Seaport]] on 2023-05-21.

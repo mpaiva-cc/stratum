@@ -7,16 +7,15 @@ date: 2026-06-13
 daypart: PM
 start: "15:00"
 end: "23:30"
-crew_size: 7
+crew_size: 6
 basis: authorization
 crew:
-  - "[[EMP-0168 Quinn Torres]]"
-  - "[[EMP-0162 Daniela Miller]]"
-  - "[[EMP-0167 Hana Williams]]"
-  - "[[EMP-0161 Connor Abara]]"
-  - "[[EMP-0175 Andres White]]"
-  - "[[EMP-0158 Brianna Thomas]]"
-  - "[[EMP-0156 Destiny Ramirez]]"
+  - "[[EMP-0163 Amelia Lewis]]"
+  - "[[EMP-0154 Yara Kim]]"
+  - "[[EMP-0158 Liam Jones]]"
+  - "[[EMP-0170 Ella Shah]]"
+  - "[[EMP-0151 Santiago Ahmed]]"
+  - "[[EMP-0171 Imani Johnson]]"
 ---
 
 PM shift at [[Store 07 - Phoenix Scottsdale]] on 2026-06-13 (15:00-23:30).
@@ -27,10 +26,9 @@ PM shift at [[Store 07 - Phoenix Scottsdale]] on 2026-06-13 (15:00-23:30).
 
 ## Crew
 
-- [[EMP-0168 Quinn Torres]] (Prep Cook)
-- [[EMP-0162 Daniela Miller]] (Line Cook)
-- [[EMP-0167 Hana Williams]] (Host)
-- [[EMP-0161 Connor Abara]] (Server)
-- [[EMP-0175 Andres White]] (Host)
-- [[EMP-0158 Brianna Thomas]] (Line Cook)
-- [[EMP-0156 Destiny Ramirez]] (Bartender)
+- [[EMP-0163 Amelia Lewis]] (Server)
+- [[EMP-0154 Yara Kim]] (Shift Lead)
+- [[EMP-0158 Liam Jones]] (Server)
+- [[EMP-0170 Ella Shah]] (Server)
+- [[EMP-0151 Santiago Ahmed]] (General Manager)
+- [[EMP-0171 Imani Johnson]] (Busser)

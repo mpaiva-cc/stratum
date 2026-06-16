@@ -7,18 +7,19 @@ date: 2026-06-12
 daypart: AM
 start: "07:00"
 end: "15:30"
-crew_size: 9
+crew_size: 10
 basis: authorization
 crew:
-  - "[[EMP-0134 Jin Santos]]"
-  - "[[EMP-0138 Gabriela Smith]]"
-  - "[[EMP-0142 Omar Chen]]"
-  - "[[EMP-0141 Keira Martinez]]"
-  - "[[EMP-0139 Wei Jones]]"
-  - "[[EMP-0136 Sofia Moore]]"
-  - "[[EMP-0129 Yuki Smith]]"
-  - "[[EMP-0127 Harper Le]]"
-  - "[[EMP-0130 Zane Liu]]"
+  - "[[EMP-0137 Carlos Mensah]]"
+  - "[[EMP-0139 Liam Perez]]"
+  - "[[EMP-0127 Abigail Scott]]"
+  - "[[EMP-0132 Isabella Shah]]"
+  - "[[EMP-0144 Victor Pham]]"
+  - "[[EMP-0141 Nadia Scott]]"
+  - "[[EMP-0149 Hassan Rodriguez]]"
+  - "[[EMP-0133 Quinn Garcia]]"
+  - "[[EMP-0145 Zayd Chen]]"
+  - "[[EMP-0135 Aaron Silva]]"
 ---
 
 AM shift at [[Store 06 - Denver LoDo]] on 2026-06-12 (07:00-15:30).
@@ -29,12 +30,13 @@ AM shift at [[Store 06 - Denver LoDo]] on 2026-06-12 (07:00-15:30).
 
 ## Crew
 
-- [[EMP-0134 Jin Santos]] (Line Cook)
-- [[EMP-0138 Gabriela Smith]] (Server)
-- [[EMP-0142 Omar Chen]] (Host)
-- [[EMP-0141 Keira Martinez]] (Server)
-- [[EMP-0139 Wei Jones]] (Expo)
-- [[EMP-0136 Sofia Moore]] (Bartender)
-- [[EMP-0129 Yuki Smith]] (Shift Lead)
-- [[EMP-0127 Harper Le]] (Assistant Manager)
-- [[EMP-0130 Zane Liu]] (Shift Lead)
+- [[EMP-0137 Carlos Mensah]] (Server)
+- [[EMP-0139 Liam Perez]] (Line Cook)
+- [[EMP-0127 Abigail Scott]] (Assistant Manager)
+- [[EMP-0132 Isabella Shah]] (Server)
+- [[EMP-0144 Victor Pham]] (Busser)
+- [[EMP-0141 Nadia Scott]] (Server)
+- [[EMP-0149 Hassan Rodriguez]] (Busser)
+- [[EMP-0133 Quinn Garcia]] (Line Cook)
+- [[EMP-0145 Zayd Chen]] (Busser)
+- [[EMP-0135 Aaron Silva]] (Server)

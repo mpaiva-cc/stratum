@@ -1,11 +1,11 @@
 ---
 type: employment_event
 id: EVT-0151
-person: "[[EMP-0151 Aiden Liu]]"
+person: "[[EMP-0151 Santiago Ahmed]]"
 kind: hire
-date: 2022-02-03
+date: 2021-06-23
 store: "[[Store 07 - Phoenix Scottsdale]]"
 basis: consent
 ---
 
-[[EMP-0151 Aiden Liu]] hired as General Manager at [[Store 07 - Phoenix Scottsdale]] on 2022-02-03.
+[[EMP-0151 Santiago Ahmed]] hired as General Manager at [[Store 07 - Phoenix Scottsdale]] on 2021-06-23.

@@ -10,13 +10,13 @@ end: "23:30"
 crew_size: 7
 basis: authorization
 crew:
-  - "[[EMP-0021 Valentina Young]]"
-  - "[[EMP-0003 Rohan Ramirez]]"
-  - "[[EMP-0006 Layla Jackson]]"
-  - "[[EMP-0008 Evelyn Moore]]"
+  - "[[EMP-0007 Arjun Ramirez]]"
   - "[[EMP-0001 Mateo Thomas]]"
-  - "[[EMP-0013 Felix Abara]]"
   - "[[EMP-0016 Ximena Torres]]"
+  - "[[EMP-0006 Layla Jackson]]"
+  - "[[EMP-0025 Isabella Lopez]]"
+  - "[[EMP-0011 Samir Ramirez]]"
+  - "[[EMP-0022 Min Singh]]"
 ---
 
 PM shift at [[Store 01 - Austin Domain]] on 2026-06-10 (15:00-23:30).
@@ -27,10 +27,10 @@ PM shift at [[Store 01 - Austin Domain]] on 2026-06-10 (15:00-23:30).
 
 ## Crew
 
-- [[EMP-0021 Valentina Young]] (Prep Cook)
-- [[EMP-0003 Rohan Ramirez]] (Head Chef)
-- [[EMP-0006 Layla Jackson]] (Line Cook)
-- [[EMP-0008 Evelyn Moore]] (Line Cook)
+- [[EMP-0007 Arjun Ramirez]] (Server)
 - [[EMP-0001 Mateo Thomas]] (General Manager)
-- [[EMP-0013 Felix Abara]] (Server)
 - [[EMP-0016 Ximena Torres]] (Server)
+- [[EMP-0006 Layla Jackson]] (Line Cook)
+- [[EMP-0025 Isabella Lopez]] (Prep Cook)
+- [[EMP-0011 Samir Ramirez]] (Server)
+- [[EMP-0022 Min Singh]] (Prep Cook)

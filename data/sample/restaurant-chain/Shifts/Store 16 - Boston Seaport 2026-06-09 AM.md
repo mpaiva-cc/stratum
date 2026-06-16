@@ -7,16 +7,18 @@ date: 2026-06-09
 daypart: AM
 start: "07:00"
 end: "15:30"
-crew_size: 7
+crew_size: 9
 basis: authorization
 crew:
-  - "[[EMP-0398 Noah Taylor]]"
-  - "[[EMP-0383 Noah Wright]]"
-  - "[[EMP-0387 Sofia Chen]]"
-  - "[[EMP-0378 Imani Hernandez]]"
-  - "[[EMP-0392 Ines Mensah]]"
-  - "[[EMP-0385 Logan Sanchez]]"
-  - "[[EMP-0389 Anaya King]]"
+  - "[[EMP-0398 Henry Sanchez]]"
+  - "[[EMP-0400 Jaden Rodriguez]]"
+  - "[[EMP-0384 Fatima Chen]]"
+  - "[[EMP-0399 Omar Diallo]]"
+  - "[[EMP-0392 Zayd Allen]]"
+  - "[[EMP-0393 Bella Abara]]"
+  - "[[EMP-0395 Carlos Jackson]]"
+  - "[[EMP-0380 Min Romano]]"
+  - "[[EMP-0389 Oscar Abara]]"
 ---
 
 AM shift at [[Store 16 - Boston Seaport]] on 2026-06-09 (07:00-15:30).
@@ -27,10 +29,12 @@ AM shift at [[Store 16 - Boston Seaport]] on 2026-06-09 (07:00-15:30).
 
 ## Crew
 
-- [[EMP-0398 Noah Taylor]] (Host)
-- [[EMP-0383 Noah Wright]] (Line Cook)
-- [[EMP-0387 Sofia Chen]] (Server)
-- [[EMP-0378 Imani Hernandez]] (Head Chef)
-- [[EMP-0392 Ines Mensah]] (Line Cook)
-- [[EMP-0385 Logan Sanchez]] (Line Cook)
-- [[EMP-0389 Anaya King]] (Bartender)
+- [[EMP-0398 Henry Sanchez]] (Busser)
+- [[EMP-0400 Jaden Rodriguez]] (Dishwasher)
+- [[EMP-0384 Fatima Chen]] (Line Cook)
+- [[EMP-0399 Omar Diallo]] (Prep Cook)
+- [[EMP-0392 Zayd Allen]] (Dishwasher)
+- [[EMP-0393 Bella Abara]] (Busser)
+- [[EMP-0395 Carlos Jackson]] (Busser)
+- [[EMP-0380 Min Romano]] (Shift Lead)
+- [[EMP-0389 Oscar Abara]] (Line Cook)

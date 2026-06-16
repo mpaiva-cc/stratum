@@ -7,19 +7,16 @@ date: 2026-06-12
 daypart: PM
 start: "15:00"
 end: "23:30"
-crew_size: 10
+crew_size: 7
 basis: authorization
 crew:
-  - "[[EMP-0252 Nadia Wang]]"
-  - "[[EMP-0271 Noah Okafor]]"
-  - "[[EMP-0261 Mason Ali]]"
-  - "[[EMP-0267 Zayd Anderson]]"
-  - "[[EMP-0274 Destiny Shah]]"
-  - "[[EMP-0258 Connor Abara]]"
-  - "[[EMP-0270 Zayd Garcia]]"
-  - "[[EMP-0257 Nadia Ali]]"
-  - "[[EMP-0254 Emily Young]]"
-  - "[[EMP-0259 Hassan Pham]]"
+  - "[[EMP-0271 Aiden Clark]]"
+  - "[[EMP-0268 Yara Hernandez]]"
+  - "[[EMP-0261 Priya Harris]]"
+  - "[[EMP-0256 Nadia Rodriguez]]"
+  - "[[EMP-0264 Omar Santos]]"
+  - "[[EMP-0263 Priya Taylor]]"
+  - "[[EMP-0274 Lucas Lopez]]"
 ---
 
 PM shift at [[Store 11 - Chicago Loop]] on 2026-06-12 (15:00-23:30).
@@ -30,13 +27,10 @@ PM shift at [[Store 11 - Chicago Loop]] on 2026-06-12 (15:00-23:30).
 
 ## Crew
 
-- [[EMP-0252 Nadia Wang]] (Assistant Manager)
-- [[EMP-0271 Noah Okafor]] (Prep Cook)
-- [[EMP-0261 Mason Ali]] (Server)
-- [[EMP-0267 Zayd Anderson]] (Server)
-- [[EMP-0274 Destiny Shah]] (Busser)
-- [[EMP-0258 Connor Abara]] (Line Cook)
-- [[EMP-0270 Zayd Garcia]] (Host)
-- [[EMP-0257 Nadia Ali]] (Server)
-- [[EMP-0254 Emily Young]] (Shift Lead)
-- [[EMP-0259 Hassan Pham]] (Line Cook)
+- [[EMP-0271 Aiden Clark]] (Prep Cook)
+- [[EMP-0268 Yara Hernandez]] (Dishwasher)
+- [[EMP-0261 Priya Harris]] (Line Cook)
+- [[EMP-0256 Nadia Rodriguez]] (Bartender)
+- [[EMP-0264 Omar Santos]] (Server)
+- [[EMP-0263 Priya Taylor]] (Server)
+- [[EMP-0274 Lucas Lopez]] (Busser)

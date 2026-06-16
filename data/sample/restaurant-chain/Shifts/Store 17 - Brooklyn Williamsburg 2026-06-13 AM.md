@@ -10,16 +10,16 @@ end: "15:30"
 crew_size: 10
 basis: authorization
 crew:
-  - "[[EMP-0425 Isabella Gonzalez]]"
-  - "[[EMP-0421 Uma Khan]]"
-  - "[[EMP-0420 Maria Torres]]"
-  - "[[EMP-0416 Elena Nguyen]]"
-  - "[[EMP-0410 Yuki Martinez]]"
-  - "[[EMP-0424 Ella Wilson]]"
-  - "[[EMP-0418 Santiago Ali]]"
-  - "[[EMP-0401 Nadia Ali]]"
-  - "[[EMP-0405 Jaden Gonzalez]]"
-  - "[[EMP-0411 Quinn Jones]]"
+  - "[[EMP-0423 Rohan Singh]]"
+  - "[[EMP-0425 Fatima Shah]]"
+  - "[[EMP-0407 Grace Martinez]]"
+  - "[[EMP-0401 Jamal Perez]]"
+  - "[[EMP-0411 Valentina Smith]]"
+  - "[[EMP-0421 Brianna Perez]]"
+  - "[[EMP-0415 Kayla Williams]]"
+  - "[[EMP-0420 Keira Park]]"
+  - "[[EMP-0422 Sofia Miller]]"
+  - "[[EMP-0406 Elijah Harris]]"
 ---
 
 AM shift at [[Store 17 - Brooklyn Williamsburg]] on 2026-06-13 (07:00-15:30).
@@ -30,13 +30,13 @@ AM shift at [[Store 17 - Brooklyn Williamsburg]] on 2026-06-13 (07:00-15:30).
 
 ## Crew
 
-- [[EMP-0425 Isabella Gonzalez]] (Prep Cook)
-- [[EMP-0421 Uma Khan]] (Dishwasher)
-- [[EMP-0420 Maria Torres]] (Busser)
-- [[EMP-0416 Elena Nguyen]] (Server)
-- [[EMP-0410 Yuki Martinez]] (Line Cook)
-- [[EMP-0424 Ella Wilson]] (Busser)
-- [[EMP-0418 Santiago Ali]] (Server)
-- [[EMP-0401 Nadia Ali]] (General Manager)
-- [[EMP-0405 Jaden Gonzalez]] (Shift Lead)
-- [[EMP-0411 Quinn Jones]] (Server)
+- [[EMP-0423 Rohan Singh]] (Prep Cook)
+- [[EMP-0425 Fatima Shah]] (Busser)
+- [[EMP-0407 Grace Martinez]] (Line Cook)
+- [[EMP-0401 Jamal Perez]] (General Manager)
+- [[EMP-0411 Valentina Smith]] (Line Cook)
+- [[EMP-0421 Brianna Perez]] (Prep Cook)
+- [[EMP-0415 Kayla Williams]] (Server)
+- [[EMP-0420 Keira Park]] (Host)
+- [[EMP-0422 Sofia Miller]] (Busser)
+- [[EMP-0406 Elijah Harris]] (Line Cook)

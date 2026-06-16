@@ -7,15 +7,18 @@ date: 2026-06-12
 daypart: PM
 start: "15:00"
 end: "23:30"
-crew_size: 6
+crew_size: 9
 basis: authorization
 crew:
-  - "[[EMP-0102 Connor Moore]]"
-  - "[[EMP-0101 Kayla Lopez]]"
-  - "[[EMP-0116 Sofia Diallo]]"
-  - "[[EMP-0122 Fatima Anderson]]"
-  - "[[EMP-0125 Jamal Scott]]"
-  - "[[EMP-0121 Aiden King]]"
+  - "[[EMP-0109 Diego Lewis]]"
+  - "[[EMP-0103 Sofia Bianchi]]"
+  - "[[EMP-0117 Harper Le]]"
+  - "[[EMP-0111 Destiny Costa]]"
+  - "[[EMP-0123 Hassan Diallo]]"
+  - "[[EMP-0118 Henry Hernandez]]"
+  - "[[EMP-0120 Zane Liu]]"
+  - "[[EMP-0107 Harper Russo]]"
+  - "[[EMP-0101 Sofia Costa]]"
 ---
 
 PM shift at [[Store 05 - Nashville Gulch]] on 2026-06-12 (15:00-23:30).
@@ -26,9 +29,12 @@ PM shift at [[Store 05 - Nashville Gulch]] on 2026-06-12 (15:00-23:30).
 
 ## Crew
 
-- [[EMP-0102 Connor Moore]] (Assistant Manager)
-- [[EMP-0101 Kayla Lopez]] (General Manager)
-- [[EMP-0116 Sofia Diallo]] (Server)
-- [[EMP-0122 Fatima Anderson]] (Dishwasher)
-- [[EMP-0125 Jamal Scott]] (Busser)
-- [[EMP-0121 Aiden King]] (Prep Cook)
+- [[EMP-0109 Diego Lewis]] (Server)
+- [[EMP-0103 Sofia Bianchi]] (Head Chef)
+- [[EMP-0117 Harper Le]] (Prep Cook)
+- [[EMP-0111 Destiny Costa]] (Expo)
+- [[EMP-0123 Hassan Diallo]] (Prep Cook)
+- [[EMP-0118 Henry Hernandez]] (Busser)
+- [[EMP-0120 Zane Liu]] (Host)
+- [[EMP-0107 Harper Russo]] (Bartender)
+- [[EMP-0101 Sofia Costa]] (General Manager)

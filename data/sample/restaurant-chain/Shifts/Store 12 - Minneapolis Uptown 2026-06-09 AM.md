@@ -7,19 +7,15 @@ date: 2026-06-09
 daypart: AM
 start: "07:00"
 end: "15:30"
-crew_size: 10
+crew_size: 6
 basis: authorization
 crew:
-  - "[[EMP-0292 Bella Smith]]"
-  - "[[EMP-0291 Imani Le]]"
-  - "[[EMP-0290 Jaden Jones]]"
-  - "[[EMP-0287 Paloma Silva]]"
-  - "[[EMP-0284 Wei King]]"
-  - "[[EMP-0300 Mia King]]"
-  - "[[EMP-0280 Tariq Patel]]"
-  - "[[EMP-0285 Zayd Nguyen]]"
-  - "[[EMP-0294 Fatima Torres]]"
-  - "[[EMP-0282 Layla Wilson]]"
+  - "[[EMP-0285 Diego Sanchez]]"
+  - "[[EMP-0281 Caleb Mensah]]"
+  - "[[EMP-0296 Abigail Wang]]"
+  - "[[EMP-0289 Yuki Walker]]"
+  - "[[EMP-0294 Logan Davis]]"
+  - "[[EMP-0282 Sofia Mensah]]"
 ---
 
 AM shift at [[Store 12 - Minneapolis Uptown]] on 2026-06-09 (07:00-15:30).
@@ -30,13 +26,9 @@ AM shift at [[Store 12 - Minneapolis Uptown]] on 2026-06-09 (07:00-15:30).
 
 ## Crew
 
-- [[EMP-0292 Bella Smith]] (Dishwasher)
-- [[EMP-0291 Imani Le]] (Prep Cook)
-- [[EMP-0290 Jaden Jones]] (Line Cook)
-- [[EMP-0287 Paloma Silva]] (Bartender)
-- [[EMP-0284 Wei King]] (Line Cook)
-- [[EMP-0300 Mia King]] (Host)
-- [[EMP-0280 Tariq Patel]] (Shift Lead)
-- [[EMP-0285 Zayd Nguyen]] (Line Cook)
-- [[EMP-0294 Fatima Torres]] (Busser)
-- [[EMP-0282 Layla Wilson]] (Line Cook)
+- [[EMP-0285 Diego Sanchez]] (Line Cook)
+- [[EMP-0281 Caleb Mensah]] (Server)
+- [[EMP-0296 Abigail Wang]] (Prep Cook)
+- [[EMP-0289 Yuki Walker]] (Line Cook)
+- [[EMP-0294 Logan Davis]] (Server)
+- [[EMP-0282 Sofia Mensah]] (Server)

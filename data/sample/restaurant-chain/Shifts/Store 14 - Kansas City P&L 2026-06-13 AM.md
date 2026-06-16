@@ -7,18 +7,17 @@ date: 2026-06-13
 daypart: AM
 start: "07:00"
 end: "15:30"
-crew_size: 9
+crew_size: 8
 basis: authorization
 crew:
-  - "[[EMP-0329 Grace Garcia]]"
-  - "[[EMP-0348 Harper Wright]]"
-  - "[[EMP-0347 Daniela Okafor]]"
-  - "[[EMP-0344 Carlos Wright]]"
-  - "[[EMP-0336 Santiago Lopez]]"
-  - "[[EMP-0332 Rosa Allen]]"
-  - "[[EMP-0342 Valentina Perez]]"
-  - "[[EMP-0345 Aria Shah]]"
-  - "[[EMP-0328 Gabriela Abara]]"
+  - "[[EMP-0344 Jin Jackson]]"
+  - "[[EMP-0334 Aria Santos]]"
+  - "[[EMP-0348 Valentina Chen]]"
+  - "[[EMP-0333 Zane Silva]]"
+  - "[[EMP-0328 Jaden Okafor]]"
+  - "[[EMP-0331 Jose Scott]]"
+  - "[[EMP-0350 Valentina Khan]]"
+  - "[[EMP-0336 Caleb Gonzalez]]"
 ---
 
 AM shift at [[Store 14 - Kansas City P&L]] on 2026-06-13 (07:00-15:30).
@@ -29,12 +28,11 @@ AM shift at [[Store 14 - Kansas City P&L]] on 2026-06-13 (07:00-15:30).
 
 ## Crew
 
-- [[EMP-0329 Grace Garcia]] (Shift Lead)
-- [[EMP-0348 Harper Wright]] (Busser)
-- [[EMP-0347 Daniela Okafor]] (Dishwasher)
-- [[EMP-0344 Carlos Wright]] (Prep Cook)
-- [[EMP-0336 Santiago Lopez]] (Bartender)
-- [[EMP-0332 Rosa Allen]] (Server)
-- [[EMP-0342 Valentina Perez]] (Line Cook)
-- [[EMP-0345 Aria Shah]] (Host)
-- [[EMP-0328 Gabriela Abara]] (Head Chef)
+- [[EMP-0344 Jin Jackson]] (Prep Cook)
+- [[EMP-0334 Aria Santos]] (Line Cook)
+- [[EMP-0348 Valentina Chen]] (Busser)
+- [[EMP-0333 Zane Silva]] (Line Cook)
+- [[EMP-0328 Jaden Okafor]] (Head Chef)
+- [[EMP-0331 Jose Scott]] (Line Cook)
+- [[EMP-0350 Valentina Khan]] (Host)
+- [[EMP-0336 Caleb Gonzalez]] (Server)

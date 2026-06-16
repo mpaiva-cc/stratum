@@ -10,14 +10,14 @@ end: "15:30"
 crew_size: 8
 basis: authorization
 crew:
-  - "[[EMP-0331 Keira Martinez]]"
-  - "[[EMP-0339 Diego Tran]]"
-  - "[[EMP-0335 Jamal Bianchi]]"
-  - "[[EMP-0337 Jaden Abara]]"
-  - "[[EMP-0347 Daniela Okafor]]"
-  - "[[EMP-0328 Gabriela Abara]]"
-  - "[[EMP-0333 Oscar Brown]]"
-  - "[[EMP-0343 Connor Tran]]"
+  - "[[EMP-0348 Valentina Chen]]"
+  - "[[EMP-0342 Wanda Rodriguez]]"
+  - "[[EMP-0333 Zane Silva]]"
+  - "[[EMP-0339 Paloma King]]"
+  - "[[EMP-0350 Valentina Khan]]"
+  - "[[EMP-0346 Yara Davis]]"
+  - "[[EMP-0328 Jaden Okafor]]"
+  - "[[EMP-0329 Arjun Allen]]"
 ---
 
 AM shift at [[Store 14 - Kansas City P&L]] on 2026-06-11 (07:00-15:30).
@@ -28,11 +28,11 @@ AM shift at [[Store 14 - Kansas City P&L]] on 2026-06-11 (07:00-15:30).
 
 ## Crew
 
-- [[EMP-0331 Keira Martinez]] (Line Cook)
-- [[EMP-0339 Diego Tran]] (Server)
-- [[EMP-0335 Jamal Bianchi]] (Line Cook)
-- [[EMP-0337 Jaden Abara]] (Line Cook)
-- [[EMP-0347 Daniela Okafor]] (Dishwasher)
-- [[EMP-0328 Gabriela Abara]] (Head Chef)
-- [[EMP-0333 Oscar Brown]] (Bartender)
-- [[EMP-0343 Connor Tran]] (Busser)
+- [[EMP-0348 Valentina Chen]] (Busser)
+- [[EMP-0342 Wanda Rodriguez]] (Bartender)
+- [[EMP-0333 Zane Silva]] (Line Cook)
+- [[EMP-0339 Paloma King]] (Line Cook)
+- [[EMP-0350 Valentina Khan]] (Host)
+- [[EMP-0346 Yara Davis]] (Busser)
+- [[EMP-0328 Jaden Okafor]] (Head Chef)
+- [[EMP-0329 Arjun Allen]] (Shift Lead)

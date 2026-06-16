@@ -10,12 +10,12 @@ end: "23:30"
 crew_size: 6
 basis: authorization
 crew:
-  - "[[EMP-0498 Ava Kim]]"
-  - "[[EMP-0489 Zane Clark]]"
-  - "[[EMP-0476 Ines Santos]]"
-  - "[[EMP-0480 Mason Williams]]"
-  - "[[EMP-0482 Caleb Costa]]"
-  - "[[EMP-0485 Victor Chen]]"
+  - "[[EMP-0488 Victor Ahmed]]"
+  - "[[EMP-0479 Hassan Gonzalez]]"
+  - "[[EMP-0497 Evelyn Jones]]"
+  - "[[EMP-0483 Jaden Torres]]"
+  - "[[EMP-0486 Wei Silva]]"
+  - "[[EMP-0491 Bella Wang]]"
 ---
 
 PM shift at [[Store 20 - Pittsburgh Strip]] on 2026-06-12 (15:00-23:30).
@@ -26,9 +26,9 @@ PM shift at [[Store 20 - Pittsburgh Strip]] on 2026-06-12 (15:00-23:30).
 
 ## Crew
 
-- [[EMP-0498 Ava Kim]] (Host)
-- [[EMP-0489 Zane Clark]] (Server)
-- [[EMP-0476 Ines Santos]] (General Manager)
-- [[EMP-0480 Mason Williams]] (Shift Lead)
-- [[EMP-0482 Caleb Costa]] (Server)
-- [[EMP-0485 Victor Chen]] (Bartender)
+- [[EMP-0488 Victor Ahmed]] (Server)
+- [[EMP-0479 Hassan Gonzalez]] (Shift Lead)
+- [[EMP-0497 Evelyn Jones]] (Busser)
+- [[EMP-0483 Jaden Torres]] (Line Cook)
+- [[EMP-0486 Wei Silva]] (Line Cook)
+- [[EMP-0491 Bella Wang]] (Server)

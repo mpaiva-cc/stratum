@@ -1,11 +1,11 @@
 ---
 type: employment_event
 id: EVT-0485
-person: "[[EMP-0485 Victor Chen]]"
+person: "[[EMP-0485 Valentina Wang]]"
 kind: hire
-date: 2026-02-09
+date: 2024-10-16
 store: "[[Store 20 - Pittsburgh Strip]]"
 basis: consent
 ---
 
-[[EMP-0485 Victor Chen]] hired as Bartender at [[Store 20 - Pittsburgh Strip]] on 2026-02-09.
+[[EMP-0485 Valentina Wang]] hired as Expo at [[Store 20 - Pittsburgh Strip]] on 2024-10-16.

@@ -7,18 +7,17 @@ date: 2026-06-13
 daypart: AM
 start: "07:00"
 end: "15:30"
-crew_size: 9
+crew_size: 8
 basis: authorization
 crew:
-  - "[[EMP-0317 Jaden Silva]]"
-  - "[[EMP-0310 Hassan Tran]]"
-  - "[[EMP-0313 Nadia Rodriguez]]"
-  - "[[EMP-0301 Hassan Jones]]"
-  - "[[EMP-0318 Priya Harris]]"
-  - "[[EMP-0303 Quinn Wang]]"
-  - "[[EMP-0319 Yara Tran]]"
-  - "[[EMP-0311 Jin Park]]"
-  - "[[EMP-0302 Destiny Garcia]]"
+  - "[[EMP-0314 Wei Russo]]"
+  - "[[EMP-0323 Daniela Clark]]"
+  - "[[EMP-0309 Evelyn King]]"
+  - "[[EMP-0307 Abigail Silva]]"
+  - "[[EMP-0316 Yuki Garcia]]"
+  - "[[EMP-0310 Mia Davis]]"
+  - "[[EMP-0320 Mason Johnson]]"
+  - "[[EMP-0301 Oscar Smith]]"
 ---
 
 AM shift at [[Store 13 - Columbus Short North]] on 2026-06-13 (07:00-15:30).
@@ -29,12 +28,11 @@ AM shift at [[Store 13 - Columbus Short North]] on 2026-06-13 (07:00-15:30).
 
 ## Crew
 
-- [[EMP-0317 Jaden Silva]] (Prep Cook)
-- [[EMP-0310 Hassan Tran]] (Line Cook)
-- [[EMP-0313 Nadia Rodriguez]] (Line Cook)
-- [[EMP-0301 Hassan Jones]] (General Manager)
-- [[EMP-0318 Priya Harris]] (Dishwasher)
-- [[EMP-0303 Quinn Wang]] (Head Chef)
-- [[EMP-0319 Yara Tran]] (Busser)
-- [[EMP-0311 Jin Park]] (Server)
-- [[EMP-0302 Destiny Garcia]] (Assistant Manager)
+- [[EMP-0314 Wei Russo]] (Server)
+- [[EMP-0323 Daniela Clark]] (Host)
+- [[EMP-0309 Evelyn King]] (Server)
+- [[EMP-0307 Abigail Silva]] (Line Cook)
+- [[EMP-0316 Yuki Garcia]] (Server)
+- [[EMP-0310 Mia Davis]] (Line Cook)
+- [[EMP-0320 Mason Johnson]] (Server)
+- [[EMP-0301 Oscar Smith]] (General Manager)

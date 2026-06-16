@@ -1,11 +1,11 @@
 ---
 type: employment_event
 id: EVT-0457
-person: "[[EMP-0457 Santiago Sanchez]]"
+person: "[[EMP-0457 Lucas Moore]]"
 kind: hire
-date: 2026-01-07
+date: 2021-09-28
 store: "[[Store 19 - DC Navy Yard]]"
 basis: consent
 ---
 
-[[EMP-0457 Santiago Sanchez]] hired as Line Cook at [[Store 19 - DC Navy Yard]] on 2026-01-07.
+[[EMP-0457 Lucas Moore]] hired as Bartender at [[Store 19 - DC Navy Yard]] on 2021-09-28.

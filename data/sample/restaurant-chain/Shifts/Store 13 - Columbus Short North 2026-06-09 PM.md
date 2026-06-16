@@ -7,15 +7,18 @@ date: 2026-06-09
 daypart: PM
 start: "15:00"
 end: "23:30"
-crew_size: 6
+crew_size: 9
 basis: authorization
 crew:
-  - "[[EMP-0305 Elijah Ali]]"
-  - "[[EMP-0322 Yuki Smith]]"
-  - "[[EMP-0314 Sofia Hernandez]]"
-  - "[[EMP-0324 Kayla Moore]]"
-  - "[[EMP-0320 Priya Taylor]]"
-  - "[[EMP-0307 Aaron Wang]]"
+  - "[[EMP-0319 Grace Walker]]"
+  - "[[EMP-0322 Rosa King]]"
+  - "[[EMP-0304 Grace Lewis]]"
+  - "[[EMP-0318 Ethan Garcia]]"
+  - "[[EMP-0312 Imani Bianchi]]"
+  - "[[EMP-0309 Evelyn King]]"
+  - "[[EMP-0317 Aiden Johnson]]"
+  - "[[EMP-0313 Wei Nguyen]]"
+  - "[[EMP-0306 Rohan Ramirez]]"
 ---
 
 PM shift at [[Store 13 - Columbus Short North]] on 2026-06-09 (15:00-23:30).
@@ -26,9 +29,12 @@ PM shift at [[Store 13 - Columbus Short North]] on 2026-06-09 (15:00-23:30).
 
 ## Crew
 
-- [[EMP-0305 Elijah Ali]] (Shift Lead)
-- [[EMP-0322 Yuki Smith]] (Dishwasher)
-- [[EMP-0314 Sofia Hernandez]] (Bartender)
-- [[EMP-0324 Kayla Moore]] (Dishwasher)
-- [[EMP-0320 Priya Taylor]] (Host)
-- [[EMP-0307 Aaron Wang]] (Server)
+- [[EMP-0319 Grace Walker]] (Server)
+- [[EMP-0322 Rosa King]] (Busser)
+- [[EMP-0304 Grace Lewis]] (Shift Lead)
+- [[EMP-0318 Ethan Garcia]] (Line Cook)
+- [[EMP-0312 Imani Bianchi]] (Line Cook)
+- [[EMP-0309 Evelyn King]] (Server)
+- [[EMP-0317 Aiden Johnson]] (Line Cook)
+- [[EMP-0313 Wei Nguyen]] (Bartender)
+- [[EMP-0306 Rohan Ramirez]] (Line Cook)

@@ -1,11 +1,11 @@
 ---
 type: employment_event
 id: EVT-0382
-person: "[[EMP-0382 Rohan Kim]]"
+person: "[[EMP-0382 Gabriela Santos]]"
 kind: hire
-date: 2023-04-12
+date: 2023-05-20
 store: "[[Store 16 - Boston Seaport]]"
 basis: consent
 ---
 
-[[EMP-0382 Rohan Kim]] hired as Line Cook at [[Store 16 - Boston Seaport]] on 2023-04-12.
+[[EMP-0382 Gabriela Santos]] hired as Bartender at [[Store 16 - Boston Seaport]] on 2023-05-20.

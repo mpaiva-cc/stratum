@@ -7,15 +7,17 @@ date: 2026-06-10
 daypart: AM
 start: "07:00"
 end: "15:30"
-crew_size: 6
+crew_size: 8
 basis: authorization
 crew:
-  - "[[EMP-0460 Min Romano]]"
-  - "[[EMP-0454 Isabella Abara]]"
-  - "[[EMP-0451 Layla Miller]]"
-  - "[[EMP-0453 Arjun Thomas]]"
-  - "[[EMP-0467 Ximena Williams]]"
-  - "[[EMP-0465 Henry Nguyen]]"
+  - "[[EMP-0474 Arjun Moore]]"
+  - "[[EMP-0462 Quinn Ahmed]]"
+  - "[[EMP-0467 Andres Perez]]"
+  - "[[EMP-0472 Liam Mensah]]"
+  - "[[EMP-0458 Imani Patel]]"
+  - "[[EMP-0453 Samir King]]"
+  - "[[EMP-0471 Daniela Thomas]]"
+  - "[[EMP-0466 Evelyn Young]]"
 ---
 
 AM shift at [[Store 19 - DC Navy Yard]] on 2026-06-10 (07:00-15:30).
@@ -26,9 +28,11 @@ AM shift at [[Store 19 - DC Navy Yard]] on 2026-06-10 (07:00-15:30).
 
 ## Crew
 
-- [[EMP-0460 Min Romano]] (Bartender)
-- [[EMP-0454 Isabella Abara]] (Shift Lead)
-- [[EMP-0451 Layla Miller]] (General Manager)
-- [[EMP-0453 Arjun Thomas]] (Head Chef)
-- [[EMP-0467 Ximena Williams]] (Busser)
-- [[EMP-0465 Henry Nguyen]] (Server)
+- [[EMP-0474 Arjun Moore]] (Host)
+- [[EMP-0462 Quinn Ahmed]] (Line Cook)
+- [[EMP-0467 Andres Perez]] (Line Cook)
+- [[EMP-0472 Liam Mensah]] (Busser)
+- [[EMP-0458 Imani Patel]] (Line Cook)
+- [[EMP-0453 Samir King]] (Head Chef)
+- [[EMP-0471 Daniela Thomas]] (Dishwasher)
+- [[EMP-0466 Evelyn Young]] (Bartender)

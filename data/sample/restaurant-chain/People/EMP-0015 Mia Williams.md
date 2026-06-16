@@ -3,25 +3,30 @@ type: person
 id: EMP-0015
 name: Mia Williams
 status: active
+status_reason: active
+status_effective_date: 2026-05-10
+rehire_eligible: false
 employment_type: full_time
-hire_date: 2023-05-08
-email: "mia.williams@forkandflame.example"
+hire_date: 2025-10-28
+email: "mia.williams.emp-0015@forkandflame.example"
 works_at: "[[Store 01 - Austin Domain]]"
 in_department: "[[Kitchen (Department)]]"
 position: "[[Line Cook]]"
-pay_rate: 21.11
+pay_rate: 17.12
 pay_unit: hour
-reports_to: "[[EMP-0004 Jaden Abara]]"
+reports_to: "[[EMP-0005 Keira Perez]]"
 certifications:
   - "[[Food Handler]]"
   - "[[Allergen Awareness]]"
 skills:
   - "[[Grill Station]]"
-  - "[[Saute Station]]"
 basis: consent
 ---
 
-**Line Cook** at [[Store 01 - Austin Domain]] · Kitchen · since 2023-05-08.
+**Line Cook** at [[Store 01 - Austin Domain]] · Kitchen · since 2025-10-28.
+
+Status: **active** (active) as of 2026-05-10
+Rehire eligible: no
 
 ## Works at
 
@@ -29,11 +34,11 @@ basis: consent
 
 ## Position
 
-- [[Line Cook]] — paid 21.11/hour
+- [[Line Cook]] — paid 17.12/hour
 
 ## Reports to
 
-- [[EMP-0004 Jaden Abara]]
+- [[EMP-0005 Keira Perez]]
 
 ## Certifications
 
@@ -43,8 +48,7 @@ basis: consent
 ## Skills
 
 - [[Grill Station]]
-- [[Saute Station]]
 
 ## Lifecycle
 
-- [[EMP-0015 - hired]] on 2023-05-08
+- [[EMP-0015 - hired]] on 2025-10-28

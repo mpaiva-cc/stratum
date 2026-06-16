@@ -1,11 +1,11 @@
 ---
 type: employment_event
 id: EVT-0284
-person: "[[EMP-0284 Wei King]]"
+person: "[[EMP-0284 Imani Silva]]"
 kind: hire
-date: 2023-04-24
+date: 2024-05-14
 store: "[[Store 12 - Minneapolis Uptown]]"
 basis: consent
 ---
 
-[[EMP-0284 Wei King]] hired as Line Cook at [[Store 12 - Minneapolis Uptown]] on 2023-04-24.
+[[EMP-0284 Imani Silva]] hired as Bartender at [[Store 12 - Minneapolis Uptown]] on 2024-05-14.

@@ -1,6 +1,6 @@
 ---
 type: consent_grant
-id: CNS-0067
+id: CNS-0068
 person: "[[EMP-0018 Logan Liu]]"
 scope: hr.scheduling
 purpose: store operations

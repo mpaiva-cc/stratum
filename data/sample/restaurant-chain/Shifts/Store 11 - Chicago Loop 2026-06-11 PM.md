@@ -7,16 +7,17 @@ date: 2026-06-11
 daypart: PM
 start: "15:00"
 end: "23:30"
-crew_size: 7
+crew_size: 8
 basis: authorization
 crew:
-  - "[[EMP-0262 Keira Bianchi]]"
-  - "[[EMP-0257 Nadia Ali]]"
-  - "[[EMP-0261 Mason Ali]]"
-  - "[[EMP-0271 Noah Okafor]]"
-  - "[[EMP-0272 Kayla Russo]]"
-  - "[[EMP-0274 Destiny Shah]]"
-  - "[[EMP-0256 Connor Lewis]]"
+  - "[[EMP-0251 Wei Pham]]"
+  - "[[EMP-0273 Bella Wang]]"
+  - "[[EMP-0259 Wanda Wilson]]"
+  - "[[EMP-0271 Aiden Clark]]"
+  - "[[EMP-0275 Maria Smith]]"
+  - "[[EMP-0257 Sofia Hernandez]]"
+  - "[[EMP-0255 Abigail Singh]]"
+  - "[[EMP-0274 Lucas Lopez]]"
 ---
 
 PM shift at [[Store 11 - Chicago Loop]] on 2026-06-11 (15:00-23:30).
@@ -27,10 +28,11 @@ PM shift at [[Store 11 - Chicago Loop]] on 2026-06-11 (15:00-23:30).
 
 ## Crew
 
-- [[EMP-0262 Keira Bianchi]] (Bartender)
-- [[EMP-0257 Nadia Ali]] (Server)
-- [[EMP-0261 Mason Ali]] (Server)
-- [[EMP-0271 Noah Okafor]] (Prep Cook)
-- [[EMP-0272 Kayla Russo]] (Prep Cook)
-- [[EMP-0274 Destiny Shah]] (Busser)
-- [[EMP-0256 Connor Lewis]] (Server)
+- [[EMP-0251 Wei Pham]] (General Manager)
+- [[EMP-0273 Bella Wang]] (Dishwasher)
+- [[EMP-0259 Wanda Wilson]] (Server)
+- [[EMP-0271 Aiden Clark]] (Prep Cook)
+- [[EMP-0275 Maria Smith]] (Prep Cook)
+- [[EMP-0257 Sofia Hernandez]] (Server)
+- [[EMP-0255 Abigail Singh]] (Shift Lead)
+- [[EMP-0274 Lucas Lopez]] (Busser)

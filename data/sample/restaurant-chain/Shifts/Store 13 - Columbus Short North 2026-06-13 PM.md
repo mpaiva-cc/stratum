@@ -10,12 +10,12 @@ end: "23:30"
 crew_size: 6
 basis: authorization
 crew:
-  - "[[EMP-0320 Priya Taylor]]"
-  - "[[EMP-0316 Wanda Wilson]]"
-  - "[[EMP-0305 Elijah Ali]]"
-  - "[[EMP-0313 Nadia Rodriguez]]"
-  - "[[EMP-0311 Jin Park]]"
-  - "[[EMP-0319 Yara Tran]]"
+  - "[[EMP-0321 Rohan Ali]]"
+  - "[[EMP-0301 Oscar Smith]]"
+  - "[[EMP-0312 Imani Bianchi]]"
+  - "[[EMP-0305 Layla Mensah]]"
+  - "[[EMP-0303 Daniela Jones]]"
+  - "[[EMP-0302 Tariq Smith]]"
 ---
 
 PM shift at [[Store 13 - Columbus Short North]] on 2026-06-13 (15:00-23:30).
@@ -26,9 +26,9 @@ PM shift at [[Store 13 - Columbus Short North]] on 2026-06-13 (15:00-23:30).
 
 ## Crew
 
-- [[EMP-0320 Priya Taylor]] (Host)
-- [[EMP-0316 Wanda Wilson]] (Line Cook)
-- [[EMP-0305 Elijah Ali]] (Shift Lead)
-- [[EMP-0313 Nadia Rodriguez]] (Line Cook)
-- [[EMP-0311 Jin Park]] (Server)
-- [[EMP-0319 Yara Tran]] (Busser)
+- [[EMP-0321 Rohan Ali]] (Server)
+- [[EMP-0301 Oscar Smith]] (General Manager)
+- [[EMP-0312 Imani Bianchi]] (Line Cook)
+- [[EMP-0305 Layla Mensah]] (Shift Lead)
+- [[EMP-0303 Daniela Jones]] (Head Chef)
+- [[EMP-0302 Tariq Smith]] (Assistant Manager)

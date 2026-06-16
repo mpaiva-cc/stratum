@@ -6,6 +6,35 @@
   function esc(s) { return String(s == null ? '' : s).replace(/[&<>]/g,
     function (c) { return ({ '&':'&amp;', '<':'&lt;', '>':'&gt;' })[c]; }); }
 
+  var ROLES = window.FFRoles.ROLES;
+  var ALL_SCOPES = window.FFRoles.ALL_SCOPES;
+  var SCOPE_LABEL = { 'hr.scheduling': 'scheduling', 'hr.payroll': 'compensation',
+    'hr.certifications': 'compliance', 'hr.employment': 'employment' };
+
+  function currentRole() { return ROLES[$('role').value]; }
+
+  function renderPermPanel() {
+    var role = currentRole();
+    var pop = window.FFEngine.computePopulation(role, db);
+    var total = db.nodesByType.person.length;
+    var seen = pop.all ? total : pop.set.size;
+    var classes = ['directory'].concat(role.scopes.map(function (s) { return SCOPE_LABEL[s]; }));
+    var hidden = ALL_SCOPES.filter(function (s) { return role.scopes.indexOf(s) === -1; })
+      .map(function (s) { return SCOPE_LABEL[s]; });
+    var who = pop.all ? 'everyone (' + total + ' people)'
+      : (role.population.type === 'self' ? 'just yourself (1)'
+         : 'your population (' + seen + ' of ' + total + ')');
+    var anchorTitle = role.anchor ? (db.idToTitle[role.anchor] || role.anchor) : null;
+    var anchor = anchorTitle ? (anchorTitle + ' (' + role.anchorDesc + ')') : role.anchorDesc;
+    var html = '<strong>Viewing as ' + esc(role.label) + '</strong> — ' + esc(anchor) +
+      '<br><strong>Sees:</strong> ' + classes.map(esc).join(' · ') +
+      ', for <strong>' + esc(who) + '</strong>';
+    html += '<br><span class="redacted"><strong>Hidden:</strong> ' +
+      (hidden.length ? hidden.map(esc).join(' · ') : 'no extra classes') +
+      (pop.all ? '' : ' · everyone outside your population (' + (total - seen) + ')') + '</span>';
+    $('permpanel').innerHTML = html;
+  }
+
   function renderResult(spec, result, narrative) {
     var html = '';
     if (narrative) html += '<div class="panel"><p>' + esc(narrative) + '</p></div>';
@@ -20,13 +49,21 @@
     });
     html += '</tbody></table></div>';
     if (result.trace.length) {
-      var byReason = {};
-      result.trace.forEach(function (t) { byReason[t.reason] = (byReason[t.reason] || 0) + 1; });
-      html += '<div class="panel trace"><strong>Governance trace</strong><ul>';
-      Object.keys(byReason).forEach(function (reason) {
-        html += '<li><span class="badge">' + esc(reason) + '</span> ' + byReason[reason] + ' refusal(s)</li>';
+      var groups = { access: {}, consent: {} };
+      result.trace.forEach(function (t) {
+        var layer = t.layer || 'consent';
+        var key = t.reason + (t.field && t.field !== '(record)' && t.scope ? ' (' + t.field + ')' : '');
+        groups[layer][key] = (groups[layer][key] || 0) + 1;
       });
-      html += '</ul></div>';
+      html += '<div class="panel trace"><strong>Governance trace</strong>';
+      ['access', 'consent'].forEach(function (layer) {
+        var keys = Object.keys(groups[layer]);
+        if (!keys.length) return;
+        html += '<div><em>' + layer + '</em><ul>' + keys.map(function (k) {
+          return '<li><span class="badge">' + esc(k) + '</span> ' + groups[layer][k] + ' refusal(s)</li>';
+        }).join('') + '</ul></div>';
+      });
+      html += '</div>';
     }
     html += '<div class="panel"><strong>Query that ran</strong><div class="spec">' +
             esc(JSON.stringify(spec, null, 2)) + '</div></div>';
@@ -145,7 +182,7 @@
     $('status').textContent = 'translating…';
     try {
       var spec = await translateValid(question, db, purpose, key);
-      var result = window.FFEngine.runSpec(spec, db, purpose);
+      var result = window.FFEngine.runSpec(spec, db, purpose, currentRole());
       $('status').textContent = 'answering…';
       var narrative = await narrate(question, spec, result, purpose, key);
       renderResult(spec, result, narrative);
@@ -153,8 +190,12 @@
     } catch (e) { $('status').textContent = String(e.message); }
   });
 
+  $('role').addEventListener('change', renderPermPanel);
+  renderPermPanel();
+
   window.FFApp = { db: db, renderResult: renderResult, esc: esc,
                    edgeDirectory: edgeDirectory, systemPrompt: systemPrompt,
                    validateSpec: validateSpec, SPEC_TOOL: SPEC_TOOL, narrate: narrate,
-                   translateValid: translateValid };
+                   translateValid: translateValid, currentRole: currentRole,
+                   renderPermPanel: renderPermPanel };
 })();

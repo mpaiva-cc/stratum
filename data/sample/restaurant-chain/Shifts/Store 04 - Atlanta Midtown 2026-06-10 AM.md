@@ -10,15 +10,15 @@ end: "15:30"
 crew_size: 9
 basis: authorization
 crew:
-  - "[[EMP-0089 Zayd King]]"
-  - "[[EMP-0078 Wei Moore]]"
-  - "[[EMP-0085 Rohan Wilson]]"
-  - "[[EMP-0079 Mia Lopez]]"
-  - "[[EMP-0077 Hassan Russo]]"
-  - "[[EMP-0094 Liam Silva]]"
-  - "[[EMP-0097 Caleb Moore]]"
-  - "[[EMP-0084 Paloma Kim]]"
-  - "[[EMP-0081 Paloma White]]"
+  - "[[EMP-0078 Valentina Clark]]"
+  - "[[EMP-0099 Wanda King]]"
+  - "[[EMP-0080 Henry Clark]]"
+  - "[[EMP-0079 Diego Anderson]]"
+  - "[[EMP-0082 Isabella King]]"
+  - "[[EMP-0083 Felix Pham]]"
+  - "[[EMP-0098 Destiny Liu]]"
+  - "[[EMP-0092 Abigail Johnson]]"
+  - "[[EMP-0090 Elijah Tran]]"
 ---
 
 AM shift at [[Store 04 - Atlanta Midtown]] on 2026-06-10 (07:00-15:30).
@@ -29,12 +29,12 @@ AM shift at [[Store 04 - Atlanta Midtown]] on 2026-06-10 (07:00-15:30).
 
 ## Crew
 
-- [[EMP-0089 Zayd King]] (Server)
-- [[EMP-0078 Wei Moore]] (Head Chef)
-- [[EMP-0085 Rohan Wilson]] (Bartender)
-- [[EMP-0079 Mia Lopez]] (Shift Lead)
-- [[EMP-0077 Hassan Russo]] (Assistant Manager)
-- [[EMP-0094 Liam Silva]] (Server)
-- [[EMP-0097 Caleb Moore]] (Expo)
-- [[EMP-0084 Paloma Kim]] (Line Cook)
-- [[EMP-0081 Paloma White]] (Server)
+- [[EMP-0078 Valentina Clark]] (Head Chef)
+- [[EMP-0099 Wanda King]] (Prep Cook)
+- [[EMP-0080 Henry Clark]] (Shift Lead)
+- [[EMP-0079 Diego Anderson]] (Shift Lead)
+- [[EMP-0082 Isabella King]] (Line Cook)
+- [[EMP-0083 Felix Pham]] (Line Cook)
+- [[EMP-0098 Destiny Liu]] (Dishwasher)
+- [[EMP-0092 Abigail Johnson]] (Bartender)
+- [[EMP-0090 Elijah Tran]] (Line Cook)

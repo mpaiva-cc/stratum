@@ -7,17 +7,16 @@ date: 2026-06-08
 daypart: PM
 start: "15:00"
 end: "23:30"
-crew_size: 8
+crew_size: 7
 basis: authorization
 crew:
-  - "[[EMP-0043 Andres Silva]]"
-  - "[[EMP-0028 Quinn Garcia]]"
-  - "[[EMP-0040 Keira Okafor]]"
-  - "[[EMP-0037 Bella Brown]]"
-  - "[[EMP-0047 Harper Costa]]"
-  - "[[EMP-0034 Elijah Diallo]]"
-  - "[[EMP-0044 Camila Costa]]"
-  - "[[EMP-0041 Brianna Pham]]"
+  - "[[EMP-0036 Aaron Kim]]"
+  - "[[EMP-0044 Henry Rossi]]"
+  - "[[EMP-0028 Mia Gonzalez]]"
+  - "[[EMP-0039 Aiden Brown]]"
+  - "[[EMP-0038 Victor Ramirez]]"
+  - "[[EMP-0050 Elijah Harris]]"
+  - "[[EMP-0035 Noah Perez]]"
 ---
 
 PM shift at [[Store 02 - Houston Heights]] on 2026-06-08 (15:00-23:30).
@@ -28,11 +27,10 @@ PM shift at [[Store 02 - Houston Heights]] on 2026-06-08 (15:00-23:30).
 
 ## Crew
 
-- [[EMP-0043 Andres Silva]] (Server)
-- [[EMP-0028 Quinn Garcia]] (Head Chef)
-- [[EMP-0040 Keira Okafor]] (Bartender)
-- [[EMP-0037 Bella Brown]] (Server)
-- [[EMP-0047 Harper Costa]] (Line Cook)
-- [[EMP-0034 Elijah Diallo]] (Line Cook)
-- [[EMP-0044 Camila Costa]] (Server)
-- [[EMP-0041 Brianna Pham]] (Server)
+- [[EMP-0036 Aaron Kim]] (Line Cook)
+- [[EMP-0044 Henry Rossi]] (Prep Cook)
+- [[EMP-0028 Mia Gonzalez]] (Head Chef)
+- [[EMP-0039 Aiden Brown]] (Expo)
+- [[EMP-0038 Victor Ramirez]] (Line Cook)
+- [[EMP-0050 Elijah Harris]] (Busser)
+- [[EMP-0035 Noah Perez]] (Line Cook)

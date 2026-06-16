@@ -1,11 +1,11 @@
 ---
 type: employment_event
 id: EVT-0065
-person: "[[EMP-0065 Ella Liu]]"
+person: "[[EMP-0065 Ines Wilson]]"
 kind: hire
-date: 2024-12-16
+date: 2025-11-26
 store: "[[Store 03 - Dallas Knox]]"
 basis: consent
 ---
 
-[[EMP-0065 Ella Liu]] hired as Server at [[Store 03 - Dallas Knox]] on 2024-12-16.
+[[EMP-0065 Ines Wilson]] hired as Dishwasher at [[Store 03 - Dallas Knox]] on 2025-11-26.

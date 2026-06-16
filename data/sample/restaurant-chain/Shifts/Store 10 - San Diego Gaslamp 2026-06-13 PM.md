@@ -7,17 +7,15 @@ date: 2026-06-13
 daypart: PM
 start: "15:00"
 end: "23:30"
-crew_size: 8
+crew_size: 6
 basis: authorization
 crew:
-  - "[[EMP-0248 Rosa Tran]]"
-  - "[[EMP-0241 Gabriela Davis]]"
-  - "[[EMP-0245 Bella Garcia]]"
-  - "[[EMP-0246 Tariq Hernandez]]"
-  - "[[EMP-0247 Elijah Lewis]]"
-  - "[[EMP-0231 Sofia Lewis]]"
-  - "[[EMP-0230 Emily Ali]]"
-  - "[[EMP-0237 Uma Pham]]"
+  - "[[EMP-0229 Hana Perez]]"
+  - "[[EMP-0245 Layla Lopez]]"
+  - "[[EMP-0242 Wei Abara]]"
+  - "[[EMP-0238 Sofia Lopez]]"
+  - "[[EMP-0248 Zayd Walker]]"
+  - "[[EMP-0239 Gabriela Walker]]"
 ---
 
 PM shift at [[Store 10 - San Diego Gaslamp]] on 2026-06-13 (15:00-23:30).
@@ -28,11 +26,9 @@ PM shift at [[Store 10 - San Diego Gaslamp]] on 2026-06-13 (15:00-23:30).
 
 ## Crew
 
-- [[EMP-0248 Rosa Tran]] (Dishwasher)
-- [[EMP-0241 Gabriela Davis]] (Bartender)
-- [[EMP-0245 Bella Garcia]] (Busser)
-- [[EMP-0246 Tariq Hernandez]] (Busser)
-- [[EMP-0247 Elijah Lewis]] (Busser)
-- [[EMP-0231 Sofia Lewis]] (Line Cook)
-- [[EMP-0230 Emily Ali]] (Shift Lead)
-- [[EMP-0237 Uma Pham]] (Server)
+- [[EMP-0229 Hana Perez]] (Shift Lead)
+- [[EMP-0245 Layla Lopez]] (Line Cook)
+- [[EMP-0242 Wei Abara]] (Expo)
+- [[EMP-0238 Sofia Lopez]] (Line Cook)
+- [[EMP-0248 Zayd Walker]] (Dishwasher)
+- [[EMP-0239 Gabriela Walker]] (Bartender)

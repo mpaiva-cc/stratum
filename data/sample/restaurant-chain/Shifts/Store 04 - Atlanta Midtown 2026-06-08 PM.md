@@ -7,16 +7,15 @@ date: 2026-06-08
 daypart: PM
 start: "15:00"
 end: "23:30"
-crew_size: 7
+crew_size: 6
 basis: authorization
 crew:
-  - "[[EMP-0083 Isabella Okafor]]"
-  - "[[EMP-0090 Samir Martinez]]"
-  - "[[EMP-0084 Paloma Kim]]"
-  - "[[EMP-0093 Henry Gonzalez]]"
-  - "[[EMP-0086 Mateo Costa]]"
-  - "[[EMP-0078 Wei Moore]]"
-  - "[[EMP-0079 Mia Lopez]]"
+  - "[[EMP-0099 Wanda King]]"
+  - "[[EMP-0084 Hana Silva]]"
+  - "[[EMP-0098 Destiny Liu]]"
+  - "[[EMP-0095 Ethan Scott]]"
+  - "[[EMP-0082 Isabella King]]"
+  - "[[EMP-0083 Felix Pham]]"
 ---
 
 PM shift at [[Store 04 - Atlanta Midtown]] on 2026-06-08 (15:00-23:30).
@@ -27,10 +26,9 @@ PM shift at [[Store 04 - Atlanta Midtown]] on 2026-06-08 (15:00-23:30).
 
 ## Crew
 
-- [[EMP-0083 Isabella Okafor]] (Server)
-- [[EMP-0090 Samir Martinez]] (Line Cook)
-- [[EMP-0084 Paloma Kim]] (Line Cook)
-- [[EMP-0093 Henry Gonzalez]] (Server)
-- [[EMP-0086 Mateo Costa]] (Line Cook)
-- [[EMP-0078 Wei Moore]] (Head Chef)
-- [[EMP-0079 Mia Lopez]] (Shift Lead)
+- [[EMP-0099 Wanda King]] (Prep Cook)
+- [[EMP-0084 Hana Silva]] (Line Cook)
+- [[EMP-0098 Destiny Liu]] (Dishwasher)
+- [[EMP-0095 Ethan Scott]] (Server)
+- [[EMP-0082 Isabella King]] (Line Cook)
+- [[EMP-0083 Felix Pham]] (Line Cook)

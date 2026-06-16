@@ -7,15 +7,16 @@ date: 2026-06-13
 daypart: PM
 start: "15:00"
 end: "23:30"
-crew_size: 6
+crew_size: 7
 basis: authorization
 crew:
-  - "[[EMP-0088 Kayla Clark]]"
-  - "[[EMP-0078 Wei Moore]]"
-  - "[[EMP-0077 Hassan Russo]]"
-  - "[[EMP-0083 Isabella Okafor]]"
-  - "[[EMP-0091 Mason Diallo]]"
-  - "[[EMP-0076 Valentina Sanchez]]"
+  - "[[EMP-0090 Elijah Tran]]"
+  - "[[EMP-0084 Hana Silva]]"
+  - "[[EMP-0097 Jin Jackson]]"
+  - "[[EMP-0095 Ethan Scott]]"
+  - "[[EMP-0083 Felix Pham]]"
+  - "[[EMP-0092 Abigail Johnson]]"
+  - "[[EMP-0100 Evelyn Torres]]"
 ---
 
 PM shift at [[Store 04 - Atlanta Midtown]] on 2026-06-13 (15:00-23:30).
@@ -26,9 +27,10 @@ PM shift at [[Store 04 - Atlanta Midtown]] on 2026-06-13 (15:00-23:30).
 
 ## Crew
 
-- [[EMP-0088 Kayla Clark]] (Server)
-- [[EMP-0078 Wei Moore]] (Head Chef)
-- [[EMP-0077 Hassan Russo]] (Assistant Manager)
-- [[EMP-0083 Isabella Okafor]] (Server)
-- [[EMP-0091 Mason Diallo]] (Server)
-- [[EMP-0076 Valentina Sanchez]] (General Manager)
+- [[EMP-0090 Elijah Tran]] (Line Cook)
+- [[EMP-0084 Hana Silva]] (Line Cook)
+- [[EMP-0097 Jin Jackson]] (Dishwasher)
+- [[EMP-0095 Ethan Scott]] (Server)
+- [[EMP-0083 Felix Pham]] (Line Cook)
+- [[EMP-0092 Abigail Johnson]] (Bartender)
+- [[EMP-0100 Evelyn Torres]] (Busser)

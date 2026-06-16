@@ -10,15 +10,15 @@ end: "23:30"
 crew_size: 9
 basis: authorization
 crew:
-  - "[[EMP-0287 Paloma Silva]]"
-  - "[[EMP-0298 Samir Patel]]"
-  - "[[EMP-0281 Zane Wang]]"
-  - "[[EMP-0300 Mia King]]"
-  - "[[EMP-0289 Elena Hernandez]]"
-  - "[[EMP-0280 Tariq Patel]]"
-  - "[[EMP-0293 Caleb Thomas]]"
-  - "[[EMP-0277 Zayd Walker]]"
-  - "[[EMP-0295 Aaron Santos]]"
+  - "[[EMP-0297 Samir Romano]]"
+  - "[[EMP-0285 Diego Sanchez]]"
+  - "[[EMP-0287 Samir Patel]]"
+  - "[[EMP-0293 Victor Davis]]"
+  - "[[EMP-0277 Valentina Clark]]"
+  - "[[EMP-0300 Layla Shah]]"
+  - "[[EMP-0280 Imani Ali]]"
+  - "[[EMP-0292 Maria Diallo]]"
+  - "[[EMP-0284 Imani Silva]]"
 ---
 
 PM shift at [[Store 12 - Minneapolis Uptown]] on 2026-06-13 (15:00-23:30).
@@ -29,12 +29,12 @@ PM shift at [[Store 12 - Minneapolis Uptown]] on 2026-06-13 (15:00-23:30).
 
 ## Crew
 
-- [[EMP-0287 Paloma Silva]] (Bartender)
-- [[EMP-0298 Samir Patel]] (Dishwasher)
-- [[EMP-0281 Zane Wang]] (Server)
-- [[EMP-0300 Mia King]] (Host)
-- [[EMP-0289 Elena Hernandez]] (Server)
-- [[EMP-0280 Tariq Patel]] (Shift Lead)
-- [[EMP-0293 Caleb Thomas]] (Dishwasher)
-- [[EMP-0277 Zayd Walker]] (Assistant Manager)
-- [[EMP-0295 Aaron Santos]] (Prep Cook)
+- [[EMP-0297 Samir Romano]] (Dishwasher)
+- [[EMP-0285 Diego Sanchez]] (Line Cook)
+- [[EMP-0287 Samir Patel]] (Expo)
+- [[EMP-0293 Victor Davis]] (Server)
+- [[EMP-0277 Valentina Clark]] (Assistant Manager)
+- [[EMP-0300 Layla Shah]] (Prep Cook)
+- [[EMP-0280 Imani Ali]] (Shift Lead)
+- [[EMP-0292 Maria Diallo]] (Line Cook)
+- [[EMP-0284 Imani Silva]] (Bartender)

@@ -7,19 +7,15 @@ date: 2026-06-08
 daypart: AM
 start: "07:00"
 end: "15:30"
-crew_size: 10
+crew_size: 6
 basis: authorization
 crew:
-  - "[[EMP-0099 Lucas Patel]]"
-  - "[[EMP-0085 Rohan Wilson]]"
-  - "[[EMP-0093 Henry Gonzalez]]"
-  - "[[EMP-0081 Paloma White]]"
-  - "[[EMP-0077 Hassan Russo]]"
-  - "[[EMP-0092 Isabella Mensah]]"
-  - "[[EMP-0094 Liam Silva]]"
-  - "[[EMP-0098 Quinn Ahmed]]"
-  - "[[EMP-0089 Zayd King]]"
-  - "[[EMP-0079 Mia Lopez]]"
+  - "[[EMP-0080 Henry Clark]]"
+  - "[[EMP-0097 Jin Jackson]]"
+  - "[[EMP-0089 Omar Perez]]"
+  - "[[EMP-0099 Wanda King]]"
+  - "[[EMP-0095 Ethan Scott]]"
+  - "[[EMP-0082 Isabella King]]"
 ---
 
 AM shift at [[Store 04 - Atlanta Midtown]] on 2026-06-08 (07:00-15:30).
@@ -30,13 +26,9 @@ AM shift at [[Store 04 - Atlanta Midtown]] on 2026-06-08 (07:00-15:30).
 
 ## Crew
 
-- [[EMP-0099 Lucas Patel]] (Busser)
-- [[EMP-0085 Rohan Wilson]] (Bartender)
-- [[EMP-0093 Henry Gonzalez]] (Server)
-- [[EMP-0081 Paloma White]] (Server)
-- [[EMP-0077 Hassan Russo]] (Assistant Manager)
-- [[EMP-0092 Isabella Mensah]] (Server)
-- [[EMP-0094 Liam Silva]] (Server)
-- [[EMP-0098 Quinn Ahmed]] (Dishwasher)
-- [[EMP-0089 Zayd King]] (Server)
-- [[EMP-0079 Mia Lopez]] (Shift Lead)
+- [[EMP-0080 Henry Clark]] (Shift Lead)
+- [[EMP-0097 Jin Jackson]] (Dishwasher)
+- [[EMP-0089 Omar Perez]] (Bartender)
+- [[EMP-0099 Wanda King]] (Prep Cook)
+- [[EMP-0095 Ethan Scott]] (Server)
+- [[EMP-0082 Isabella King]] (Line Cook)

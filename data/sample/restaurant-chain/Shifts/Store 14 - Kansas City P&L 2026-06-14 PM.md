@@ -7,19 +7,15 @@ date: 2026-06-14
 daypart: PM
 start: "15:00"
 end: "23:30"
-crew_size: 10
+crew_size: 6
 basis: authorization
 crew:
-  - "[[EMP-0349 Aiden Anderson]]"
-  - "[[EMP-0336 Santiago Lopez]]"
-  - "[[EMP-0326 Felix Allen]]"
-  - "[[EMP-0334 Jin Abara]]"
-  - "[[EMP-0328 Gabriela Abara]]"
-  - "[[EMP-0350 Connor Jackson]]"
-  - "[[EMP-0333 Oscar Brown]]"
-  - "[[EMP-0338 Noah Singh]]"
-  - "[[EMP-0330 Ava Abara]]"
-  - "[[EMP-0345 Aria Shah]]"
+  - "[[EMP-0328 Jaden Okafor]]"
+  - "[[EMP-0342 Wanda Rodriguez]]"
+  - "[[EMP-0348 Valentina Chen]]"
+  - "[[EMP-0330 Connor Martinez]]"
+  - "[[EMP-0345 Zayd Liu]]"
+  - "[[EMP-0334 Aria Santos]]"
 ---
 
 PM shift at [[Store 14 - Kansas City P&L]] on 2026-06-14 (15:00-23:30).
@@ -30,13 +26,9 @@ PM shift at [[Store 14 - Kansas City P&L]] on 2026-06-14 (15:00-23:30).
 
 ## Crew
 
-- [[EMP-0349 Aiden Anderson]] (Dishwasher)
-- [[EMP-0336 Santiago Lopez]] (Bartender)
-- [[EMP-0326 Felix Allen]] (General Manager)
-- [[EMP-0334 Jin Abara]] (Server)
-- [[EMP-0328 Gabriela Abara]] (Head Chef)
-- [[EMP-0350 Connor Jackson]] (Dishwasher)
-- [[EMP-0333 Oscar Brown]] (Bartender)
-- [[EMP-0338 Noah Singh]] (Bartender)
-- [[EMP-0330 Ava Abara]] (Shift Lead)
-- [[EMP-0345 Aria Shah]] (Host)
+- [[EMP-0328 Jaden Okafor]] (Head Chef)
+- [[EMP-0342 Wanda Rodriguez]] (Bartender)
+- [[EMP-0348 Valentina Chen]] (Busser)
+- [[EMP-0330 Connor Martinez]] (Shift Lead)
+- [[EMP-0345 Zayd Liu]] (Busser)
+- [[EMP-0334 Aria Santos]] (Line Cook)

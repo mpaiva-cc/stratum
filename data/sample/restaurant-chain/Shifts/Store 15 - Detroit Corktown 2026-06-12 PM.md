@@ -7,17 +7,19 @@ date: 2026-06-12
 daypart: PM
 start: "15:00"
 end: "23:30"
-crew_size: 8
+crew_size: 10
 basis: authorization
 crew:
-  - "[[EMP-0365 Evelyn Okafor]]"
-  - "[[EMP-0359 Aaron Singh]]"
-  - "[[EMP-0371 Quinn Rossi]]"
-  - "[[EMP-0370 Ella Hernandez]]"
-  - "[[EMP-0354 Keira Harris]]"
-  - "[[EMP-0368 Noah Anderson]]"
-  - "[[EMP-0351 Destiny Liu]]"
-  - "[[EMP-0361 Paloma Tran]]"
+  - "[[EMP-0366 Uma Kim]]"
+  - "[[EMP-0369 Layla Harris]]"
+  - "[[EMP-0359 Camila Khan]]"
+  - "[[EMP-0358 Mason Davis]]"
+  - "[[EMP-0371 Zayd Johnson]]"
+  - "[[EMP-0374 Aaron Shah]]"
+  - "[[EMP-0360 Leo Ali]]"
+  - "[[EMP-0357 Daniela Moore]]"
+  - "[[EMP-0373 Wanda Wang]]"
+  - "[[EMP-0365 Zayd Torres]]"
 ---
 
 PM shift at [[Store 15 - Detroit Corktown]] on 2026-06-12 (15:00-23:30).
@@ -28,11 +30,13 @@ PM shift at [[Store 15 - Detroit Corktown]] on 2026-06-12 (15:00-23:30).
 
 ## Crew
 
-- [[EMP-0365 Evelyn Okafor]] (Line Cook)
-- [[EMP-0359 Aaron Singh]] (Server)
-- [[EMP-0371 Quinn Rossi]] (Dishwasher)
-- [[EMP-0370 Ella Hernandez]] (Busser)
-- [[EMP-0354 Keira Harris]] (Shift Lead)
-- [[EMP-0368 Noah Anderson]] (Line Cook)
-- [[EMP-0351 Destiny Liu]] (General Manager)
-- [[EMP-0361 Paloma Tran]] (Line Cook)
+- [[EMP-0366 Uma Kim]] (Line Cook)
+- [[EMP-0369 Layla Harris]] (Server)
+- [[EMP-0359 Camila Khan]] (Server)
+- [[EMP-0358 Mason Davis]] (Bartender)
+- [[EMP-0371 Zayd Johnson]] (Line Cook)
+- [[EMP-0374 Aaron Shah]] (Busser)
+- [[EMP-0360 Leo Ali]] (Line Cook)
+- [[EMP-0357 Daniela Moore]] (Line Cook)
+- [[EMP-0373 Wanda Wang]] (Busser)
+- [[EMP-0365 Zayd Torres]] (Bartender)

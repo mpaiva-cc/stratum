@@ -7,15 +7,17 @@ date: 2026-06-10
 daypart: AM
 start: "07:00"
 end: "15:30"
-crew_size: 6
+crew_size: 8
 basis: authorization
 crew:
-  - "[[EMP-0073 Henry Le]]"
-  - "[[EMP-0062 Yara Taylor]]"
-  - "[[EMP-0055 Wanda Santos]]"
-  - "[[EMP-0074 Paloma Sanchez]]"
-  - "[[EMP-0066 Rohan Liu]]"
-  - "[[EMP-0075 Connor Perez]]"
+  - "[[EMP-0061 Amelia Wilson]]"
+  - "[[EMP-0060 Layla Miller]]"
+  - "[[EMP-0059 Keira Williams]]"
+  - "[[EMP-0070 Amelia Davis]]"
+  - "[[EMP-0068 Maria Walker]]"
+  - "[[EMP-0055 Liam Khan]]"
+  - "[[EMP-0071 Destiny Anderson]]"
+  - "[[EMP-0066 Jaden Martinez]]"
 ---
 
 AM shift at [[Store 03 - Dallas Knox]] on 2026-06-10 (07:00-15:30).
@@ -26,9 +28,11 @@ AM shift at [[Store 03 - Dallas Knox]] on 2026-06-10 (07:00-15:30).
 
 ## Crew
 
-- [[EMP-0073 Henry Le]] (Busser)
-- [[EMP-0062 Yara Taylor]] (Line Cook)
-- [[EMP-0055 Wanda Santos]] (Shift Lead)
-- [[EMP-0074 Paloma Sanchez]] (Busser)
-- [[EMP-0066 Rohan Liu]] (Server)
-- [[EMP-0075 Connor Perez]] (Busser)
+- [[EMP-0061 Amelia Wilson]] (Bartender)
+- [[EMP-0060 Layla Miller]] (Line Cook)
+- [[EMP-0059 Keira Williams]] (Bartender)
+- [[EMP-0070 Amelia Davis]] (Dishwasher)
+- [[EMP-0068 Maria Walker]] (Busser)
+- [[EMP-0055 Liam Khan]] (Shift Lead)
+- [[EMP-0071 Destiny Anderson]] (Prep Cook)
+- [[EMP-0066 Jaden Martinez]] (Busser)

@@ -1,11 +1,11 @@
 ---
 type: employment_event
 id: EVT-0479
-person: "[[EMP-0479 Santiago Okafor]]"
+person: "[[EMP-0479 Hassan Gonzalez]]"
 kind: hire
-date: 2021-12-04
+date: 2021-09-27
 store: "[[Store 20 - Pittsburgh Strip]]"
 basis: consent
 ---
 
-[[EMP-0479 Santiago Okafor]] hired as Shift Lead at [[Store 20 - Pittsburgh Strip]] on 2021-12-04.
+[[EMP-0479 Hassan Gonzalez]] hired as Shift Lead at [[Store 20 - Pittsburgh Strip]] on 2021-09-27.

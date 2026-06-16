@@ -5,11 +5,11 @@ name: Houston Heights
 region: "[[South Region]]"
 at_location: "[[Houston Heights (TX-02)]]"
 part_of: "[[South Region]]"
-opened: 2021-01-17
+opened: 2019-04-04
 seats: 120
 headcount: 25
 basis: authorization
-general_manager: "[[EMP-0026 Imani Shah]]"
+general_manager: "[[EMP-0026 Fatima Bianchi]]"
 ---
 
 Store in the [[South Region]] · 25 staff.
@@ -28,28 +28,28 @@ Store in the [[South Region]] · 25 staff.
 
 ## Roster (25)
 
-- [[EMP-0026 Imani Shah]] — General Manager
-- [[EMP-0027 Anaya Romano]] — Assistant Manager
-- [[EMP-0028 Quinn Garcia]] — Head Chef
-- [[EMP-0029 Aaron Pham]] — Shift Lead
-- [[EMP-0030 Santiago Ramirez]] — Shift Lead
-- [[EMP-0031 Omar Shah]] — Line Cook
-- [[EMP-0032 Jaden Le]] — Bartender
-- [[EMP-0033 Jin Lopez]] — Line Cook
-- [[EMP-0034 Elijah Diallo]] — Line Cook
-- [[EMP-0035 Ximena Diallo]] — Bartender
-- [[EMP-0036 Elena Garcia]] — Server
-- [[EMP-0037 Bella Brown]] — Server
-- [[EMP-0038 Tariq Wilson]] — Server
-- [[EMP-0039 Gabriela Romano]] — Server
-- [[EMP-0040 Keira Okafor]] — Bartender
-- [[EMP-0041 Brianna Pham]] — Server
-- [[EMP-0042 Nadia Shah]] — Line Cook
-- [[EMP-0043 Andres Silva]] — Server
-- [[EMP-0044 Camila Costa]] — Server
-- [[EMP-0045 Jin Allen]] — Server
-- [[EMP-0046 Mason Patel]] — Server
-- [[EMP-0047 Harper Costa]] — Line Cook
-- [[EMP-0048 Omar Walker]] — Prep Cook
-- [[EMP-0049 Arjun Moore]] — Host
-- [[EMP-0050 Arjun Davis]] — Busser
+- [[EMP-0026 Fatima Bianchi]] — General Manager
+- [[EMP-0027 Santiago Santos]] — Assistant Manager
+- [[EMP-0028 Mia Gonzalez]] — Head Chef
+- [[EMP-0029 Yara Hernandez]] — Shift Lead
+- [[EMP-0030 Kayla Liu]] — Shift Lead
+- [[EMP-0031 Victor Lewis]] — Server
+- [[EMP-0032 Valentina Liu]] — Server
+- [[EMP-0033 Ximena Torres]] — Server
+- [[EMP-0034 Fatima Singh]] — Server
+- [[EMP-0035 Noah Perez]] — Line Cook
+- [[EMP-0036 Aaron Kim]] — Line Cook
+- [[EMP-0037 Hassan Pham]] — Server
+- [[EMP-0038 Victor Ramirez]] — Line Cook
+- [[EMP-0039 Aiden Brown]] — Expo
+- [[EMP-0040 Jaden Patel]] — Busser
+- [[EMP-0041 Brianna Pham]] — Busser
+- [[EMP-0042 Destiny Tran]] — Busser
+- [[EMP-0043 Liam Hernandez]] — Prep Cook
+- [[EMP-0044 Henry Rossi]] — Prep Cook
+- [[EMP-0045 Camila Anderson]] — Dishwasher
+- [[EMP-0046 Arjun Young]] — Dishwasher
+- [[EMP-0047 Elena Chen]] — Prep Cook
+- [[EMP-0048 Hana Nguyen]] — Prep Cook
+- [[EMP-0049 Elena Harris]] — Host
+- [[EMP-0050 Elijah Harris]] — Busser

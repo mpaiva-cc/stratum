@@ -7,17 +7,18 @@ date: 2026-06-09
 daypart: PM
 start: "15:00"
 end: "23:30"
-crew_size: 8
+crew_size: 9
 basis: authorization
 crew:
-  - "[[EMP-0290 Jaden Jones]]"
-  - "[[EMP-0288 Camila Santos]]"
-  - "[[EMP-0296 Henry Wang]]"
-  - "[[EMP-0284 Wei King]]"
-  - "[[EMP-0300 Mia King]]"
-  - "[[EMP-0289 Elena Hernandez]]"
-  - "[[EMP-0280 Tariq Patel]]"
-  - "[[EMP-0297 Mia Jones]]"
+  - "[[EMP-0297 Samir Romano]]"
+  - "[[EMP-0293 Victor Davis]]"
+  - "[[EMP-0283 Jaden Taylor]]"
+  - "[[EMP-0300 Layla Shah]]"
+  - "[[EMP-0288 Quinn Wilson]]"
+  - "[[EMP-0277 Valentina Clark]]"
+  - "[[EMP-0276 Brianna Hernandez]]"
+  - "[[EMP-0296 Abigail Wang]]"
+  - "[[EMP-0299 Elijah Johnson]]"
 ---
 
 PM shift at [[Store 12 - Minneapolis Uptown]] on 2026-06-09 (15:00-23:30).
@@ -28,11 +29,12 @@ PM shift at [[Store 12 - Minneapolis Uptown]] on 2026-06-09 (15:00-23:30).
 
 ## Crew
 
-- [[EMP-0290 Jaden Jones]] (Line Cook)
-- [[EMP-0288 Camila Santos]] (Server)
-- [[EMP-0296 Henry Wang]] (Busser)
-- [[EMP-0284 Wei King]] (Line Cook)
-- [[EMP-0300 Mia King]] (Host)
-- [[EMP-0289 Elena Hernandez]] (Server)
-- [[EMP-0280 Tariq Patel]] (Shift Lead)
-- [[EMP-0297 Mia Jones]] (Dishwasher)
+- [[EMP-0297 Samir Romano]] (Dishwasher)
+- [[EMP-0293 Victor Davis]] (Server)
+- [[EMP-0283 Jaden Taylor]] (Line Cook)
+- [[EMP-0300 Layla Shah]] (Prep Cook)
+- [[EMP-0288 Quinn Wilson]] (Server)
+- [[EMP-0277 Valentina Clark]] (Assistant Manager)
+- [[EMP-0276 Brianna Hernandez]] (General Manager)
+- [[EMP-0296 Abigail Wang]] (Prep Cook)
+- [[EMP-0299 Elijah Johnson]] (Host)

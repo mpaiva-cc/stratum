@@ -10,12 +10,12 @@ end: "23:30"
 crew_size: 6
 basis: authorization
 crew:
-  - "[[EMP-0238 Mason Wilson]]"
-  - "[[EMP-0226 Jaden Walker]]"
-  - "[[EMP-0229 Quinn Russo]]"
-  - "[[EMP-0227 Isabella Jackson]]"
-  - "[[EMP-0248 Rosa Tran]]"
-  - "[[EMP-0245 Bella Garcia]]"
+  - "[[EMP-0235 Bella Walker]]"
+  - "[[EMP-0229 Hana Perez]]"
+  - "[[EMP-0226 Leo Tran]]"
+  - "[[EMP-0228 Paloma Wilson]]"
+  - "[[EMP-0242 Wei Abara]]"
+  - "[[EMP-0240 Andres Anderson]]"
 ---
 
 PM shift at [[Store 10 - San Diego Gaslamp]] on 2026-06-08 (15:00-23:30).
@@ -26,9 +26,9 @@ PM shift at [[Store 10 - San Diego Gaslamp]] on 2026-06-08 (15:00-23:30).
 
 ## Crew
 
-- [[EMP-0238 Mason Wilson]] (Line Cook)
-- [[EMP-0226 Jaden Walker]] (General Manager)
-- [[EMP-0229 Quinn Russo]] (Shift Lead)
-- [[EMP-0227 Isabella Jackson]] (Assistant Manager)
-- [[EMP-0248 Rosa Tran]] (Dishwasher)
-- [[EMP-0245 Bella Garcia]] (Busser)
+- [[EMP-0235 Bella Walker]] (Bartender)
+- [[EMP-0229 Hana Perez]] (Shift Lead)
+- [[EMP-0226 Leo Tran]] (General Manager)
+- [[EMP-0228 Paloma Wilson]] (Head Chef)
+- [[EMP-0242 Wei Abara]] (Expo)
+- [[EMP-0240 Andres Anderson]] (Line Cook)

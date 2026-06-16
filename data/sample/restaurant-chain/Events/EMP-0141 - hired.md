@@ -1,11 +1,11 @@
 ---
 type: employment_event
 id: EVT-0141
-person: "[[EMP-0141 Keira Martinez]]"
+person: "[[EMP-0141 Nadia Scott]]"
 kind: hire
-date: 2023-03-27
+date: 2024-03-28
 store: "[[Store 06 - Denver LoDo]]"
 basis: consent
 ---
 
-[[EMP-0141 Keira Martinez]] hired as Server at [[Store 06 - Denver LoDo]] on 2023-03-27.
+[[EMP-0141 Nadia Scott]] hired as Server at [[Store 06 - Denver LoDo]] on 2024-03-28.

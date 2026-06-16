@@ -7,19 +7,16 @@ date: 2026-06-12
 daypart: AM
 start: "07:00"
 end: "15:30"
-crew_size: 10
+crew_size: 7
 basis: authorization
 crew:
-  - "[[EMP-0487 Mateo Costa]]"
-  - "[[EMP-0482 Caleb Costa]]"
-  - "[[EMP-0499 Harper Khan]]"
-  - "[[EMP-0489 Zane Clark]]"
-  - "[[EMP-0494 Noah Ramirez]]"
-  - "[[EMP-0500 Diego Martinez]]"
-  - "[[EMP-0495 Rosa Liu]]"
-  - "[[EMP-0479 Santiago Okafor]]"
-  - "[[EMP-0498 Ava Kim]]"
-  - "[[EMP-0483 Uma Sanchez]]"
+  - "[[EMP-0497 Evelyn Jones]]"
+  - "[[EMP-0482 Arjun Lewis]]"
+  - "[[EMP-0484 Zane Taylor]]"
+  - "[[EMP-0488 Victor Ahmed]]"
+  - "[[EMP-0480 Zane Williams]]"
+  - "[[EMP-0483 Jaden Torres]]"
+  - "[[EMP-0494 Gabriela Jackson]]"
 ---
 
 AM shift at [[Store 20 - Pittsburgh Strip]] on 2026-06-12 (07:00-15:30).
@@ -30,13 +27,10 @@ AM shift at [[Store 20 - Pittsburgh Strip]] on 2026-06-12 (07:00-15:30).
 
 ## Crew
 
-- [[EMP-0487 Mateo Costa]] (Line Cook)
-- [[EMP-0482 Caleb Costa]] (Server)
-- [[EMP-0499 Harper Khan]] (Dishwasher)
-- [[EMP-0489 Zane Clark]] (Server)
-- [[EMP-0494 Noah Ramirez]] (Dishwasher)
-- [[EMP-0500 Diego Martinez]] (Prep Cook)
-- [[EMP-0495 Rosa Liu]] (Host)
-- [[EMP-0479 Santiago Okafor]] (Shift Lead)
-- [[EMP-0498 Ava Kim]] (Host)
-- [[EMP-0483 Uma Sanchez]] (Server)
+- [[EMP-0497 Evelyn Jones]] (Busser)
+- [[EMP-0482 Arjun Lewis]] (Server)
+- [[EMP-0484 Zane Taylor]] (Line Cook)
+- [[EMP-0488 Victor Ahmed]] (Server)
+- [[EMP-0480 Zane Williams]] (Shift Lead)
+- [[EMP-0483 Jaden Torres]] (Line Cook)
+- [[EMP-0494 Gabriela Jackson]] (Line Cook)

@@ -10,13 +10,13 @@ end: "23:30"
 crew_size: 7
 basis: authorization
 crew:
-  - "[[EMP-0496 Yara Ali]]"
-  - "[[EMP-0497 Lucas Ali]]"
-  - "[[EMP-0487 Mateo Costa]]"
-  - "[[EMP-0477 Daniela Shah]]"
-  - "[[EMP-0481 Min Chen]]"
-  - "[[EMP-0484 Ethan King]]"
-  - "[[EMP-0486 Wei Jackson]]"
+  - "[[EMP-0482 Arjun Lewis]]"
+  - "[[EMP-0494 Gabriela Jackson]]"
+  - "[[EMP-0484 Zane Taylor]]"
+  - "[[EMP-0483 Jaden Torres]]"
+  - "[[EMP-0496 Layla Williams]]"
+  - "[[EMP-0478 Henry Tran]]"
+  - "[[EMP-0487 Tariq Scott]]"
 ---
 
 PM shift at [[Store 20 - Pittsburgh Strip]] on 2026-06-14 (15:00-23:30).
@@ -27,10 +27,10 @@ PM shift at [[Store 20 - Pittsburgh Strip]] on 2026-06-14 (15:00-23:30).
 
 ## Crew
 
-- [[EMP-0496 Yara Ali]] (Busser)
-- [[EMP-0497 Lucas Ali]] (Prep Cook)
-- [[EMP-0487 Mateo Costa]] (Line Cook)
-- [[EMP-0477 Daniela Shah]] (Assistant Manager)
-- [[EMP-0481 Min Chen]] (Bartender)
-- [[EMP-0484 Ethan King]] (Line Cook)
-- [[EMP-0486 Wei Jackson]] (Server)
+- [[EMP-0482 Arjun Lewis]] (Server)
+- [[EMP-0494 Gabriela Jackson]] (Line Cook)
+- [[EMP-0484 Zane Taylor]] (Line Cook)
+- [[EMP-0483 Jaden Torres]] (Line Cook)
+- [[EMP-0496 Layla Williams]] (Prep Cook)
+- [[EMP-0478 Henry Tran]] (Head Chef)
+- [[EMP-0487 Tariq Scott]] (Server)

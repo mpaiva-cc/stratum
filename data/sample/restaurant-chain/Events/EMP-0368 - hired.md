@@ -1,11 +1,11 @@
 ---
 type: employment_event
 id: EVT-0368
-person: "[[EMP-0368 Noah Anderson]]"
+person: "[[EMP-0368 Yuki Ahmed]]"
 kind: hire
-date: 2022-05-05
+date: 2026-02-13
 store: "[[Store 15 - Detroit Corktown]]"
 basis: consent
 ---
 
-[[EMP-0368 Noah Anderson]] hired as Line Cook at [[Store 15 - Detroit Corktown]] on 2022-05-05.
+[[EMP-0368 Yuki Ahmed]] hired as Server at [[Store 15 - Detroit Corktown]] on 2026-02-13.

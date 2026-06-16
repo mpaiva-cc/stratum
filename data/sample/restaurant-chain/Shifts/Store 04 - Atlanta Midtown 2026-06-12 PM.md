@@ -7,19 +7,15 @@ date: 2026-06-12
 daypart: PM
 start: "15:00"
 end: "23:30"
-crew_size: 10
+crew_size: 6
 basis: authorization
 crew:
-  - "[[EMP-0086 Mateo Costa]]"
-  - "[[EMP-0083 Isabella Okafor]]"
-  - "[[EMP-0094 Liam Silva]]"
-  - "[[EMP-0076 Valentina Sanchez]]"
-  - "[[EMP-0100 Felix Ahmed]]"
-  - "[[EMP-0098 Quinn Ahmed]]"
-  - "[[EMP-0093 Henry Gonzalez]]"
-  - "[[EMP-0092 Isabella Mensah]]"
-  - "[[EMP-0078 Wei Moore]]"
-  - "[[EMP-0085 Rohan Wilson]]"
+  - "[[EMP-0085 Keira Mensah]]"
+  - "[[EMP-0092 Abigail Johnson]]"
+  - "[[EMP-0090 Elijah Tran]]"
+  - "[[EMP-0099 Wanda King]]"
+  - "[[EMP-0097 Jin Jackson]]"
+  - "[[EMP-0095 Ethan Scott]]"
 ---
 
 PM shift at [[Store 04 - Atlanta Midtown]] on 2026-06-12 (15:00-23:30).
@@ -30,13 +26,9 @@ PM shift at [[Store 04 - Atlanta Midtown]] on 2026-06-12 (15:00-23:30).
 
 ## Crew
 
-- [[EMP-0086 Mateo Costa]] (Line Cook)
-- [[EMP-0083 Isabella Okafor]] (Server)
-- [[EMP-0094 Liam Silva]] (Server)
-- [[EMP-0076 Valentina Sanchez]] (General Manager)
-- [[EMP-0100 Felix Ahmed]] (Prep Cook)
-- [[EMP-0098 Quinn Ahmed]] (Dishwasher)
-- [[EMP-0093 Henry Gonzalez]] (Server)
-- [[EMP-0092 Isabella Mensah]] (Server)
-- [[EMP-0078 Wei Moore]] (Head Chef)
-- [[EMP-0085 Rohan Wilson]] (Bartender)
+- [[EMP-0085 Keira Mensah]] (Expo)
+- [[EMP-0092 Abigail Johnson]] (Bartender)
+- [[EMP-0090 Elijah Tran]] (Line Cook)
+- [[EMP-0099 Wanda King]] (Prep Cook)
+- [[EMP-0097 Jin Jackson]] (Dishwasher)
+- [[EMP-0095 Ethan Scott]] (Server)

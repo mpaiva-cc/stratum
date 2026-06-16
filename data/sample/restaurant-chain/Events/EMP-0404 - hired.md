@@ -1,11 +1,11 @@
 ---
 type: employment_event
 id: EVT-0404
-person: "[[EMP-0404 Camila King]]"
+person: "[[EMP-0404 Daniela Miller]]"
 kind: hire
-date: 2022-02-18
+date: 2025-09-19
 store: "[[Store 17 - Brooklyn Williamsburg]]"
 basis: consent
 ---
 
-[[EMP-0404 Camila King]] hired as Shift Lead at [[Store 17 - Brooklyn Williamsburg]] on 2022-02-18.
+[[EMP-0404 Daniela Miller]] hired as Shift Lead at [[Store 17 - Brooklyn Williamsburg]] on 2025-09-19.

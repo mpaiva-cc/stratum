@@ -7,15 +7,19 @@ date: 2026-06-10
 daypart: AM
 start: "07:00"
 end: "15:30"
-crew_size: 6
+crew_size: 10
 basis: authorization
 crew:
-  - "[[EMP-0324 Kayla Moore]]"
-  - "[[EMP-0309 Paloma White]]"
-  - "[[EMP-0323 Jamal Chen]]"
-  - "[[EMP-0320 Priya Taylor]]"
-  - "[[EMP-0307 Aaron Wang]]"
-  - "[[EMP-0308 Arjun Khan]]"
+  - "[[EMP-0318 Ethan Garcia]]"
+  - "[[EMP-0314 Wei Russo]]"
+  - "[[EMP-0317 Aiden Johnson]]"
+  - "[[EMP-0302 Tariq Smith]]"
+  - "[[EMP-0304 Grace Lewis]]"
+  - "[[EMP-0312 Imani Bianchi]]"
+  - "[[EMP-0319 Grace Walker]]"
+  - "[[EMP-0324 Quinn Costa]]"
+  - "[[EMP-0308 Victor Okafor]]"
+  - "[[EMP-0306 Rohan Ramirez]]"
 ---
 
 AM shift at [[Store 13 - Columbus Short North]] on 2026-06-10 (07:00-15:30).
@@ -26,9 +30,13 @@ AM shift at [[Store 13 - Columbus Short North]] on 2026-06-10 (07:00-15:30).
 
 ## Crew
 
-- [[EMP-0324 Kayla Moore]] (Dishwasher)
-- [[EMP-0309 Paloma White]] (Bartender)
-- [[EMP-0323 Jamal Chen]] (Prep Cook)
-- [[EMP-0320 Priya Taylor]] (Host)
-- [[EMP-0307 Aaron Wang]] (Server)
-- [[EMP-0308 Arjun Khan]] (Line Cook)
+- [[EMP-0318 Ethan Garcia]] (Line Cook)
+- [[EMP-0314 Wei Russo]] (Server)
+- [[EMP-0317 Aiden Johnson]] (Line Cook)
+- [[EMP-0302 Tariq Smith]] (Assistant Manager)
+- [[EMP-0304 Grace Lewis]] (Shift Lead)
+- [[EMP-0312 Imani Bianchi]] (Line Cook)
+- [[EMP-0319 Grace Walker]] (Server)
+- [[EMP-0324 Quinn Costa]] (Busser)
+- [[EMP-0308 Victor Okafor]] (Bartender)
+- [[EMP-0306 Rohan Ramirez]] (Line Cook)

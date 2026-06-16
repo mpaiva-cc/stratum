@@ -7,16 +7,17 @@ date: 2026-06-09
 daypart: AM
 start: "07:00"
 end: "15:30"
-crew_size: 7
+crew_size: 8
 basis: authorization
 crew:
-  - "[[EMP-0479 Santiago Okafor]]"
-  - "[[EMP-0494 Noah Ramirez]]"
-  - "[[EMP-0481 Min Chen]]"
-  - "[[EMP-0498 Ava Kim]]"
-  - "[[EMP-0496 Yara Ali]]"
-  - "[[EMP-0500 Diego Martinez]]"
-  - "[[EMP-0477 Daniela Shah]]"
+  - "[[EMP-0493 Bella Jackson]]"
+  - "[[EMP-0479 Hassan Gonzalez]]"
+  - "[[EMP-0485 Valentina Wang]]"
+  - "[[EMP-0480 Zane Williams]]"
+  - "[[EMP-0486 Wei Silva]]"
+  - "[[EMP-0477 Henry Rossi]]"
+  - "[[EMP-0492 Liam Santos]]"
+  - "[[EMP-0489 Amelia Ahmed]]"
 ---
 
 AM shift at [[Store 20 - Pittsburgh Strip]] on 2026-06-09 (07:00-15:30).
@@ -27,10 +28,11 @@ AM shift at [[Store 20 - Pittsburgh Strip]] on 2026-06-09 (07:00-15:30).
 
 ## Crew
 
-- [[EMP-0479 Santiago Okafor]] (Shift Lead)
-- [[EMP-0494 Noah Ramirez]] (Dishwasher)
-- [[EMP-0481 Min Chen]] (Bartender)
-- [[EMP-0498 Ava Kim]] (Host)
-- [[EMP-0496 Yara Ali]] (Busser)
-- [[EMP-0500 Diego Martinez]] (Prep Cook)
-- [[EMP-0477 Daniela Shah]] (Assistant Manager)
+- [[EMP-0493 Bella Jackson]] (Server)
+- [[EMP-0479 Hassan Gonzalez]] (Shift Lead)
+- [[EMP-0485 Valentina Wang]] (Expo)
+- [[EMP-0480 Zane Williams]] (Shift Lead)
+- [[EMP-0486 Wei Silva]] (Line Cook)
+- [[EMP-0477 Henry Rossi]] (Assistant Manager)
+- [[EMP-0492 Liam Santos]] (Server)
+- [[EMP-0489 Amelia Ahmed]] (Server)

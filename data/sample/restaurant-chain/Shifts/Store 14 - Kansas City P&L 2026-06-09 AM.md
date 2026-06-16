@@ -7,16 +7,15 @@ date: 2026-06-09
 daypart: AM
 start: "07:00"
 end: "15:30"
-crew_size: 7
+crew_size: 6
 basis: authorization
 crew:
-  - "[[EMP-0346 Uma Ramirez]]"
-  - "[[EMP-0342 Valentina Perez]]"
-  - "[[EMP-0328 Gabriela Abara]]"
-  - "[[EMP-0348 Harper Wright]]"
-  - "[[EMP-0329 Grace Garcia]]"
-  - "[[EMP-0332 Rosa Allen]]"
-  - "[[EMP-0343 Connor Tran]]"
+  - "[[EMP-0350 Valentina Khan]]"
+  - "[[EMP-0329 Arjun Allen]]"
+  - "[[EMP-0340 Caleb Young]]"
+  - "[[EMP-0336 Caleb Gonzalez]]"
+  - "[[EMP-0326 Henry Rodriguez]]"
+  - "[[EMP-0338 Anaya Wilson]]"
 ---
 
 AM shift at [[Store 14 - Kansas City P&L]] on 2026-06-09 (07:00-15:30).
@@ -27,10 +26,9 @@ AM shift at [[Store 14 - Kansas City P&L]] on 2026-06-09 (07:00-15:30).
 
 ## Crew
 
-- [[EMP-0346 Uma Ramirez]] (Dishwasher)
-- [[EMP-0342 Valentina Perez]] (Line Cook)
-- [[EMP-0328 Gabriela Abara]] (Head Chef)
-- [[EMP-0348 Harper Wright]] (Busser)
-- [[EMP-0329 Grace Garcia]] (Shift Lead)
-- [[EMP-0332 Rosa Allen]] (Server)
-- [[EMP-0343 Connor Tran]] (Busser)
+- [[EMP-0350 Valentina Khan]] (Host)
+- [[EMP-0329 Arjun Allen]] (Shift Lead)
+- [[EMP-0340 Caleb Young]] (Line Cook)
+- [[EMP-0336 Caleb Gonzalez]] (Server)
+- [[EMP-0326 Henry Rodriguez]] (General Manager)
+- [[EMP-0338 Anaya Wilson]] (Server)

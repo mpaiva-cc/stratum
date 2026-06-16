@@ -1,11 +1,11 @@
 ---
 type: employment_event
 id: EVT-0189
-person: "[[EMP-0189 Jaden King]]"
+person: "[[EMP-0189 Min Anderson]]"
 kind: hire
-date: 2021-06-30
+date: 2024-05-03
 store: "[[Store 08 - Seattle Ballard]]"
 basis: consent
 ---
 
-[[EMP-0189 Jaden King]] hired as Server at [[Store 08 - Seattle Ballard]] on 2021-06-30.
+[[EMP-0189 Min Anderson]] hired as Server at [[Store 08 - Seattle Ballard]] on 2024-05-03.

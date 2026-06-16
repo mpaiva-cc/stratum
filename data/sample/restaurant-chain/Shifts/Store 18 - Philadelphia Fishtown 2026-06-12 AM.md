@@ -7,15 +7,16 @@ date: 2026-06-12
 daypart: AM
 start: "07:00"
 end: "15:30"
-crew_size: 6
+crew_size: 7
 basis: authorization
 crew:
-  - "[[EMP-0427 Wanda Wang]]"
-  - "[[EMP-0429 Valentina Sanchez]]"
-  - "[[EMP-0448 Aiden Wilson]]"
-  - "[[EMP-0447 Jaden Wright]]"
-  - "[[EMP-0439 Oscar Brown]]"
-  - "[[EMP-0432 Harper Mensah]]"
+  - "[[EMP-0438 Anaya Moore]]"
+  - "[[EMP-0426 Uma Patel]]"
+  - "[[EMP-0428 Isabella Gonzalez]]"
+  - "[[EMP-0436 Aria Wright]]"
+  - "[[EMP-0430 Uma Costa]]"
+  - "[[EMP-0448 Carlos White]]"
+  - "[[EMP-0445 Tariq Abara]]"
 ---
 
 AM shift at [[Store 18 - Philadelphia Fishtown]] on 2026-06-12 (07:00-15:30).
@@ -26,9 +27,10 @@ AM shift at [[Store 18 - Philadelphia Fishtown]] on 2026-06-12 (07:00-15:30).
 
 ## Crew
 
-- [[EMP-0427 Wanda Wang]] (Assistant Manager)
-- [[EMP-0429 Valentina Sanchez]] (Shift Lead)
-- [[EMP-0448 Aiden Wilson]] (Dishwasher)
-- [[EMP-0447 Jaden Wright]] (Dishwasher)
-- [[EMP-0439 Oscar Brown]] (Server)
-- [[EMP-0432 Harper Mensah]] (Line Cook)
+- [[EMP-0438 Anaya Moore]] (Line Cook)
+- [[EMP-0426 Uma Patel]] (General Manager)
+- [[EMP-0428 Isabella Gonzalez]] (Head Chef)
+- [[EMP-0436 Aria Wright]] (Server)
+- [[EMP-0430 Uma Costa]] (Shift Lead)
+- [[EMP-0448 Carlos White]] (Dishwasher)
+- [[EMP-0445 Tariq Abara]] (Host)

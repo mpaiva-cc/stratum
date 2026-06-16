@@ -7,16 +7,15 @@ date: 2026-06-11
 daypart: PM
 start: "15:00"
 end: "23:30"
-crew_size: 7
+crew_size: 6
 basis: authorization
 crew:
-  - "[[EMP-0373 Carlos Lewis]]"
-  - "[[EMP-0368 Noah Anderson]]"
-  - "[[EMP-0367 Elijah Brown]]"
-  - "[[EMP-0357 Isabella King]]"
-  - "[[EMP-0370 Ella Hernandez]]"
-  - "[[EMP-0371 Quinn Rossi]]"
-  - "[[EMP-0374 Caleb Wright]]"
+  - "[[EMP-0371 Zayd Johnson]]"
+  - "[[EMP-0355 Ella Thomas]]"
+  - "[[EMP-0353 Gabriela Tran]]"
+  - "[[EMP-0357 Daniela Moore]]"
+  - "[[EMP-0356 Sofia Moore]]"
+  - "[[EMP-0359 Camila Khan]]"
 ---
 
 PM shift at [[Store 15 - Detroit Corktown]] on 2026-06-11 (15:00-23:30).
@@ -27,10 +26,9 @@ PM shift at [[Store 15 - Detroit Corktown]] on 2026-06-11 (15:00-23:30).
 
 ## Crew
 
-- [[EMP-0373 Carlos Lewis]] (Busser)
-- [[EMP-0368 Noah Anderson]] (Line Cook)
-- [[EMP-0367 Elijah Brown]] (Line Cook)
-- [[EMP-0357 Isabella King]] (Line Cook)
-- [[EMP-0370 Ella Hernandez]] (Busser)
-- [[EMP-0371 Quinn Rossi]] (Dishwasher)
-- [[EMP-0374 Caleb Wright]] (Host)
+- [[EMP-0371 Zayd Johnson]] (Line Cook)
+- [[EMP-0355 Ella Thomas]] (Shift Lead)
+- [[EMP-0353 Gabriela Tran]] (Head Chef)
+- [[EMP-0357 Daniela Moore]] (Line Cook)
+- [[EMP-0356 Sofia Moore]] (Server)
+- [[EMP-0359 Camila Khan]] (Server)

@@ -1,11 +1,11 @@
 ---
 type: employment_event
 id: EVT-0342
-person: "[[EMP-0342 Valentina Perez]]"
+person: "[[EMP-0342 Wanda Rodriguez]]"
 kind: hire
-date: 2021-12-31
+date: 2025-08-18
 store: "[[Store 14 - Kansas City P&L]]"
 basis: consent
 ---
 
-[[EMP-0342 Valentina Perez]] hired as Line Cook at [[Store 14 - Kansas City P&L]] on 2021-12-31.
+[[EMP-0342 Wanda Rodriguez]] hired as Bartender at [[Store 14 - Kansas City P&L]] on 2025-08-18.

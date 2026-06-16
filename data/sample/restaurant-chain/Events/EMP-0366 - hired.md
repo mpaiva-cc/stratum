@@ -1,11 +1,11 @@
 ---
 type: employment_event
 id: EVT-0366
-person: "[[EMP-0366 Nadia Okafor]]"
+person: "[[EMP-0366 Uma Kim]]"
 kind: hire
-date: 2026-05-20
+date: 2025-07-08
 store: "[[Store 15 - Detroit Corktown]]"
 basis: consent
 ---
 
-[[EMP-0366 Nadia Okafor]] hired as Server at [[Store 15 - Detroit Corktown]] on 2026-05-20.
+[[EMP-0366 Uma Kim]] hired as Line Cook at [[Store 15 - Detroit Corktown]] on 2025-07-08.

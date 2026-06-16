@@ -5,11 +5,11 @@ name: Boston Seaport
 region: "[[Northeast Region]]"
 at_location: "[[Boston Seaport (MA-16)]]"
 part_of: "[[Northeast Region]]"
-opened: 2019-11-18
-seats: 180
+opened: 2022-10-11
+seats: 90
 headcount: 25
 basis: authorization
-general_manager: "[[EMP-0376 Min Wilson]]"
+general_manager: "[[EMP-0376 Hassan Ahmed]]"
 ---
 
 Store in the [[Northeast Region]] · 25 staff.
@@ -28,28 +28,28 @@ Store in the [[Northeast Region]] · 25 staff.
 
 ## Roster (25)
 
-- [[EMP-0376 Min Wilson]] — General Manager
-- [[EMP-0377 Logan Taylor]] — Assistant Manager
-- [[EMP-0378 Imani Hernandez]] — Head Chef
-- [[EMP-0379 Zane Diallo]] — Shift Lead
-- [[EMP-0380 Zayd Kim]] — Shift Lead
-- [[EMP-0381 Jaden Singh]] — Line Cook
-- [[EMP-0382 Rohan Kim]] — Line Cook
-- [[EMP-0383 Noah Wright]] — Line Cook
-- [[EMP-0384 Lucas Gonzalez]] — Line Cook
-- [[EMP-0385 Logan Sanchez]] — Line Cook
-- [[EMP-0386 Omar Harris]] — Expo
-- [[EMP-0387 Sofia Chen]] — Server
-- [[EMP-0388 Jose Kim]] — Server
-- [[EMP-0389 Anaya King]] — Bartender
-- [[EMP-0390 Felix Singh]] — Server
-- [[EMP-0391 Uma Gonzalez]] — Line Cook
-- [[EMP-0392 Ines Mensah]] — Line Cook
-- [[EMP-0393 Noah Mensah]] — Line Cook
-- [[EMP-0394 Wanda Martinez]] — Line Cook
-- [[EMP-0395 Mia Okafor]] — Host
-- [[EMP-0396 Kayla Davis]] — Busser
-- [[EMP-0397 Paloma Scott]] — Dishwasher
-- [[EMP-0398 Noah Taylor]] — Host
-- [[EMP-0399 Wei Scott]] — Prep Cook
-- [[EMP-0400 Harper Mensah]] — Prep Cook
+- [[EMP-0376 Hassan Ahmed]] — General Manager
+- [[EMP-0377 Santiago Sanchez]] — Assistant Manager
+- [[EMP-0378 Elena Johnson]] — Head Chef
+- [[EMP-0379 Jamal Scott]] — Shift Lead
+- [[EMP-0380 Min Romano]] — Shift Lead
+- [[EMP-0381 Liam Thomas]] — Bartender
+- [[EMP-0382 Gabriela Santos]] — Bartender
+- [[EMP-0383 Kayla Taylor]] — Line Cook
+- [[EMP-0384 Fatima Chen]] — Line Cook
+- [[EMP-0385 Henry Nguyen]] — Line Cook
+- [[EMP-0386 Diego Smith]] — Server
+- [[EMP-0387 Ximena Williams]] — Server
+- [[EMP-0388 Wanda Ali]] — Server
+- [[EMP-0389 Oscar Abara]] — Line Cook
+- [[EMP-0390 Diego Jones]] — Busser
+- [[EMP-0391 Rohan Torres]] — Dishwasher
+- [[EMP-0392 Zayd Allen]] — Dishwasher
+- [[EMP-0393 Bella Abara]] — Busser
+- [[EMP-0394 Victor Nguyen]] — Dishwasher
+- [[EMP-0395 Carlos Jackson]] — Busser
+- [[EMP-0396 Mateo Kim]] — Host
+- [[EMP-0397 Fatima Ali]] — Prep Cook
+- [[EMP-0398 Henry Sanchez]] — Busser
+- [[EMP-0399 Omar Diallo]] — Prep Cook
+- [[EMP-0400 Jaden Rodriguez]] — Dishwasher

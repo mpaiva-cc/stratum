@@ -7,19 +7,18 @@ date: 2026-06-08
 daypart: PM
 start: "15:00"
 end: "23:30"
-crew_size: 10
+crew_size: 9
 basis: authorization
 crew:
-  - "[[EMP-0136 Sofia Moore]]"
-  - "[[EMP-0129 Yuki Smith]]"
-  - "[[EMP-0135 Yuki Taylor]]"
-  - "[[EMP-0149 Ines Nguyen]]"
-  - "[[EMP-0145 Kayla Silva]]"
-  - "[[EMP-0148 Paloma Walker]]"
-  - "[[EMP-0134 Jin Santos]]"
-  - "[[EMP-0126 Valentina Wilson]]"
-  - "[[EMP-0141 Keira Martinez]]"
-  - "[[EMP-0144 Gabriela Smith]]"
+  - "[[EMP-0139 Liam Perez]]"
+  - "[[EMP-0126 Yara Silva]]"
+  - "[[EMP-0133 Quinn Garcia]]"
+  - "[[EMP-0140 Ximena Allen]]"
+  - "[[EMP-0149 Hassan Rodriguez]]"
+  - "[[EMP-0138 Bella Brown]]"
+  - "[[EMP-0130 Hassan Kim]]"
+  - "[[EMP-0143 Emily Costa]]"
+  - "[[EMP-0128 Hana Williams]]"
 ---
 
 PM shift at [[Store 06 - Denver LoDo]] on 2026-06-08 (15:00-23:30).
@@ -30,13 +29,12 @@ PM shift at [[Store 06 - Denver LoDo]] on 2026-06-08 (15:00-23:30).
 
 ## Crew
 
-- [[EMP-0136 Sofia Moore]] (Bartender)
-- [[EMP-0129 Yuki Smith]] (Shift Lead)
-- [[EMP-0135 Yuki Taylor]] (Line Cook)
-- [[EMP-0149 Ines Nguyen]] (Prep Cook)
-- [[EMP-0145 Kayla Silva]] (Dishwasher)
-- [[EMP-0148 Paloma Walker]] (Host)
-- [[EMP-0134 Jin Santos]] (Line Cook)
-- [[EMP-0126 Valentina Wilson]] (General Manager)
-- [[EMP-0141 Keira Martinez]] (Server)
-- [[EMP-0144 Gabriela Smith]] (Prep Cook)
+- [[EMP-0139 Liam Perez]] (Line Cook)
+- [[EMP-0126 Yara Silva]] (General Manager)
+- [[EMP-0133 Quinn Garcia]] (Line Cook)
+- [[EMP-0140 Ximena Allen]] (Line Cook)
+- [[EMP-0149 Hassan Rodriguez]] (Busser)
+- [[EMP-0138 Bella Brown]] (Server)
+- [[EMP-0130 Hassan Kim]] (Shift Lead)
+- [[EMP-0143 Emily Costa]] (Prep Cook)
+- [[EMP-0128 Hana Williams]] (Head Chef)

@@ -10,13 +10,13 @@ end: "15:30"
 crew_size: 7
 basis: authorization
 crew:
-  - "[[EMP-0207 Ella Harris]]"
-  - "[[EMP-0211 Samir Pham]]"
-  - "[[EMP-0215 Min Pham]]"
-  - "[[EMP-0219 Grace Scott]]"
-  - "[[EMP-0225 Camila Rossi]]"
-  - "[[EMP-0216 Rohan Rossi]]"
-  - "[[EMP-0220 Emily Brown]]"
+  - "[[EMP-0221 Wei Williams]]"
+  - "[[EMP-0224 Gabriela Khan]]"
+  - "[[EMP-0209 Santiago Patel]]"
+  - "[[EMP-0204 Santiago Perez]]"
+  - "[[EMP-0225 Kayla Taylor]]"
+  - "[[EMP-0203 Ines Wilson]]"
+  - "[[EMP-0212 Kayla Singh]]"
 ---
 
 AM shift at [[Store 09 - Portland Pearl]] on 2026-06-11 (07:00-15:30).
@@ -27,10 +27,10 @@ AM shift at [[Store 09 - Portland Pearl]] on 2026-06-11 (07:00-15:30).
 
 ## Crew
 
-- [[EMP-0207 Ella Harris]] (Line Cook)
-- [[EMP-0211 Samir Pham]] (Server)
-- [[EMP-0215 Min Pham]] (Server)
-- [[EMP-0219 Grace Scott]] (Busser)
-- [[EMP-0225 Camila Rossi]] (Prep Cook)
-- [[EMP-0216 Rohan Rossi]] (Bartender)
-- [[EMP-0220 Emily Brown]] (Dishwasher)
+- [[EMP-0221 Wei Williams]] (Prep Cook)
+- [[EMP-0224 Gabriela Khan]] (Busser)
+- [[EMP-0209 Santiago Patel]] (Server)
+- [[EMP-0204 Santiago Perez]] (Shift Lead)
+- [[EMP-0225 Kayla Taylor]] (Host)
+- [[EMP-0203 Ines Wilson]] (Head Chef)
+- [[EMP-0212 Kayla Singh]] (Expo)

@@ -7,15 +7,19 @@ date: 2026-06-09
 daypart: PM
 start: "15:00"
 end: "23:30"
-crew_size: 6
+crew_size: 10
 basis: authorization
 crew:
-  - "[[EMP-0235 Keira Jackson]]"
-  - "[[EMP-0250 Diego Torres]]"
-  - "[[EMP-0233 Elijah Abara]]"
-  - "[[EMP-0228 Rohan Young]]"
-  - "[[EMP-0238 Mason Wilson]]"
-  - "[[EMP-0243 Zane Walker]]"
+  - "[[EMP-0236 Mateo Liu]]"
+  - "[[EMP-0230 Harper Romano]]"
+  - "[[EMP-0250 Daniela White]]"
+  - "[[EMP-0233 Paloma Wright]]"
+  - "[[EMP-0237 Evelyn Chen]]"
+  - "[[EMP-0242 Wei Abara]]"
+  - "[[EMP-0227 Jamal Sanchez]]"
+  - "[[EMP-0249 Samir Singh]]"
+  - "[[EMP-0239 Gabriela Walker]]"
+  - "[[EMP-0235 Bella Walker]]"
 ---
 
 PM shift at [[Store 10 - San Diego Gaslamp]] on 2026-06-09 (15:00-23:30).
@@ -26,9 +30,13 @@ PM shift at [[Store 10 - San Diego Gaslamp]] on 2026-06-09 (15:00-23:30).
 
 ## Crew
 
-- [[EMP-0235 Keira Jackson]] (Expo)
-- [[EMP-0250 Diego Torres]] (Dishwasher)
-- [[EMP-0233 Elijah Abara]] (Line Cook)
-- [[EMP-0228 Rohan Young]] (Head Chef)
-- [[EMP-0238 Mason Wilson]] (Line Cook)
-- [[EMP-0243 Zane Walker]] (Line Cook)
+- [[EMP-0236 Mateo Liu]] (Server)
+- [[EMP-0230 Harper Romano]] (Shift Lead)
+- [[EMP-0250 Daniela White]] (Busser)
+- [[EMP-0233 Paloma Wright]] (Server)
+- [[EMP-0237 Evelyn Chen]] (Server)
+- [[EMP-0242 Wei Abara]] (Expo)
+- [[EMP-0227 Jamal Sanchez]] (Assistant Manager)
+- [[EMP-0249 Samir Singh]] (Busser)
+- [[EMP-0239 Gabriela Walker]] (Bartender)
+- [[EMP-0235 Bella Walker]] (Bartender)

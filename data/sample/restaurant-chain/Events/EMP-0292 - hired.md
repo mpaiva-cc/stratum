@@ -1,11 +1,11 @@
 ---
 type: employment_event
 id: EVT-0292
-person: "[[EMP-0292 Bella Smith]]"
+person: "[[EMP-0292 Maria Diallo]]"
 kind: hire
-date: 2026-01-01
+date: 2025-08-10
 store: "[[Store 12 - Minneapolis Uptown]]"
 basis: consent
 ---
 
-[[EMP-0292 Bella Smith]] hired as Dishwasher at [[Store 12 - Minneapolis Uptown]] on 2026-01-01.
+[[EMP-0292 Maria Diallo]] hired as Line Cook at [[Store 12 - Minneapolis Uptown]] on 2025-08-10.

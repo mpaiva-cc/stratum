@@ -1,11 +1,11 @@
 ---
 type: employment_event
 id: EVT-0028
-person: "[[EMP-0028 Quinn Garcia]]"
+person: "[[EMP-0028 Mia Gonzalez]]"
 kind: hire
-date: 2021-11-10
+date: 2025-09-11
 store: "[[Store 02 - Houston Heights]]"
 basis: consent
 ---
 
-[[EMP-0028 Quinn Garcia]] hired as Head Chef at [[Store 02 - Houston Heights]] on 2021-11-10.
+[[EMP-0028 Mia Gonzalez]] hired as Head Chef at [[Store 02 - Houston Heights]] on 2025-09-11.

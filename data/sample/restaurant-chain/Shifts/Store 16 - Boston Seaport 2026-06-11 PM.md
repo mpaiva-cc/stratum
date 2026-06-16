@@ -10,16 +10,16 @@ end: "23:30"
 crew_size: 10
 basis: authorization
 crew:
-  - "[[EMP-0400 Harper Mensah]]"
-  - "[[EMP-0380 Zayd Kim]]"
-  - "[[EMP-0376 Min Wilson]]"
-  - "[[EMP-0394 Wanda Martinez]]"
-  - "[[EMP-0397 Paloma Scott]]"
-  - "[[EMP-0385 Logan Sanchez]]"
-  - "[[EMP-0392 Ines Mensah]]"
-  - "[[EMP-0377 Logan Taylor]]"
-  - "[[EMP-0381 Jaden Singh]]"
-  - "[[EMP-0378 Imani Hernandez]]"
+  - "[[EMP-0389 Oscar Abara]]"
+  - "[[EMP-0398 Henry Sanchez]]"
+  - "[[EMP-0377 Santiago Sanchez]]"
+  - "[[EMP-0383 Kayla Taylor]]"
+  - "[[EMP-0376 Hassan Ahmed]]"
+  - "[[EMP-0395 Carlos Jackson]]"
+  - "[[EMP-0394 Victor Nguyen]]"
+  - "[[EMP-0388 Wanda Ali]]"
+  - "[[EMP-0400 Jaden Rodriguez]]"
+  - "[[EMP-0396 Mateo Kim]]"
 ---
 
 PM shift at [[Store 16 - Boston Seaport]] on 2026-06-11 (15:00-23:30).
@@ -30,13 +30,13 @@ PM shift at [[Store 16 - Boston Seaport]] on 2026-06-11 (15:00-23:30).
 
 ## Crew
 
-- [[EMP-0400 Harper Mensah]] (Prep Cook)
-- [[EMP-0380 Zayd Kim]] (Shift Lead)
-- [[EMP-0376 Min Wilson]] (General Manager)
-- [[EMP-0394 Wanda Martinez]] (Line Cook)
-- [[EMP-0397 Paloma Scott]] (Dishwasher)
-- [[EMP-0385 Logan Sanchez]] (Line Cook)
-- [[EMP-0392 Ines Mensah]] (Line Cook)
-- [[EMP-0377 Logan Taylor]] (Assistant Manager)
-- [[EMP-0381 Jaden Singh]] (Line Cook)
-- [[EMP-0378 Imani Hernandez]] (Head Chef)
+- [[EMP-0389 Oscar Abara]] (Line Cook)
+- [[EMP-0398 Henry Sanchez]] (Busser)
+- [[EMP-0377 Santiago Sanchez]] (Assistant Manager)
+- [[EMP-0383 Kayla Taylor]] (Line Cook)
+- [[EMP-0376 Hassan Ahmed]] (General Manager)
+- [[EMP-0395 Carlos Jackson]] (Busser)
+- [[EMP-0394 Victor Nguyen]] (Dishwasher)
+- [[EMP-0388 Wanda Ali]] (Server)
+- [[EMP-0400 Jaden Rodriguez]] (Dishwasher)
+- [[EMP-0396 Mateo Kim]] (Host)

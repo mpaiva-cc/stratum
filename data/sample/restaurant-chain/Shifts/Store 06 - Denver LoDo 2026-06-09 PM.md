@@ -7,15 +7,19 @@ date: 2026-06-09
 daypart: PM
 start: "15:00"
 end: "23:30"
-crew_size: 6
+crew_size: 10
 basis: authorization
 crew:
-  - "[[EMP-0145 Kayla Silva]]"
-  - "[[EMP-0132 Felix Johnson]]"
-  - "[[EMP-0143 Rosa Rodriguez]]"
-  - "[[EMP-0129 Yuki Smith]]"
-  - "[[EMP-0127 Harper Le]]"
-  - "[[EMP-0139 Wei Jones]]"
+  - "[[EMP-0143 Emily Costa]]"
+  - "[[EMP-0136 Andres White]]"
+  - "[[EMP-0148 Liam Abara]]"
+  - "[[EMP-0149 Hassan Rodriguez]]"
+  - "[[EMP-0133 Quinn Garcia]]"
+  - "[[EMP-0150 Grace Sanchez]]"
+  - "[[EMP-0138 Bella Brown]]"
+  - "[[EMP-0142 Mason Brown]]"
+  - "[[EMP-0135 Aaron Silva]]"
+  - "[[EMP-0128 Hana Williams]]"
 ---
 
 PM shift at [[Store 06 - Denver LoDo]] on 2026-06-09 (15:00-23:30).
@@ -26,9 +30,13 @@ PM shift at [[Store 06 - Denver LoDo]] on 2026-06-09 (15:00-23:30).
 
 ## Crew
 
-- [[EMP-0145 Kayla Silva]] (Dishwasher)
-- [[EMP-0132 Felix Johnson]] (Server)
-- [[EMP-0143 Rosa Rodriguez]] (Busser)
-- [[EMP-0129 Yuki Smith]] (Shift Lead)
-- [[EMP-0127 Harper Le]] (Assistant Manager)
-- [[EMP-0139 Wei Jones]] (Expo)
+- [[EMP-0143 Emily Costa]] (Prep Cook)
+- [[EMP-0136 Andres White]] (Line Cook)
+- [[EMP-0148 Liam Abara]] (Host)
+- [[EMP-0149 Hassan Rodriguez]] (Busser)
+- [[EMP-0133 Quinn Garcia]] (Line Cook)
+- [[EMP-0150 Grace Sanchez]] (Host)
+- [[EMP-0138 Bella Brown]] (Server)
+- [[EMP-0142 Mason Brown]] (Dishwasher)
+- [[EMP-0135 Aaron Silva]] (Server)
+- [[EMP-0128 Hana Williams]] (Head Chef)

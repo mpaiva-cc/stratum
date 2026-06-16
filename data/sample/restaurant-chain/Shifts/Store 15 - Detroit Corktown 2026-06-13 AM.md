@@ -7,15 +7,19 @@ date: 2026-06-13
 daypart: AM
 start: "07:00"
 end: "15:30"
-crew_size: 6
+crew_size: 10
 basis: authorization
 crew:
-  - "[[EMP-0351 Destiny Liu]]"
-  - "[[EMP-0362 Jose Torres]]"
-  - "[[EMP-0358 Destiny Jackson]]"
-  - "[[EMP-0361 Paloma Tran]]"
-  - "[[EMP-0367 Elijah Brown]]"
-  - "[[EMP-0360 Amelia Walker]]"
+  - "[[EMP-0353 Gabriela Tran]]"
+  - "[[EMP-0357 Daniela Moore]]"
+  - "[[EMP-0369 Layla Harris]]"
+  - "[[EMP-0358 Mason Davis]]"
+  - "[[EMP-0363 Abigail Okafor]]"
+  - "[[EMP-0356 Sofia Moore]]"
+  - "[[EMP-0367 Anaya Allen]]"
+  - "[[EMP-0352 Isabella Wilson]]"
+  - "[[EMP-0368 Yuki Ahmed]]"
+  - "[[EMP-0374 Aaron Shah]]"
 ---
 
 AM shift at [[Store 15 - Detroit Corktown]] on 2026-06-13 (07:00-15:30).
@@ -26,9 +30,13 @@ AM shift at [[Store 15 - Detroit Corktown]] on 2026-06-13 (07:00-15:30).
 
 ## Crew
 
-- [[EMP-0351 Destiny Liu]] (General Manager)
-- [[EMP-0362 Jose Torres]] (Bartender)
-- [[EMP-0358 Destiny Jackson]] (Server)
-- [[EMP-0361 Paloma Tran]] (Line Cook)
-- [[EMP-0367 Elijah Brown]] (Line Cook)
-- [[EMP-0360 Amelia Walker]] (Line Cook)
+- [[EMP-0353 Gabriela Tran]] (Head Chef)
+- [[EMP-0357 Daniela Moore]] (Line Cook)
+- [[EMP-0369 Layla Harris]] (Server)
+- [[EMP-0358 Mason Davis]] (Bartender)
+- [[EMP-0363 Abigail Okafor]] (Line Cook)
+- [[EMP-0356 Sofia Moore]] (Server)
+- [[EMP-0367 Anaya Allen]] (Server)
+- [[EMP-0352 Isabella Wilson]] (Assistant Manager)
+- [[EMP-0368 Yuki Ahmed]] (Server)
+- [[EMP-0374 Aaron Shah]] (Busser)

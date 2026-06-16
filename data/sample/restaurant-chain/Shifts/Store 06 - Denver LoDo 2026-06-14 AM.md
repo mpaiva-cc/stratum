@@ -7,19 +7,16 @@ date: 2026-06-14
 daypart: AM
 start: "07:00"
 end: "15:30"
-crew_size: 10
+crew_size: 7
 basis: authorization
 crew:
-  - "[[EMP-0130 Zane Liu]]"
-  - "[[EMP-0141 Keira Martinez]]"
-  - "[[EMP-0132 Felix Johnson]]"
-  - "[[EMP-0145 Kayla Silva]]"
-  - "[[EMP-0147 Evelyn Harris]]"
-  - "[[EMP-0127 Harper Le]]"
-  - "[[EMP-0135 Yuki Taylor]]"
-  - "[[EMP-0148 Paloma Walker]]"
-  - "[[EMP-0142 Omar Chen]]"
-  - "[[EMP-0128 Henry Hernandez]]"
+  - "[[EMP-0140 Ximena Allen]]"
+  - "[[EMP-0129 Quinn Torres]]"
+  - "[[EMP-0142 Mason Brown]]"
+  - "[[EMP-0137 Carlos Mensah]]"
+  - "[[EMP-0139 Liam Perez]]"
+  - "[[EMP-0150 Grace Sanchez]]"
+  - "[[EMP-0128 Hana Williams]]"
 ---
 
 AM shift at [[Store 06 - Denver LoDo]] on 2026-06-14 (07:00-15:30).
@@ -30,13 +27,10 @@ AM shift at [[Store 06 - Denver LoDo]] on 2026-06-14 (07:00-15:30).
 
 ## Crew
 
-- [[EMP-0130 Zane Liu]] (Shift Lead)
-- [[EMP-0141 Keira Martinez]] (Server)
-- [[EMP-0132 Felix Johnson]] (Server)
-- [[EMP-0145 Kayla Silva]] (Dishwasher)
-- [[EMP-0147 Evelyn Harris]] (Prep Cook)
-- [[EMP-0127 Harper Le]] (Assistant Manager)
-- [[EMP-0135 Yuki Taylor]] (Line Cook)
-- [[EMP-0148 Paloma Walker]] (Host)
-- [[EMP-0142 Omar Chen]] (Host)
-- [[EMP-0128 Henry Hernandez]] (Head Chef)
+- [[EMP-0140 Ximena Allen]] (Line Cook)
+- [[EMP-0129 Quinn Torres]] (Shift Lead)
+- [[EMP-0142 Mason Brown]] (Dishwasher)
+- [[EMP-0137 Carlos Mensah]] (Server)
+- [[EMP-0139 Liam Perez]] (Line Cook)
+- [[EMP-0150 Grace Sanchez]] (Host)
+- [[EMP-0128 Hana Williams]] (Head Chef)

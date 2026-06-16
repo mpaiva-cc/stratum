@@ -1,11 +1,11 @@
 ---
 type: employment_event
 id: EVT-0162
-person: "[[EMP-0162 Daniela Miller]]"
+person: "[[EMP-0162 Uma Wang]]"
 kind: hire
-date: 2021-11-18
+date: 2023-12-19
 store: "[[Store 07 - Phoenix Scottsdale]]"
 basis: consent
 ---
 
-[[EMP-0162 Daniela Miller]] hired as Line Cook at [[Store 07 - Phoenix Scottsdale]] on 2021-11-18.
+[[EMP-0162 Uma Wang]] hired as Line Cook at [[Store 07 - Phoenix Scottsdale]] on 2023-12-19.

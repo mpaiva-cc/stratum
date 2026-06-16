@@ -74,3 +74,19 @@ field/edge is readable only under its matching purpose AND with an active, unexp
 grant; refusal reasons are `out-of-purpose|no-grant|revoked|expired`. Note: `pay_rate`
 mixes units (salaried `year` vs hourly), so cross-position pay averages are not
 meaningful — query within a single position (e.g. Server).
+
+### Role-based permission layer
+
+A second access axis beside consent/purpose, enforced in the engine and AND-combined:
+- `ff-roles.js` — five viewer personas (CHRO / HRBP / manager / IC / peer): each a
+  population rule + allowed scopes. Anchors are concrete fixture people (configurable).
+- `ff-engine.js` — `runSpec(spec, db, purpose, role)` (role optional → no role-gate, so
+  prior behavior/tests are unchanged). The role-gate is row-level (population, computed
+  from `reports_to` / `works_at` / store-region edges) + field-level (allowed scopes).
+  `readField` + `nodeReadable` are the canonical enforcement predicates (role authority,
+  then consent); the older `canRead*` predicates are consent-only and not on the
+  enforcement path. The refusal trace carries a `layer`: `access`
+  (`out-of-population`, `role-restricted`) vs `consent`
+  (`out-of-purpose|no-grant|revoked|expired`). When both block a field, access wins.
+- UI: a "Viewing as" selector + a permission panel showing, per role, who and what is
+  visible (live population counts); the governance trace is grouped by layer.

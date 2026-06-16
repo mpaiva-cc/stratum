@@ -5,6 +5,7 @@ const assert = require('node:assert');
 const fs = require('node:fs');
 const path = require('node:path');
 const FF = require('./ff-engine.js');
+const FR = require('./ff-roles.js');
 
 const graph = JSON.parse(
   fs.readFileSync(path.join(__dirname, 'forkandflame.graph.json'), 'utf8'));
@@ -202,4 +203,93 @@ test('C2: hop.filters on a gated prop are gated (no traverse oracle)', () => {
     require: ['staff'], select: ['title'] }, db, 'scheduling');
   assert.strictEqual(r.rows.length, 0, 'no store yields pay-filtered staff under scheduling');
   assert.ok(r.trace.some(t => t.reason === 'out-of-purpose'));
+});
+
+test('computePopulation: all -> {all:true}; self -> single; store/subtree/region sized', () => {
+  assert.strictEqual(FF.computePopulation({ population: { type: 'all' } }, db).all, true);
+  assert.strictEqual(FF.computePopulation(null, db).all, true);
+  const self = FF.computePopulation({ population: { type: 'self', value: 'EMP-0002' } }, db);
+  assert.deepStrictEqual([...self.set], [db.idToTitle['EMP-0002']]);
+  const store = FF.computePopulation({ population: { type: 'store', value: 'Store 01 - Austin Domain' } }, db);
+  assert.strictEqual(store.set.size, 25);
+  const sub = FF.computePopulation({ population: { type: 'subtree', value: 'EMP-0001' } }, db);
+  assert.ok(sub.set.has(db.idToTitle['EMP-0001']) && sub.set.size >= 2 && sub.set.size <= 30);
+  const region = FF.computePopulation({ population: { type: 'region', value: 'West Region' } }, db);
+  assert.strictEqual(region.set.size, 125);
+});
+
+test('roleAllowsScope: null role allows all; empty scopes allows none', () => {
+  assert.strictEqual(FF.roleAllowsScope(null, 'hr.payroll'), true);
+  assert.strictEqual(FF.roleAllowsScope({ scopes: [] }, 'hr.payroll'), false);
+  assert.strictEqual(FF.roleAllowsScope({ scopes: ['hr.payroll'] }, 'hr.payroll'), true);
+  assert.strictEqual(FF.roleAllowsScope({ scopes: ['hr.scheduling'] }, 'hr.payroll'), false);
+});
+
+test('ROLE population: manager sees only their subtree as person anchors', () => {
+  const sub = FF.computePopulation(FR.ROLES.manager, db);
+  const r = FF.runSpec({ from: 'person', select: ['title'] }, db, 'employment', FR.ROLES.manager);
+  assert.strictEqual(r.rows.length, sub.set.size, 'rows == subtree size');
+  assert.ok(r.trace.some(t => t.layer === 'access' && t.reason === 'out-of-population'));
+  assert.ok(r.rows.every(x => sub.set.has(x.title)), 'all returned rows are within the subtree');
+});
+
+test('ROLE class: manager cannot read pay even under payroll + consent (role-restricted)', () => {
+  const r = FF.runSpec({ from: 'person', select: ['title', 'pay_rate'] }, db, 'payroll', FR.ROLES.manager);
+  assert.ok(r.rows.length > 0 && r.rows.every(x => x.pay_rate === null), 'all pay redacted');
+  assert.ok(r.trace.some(t => t.layer === 'access' && t.reason === 'role-restricted' && t.field === 'pay_rate'));
+});
+
+test('ROLE peer: directory visible for store coworkers, sensitive role-restricted', () => {
+  const store01 = (db.rev['works_at']['Store 01 - Austin Domain'] || []).length;
+  const dir = FF.runSpec({ from: 'person', select: ['title', 'position'] }, db, 'scheduling', FR.ROLES.peer);
+  assert.strictEqual(dir.rows.length, store01, 'store coworkers visible');
+  assert.ok(dir.rows.every(x => x.position), 'directory field shown');
+  const pay = FF.runSpec({ from: 'person', select: ['title', 'pay_rate'] }, db, 'payroll', FR.ROLES.peer);
+  assert.ok(pay.rows.every(x => x.pay_rate === null) &&
+            pay.trace.some(t => t.layer === 'access' && t.reason === 'role-restricted'));
+});
+
+test('ROLE ic: sees only self', () => {
+  const icTitle = db.idToTitle['EMP-0002'];
+  const r = FF.runSpec({ from: 'person', select: ['title'] }, db, 'employment', FR.ROLES.ic);
+  assert.deepStrictEqual(r.rows.map(x => x.title), [icTitle]);
+});
+
+test('AND with consent: CHRO (all authority) still blocked by consent purpose mismatch', () => {
+  const r = FF.runSpec({ from: 'person', select: ['title', 'pay_rate'] }, db, 'scheduling', FR.ROLES.chro);
+  assert.ok(r.rows.every(x => x.pay_rate === null), 'pay redacted under scheduling');
+  assert.ok(r.trace.some(t => t.layer === 'consent' && t.reason === 'out-of-purpose'));
+});
+
+test('backward-compat: omitting role reproduces prior behavior', () => {
+  const r = FF.runSpec({ from: 'person', select: ['title', 'pay_rate'] }, db, 'payroll');
+  assert.ok(r.rows.length >= 400, 'all people visible without a role');
+  assert.ok(r.trace.every(t => t.layer === 'consent'), 'no access-layer refusals without a role');
+});
+
+test('NO BYPASS (role): peer reaches 0 employment_events via a store anchor', () => {
+  const r = FF.runSpec({ from: 'store',
+    traverse: [{ to: 'employment_event', on: 'store', direction: 'in', as: 'ev' }],
+    select: ['title'] }, db, 'employment', FR.ROLES.peer);
+  const reached = r.rows.reduce((a, x) => a + ((x.ev && x.ev.length) || 0), 0);
+  assert.strictEqual(reached, 0, 'peer (no employment scope) reaches no events through a store');
+  assert.ok(r.trace.some(t => t.layer === 'access' && t.reason === 'role-restricted'));
+});
+
+test('NO BYPASS (consent): employment_event via store anchor stays consent-gated under wrong purpose', () => {
+  const r = FF.runSpec({ from: 'store',
+    traverse: [{ to: 'employment_event', on: 'store', direction: 'in', as: 'ev' }],
+    select: ['title'] }, db, 'scheduling');   // no role; wrong purpose for employment data
+  const reached = r.rows.reduce((a, x) => a + ((x.ev && x.ev.length) || 0), 0);
+  assert.strictEqual(reached, 0, 'no role: events still out-of-purpose under scheduling');
+  assert.ok(r.trace.some(t => t.reason === 'out-of-purpose'));
+});
+
+test('traverse to gated record still works for authorized viewer', () => {
+  // chro under employment purpose: events reachable from a store (subject consents to hr.employment)
+  const r = FF.runSpec({ from: 'store',
+    traverse: [{ to: 'employment_event', on: 'store', direction: 'in', as: 'ev' }],
+    select: ['title'] }, db, 'employment', FR.ROLES.chro);
+  const reached = r.rows.reduce((a, x) => a + ((x.ev && x.ev.length) || 0), 0);
+  assert.ok(reached > 0, 'CHRO under employment can reach events');
 });

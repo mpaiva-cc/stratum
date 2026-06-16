@@ -1,11 +1,11 @@
 ---
 type: employment_event
 id: EVT-0135
-person: "[[EMP-0135 Yuki Taylor]]"
+person: "[[EMP-0135 Aaron Silva]]"
 kind: hire
-date: 2023-09-27
+date: 2025-02-09
 store: "[[Store 06 - Denver LoDo]]"
 basis: consent
 ---
 
-[[EMP-0135 Yuki Taylor]] hired as Line Cook at [[Store 06 - Denver LoDo]] on 2023-09-27.
+[[EMP-0135 Aaron Silva]] hired as Server at [[Store 06 - Denver LoDo]] on 2025-02-09.

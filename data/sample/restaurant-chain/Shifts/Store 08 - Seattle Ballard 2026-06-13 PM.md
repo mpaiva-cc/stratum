@@ -7,15 +7,16 @@ date: 2026-06-13
 daypart: PM
 start: "15:00"
 end: "23:30"
-crew_size: 6
+crew_size: 7
 basis: authorization
 crew:
-  - "[[EMP-0178 Maria Romano]]"
-  - "[[EMP-0198 Aiden Patel]]"
-  - "[[EMP-0177 Anaya Perez]]"
-  - "[[EMP-0184 Jaden Shah]]"
-  - "[[EMP-0199 Elena Ali]]"
-  - "[[EMP-0194 Santiago Anderson]]"
+  - "[[EMP-0189 Min Anderson]]"
+  - "[[EMP-0194 Layla Johnson]]"
+  - "[[EMP-0179 Ximena Harris]]"
+  - "[[EMP-0182 Min Wright]]"
+  - "[[EMP-0198 Quinn Shah]]"
+  - "[[EMP-0178 Abigail Mensah]]"
+  - "[[EMP-0183 Nadia Chen]]"
 ---
 
 PM shift at [[Store 08 - Seattle Ballard]] on 2026-06-13 (15:00-23:30).
@@ -26,9 +27,10 @@ PM shift at [[Store 08 - Seattle Ballard]] on 2026-06-13 (15:00-23:30).
 
 ## Crew
 
-- [[EMP-0178 Maria Romano]] (Head Chef)
-- [[EMP-0198 Aiden Patel]] (Busser)
-- [[EMP-0177 Anaya Perez]] (Assistant Manager)
-- [[EMP-0184 Jaden Shah]] (Line Cook)
-- [[EMP-0199 Elena Ali]] (Dishwasher)
-- [[EMP-0194 Santiago Anderson]] (Busser)
+- [[EMP-0189 Min Anderson]] (Server)
+- [[EMP-0194 Layla Johnson]] (Host)
+- [[EMP-0179 Ximena Harris]] (Shift Lead)
+- [[EMP-0182 Min Wright]] (Server)
+- [[EMP-0198 Quinn Shah]] (Dishwasher)
+- [[EMP-0178 Abigail Mensah]] (Head Chef)
+- [[EMP-0183 Nadia Chen]] (Server)

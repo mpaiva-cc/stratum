@@ -7,18 +7,16 @@ date: 2026-06-08
 daypart: PM
 start: "15:00"
 end: "23:30"
-crew_size: 9
+crew_size: 7
 basis: authorization
 crew:
-  - "[[EMP-0069 Bella Allen]]"
-  - "[[EMP-0067 Ximena Wilson]]"
-  - "[[EMP-0065 Ella Liu]]"
-  - "[[EMP-0058 Caleb Brown]]"
-  - "[[EMP-0063 Keira Garcia]]"
-  - "[[EMP-0068 Mason Taylor]]"
-  - "[[EMP-0064 Camila Young]]"
-  - "[[EMP-0053 Noah Miller]]"
-  - "[[EMP-0074 Paloma Sanchez]]"
+  - "[[EMP-0066 Jaden Martinez]]"
+  - "[[EMP-0062 Aria Liu]]"
+  - "[[EMP-0057 Leo Johnson]]"
+  - "[[EMP-0055 Liam Khan]]"
+  - "[[EMP-0051 Fatima Costa]]"
+  - "[[EMP-0054 Nadia Costa]]"
+  - "[[EMP-0061 Amelia Wilson]]"
 ---
 
 PM shift at [[Store 03 - Dallas Knox]] on 2026-06-08 (15:00-23:30).
@@ -29,12 +27,10 @@ PM shift at [[Store 03 - Dallas Knox]] on 2026-06-08 (15:00-23:30).
 
 ## Crew
 
-- [[EMP-0069 Bella Allen]] (Busser)
-- [[EMP-0067 Ximena Wilson]] (Line Cook)
-- [[EMP-0065 Ella Liu]] (Server)
-- [[EMP-0058 Caleb Brown]] (Line Cook)
-- [[EMP-0063 Keira Garcia]] (Server)
-- [[EMP-0068 Mason Taylor]] (Server)
-- [[EMP-0064 Camila Young]] (Line Cook)
-- [[EMP-0053 Noah Miller]] (Head Chef)
-- [[EMP-0074 Paloma Sanchez]] (Busser)
+- [[EMP-0066 Jaden Martinez]] (Busser)
+- [[EMP-0062 Aria Liu]] (Server)
+- [[EMP-0057 Leo Johnson]] (Line Cook)
+- [[EMP-0055 Liam Khan]] (Shift Lead)
+- [[EMP-0051 Fatima Costa]] (General Manager)
+- [[EMP-0054 Nadia Costa]] (Shift Lead)
+- [[EMP-0061 Amelia Wilson]] (Bartender)

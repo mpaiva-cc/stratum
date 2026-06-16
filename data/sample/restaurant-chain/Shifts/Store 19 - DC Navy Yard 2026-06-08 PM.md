@@ -7,16 +7,17 @@ date: 2026-06-08
 daypart: PM
 start: "15:00"
 end: "23:30"
-crew_size: 7
+crew_size: 8
 basis: authorization
 crew:
-  - "[[EMP-0472 Zayd Allen]]"
-  - "[[EMP-0466 Diego Smith]]"
-  - "[[EMP-0461 Liam Thomas]]"
-  - "[[EMP-0473 Bella Abara]]"
-  - "[[EMP-0454 Isabella Abara]]"
-  - "[[EMP-0456 Hassan Ahmed]]"
-  - "[[EMP-0474 Victor Nguyen]]"
+  - "[[EMP-0458 Imani Patel]]"
+  - "[[EMP-0469 Wei Hernandez]]"
+  - "[[EMP-0470 Gabriela Russo]]"
+  - "[[EMP-0471 Daniela Thomas]]"
+  - "[[EMP-0467 Andres Perez]]"
+  - "[[EMP-0455 Jose Anderson]]"
+  - "[[EMP-0465 Wei Romano]]"
+  - "[[EMP-0453 Samir King]]"
 ---
 
 PM shift at [[Store 19 - DC Navy Yard]] on 2026-06-08 (15:00-23:30).
@@ -27,10 +28,11 @@ PM shift at [[Store 19 - DC Navy Yard]] on 2026-06-08 (15:00-23:30).
 
 ## Crew
 
-- [[EMP-0472 Zayd Allen]] (Dishwasher)
-- [[EMP-0466 Diego Smith]] (Busser)
-- [[EMP-0461 Liam Thomas]] (Bartender)
-- [[EMP-0473 Bella Abara]] (Busser)
-- [[EMP-0454 Isabella Abara]] (Shift Lead)
-- [[EMP-0456 Hassan Ahmed]] (Bartender)
-- [[EMP-0474 Victor Nguyen]] (Dishwasher)
+- [[EMP-0458 Imani Patel]] (Line Cook)
+- [[EMP-0469 Wei Hernandez]] (Dishwasher)
+- [[EMP-0470 Gabriela Russo]] (Host)
+- [[EMP-0471 Daniela Thomas]] (Dishwasher)
+- [[EMP-0467 Andres Perez]] (Line Cook)
+- [[EMP-0455 Jose Anderson]] (Shift Lead)
+- [[EMP-0465 Wei Romano]] (Line Cook)
+- [[EMP-0453 Samir King]] (Head Chef)

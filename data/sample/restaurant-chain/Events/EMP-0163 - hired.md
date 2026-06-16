@@ -1,11 +1,11 @@
 ---
 type: employment_event
 id: EVT-0163
-person: "[[EMP-0163 Caleb Hernandez]]"
+person: "[[EMP-0163 Amelia Lewis]]"
 kind: hire
-date: 2023-01-31
+date: 2025-02-15
 store: "[[Store 07 - Phoenix Scottsdale]]"
 basis: consent
 ---
 
-[[EMP-0163 Caleb Hernandez]] hired as Expo at [[Store 07 - Phoenix Scottsdale]] on 2023-01-31.
+[[EMP-0163 Amelia Lewis]] hired as Server at [[Store 07 - Phoenix Scottsdale]] on 2025-02-15.

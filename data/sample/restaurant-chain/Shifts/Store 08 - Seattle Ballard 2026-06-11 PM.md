@@ -7,17 +7,19 @@ date: 2026-06-11
 daypart: PM
 start: "15:00"
 end: "23:30"
-crew_size: 8
+crew_size: 10
 basis: authorization
 crew:
-  - "[[EMP-0194 Santiago Anderson]]"
-  - "[[EMP-0199 Elena Ali]]"
-  - "[[EMP-0200 Omar Ali]]"
-  - "[[EMP-0177 Anaya Perez]]"
-  - "[[EMP-0188 Connor Martinez]]"
-  - "[[EMP-0195 Rohan Pham]]"
-  - "[[EMP-0185 Jaden Thomas]]"
-  - "[[EMP-0178 Maria Romano]]"
+  - "[[EMP-0200 Liam Perez]]"
+  - "[[EMP-0196 Sofia Okafor]]"
+  - "[[EMP-0195 Elijah Johnson]]"
+  - "[[EMP-0191 Layla Pham]]"
+  - "[[EMP-0185 Caleb Allen]]"
+  - "[[EMP-0199 Logan Wright]]"
+  - "[[EMP-0193 Noah Jones]]"
+  - "[[EMP-0176 Aria Clark]]"
+  - "[[EMP-0180 Victor Williams]]"
+  - "[[EMP-0186 Ella Nguyen]]"
 ---
 
 PM shift at [[Store 08 - Seattle Ballard]] on 2026-06-11 (15:00-23:30).
@@ -28,11 +30,13 @@ PM shift at [[Store 08 - Seattle Ballard]] on 2026-06-11 (15:00-23:30).
 
 ## Crew
 
-- [[EMP-0194 Santiago Anderson]] (Busser)
-- [[EMP-0199 Elena Ali]] (Dishwasher)
-- [[EMP-0200 Omar Ali]] (Busser)
-- [[EMP-0177 Anaya Perez]] (Assistant Manager)
-- [[EMP-0188 Connor Martinez]] (Expo)
-- [[EMP-0195 Rohan Pham]] (Busser)
-- [[EMP-0185 Jaden Thomas]] (Server)
-- [[EMP-0178 Maria Romano]] (Head Chef)
+- [[EMP-0200 Liam Perez]] (Dishwasher)
+- [[EMP-0196 Sofia Okafor]] (Host)
+- [[EMP-0195 Elijah Johnson]] (Prep Cook)
+- [[EMP-0191 Layla Pham]] (Bartender)
+- [[EMP-0185 Caleb Allen]] (Server)
+- [[EMP-0199 Logan Wright]] (Host)
+- [[EMP-0193 Noah Jones]] (Prep Cook)
+- [[EMP-0176 Aria Clark]] (General Manager)
+- [[EMP-0180 Victor Williams]] (Shift Lead)
+- [[EMP-0186 Ella Nguyen]] (Server)

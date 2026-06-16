@@ -1,11 +1,11 @@
 ---
 type: employment_event
 id: EVT-0233
-person: "[[EMP-0233 Elijah Abara]]"
+person: "[[EMP-0233 Paloma Wright]]"
 kind: hire
-date: 2023-05-06
+date: 2024-06-28
 store: "[[Store 10 - San Diego Gaslamp]]"
 basis: consent
 ---
 
-[[EMP-0233 Elijah Abara]] hired as Line Cook at [[Store 10 - San Diego Gaslamp]] on 2023-05-06.
+[[EMP-0233 Paloma Wright]] hired as Server at [[Store 10 - San Diego Gaslamp]] on 2024-06-28.

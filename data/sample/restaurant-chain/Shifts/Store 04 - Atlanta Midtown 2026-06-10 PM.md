@@ -7,19 +7,16 @@ date: 2026-06-10
 daypart: PM
 start: "15:00"
 end: "23:30"
-crew_size: 10
+crew_size: 7
 basis: authorization
 crew:
-  - "[[EMP-0090 Samir Martinez]]"
-  - "[[EMP-0085 Rohan Wilson]]"
-  - "[[EMP-0092 Isabella Mensah]]"
-  - "[[EMP-0100 Felix Ahmed]]"
-  - "[[EMP-0097 Caleb Moore]]"
-  - "[[EMP-0096 Evelyn Harris]]"
-  - "[[EMP-0083 Isabella Okafor]]"
-  - "[[EMP-0099 Lucas Patel]]"
-  - "[[EMP-0086 Mateo Costa]]"
-  - "[[EMP-0081 Paloma White]]"
+  - "[[EMP-0098 Destiny Liu]]"
+  - "[[EMP-0097 Jin Jackson]]"
+  - "[[EMP-0092 Abigail Johnson]]"
+  - "[[EMP-0090 Elijah Tran]]"
+  - "[[EMP-0081 Ella Smith]]"
+  - "[[EMP-0076 Noah Wilson]]"
+  - "[[EMP-0095 Ethan Scott]]"
 ---
 
 PM shift at [[Store 04 - Atlanta Midtown]] on 2026-06-10 (15:00-23:30).
@@ -30,13 +27,10 @@ PM shift at [[Store 04 - Atlanta Midtown]] on 2026-06-10 (15:00-23:30).
 
 ## Crew
 
-- [[EMP-0090 Samir Martinez]] (Line Cook)
-- [[EMP-0085 Rohan Wilson]] (Bartender)
-- [[EMP-0092 Isabella Mensah]] (Server)
-- [[EMP-0100 Felix Ahmed]] (Prep Cook)
-- [[EMP-0097 Caleb Moore]] (Expo)
-- [[EMP-0096 Evelyn Harris]] (Server)
-- [[EMP-0083 Isabella Okafor]] (Server)
-- [[EMP-0099 Lucas Patel]] (Busser)
-- [[EMP-0086 Mateo Costa]] (Line Cook)
-- [[EMP-0081 Paloma White]] (Server)
+- [[EMP-0098 Destiny Liu]] (Dishwasher)
+- [[EMP-0097 Jin Jackson]] (Dishwasher)
+- [[EMP-0092 Abigail Johnson]] (Bartender)
+- [[EMP-0090 Elijah Tran]] (Line Cook)
+- [[EMP-0081 Ella Smith]] (Server)
+- [[EMP-0076 Noah Wilson]] (General Manager)
+- [[EMP-0095 Ethan Scott]] (Server)

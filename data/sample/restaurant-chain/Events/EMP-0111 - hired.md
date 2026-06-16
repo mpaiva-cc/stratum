@@ -1,11 +1,11 @@
 ---
 type: employment_event
 id: EVT-0111
-person: "[[EMP-0111 Zayd Rossi]]"
+person: "[[EMP-0111 Destiny Costa]]"
 kind: hire
-date: 2025-01-18
+date: 2024-03-06
 store: "[[Store 05 - Nashville Gulch]]"
 basis: consent
 ---
 
-[[EMP-0111 Zayd Rossi]] hired as Line Cook at [[Store 05 - Nashville Gulch]] on 2025-01-18.
+[[EMP-0111 Destiny Costa]] hired as Expo at [[Store 05 - Nashville Gulch]] on 2024-03-06.

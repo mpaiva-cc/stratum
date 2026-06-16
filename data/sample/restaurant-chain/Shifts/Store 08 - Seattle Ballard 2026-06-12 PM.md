@@ -10,13 +10,13 @@ end: "23:30"
 crew_size: 7
 basis: authorization
 crew:
-  - "[[EMP-0188 Connor Martinez]]"
-  - "[[EMP-0182 Liam Liu]]"
-  - "[[EMP-0200 Omar Ali]]"
-  - "[[EMP-0186 Anaya Bianchi]]"
-  - "[[EMP-0197 Wanda Taylor]]"
-  - "[[EMP-0181 Wei Lopez]]"
-  - "[[EMP-0178 Maria Romano]]"
+  - "[[EMP-0183 Nadia Chen]]"
+  - "[[EMP-0186 Ella Nguyen]]"
+  - "[[EMP-0185 Caleb Allen]]"
+  - "[[EMP-0182 Min Wright]]"
+  - "[[EMP-0199 Logan Wright]]"
+  - "[[EMP-0200 Liam Perez]]"
+  - "[[EMP-0176 Aria Clark]]"
 ---
 
 PM shift at [[Store 08 - Seattle Ballard]] on 2026-06-12 (15:00-23:30).
@@ -27,10 +27,10 @@ PM shift at [[Store 08 - Seattle Ballard]] on 2026-06-12 (15:00-23:30).
 
 ## Crew
 
-- [[EMP-0188 Connor Martinez]] (Expo)
-- [[EMP-0182 Liam Liu]] (Server)
-- [[EMP-0200 Omar Ali]] (Busser)
-- [[EMP-0186 Anaya Bianchi]] (Line Cook)
-- [[EMP-0197 Wanda Taylor]] (Host)
-- [[EMP-0181 Wei Lopez]] (Line Cook)
-- [[EMP-0178 Maria Romano]] (Head Chef)
+- [[EMP-0183 Nadia Chen]] (Server)
+- [[EMP-0186 Ella Nguyen]] (Server)
+- [[EMP-0185 Caleb Allen]] (Server)
+- [[EMP-0182 Min Wright]] (Server)
+- [[EMP-0199 Logan Wright]] (Host)
+- [[EMP-0200 Liam Perez]] (Dishwasher)
+- [[EMP-0176 Aria Clark]] (General Manager)

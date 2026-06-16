@@ -7,18 +7,17 @@ date: 2026-06-14
 daypart: AM
 start: "07:00"
 end: "15:30"
-crew_size: 9
+crew_size: 8
 basis: authorization
 crew:
-  - "[[EMP-0063 Keira Garcia]]"
-  - "[[EMP-0058 Caleb Brown]]"
-  - "[[EMP-0065 Ella Liu]]"
-  - "[[EMP-0061 Diego Jackson]]"
-  - "[[EMP-0051 Rosa Abara]]"
-  - "[[EMP-0075 Connor Perez]]"
-  - "[[EMP-0068 Mason Taylor]]"
-  - "[[EMP-0060 Destiny Russo]]"
-  - "[[EMP-0067 Ximena Wilson]]"
+  - "[[EMP-0062 Aria Liu]]"
+  - "[[EMP-0061 Amelia Wilson]]"
+  - "[[EMP-0064 Keira Smith]]"
+  - "[[EMP-0055 Liam Khan]]"
+  - "[[EMP-0054 Nadia Costa]]"
+  - "[[EMP-0075 Ella Romano]]"
+  - "[[EMP-0051 Fatima Costa]]"
+  - "[[EMP-0074 Tariq Bianchi]]"
 ---
 
 AM shift at [[Store 03 - Dallas Knox]] on 2026-06-14 (07:00-15:30).
@@ -29,12 +28,11 @@ AM shift at [[Store 03 - Dallas Knox]] on 2026-06-14 (07:00-15:30).
 
 ## Crew
 
-- [[EMP-0063 Keira Garcia]] (Server)
-- [[EMP-0058 Caleb Brown]] (Line Cook)
-- [[EMP-0065 Ella Liu]] (Server)
-- [[EMP-0061 Diego Jackson]] (Expo)
-- [[EMP-0051 Rosa Abara]] (General Manager)
-- [[EMP-0075 Connor Perez]] (Busser)
-- [[EMP-0068 Mason Taylor]] (Server)
-- [[EMP-0060 Destiny Russo]] (Line Cook)
-- [[EMP-0067 Ximena Wilson]] (Line Cook)
+- [[EMP-0062 Aria Liu]] (Server)
+- [[EMP-0061 Amelia Wilson]] (Bartender)
+- [[EMP-0064 Keira Smith]] (Server)
+- [[EMP-0055 Liam Khan]] (Shift Lead)
+- [[EMP-0054 Nadia Costa]] (Shift Lead)
+- [[EMP-0075 Ella Romano]] (Prep Cook)
+- [[EMP-0051 Fatima Costa]] (General Manager)
+- [[EMP-0074 Tariq Bianchi]] (Host)

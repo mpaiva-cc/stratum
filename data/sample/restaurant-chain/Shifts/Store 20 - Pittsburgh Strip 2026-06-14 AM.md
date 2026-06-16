@@ -7,16 +7,18 @@ date: 2026-06-14
 daypart: AM
 start: "07:00"
 end: "15:30"
-crew_size: 7
+crew_size: 9
 basis: authorization
 crew:
-  - "[[EMP-0496 Yara Ali]]"
-  - "[[EMP-0493 Yara Wang]]"
-  - "[[EMP-0486 Wei Jackson]]"
-  - "[[EMP-0481 Min Chen]]"
-  - "[[EMP-0489 Zane Clark]]"
-  - "[[EMP-0488 Rosa Lopez]]"
-  - "[[EMP-0499 Harper Khan]]"
+  - "[[EMP-0487 Tariq Scott]]"
+  - "[[EMP-0483 Jaden Torres]]"
+  - "[[EMP-0482 Arjun Lewis]]"
+  - "[[EMP-0484 Zane Taylor]]"
+  - "[[EMP-0497 Evelyn Jones]]"
+  - "[[EMP-0479 Hassan Gonzalez]]"
+  - "[[EMP-0490 Rosa Taylor]]"
+  - "[[EMP-0485 Valentina Wang]]"
+  - "[[EMP-0499 Jose Tran]]"
 ---
 
 AM shift at [[Store 20 - Pittsburgh Strip]] on 2026-06-14 (07:00-15:30).
@@ -27,10 +29,12 @@ AM shift at [[Store 20 - Pittsburgh Strip]] on 2026-06-14 (07:00-15:30).
 
 ## Crew
 
-- [[EMP-0496 Yara Ali]] (Busser)
-- [[EMP-0493 Yara Wang]] (Busser)
-- [[EMP-0486 Wei Jackson]] (Server)
-- [[EMP-0481 Min Chen]] (Bartender)
-- [[EMP-0489 Zane Clark]] (Server)
-- [[EMP-0488 Rosa Lopez]] (Line Cook)
-- [[EMP-0499 Harper Khan]] (Dishwasher)
+- [[EMP-0487 Tariq Scott]] (Server)
+- [[EMP-0483 Jaden Torres]] (Line Cook)
+- [[EMP-0482 Arjun Lewis]] (Server)
+- [[EMP-0484 Zane Taylor]] (Line Cook)
+- [[EMP-0497 Evelyn Jones]] (Busser)
+- [[EMP-0479 Hassan Gonzalez]] (Shift Lead)
+- [[EMP-0490 Rosa Taylor]] (Server)
+- [[EMP-0485 Valentina Wang]] (Expo)
+- [[EMP-0499 Jose Tran]] (Dishwasher)

@@ -7,19 +7,16 @@ date: 2026-06-10
 daypart: PM
 start: "15:00"
 end: "23:30"
-crew_size: 10
+crew_size: 7
 basis: authorization
 crew:
-  - "[[EMP-0030 Santiago Ramirez]]"
-  - "[[EMP-0037 Bella Brown]]"
-  - "[[EMP-0027 Anaya Romano]]"
-  - "[[EMP-0034 Elijah Diallo]]"
-  - "[[EMP-0040 Keira Okafor]]"
-  - "[[EMP-0029 Aaron Pham]]"
-  - "[[EMP-0028 Quinn Garcia]]"
-  - "[[EMP-0038 Tariq Wilson]]"
-  - "[[EMP-0031 Omar Shah]]"
-  - "[[EMP-0046 Mason Patel]]"
+  - "[[EMP-0040 Jaden Patel]]"
+  - "[[EMP-0030 Kayla Liu]]"
+  - "[[EMP-0033 Ximena Torres]]"
+  - "[[EMP-0027 Santiago Santos]]"
+  - "[[EMP-0044 Henry Rossi]]"
+  - "[[EMP-0036 Aaron Kim]]"
+  - "[[EMP-0049 Elena Harris]]"
 ---
 
 PM shift at [[Store 02 - Houston Heights]] on 2026-06-10 (15:00-23:30).
@@ -30,13 +27,10 @@ PM shift at [[Store 02 - Houston Heights]] on 2026-06-10 (15:00-23:30).
 
 ## Crew
 
-- [[EMP-0030 Santiago Ramirez]] (Shift Lead)
-- [[EMP-0037 Bella Brown]] (Server)
-- [[EMP-0027 Anaya Romano]] (Assistant Manager)
-- [[EMP-0034 Elijah Diallo]] (Line Cook)
-- [[EMP-0040 Keira Okafor]] (Bartender)
-- [[EMP-0029 Aaron Pham]] (Shift Lead)
-- [[EMP-0028 Quinn Garcia]] (Head Chef)
-- [[EMP-0038 Tariq Wilson]] (Server)
-- [[EMP-0031 Omar Shah]] (Line Cook)
-- [[EMP-0046 Mason Patel]] (Server)
+- [[EMP-0040 Jaden Patel]] (Busser)
+- [[EMP-0030 Kayla Liu]] (Shift Lead)
+- [[EMP-0033 Ximena Torres]] (Server)
+- [[EMP-0027 Santiago Santos]] (Assistant Manager)
+- [[EMP-0044 Henry Rossi]] (Prep Cook)
+- [[EMP-0036 Aaron Kim]] (Line Cook)
+- [[EMP-0049 Elena Harris]] (Host)

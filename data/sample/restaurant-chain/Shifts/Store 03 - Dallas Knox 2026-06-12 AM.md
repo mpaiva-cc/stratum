@@ -10,15 +10,15 @@ end: "15:30"
 crew_size: 9
 basis: authorization
 crew:
-  - "[[EMP-0075 Connor Perez]]"
-  - "[[EMP-0064 Camila Young]]"
-  - "[[EMP-0058 Caleb Brown]]"
-  - "[[EMP-0051 Rosa Abara]]"
-  - "[[EMP-0061 Diego Jackson]]"
-  - "[[EMP-0071 Brianna Walker]]"
-  - "[[EMP-0072 Henry White]]"
-  - "[[EMP-0074 Paloma Sanchez]]"
-  - "[[EMP-0052 Paloma King]]"
+  - "[[EMP-0062 Aria Liu]]"
+  - "[[EMP-0073 Jaden Jackson]]"
+  - "[[EMP-0056 Hassan Lopez]]"
+  - "[[EMP-0075 Ella Romano]]"
+  - "[[EMP-0064 Keira Smith]]"
+  - "[[EMP-0055 Liam Khan]]"
+  - "[[EMP-0068 Maria Walker]]"
+  - "[[EMP-0052 Layla Costa]]"
+  - "[[EMP-0070 Amelia Davis]]"
 ---
 
 AM shift at [[Store 03 - Dallas Knox]] on 2026-06-12 (07:00-15:30).
@@ -29,12 +29,12 @@ AM shift at [[Store 03 - Dallas Knox]] on 2026-06-12 (07:00-15:30).
 
 ## Crew
 
-- [[EMP-0075 Connor Perez]] (Busser)
-- [[EMP-0064 Camila Young]] (Line Cook)
-- [[EMP-0058 Caleb Brown]] (Line Cook)
-- [[EMP-0051 Rosa Abara]] (General Manager)
-- [[EMP-0061 Diego Jackson]] (Expo)
-- [[EMP-0071 Brianna Walker]] (Prep Cook)
-- [[EMP-0072 Henry White]] (Host)
-- [[EMP-0074 Paloma Sanchez]] (Busser)
-- [[EMP-0052 Paloma King]] (Assistant Manager)
+- [[EMP-0062 Aria Liu]] (Server)
+- [[EMP-0073 Jaden Jackson]] (Dishwasher)
+- [[EMP-0056 Hassan Lopez]] (Line Cook)
+- [[EMP-0075 Ella Romano]] (Prep Cook)
+- [[EMP-0064 Keira Smith]] (Server)
+- [[EMP-0055 Liam Khan]] (Shift Lead)
+- [[EMP-0068 Maria Walker]] (Busser)
+- [[EMP-0052 Layla Costa]] (Assistant Manager)
+- [[EMP-0070 Amelia Davis]] (Dishwasher)

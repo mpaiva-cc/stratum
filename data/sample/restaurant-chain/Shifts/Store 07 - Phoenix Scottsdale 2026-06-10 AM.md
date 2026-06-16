@@ -7,18 +7,19 @@ date: 2026-06-10
 daypart: AM
 start: "07:00"
 end: "15:30"
-crew_size: 9
+crew_size: 10
 basis: authorization
 crew:
-  - "[[EMP-0171 Isabella Shah]]"
-  - "[[EMP-0161 Connor Abara]]"
-  - "[[EMP-0165 Yara Silva]]"
-  - "[[EMP-0151 Aiden Liu]]"
-  - "[[EMP-0164 Diego Brown]]"
-  - "[[EMP-0160 Imani Davis]]"
-  - "[[EMP-0162 Daniela Miller]]"
-  - "[[EMP-0166 Abigail Scott]]"
-  - "[[EMP-0157 Emily Young]]"
+  - "[[EMP-0175 Connor Mensah]]"
+  - "[[EMP-0155 Wei Walker]]"
+  - "[[EMP-0151 Santiago Ahmed]]"
+  - "[[EMP-0169 Aaron Abara]]"
+  - "[[EMP-0172 Arjun Hernandez]]"
+  - "[[EMP-0160 Nadia Rossi]]"
+  - "[[EMP-0167 Santiago Bianchi]]"
+  - "[[EMP-0152 Wei Smith]]"
+  - "[[EMP-0156 Tariq Rossi]]"
+  - "[[EMP-0153 Abigail Wang]]"
 ---
 
 AM shift at [[Store 07 - Phoenix Scottsdale]] on 2026-06-10 (07:00-15:30).
@@ -29,12 +30,13 @@ AM shift at [[Store 07 - Phoenix Scottsdale]] on 2026-06-10 (07:00-15:30).
 
 ## Crew
 
-- [[EMP-0171 Isabella Shah]] (Prep Cook)
-- [[EMP-0161 Connor Abara]] (Server)
-- [[EMP-0165 Yara Silva]] (Dishwasher)
-- [[EMP-0151 Aiden Liu]] (General Manager)
-- [[EMP-0164 Diego Brown]] (Line Cook)
-- [[EMP-0160 Imani Davis]] (Server)
-- [[EMP-0162 Daniela Miller]] (Line Cook)
-- [[EMP-0166 Abigail Scott]] (Prep Cook)
-- [[EMP-0157 Emily Young]] (Server)
+- [[EMP-0175 Connor Mensah]] (Prep Cook)
+- [[EMP-0155 Wei Walker]] (Shift Lead)
+- [[EMP-0151 Santiago Ahmed]] (General Manager)
+- [[EMP-0169 Aaron Abara]] (Server)
+- [[EMP-0172 Arjun Hernandez]] (Dishwasher)
+- [[EMP-0160 Nadia Rossi]] (Line Cook)
+- [[EMP-0167 Santiago Bianchi]] (Server)
+- [[EMP-0152 Wei Smith]] (Assistant Manager)
+- [[EMP-0156 Tariq Rossi]] (Bartender)
+- [[EMP-0153 Abigail Wang]] (Head Chef)
