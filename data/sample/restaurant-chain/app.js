@@ -228,19 +228,33 @@
     return spec;
   }
 
+  var SCOPE_TO_PURPOSE = { 'hr.scheduling': 'scheduling', 'hr.payroll': 'payroll',
+    'hr.certifications': 'compliance', 'hr.employment': 'employment' };
+
   async function narrate(question, spec, result, purpose, key) {
-    var facts = { rows: result.rows.slice(0, 80),
-                  refusals: result.trace.length,
-                  refusal_reasons: result.trace.reduce(function (a, t) {
-                    a[t.reason] = (a[t.reason] || 0) + 1; return a; }, {}) };
+    // Summarise WHICH fields were withheld and how to unlock them (distinct by field+reason).
+    var withheld = {}, seen = {};
+    result.trace.forEach(function (t) {
+      var k = (t.field || '?') + '|' + t.reason;
+      if (seen[k]) return; seen[k] = 1;
+      withheld[t.field || '?'] = { reason: t.reason, layer: t.layer,
+        unlock_purpose: (t.reason === 'out-of-purpose' && t.scope) ? SCOPE_TO_PURPOSE[t.scope] : null };
+    });
+    var facts = { rows: result.rows.slice(0, 80), refusals: result.trace.length, withheld: withheld };
     var res = await fetch('https://api.anthropic.com/v1/messages', {
       method: 'POST',
       headers: { 'content-type': 'application/json', 'x-api-key': key,
         'anthropic-version': '2023-06-01', 'anthropic-dangerous-direct-browser-access': 'true' },
       body: JSON.stringify({ model: 'claude-sonnet-4-6', max_tokens: 600,
         system: 'Answer the question in 1-3 sentences using ONLY these engine results. '
-          + 'Never invent numbers. If refusals occurred, state that some records were '
-          + 'withheld under the "' + purpose + '" purpose and why.',
+          + 'Never invent numbers. The active purpose is "' + purpose + '". '
+          + 'IMPORTANT: a null field that appears in "withheld" was BLOCKED by governance — '
+          + 'it is NOT missing or absent; never say the record "does not contain" it. '
+          + 'Explain it was withheld and why: for reason "out-of-purpose" tell the user to set '
+          + 'the Purpose selector to the field\'s unlock_purpose (e.g. switch Purpose to '
+          + '"payroll" to see pay); for "role-restricted" say their role isn\'t permitted that '
+          + 'data class; for "no-grant"/"revoked"/"expired" say the person hasn\'t granted '
+          + '(or revoked/expired) consent; for "out-of-population" say it\'s outside who they may see.',
         messages: [{ role: 'user', content: 'Q: ' + question + '\nRESULTS: ' + JSON.stringify(facts) }] })
     });
     if (!res.ok) throw new Error('narrate failed: ' + res.status);
