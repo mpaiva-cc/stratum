@@ -81,12 +81,18 @@ A second access axis beside consent/purpose, enforced in the engine and AND-comb
 - `ff-roles.js` — five viewer personas (CHRO / HRBP / manager / IC / peer): each a
   population rule + allowed scopes. Anchors are concrete fixture people (configurable).
 - `ff-engine.js` — `runSpec(spec, db, purpose, role)` (role optional → no role-gate, so
-  prior behavior/tests are unchanged). The role-gate is row-level (population, computed
-  from `reports_to` / `works_at` / store-region edges) + field-level (allowed scopes).
-  `readField` + `nodeReadable` are the canonical enforcement predicates (role authority,
-  then consent); the older `canRead*` predicates are consent-only and not on the
+  prior behavior/tests are unchanged). **The directory layer is company-wide** (every
+  person is visible at directory level — name, status, position, store, dept, reports_to,
+  skills — for all roles, so e.g. an IC can always resolve "who do I report to"). The
+  role-gate applies only to SENSITIVE data: a field/record/edge in one of the four
+  consent scopes is readable only if `scope ∈ role.scopes` (class authority) AND its
+  subject is in the role's `population` (computed from `reports_to` / `works_at` /
+  store-region edges) AND consent allows it. Anchors are by stable employee ID.
+  `readField` (role authority → population → consent) + `nodeReadable` are the canonical
+  enforcement predicates; the older `canRead*` predicates are consent-only and not on the
   enforcement path. The refusal trace carries a `layer`: `access`
   (`out-of-population`, `role-restricted`) vs `consent`
-  (`out-of-purpose|no-grant|revoked|expired`). When both block a field, access wins.
-- UI: a "Viewing as" selector + a permission panel showing, per role, who and what is
-  visible (live population counts); the governance trace is grouped by layer.
+  (`out-of-purpose|no-grant|revoked|expired`). When both block, access wins.
+- UI: a "Viewing as" selector + a permission panel showing, per role, that directory is
+  visible for everyone and which sensitive classes are visible for which population (live
+  counts); the governance trace is grouped by layer.
