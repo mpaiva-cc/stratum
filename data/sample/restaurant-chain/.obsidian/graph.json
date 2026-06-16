@@ -1,0 +1,18 @@
+{
+  "collapse-filter": true,
+  "search": "",
+  "showTags": false,
+  "showAttachments": false,
+  "colorGroups": [
+    {"query": "path:People", "color": {"a": 1, "rgb": 5431378}},
+    {"query": "path:Stores or path:Locations", "color": {"a": 1, "rgb": 14701138}},
+    {"query": "path:Shifts or path:Schedules", "color": {"a": 1, "rgb": 16737843}},
+    {"query": "path:Positions or path:Departments", "color": {"a": 1, "rgb": 5025616}},
+    {"query": "path:Agents or path:Governance", "color": {"a": 1, "rgb": 11815561}},
+    {"query": "path:_schema", "color": {"a": 1, "rgb": 8355711}}
+  ],
+  "showOrphans": true,
+  "scale": 0.7,
+  "lineSizeMultiplier": 0.6,
+  "nodeSizeMultiplier": 0.55
+}
