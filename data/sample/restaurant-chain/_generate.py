@@ -24,6 +24,8 @@ import os
 import random
 import shutil
 import datetime
+import re
+import json
 
 SEED = 20260615
 random.seed(SEED)
@@ -64,6 +66,10 @@ def yaml_scalar(v):
         return '"' + s.replace('"', '\\"') + '"'
     return s
 
+NODES = []   # [{type,title,id,props,basis}]
+EDGES = []   # [{src,verb,dst}]
+_WIKILINK = re.compile(r"\[\[([^\]|]+)(?:\|[^\]]+)?\]\]")
+
 def note(folder, title, frontmatter, body):
     d = os.path.join(VAULT, folder) if folder else VAULT
     os.makedirs(d, exist_ok=True)
@@ -73,6 +79,24 @@ def note(folder, title, frontmatter, body):
     fm += "---\n\n"
     with open(os.path.join(d, slug(title) + ".md"), "w") as f:
         f.write(fm + body.rstrip() + "\n")
+    # --- fixture capture: record the node and its frontmatter-link edges
+    props = {}
+    for k, v in frontmatter.items():
+        if isinstance(v, str):
+            m = _WIKILINK.findall(v)
+            for dst in m:
+                EDGES.append({"src": title, "verb": k, "dst": dst})
+            props[k] = m if len(m) > 1 else (m[0] if m else v)
+        elif isinstance(v, list):
+            links = [mm for item in v for mm in _WIKILINK.findall(str(item))]
+            for dst in links:
+                EDGES.append({"src": title, "verb": k, "dst": dst})
+            props[k] = links if links else v
+        else:
+            props[k] = v
+    NODES.append({"type": frontmatter.get("type", "unknown"), "title": title,
+                  "id": frontmatter.get("id"), "props": props,
+                  "basis": frontmatter.get("basis")})
 
 VAULT = ROOT  # the vault IS this folder
 
@@ -298,9 +322,14 @@ def d(date):
 
 emitted = {"schema": 0, "stores": 0, "people": 0, "shifts": 0, "other": 0}
 
-# wipe-and-rebuild: remove everything except this generator script
+# wipe-and-rebuild: remove generated content, but preserve the generator and the
+# hand-authored "system of understanding" app (index.html, app.js, ff-engine.js,
+# ff-engine.test.js, CLAUDE.md). The graph fixture is generated, so it is NOT
+# preserved here — it gets rebuilt every run.
+KEEP = {os.path.basename(__file__), "index.html", "app.js", "ff-engine.js",
+        "ff-engine.test.js", "ff-starters.test.js", "CLAUDE.md"}
 for name in os.listdir(VAULT):
-    if name == os.path.basename(__file__):
+    if name in KEEP:
         continue
     p = os.path.join(VAULT, name)
     shutil.rmtree(p) if os.path.isdir(p) else os.remove(p)
@@ -685,15 +714,36 @@ for ptitle, store_title, position, dept, eid, name, hire in recent[:18]:
           "task": task, "status": random.choice(["done", "done", "pending"]),
           "basis": "authorization"},
          f"Onboarding task for {link(ptitle)}: {task}.")
-# consent grants (the traversal predicate's source)
-for ptitle, store_title, position, dept, eid, name, hire in random.sample(all_people, 15):
-    scope = random.choice(["hr.employment", "hr.scheduling", "hr.payroll", "hr.certifications"])
-    note("Governance", f"{eid} - consent ({scope})",
-         {"type": "consent_grant", "id": nid("CNS"), "person": link(ptitle),
-          "scope": scope, "purpose": "store operations", "valid_to": "open",
-          "basis": "consent"},
-         f"{link(ptitle)} granted scope `{scope}` for store operations. The traversal "
-         f"predicate reads this grant.")
+# consent grants (the traversal predicate's source).
+# Every person gets a baseline grant for ALL FOUR scopes, EXCEPT a deliberate
+# minority engineered so each refusal reason is reachable by a realistic query:
+#   - declined:  no hr.payroll grant at all            -> reason "no-grant"
+#   - expired:   hr.certifications grant past valid_to  -> reason "expired"
+#   - revoked:   hr.scheduling grant status=revoked     -> reason "revoked"
+# Seeded RNG keeps this deterministic.
+SCOPES = ["hr.scheduling", "hr.payroll", "hr.certifications", "hr.employment"]
+people_pool = list(all_people)
+random.shuffle(people_pool)
+declined_payroll = set(p[4] for p in people_pool[:60])              # ~12% no payroll grant
+expired_certs    = set(p[4] for p in people_pool[60:100])           # ~8% expired cert grant
+revoked_sched    = set(p[4] for p in people_pool[100:130])          # ~6% revoked scheduling grant
+past_date = d(today - datetime.timedelta(days=45))
+
+for ptitle, store_title, position, dept, eid, name, hire in all_people:
+    for scope in SCOPES:
+        if scope == "hr.payroll" and eid in declined_payroll:
+            continue  # declined -> grant simply absent
+        status, valid_to = "active", "open"
+        if scope == "hr.certifications" and eid in expired_certs:
+            valid_to = past_date
+        if scope == "hr.scheduling" and eid in revoked_sched:
+            status = "revoked"
+        note("Governance", f"{eid} - consent ({scope})",
+             {"type": "consent_grant", "id": nid("CNS"), "person": link(ptitle),
+              "scope": scope, "purpose": "store operations", "status": status,
+              "valid_to": valid_to, "basis": "consent"},
+             f"{link(ptitle)} — scope `{scope}` · status `{status}` · valid_to `{valid_to}`. "
+             f"The traversal predicate reads this grant.")
 
 # ---------------------------------------------------------------------------
 # 4. schema notes, index, readme, obsidian config
@@ -816,3 +866,49 @@ print(f"  stores:                {len(store_titles)}")
 print(f"  employees:             {emitted['people']}")
 print(f"  shifts:                {emitted['shifts']}")
 print(f"  total .md notes:       {count_md()}")
+
+# ---------------------------------------------------------------------------
+# 6. fixture — the served graph the "system of understanding" reads
+# ---------------------------------------------------------------------------
+
+# NODES/EDGES are append-only; emit_fixture() is expected to run once per process.
+def build_grant_index():
+    idx = {}
+    for n in NODES:
+        if n["type"] != "consent_grant":
+            continue
+        person = n["props"].get("person")
+        if not person:
+            continue
+        idx.setdefault(person, []).append({
+            "scope": n["props"].get("scope"),
+            "status": n["props"].get("status", "active"),
+            "valid_to": n["props"].get("valid_to", "open"),
+        })
+    return idx
+
+def emit_fixture():
+    meta = {
+        "generated": d(today),
+        "purposes": {"scheduling": "hr.scheduling", "payroll": "hr.payroll",
+                     "compliance": "hr.certifications", "employment": "hr.employment"},
+        "gatedProps": {"pay_rate": "hr.payroll", "pay_unit": "hr.payroll"},
+        "gatedTargets": {"time_off_request": "hr.scheduling",
+                         "certification": "hr.certifications",
+                         "training_record": "hr.certifications",
+                         "performance_review": "hr.employment",
+                         "employment_event": "hr.employment"},
+        "gatedEdges": {"distributes_to": "hr.payroll"},
+    }
+    graph = {"meta": meta, "nodes": NODES, "edges": EDGES, "grants": build_grant_index()}
+    payload = json.dumps(graph, ensure_ascii=False, separators=(",", ":"))
+    with open(os.path.join(VAULT, "forkandflame.graph.json"), "w") as f:
+        f.write(payload)
+    with open(os.path.join(VAULT, "forkandflame.graph.js"), "w") as f:
+        f.write("/* generated by _generate.py — do not edit */\n")
+        f.write("var FF_GRAPH = " + payload + ";\n")
+        f.write("if (typeof module!=='undefined'&&module.exports) module.exports=FF_GRAPH;\n")
+        f.write("else window.FF_GRAPH = FF_GRAPH;\n")
+    print(f"  fixture:               {len(NODES)} nodes, {len(EDGES)} edges")
+
+emit_fixture()
