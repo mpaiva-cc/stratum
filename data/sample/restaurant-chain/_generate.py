@@ -651,6 +651,9 @@ for si, store_title in enumerate(store_titles):
         skills = random.sample(SKILL_FOR_DEPT.get(dept, ["POS Proficiency"]),
                                k=min(len(SKILL_FOR_DEPT.get(dept, ["x"])), random.randint(1, 3)))
         et = "full_time" if position in ("General Manager", "Assistant Manager", "Head Chef") or random.random() > 0.45 else "part_time"
+        bens = ["Health PPO", "401(k) Match", "Shift Meal"] if et == "full_time" else ["Shift Meal"]
+        wa_pool = ["citizen"] * 16 + ["permanent_resident"] * 2 + ["visa_h1b", "tn", "ead"]
+        work_auth = random.choice(wa_pool)
         fm = {
             "type": "person", "id": eid, "name": name, "status": status,
             "status_reason": status_reason, "status_effective_date": d(status_eff),
@@ -664,6 +667,8 @@ for si, store_title in enumerate(store_titles):
             "reports_to": link(mgr) if mgr else "",
             "certifications": [link(c) for c in certs],
             "skills": [link(s) for s in skills],
+            "benefits": bens,
+            "work_authorization": work_auth,
             "basis": "consent",
         }
         body = (f"**{position}** at {link(store_title)} · {dept} · since {d(hire)}.\n\n"
@@ -677,6 +682,8 @@ for si, store_title in enumerate(store_titles):
             body += "## Certifications\n\n" + "".join(f"- {link(c)}\n" for c in certs) + "\n"
         if skills:
             body += "## Skills\n\n" + "".join(f"- {link(s)}\n" for s in skills) + "\n"
+        body += "## Benefits\n\n" + "".join(f"- {b}\n" for b in bens) + "\n"
+        body += f"## Work authorization\n\n- {work_auth}\n\n"
         body += (f"## Lifecycle\n\n- {link(eid + ' - hired')} on {d(hire)}\n")
         note("People", ptitle, fm, body)
         all_people.append((ptitle, store_title, position, dept, eid, name, hire))
@@ -831,7 +838,22 @@ for ptitle, store_title, position, dept, eid, name, hire in recent[:18]:
 #   - expired:   hr.certifications grant past valid_to  -> reason "expired"
 #   - revoked:   hr.scheduling grant status=revoked     -> reason "revoked"
 # Seeded RNG keeps this deterministic.
-SCOPES = ["hr.scheduling", "hr.payroll", "hr.certifications", "hr.employment"]
+PURPOSES = [
+    ("scheduling", "scheduling", "hr.scheduling"),
+    ("payroll", "payroll", "hr.payroll"),
+    ("compliance", "compliance", "hr.certifications"),
+    ("employment", "employment", "hr.employment"),
+    ("performance", "performance", "hr.performance"),
+    ("learning", "learning", "hr.learning"),
+    ("benefits", "benefits", "hr.benefits"),
+    ("work_authorization", "work authorization", "hr.work_auth"),
+    ("recruiting", "recruiting", "hr.recruiting"),
+]
+# Scopes gated WITHOUT a per-employee consent grant (institutional records, e.g. candidates).
+INSTITUTIONAL_SCOPES = {"hr.recruiting"}
+# Employee consent scopes = all purpose scopes except the institutional ones. Derived
+# from PURPOSES so adding an employee purpose automatically mints its grants.
+SCOPES = [sc for _, lbl, sc in PURPOSES if sc not in INSTITUTIONAL_SCOPES]
 people_pool = list(all_people)
 random.shuffle(people_pool)
 declined_payroll = set(p[4] for p in people_pool[:60])              # ~12% no payroll grant
@@ -1000,15 +1022,17 @@ def build_grant_index():
 def emit_fixture():
     meta = {
         "generated": d(today),
-        "purposes": {"scheduling": "hr.scheduling", "payroll": "hr.payroll",
-                     "compliance": "hr.certifications", "employment": "hr.employment"},
-        "gatedProps": {"pay_rate": "hr.payroll", "pay_unit": "hr.payroll"},
+        "purposeCatalog": [{"id": pid, "label": lbl, "scope": sc} for pid, lbl, sc in PURPOSES],
+        "purposes": {pid: sc for pid, lbl, sc in PURPOSES},
+        "gatedProps": {"pay_rate": "hr.payroll", "pay_unit": "hr.payroll",
+                       "benefits": "hr.benefits", "work_authorization": "hr.work_auth"},
         "gatedTargets": {"time_off_request": "hr.scheduling",
                          "certification": "hr.certifications",
-                         "training_record": "hr.certifications",
-                         "performance_review": "hr.employment",
+                         "training_record": "hr.learning",
+                         "performance_review": "hr.performance",
                          "employment_event": "hr.employment"},
         "gatedEdges": {"distributes_to": "hr.payroll"},
+        "gatedTypes": {"candidate": "hr.recruiting"},
     }
     graph = {"meta": meta, "nodes": NODES, "edges": EDGES, "grants": build_grant_index()}
     payload = json.dumps(graph, ensure_ascii=False, separators=(",", ":"))

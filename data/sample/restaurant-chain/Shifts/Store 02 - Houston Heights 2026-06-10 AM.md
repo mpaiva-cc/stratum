@@ -7,16 +7,17 @@ date: 2026-06-10
 daypart: AM
 start: "07:00"
 end: "15:30"
-crew_size: 7
+crew_size: 8
 basis: authorization
 crew:
-  - "[[EMP-0037 Hassan Pham]]"
-  - "[[EMP-0032 Valentina Liu]]"
-  - "[[EMP-0036 Aaron Kim]]"
-  - "[[EMP-0046 Arjun Young]]"
-  - "[[EMP-0047 Elena Chen]]"
-  - "[[EMP-0049 Elena Harris]]"
-  - "[[EMP-0031 Victor Lewis]]"
+  - "[[EMP-0040 Abigail Smith]]"
+  - "[[EMP-0034 Ella Pham]]"
+  - "[[EMP-0046 Imani Singh]]"
+  - "[[EMP-0045 Arjun Garcia]]"
+  - "[[EMP-0029 Arjun Young]]"
+  - "[[EMP-0043 Felix Ramirez]]"
+  - "[[EMP-0026 Mia Clark]]"
+  - "[[EMP-0036 Samir Silva]]"
 ---
 
 AM shift at [[Store 02 - Houston Heights]] on 2026-06-10 (07:00-15:30).
@@ -27,10 +28,11 @@ AM shift at [[Store 02 - Houston Heights]] on 2026-06-10 (07:00-15:30).
 
 ## Crew
 
-- [[EMP-0037 Hassan Pham]] (Server)
-- [[EMP-0032 Valentina Liu]] (Server)
-- [[EMP-0036 Aaron Kim]] (Line Cook)
-- [[EMP-0046 Arjun Young]] (Dishwasher)
-- [[EMP-0047 Elena Chen]] (Prep Cook)
-- [[EMP-0049 Elena Harris]] (Host)
-- [[EMP-0031 Victor Lewis]] (Server)
+- [[EMP-0040 Abigail Smith]] (Line Cook)
+- [[EMP-0034 Ella Pham]] (Line Cook)
+- [[EMP-0046 Imani Singh]] (Busser)
+- [[EMP-0045 Arjun Garcia]] (Prep Cook)
+- [[EMP-0029 Arjun Young]] (Shift Lead)
+- [[EMP-0043 Felix Ramirez]] (Line Cook)
+- [[EMP-0026 Mia Clark]] (General Manager)
+- [[EMP-0036 Samir Silva]] (Server)

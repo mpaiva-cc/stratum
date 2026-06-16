@@ -1,11 +1,11 @@
 ---
 type: employment_event
 id: EVT-0220
-person: "[[EMP-0220 Tariq Moore]]"
+person: "[[EMP-0220 Sofia Mensah]]"
 kind: hire
-date: 2023-05-06
+date: 2023-06-27
 store: "[[Store 09 - Portland Pearl]]"
 basis: consent
 ---
 
-[[EMP-0220 Tariq Moore]] hired as Busser at [[Store 09 - Portland Pearl]] on 2023-05-06.
+[[EMP-0220 Sofia Mensah]] hired as Busser at [[Store 09 - Portland Pearl]] on 2023-06-27.

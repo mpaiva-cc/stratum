@@ -7,15 +7,19 @@ date: 2026-06-13
 daypart: PM
 start: "15:00"
 end: "23:30"
-crew_size: 6
+crew_size: 10
 basis: authorization
 crew:
-  - "[[EMP-0412 Leo Russo]]"
-  - "[[EMP-0413 Aiden Allen]]"
-  - "[[EMP-0423 Rohan Singh]]"
-  - "[[EMP-0408 Elena Young]]"
-  - "[[EMP-0415 Kayla Williams]]"
-  - "[[EMP-0414 Ava Park]]"
+  - "[[EMP-0420 Quinn Gonzalez]]"
+  - "[[EMP-0408 Jamal Clark]]"
+  - "[[EMP-0421 Caleb Patel]]"
+  - "[[EMP-0412 Lucas Perez]]"
+  - "[[EMP-0414 Yuki White]]"
+  - "[[EMP-0403 Ava Gonzalez]]"
+  - "[[EMP-0424 Oscar Wilson]]"
+  - "[[EMP-0416 Diego Kim]]"
+  - "[[EMP-0422 Abigail Perez]]"
+  - "[[EMP-0423 Min Sanchez]]"
 ---
 
 PM shift at [[Store 17 - Brooklyn Williamsburg]] on 2026-06-13 (15:00-23:30).
@@ -26,9 +30,13 @@ PM shift at [[Store 17 - Brooklyn Williamsburg]] on 2026-06-13 (15:00-23:30).
 
 ## Crew
 
-- [[EMP-0412 Leo Russo]] (Bartender)
-- [[EMP-0413 Aiden Allen]] (Line Cook)
-- [[EMP-0423 Rohan Singh]] (Prep Cook)
-- [[EMP-0408 Elena Young]] (Server)
-- [[EMP-0415 Kayla Williams]] (Server)
-- [[EMP-0414 Ava Park]] (Server)
+- [[EMP-0420 Quinn Gonzalez]] (Prep Cook)
+- [[EMP-0408 Jamal Clark]] (Bartender)
+- [[EMP-0421 Caleb Patel]] (Prep Cook)
+- [[EMP-0412 Lucas Perez]] (Line Cook)
+- [[EMP-0414 Yuki White]] (Server)
+- [[EMP-0403 Ava Gonzalez]] (Head Chef)
+- [[EMP-0424 Oscar Wilson]] (Host)
+- [[EMP-0416 Diego Kim]] (Bartender)
+- [[EMP-0422 Abigail Perez]] (Dishwasher)
+- [[EMP-0423 Min Sanchez]] (Prep Cook)

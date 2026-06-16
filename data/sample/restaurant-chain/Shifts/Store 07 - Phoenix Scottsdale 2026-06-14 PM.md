@@ -7,16 +7,17 @@ date: 2026-06-14
 daypart: PM
 start: "15:00"
 end: "23:30"
-crew_size: 7
+crew_size: 8
 basis: authorization
 crew:
-  - "[[EMP-0168 Sofia Martinez]]"
-  - "[[EMP-0162 Uma Wang]]"
-  - "[[EMP-0171 Imani Johnson]]"
-  - "[[EMP-0169 Aaron Abara]]"
-  - "[[EMP-0164 Hana Miller]]"
-  - "[[EMP-0153 Abigail Wang]]"
-  - "[[EMP-0172 Arjun Hernandez]]"
+  - "[[EMP-0174 Brianna Romano]]"
+  - "[[EMP-0154 Amelia Le]]"
+  - "[[EMP-0171 Keira Harris]]"
+  - "[[EMP-0172 Amelia Wilson]]"
+  - "[[EMP-0167 Omar Patel]]"
+  - "[[EMP-0173 Harper Nguyen]]"
+  - "[[EMP-0164 Anaya Young]]"
+  - "[[EMP-0168 Jamal Park]]"
 ---
 
 PM shift at [[Store 07 - Phoenix Scottsdale]] on 2026-06-14 (15:00-23:30).
@@ -27,10 +28,11 @@ PM shift at [[Store 07 - Phoenix Scottsdale]] on 2026-06-14 (15:00-23:30).
 
 ## Crew
 
-- [[EMP-0168 Sofia Martinez]] (Server)
-- [[EMP-0162 Uma Wang]] (Line Cook)
-- [[EMP-0171 Imani Johnson]] (Busser)
-- [[EMP-0169 Aaron Abara]] (Server)
-- [[EMP-0164 Hana Miller]] (Line Cook)
-- [[EMP-0153 Abigail Wang]] (Head Chef)
-- [[EMP-0172 Arjun Hernandez]] (Dishwasher)
+- [[EMP-0174 Brianna Romano]] (Dishwasher)
+- [[EMP-0154 Amelia Le]] (Shift Lead)
+- [[EMP-0171 Keira Harris]] (Dishwasher)
+- [[EMP-0172 Amelia Wilson]] (Prep Cook)
+- [[EMP-0167 Omar Patel]] (Expo)
+- [[EMP-0173 Harper Nguyen]] (Busser)
+- [[EMP-0164 Anaya Young]] (Server)
+- [[EMP-0168 Jamal Park]] (Server)

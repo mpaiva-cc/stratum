@@ -7,19 +7,16 @@ date: 2026-06-14
 daypart: AM
 start: "07:00"
 end: "15:30"
-crew_size: 10
+crew_size: 7
 basis: authorization
 crew:
-  - "[[EMP-0032 Valentina Liu]]"
-  - "[[EMP-0042 Destiny Tran]]"
-  - "[[EMP-0030 Kayla Liu]]"
-  - "[[EMP-0027 Santiago Santos]]"
-  - "[[EMP-0034 Fatima Singh]]"
-  - "[[EMP-0049 Elena Harris]]"
-  - "[[EMP-0040 Jaden Patel]]"
-  - "[[EMP-0031 Victor Lewis]]"
-  - "[[EMP-0033 Ximena Torres]]"
-  - "[[EMP-0045 Camila Anderson]]"
+  - "[[EMP-0027 Henry Rossi]]"
+  - "[[EMP-0045 Arjun Garcia]]"
+  - "[[EMP-0043 Felix Ramirez]]"
+  - "[[EMP-0038 Connor Torres]]"
+  - "[[EMP-0029 Arjun Young]]"
+  - "[[EMP-0035 Priya Wright]]"
+  - "[[EMP-0032 Elena Harris]]"
 ---
 
 AM shift at [[Store 02 - Houston Heights]] on 2026-06-14 (07:00-15:30).
@@ -30,13 +27,10 @@ AM shift at [[Store 02 - Houston Heights]] on 2026-06-14 (07:00-15:30).
 
 ## Crew
 
-- [[EMP-0032 Valentina Liu]] (Server)
-- [[EMP-0042 Destiny Tran]] (Busser)
-- [[EMP-0030 Kayla Liu]] (Shift Lead)
-- [[EMP-0027 Santiago Santos]] (Assistant Manager)
-- [[EMP-0034 Fatima Singh]] (Server)
-- [[EMP-0049 Elena Harris]] (Host)
-- [[EMP-0040 Jaden Patel]] (Busser)
-- [[EMP-0031 Victor Lewis]] (Server)
-- [[EMP-0033 Ximena Torres]] (Server)
-- [[EMP-0045 Camila Anderson]] (Dishwasher)
+- [[EMP-0027 Henry Rossi]] (Assistant Manager)
+- [[EMP-0045 Arjun Garcia]] (Prep Cook)
+- [[EMP-0043 Felix Ramirez]] (Line Cook)
+- [[EMP-0038 Connor Torres]] (Server)
+- [[EMP-0029 Arjun Young]] (Shift Lead)
+- [[EMP-0035 Priya Wright]] (Line Cook)
+- [[EMP-0032 Elena Harris]] (Server)

@@ -2,32 +2,35 @@
 type: person
 id: EMP-0012
 name: Zayd Miller
-status: active
-status_reason: active
-status_effective_date: 2026-05-29
-rehire_eligible: false
-employment_type: part_time
-hire_date: 2026-04-10
+status: terminated
+status_reason: voluntary
+status_effective_date: 2022-09-01
+rehire_eligible: true
+employment_type: full_time
+hire_date: 2022-09-01
 email: "zayd.miller.emp-0012@forkandflame.example"
 works_at: "[[Store 01 - Austin Domain]]"
 in_department: "[[Front of House (Department)]]"
 position: "[[Expo]]"
-pay_rate: 17.26
+pay_rate: 18.76
 pay_unit: hour
 reports_to: "[[EMP-0005 Keira Perez]]"
 certifications:
   - "[[Food Handler]]"
 skills:
   - "[[POS Proficiency]]"
-  - "[[Opening & Closing]]"
-  - "[[Guest Recovery]]"
+benefits:
+  - Health PPO
+  - 401(k) Match
+  - Shift Meal
+work_authorization: citizen
 basis: consent
 ---
 
-**Expo** at [[Store 01 - Austin Domain]] · Front of House · since 2026-04-10.
+**Expo** at [[Store 01 - Austin Domain]] · Front of House · since 2022-09-01.
 
-Status: **active** (active) as of 2026-05-29
-Rehire eligible: no
+Status: **terminated** (voluntary) as of 2022-09-01
+Rehire eligible: yes
 
 ## Works at
 
@@ -35,7 +38,7 @@ Rehire eligible: no
 
 ## Position
 
-- [[Expo]] — paid 17.26/hour
+- [[Expo]] — paid 18.76/hour
 
 ## Reports to
 
@@ -48,9 +51,17 @@ Rehire eligible: no
 ## Skills
 
 - [[POS Proficiency]]
-- [[Opening & Closing]]
-- [[Guest Recovery]]
+
+## Benefits
+
+- Health PPO
+- 401(k) Match
+- Shift Meal
+
+## Work authorization
+
+- citizen
 
 ## Lifecycle
 
-- [[EMP-0012 - hired]] on 2026-04-10
+- [[EMP-0012 - hired]] on 2022-09-01

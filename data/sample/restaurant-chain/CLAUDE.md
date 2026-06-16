@@ -68,12 +68,18 @@ with the query, a governance trace, and citations.
 - The wipe step whitelists `index.html`, `app.js`, `ff-engine.js`, `ff-engine.test.js`,
   `ff-starters.test.js`, `CLAUDE.md`; everything else (notes, fixture) is rebuilt each run.
 
-Governance: purposes `scheduling|payroll|compliance|employment` map 1:1 to scopes
-`hr.scheduling|hr.payroll|hr.certifications|hr.employment`. Default-deny: a gated
-field/edge is readable only under its matching purpose AND with an active, unexpired
-grant; refusal reasons are `out-of-purpose|no-grant|revoked|expired`. Note: `pay_rate`
-mixes units (salaried `year` vs hourly), so cross-position pay averages are not
-meaningful — query within a single position (e.g. Server).
+Governance: purposes are a **data-driven catalog** — the source of truth is the `PURPOSES`
+list in `_generate.py`, emitted as `meta.purposeCatalog` (and derived `meta.purposes`);
+the engine and the UI dropdown read it. There are **9 categories**: `scheduling`,
+`payroll`, `compliance`, `employment`, `performance`, `learning`, `benefits`,
+`work_authorization`, `recruiting` — each mapping 1:1 to a consent scope:
+`hr.scheduling|hr.payroll|hr.certifications|hr.employment|hr.performance|hr.learning|hr.benefits|hr.work_auth|hr.recruiting`.
+To add a purpose: add a `PURPOSES` entry + its data gating (`gatedProps`/`gatedTargets`/
+`gatedEdges`/`gatedTypes` in `emit_fixture()`) + consent grants if it is employee-scoped.
+Default-deny: a gated field/edge is readable only under its matching purpose AND with an
+active, unexpired grant; refusal reasons are `out-of-purpose|no-grant|revoked|expired`.
+Note: `pay_rate` mixes units (salaried `year` vs hourly), so cross-position pay averages
+are not meaningful — query within a single position (e.g. Server).
 
 ### Role-based permission layer
 
@@ -84,7 +90,7 @@ A second access axis beside consent/purpose, enforced in the engine and AND-comb
   prior behavior/tests are unchanged). **The directory layer is company-wide** (every
   person is visible at directory level — name, status, position, store, dept, reports_to,
   skills — for all roles, so e.g. an IC can always resolve "who do I report to"). The
-  role-gate applies only to SENSITIVE data: a field/record/edge in one of the four
+  role-gate applies only to SENSITIVE data: a field/record/edge in one of the nine
   consent scopes is readable only if `scope ∈ role.scopes` (class authority) AND its
   subject is in the role's `population` (computed from `reports_to` / `works_at` /
   store-region edges) AND consent allows it. Anchors are by stable employee ID.
@@ -93,6 +99,12 @@ A second access axis beside consent/purpose, enforced in the engine and AND-comb
   enforcement path. The refusal trace carries a `layer`: `access`
   (`out-of-population`, `role-restricted`) vs `consent`
   (`out-of-purpose|no-grant|revoked|expired`). When both block, access wins.
+  **Two gating classes**: (1) *person-subject employee data* — gated by role + population
+  + per-person consent, via `meta.gatedProps` / `meta.gatedTargets` / `meta.gatedEdges`;
+  (2) *institutional records (candidates)* — gated by role + purpose ONLY via
+  `meta.gatedTypes`; no per-subject consent or population check (consent is implied by
+  the candidate's application). This distinction is enforced in `ff-engine.js`
+  (`nodeReadable` branches on `gatedTypes` before the grant index).
 - UI: a "Viewing as" selector + a permission panel showing, per role, that directory is
   visible for everyone and which sensitive classes are visible for which population (live
   counts); the governance trace is grouped by layer.

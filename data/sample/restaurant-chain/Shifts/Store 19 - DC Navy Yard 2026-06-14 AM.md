@@ -7,18 +7,16 @@ date: 2026-06-14
 daypart: AM
 start: "07:00"
 end: "15:30"
-crew_size: 9
+crew_size: 7
 basis: authorization
 crew:
-  - "[[EMP-0470 Gabriela Russo]]"
-  - "[[EMP-0465 Wei Romano]]"
-  - "[[EMP-0461 Arjun Bianchi]]"
-  - "[[EMP-0475 Ximena Torres]]"
-  - "[[EMP-0468 Rosa Rodriguez]]"
-  - "[[EMP-0471 Daniela Thomas]]"
-  - "[[EMP-0458 Imani Patel]]"
-  - "[[EMP-0466 Evelyn Young]]"
-  - "[[EMP-0464 Omar Jones]]"
+  - "[[EMP-0472 Noah Mensah]]"
+  - "[[EMP-0470 Oscar Thomas]]"
+  - "[[EMP-0467 Gabriela Torres]]"
+  - "[[EMP-0473 Grace Khan]]"
+  - "[[EMP-0469 Lucas Clark]]"
+  - "[[EMP-0475 Grace Walker]]"
+  - "[[EMP-0463 Hana Rodriguez]]"
 ---
 
 AM shift at [[Store 19 - DC Navy Yard]] on 2026-06-14 (07:00-15:30).
@@ -29,12 +27,10 @@ AM shift at [[Store 19 - DC Navy Yard]] on 2026-06-14 (07:00-15:30).
 
 ## Crew
 
-- [[EMP-0470 Gabriela Russo]] (Host)
-- [[EMP-0465 Wei Romano]] (Line Cook)
-- [[EMP-0461 Arjun Bianchi]] (Line Cook)
-- [[EMP-0475 Ximena Torres]] (Dishwasher)
-- [[EMP-0468 Rosa Rodriguez]] (Prep Cook)
-- [[EMP-0471 Daniela Thomas]] (Dishwasher)
-- [[EMP-0458 Imani Patel]] (Line Cook)
-- [[EMP-0466 Evelyn Young]] (Bartender)
-- [[EMP-0464 Omar Jones]] (Server)
+- [[EMP-0472 Noah Mensah]] (Server)
+- [[EMP-0470 Oscar Thomas]] (Line Cook)
+- [[EMP-0467 Gabriela Torres]] (Server)
+- [[EMP-0473 Grace Khan]] (Dishwasher)
+- [[EMP-0469 Lucas Clark]] (Bartender)
+- [[EMP-0475 Grace Walker]] (Busser)
+- [[EMP-0463 Hana Rodriguez]] (Server)

@@ -10,14 +10,14 @@ end: "15:30"
 crew_size: 8
 basis: authorization
 crew:
-  - "[[EMP-0197 Mateo Lewis]]"
-  - "[[EMP-0183 Nadia Chen]]"
-  - "[[EMP-0181 Tariq Jackson]]"
-  - "[[EMP-0194 Layla Johnson]]"
-  - "[[EMP-0184 Jose Gonzalez]]"
-  - "[[EMP-0199 Logan Wright]]"
-  - "[[EMP-0195 Elijah Johnson]]"
-  - "[[EMP-0177 Elijah Wang]]"
+  - "[[EMP-0200 Maria Davis]]"
+  - "[[EMP-0192 Daniela Lewis]]"
+  - "[[EMP-0187 Elijah Lewis]]"
+  - "[[EMP-0196 Leo Khan]]"
+  - "[[EMP-0179 Ines Diallo]]"
+  - "[[EMP-0184 Gabriela Clark]]"
+  - "[[EMP-0189 Ava Scott]]"
+  - "[[EMP-0185 Bella Garcia]]"
 ---
 
 AM shift at [[Store 08 - Seattle Ballard]] on 2026-06-11 (07:00-15:30).
@@ -28,11 +28,11 @@ AM shift at [[Store 08 - Seattle Ballard]] on 2026-06-11 (07:00-15:30).
 
 ## Crew
 
-- [[EMP-0197 Mateo Lewis]] (Busser)
-- [[EMP-0183 Nadia Chen]] (Server)
-- [[EMP-0181 Tariq Jackson]] (Line Cook)
-- [[EMP-0194 Layla Johnson]] (Host)
-- [[EMP-0184 Jose Gonzalez]] (Line Cook)
-- [[EMP-0199 Logan Wright]] (Host)
-- [[EMP-0195 Elijah Johnson]] (Prep Cook)
-- [[EMP-0177 Elijah Wang]] (Assistant Manager)
+- [[EMP-0200 Maria Davis]] (Prep Cook)
+- [[EMP-0192 Daniela Lewis]] (Bartender)
+- [[EMP-0187 Elijah Lewis]] (Server)
+- [[EMP-0196 Leo Khan]] (Prep Cook)
+- [[EMP-0179 Ines Diallo]] (Shift Lead)
+- [[EMP-0184 Gabriela Clark]] (Bartender)
+- [[EMP-0189 Ava Scott]] (Bartender)
+- [[EMP-0185 Bella Garcia]] (Server)

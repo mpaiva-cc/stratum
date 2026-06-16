@@ -7,17 +7,16 @@ date: 2026-06-08
 daypart: AM
 start: "07:00"
 end: "15:30"
-crew_size: 8
+crew_size: 7
 basis: authorization
 crew:
-  - "[[EMP-0458 Imani Patel]]"
-  - "[[EMP-0473 Victor Nguyen]]"
-  - "[[EMP-0470 Gabriela Russo]]"
-  - "[[EMP-0467 Andres Perez]]"
-  - "[[EMP-0465 Wei Romano]]"
-  - "[[EMP-0453 Samir King]]"
-  - "[[EMP-0461 Arjun Bianchi]]"
-  - "[[EMP-0474 Arjun Moore]]"
+  - "[[EMP-0456 Jose Anderson]]"
+  - "[[EMP-0459 Nadia Lewis]]"
+  - "[[EMP-0467 Gabriela Torres]]"
+  - "[[EMP-0468 Caleb Martinez]]"
+  - "[[EMP-0458 Zayd Anderson]]"
+  - "[[EMP-0472 Noah Mensah]]"
+  - "[[EMP-0460 Diego Lopez]]"
 ---
 
 AM shift at [[Store 19 - DC Navy Yard]] on 2026-06-08 (07:00-15:30).
@@ -28,11 +27,10 @@ AM shift at [[Store 19 - DC Navy Yard]] on 2026-06-08 (07:00-15:30).
 
 ## Crew
 
-- [[EMP-0458 Imani Patel]] (Line Cook)
-- [[EMP-0473 Victor Nguyen]] (Dishwasher)
-- [[EMP-0470 Gabriela Russo]] (Host)
-- [[EMP-0467 Andres Perez]] (Line Cook)
-- [[EMP-0465 Wei Romano]] (Line Cook)
-- [[EMP-0453 Samir King]] (Head Chef)
-- [[EMP-0461 Arjun Bianchi]] (Line Cook)
-- [[EMP-0474 Arjun Moore]] (Host)
+- [[EMP-0456 Jose Anderson]] (Server)
+- [[EMP-0459 Nadia Lewis]] (Server)
+- [[EMP-0467 Gabriela Torres]] (Server)
+- [[EMP-0468 Caleb Martinez]] (Server)
+- [[EMP-0458 Zayd Anderson]] (Line Cook)
+- [[EMP-0472 Noah Mensah]] (Server)
+- [[EMP-0460 Diego Lopez]] (Server)

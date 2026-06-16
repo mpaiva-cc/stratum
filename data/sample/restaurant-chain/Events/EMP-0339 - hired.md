@@ -1,11 +1,11 @@
 ---
 type: employment_event
 id: EVT-0339
-person: "[[EMP-0339 Paloma King]]"
+person: "[[EMP-0339 Noah Harris]]"
 kind: hire
-date: 2022-11-29
+date: 2026-03-02
 store: "[[Store 14 - Kansas City P&L]]"
 basis: consent
 ---
 
-[[EMP-0339 Paloma King]] hired as Line Cook at [[Store 14 - Kansas City P&L]] on 2022-11-29.
+[[EMP-0339 Noah Harris]] hired as Line Cook at [[Store 14 - Kansas City P&L]] on 2026-03-02.

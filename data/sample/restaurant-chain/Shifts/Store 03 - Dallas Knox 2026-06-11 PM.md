@@ -10,14 +10,14 @@ end: "23:30"
 crew_size: 8
 basis: authorization
 crew:
-  - "[[EMP-0060 Layla Miller]]"
-  - "[[EMP-0073 Jaden Jackson]]"
-  - "[[EMP-0070 Amelia Davis]]"
-  - "[[EMP-0053 Connor Jones]]"
-  - "[[EMP-0056 Hassan Lopez]]"
-  - "[[EMP-0065 Ines Wilson]]"
-  - "[[EMP-0061 Amelia Wilson]]"
-  - "[[EMP-0062 Aria Liu]]"
+  - "[[EMP-0058 Liam Taylor]]"
+  - "[[EMP-0064 Keira Miller]]"
+  - "[[EMP-0065 Zayd Taylor]]"
+  - "[[EMP-0051 Jose Okafor]]"
+  - "[[EMP-0055 Samir Taylor]]"
+  - "[[EMP-0075 Evelyn Miller]]"
+  - "[[EMP-0071 Gabriela Romano]]"
+  - "[[EMP-0057 Imani Hernandez]]"
 ---
 
 PM shift at [[Store 03 - Dallas Knox]] on 2026-06-11 (15:00-23:30).
@@ -28,11 +28,11 @@ PM shift at [[Store 03 - Dallas Knox]] on 2026-06-11 (15:00-23:30).
 
 ## Crew
 
-- [[EMP-0060 Layla Miller]] (Line Cook)
-- [[EMP-0073 Jaden Jackson]] (Dishwasher)
-- [[EMP-0070 Amelia Davis]] (Dishwasher)
-- [[EMP-0053 Connor Jones]] (Head Chef)
-- [[EMP-0056 Hassan Lopez]] (Line Cook)
-- [[EMP-0065 Ines Wilson]] (Dishwasher)
-- [[EMP-0061 Amelia Wilson]] (Bartender)
-- [[EMP-0062 Aria Liu]] (Server)
+- [[EMP-0058 Liam Taylor]] (Bartender)
+- [[EMP-0064 Keira Miller]] (Server)
+- [[EMP-0065 Zayd Taylor]] (Server)
+- [[EMP-0051 Jose Okafor]] (General Manager)
+- [[EMP-0055 Samir Taylor]] (Shift Lead)
+- [[EMP-0075 Evelyn Miller]] (Prep Cook)
+- [[EMP-0071 Gabriela Romano]] (Prep Cook)
+- [[EMP-0057 Imani Hernandez]] (Server)

@@ -1,6 +1,6 @@
 ---
 type: consent_grant
-id: CNS-0076
+id: CNS-0152
 person: "[[EMP-0020 Tariq Bianchi]]"
 scope: hr.payroll
 purpose: store operations

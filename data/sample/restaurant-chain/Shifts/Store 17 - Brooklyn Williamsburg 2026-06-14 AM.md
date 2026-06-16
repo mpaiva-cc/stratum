@@ -7,17 +7,19 @@ date: 2026-06-14
 daypart: AM
 start: "07:00"
 end: "15:30"
-crew_size: 8
+crew_size: 10
 basis: authorization
 crew:
-  - "[[EMP-0413 Aiden Allen]]"
-  - "[[EMP-0403 Diego Torres]]"
-  - "[[EMP-0402 Emily King]]"
-  - "[[EMP-0405 Henry Taylor]]"
-  - "[[EMP-0401 Jamal Perez]]"
-  - "[[EMP-0424 Emily Le]]"
-  - "[[EMP-0420 Keira Park]]"
-  - "[[EMP-0422 Sofia Miller]]"
+  - "[[EMP-0409 Omar Wright]]"
+  - "[[EMP-0417 Tariq Lopez]]"
+  - "[[EMP-0423 Min Sanchez]]"
+  - "[[EMP-0408 Jamal Clark]]"
+  - "[[EMP-0405 Ava Jackson]]"
+  - "[[EMP-0422 Abigail Perez]]"
+  - "[[EMP-0411 Valentina Le]]"
+  - "[[EMP-0420 Quinn Gonzalez]]"
+  - "[[EMP-0410 Brianna Bianchi]]"
+  - "[[EMP-0403 Ava Gonzalez]]"
 ---
 
 AM shift at [[Store 17 - Brooklyn Williamsburg]] on 2026-06-14 (07:00-15:30).
@@ -28,11 +30,13 @@ AM shift at [[Store 17 - Brooklyn Williamsburg]] on 2026-06-14 (07:00-15:30).
 
 ## Crew
 
-- [[EMP-0413 Aiden Allen]] (Line Cook)
-- [[EMP-0403 Diego Torres]] (Head Chef)
-- [[EMP-0402 Emily King]] (Assistant Manager)
-- [[EMP-0405 Henry Taylor]] (Shift Lead)
-- [[EMP-0401 Jamal Perez]] (General Manager)
-- [[EMP-0424 Emily Le]] (Dishwasher)
-- [[EMP-0420 Keira Park]] (Host)
-- [[EMP-0422 Sofia Miller]] (Busser)
+- [[EMP-0409 Omar Wright]] (Bartender)
+- [[EMP-0417 Tariq Lopez]] (Line Cook)
+- [[EMP-0423 Min Sanchez]] (Prep Cook)
+- [[EMP-0408 Jamal Clark]] (Bartender)
+- [[EMP-0405 Ava Jackson]] (Shift Lead)
+- [[EMP-0422 Abigail Perez]] (Dishwasher)
+- [[EMP-0411 Valentina Le]] (Line Cook)
+- [[EMP-0420 Quinn Gonzalez]] (Prep Cook)
+- [[EMP-0410 Brianna Bianchi]] (Server)
+- [[EMP-0403 Ava Gonzalez]] (Head Chef)

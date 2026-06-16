@@ -7,16 +7,14 @@ date: 2026-06-09
 daypart: AM
 start: "07:00"
 end: "15:30"
-crew_size: 8
+crew_size: 6
 basis: authorization
 crew:
-  - "[[EMP-0011 Samir Ramirez]]"
-  - "[[EMP-0017 Wei Perez]]"
   - "[[EMP-0015 Mia Williams]]"
-  - "[[EMP-0005 Keira Perez]]"
   - "[[EMP-0001 Mateo Thomas]]"
-  - "[[EMP-0013 Felix Abara]]"
-  - "[[EMP-0012 Zayd Miller]]"
+  - "[[EMP-0024 Nadia Pham]]"
+  - "[[EMP-0011 Samir Ramirez]]"
+  - "[[EMP-0021 Valentina Young]]"
   - "[[EMP-0022 Min Singh]]"
 ---
 
@@ -28,11 +26,9 @@ AM shift at [[Store 01 - Austin Domain]] on 2026-06-09 (07:00-15:30).
 
 ## Crew
 
-- [[EMP-0011 Samir Ramirez]] (Server)
-- [[EMP-0017 Wei Perez]] (Server)
 - [[EMP-0015 Mia Williams]] (Line Cook)
-- [[EMP-0005 Keira Perez]] (Shift Lead)
 - [[EMP-0001 Mateo Thomas]] (General Manager)
-- [[EMP-0013 Felix Abara]] (Server)
-- [[EMP-0012 Zayd Miller]] (Expo)
+- [[EMP-0024 Nadia Pham]] (Busser)
+- [[EMP-0011 Samir Ramirez]] (Server)
+- [[EMP-0021 Valentina Young]] (Prep Cook)
 - [[EMP-0022 Min Singh]] (Prep Cook)

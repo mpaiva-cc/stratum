@@ -1,11 +1,11 @@
 ---
 type: employment_event
 id: EVT-0376
-person: "[[EMP-0376 Hassan Ahmed]]"
+person: "[[EMP-0376 Zayd Sanchez]]"
 kind: hire
-date: 2024-01-15
+date: 2022-03-24
 store: "[[Store 16 - Boston Seaport]]"
 basis: consent
 ---
 
-[[EMP-0376 Hassan Ahmed]] hired as General Manager at [[Store 16 - Boston Seaport]] on 2024-01-15.
+[[EMP-0376 Zayd Sanchez]] hired as General Manager at [[Store 16 - Boston Seaport]] on 2022-03-24.

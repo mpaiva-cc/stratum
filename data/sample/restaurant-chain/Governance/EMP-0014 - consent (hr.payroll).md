@@ -1,6 +1,6 @@
 ---
 type: consent_grant
-id: CNS-0054
+id: CNS-0104
 person: "[[EMP-0014 Oscar Romano]]"
 scope: hr.payroll
 purpose: store operations

@@ -1,11 +1,11 @@
 ---
 type: employment_event
 id: EVT-0246
-person: "[[EMP-0246 Wanda Young]]"
+person: "[[EMP-0246 Evelyn Diallo]]"
 kind: hire
-date: 2023-04-06
+date: 2025-09-07
 store: "[[Store 10 - San Diego Gaslamp]]"
 basis: consent
 ---
 
-[[EMP-0246 Wanda Young]] hired as Busser at [[Store 10 - San Diego Gaslamp]] on 2023-04-06.
+[[EMP-0246 Evelyn Diallo]] hired as Host at [[Store 10 - San Diego Gaslamp]] on 2025-09-07.

@@ -1,11 +1,11 @@
 ---
 type: employment_event
 id: EVT-0370
-person: "[[EMP-0370 Brianna Nguyen]]"
+person: "[[EMP-0370 Bella Abara]]"
 kind: hire
-date: 2024-01-28
+date: 2025-06-22
 store: "[[Store 15 - Detroit Corktown]]"
 basis: consent
 ---
 
-[[EMP-0370 Brianna Nguyen]] hired as Server at [[Store 15 - Detroit Corktown]] on 2024-01-28.
+[[EMP-0370 Bella Abara]] hired as Busser at [[Store 15 - Detroit Corktown]] on 2025-06-22.

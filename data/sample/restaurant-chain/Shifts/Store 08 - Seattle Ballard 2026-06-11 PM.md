@@ -7,19 +7,16 @@ date: 2026-06-11
 daypart: PM
 start: "15:00"
 end: "23:30"
-crew_size: 10
+crew_size: 7
 basis: authorization
 crew:
-  - "[[EMP-0200 Liam Perez]]"
-  - "[[EMP-0196 Sofia Okafor]]"
-  - "[[EMP-0195 Elijah Johnson]]"
-  - "[[EMP-0191 Layla Pham]]"
-  - "[[EMP-0185 Caleb Allen]]"
-  - "[[EMP-0199 Logan Wright]]"
-  - "[[EMP-0193 Noah Jones]]"
-  - "[[EMP-0176 Aria Clark]]"
-  - "[[EMP-0180 Victor Williams]]"
-  - "[[EMP-0186 Ella Nguyen]]"
+  - "[[EMP-0190 Diego Torres]]"
+  - "[[EMP-0198 Aria Wright]]"
+  - "[[EMP-0199 Ines Ali]]"
+  - "[[EMP-0186 Tariq Hernandez]]"
+  - "[[EMP-0193 Noah Wilson]]"
+  - "[[EMP-0183 Zane Walker]]"
+  - "[[EMP-0184 Gabriela Clark]]"
 ---
 
 PM shift at [[Store 08 - Seattle Ballard]] on 2026-06-11 (15:00-23:30).
@@ -30,13 +27,10 @@ PM shift at [[Store 08 - Seattle Ballard]] on 2026-06-11 (15:00-23:30).
 
 ## Crew
 
-- [[EMP-0200 Liam Perez]] (Dishwasher)
-- [[EMP-0196 Sofia Okafor]] (Host)
-- [[EMP-0195 Elijah Johnson]] (Prep Cook)
-- [[EMP-0191 Layla Pham]] (Bartender)
-- [[EMP-0185 Caleb Allen]] (Server)
-- [[EMP-0199 Logan Wright]] (Host)
-- [[EMP-0193 Noah Jones]] (Prep Cook)
-- [[EMP-0176 Aria Clark]] (General Manager)
-- [[EMP-0180 Victor Williams]] (Shift Lead)
-- [[EMP-0186 Ella Nguyen]] (Server)
+- [[EMP-0190 Diego Torres]] (Server)
+- [[EMP-0198 Aria Wright]] (Prep Cook)
+- [[EMP-0199 Ines Ali]] (Busser)
+- [[EMP-0186 Tariq Hernandez]] (Line Cook)
+- [[EMP-0193 Noah Wilson]] (Server)
+- [[EMP-0183 Zane Walker]] (Expo)
+- [[EMP-0184 Gabriela Clark]] (Bartender)

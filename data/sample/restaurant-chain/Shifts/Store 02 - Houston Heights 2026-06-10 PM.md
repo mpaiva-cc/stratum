@@ -7,16 +7,15 @@ date: 2026-06-10
 daypart: PM
 start: "15:00"
 end: "23:30"
-crew_size: 7
+crew_size: 6
 basis: authorization
 crew:
-  - "[[EMP-0040 Jaden Patel]]"
-  - "[[EMP-0030 Kayla Liu]]"
-  - "[[EMP-0033 Ximena Torres]]"
-  - "[[EMP-0027 Santiago Santos]]"
-  - "[[EMP-0044 Henry Rossi]]"
-  - "[[EMP-0036 Aaron Kim]]"
-  - "[[EMP-0049 Elena Harris]]"
+  - "[[EMP-0026 Mia Clark]]"
+  - "[[EMP-0037 Isabella Park]]"
+  - "[[EMP-0033 Elijah Harris]]"
+  - "[[EMP-0036 Samir Silva]]"
+  - "[[EMP-0042 Yara Silva]]"
+  - "[[EMP-0035 Priya Wright]]"
 ---
 
 PM shift at [[Store 02 - Houston Heights]] on 2026-06-10 (15:00-23:30).
@@ -27,10 +26,9 @@ PM shift at [[Store 02 - Houston Heights]] on 2026-06-10 (15:00-23:30).
 
 ## Crew
 
-- [[EMP-0040 Jaden Patel]] (Busser)
-- [[EMP-0030 Kayla Liu]] (Shift Lead)
-- [[EMP-0033 Ximena Torres]] (Server)
-- [[EMP-0027 Santiago Santos]] (Assistant Manager)
-- [[EMP-0044 Henry Rossi]] (Prep Cook)
-- [[EMP-0036 Aaron Kim]] (Line Cook)
-- [[EMP-0049 Elena Harris]] (Host)
+- [[EMP-0026 Mia Clark]] (General Manager)
+- [[EMP-0037 Isabella Park]] (Server)
+- [[EMP-0033 Elijah Harris]] (Server)
+- [[EMP-0036 Samir Silva]] (Server)
+- [[EMP-0042 Yara Silva]] (Server)
+- [[EMP-0035 Priya Wright]] (Line Cook)

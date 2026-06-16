@@ -1,6 +1,6 @@
 ---
 type: consent_grant
-id: CNS-0007
+id: CNS-0011
 person: "[[EMP-0002 Samir Abara]]"
 scope: hr.certifications
 purpose: store operations

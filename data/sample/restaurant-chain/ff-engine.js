@@ -125,11 +125,26 @@
   // Non-gated (directory) nodes are always visible.
   function nodeReadable(node, db, purpose, trace, role, pop) {
     var scope = db.meta.gatedTargets[node.type];
-    if (!scope) return true;                       // directory / non-sensitive — always visible
-    var subject = node.props.person;
-    var r = readField(subject, scope, db, purpose, role, pop);
-    if (!r.ok) { refuse(trace, subject || node.title, node.type, scope, r.reason, r.layer); return false; }
-    return true;
+    if (scope) {                                   // person-subject record: role + population + consent
+      var subject = node.props.person;
+      var r = readField(subject, scope, db, purpose, role, pop);
+      if (!r.ok) { refuse(trace, subject || node.title, node.type, scope, r.reason, r.layer); return false; }
+      return true;
+    }
+    var yscope = (db.meta.gatedTypes || {})[node.type];
+    if (yscope) {                                  // institutional record (e.g. candidate): role + purpose
+      // Inlined (NOT readField) by design: institutional records have no data-subject
+      // employee, so they skip the population + per-person consent checks (consent is
+      // implied by application). Do not route this through readField/gate.
+      if (!roleAllowsScope(role, yscope)) {
+        refuse(trace, node.title, node.type, yscope, 'role-restricted', 'access'); return false;
+      }
+      if (db.meta.purposes[purpose] !== yscope) {
+        refuse(trace, node.title, node.type, yscope, 'out-of-purpose', 'consent'); return false;
+      }
+      return true;
+    }
+    return true;                                    // directory node
   }
 
   function refuse(trace, person, field, scope, reason, layer) {
@@ -169,7 +184,7 @@
     // Gated-record targets: gate by SUBJECT (population + role + consent), regardless of
     // anchor type. nodeReadable returns true for non-gated-record types (directory — always visible).
     result = result.filter(function (n) {
-      if (!db.meta.gatedTargets[n.type]) return true;
+      if (!db.meta.gatedTargets[n.type] && !(db.meta.gatedTypes || {})[n.type]) return true;
       return nodeReadable(n, db, purpose, trace, role, pop);
     });
     // Gated edge (e.g. distributes_to): gate by the neighbor person.

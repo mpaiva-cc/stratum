@@ -7,17 +7,19 @@ date: 2026-06-12
 daypart: AM
 start: "07:00"
 end: "15:30"
-crew_size: 8
+crew_size: 10
 basis: authorization
 crew:
-  - "[[EMP-0324 Quinn Costa]]"
-  - "[[EMP-0320 Mason Johnson]]"
-  - "[[EMP-0308 Victor Okafor]]"
-  - "[[EMP-0317 Aiden Johnson]]"
-  - "[[EMP-0323 Daniela Clark]]"
-  - "[[EMP-0309 Evelyn King]]"
-  - "[[EMP-0325 Leo Harris]]"
-  - "[[EMP-0319 Grace Walker]]"
+  - "[[EMP-0323 Imani Ramirez]]"
+  - "[[EMP-0325 Connor Bianchi]]"
+  - "[[EMP-0307 Aria Davis]]"
+  - "[[EMP-0301 Emily Park]]"
+  - "[[EMP-0311 Ella Allen]]"
+  - "[[EMP-0321 Destiny Costa]]"
+  - "[[EMP-0315 Keira Brown]]"
+  - "[[EMP-0320 Ines Wilson]]"
+  - "[[EMP-0322 Uma Sanchez]]"
+  - "[[EMP-0306 Tariq Wilson]]"
 ---
 
 AM shift at [[Store 13 - Columbus Short North]] on 2026-06-12 (07:00-15:30).
@@ -28,11 +30,13 @@ AM shift at [[Store 13 - Columbus Short North]] on 2026-06-12 (07:00-15:30).
 
 ## Crew
 
-- [[EMP-0324 Quinn Costa]] (Busser)
-- [[EMP-0320 Mason Johnson]] (Server)
-- [[EMP-0308 Victor Okafor]] (Bartender)
-- [[EMP-0317 Aiden Johnson]] (Line Cook)
-- [[EMP-0323 Daniela Clark]] (Host)
-- [[EMP-0309 Evelyn King]] (Server)
-- [[EMP-0325 Leo Harris]] (Busser)
-- [[EMP-0319 Grace Walker]] (Server)
+- [[EMP-0323 Imani Ramirez]] (Dishwasher)
+- [[EMP-0325 Connor Bianchi]] (Busser)
+- [[EMP-0307 Aria Davis]] (Server)
+- [[EMP-0301 Emily Park]] (General Manager)
+- [[EMP-0311 Ella Allen]] (Server)
+- [[EMP-0321 Destiny Costa]] (Dishwasher)
+- [[EMP-0315 Keira Brown]] (Line Cook)
+- [[EMP-0320 Ines Wilson]] (Busser)
+- [[EMP-0322 Uma Sanchez]] (Busser)
+- [[EMP-0306 Tariq Wilson]] (Line Cook)

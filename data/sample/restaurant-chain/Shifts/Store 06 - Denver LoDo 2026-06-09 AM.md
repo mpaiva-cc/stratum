@@ -7,18 +7,19 @@ date: 2026-06-09
 daypart: AM
 start: "07:00"
 end: "15:30"
-crew_size: 9
+crew_size: 10
 basis: authorization
 crew:
-  - "[[EMP-0132 Isabella Shah]]"
-  - "[[EMP-0128 Hana Williams]]"
-  - "[[EMP-0127 Abigail Scott]]"
-  - "[[EMP-0134 Yara Torres]]"
-  - "[[EMP-0137 Carlos Mensah]]"
-  - "[[EMP-0148 Liam Abara]]"
-  - "[[EMP-0144 Victor Pham]]"
-  - "[[EMP-0130 Hassan Kim]]"
-  - "[[EMP-0150 Grace Sanchez]]"
+  - "[[EMP-0136 Grace Wright]]"
+  - "[[EMP-0134 Hana Russo]]"
+  - "[[EMP-0138 Rohan Clark]]"
+  - "[[EMP-0130 Felix Ahmed]]"
+  - "[[EMP-0148 Ella Miller]]"
+  - "[[EMP-0144 Priya Wilson]]"
+  - "[[EMP-0149 Kayla Brown]]"
+  - "[[EMP-0142 Isabella Williams]]"
+  - "[[EMP-0132 Grace Rossi]]"
+  - "[[EMP-0147 Diego Johnson]]"
 ---
 
 AM shift at [[Store 06 - Denver LoDo]] on 2026-06-09 (07:00-15:30).
@@ -29,12 +30,13 @@ AM shift at [[Store 06 - Denver LoDo]] on 2026-06-09 (07:00-15:30).
 
 ## Crew
 
-- [[EMP-0132 Isabella Shah]] (Server)
-- [[EMP-0128 Hana Williams]] (Head Chef)
-- [[EMP-0127 Abigail Scott]] (Assistant Manager)
-- [[EMP-0134 Yara Torres]] (Line Cook)
-- [[EMP-0137 Carlos Mensah]] (Server)
-- [[EMP-0148 Liam Abara]] (Host)
-- [[EMP-0144 Victor Pham]] (Busser)
-- [[EMP-0130 Hassan Kim]] (Shift Lead)
-- [[EMP-0150 Grace Sanchez]] (Host)
+- [[EMP-0136 Grace Wright]] (Server)
+- [[EMP-0134 Hana Russo]] (Server)
+- [[EMP-0138 Rohan Clark]] (Expo)
+- [[EMP-0130 Felix Ahmed]] (Shift Lead)
+- [[EMP-0148 Ella Miller]] (Busser)
+- [[EMP-0144 Priya Wilson]] (Server)
+- [[EMP-0149 Kayla Brown]] (Busser)
+- [[EMP-0142 Isabella Williams]] (Server)
+- [[EMP-0132 Grace Rossi]] (Server)
+- [[EMP-0147 Diego Johnson]] (Busser)

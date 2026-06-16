@@ -7,18 +7,17 @@ date: 2026-06-10
 daypart: AM
 start: "07:00"
 end: "15:30"
-crew_size: 9
+crew_size: 8
 basis: authorization
 crew:
-  - "[[EMP-0402 Emily King]]"
-  - "[[EMP-0419 Santiago Wright]]"
-  - "[[EMP-0418 Aaron Santos]]"
-  - "[[EMP-0414 Ava Park]]"
-  - "[[EMP-0409 Emily Sanchez]]"
-  - "[[EMP-0413 Aiden Allen]]"
-  - "[[EMP-0423 Rohan Singh]]"
-  - "[[EMP-0401 Jamal Perez]]"
-  - "[[EMP-0417 Jose Kim]]"
+  - "[[EMP-0421 Caleb Patel]]"
+  - "[[EMP-0424 Oscar Wilson]]"
+  - "[[EMP-0408 Jamal Clark]]"
+  - "[[EMP-0402 Zayd Diallo]]"
+  - "[[EMP-0403 Ava Gonzalez]]"
+  - "[[EMP-0410 Brianna Bianchi]]"
+  - "[[EMP-0420 Quinn Gonzalez]]"
+  - "[[EMP-0404 Rohan Park]]"
 ---
 
 AM shift at [[Store 17 - Brooklyn Williamsburg]] on 2026-06-10 (07:00-15:30).
@@ -29,12 +28,11 @@ AM shift at [[Store 17 - Brooklyn Williamsburg]] on 2026-06-10 (07:00-15:30).
 
 ## Crew
 
-- [[EMP-0402 Emily King]] (Assistant Manager)
-- [[EMP-0419 Santiago Wright]] (Dishwasher)
-- [[EMP-0418 Aaron Santos]] (Line Cook)
-- [[EMP-0414 Ava Park]] (Server)
-- [[EMP-0409 Emily Sanchez]] (Expo)
-- [[EMP-0413 Aiden Allen]] (Line Cook)
-- [[EMP-0423 Rohan Singh]] (Prep Cook)
-- [[EMP-0401 Jamal Perez]] (General Manager)
-- [[EMP-0417 Jose Kim]] (Bartender)
+- [[EMP-0421 Caleb Patel]] (Prep Cook)
+- [[EMP-0424 Oscar Wilson]] (Host)
+- [[EMP-0408 Jamal Clark]] (Bartender)
+- [[EMP-0402 Zayd Diallo]] (Assistant Manager)
+- [[EMP-0403 Ava Gonzalez]] (Head Chef)
+- [[EMP-0410 Brianna Bianchi]] (Server)
+- [[EMP-0420 Quinn Gonzalez]] (Prep Cook)
+- [[EMP-0404 Rohan Park]] (Shift Lead)

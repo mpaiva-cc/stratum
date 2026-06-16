@@ -7,17 +7,16 @@ date: 2026-06-14
 daypart: AM
 start: "07:00"
 end: "15:30"
-crew_size: 8
+crew_size: 7
 basis: authorization
 crew:
-  - "[[EMP-0245 Layla Lopez]]"
-  - "[[EMP-0229 Hana Perez]]"
-  - "[[EMP-0241 Rohan Lopez]]"
-  - "[[EMP-0234 Emily Wang]]"
-  - "[[EMP-0233 Paloma Wright]]"
-  - "[[EMP-0240 Andres Anderson]]"
-  - "[[EMP-0246 Wanda Young]]"
-  - "[[EMP-0230 Harper Romano]]"
+  - "[[EMP-0231 Elijah Martinez]]"
+  - "[[EMP-0235 Hana Thomas]]"
+  - "[[EMP-0244 Abigail Wright]]"
+  - "[[EMP-0233 Jose Pham]]"
+  - "[[EMP-0242 Priya Lewis]]"
+  - "[[EMP-0250 Ava Walker]]"
+  - "[[EMP-0234 Henry Brown]]"
 ---
 
 AM shift at [[Store 10 - San Diego Gaslamp]] on 2026-06-14 (07:00-15:30).
@@ -28,11 +27,10 @@ AM shift at [[Store 10 - San Diego Gaslamp]] on 2026-06-14 (07:00-15:30).
 
 ## Crew
 
-- [[EMP-0245 Layla Lopez]] (Line Cook)
-- [[EMP-0229 Hana Perez]] (Shift Lead)
-- [[EMP-0241 Rohan Lopez]] (Line Cook)
-- [[EMP-0234 Emily Wang]] (Server)
-- [[EMP-0233 Paloma Wright]] (Server)
-- [[EMP-0240 Andres Anderson]] (Line Cook)
-- [[EMP-0246 Wanda Young]] (Busser)
-- [[EMP-0230 Harper Romano]] (Shift Lead)
+- [[EMP-0231 Elijah Martinez]] (Line Cook)
+- [[EMP-0235 Hana Thomas]] (Server)
+- [[EMP-0244 Abigail Wright]] (Dishwasher)
+- [[EMP-0233 Jose Pham]] (Server)
+- [[EMP-0242 Priya Lewis]] (Line Cook)
+- [[EMP-0250 Ava Walker]] (Dishwasher)
+- [[EMP-0234 Henry Brown]] (Line Cook)

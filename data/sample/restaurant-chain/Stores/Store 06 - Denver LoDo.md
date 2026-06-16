@@ -5,11 +5,11 @@ name: Denver LoDo
 region: "[[West Region]]"
 at_location: "[[Denver LoDo (CO-06)]]"
 part_of: "[[West Region]]"
-opened: 2022-11-28
+opened: 2020-05-15
 seats: 140
 headcount: 25
 basis: authorization
-general_manager: "[[EMP-0126 Yara Silva]]"
+general_manager: "[[EMP-0126 Ella Martinez]]"
 ---
 
 Store in the [[West Region]] · 25 staff.
@@ -28,28 +28,28 @@ Store in the [[West Region]] · 25 staff.
 
 ## Roster (25)
 
-- [[EMP-0126 Yara Silva]] — General Manager
-- [[EMP-0127 Abigail Scott]] — Assistant Manager
-- [[EMP-0128 Hana Williams]] — Head Chef
-- [[EMP-0129 Quinn Torres]] — Shift Lead
-- [[EMP-0130 Hassan Kim]] — Shift Lead
-- [[EMP-0131 Priya Miller]] — Server
-- [[EMP-0132 Isabella Shah]] — Server
-- [[EMP-0133 Quinn Garcia]] — Line Cook
-- [[EMP-0134 Yara Torres]] — Line Cook
-- [[EMP-0135 Aaron Silva]] — Server
-- [[EMP-0136 Andres White]] — Line Cook
-- [[EMP-0137 Carlos Mensah]] — Server
-- [[EMP-0138 Bella Brown]] — Server
-- [[EMP-0139 Liam Perez]] — Line Cook
-- [[EMP-0140 Ximena Allen]] — Line Cook
-- [[EMP-0141 Nadia Scott]] — Server
-- [[EMP-0142 Mason Brown]] — Dishwasher
-- [[EMP-0143 Emily Costa]] — Prep Cook
-- [[EMP-0144 Victor Pham]] — Busser
-- [[EMP-0145 Zayd Chen]] — Busser
-- [[EMP-0146 Felix Singh]] — Busser
-- [[EMP-0147 Bella Walker]] — Busser
-- [[EMP-0148 Liam Abara]] — Host
-- [[EMP-0149 Hassan Rodriguez]] — Busser
-- [[EMP-0150 Grace Sanchez]] — Host
+- [[EMP-0126 Ella Martinez]] — General Manager
+- [[EMP-0127 Anaya Park]] — Assistant Manager
+- [[EMP-0128 Aaron Santos]] — Head Chef
+- [[EMP-0129 Andres Clark]] — Shift Lead
+- [[EMP-0130 Felix Ahmed]] — Shift Lead
+- [[EMP-0131 Ximena Hernandez]] — Server
+- [[EMP-0132 Grace Rossi]] — Server
+- [[EMP-0133 Isabella Santos]] — Line Cook
+- [[EMP-0134 Hana Russo]] — Server
+- [[EMP-0135 Rosa Garcia]] — Line Cook
+- [[EMP-0136 Grace Wright]] — Server
+- [[EMP-0137 Keira White]] — Bartender
+- [[EMP-0138 Rohan Clark]] — Expo
+- [[EMP-0139 Liam Russo]] — Server
+- [[EMP-0140 Emily Ali]] — Line Cook
+- [[EMP-0141 Zane Sanchez]] — Expo
+- [[EMP-0142 Isabella Williams]] — Server
+- [[EMP-0143 Maria Pham]] — Server
+- [[EMP-0144 Priya Wilson]] — Server
+- [[EMP-0145 Min Wang]] — Server
+- [[EMP-0146 Maria Garcia]] — Host
+- [[EMP-0147 Diego Johnson]] — Busser
+- [[EMP-0148 Ella Miller]] — Busser
+- [[EMP-0149 Kayla Brown]] — Busser
+- [[EMP-0150 Oscar Davis]] — Dishwasher

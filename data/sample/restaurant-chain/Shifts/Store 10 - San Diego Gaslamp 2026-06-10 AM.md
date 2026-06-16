@@ -7,19 +7,17 @@ date: 2026-06-10
 daypart: AM
 start: "07:00"
 end: "15:30"
-crew_size: 10
+crew_size: 8
 basis: authorization
 crew:
-  - "[[EMP-0236 Mateo Liu]]"
-  - "[[EMP-0234 Emily Wang]]"
-  - "[[EMP-0238 Sofia Lopez]]"
-  - "[[EMP-0230 Harper Romano]]"
-  - "[[EMP-0248 Zayd Walker]]"
-  - "[[EMP-0244 Nadia Kim]]"
-  - "[[EMP-0249 Samir Singh]]"
-  - "[[EMP-0242 Wei Abara]]"
-  - "[[EMP-0232 Bella Thomas]]"
-  - "[[EMP-0247 Destiny Bianchi]]"
+  - "[[EMP-0248 Aiden Taylor]]"
+  - "[[EMP-0242 Priya Lewis]]"
+  - "[[EMP-0233 Jose Pham]]"
+  - "[[EMP-0239 Maria Abara]]"
+  - "[[EMP-0250 Ava Walker]]"
+  - "[[EMP-0246 Evelyn Diallo]]"
+  - "[[EMP-0228 Abigail Young]]"
+  - "[[EMP-0229 Sofia Thomas]]"
 ---
 
 AM shift at [[Store 10 - San Diego Gaslamp]] on 2026-06-10 (07:00-15:30).
@@ -30,13 +28,11 @@ AM shift at [[Store 10 - San Diego Gaslamp]] on 2026-06-10 (07:00-15:30).
 
 ## Crew
 
-- [[EMP-0236 Mateo Liu]] (Server)
-- [[EMP-0234 Emily Wang]] (Server)
-- [[EMP-0238 Sofia Lopez]] (Line Cook)
-- [[EMP-0230 Harper Romano]] (Shift Lead)
-- [[EMP-0248 Zayd Walker]] (Dishwasher)
-- [[EMP-0244 Nadia Kim]] (Line Cook)
-- [[EMP-0249 Samir Singh]] (Busser)
-- [[EMP-0242 Wei Abara]] (Expo)
-- [[EMP-0232 Bella Thomas]] (Server)
-- [[EMP-0247 Destiny Bianchi]] (Busser)
+- [[EMP-0248 Aiden Taylor]] (Busser)
+- [[EMP-0242 Priya Lewis]] (Line Cook)
+- [[EMP-0233 Jose Pham]] (Server)
+- [[EMP-0239 Maria Abara]] (Bartender)
+- [[EMP-0250 Ava Walker]] (Dishwasher)
+- [[EMP-0246 Evelyn Diallo]] (Host)
+- [[EMP-0228 Abigail Young]] (Head Chef)
+- [[EMP-0229 Sofia Thomas]] (Shift Lead)

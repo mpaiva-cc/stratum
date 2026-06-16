@@ -7,16 +7,15 @@ date: 2026-06-10
 daypart: AM
 start: "07:00"
 end: "15:30"
-crew_size: 7
+crew_size: 6
 basis: authorization
 crew:
-  - "[[EMP-0148 Liam Abara]]"
-  - "[[EMP-0143 Emily Costa]]"
-  - "[[EMP-0142 Mason Brown]]"
-  - "[[EMP-0132 Isabella Shah]]"
-  - "[[EMP-0145 Zayd Chen]]"
-  - "[[EMP-0146 Felix Singh]]"
-  - "[[EMP-0149 Hassan Rodriguez]]"
+  - "[[EMP-0134 Hana Russo]]"
+  - "[[EMP-0128 Aaron Santos]]"
+  - "[[EMP-0147 Diego Johnson]]"
+  - "[[EMP-0126 Ella Martinez]]"
+  - "[[EMP-0131 Ximena Hernandez]]"
+  - "[[EMP-0132 Grace Rossi]]"
 ---
 
 AM shift at [[Store 06 - Denver LoDo]] on 2026-06-10 (07:00-15:30).
@@ -27,10 +26,9 @@ AM shift at [[Store 06 - Denver LoDo]] on 2026-06-10 (07:00-15:30).
 
 ## Crew
 
-- [[EMP-0148 Liam Abara]] (Host)
-- [[EMP-0143 Emily Costa]] (Prep Cook)
-- [[EMP-0142 Mason Brown]] (Dishwasher)
-- [[EMP-0132 Isabella Shah]] (Server)
-- [[EMP-0145 Zayd Chen]] (Busser)
-- [[EMP-0146 Felix Singh]] (Busser)
-- [[EMP-0149 Hassan Rodriguez]] (Busser)
+- [[EMP-0134 Hana Russo]] (Server)
+- [[EMP-0128 Aaron Santos]] (Head Chef)
+- [[EMP-0147 Diego Johnson]] (Busser)
+- [[EMP-0126 Ella Martinez]] (General Manager)
+- [[EMP-0131 Ximena Hernandez]] (Server)
+- [[EMP-0132 Grace Rossi]] (Server)

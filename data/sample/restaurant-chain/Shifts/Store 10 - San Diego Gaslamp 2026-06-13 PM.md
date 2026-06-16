@@ -10,12 +10,12 @@ end: "23:30"
 crew_size: 6
 basis: authorization
 crew:
-  - "[[EMP-0229 Hana Perez]]"
-  - "[[EMP-0245 Layla Lopez]]"
-  - "[[EMP-0242 Wei Abara]]"
-  - "[[EMP-0238 Sofia Lopez]]"
-  - "[[EMP-0248 Zayd Walker]]"
-  - "[[EMP-0239 Gabriela Walker]]"
+  - "[[EMP-0228 Abigail Young]]"
+  - "[[EMP-0242 Priya Lewis]]"
+  - "[[EMP-0248 Aiden Taylor]]"
+  - "[[EMP-0230 Ines Perez]]"
+  - "[[EMP-0245 Keira Scott]]"
+  - "[[EMP-0234 Henry Brown]]"
 ---
 
 PM shift at [[Store 10 - San Diego Gaslamp]] on 2026-06-13 (15:00-23:30).
@@ -26,9 +26,9 @@ PM shift at [[Store 10 - San Diego Gaslamp]] on 2026-06-13 (15:00-23:30).
 
 ## Crew
 
-- [[EMP-0229 Hana Perez]] (Shift Lead)
-- [[EMP-0245 Layla Lopez]] (Line Cook)
-- [[EMP-0242 Wei Abara]] (Expo)
-- [[EMP-0238 Sofia Lopez]] (Line Cook)
-- [[EMP-0248 Zayd Walker]] (Dishwasher)
-- [[EMP-0239 Gabriela Walker]] (Bartender)
+- [[EMP-0228 Abigail Young]] (Head Chef)
+- [[EMP-0242 Priya Lewis]] (Line Cook)
+- [[EMP-0248 Aiden Taylor]] (Busser)
+- [[EMP-0230 Ines Perez]] (Shift Lead)
+- [[EMP-0245 Keira Scott]] (Prep Cook)
+- [[EMP-0234 Henry Brown]] (Line Cook)

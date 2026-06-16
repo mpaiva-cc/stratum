@@ -7,19 +7,16 @@ date: 2026-06-10
 daypart: AM
 start: "07:00"
 end: "15:30"
-crew_size: 10
+crew_size: 7
 basis: authorization
 crew:
-  - "[[EMP-0202 Lucas Garcia]]"
-  - "[[EMP-0218 Brianna Wright]]"
-  - "[[EMP-0216 Noah Ali]]"
-  - "[[EMP-0209 Santiago Patel]]"
-  - "[[EMP-0222 Oscar Smith]]"
-  - "[[EMP-0206 Maria Anderson]]"
-  - "[[EMP-0225 Kayla Taylor]]"
-  - "[[EMP-0205 Keira Okafor]]"
-  - "[[EMP-0201 Ximena Ahmed]]"
-  - "[[EMP-0221 Wei Williams]]"
+  - "[[EMP-0204 Harper Lewis]]"
+  - "[[EMP-0221 Samir Davis]]"
+  - "[[EMP-0218 Liam Pham]]"
+  - "[[EMP-0225 Abigail Ahmed]]"
+  - "[[EMP-0219 Hana Wang]]"
+  - "[[EMP-0220 Sofia Mensah]]"
+  - "[[EMP-0201 Emily Abara]]"
 ---
 
 AM shift at [[Store 09 - Portland Pearl]] on 2026-06-10 (07:00-15:30).
@@ -30,13 +27,10 @@ AM shift at [[Store 09 - Portland Pearl]] on 2026-06-10 (07:00-15:30).
 
 ## Crew
 
-- [[EMP-0202 Lucas Garcia]] (Assistant Manager)
-- [[EMP-0218 Brianna Wright]] (Server)
-- [[EMP-0216 Noah Ali]] (Line Cook)
-- [[EMP-0209 Santiago Patel]] (Server)
-- [[EMP-0222 Oscar Smith]] (Prep Cook)
-- [[EMP-0206 Maria Anderson]] (Bartender)
-- [[EMP-0225 Kayla Taylor]] (Host)
-- [[EMP-0205 Keira Okafor]] (Shift Lead)
-- [[EMP-0201 Ximena Ahmed]] (General Manager)
-- [[EMP-0221 Wei Williams]] (Prep Cook)
+- [[EMP-0204 Harper Lewis]] (Shift Lead)
+- [[EMP-0221 Samir Davis]] (Dishwasher)
+- [[EMP-0218 Liam Pham]] (Prep Cook)
+- [[EMP-0225 Abigail Ahmed]] (Prep Cook)
+- [[EMP-0219 Hana Wang]] (Busser)
+- [[EMP-0220 Sofia Mensah]] (Busser)
+- [[EMP-0201 Emily Abara]] (General Manager)

@@ -1,6 +1,6 @@
 ---
 type: consent_grant
-id: CNS-0057
+id: CNS-0111
 person: "[[EMP-0015 Mia Williams]]"
 scope: hr.scheduling
 purpose: store operations

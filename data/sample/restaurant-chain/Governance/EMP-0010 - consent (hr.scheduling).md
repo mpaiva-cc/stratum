@@ -1,6 +1,6 @@
 ---
 type: consent_grant
-id: CNS-0037
+id: CNS-0072
 person: "[[EMP-0010 Harper Liu]]"
 scope: hr.scheduling
 purpose: store operations

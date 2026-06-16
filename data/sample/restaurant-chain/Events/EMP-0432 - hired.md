@@ -1,11 +1,11 @@
 ---
 type: employment_event
 id: EVT-0432
-person: "[[EMP-0432 Fatima Santos]]"
+person: "[[EMP-0432 Rohan Harris]]"
 kind: hire
-date: 2024-08-04
+date: 2025-12-08
 store: "[[Store 18 - Philadelphia Fishtown]]"
 basis: consent
 ---
 
-[[EMP-0432 Fatima Santos]] hired as Bartender at [[Store 18 - Philadelphia Fishtown]] on 2024-08-04.
+[[EMP-0432 Rohan Harris]] hired as Server at [[Store 18 - Philadelphia Fishtown]] on 2025-12-08.

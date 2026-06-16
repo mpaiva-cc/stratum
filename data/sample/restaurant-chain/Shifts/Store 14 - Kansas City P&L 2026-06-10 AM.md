@@ -10,12 +10,12 @@ end: "15:30"
 crew_size: 6
 basis: authorization
 crew:
-  - "[[EMP-0332 Amelia Nguyen]]"
-  - "[[EMP-0335 Mason Russo]]"
-  - "[[EMP-0337 Leo Singh]]"
-  - "[[EMP-0333 Zane Silva]]"
-  - "[[EMP-0338 Anaya Wilson]]"
-  - "[[EMP-0326 Henry Rodriguez]]"
+  - "[[EMP-0339 Noah Harris]]"
+  - "[[EMP-0343 Elena Martinez]]"
+  - "[[EMP-0329 Ethan Wang]]"
+  - "[[EMP-0340 Liam Khan]]"
+  - "[[EMP-0347 Ines Williams]]"
+  - "[[EMP-0326 Layla Patel]]"
 ---
 
 AM shift at [[Store 14 - Kansas City P&L]] on 2026-06-10 (07:00-15:30).
@@ -26,9 +26,9 @@ AM shift at [[Store 14 - Kansas City P&L]] on 2026-06-10 (07:00-15:30).
 
 ## Crew
 
-- [[EMP-0332 Amelia Nguyen]] (Server)
-- [[EMP-0335 Mason Russo]] (Server)
-- [[EMP-0337 Leo Singh]] (Server)
-- [[EMP-0333 Zane Silva]] (Line Cook)
-- [[EMP-0338 Anaya Wilson]] (Server)
-- [[EMP-0326 Henry Rodriguez]] (General Manager)
+- [[EMP-0339 Noah Harris]] (Line Cook)
+- [[EMP-0343 Elena Martinez]] (Server)
+- [[EMP-0329 Ethan Wang]] (Shift Lead)
+- [[EMP-0340 Liam Khan]] (Bartender)
+- [[EMP-0347 Ines Williams]] (Busser)
+- [[EMP-0326 Layla Patel]] (General Manager)

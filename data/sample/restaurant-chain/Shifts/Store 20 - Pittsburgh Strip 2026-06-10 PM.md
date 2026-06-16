@@ -10,12 +10,12 @@ end: "23:30"
 crew_size: 6
 basis: authorization
 crew:
-  - "[[EMP-0499 Jose Tran]]"
-  - "[[EMP-0486 Wei Silva]]"
-  - "[[EMP-0477 Henry Rossi]]"
-  - "[[EMP-0487 Tariq Scott]]"
-  - "[[EMP-0500 Destiny Johnson]]"
-  - "[[EMP-0493 Bella Jackson]]"
+  - "[[EMP-0484 Min Anderson]]"
+  - "[[EMP-0476 Henry Young]]"
+  - "[[EMP-0487 Ella Thomas]]"
+  - "[[EMP-0500 Ava Smith]]"
+  - "[[EMP-0495 Andres Garcia]]"
+  - "[[EMP-0479 Fatima Liu]]"
 ---
 
 PM shift at [[Store 20 - Pittsburgh Strip]] on 2026-06-10 (15:00-23:30).
@@ -26,9 +26,9 @@ PM shift at [[Store 20 - Pittsburgh Strip]] on 2026-06-10 (15:00-23:30).
 
 ## Crew
 
-- [[EMP-0499 Jose Tran]] (Dishwasher)
-- [[EMP-0486 Wei Silva]] (Line Cook)
-- [[EMP-0477 Henry Rossi]] (Assistant Manager)
-- [[EMP-0487 Tariq Scott]] (Server)
-- [[EMP-0500 Destiny Johnson]] (Prep Cook)
-- [[EMP-0493 Bella Jackson]] (Server)
+- [[EMP-0484 Min Anderson]] (Server)
+- [[EMP-0476 Henry Young]] (General Manager)
+- [[EMP-0487 Ella Thomas]] (Line Cook)
+- [[EMP-0500 Ava Smith]] (Host)
+- [[EMP-0495 Andres Garcia]] (Dishwasher)
+- [[EMP-0479 Fatima Liu]] (Shift Lead)

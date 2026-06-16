@@ -1,11 +1,11 @@
 ---
 type: employment_event
 id: EVT-0243
-person: "[[EMP-0243 Mason Harris]]"
+person: "[[EMP-0243 Jin Taylor]]"
 kind: hire
-date: 2025-06-18
+date: 2023-03-14
 store: "[[Store 10 - San Diego Gaslamp]]"
 basis: consent
 ---
 
-[[EMP-0243 Mason Harris]] hired as Line Cook at [[Store 10 - San Diego Gaslamp]] on 2025-06-18.
+[[EMP-0243 Jin Taylor]] hired as Line Cook at [[Store 10 - San Diego Gaslamp]] on 2023-03-14.

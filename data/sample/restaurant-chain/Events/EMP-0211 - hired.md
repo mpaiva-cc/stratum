@@ -1,11 +1,11 @@
 ---
 type: employment_event
 id: EVT-0211
-person: "[[EMP-0211 Valentina Liu]]"
+person: "[[EMP-0211 Emily Lewis]]"
 kind: hire
-date: 2026-03-29
+date: 2025-02-18
 store: "[[Store 09 - Portland Pearl]]"
 basis: consent
 ---
 
-[[EMP-0211 Valentina Liu]] hired as Line Cook at [[Store 09 - Portland Pearl]] on 2026-03-29.
+[[EMP-0211 Emily Lewis]] hired as Server at [[Store 09 - Portland Pearl]] on 2025-02-18.

@@ -1,11 +1,11 @@
 ---
 type: employment_event
 id: EVT-0482
-person: "[[EMP-0482 Arjun Lewis]]"
+person: "[[EMP-0482 Felix Martinez]]"
 kind: hire
-date: 2022-10-02
+date: 2026-02-26
 store: "[[Store 20 - Pittsburgh Strip]]"
 basis: consent
 ---
 
-[[EMP-0482 Arjun Lewis]] hired as Server at [[Store 20 - Pittsburgh Strip]] on 2022-10-02.
+[[EMP-0482 Felix Martinez]] hired as Expo at [[Store 20 - Pittsburgh Strip]] on 2026-02-26.

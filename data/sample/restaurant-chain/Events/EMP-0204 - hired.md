@@ -1,11 +1,11 @@
 ---
 type: employment_event
 id: EVT-0204
-person: "[[EMP-0204 Santiago Perez]]"
+person: "[[EMP-0204 Harper Lewis]]"
 kind: hire
-date: 2023-07-07
+date: 2021-11-12
 store: "[[Store 09 - Portland Pearl]]"
 basis: consent
 ---
 
-[[EMP-0204 Santiago Perez]] hired as Shift Lead at [[Store 09 - Portland Pearl]] on 2023-07-07.
+[[EMP-0204 Harper Lewis]] hired as Shift Lead at [[Store 09 - Portland Pearl]] on 2021-11-12.

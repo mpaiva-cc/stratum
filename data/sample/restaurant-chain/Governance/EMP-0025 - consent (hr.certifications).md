@@ -1,6 +1,6 @@
 ---
 type: consent_grant
-id: CNS-0097
+id: CNS-0193
 person: "[[EMP-0025 Isabella Lopez]]"
 scope: hr.certifications
 purpose: store operations

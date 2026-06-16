@@ -7,17 +7,18 @@ date: 2026-06-09
 daypart: AM
 start: "07:00"
 end: "15:30"
-crew_size: 8
+crew_size: 9
 basis: authorization
 crew:
-  - "[[EMP-0261 Priya Harris]]"
-  - "[[EMP-0257 Sofia Hernandez]]"
-  - "[[EMP-0255 Abigail Singh]]"
-  - "[[EMP-0253 Hassan Tran]]"
-  - "[[EMP-0252 Grace Johnson]]"
-  - "[[EMP-0259 Wanda Wilson]]"
-  - "[[EMP-0256 Nadia Rodriguez]]"
-  - "[[EMP-0268 Yara Hernandez]]"
+  - "[[EMP-0264 Rosa Allen]]"
+  - "[[EMP-0272 Harper Russo]]"
+  - "[[EMP-0260 Gabriela Abara]]"
+  - "[[EMP-0253 Hana King]]"
+  - "[[EMP-0270 Noah Singh]]"
+  - "[[EMP-0274 Valentina Perez]]"
+  - "[[EMP-0268 Santiago Lopez]]"
+  - "[[EMP-0265 Oscar Brown]]"
+  - "[[EMP-0255 Victor Garcia]]"
 ---
 
 AM shift at [[Store 11 - Chicago Loop]] on 2026-06-09 (07:00-15:30).
@@ -28,11 +29,12 @@ AM shift at [[Store 11 - Chicago Loop]] on 2026-06-09 (07:00-15:30).
 
 ## Crew
 
-- [[EMP-0261 Priya Harris]] (Line Cook)
-- [[EMP-0257 Sofia Hernandez]] (Server)
-- [[EMP-0255 Abigail Singh]] (Shift Lead)
-- [[EMP-0253 Hassan Tran]] (Head Chef)
-- [[EMP-0252 Grace Johnson]] (Assistant Manager)
-- [[EMP-0259 Wanda Wilson]] (Server)
-- [[EMP-0256 Nadia Rodriguez]] (Bartender)
-- [[EMP-0268 Yara Hernandez]] (Dishwasher)
+- [[EMP-0264 Rosa Allen]] (Server)
+- [[EMP-0272 Harper Russo]] (Bartender)
+- [[EMP-0260 Gabriela Abara]] (Line Cook)
+- [[EMP-0253 Hana King]] (Head Chef)
+- [[EMP-0270 Noah Singh]] (Server)
+- [[EMP-0274 Valentina Perez]] (Dishwasher)
+- [[EMP-0268 Santiago Lopez]] (Server)
+- [[EMP-0265 Oscar Brown]] (Server)
+- [[EMP-0255 Victor Garcia]] (Shift Lead)

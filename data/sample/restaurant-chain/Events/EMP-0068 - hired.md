@@ -1,11 +1,11 @@
 ---
 type: employment_event
 id: EVT-0068
-person: "[[EMP-0068 Maria Walker]]"
+person: "[[EMP-0068 Liam Abara]]"
 kind: hire
-date: 2024-06-11
+date: 2023-03-05
 store: "[[Store 03 - Dallas Knox]]"
 basis: consent
 ---
 
-[[EMP-0068 Maria Walker]] hired as Busser at [[Store 03 - Dallas Knox]] on 2024-06-11.
+[[EMP-0068 Liam Abara]] hired as Host at [[Store 03 - Dallas Knox]] on 2023-03-05.

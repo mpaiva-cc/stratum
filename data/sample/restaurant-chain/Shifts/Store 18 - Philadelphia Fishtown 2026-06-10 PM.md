@@ -10,14 +10,14 @@ end: "23:30"
 crew_size: 8
 basis: authorization
 crew:
-  - "[[EMP-0444 Felix Anderson]]"
-  - "[[EMP-0434 Paloma Garcia]]"
-  - "[[EMP-0439 Kayla Abara]]"
-  - "[[EMP-0427 Aria Wilson]]"
-  - "[[EMP-0447 Santiago Ali]]"
-  - "[[EMP-0438 Anaya Moore]]"
-  - "[[EMP-0428 Isabella Gonzalez]]"
-  - "[[EMP-0450 Tariq Rodriguez]]"
+  - "[[EMP-0430 Oscar Martinez]]"
+  - "[[EMP-0443 Noah Davis]]"
+  - "[[EMP-0434 Aria Santos]]"
+  - "[[EMP-0437 Harper Gonzalez]]"
+  - "[[EMP-0444 Liam Taylor]]"
+  - "[[EMP-0435 Hassan Martinez]]"
+  - "[[EMP-0436 Omar Brown]]"
+  - "[[EMP-0450 Amelia Okafor]]"
 ---
 
 PM shift at [[Store 18 - Philadelphia Fishtown]] on 2026-06-10 (15:00-23:30).
@@ -28,11 +28,11 @@ PM shift at [[Store 18 - Philadelphia Fishtown]] on 2026-06-10 (15:00-23:30).
 
 ## Crew
 
-- [[EMP-0444 Felix Anderson]] (Host)
-- [[EMP-0434 Paloma Garcia]] (Server)
-- [[EMP-0439 Kayla Abara]] (Server)
-- [[EMP-0427 Aria Wilson]] (Assistant Manager)
-- [[EMP-0447 Santiago Ali]] (Host)
-- [[EMP-0438 Anaya Moore]] (Line Cook)
-- [[EMP-0428 Isabella Gonzalez]] (Head Chef)
-- [[EMP-0450 Tariq Rodriguez]] (Dishwasher)
+- [[EMP-0430 Oscar Martinez]] (Shift Lead)
+- [[EMP-0443 Noah Davis]] (Bartender)
+- [[EMP-0434 Aria Santos]] (Line Cook)
+- [[EMP-0437 Harper Gonzalez]] (Bartender)
+- [[EMP-0444 Liam Taylor]] (Line Cook)
+- [[EMP-0435 Hassan Martinez]] (Server)
+- [[EMP-0436 Omar Brown]] (Server)
+- [[EMP-0450 Amelia Okafor]] (Prep Cook)

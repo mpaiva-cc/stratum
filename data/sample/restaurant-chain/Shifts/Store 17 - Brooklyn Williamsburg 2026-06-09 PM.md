@@ -7,16 +7,15 @@ date: 2026-06-09
 daypart: PM
 start: "15:00"
 end: "23:30"
-crew_size: 7
+crew_size: 6
 basis: authorization
 crew:
-  - "[[EMP-0407 Grace Martinez]]"
-  - "[[EMP-0424 Emily Le]]"
-  - "[[EMP-0420 Keira Park]]"
-  - "[[EMP-0401 Jamal Perez]]"
-  - "[[EMP-0402 Emily King]]"
-  - "[[EMP-0406 Elijah Harris]]"
-  - "[[EMP-0415 Kayla Williams]]"
+  - "[[EMP-0419 Zane Le]]"
+  - "[[EMP-0412 Lucas Perez]]"
+  - "[[EMP-0404 Rohan Park]]"
+  - "[[EMP-0413 Nadia Martinez]]"
+  - "[[EMP-0408 Jamal Clark]]"
+  - "[[EMP-0417 Tariq Lopez]]"
 ---
 
 PM shift at [[Store 17 - Brooklyn Williamsburg]] on 2026-06-09 (15:00-23:30).
@@ -27,10 +26,9 @@ PM shift at [[Store 17 - Brooklyn Williamsburg]] on 2026-06-09 (15:00-23:30).
 
 ## Crew
 
-- [[EMP-0407 Grace Martinez]] (Line Cook)
-- [[EMP-0424 Emily Le]] (Dishwasher)
-- [[EMP-0420 Keira Park]] (Host)
-- [[EMP-0401 Jamal Perez]] (General Manager)
-- [[EMP-0402 Emily King]] (Assistant Manager)
-- [[EMP-0406 Elijah Harris]] (Line Cook)
-- [[EMP-0415 Kayla Williams]] (Server)
+- [[EMP-0419 Zane Le]] (Dishwasher)
+- [[EMP-0412 Lucas Perez]] (Line Cook)
+- [[EMP-0404 Rohan Park]] (Shift Lead)
+- [[EMP-0413 Nadia Martinez]] (Line Cook)
+- [[EMP-0408 Jamal Clark]] (Bartender)
+- [[EMP-0417 Tariq Lopez]] (Line Cook)

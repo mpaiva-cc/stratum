@@ -1,6 +1,6 @@
 ---
 type: consent_grant
-id: CNS-0027
+id: CNS-0050
 person: "[[EMP-0007 Arjun Ramirez]]"
 scope: hr.certifications
 purpose: store operations

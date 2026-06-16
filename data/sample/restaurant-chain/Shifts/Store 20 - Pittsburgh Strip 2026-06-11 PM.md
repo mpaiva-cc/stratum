@@ -7,18 +7,16 @@ date: 2026-06-11
 daypart: PM
 start: "15:00"
 end: "23:30"
-crew_size: 9
+crew_size: 7
 basis: authorization
 crew:
-  - "[[EMP-0481 Emily Thomas]]"
-  - "[[EMP-0487 Tariq Scott]]"
-  - "[[EMP-0488 Victor Ahmed]]"
-  - "[[EMP-0480 Zane Williams]]"
-  - "[[EMP-0495 Destiny Lopez]]"
-  - "[[EMP-0483 Jaden Torres]]"
-  - "[[EMP-0484 Zane Taylor]]"
-  - "[[EMP-0486 Wei Silva]]"
-  - "[[EMP-0492 Liam Santos]]"
+  - "[[EMP-0490 Camila Patel]]"
+  - "[[EMP-0487 Ella Thomas]]"
+  - "[[EMP-0477 Lucas Anderson]]"
+  - "[[EMP-0493 Quinn Moore]]"
+  - "[[EMP-0484 Min Anderson]]"
+  - "[[EMP-0486 Andres Torres]]"
+  - "[[EMP-0495 Andres Garcia]]"
 ---
 
 PM shift at [[Store 20 - Pittsburgh Strip]] on 2026-06-11 (15:00-23:30).
@@ -29,12 +27,10 @@ PM shift at [[Store 20 - Pittsburgh Strip]] on 2026-06-11 (15:00-23:30).
 
 ## Crew
 
-- [[EMP-0481 Emily Thomas]] (Line Cook)
-- [[EMP-0487 Tariq Scott]] (Server)
-- [[EMP-0488 Victor Ahmed]] (Server)
-- [[EMP-0480 Zane Williams]] (Shift Lead)
-- [[EMP-0495 Destiny Lopez]] (Dishwasher)
-- [[EMP-0483 Jaden Torres]] (Line Cook)
-- [[EMP-0484 Zane Taylor]] (Line Cook)
-- [[EMP-0486 Wei Silva]] (Line Cook)
-- [[EMP-0492 Liam Santos]] (Server)
+- [[EMP-0490 Camila Patel]] (Line Cook)
+- [[EMP-0487 Ella Thomas]] (Line Cook)
+- [[EMP-0477 Lucas Anderson]] (Assistant Manager)
+- [[EMP-0493 Quinn Moore]] (Prep Cook)
+- [[EMP-0484 Min Anderson]] (Server)
+- [[EMP-0486 Andres Torres]] (Server)
+- [[EMP-0495 Andres Garcia]] (Dishwasher)

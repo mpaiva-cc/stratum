@@ -4,30 +4,33 @@ id: EMP-0019
 name: Gabriela Miller
 status: active
 status_reason: active
-status_effective_date: 2026-06-01
+status_effective_date: 2026-05-23
 rehire_eligible: false
-employment_type: part_time
-hire_date: 2022-12-12
+employment_type: full_time
+hire_date: 2023-12-08
 email: "gabriela.miller.emp-0019@forkandflame.example"
 works_at: "[[Store 01 - Austin Domain]]"
 in_department: "[[Front of House (Department)]]"
 position: "[[Server]]"
-pay_rate: 13.93
+pay_rate: 9.04
 pay_unit: hour
-reports_to: "[[EMP-0005 Keira Perez]]"
+reports_to: "[[EMP-0004 Jaden Abara]]"
 certifications:
   - "[[Food Handler]]"
   - "[[TIPS Alcohol Service]]"
 skills:
-  - "[[Guest Recovery]]"
   - "[[Opening & Closing]]"
-  - "[[POS Proficiency]]"
+benefits:
+  - Health PPO
+  - 401(k) Match
+  - Shift Meal
+work_authorization: citizen
 basis: consent
 ---
 
-**Server** at [[Store 01 - Austin Domain]] · Front of House · since 2022-12-12.
+**Server** at [[Store 01 - Austin Domain]] · Front of House · since 2023-12-08.
 
-Status: **active** (active) as of 2026-06-01
+Status: **active** (active) as of 2026-05-23
 Rehire eligible: no
 
 ## Works at
@@ -36,11 +39,11 @@ Rehire eligible: no
 
 ## Position
 
-- [[Server]] — paid 13.93/hour
+- [[Server]] — paid 9.04/hour
 
 ## Reports to
 
-- [[EMP-0005 Keira Perez]]
+- [[EMP-0004 Jaden Abara]]
 
 ## Certifications
 
@@ -49,10 +52,18 @@ Rehire eligible: no
 
 ## Skills
 
-- [[Guest Recovery]]
 - [[Opening & Closing]]
-- [[POS Proficiency]]
+
+## Benefits
+
+- Health PPO
+- 401(k) Match
+- Shift Meal
+
+## Work authorization
+
+- citizen
 
 ## Lifecycle
 
-- [[EMP-0019 - hired]] on 2022-12-12
+- [[EMP-0019 - hired]] on 2023-12-08

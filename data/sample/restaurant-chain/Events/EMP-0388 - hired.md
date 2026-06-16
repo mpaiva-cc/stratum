@@ -1,11 +1,11 @@
 ---
 type: employment_event
 id: EVT-0388
-person: "[[EMP-0388 Wanda Ali]]"
+person: "[[EMP-0388 Layla Pham]]"
 kind: hire
-date: 2025-09-12
+date: 2022-10-09
 store: "[[Store 16 - Boston Seaport]]"
 basis: consent
 ---
 
-[[EMP-0388 Wanda Ali]] hired as Server at [[Store 16 - Boston Seaport]] on 2025-09-12.
+[[EMP-0388 Layla Pham]] hired as Bartender at [[Store 16 - Boston Seaport]] on 2022-10-09.

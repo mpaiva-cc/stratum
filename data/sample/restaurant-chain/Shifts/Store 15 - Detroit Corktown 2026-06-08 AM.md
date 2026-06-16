@@ -10,13 +10,13 @@ end: "15:30"
 crew_size: 7
 basis: authorization
 crew:
-  - "[[EMP-0356 Sofia Moore]]"
-  - "[[EMP-0360 Leo Ali]]"
-  - "[[EMP-0369 Layla Harris]]"
-  - "[[EMP-0358 Mason Davis]]"
-  - "[[EMP-0367 Anaya Allen]]"
-  - "[[EMP-0375 Valentina Sanchez]]"
-  - "[[EMP-0359 Camila Khan]]"
+  - "[[EMP-0352 Ella Liu]]"
+  - "[[EMP-0372 Carlos Jackson]]"
+  - "[[EMP-0357 Min Romano]]"
+  - "[[EMP-0358 Liam Thomas]]"
+  - "[[EMP-0361 Fatima Chen]]"
+  - "[[EMP-0354 Santiago Sanchez]]"
+  - "[[EMP-0375 Henry Sanchez]]"
 ---
 
 AM shift at [[Store 15 - Detroit Corktown]] on 2026-06-08 (07:00-15:30).
@@ -27,10 +27,10 @@ AM shift at [[Store 15 - Detroit Corktown]] on 2026-06-08 (07:00-15:30).
 
 ## Crew
 
-- [[EMP-0356 Sofia Moore]] (Server)
-- [[EMP-0360 Leo Ali]] (Line Cook)
-- [[EMP-0369 Layla Harris]] (Server)
-- [[EMP-0358 Mason Davis]] (Bartender)
-- [[EMP-0367 Anaya Allen]] (Server)
-- [[EMP-0375 Valentina Sanchez]] (Prep Cook)
-- [[EMP-0359 Camila Khan]] (Server)
+- [[EMP-0352 Ella Liu]] (Assistant Manager)
+- [[EMP-0372 Carlos Jackson]] (Busser)
+- [[EMP-0357 Min Romano]] (Bartender)
+- [[EMP-0358 Liam Thomas]] (Bartender)
+- [[EMP-0361 Fatima Chen]] (Line Cook)
+- [[EMP-0354 Santiago Sanchez]] (Shift Lead)
+- [[EMP-0375 Henry Sanchez]] (Busser)

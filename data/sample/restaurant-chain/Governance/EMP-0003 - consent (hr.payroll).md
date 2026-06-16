@@ -1,6 +1,6 @@
 ---
 type: consent_grant
-id: CNS-0010
+id: CNS-0018
 person: "[[EMP-0003 Rohan Ramirez]]"
 scope: hr.payroll
 purpose: store operations

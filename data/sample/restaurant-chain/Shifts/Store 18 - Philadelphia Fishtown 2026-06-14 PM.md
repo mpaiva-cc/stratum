@@ -7,15 +7,19 @@ date: 2026-06-14
 daypart: PM
 start: "15:00"
 end: "23:30"
-crew_size: 6
+crew_size: 10
 basis: authorization
 crew:
-  - "[[EMP-0448 Carlos White]]"
-  - "[[EMP-0442 Mateo Torres]]"
-  - "[[EMP-0433 Ximena Santos]]"
-  - "[[EMP-0444 Felix Anderson]]"
-  - "[[EMP-0449 Anaya Santos]]"
-  - "[[EMP-0450 Tariq Rodriguez]]"
+  - "[[EMP-0446 Bella Williams]]"
+  - "[[EMP-0444 Liam Taylor]]"
+  - "[[EMP-0433 Jamal Taylor]]"
+  - "[[EMP-0436 Omar Brown]]"
+  - "[[EMP-0427 Oscar Okafor]]"
+  - "[[EMP-0449 Grace Wright]]"
+  - "[[EMP-0447 Henry Sanchez]]"
+  - "[[EMP-0443 Noah Davis]]"
+  - "[[EMP-0442 Paloma King]]"
+  - "[[EMP-0450 Amelia Okafor]]"
 ---
 
 PM shift at [[Store 18 - Philadelphia Fishtown]] on 2026-06-14 (15:00-23:30).
@@ -26,9 +30,13 @@ PM shift at [[Store 18 - Philadelphia Fishtown]] on 2026-06-14 (15:00-23:30).
 
 ## Crew
 
-- [[EMP-0448 Carlos White]] (Dishwasher)
-- [[EMP-0442 Mateo Torres]] (Line Cook)
-- [[EMP-0433 Ximena Santos]] (Line Cook)
-- [[EMP-0444 Felix Anderson]] (Host)
-- [[EMP-0449 Anaya Santos]] (Busser)
-- [[EMP-0450 Tariq Rodriguez]] (Dishwasher)
+- [[EMP-0446 Bella Williams]] (Dishwasher)
+- [[EMP-0444 Liam Taylor]] (Line Cook)
+- [[EMP-0433 Jamal Taylor]] (Server)
+- [[EMP-0436 Omar Brown]] (Server)
+- [[EMP-0427 Oscar Okafor]] (Assistant Manager)
+- [[EMP-0449 Grace Wright]] (Prep Cook)
+- [[EMP-0447 Henry Sanchez]] (Prep Cook)
+- [[EMP-0443 Noah Davis]] (Bartender)
+- [[EMP-0442 Paloma King]] (Line Cook)
+- [[EMP-0450 Amelia Okafor]] (Prep Cook)

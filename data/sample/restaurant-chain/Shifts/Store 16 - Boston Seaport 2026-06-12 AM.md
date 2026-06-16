@@ -10,16 +10,16 @@ end: "15:30"
 crew_size: 10
 basis: authorization
 crew:
-  - "[[EMP-0400 Jaden Rodriguez]]"
-  - "[[EMP-0389 Oscar Abara]]"
-  - "[[EMP-0378 Elena Johnson]]"
-  - "[[EMP-0393 Bella Abara]]"
-  - "[[EMP-0382 Gabriela Santos]]"
-  - "[[EMP-0377 Santiago Sanchez]]"
-  - "[[EMP-0392 Zayd Allen]]"
-  - "[[EMP-0398 Henry Sanchez]]"
-  - "[[EMP-0384 Fatima Chen]]"
-  - "[[EMP-0391 Rohan Torres]]"
+  - "[[EMP-0378 Daniela Patel]]"
+  - "[[EMP-0384 Arjun Costa]]"
+  - "[[EMP-0376 Zayd Sanchez]]"
+  - "[[EMP-0389 Victor King]]"
+  - "[[EMP-0379 Caleb Hernandez]]"
+  - "[[EMP-0394 Emily Romano]]"
+  - "[[EMP-0386 Mason Nguyen]]"
+  - "[[EMP-0391 Felix Jackson]]"
+  - "[[EMP-0381 Yuki Gonzalez]]"
+  - "[[EMP-0387 Victor Hernandez]]"
 ---
 
 AM shift at [[Store 16 - Boston Seaport]] on 2026-06-12 (07:00-15:30).
@@ -30,13 +30,13 @@ AM shift at [[Store 16 - Boston Seaport]] on 2026-06-12 (07:00-15:30).
 
 ## Crew
 
-- [[EMP-0400 Jaden Rodriguez]] (Dishwasher)
-- [[EMP-0389 Oscar Abara]] (Line Cook)
-- [[EMP-0378 Elena Johnson]] (Head Chef)
-- [[EMP-0393 Bella Abara]] (Busser)
-- [[EMP-0382 Gabriela Santos]] (Bartender)
-- [[EMP-0377 Santiago Sanchez]] (Assistant Manager)
-- [[EMP-0392 Zayd Allen]] (Dishwasher)
-- [[EMP-0398 Henry Sanchez]] (Busser)
-- [[EMP-0384 Fatima Chen]] (Line Cook)
-- [[EMP-0391 Rohan Torres]] (Dishwasher)
+- [[EMP-0378 Daniela Patel]] (Head Chef)
+- [[EMP-0384 Arjun Costa]] (Server)
+- [[EMP-0376 Zayd Sanchez]] (General Manager)
+- [[EMP-0389 Victor King]] (Line Cook)
+- [[EMP-0379 Caleb Hernandez]] (Shift Lead)
+- [[EMP-0394 Emily Romano]] (Line Cook)
+- [[EMP-0386 Mason Nguyen]] (Server)
+- [[EMP-0391 Felix Jackson]] (Server)
+- [[EMP-0381 Yuki Gonzalez]] (Server)
+- [[EMP-0387 Victor Hernandez]] (Server)

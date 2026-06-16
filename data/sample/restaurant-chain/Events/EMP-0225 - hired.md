@@ -1,11 +1,11 @@
 ---
 type: employment_event
 id: EVT-0225
-person: "[[EMP-0225 Kayla Taylor]]"
+person: "[[EMP-0225 Abigail Ahmed]]"
 kind: hire
-date: 2026-01-18
+date: 2023-04-06
 store: "[[Store 09 - Portland Pearl]]"
 basis: consent
 ---
 
-[[EMP-0225 Kayla Taylor]] hired as Host at [[Store 09 - Portland Pearl]] on 2026-01-18.
+[[EMP-0225 Abigail Ahmed]] hired as Prep Cook at [[Store 09 - Portland Pearl]] on 2023-04-06.

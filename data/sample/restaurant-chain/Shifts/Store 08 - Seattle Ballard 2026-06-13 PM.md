@@ -10,13 +10,13 @@ end: "23:30"
 crew_size: 7
 basis: authorization
 crew:
-  - "[[EMP-0189 Min Anderson]]"
-  - "[[EMP-0194 Layla Johnson]]"
-  - "[[EMP-0179 Ximena Harris]]"
-  - "[[EMP-0182 Min Wright]]"
-  - "[[EMP-0198 Quinn Shah]]"
-  - "[[EMP-0178 Abigail Mensah]]"
-  - "[[EMP-0183 Nadia Chen]]"
+  - "[[EMP-0178 Mason Wilson]]"
+  - "[[EMP-0183 Zane Walker]]"
+  - "[[EMP-0187 Elijah Lewis]]"
+  - "[[EMP-0196 Leo Khan]]"
+  - "[[EMP-0188 Rosa Tran]]"
+  - "[[EMP-0182 Amelia Nguyen]]"
+  - "[[EMP-0200 Maria Davis]]"
 ---
 
 PM shift at [[Store 08 - Seattle Ballard]] on 2026-06-13 (15:00-23:30).
@@ -27,10 +27,10 @@ PM shift at [[Store 08 - Seattle Ballard]] on 2026-06-13 (15:00-23:30).
 
 ## Crew
 
-- [[EMP-0189 Min Anderson]] (Server)
-- [[EMP-0194 Layla Johnson]] (Host)
-- [[EMP-0179 Ximena Harris]] (Shift Lead)
-- [[EMP-0182 Min Wright]] (Server)
-- [[EMP-0198 Quinn Shah]] (Dishwasher)
-- [[EMP-0178 Abigail Mensah]] (Head Chef)
-- [[EMP-0183 Nadia Chen]] (Server)
+- [[EMP-0178 Mason Wilson]] (Head Chef)
+- [[EMP-0183 Zane Walker]] (Expo)
+- [[EMP-0187 Elijah Lewis]] (Server)
+- [[EMP-0196 Leo Khan]] (Prep Cook)
+- [[EMP-0188 Rosa Tran]] (Line Cook)
+- [[EMP-0182 Amelia Nguyen]] (Line Cook)
+- [[EMP-0200 Maria Davis]] (Prep Cook)

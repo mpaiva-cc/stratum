@@ -1,7 +1,7 @@
 ---
 type: consent_grant
-id: CNS-0913
-person: "[[EMP-0235 Bella Walker]]"
+id: CNS-1851
+person: "[[EMP-0235 Hana Thomas]]"
 scope: hr.payroll
 purpose: store operations
 status: active
@@ -9,4 +9,4 @@ valid_to: open
 basis: consent
 ---
 
-[[EMP-0235 Bella Walker]] — scope `hr.payroll` · status `active` · valid_to `open`. The traversal predicate reads this grant.
+[[EMP-0235 Hana Thomas]] — scope `hr.payroll` · status `active` · valid_to `open`. The traversal predicate reads this grant.

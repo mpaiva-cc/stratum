@@ -7,18 +7,19 @@ date: 2026-06-13
 daypart: AM
 start: "07:00"
 end: "15:30"
-crew_size: 9
+crew_size: 10
 basis: authorization
 crew:
-  - "[[EMP-0466 Evelyn Young]]"
-  - "[[EMP-0460 Yuki Lopez]]"
-  - "[[EMP-0465 Wei Romano]]"
-  - "[[EMP-0454 Carlos Garcia]]"
-  - "[[EMP-0474 Arjun Moore]]"
-  - "[[EMP-0463 Ava Wright]]"
-  - "[[EMP-0451 Min Ramirez]]"
-  - "[[EMP-0473 Victor Nguyen]]"
-  - "[[EMP-0458 Imani Patel]]"
+  - "[[EMP-0457 Grace Khan]]"
+  - "[[EMP-0465 Min Wang]]"
+  - "[[EMP-0466 Leo Davis]]"
+  - "[[EMP-0474 Aaron White]]"
+  - "[[EMP-0471 Uma Russo]]"
+  - "[[EMP-0458 Zayd Anderson]]"
+  - "[[EMP-0472 Noah Mensah]]"
+  - "[[EMP-0455 Brianna Davis]]"
+  - "[[EMP-0469 Lucas Clark]]"
+  - "[[EMP-0454 Emily Le]]"
 ---
 
 AM shift at [[Store 19 - DC Navy Yard]] on 2026-06-13 (07:00-15:30).
@@ -29,12 +30,13 @@ AM shift at [[Store 19 - DC Navy Yard]] on 2026-06-13 (07:00-15:30).
 
 ## Crew
 
-- [[EMP-0466 Evelyn Young]] (Bartender)
-- [[EMP-0460 Yuki Lopez]] (Bartender)
-- [[EMP-0465 Wei Romano]] (Line Cook)
-- [[EMP-0454 Carlos Garcia]] (Shift Lead)
-- [[EMP-0474 Arjun Moore]] (Host)
-- [[EMP-0463 Ava Wright]] (Server)
-- [[EMP-0451 Min Ramirez]] (General Manager)
-- [[EMP-0473 Victor Nguyen]] (Dishwasher)
-- [[EMP-0458 Imani Patel]] (Line Cook)
+- [[EMP-0457 Grace Khan]] (Server)
+- [[EMP-0465 Min Wang]] (Line Cook)
+- [[EMP-0466 Leo Davis]] (Server)
+- [[EMP-0474 Aaron White]] (Prep Cook)
+- [[EMP-0471 Uma Russo]] (Server)
+- [[EMP-0458 Zayd Anderson]] (Line Cook)
+- [[EMP-0472 Noah Mensah]] (Server)
+- [[EMP-0455 Brianna Davis]] (Shift Lead)
+- [[EMP-0469 Lucas Clark]] (Bartender)
+- [[EMP-0454 Emily Le]] (Shift Lead)

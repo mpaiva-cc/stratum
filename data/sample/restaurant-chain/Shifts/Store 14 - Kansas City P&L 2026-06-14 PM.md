@@ -7,15 +7,17 @@ date: 2026-06-14
 daypart: PM
 start: "15:00"
 end: "23:30"
-crew_size: 6
+crew_size: 8
 basis: authorization
 crew:
-  - "[[EMP-0328 Jaden Okafor]]"
-  - "[[EMP-0342 Wanda Rodriguez]]"
-  - "[[EMP-0348 Valentina Chen]]"
-  - "[[EMP-0330 Connor Martinez]]"
-  - "[[EMP-0345 Zayd Liu]]"
-  - "[[EMP-0334 Aria Santos]]"
+  - "[[EMP-0333 Victor Liu]]"
+  - "[[EMP-0344 Diego Torres]]"
+  - "[[EMP-0345 Isabella Wilson]]"
+  - "[[EMP-0346 Gabriela Tran]]"
+  - "[[EMP-0342 Aaron Le]]"
+  - "[[EMP-0330 Leo Pham]]"
+  - "[[EMP-0340 Liam Khan]]"
+  - "[[EMP-0328 Aaron Okafor]]"
 ---
 
 PM shift at [[Store 14 - Kansas City P&L]] on 2026-06-14 (15:00-23:30).
@@ -26,9 +28,11 @@ PM shift at [[Store 14 - Kansas City P&L]] on 2026-06-14 (15:00-23:30).
 
 ## Crew
 
-- [[EMP-0328 Jaden Okafor]] (Head Chef)
-- [[EMP-0342 Wanda Rodriguez]] (Bartender)
-- [[EMP-0348 Valentina Chen]] (Busser)
-- [[EMP-0330 Connor Martinez]] (Shift Lead)
-- [[EMP-0345 Zayd Liu]] (Busser)
-- [[EMP-0334 Aria Santos]] (Line Cook)
+- [[EMP-0333 Victor Liu]] (Line Cook)
+- [[EMP-0344 Diego Torres]] (Expo)
+- [[EMP-0345 Isabella Wilson]] (Line Cook)
+- [[EMP-0346 Gabriela Tran]] (Busser)
+- [[EMP-0342 Aaron Le]] (Expo)
+- [[EMP-0330 Leo Pham]] (Shift Lead)
+- [[EMP-0340 Liam Khan]] (Bartender)
+- [[EMP-0328 Aaron Okafor]] (Head Chef)

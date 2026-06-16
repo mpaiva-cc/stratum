@@ -7,15 +7,18 @@ date: 2026-06-11
 daypart: PM
 start: "15:00"
 end: "23:30"
-crew_size: 6
+crew_size: 9
 basis: authorization
 crew:
-  - "[[EMP-0126 Yara Silva]]"
-  - "[[EMP-0137 Carlos Mensah]]"
-  - "[[EMP-0133 Quinn Garcia]]"
-  - "[[EMP-0136 Andres White]]"
-  - "[[EMP-0142 Mason Brown]]"
-  - "[[EMP-0135 Aaron Silva]]"
+  - "[[EMP-0131 Ximena Hernandez]]"
+  - "[[EMP-0136 Grace Wright]]"
+  - "[[EMP-0140 Emily Ali]]"
+  - "[[EMP-0144 Priya Wilson]]"
+  - "[[EMP-0134 Hana Russo]]"
+  - "[[EMP-0132 Grace Rossi]]"
+  - "[[EMP-0129 Andres Clark]]"
+  - "[[EMP-0128 Aaron Santos]]"
+  - "[[EMP-0139 Liam Russo]]"
 ---
 
 PM shift at [[Store 06 - Denver LoDo]] on 2026-06-11 (15:00-23:30).
@@ -26,9 +29,12 @@ PM shift at [[Store 06 - Denver LoDo]] on 2026-06-11 (15:00-23:30).
 
 ## Crew
 
-- [[EMP-0126 Yara Silva]] (General Manager)
-- [[EMP-0137 Carlos Mensah]] (Server)
-- [[EMP-0133 Quinn Garcia]] (Line Cook)
-- [[EMP-0136 Andres White]] (Line Cook)
-- [[EMP-0142 Mason Brown]] (Dishwasher)
-- [[EMP-0135 Aaron Silva]] (Server)
+- [[EMP-0131 Ximena Hernandez]] (Server)
+- [[EMP-0136 Grace Wright]] (Server)
+- [[EMP-0140 Emily Ali]] (Line Cook)
+- [[EMP-0144 Priya Wilson]] (Server)
+- [[EMP-0134 Hana Russo]] (Server)
+- [[EMP-0132 Grace Rossi]] (Server)
+- [[EMP-0129 Andres Clark]] (Shift Lead)
+- [[EMP-0128 Aaron Santos]] (Head Chef)
+- [[EMP-0139 Liam Russo]] (Server)

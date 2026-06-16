@@ -1,11 +1,11 @@
 ---
 type: employment_event
 id: EVT-0296
-person: "[[EMP-0296 Abigail Wang]]"
+person: "[[EMP-0296 Jamal Torres]]"
 kind: hire
-date: 2025-09-18
+date: 2023-02-27
 store: "[[Store 12 - Minneapolis Uptown]]"
 basis: consent
 ---
 
-[[EMP-0296 Abigail Wang]] hired as Prep Cook at [[Store 12 - Minneapolis Uptown]] on 2025-09-18.
+[[EMP-0296 Jamal Torres]] hired as Host at [[Store 12 - Minneapolis Uptown]] on 2023-02-27.

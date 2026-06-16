@@ -7,16 +7,15 @@ date: 2026-06-12
 daypart: PM
 start: "15:00"
 end: "23:30"
-crew_size: 7
+crew_size: 6
 basis: authorization
 crew:
-  - "[[EMP-0408 Elena Young]]"
-  - "[[EMP-0414 Ava Park]]"
-  - "[[EMP-0410 Wei Tran]]"
-  - "[[EMP-0401 Jamal Perez]]"
-  - "[[EMP-0412 Leo Russo]]"
-  - "[[EMP-0411 Valentina Smith]]"
-  - "[[EMP-0402 Emily King]]"
+  - "[[EMP-0409 Omar Wright]]"
+  - "[[EMP-0412 Lucas Perez]]"
+  - "[[EMP-0415 Arjun Patel]]"
+  - "[[EMP-0419 Zane Le]]"
+  - "[[EMP-0405 Ava Jackson]]"
+  - "[[EMP-0414 Yuki White]]"
 ---
 
 PM shift at [[Store 17 - Brooklyn Williamsburg]] on 2026-06-12 (15:00-23:30).
@@ -27,10 +26,9 @@ PM shift at [[Store 17 - Brooklyn Williamsburg]] on 2026-06-12 (15:00-23:30).
 
 ## Crew
 
-- [[EMP-0408 Elena Young]] (Server)
-- [[EMP-0414 Ava Park]] (Server)
-- [[EMP-0410 Wei Tran]] (Line Cook)
-- [[EMP-0401 Jamal Perez]] (General Manager)
-- [[EMP-0412 Leo Russo]] (Bartender)
-- [[EMP-0411 Valentina Smith]] (Line Cook)
-- [[EMP-0402 Emily King]] (Assistant Manager)
+- [[EMP-0409 Omar Wright]] (Bartender)
+- [[EMP-0412 Lucas Perez]] (Line Cook)
+- [[EMP-0415 Arjun Patel]] (Line Cook)
+- [[EMP-0419 Zane Le]] (Dishwasher)
+- [[EMP-0405 Ava Jackson]] (Shift Lead)
+- [[EMP-0414 Yuki White]] (Server)

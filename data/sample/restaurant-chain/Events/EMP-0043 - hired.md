@@ -1,11 +1,11 @@
 ---
 type: employment_event
 id: EVT-0043
-person: "[[EMP-0043 Liam Hernandez]]"
+person: "[[EMP-0043 Felix Ramirez]]"
 kind: hire
-date: 2022-07-07
+date: 2026-01-03
 store: "[[Store 02 - Houston Heights]]"
 basis: consent
 ---
 
-[[EMP-0043 Liam Hernandez]] hired as Prep Cook at [[Store 02 - Houston Heights]] on 2022-07-07.
+[[EMP-0043 Felix Ramirez]] hired as Line Cook at [[Store 02 - Houston Heights]] on 2026-01-03.

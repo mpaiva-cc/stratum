@@ -7,19 +7,16 @@ date: 2026-06-14
 daypart: PM
 start: "15:00"
 end: "23:30"
-crew_size: 10
+crew_size: 7
 basis: authorization
 crew:
-  - "[[EMP-0042 Destiny Tran]]"
-  - "[[EMP-0041 Brianna Pham]]"
-  - "[[EMP-0040 Jaden Patel]]"
-  - "[[EMP-0037 Hassan Pham]]"
-  - "[[EMP-0034 Fatima Singh]]"
-  - "[[EMP-0050 Elijah Harris]]"
-  - "[[EMP-0030 Kayla Liu]]"
-  - "[[EMP-0035 Noah Perez]]"
-  - "[[EMP-0044 Henry Rossi]]"
-  - "[[EMP-0032 Valentina Liu]]"
+  - "[[EMP-0049 Logan Jackson]]"
+  - "[[EMP-0037 Isabella Park]]"
+  - "[[EMP-0035 Priya Wright]]"
+  - "[[EMP-0044 Aria Jackson]]"
+  - "[[EMP-0041 Paloma Mensah]]"
+  - "[[EMP-0048 Logan Silva]]"
+  - "[[EMP-0026 Mia Clark]]"
 ---
 
 PM shift at [[Store 02 - Houston Heights]] on 2026-06-14 (15:00-23:30).
@@ -30,13 +27,10 @@ PM shift at [[Store 02 - Houston Heights]] on 2026-06-14 (15:00-23:30).
 
 ## Crew
 
-- [[EMP-0042 Destiny Tran]] (Busser)
-- [[EMP-0041 Brianna Pham]] (Busser)
-- [[EMP-0040 Jaden Patel]] (Busser)
-- [[EMP-0037 Hassan Pham]] (Server)
-- [[EMP-0034 Fatima Singh]] (Server)
-- [[EMP-0050 Elijah Harris]] (Busser)
-- [[EMP-0030 Kayla Liu]] (Shift Lead)
-- [[EMP-0035 Noah Perez]] (Line Cook)
-- [[EMP-0044 Henry Rossi]] (Prep Cook)
-- [[EMP-0032 Valentina Liu]] (Server)
+- [[EMP-0049 Logan Jackson]] (Busser)
+- [[EMP-0037 Isabella Park]] (Server)
+- [[EMP-0035 Priya Wright]] (Line Cook)
+- [[EMP-0044 Aria Jackson]] (Dishwasher)
+- [[EMP-0041 Paloma Mensah]] (Server)
+- [[EMP-0048 Logan Silva]] (Prep Cook)
+- [[EMP-0026 Mia Clark]] (General Manager)

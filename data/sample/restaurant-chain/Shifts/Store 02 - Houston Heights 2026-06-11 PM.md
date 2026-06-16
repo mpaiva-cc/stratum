@@ -7,18 +7,16 @@ date: 2026-06-11
 daypart: PM
 start: "15:00"
 end: "23:30"
-crew_size: 9
+crew_size: 7
 basis: authorization
 crew:
-  - "[[EMP-0038 Victor Ramirez]]"
-  - "[[EMP-0048 Hana Nguyen]]"
-  - "[[EMP-0034 Fatima Singh]]"
-  - "[[EMP-0028 Mia Gonzalez]]"
-  - "[[EMP-0047 Elena Chen]]"
-  - "[[EMP-0040 Jaden Patel]]"
-  - "[[EMP-0037 Hassan Pham]]"
-  - "[[EMP-0046 Arjun Young]]"
-  - "[[EMP-0032 Valentina Liu]]"
+  - "[[EMP-0044 Aria Jackson]]"
+  - "[[EMP-0038 Connor Torres]]"
+  - "[[EMP-0026 Mia Clark]]"
+  - "[[EMP-0029 Arjun Young]]"
+  - "[[EMP-0028 Camila Anderson]]"
+  - "[[EMP-0031 Hana Nguyen]]"
+  - "[[EMP-0045 Arjun Garcia]]"
 ---
 
 PM shift at [[Store 02 - Houston Heights]] on 2026-06-11 (15:00-23:30).
@@ -29,12 +27,10 @@ PM shift at [[Store 02 - Houston Heights]] on 2026-06-11 (15:00-23:30).
 
 ## Crew
 
-- [[EMP-0038 Victor Ramirez]] (Line Cook)
-- [[EMP-0048 Hana Nguyen]] (Prep Cook)
-- [[EMP-0034 Fatima Singh]] (Server)
-- [[EMP-0028 Mia Gonzalez]] (Head Chef)
-- [[EMP-0047 Elena Chen]] (Prep Cook)
-- [[EMP-0040 Jaden Patel]] (Busser)
-- [[EMP-0037 Hassan Pham]] (Server)
-- [[EMP-0046 Arjun Young]] (Dishwasher)
-- [[EMP-0032 Valentina Liu]] (Server)
+- [[EMP-0044 Aria Jackson]] (Dishwasher)
+- [[EMP-0038 Connor Torres]] (Server)
+- [[EMP-0026 Mia Clark]] (General Manager)
+- [[EMP-0029 Arjun Young]] (Shift Lead)
+- [[EMP-0028 Camila Anderson]] (Head Chef)
+- [[EMP-0031 Hana Nguyen]] (Line Cook)
+- [[EMP-0045 Arjun Garcia]] (Prep Cook)

@@ -1,11 +1,11 @@
 ---
 type: employment_event
 id: EVT-0308
-person: "[[EMP-0308 Victor Okafor]]"
+person: "[[EMP-0308 Leo Ramirez]]"
 kind: hire
-date: 2023-10-03
+date: 2025-05-03
 store: "[[Store 13 - Columbus Short North]]"
 basis: consent
 ---
 
-[[EMP-0308 Victor Okafor]] hired as Bartender at [[Store 13 - Columbus Short North]] on 2023-10-03.
+[[EMP-0308 Leo Ramirez]] hired as Server at [[Store 13 - Columbus Short North]] on 2025-05-03.

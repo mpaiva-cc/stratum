@@ -7,15 +7,18 @@ date: 2026-06-10
 daypart: PM
 start: "15:00"
 end: "23:30"
-crew_size: 6
+crew_size: 9
 basis: authorization
 crew:
-  - "[[EMP-0141 Nadia Scott]]"
-  - "[[EMP-0150 Grace Sanchez]]"
-  - "[[EMP-0137 Carlos Mensah]]"
-  - "[[EMP-0140 Ximena Allen]]"
-  - "[[EMP-0143 Emily Costa]]"
-  - "[[EMP-0139 Liam Perez]]"
+  - "[[EMP-0132 Grace Rossi]]"
+  - "[[EMP-0133 Isabella Santos]]"
+  - "[[EMP-0149 Kayla Brown]]"
+  - "[[EMP-0144 Priya Wilson]]"
+  - "[[EMP-0143 Maria Pham]]"
+  - "[[EMP-0128 Aaron Santos]]"
+  - "[[EMP-0147 Diego Johnson]]"
+  - "[[EMP-0136 Grace Wright]]"
+  - "[[EMP-0148 Ella Miller]]"
 ---
 
 PM shift at [[Store 06 - Denver LoDo]] on 2026-06-10 (15:00-23:30).
@@ -26,9 +29,12 @@ PM shift at [[Store 06 - Denver LoDo]] on 2026-06-10 (15:00-23:30).
 
 ## Crew
 
-- [[EMP-0141 Nadia Scott]] (Server)
-- [[EMP-0150 Grace Sanchez]] (Host)
-- [[EMP-0137 Carlos Mensah]] (Server)
-- [[EMP-0140 Ximena Allen]] (Line Cook)
-- [[EMP-0143 Emily Costa]] (Prep Cook)
-- [[EMP-0139 Liam Perez]] (Line Cook)
+- [[EMP-0132 Grace Rossi]] (Server)
+- [[EMP-0133 Isabella Santos]] (Line Cook)
+- [[EMP-0149 Kayla Brown]] (Busser)
+- [[EMP-0144 Priya Wilson]] (Server)
+- [[EMP-0143 Maria Pham]] (Server)
+- [[EMP-0128 Aaron Santos]] (Head Chef)
+- [[EMP-0147 Diego Johnson]] (Busser)
+- [[EMP-0136 Grace Wright]] (Server)
+- [[EMP-0148 Ella Miller]] (Busser)

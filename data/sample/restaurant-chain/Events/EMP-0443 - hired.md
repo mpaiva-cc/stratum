@@ -1,11 +1,11 @@
 ---
 type: employment_event
 id: EVT-0443
-person: "[[EMP-0443 Fatima Williams]]"
+person: "[[EMP-0443 Noah Davis]]"
 kind: hire
-date: 2026-05-09
+date: 2025-01-30
 store: "[[Store 18 - Philadelphia Fishtown]]"
 basis: consent
 ---
 
-[[EMP-0443 Fatima Williams]] hired as Server at [[Store 18 - Philadelphia Fishtown]] on 2026-05-09.
+[[EMP-0443 Noah Davis]] hired as Bartender at [[Store 18 - Philadelphia Fishtown]] on 2025-01-30.

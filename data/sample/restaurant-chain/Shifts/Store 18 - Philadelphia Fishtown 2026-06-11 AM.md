@@ -7,15 +7,16 @@ date: 2026-06-11
 daypart: AM
 start: "07:00"
 end: "15:30"
-crew_size: 6
+crew_size: 7
 basis: authorization
 crew:
-  - "[[EMP-0439 Kayla Abara]]"
-  - "[[EMP-0443 Fatima Williams]]"
-  - "[[EMP-0429 Abigail Singh]]"
-  - "[[EMP-0440 Mason Jackson]]"
-  - "[[EMP-0447 Santiago Ali]]"
-  - "[[EMP-0426 Uma Patel]]"
+  - "[[EMP-0437 Harper Gonzalez]]"
+  - "[[EMP-0441 Destiny Kim]]"
+  - "[[EMP-0450 Amelia Okafor]]"
+  - "[[EMP-0436 Omar Brown]]"
+  - "[[EMP-0449 Grace Wright]]"
+  - "[[EMP-0433 Jamal Taylor]]"
+  - "[[EMP-0438 Keira Abara]]"
 ---
 
 AM shift at [[Store 18 - Philadelphia Fishtown]] on 2026-06-11 (07:00-15:30).
@@ -26,9 +27,10 @@ AM shift at [[Store 18 - Philadelphia Fishtown]] on 2026-06-11 (07:00-15:30).
 
 ## Crew
 
-- [[EMP-0439 Kayla Abara]] (Server)
-- [[EMP-0443 Fatima Williams]] (Server)
-- [[EMP-0429 Abigail Singh]] (Shift Lead)
-- [[EMP-0440 Mason Jackson]] (Server)
-- [[EMP-0447 Santiago Ali]] (Host)
-- [[EMP-0426 Uma Patel]] (General Manager)
+- [[EMP-0437 Harper Gonzalez]] (Bartender)
+- [[EMP-0441 Destiny Kim]] (Line Cook)
+- [[EMP-0450 Amelia Okafor]] (Prep Cook)
+- [[EMP-0436 Omar Brown]] (Server)
+- [[EMP-0449 Grace Wright]] (Prep Cook)
+- [[EMP-0433 Jamal Taylor]] (Server)
+- [[EMP-0438 Keira Abara]] (Line Cook)

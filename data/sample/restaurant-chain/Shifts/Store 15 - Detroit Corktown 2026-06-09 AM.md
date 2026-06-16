@@ -10,14 +10,14 @@ end: "15:30"
 crew_size: 8
 basis: authorization
 crew:
-  - "[[EMP-0359 Camila Khan]]"
-  - "[[EMP-0365 Zayd Torres]]"
-  - "[[EMP-0363 Abigail Okafor]]"
-  - "[[EMP-0367 Anaya Allen]]"
-  - "[[EMP-0356 Sofia Moore]]"
-  - "[[EMP-0366 Uma Kim]]"
-  - "[[EMP-0370 Brianna Nguyen]]"
-  - "[[EMP-0355 Ella Thomas]]"
+  - "[[EMP-0374 Fatima Ali]]"
+  - "[[EMP-0362 Henry Nguyen]]"
+  - "[[EMP-0367 Diego Jones]]"
+  - "[[EMP-0372 Carlos Jackson]]"
+  - "[[EMP-0358 Liam Thomas]]"
+  - "[[EMP-0353 Hassan Ahmed]]"
+  - "[[EMP-0371 Victor Nguyen]]"
+  - "[[EMP-0366 Oscar Abara]]"
 ---
 
 AM shift at [[Store 15 - Detroit Corktown]] on 2026-06-09 (07:00-15:30).
@@ -28,11 +28,11 @@ AM shift at [[Store 15 - Detroit Corktown]] on 2026-06-09 (07:00-15:30).
 
 ## Crew
 
-- [[EMP-0359 Camila Khan]] (Server)
-- [[EMP-0365 Zayd Torres]] (Bartender)
-- [[EMP-0363 Abigail Okafor]] (Line Cook)
-- [[EMP-0367 Anaya Allen]] (Server)
-- [[EMP-0356 Sofia Moore]] (Server)
-- [[EMP-0366 Uma Kim]] (Line Cook)
-- [[EMP-0370 Brianna Nguyen]] (Server)
-- [[EMP-0355 Ella Thomas]] (Shift Lead)
+- [[EMP-0374 Fatima Ali]] (Prep Cook)
+- [[EMP-0362 Henry Nguyen]] (Server)
+- [[EMP-0367 Diego Jones]] (Busser)
+- [[EMP-0372 Carlos Jackson]] (Busser)
+- [[EMP-0358 Liam Thomas]] (Bartender)
+- [[EMP-0353 Hassan Ahmed]] (Head Chef)
+- [[EMP-0371 Victor Nguyen]] (Dishwasher)
+- [[EMP-0366 Oscar Abara]] (Busser)

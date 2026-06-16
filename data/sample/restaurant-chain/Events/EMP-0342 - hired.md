@@ -1,11 +1,11 @@
 ---
 type: employment_event
 id: EVT-0342
-person: "[[EMP-0342 Wanda Rodriguez]]"
+person: "[[EMP-0342 Aaron Le]]"
 kind: hire
-date: 2025-08-18
+date: 2023-10-17
 store: "[[Store 14 - Kansas City P&L]]"
 basis: consent
 ---
 
-[[EMP-0342 Wanda Rodriguez]] hired as Bartender at [[Store 14 - Kansas City P&L]] on 2025-08-18.
+[[EMP-0342 Aaron Le]] hired as Expo at [[Store 14 - Kansas City P&L]] on 2023-10-17.

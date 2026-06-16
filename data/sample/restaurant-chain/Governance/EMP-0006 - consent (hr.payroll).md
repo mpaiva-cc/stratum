@@ -1,6 +1,6 @@
 ---
 type: consent_grant
-id: CNS-0022
+id: CNS-0041
 person: "[[EMP-0006 Layla Jackson]]"
 scope: hr.payroll
 purpose: store operations

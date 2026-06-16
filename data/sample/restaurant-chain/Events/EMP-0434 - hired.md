@@ -1,11 +1,11 @@
 ---
 type: employment_event
 id: EVT-0434
-person: "[[EMP-0434 Paloma Garcia]]"
+person: "[[EMP-0434 Aria Santos]]"
 kind: hire
-date: 2023-02-20
+date: 2024-03-05
 store: "[[Store 18 - Philadelphia Fishtown]]"
 basis: consent
 ---
 
-[[EMP-0434 Paloma Garcia]] hired as Server at [[Store 18 - Philadelphia Fishtown]] on 2023-02-20.
+[[EMP-0434 Aria Santos]] hired as Line Cook at [[Store 18 - Philadelphia Fishtown]] on 2024-03-05.

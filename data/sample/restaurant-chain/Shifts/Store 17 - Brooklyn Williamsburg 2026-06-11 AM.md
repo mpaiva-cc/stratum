@@ -7,16 +7,17 @@ date: 2026-06-11
 daypart: AM
 start: "07:00"
 end: "15:30"
-crew_size: 7
+crew_size: 8
 basis: authorization
 crew:
-  - "[[EMP-0410 Wei Tran]]"
-  - "[[EMP-0409 Emily Sanchez]]"
-  - "[[EMP-0406 Elijah Harris]]"
-  - "[[EMP-0401 Jamal Perez]]"
-  - "[[EMP-0413 Aiden Allen]]"
-  - "[[EMP-0420 Keira Park]]"
-  - "[[EMP-0416 Wei Shah]]"
+  - "[[EMP-0407 Tariq Bianchi]]"
+  - "[[EMP-0404 Rohan Park]]"
+  - "[[EMP-0417 Tariq Lopez]]"
+  - "[[EMP-0408 Jamal Clark]]"
+  - "[[EMP-0414 Yuki White]]"
+  - "[[EMP-0402 Zayd Diallo]]"
+  - "[[EMP-0405 Ava Jackson]]"
+  - "[[EMP-0423 Min Sanchez]]"
 ---
 
 AM shift at [[Store 17 - Brooklyn Williamsburg]] on 2026-06-11 (07:00-15:30).
@@ -27,10 +28,11 @@ AM shift at [[Store 17 - Brooklyn Williamsburg]] on 2026-06-11 (07:00-15:30).
 
 ## Crew
 
-- [[EMP-0410 Wei Tran]] (Line Cook)
-- [[EMP-0409 Emily Sanchez]] (Expo)
-- [[EMP-0406 Elijah Harris]] (Line Cook)
-- [[EMP-0401 Jamal Perez]] (General Manager)
-- [[EMP-0413 Aiden Allen]] (Line Cook)
-- [[EMP-0420 Keira Park]] (Host)
-- [[EMP-0416 Wei Shah]] (Server)
+- [[EMP-0407 Tariq Bianchi]] (Server)
+- [[EMP-0404 Rohan Park]] (Shift Lead)
+- [[EMP-0417 Tariq Lopez]] (Line Cook)
+- [[EMP-0408 Jamal Clark]] (Bartender)
+- [[EMP-0414 Yuki White]] (Server)
+- [[EMP-0402 Zayd Diallo]] (Assistant Manager)
+- [[EMP-0405 Ava Jackson]] (Shift Lead)
+- [[EMP-0423 Min Sanchez]] (Prep Cook)

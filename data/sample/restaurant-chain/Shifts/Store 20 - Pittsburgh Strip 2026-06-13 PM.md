@@ -7,15 +7,17 @@ date: 2026-06-13
 daypart: PM
 start: "15:00"
 end: "23:30"
-crew_size: 6
+crew_size: 8
 basis: authorization
 crew:
-  - "[[EMP-0492 Liam Santos]]"
-  - "[[EMP-0477 Henry Rossi]]"
-  - "[[EMP-0497 Evelyn Jones]]"
-  - "[[EMP-0490 Rosa Taylor]]"
-  - "[[EMP-0484 Zane Taylor]]"
-  - "[[EMP-0498 Ethan Patel]]"
+  - "[[EMP-0477 Lucas Anderson]]"
+  - "[[EMP-0478 Jamal Jackson]]"
+  - "[[EMP-0487 Ella Thomas]]"
+  - "[[EMP-0499 Logan Romano]]"
+  - "[[EMP-0496 Yuki Davis]]"
+  - "[[EMP-0482 Felix Martinez]]"
+  - "[[EMP-0491 Destiny Johnson]]"
+  - "[[EMP-0493 Quinn Moore]]"
 ---
 
 PM shift at [[Store 20 - Pittsburgh Strip]] on 2026-06-13 (15:00-23:30).
@@ -26,9 +28,11 @@ PM shift at [[Store 20 - Pittsburgh Strip]] on 2026-06-13 (15:00-23:30).
 
 ## Crew
 
-- [[EMP-0492 Liam Santos]] (Server)
-- [[EMP-0477 Henry Rossi]] (Assistant Manager)
-- [[EMP-0497 Evelyn Jones]] (Busser)
-- [[EMP-0490 Rosa Taylor]] (Server)
-- [[EMP-0484 Zane Taylor]] (Line Cook)
-- [[EMP-0498 Ethan Patel]] (Busser)
+- [[EMP-0477 Lucas Anderson]] (Assistant Manager)
+- [[EMP-0478 Jamal Jackson]] (Head Chef)
+- [[EMP-0487 Ella Thomas]] (Line Cook)
+- [[EMP-0499 Logan Romano]] (Host)
+- [[EMP-0496 Yuki Davis]] (Dishwasher)
+- [[EMP-0482 Felix Martinez]] (Expo)
+- [[EMP-0491 Destiny Johnson]] (Line Cook)
+- [[EMP-0493 Quinn Moore]] (Prep Cook)

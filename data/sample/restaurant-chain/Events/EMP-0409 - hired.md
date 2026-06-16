@@ -1,11 +1,11 @@
 ---
 type: employment_event
 id: EVT-0409
-person: "[[EMP-0409 Emily Sanchez]]"
+person: "[[EMP-0409 Omar Wright]]"
 kind: hire
-date: 2023-10-27
+date: 2021-12-16
 store: "[[Store 17 - Brooklyn Williamsburg]]"
 basis: consent
 ---
 
-[[EMP-0409 Emily Sanchez]] hired as Expo at [[Store 17 - Brooklyn Williamsburg]] on 2023-10-27.
+[[EMP-0409 Omar Wright]] hired as Bartender at [[Store 17 - Brooklyn Williamsburg]] on 2021-12-16.

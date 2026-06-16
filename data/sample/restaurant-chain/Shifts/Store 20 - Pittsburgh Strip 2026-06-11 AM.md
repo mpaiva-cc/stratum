@@ -7,15 +7,16 @@ date: 2026-06-11
 daypart: AM
 start: "07:00"
 end: "15:30"
-crew_size: 6
+crew_size: 7
 basis: authorization
 crew:
-  - "[[EMP-0476 Quinn Chen]]"
-  - "[[EMP-0488 Victor Ahmed]]"
-  - "[[EMP-0499 Jose Tran]]"
-  - "[[EMP-0482 Arjun Lewis]]"
-  - "[[EMP-0479 Hassan Gonzalez]]"
-  - "[[EMP-0491 Bella Wang]]"
+  - "[[EMP-0487 Ella Thomas]]"
+  - "[[EMP-0477 Lucas Anderson]]"
+  - "[[EMP-0500 Ava Smith]]"
+  - "[[EMP-0483 Abigail Perez]]"
+  - "[[EMP-0497 Amelia Okafor]]"
+  - "[[EMP-0498 Omar Costa]]"
+  - "[[EMP-0482 Felix Martinez]]"
 ---
 
 AM shift at [[Store 20 - Pittsburgh Strip]] on 2026-06-11 (07:00-15:30).
@@ -26,9 +27,10 @@ AM shift at [[Store 20 - Pittsburgh Strip]] on 2026-06-11 (07:00-15:30).
 
 ## Crew
 
-- [[EMP-0476 Quinn Chen]] (General Manager)
-- [[EMP-0488 Victor Ahmed]] (Server)
-- [[EMP-0499 Jose Tran]] (Dishwasher)
-- [[EMP-0482 Arjun Lewis]] (Server)
-- [[EMP-0479 Hassan Gonzalez]] (Shift Lead)
-- [[EMP-0491 Bella Wang]] (Server)
+- [[EMP-0487 Ella Thomas]] (Line Cook)
+- [[EMP-0477 Lucas Anderson]] (Assistant Manager)
+- [[EMP-0500 Ava Smith]] (Host)
+- [[EMP-0483 Abigail Perez]] (Server)
+- [[EMP-0497 Amelia Okafor]] (Prep Cook)
+- [[EMP-0498 Omar Costa]] (Busser)
+- [[EMP-0482 Felix Martinez]] (Expo)

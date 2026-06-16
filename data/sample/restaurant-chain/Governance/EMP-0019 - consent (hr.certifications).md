@@ -1,6 +1,6 @@
 ---
 type: consent_grant
-id: CNS-0073
+id: CNS-0145
 person: "[[EMP-0019 Gabriela Miller]]"
 scope: hr.certifications
 purpose: store operations

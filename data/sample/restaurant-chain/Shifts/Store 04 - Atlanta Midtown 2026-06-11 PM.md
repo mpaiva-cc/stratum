@@ -7,18 +7,16 @@ date: 2026-06-11
 daypart: PM
 start: "15:00"
 end: "23:30"
-crew_size: 9
+crew_size: 7
 basis: authorization
 crew:
-  - "[[EMP-0092 Abigail Johnson]]"
-  - "[[EMP-0085 Keira Mensah]]"
-  - "[[EMP-0088 Rosa Ali]]"
-  - "[[EMP-0076 Noah Wilson]]"
-  - "[[EMP-0093 Caleb Lewis]]"
-  - "[[EMP-0078 Valentina Clark]]"
-  - "[[EMP-0094 Felix Khan]]"
-  - "[[EMP-0086 Paloma Singh]]"
-  - "[[EMP-0077 Omar Ramirez]]"
+  - "[[EMP-0083 Wei Lewis]]"
+  - "[[EMP-0086 Liam Wilson]]"
+  - "[[EMP-0085 Diego Moore]]"
+  - "[[EMP-0082 Destiny White]]"
+  - "[[EMP-0099 Fatima Anderson]]"
+  - "[[EMP-0100 Evelyn Johnson]]"
+  - "[[EMP-0076 Sofia Bianchi]]"
 ---
 
 PM shift at [[Store 04 - Atlanta Midtown]] on 2026-06-11 (15:00-23:30).
@@ -29,12 +27,10 @@ PM shift at [[Store 04 - Atlanta Midtown]] on 2026-06-11 (15:00-23:30).
 
 ## Crew
 
-- [[EMP-0092 Abigail Johnson]] (Bartender)
-- [[EMP-0085 Keira Mensah]] (Expo)
-- [[EMP-0088 Rosa Ali]] (Expo)
-- [[EMP-0076 Noah Wilson]] (General Manager)
-- [[EMP-0093 Caleb Lewis]] (Line Cook)
-- [[EMP-0078 Valentina Clark]] (Head Chef)
-- [[EMP-0094 Felix Khan]] (Server)
-- [[EMP-0086 Paloma Singh]] (Line Cook)
-- [[EMP-0077 Omar Ramirez]] (Assistant Manager)
+- [[EMP-0083 Wei Lewis]] (Server)
+- [[EMP-0086 Liam Wilson]] (Line Cook)
+- [[EMP-0085 Diego Moore]] (Server)
+- [[EMP-0082 Destiny White]] (Line Cook)
+- [[EMP-0099 Fatima Anderson]] (Dishwasher)
+- [[EMP-0100 Evelyn Johnson]] (Busser)
+- [[EMP-0076 Sofia Bianchi]] (General Manager)

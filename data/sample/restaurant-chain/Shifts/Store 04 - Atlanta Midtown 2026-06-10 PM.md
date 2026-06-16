@@ -7,16 +7,19 @@ date: 2026-06-10
 daypart: PM
 start: "15:00"
 end: "23:30"
-crew_size: 7
+crew_size: 10
 basis: authorization
 crew:
-  - "[[EMP-0098 Destiny Liu]]"
-  - "[[EMP-0097 Jin Jackson]]"
-  - "[[EMP-0092 Abigail Johnson]]"
-  - "[[EMP-0090 Elijah Tran]]"
-  - "[[EMP-0081 Ella Smith]]"
-  - "[[EMP-0076 Noah Wilson]]"
-  - "[[EMP-0095 Ethan Scott]]"
+  - "[[EMP-0100 Evelyn Johnson]]"
+  - "[[EMP-0096 Kayla Kim]]"
+  - "[[EMP-0095 Evelyn Ali]]"
+  - "[[EMP-0091 Mia Scott]]"
+  - "[[EMP-0085 Diego Moore]]"
+  - "[[EMP-0099 Fatima Anderson]]"
+  - "[[EMP-0093 Sofia Diallo]]"
+  - "[[EMP-0076 Sofia Bianchi]]"
+  - "[[EMP-0080 Aaron Wright]]"
+  - "[[EMP-0086 Liam Wilson]]"
 ---
 
 PM shift at [[Store 04 - Atlanta Midtown]] on 2026-06-10 (15:00-23:30).
@@ -27,10 +30,13 @@ PM shift at [[Store 04 - Atlanta Midtown]] on 2026-06-10 (15:00-23:30).
 
 ## Crew
 
-- [[EMP-0098 Destiny Liu]] (Dishwasher)
-- [[EMP-0097 Jin Jackson]] (Dishwasher)
-- [[EMP-0092 Abigail Johnson]] (Bartender)
-- [[EMP-0090 Elijah Tran]] (Line Cook)
-- [[EMP-0081 Ella Smith]] (Server)
-- [[EMP-0076 Noah Wilson]] (General Manager)
-- [[EMP-0095 Ethan Scott]] (Server)
+- [[EMP-0100 Evelyn Johnson]] (Busser)
+- [[EMP-0096 Kayla Kim]] (Prep Cook)
+- [[EMP-0095 Evelyn Ali]] (Prep Cook)
+- [[EMP-0091 Mia Scott]] (Line Cook)
+- [[EMP-0085 Diego Moore]] (Server)
+- [[EMP-0099 Fatima Anderson]] (Dishwasher)
+- [[EMP-0093 Sofia Diallo]] (Server)
+- [[EMP-0076 Sofia Bianchi]] (General Manager)
+- [[EMP-0080 Aaron Wright]] (Shift Lead)
+- [[EMP-0086 Liam Wilson]] (Line Cook)

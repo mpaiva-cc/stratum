@@ -5,11 +5,11 @@ name: Boston Seaport
 region: "[[Northeast Region]]"
 at_location: "[[Boston Seaport (MA-16)]]"
 part_of: "[[Northeast Region]]"
-opened: 2022-10-11
-seats: 90
+opened: 2017-07-01
+seats: 110
 headcount: 25
 basis: authorization
-general_manager: "[[EMP-0376 Hassan Ahmed]]"
+general_manager: "[[EMP-0376 Zayd Sanchez]]"
 ---
 
 Store in the [[Northeast Region]] · 25 staff.
@@ -28,28 +28,28 @@ Store in the [[Northeast Region]] · 25 staff.
 
 ## Roster (25)
 
-- [[EMP-0376 Hassan Ahmed]] — General Manager
-- [[EMP-0377 Santiago Sanchez]] — Assistant Manager
-- [[EMP-0378 Elena Johnson]] — Head Chef
-- [[EMP-0379 Jamal Scott]] — Shift Lead
-- [[EMP-0380 Min Romano]] — Shift Lead
-- [[EMP-0381 Liam Thomas]] — Bartender
-- [[EMP-0382 Gabriela Santos]] — Bartender
-- [[EMP-0383 Kayla Taylor]] — Line Cook
-- [[EMP-0384 Fatima Chen]] — Line Cook
-- [[EMP-0385 Henry Nguyen]] — Line Cook
-- [[EMP-0386 Diego Smith]] — Server
-- [[EMP-0387 Ximena Williams]] — Server
-- [[EMP-0388 Wanda Ali]] — Server
-- [[EMP-0389 Oscar Abara]] — Line Cook
-- [[EMP-0390 Diego Jones]] — Busser
-- [[EMP-0391 Rohan Torres]] — Dishwasher
-- [[EMP-0392 Zayd Allen]] — Dishwasher
-- [[EMP-0393 Bella Abara]] — Busser
-- [[EMP-0394 Victor Nguyen]] — Dishwasher
-- [[EMP-0395 Carlos Jackson]] — Busser
-- [[EMP-0396 Mateo Kim]] — Host
-- [[EMP-0397 Fatima Ali]] — Prep Cook
-- [[EMP-0398 Henry Sanchez]] — Busser
-- [[EMP-0399 Omar Diallo]] — Prep Cook
-- [[EMP-0400 Jaden Rodriguez]] — Dishwasher
+- [[EMP-0376 Zayd Sanchez]] — General Manager
+- [[EMP-0377 Carlos Park]] — Assistant Manager
+- [[EMP-0378 Daniela Patel]] — Head Chef
+- [[EMP-0379 Caleb Hernandez]] — Shift Lead
+- [[EMP-0380 Ximena Martinez]] — Shift Lead
+- [[EMP-0381 Yuki Gonzalez]] — Server
+- [[EMP-0382 Jin Moore]] — Line Cook
+- [[EMP-0383 Ethan Okafor]] — Line Cook
+- [[EMP-0384 Arjun Costa]] — Server
+- [[EMP-0385 Felix Wright]] — Expo
+- [[EMP-0386 Mason Nguyen]] — Server
+- [[EMP-0387 Victor Hernandez]] — Server
+- [[EMP-0388 Layla Pham]] — Bartender
+- [[EMP-0389 Victor King]] — Line Cook
+- [[EMP-0390 Yuki Rossi]] — Server
+- [[EMP-0391 Felix Jackson]] — Server
+- [[EMP-0392 Rohan King]] — Server
+- [[EMP-0393 Zane Gonzalez]] — Line Cook
+- [[EMP-0394 Emily Romano]] — Line Cook
+- [[EMP-0395 Hana Young]] — Dishwasher
+- [[EMP-0396 Nadia Pham]] — Dishwasher
+- [[EMP-0397 Mason Wright]] — Prep Cook
+- [[EMP-0398 Omar Patel]] — Busser
+- [[EMP-0399 Camila Romano]] — Host
+- [[EMP-0400 Camila Ali]] — Dishwasher

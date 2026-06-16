@@ -7,18 +7,16 @@ date: 2026-06-10
 daypart: AM
 start: "07:00"
 end: "15:30"
-crew_size: 9
+crew_size: 7
 basis: authorization
 crew:
-  - "[[EMP-0364 Elijah Khan]]"
-  - "[[EMP-0372 Felix Wright]]"
-  - "[[EMP-0360 Leo Ali]]"
-  - "[[EMP-0353 Gabriela Tran]]"
-  - "[[EMP-0370 Brianna Nguyen]]"
-  - "[[EMP-0374 Aaron Shah]]"
-  - "[[EMP-0368 Yuki Ahmed]]"
-  - "[[EMP-0365 Zayd Torres]]"
-  - "[[EMP-0355 Ella Thomas]]"
+  - "[[EMP-0352 Ella Liu]]"
+  - "[[EMP-0356 Jamal Scott]]"
+  - "[[EMP-0361 Fatima Chen]]"
+  - "[[EMP-0366 Oscar Abara]]"
+  - "[[EMP-0375 Henry Sanchez]]"
+  - "[[EMP-0358 Liam Thomas]]"
+  - "[[EMP-0357 Min Romano]]"
 ---
 
 AM shift at [[Store 15 - Detroit Corktown]] on 2026-06-10 (07:00-15:30).
@@ -29,12 +27,10 @@ AM shift at [[Store 15 - Detroit Corktown]] on 2026-06-10 (07:00-15:30).
 
 ## Crew
 
-- [[EMP-0364 Elijah Khan]] (Line Cook)
-- [[EMP-0372 Felix Wright]] (Dishwasher)
-- [[EMP-0360 Leo Ali]] (Line Cook)
-- [[EMP-0353 Gabriela Tran]] (Head Chef)
-- [[EMP-0370 Brianna Nguyen]] (Server)
-- [[EMP-0374 Aaron Shah]] (Busser)
-- [[EMP-0368 Yuki Ahmed]] (Server)
-- [[EMP-0365 Zayd Torres]] (Bartender)
-- [[EMP-0355 Ella Thomas]] (Shift Lead)
+- [[EMP-0352 Ella Liu]] (Assistant Manager)
+- [[EMP-0356 Jamal Scott]] (Line Cook)
+- [[EMP-0361 Fatima Chen]] (Line Cook)
+- [[EMP-0366 Oscar Abara]] (Busser)
+- [[EMP-0375 Henry Sanchez]] (Busser)
+- [[EMP-0358 Liam Thomas]] (Bartender)
+- [[EMP-0357 Min Romano]] (Bartender)

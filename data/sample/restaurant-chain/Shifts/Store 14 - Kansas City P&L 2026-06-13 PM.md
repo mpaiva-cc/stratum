@@ -7,16 +7,15 @@ date: 2026-06-13
 daypart: PM
 start: "15:00"
 end: "23:30"
-crew_size: 7
+crew_size: 6
 basis: authorization
 crew:
-  - "[[EMP-0327 Yara Hernandez]]"
-  - "[[EMP-0334 Aria Santos]]"
-  - "[[EMP-0336 Caleb Gonzalez]]"
-  - "[[EMP-0331 Jose Scott]]"
-  - "[[EMP-0335 Mason Russo]]"
-  - "[[EMP-0350 Valentina Khan]]"
-  - "[[EMP-0341 Oscar Shah]]"
+  - "[[EMP-0348 Ella Thomas]]"
+  - "[[EMP-0342 Aaron Le]]"
+  - "[[EMP-0333 Victor Liu]]"
+  - "[[EMP-0344 Diego Torres]]"
+  - "[[EMP-0349 Sofia Moore]]"
+  - "[[EMP-0350 Daniela Moore]]"
 ---
 
 PM shift at [[Store 14 - Kansas City P&L]] on 2026-06-13 (15:00-23:30).
@@ -27,10 +26,9 @@ PM shift at [[Store 14 - Kansas City P&L]] on 2026-06-13 (15:00-23:30).
 
 ## Crew
 
-- [[EMP-0327 Yara Hernandez]] (Assistant Manager)
-- [[EMP-0334 Aria Santos]] (Line Cook)
-- [[EMP-0336 Caleb Gonzalez]] (Server)
-- [[EMP-0331 Jose Scott]] (Line Cook)
-- [[EMP-0335 Mason Russo]] (Server)
-- [[EMP-0350 Valentina Khan]] (Host)
-- [[EMP-0341 Oscar Shah]] (Server)
+- [[EMP-0348 Ella Thomas]] (Dishwasher)
+- [[EMP-0342 Aaron Le]] (Expo)
+- [[EMP-0333 Victor Liu]] (Line Cook)
+- [[EMP-0344 Diego Torres]] (Expo)
+- [[EMP-0349 Sofia Moore]] (Prep Cook)
+- [[EMP-0350 Daniela Moore]] (Busser)

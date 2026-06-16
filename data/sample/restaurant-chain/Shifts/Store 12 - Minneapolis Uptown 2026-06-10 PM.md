@@ -7,16 +7,19 @@ date: 2026-06-10
 daypart: PM
 start: "15:00"
 end: "23:30"
-crew_size: 7
+crew_size: 10
 basis: authorization
 crew:
-  - "[[EMP-0282 Sofia Mensah]]"
-  - "[[EMP-0287 Samir Patel]]"
-  - "[[EMP-0283 Jaden Taylor]]"
-  - "[[EMP-0291 Brianna Taylor]]"
-  - "[[EMP-0288 Quinn Wilson]]"
-  - "[[EMP-0290 Destiny Wang]]"
-  - "[[EMP-0297 Samir Romano]]"
+  - "[[EMP-0289 Layla Wang]]"
+  - "[[EMP-0298 Zane Rodriguez]]"
+  - "[[EMP-0277 Zayd Ramirez]]"
+  - "[[EMP-0283 Santiago Jackson]]"
+  - "[[EMP-0276 Carlos Silva]]"
+  - "[[EMP-0295 Grace Silva]]"
+  - "[[EMP-0294 Santiago Thomas]]"
+  - "[[EMP-0288 Sofia Harris]]"
+  - "[[EMP-0300 Abigail Martinez]]"
+  - "[[EMP-0296 Jamal Torres]]"
 ---
 
 PM shift at [[Store 12 - Minneapolis Uptown]] on 2026-06-10 (15:00-23:30).
@@ -27,10 +30,13 @@ PM shift at [[Store 12 - Minneapolis Uptown]] on 2026-06-10 (15:00-23:30).
 
 ## Crew
 
-- [[EMP-0282 Sofia Mensah]] (Server)
-- [[EMP-0287 Samir Patel]] (Expo)
-- [[EMP-0283 Jaden Taylor]] (Line Cook)
-- [[EMP-0291 Brianna Taylor]] (Line Cook)
-- [[EMP-0288 Quinn Wilson]] (Server)
-- [[EMP-0290 Destiny Wang]] (Server)
-- [[EMP-0297 Samir Romano]] (Dishwasher)
+- [[EMP-0289 Layla Wang]] (Line Cook)
+- [[EMP-0298 Zane Rodriguez]] (Host)
+- [[EMP-0277 Zayd Ramirez]] (Assistant Manager)
+- [[EMP-0283 Santiago Jackson]] (Bartender)
+- [[EMP-0276 Carlos Silva]] (General Manager)
+- [[EMP-0295 Grace Silva]] (Host)
+- [[EMP-0294 Santiago Thomas]] (Busser)
+- [[EMP-0288 Sofia Harris]] (Server)
+- [[EMP-0300 Abigail Martinez]] (Busser)
+- [[EMP-0296 Jamal Torres]] (Host)

@@ -10,14 +10,14 @@ end: "23:30"
 crew_size: 8
 basis: authorization
 crew:
-  - "[[EMP-0158 Liam Jones]]"
-  - "[[EMP-0164 Hana Miller]]"
-  - "[[EMP-0165 Rohan Davis]]"
-  - "[[EMP-0151 Santiago Ahmed]]"
-  - "[[EMP-0155 Wei Walker]]"
-  - "[[EMP-0175 Connor Mensah]]"
-  - "[[EMP-0171 Imani Johnson]]"
-  - "[[EMP-0157 Samir Wilson]]"
+  - "[[EMP-0163 Imani Romano]]"
+  - "[[EMP-0151 Victor Hernandez]]"
+  - "[[EMP-0160 Elena King]]"
+  - "[[EMP-0165 Ximena Mensah]]"
+  - "[[EMP-0174 Brianna Romano]]"
+  - "[[EMP-0159 Layla Wilson]]"
+  - "[[EMP-0155 Mia Williams]]"
+  - "[[EMP-0175 Amelia Thomas]]"
 ---
 
 PM shift at [[Store 07 - Phoenix Scottsdale]] on 2026-06-12 (15:00-23:30).
@@ -28,11 +28,11 @@ PM shift at [[Store 07 - Phoenix Scottsdale]] on 2026-06-12 (15:00-23:30).
 
 ## Crew
 
-- [[EMP-0158 Liam Jones]] (Server)
-- [[EMP-0164 Hana Miller]] (Line Cook)
-- [[EMP-0165 Rohan Davis]] (Bartender)
-- [[EMP-0151 Santiago Ahmed]] (General Manager)
-- [[EMP-0155 Wei Walker]] (Shift Lead)
-- [[EMP-0175 Connor Mensah]] (Prep Cook)
-- [[EMP-0171 Imani Johnson]] (Busser)
-- [[EMP-0157 Samir Wilson]] (Line Cook)
+- [[EMP-0163 Imani Romano]] (Line Cook)
+- [[EMP-0151 Victor Hernandez]] (General Manager)
+- [[EMP-0160 Elena King]] (Line Cook)
+- [[EMP-0165 Ximena Mensah]] (Line Cook)
+- [[EMP-0174 Brianna Romano]] (Dishwasher)
+- [[EMP-0159 Layla Wilson]] (Server)
+- [[EMP-0155 Mia Williams]] (Shift Lead)
+- [[EMP-0175 Amelia Thomas]] (Prep Cook)

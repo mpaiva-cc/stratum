@@ -7,19 +7,17 @@ date: 2026-06-13
 daypart: AM
 start: "07:00"
 end: "15:30"
-crew_size: 10
+crew_size: 8
 basis: authorization
 crew:
-  - "[[EMP-0423 Rohan Singh]]"
-  - "[[EMP-0425 Fatima Shah]]"
-  - "[[EMP-0407 Grace Martinez]]"
-  - "[[EMP-0401 Jamal Perez]]"
-  - "[[EMP-0411 Valentina Smith]]"
-  - "[[EMP-0421 Brianna Perez]]"
-  - "[[EMP-0415 Kayla Williams]]"
-  - "[[EMP-0420 Keira Park]]"
-  - "[[EMP-0422 Sofia Miller]]"
-  - "[[EMP-0406 Elijah Harris]]"
+  - "[[EMP-0425 Anaya Patel]]"
+  - "[[EMP-0408 Jamal Clark]]"
+  - "[[EMP-0413 Nadia Martinez]]"
+  - "[[EMP-0401 Kayla Garcia]]"
+  - "[[EMP-0409 Omar Wright]]"
+  - "[[EMP-0405 Ava Jackson]]"
+  - "[[EMP-0406 Wanda White]]"
+  - "[[EMP-0423 Min Sanchez]]"
 ---
 
 AM shift at [[Store 17 - Brooklyn Williamsburg]] on 2026-06-13 (07:00-15:30).
@@ -30,13 +28,11 @@ AM shift at [[Store 17 - Brooklyn Williamsburg]] on 2026-06-13 (07:00-15:30).
 
 ## Crew
 
-- [[EMP-0423 Rohan Singh]] (Prep Cook)
-- [[EMP-0425 Fatima Shah]] (Busser)
-- [[EMP-0407 Grace Martinez]] (Line Cook)
-- [[EMP-0401 Jamal Perez]] (General Manager)
-- [[EMP-0411 Valentina Smith]] (Line Cook)
-- [[EMP-0421 Brianna Perez]] (Prep Cook)
-- [[EMP-0415 Kayla Williams]] (Server)
-- [[EMP-0420 Keira Park]] (Host)
-- [[EMP-0422 Sofia Miller]] (Busser)
-- [[EMP-0406 Elijah Harris]] (Line Cook)
+- [[EMP-0425 Anaya Patel]] (Dishwasher)
+- [[EMP-0408 Jamal Clark]] (Bartender)
+- [[EMP-0413 Nadia Martinez]] (Line Cook)
+- [[EMP-0401 Kayla Garcia]] (General Manager)
+- [[EMP-0409 Omar Wright]] (Bartender)
+- [[EMP-0405 Ava Jackson]] (Shift Lead)
+- [[EMP-0406 Wanda White]] (Bartender)
+- [[EMP-0423 Min Sanchez]] (Prep Cook)

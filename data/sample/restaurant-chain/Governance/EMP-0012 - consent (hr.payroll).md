@@ -1,6 +1,6 @@
 ---
 type: consent_grant
-id: CNS-0046
+id: CNS-0088
 person: "[[EMP-0012 Zayd Miller]]"
 scope: hr.payroll
 purpose: store operations

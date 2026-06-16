@@ -7,18 +7,17 @@ date: 2026-06-12
 daypart: AM
 start: "07:00"
 end: "15:30"
-crew_size: 9
+crew_size: 8
 basis: authorization
 crew:
-  - "[[EMP-0062 Aria Liu]]"
-  - "[[EMP-0073 Jaden Jackson]]"
-  - "[[EMP-0056 Hassan Lopez]]"
-  - "[[EMP-0075 Ella Romano]]"
-  - "[[EMP-0064 Keira Smith]]"
-  - "[[EMP-0055 Liam Khan]]"
-  - "[[EMP-0068 Maria Walker]]"
-  - "[[EMP-0052 Layla Costa]]"
-  - "[[EMP-0070 Amelia Davis]]"
+  - "[[EMP-0074 Ava Hernandez]]"
+  - "[[EMP-0071 Gabriela Romano]]"
+  - "[[EMP-0061 Bella Gonzalez]]"
+  - "[[EMP-0056 Wei Khan]]"
+  - "[[EMP-0067 Zayd Chen]]"
+  - "[[EMP-0070 Omar Jackson]]"
+  - "[[EMP-0075 Evelyn Miller]]"
+  - "[[EMP-0051 Jose Okafor]]"
 ---
 
 AM shift at [[Store 03 - Dallas Knox]] on 2026-06-12 (07:00-15:30).
@@ -29,12 +28,11 @@ AM shift at [[Store 03 - Dallas Knox]] on 2026-06-12 (07:00-15:30).
 
 ## Crew
 
-- [[EMP-0062 Aria Liu]] (Server)
-- [[EMP-0073 Jaden Jackson]] (Dishwasher)
-- [[EMP-0056 Hassan Lopez]] (Line Cook)
-- [[EMP-0075 Ella Romano]] (Prep Cook)
-- [[EMP-0064 Keira Smith]] (Server)
-- [[EMP-0055 Liam Khan]] (Shift Lead)
-- [[EMP-0068 Maria Walker]] (Busser)
-- [[EMP-0052 Layla Costa]] (Assistant Manager)
-- [[EMP-0070 Amelia Davis]] (Dishwasher)
+- [[EMP-0074 Ava Hernandez]] (Dishwasher)
+- [[EMP-0071 Gabriela Romano]] (Prep Cook)
+- [[EMP-0061 Bella Gonzalez]] (Bartender)
+- [[EMP-0056 Wei Khan]] (Server)
+- [[EMP-0067 Zayd Chen]] (Server)
+- [[EMP-0070 Omar Jackson]] (Busser)
+- [[EMP-0075 Evelyn Miller]] (Prep Cook)
+- [[EMP-0051 Jose Okafor]] (General Manager)

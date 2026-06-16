@@ -1,11 +1,11 @@
 ---
 type: employment_event
 id: EVT-0143
-person: "[[EMP-0143 Emily Costa]]"
+person: "[[EMP-0143 Maria Pham]]"
 kind: hire
-date: 2022-10-10
+date: 2023-11-20
 store: "[[Store 06 - Denver LoDo]]"
 basis: consent
 ---
 
-[[EMP-0143 Emily Costa]] hired as Prep Cook at [[Store 06 - Denver LoDo]] on 2022-10-10.
+[[EMP-0143 Maria Pham]] hired as Server at [[Store 06 - Denver LoDo]] on 2023-11-20.

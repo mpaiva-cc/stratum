@@ -1,11 +1,11 @@
 ---
 type: employment_event
 id: EVT-0344
-person: "[[EMP-0344 Jin Jackson]]"
+person: "[[EMP-0344 Diego Torres]]"
 kind: hire
-date: 2022-03-14
+date: 2023-09-15
 store: "[[Store 14 - Kansas City P&L]]"
 basis: consent
 ---
 
-[[EMP-0344 Jin Jackson]] hired as Prep Cook at [[Store 14 - Kansas City P&L]] on 2022-03-14.
+[[EMP-0344 Diego Torres]] hired as Expo at [[Store 14 - Kansas City P&L]] on 2023-09-15.

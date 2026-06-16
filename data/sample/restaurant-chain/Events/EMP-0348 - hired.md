@@ -1,11 +1,11 @@
 ---
 type: employment_event
 id: EVT-0348
-person: "[[EMP-0348 Valentina Chen]]"
+person: "[[EMP-0348 Ella Thomas]]"
 kind: hire
-date: 2023-04-16
+date: 2023-01-29
 store: "[[Store 14 - Kansas City P&L]]"
 basis: consent
 ---
 
-[[EMP-0348 Valentina Chen]] hired as Busser at [[Store 14 - Kansas City P&L]] on 2023-04-16.
+[[EMP-0348 Ella Thomas]] hired as Dishwasher at [[Store 14 - Kansas City P&L]] on 2023-01-29.

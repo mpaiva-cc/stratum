@@ -7,19 +7,16 @@ date: 2026-06-08
 daypart: PM
 start: "15:00"
 end: "23:30"
-crew_size: 10
+crew_size: 7
 basis: authorization
 crew:
-  - "[[EMP-0314 Wei Russo]]"
-  - "[[EMP-0313 Wei Nguyen]]"
-  - "[[EMP-0325 Leo Harris]]"
-  - "[[EMP-0319 Grace Walker]]"
-  - "[[EMP-0304 Grace Lewis]]"
-  - "[[EMP-0318 Ethan Garcia]]"
-  - "[[EMP-0303 Daniela Jones]]"
-  - "[[EMP-0316 Yuki Garcia]]"
-  - "[[EMP-0311 Harper Williams]]"
-  - "[[EMP-0301 Oscar Smith]]"
+  - "[[EMP-0307 Aria Davis]]"
+  - "[[EMP-0324 Victor Santos]]"
+  - "[[EMP-0320 Ines Wilson]]"
+  - "[[EMP-0301 Emily Park]]"
+  - "[[EMP-0302 Logan Park]]"
+  - "[[EMP-0306 Tariq Wilson]]"
+  - "[[EMP-0315 Keira Brown]]"
 ---
 
 PM shift at [[Store 13 - Columbus Short North]] on 2026-06-08 (15:00-23:30).
@@ -30,13 +27,10 @@ PM shift at [[Store 13 - Columbus Short North]] on 2026-06-08 (15:00-23:30).
 
 ## Crew
 
-- [[EMP-0314 Wei Russo]] (Server)
-- [[EMP-0313 Wei Nguyen]] (Bartender)
-- [[EMP-0325 Leo Harris]] (Busser)
-- [[EMP-0319 Grace Walker]] (Server)
-- [[EMP-0304 Grace Lewis]] (Shift Lead)
-- [[EMP-0318 Ethan Garcia]] (Line Cook)
-- [[EMP-0303 Daniela Jones]] (Head Chef)
-- [[EMP-0316 Yuki Garcia]] (Server)
-- [[EMP-0311 Harper Williams]] (Server)
-- [[EMP-0301 Oscar Smith]] (General Manager)
+- [[EMP-0307 Aria Davis]] (Server)
+- [[EMP-0324 Victor Santos]] (Busser)
+- [[EMP-0320 Ines Wilson]] (Busser)
+- [[EMP-0301 Emily Park]] (General Manager)
+- [[EMP-0302 Logan Park]] (Assistant Manager)
+- [[EMP-0306 Tariq Wilson]] (Line Cook)
+- [[EMP-0315 Keira Brown]] (Line Cook)

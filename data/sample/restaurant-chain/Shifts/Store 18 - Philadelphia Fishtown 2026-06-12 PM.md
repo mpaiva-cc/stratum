@@ -7,18 +7,15 @@ date: 2026-06-12
 daypart: PM
 start: "15:00"
 end: "23:30"
-crew_size: 9
+crew_size: 6
 basis: authorization
 crew:
-  - "[[EMP-0426 Uma Patel]]"
-  - "[[EMP-0441 Zane Ali]]"
-  - "[[EMP-0436 Aria Wright]]"
-  - "[[EMP-0446 Hana Clark]]"
-  - "[[EMP-0431 Andres Shah]]"
-  - "[[EMP-0442 Mateo Torres]]"
-  - "[[EMP-0438 Anaya Moore]]"
-  - "[[EMP-0434 Paloma Garcia]]"
-  - "[[EMP-0427 Aria Wilson]]"
+  - "[[EMP-0447 Henry Sanchez]]"
+  - "[[EMP-0441 Destiny Kim]]"
+  - "[[EMP-0436 Omar Brown]]"
+  - "[[EMP-0427 Oscar Okafor]]"
+  - "[[EMP-0446 Bella Williams]]"
+  - "[[EMP-0449 Grace Wright]]"
 ---
 
 PM shift at [[Store 18 - Philadelphia Fishtown]] on 2026-06-12 (15:00-23:30).
@@ -29,12 +26,9 @@ PM shift at [[Store 18 - Philadelphia Fishtown]] on 2026-06-12 (15:00-23:30).
 
 ## Crew
 
-- [[EMP-0426 Uma Patel]] (General Manager)
-- [[EMP-0441 Zane Ali]] (Server)
-- [[EMP-0436 Aria Wright]] (Server)
-- [[EMP-0446 Hana Clark]] (Dishwasher)
-- [[EMP-0431 Andres Shah]] (Server)
-- [[EMP-0442 Mateo Torres]] (Line Cook)
-- [[EMP-0438 Anaya Moore]] (Line Cook)
-- [[EMP-0434 Paloma Garcia]] (Server)
-- [[EMP-0427 Aria Wilson]] (Assistant Manager)
+- [[EMP-0447 Henry Sanchez]] (Prep Cook)
+- [[EMP-0441 Destiny Kim]] (Line Cook)
+- [[EMP-0436 Omar Brown]] (Server)
+- [[EMP-0427 Oscar Okafor]] (Assistant Manager)
+- [[EMP-0446 Bella Williams]] (Dishwasher)
+- [[EMP-0449 Grace Wright]] (Prep Cook)

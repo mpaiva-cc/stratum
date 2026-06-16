@@ -7,16 +7,15 @@ date: 2026-06-12
 daypart: AM
 start: "07:00"
 end: "15:30"
-crew_size: 7
+crew_size: 6
 basis: authorization
 crew:
-  - "[[EMP-0497 Evelyn Jones]]"
-  - "[[EMP-0482 Arjun Lewis]]"
-  - "[[EMP-0484 Zane Taylor]]"
-  - "[[EMP-0488 Victor Ahmed]]"
-  - "[[EMP-0480 Zane Williams]]"
-  - "[[EMP-0483 Jaden Torres]]"
-  - "[[EMP-0494 Gabriela Jackson]]"
+  - "[[EMP-0495 Andres Garcia]]"
+  - "[[EMP-0494 Aaron Patel]]"
+  - "[[EMP-0499 Logan Romano]]"
+  - "[[EMP-0479 Fatima Liu]]"
+  - "[[EMP-0478 Jamal Jackson]]"
+  - "[[EMP-0480 Aiden Tran]]"
 ---
 
 AM shift at [[Store 20 - Pittsburgh Strip]] on 2026-06-12 (07:00-15:30).
@@ -27,10 +26,9 @@ AM shift at [[Store 20 - Pittsburgh Strip]] on 2026-06-12 (07:00-15:30).
 
 ## Crew
 
-- [[EMP-0497 Evelyn Jones]] (Busser)
-- [[EMP-0482 Arjun Lewis]] (Server)
-- [[EMP-0484 Zane Taylor]] (Line Cook)
-- [[EMP-0488 Victor Ahmed]] (Server)
-- [[EMP-0480 Zane Williams]] (Shift Lead)
-- [[EMP-0483 Jaden Torres]] (Line Cook)
-- [[EMP-0494 Gabriela Jackson]] (Line Cook)
+- [[EMP-0495 Andres Garcia]] (Dishwasher)
+- [[EMP-0494 Aaron Patel]] (Dishwasher)
+- [[EMP-0499 Logan Romano]] (Host)
+- [[EMP-0479 Fatima Liu]] (Shift Lead)
+- [[EMP-0478 Jamal Jackson]] (Head Chef)
+- [[EMP-0480 Aiden Tran]] (Shift Lead)

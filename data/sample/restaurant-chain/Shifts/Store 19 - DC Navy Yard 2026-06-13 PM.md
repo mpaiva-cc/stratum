@@ -10,13 +10,13 @@ end: "23:30"
 crew_size: 7
 basis: authorization
 crew:
-  - "[[EMP-0454 Carlos Garcia]]"
-  - "[[EMP-0463 Ava Wright]]"
-  - "[[EMP-0470 Gabriela Russo]]"
-  - "[[EMP-0457 Lucas Moore]]"
-  - "[[EMP-0465 Wei Romano]]"
-  - "[[EMP-0462 Quinn Ahmed]]"
-  - "[[EMP-0469 Wei Hernandez]]"
+  - "[[EMP-0451 Arjun Rossi]]"
+  - "[[EMP-0461 Victor Lewis]]"
+  - "[[EMP-0460 Diego Lopez]]"
+  - "[[EMP-0462 Zane King]]"
+  - "[[EMP-0459 Nadia Lewis]]"
+  - "[[EMP-0458 Zayd Anderson]]"
+  - "[[EMP-0466 Leo Davis]]"
 ---
 
 PM shift at [[Store 19 - DC Navy Yard]] on 2026-06-13 (15:00-23:30).
@@ -27,10 +27,10 @@ PM shift at [[Store 19 - DC Navy Yard]] on 2026-06-13 (15:00-23:30).
 
 ## Crew
 
-- [[EMP-0454 Carlos Garcia]] (Shift Lead)
-- [[EMP-0463 Ava Wright]] (Server)
-- [[EMP-0470 Gabriela Russo]] (Host)
-- [[EMP-0457 Lucas Moore]] (Bartender)
-- [[EMP-0465 Wei Romano]] (Line Cook)
-- [[EMP-0462 Quinn Ahmed]] (Line Cook)
-- [[EMP-0469 Wei Hernandez]] (Dishwasher)
+- [[EMP-0451 Arjun Rossi]] (General Manager)
+- [[EMP-0461 Victor Lewis]] (Line Cook)
+- [[EMP-0460 Diego Lopez]] (Server)
+- [[EMP-0462 Zane King]] (Line Cook)
+- [[EMP-0459 Nadia Lewis]] (Server)
+- [[EMP-0458 Zayd Anderson]] (Line Cook)
+- [[EMP-0466 Leo Davis]] (Server)

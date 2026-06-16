@@ -2,17 +2,17 @@
 type: person
 id: EMP-0007
 name: Arjun Ramirez
-status: on_leave
-status_reason: parental
-status_effective_date: 2026-03-19
+status: active
+status_reason: active
+status_effective_date: 2026-05-13
 rehire_eligible: false
 employment_type: part_time
-hire_date: 2023-02-17
+hire_date: 2022-12-12
 email: "arjun.ramirez.emp-0007@forkandflame.example"
 works_at: "[[Store 01 - Austin Domain]]"
 in_department: "[[Front of House (Department)]]"
 position: "[[Server]]"
-pay_rate: 13.25
+pay_rate: 13.52
 pay_unit: hour
 reports_to: "[[EMP-0004 Jaden Abara]]"
 certifications:
@@ -20,14 +20,15 @@ certifications:
   - "[[TIPS Alcohol Service]]"
 skills:
   - "[[Guest Recovery]]"
-  - "[[POS Proficiency]]"
-  - "[[Opening & Closing]]"
+benefits:
+  - Shift Meal
+work_authorization: citizen
 basis: consent
 ---
 
-**Server** at [[Store 01 - Austin Domain]] · Front of House · since 2023-02-17.
+**Server** at [[Store 01 - Austin Domain]] · Front of House · since 2022-12-12.
 
-Status: **on_leave** (parental) as of 2026-03-19
+Status: **active** (active) as of 2026-05-13
 Rehire eligible: no
 
 ## Works at
@@ -36,7 +37,7 @@ Rehire eligible: no
 
 ## Position
 
-- [[Server]] — paid 13.25/hour
+- [[Server]] — paid 13.52/hour
 
 ## Reports to
 
@@ -50,9 +51,15 @@ Rehire eligible: no
 ## Skills
 
 - [[Guest Recovery]]
-- [[POS Proficiency]]
-- [[Opening & Closing]]
+
+## Benefits
+
+- Shift Meal
+
+## Work authorization
+
+- citizen
 
 ## Lifecycle
 
-- [[EMP-0007 - hired]] on 2023-02-17
+- [[EMP-0007 - hired]] on 2022-12-12

@@ -7,18 +7,15 @@ date: 2026-06-12
 daypart: PM
 start: "15:00"
 end: "23:30"
-crew_size: 9
+crew_size: 6
 basis: authorization
 crew:
-  - "[[EMP-0378 Elena Johnson]]"
-  - "[[EMP-0384 Fatima Chen]]"
-  - "[[EMP-0377 Santiago Sanchez]]"
-  - "[[EMP-0393 Bella Abara]]"
-  - "[[EMP-0376 Hassan Ahmed]]"
-  - "[[EMP-0390 Diego Jones]]"
-  - "[[EMP-0382 Gabriela Santos]]"
-  - "[[EMP-0385 Henry Nguyen]]"
-  - "[[EMP-0400 Jaden Rodriguez]]"
+  - "[[EMP-0392 Rohan King]]"
+  - "[[EMP-0377 Carlos Park]]"
+  - "[[EMP-0397 Mason Wright]]"
+  - "[[EMP-0390 Yuki Rossi]]"
+  - "[[EMP-0384 Arjun Costa]]"
+  - "[[EMP-0398 Omar Patel]]"
 ---
 
 PM shift at [[Store 16 - Boston Seaport]] on 2026-06-12 (15:00-23:30).
@@ -29,12 +26,9 @@ PM shift at [[Store 16 - Boston Seaport]] on 2026-06-12 (15:00-23:30).
 
 ## Crew
 
-- [[EMP-0378 Elena Johnson]] (Head Chef)
-- [[EMP-0384 Fatima Chen]] (Line Cook)
-- [[EMP-0377 Santiago Sanchez]] (Assistant Manager)
-- [[EMP-0393 Bella Abara]] (Busser)
-- [[EMP-0376 Hassan Ahmed]] (General Manager)
-- [[EMP-0390 Diego Jones]] (Busser)
-- [[EMP-0382 Gabriela Santos]] (Bartender)
-- [[EMP-0385 Henry Nguyen]] (Line Cook)
-- [[EMP-0400 Jaden Rodriguez]] (Dishwasher)
+- [[EMP-0392 Rohan King]] (Server)
+- [[EMP-0377 Carlos Park]] (Assistant Manager)
+- [[EMP-0397 Mason Wright]] (Prep Cook)
+- [[EMP-0390 Yuki Rossi]] (Server)
+- [[EMP-0384 Arjun Costa]] (Server)
+- [[EMP-0398 Omar Patel]] (Busser)

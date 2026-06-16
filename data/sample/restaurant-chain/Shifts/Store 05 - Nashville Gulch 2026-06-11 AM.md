@@ -7,16 +7,18 @@ date: 2026-06-11
 daypart: AM
 start: "07:00"
 end: "15:30"
-crew_size: 7
+crew_size: 9
 basis: authorization
 crew:
-  - "[[EMP-0105 Felix Russo]]"
-  - "[[EMP-0101 Sofia Costa]]"
-  - "[[EMP-0123 Hassan Diallo]]"
-  - "[[EMP-0117 Harper Le]]"
-  - "[[EMP-0111 Destiny Costa]]"
-  - "[[EMP-0104 Gabriela Singh]]"
-  - "[[EMP-0118 Henry Hernandez]]"
+  - "[[EMP-0121 Quinn Gonzalez]]"
+  - "[[EMP-0111 Bella Wang]]"
+  - "[[EMP-0105 Rosa Gonzalez]]"
+  - "[[EMP-0104 Amelia Allen]]"
+  - "[[EMP-0118 Harper Patel]]"
+  - "[[EMP-0120 Felix Thomas]]"
+  - "[[EMP-0117 Daniela Tran]]"
+  - "[[EMP-0103 Ximena Wang]]"
+  - "[[EMP-0108 Amelia Sanchez]]"
 ---
 
 AM shift at [[Store 05 - Nashville Gulch]] on 2026-06-11 (07:00-15:30).
@@ -27,10 +29,12 @@ AM shift at [[Store 05 - Nashville Gulch]] on 2026-06-11 (07:00-15:30).
 
 ## Crew
 
-- [[EMP-0105 Felix Russo]] (Shift Lead)
-- [[EMP-0101 Sofia Costa]] (General Manager)
-- [[EMP-0123 Hassan Diallo]] (Prep Cook)
-- [[EMP-0117 Harper Le]] (Prep Cook)
-- [[EMP-0111 Destiny Costa]] (Expo)
-- [[EMP-0104 Gabriela Singh]] (Shift Lead)
-- [[EMP-0118 Henry Hernandez]] (Busser)
+- [[EMP-0121 Quinn Gonzalez]] (Busser)
+- [[EMP-0111 Bella Wang]] (Server)
+- [[EMP-0105 Rosa Gonzalez]] (Shift Lead)
+- [[EMP-0104 Amelia Allen]] (Shift Lead)
+- [[EMP-0118 Harper Patel]] (Dishwasher)
+- [[EMP-0120 Felix Thomas]] (Busser)
+- [[EMP-0117 Daniela Tran]] (Prep Cook)
+- [[EMP-0103 Ximena Wang]] (Head Chef)
+- [[EMP-0108 Amelia Sanchez]] (Bartender)

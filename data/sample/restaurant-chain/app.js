@@ -20,7 +20,10 @@
   var ROLES = window.FFRoles.ROLES;
   var ALL_SCOPES = window.FFRoles.ALL_SCOPES;
   var SCOPE_LABEL = { 'hr.scheduling': 'scheduling', 'hr.payroll': 'compensation',
-    'hr.certifications': 'compliance', 'hr.employment': 'employment' };
+    'hr.certifications': 'compliance', 'hr.employment': 'employment',
+    'hr.performance': 'performance', 'hr.learning': 'learning',
+    'hr.benefits': 'benefits', 'hr.work_auth': 'work authorization',
+    'hr.recruiting': 'recruiting' };
 
   // Active viewing identity: a fixed persona, or a dynamic "impersonate this employee" role.
   var impersonated = null;
@@ -41,7 +44,7 @@
       id: '__imp', label: (n.props.name || title), anchor: id,
       anchorDesc: (n.props.position || 'employee') + (store ? ' · ' + store : ''),
       population: reports.length ? { type: 'subtree', value: id } : { type: 'self', value: id },
-      scopes: ALL_SCOPES.slice()
+      scopes: (window.FFRoles.EMPLOYEE_SCOPES || ALL_SCOPES).slice()
     };
     var sel = $('role'), opt = sel.querySelector('option[value="__imp"]');
     if (!opt) { opt = document.createElement('option'); opt.value = '__imp'; sel.appendChild(opt); }
@@ -53,6 +56,13 @@
     $('status').textContent = 'Now impersonating ' + impersonated.label
       + ' — sees sensitive data for ' + seen + (seen > 1 ? ' people (self + reports)' : ' (self only)')
       + '. Ask a question.';
+  }
+
+  function populatePurposes() {
+    var cat = (db.meta && db.meta.purposeCatalog) || [];
+    $('purpose').innerHTML = cat.map(function (p) {
+      return '<option value="' + escAttr(p.id) + '">' + esc(p.label) + '</option>';
+    }).join('');
   }
 
   function renderPermPanel() {
@@ -249,7 +259,10 @@
   }
 
   var SCOPE_TO_PURPOSE = { 'hr.scheduling': 'scheduling', 'hr.payroll': 'payroll',
-    'hr.certifications': 'compliance', 'hr.employment': 'employment' };
+    'hr.certifications': 'compliance', 'hr.employment': 'employment',
+    'hr.performance': 'performance', 'hr.learning': 'learning',
+    'hr.benefits': 'benefits', 'hr.work_auth': 'work_authorization',
+    'hr.recruiting': 'recruiting' };
 
   async function narrate(question, spec, result, purpose, key) {
     // Summarise WHICH fields were withheld and how to unlock them (distinct by field+reason).
@@ -360,6 +373,7 @@
     }
     renderPermPanel();
   });
+  populatePurposes();
   renderPermPanel();
   loadKey();
 
@@ -392,6 +406,10 @@
       + '">Impersonate ' + esc(p.name || node.title) + '</button></p>';
     var role = currentRole(), purpose = $('purpose').value;
     var pop = window.FFEngine.computePopulation(role, db);
+    var recCount = function (t, type) {
+      return (((db.rev['person'] || {})[t]) || []).filter(function (x) {
+        var nn = db.nodesByTitle[x]; return nn && nn.type === type; }).length;
+    };
     // Directory (always visible)
     html += '<dl>';
     html += fieldRow('Status', esc((p.status || '—') + (p.status_reason ? ' (' + p.status_reason + ')' : '')));
@@ -419,6 +437,19 @@
       + gatedRow('Certifications', node.title, 'hr.certifications',
           (p.certifications && p.certifications.length ? p.certifications.join(', ') : 'none'),
           role, purpose, pop)
+      + '</dl></div>';
+    html += '<div class="sect"><strong>Performance</strong><dl>'
+      + gatedRow('Reviews on file', node.title, 'hr.performance', recCount(node.title, 'performance_review'),
+          role, purpose, pop) + '</dl></div>';
+    html += '<div class="sect"><strong>Learning</strong><dl>'
+      + gatedRow('Training records', node.title, 'hr.learning', recCount(node.title, 'training_record'),
+          role, purpose, pop) + '</dl></div>';
+    html += '<div class="sect"><strong>Benefits</strong><dl>'
+      + gatedRow('Enrolled', node.title, 'hr.benefits',
+          (p.benefits && p.benefits.length ? p.benefits.join(', ') : 'none'), role, purpose, pop)
+      + '</dl></div>';
+    html += '<div class="sect"><strong>Work authorization</strong><dl>'
+      + gatedRow('Status', node.title, 'hr.work_auth', (p.work_authorization || '—'), role, purpose, pop)
       + '</dl></div>';
     return html;
   }

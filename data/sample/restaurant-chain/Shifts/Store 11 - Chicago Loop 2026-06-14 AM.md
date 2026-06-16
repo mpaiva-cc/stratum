@@ -7,18 +7,16 @@ date: 2026-06-14
 daypart: AM
 start: "07:00"
 end: "15:30"
-crew_size: 9
+crew_size: 7
 basis: authorization
 crew:
-  - "[[EMP-0257 Sofia Hernandez]]"
-  - "[[EMP-0260 Jaden Silva]]"
-  - "[[EMP-0263 Priya Taylor]]"
-  - "[[EMP-0271 Aiden Clark]]"
-  - "[[EMP-0259 Wanda Wilson]]"
-  - "[[EMP-0275 Maria Smith]]"
-  - "[[EMP-0255 Abigail Singh]]"
-  - "[[EMP-0274 Lucas Lopez]]"
-  - "[[EMP-0268 Yara Hernandez]]"
+  - "[[EMP-0261 Grace Garcia]]"
+  - "[[EMP-0275 Connor Tran]]"
+  - "[[EMP-0257 Min Mensah]]"
+  - "[[EMP-0271 Diego Tran]]"
+  - "[[EMP-0260 Gabriela Abara]]"
+  - "[[EMP-0268 Santiago Lopez]]"
+  - "[[EMP-0270 Noah Singh]]"
 ---
 
 AM shift at [[Store 11 - Chicago Loop]] on 2026-06-14 (07:00-15:30).
@@ -29,12 +27,10 @@ AM shift at [[Store 11 - Chicago Loop]] on 2026-06-14 (07:00-15:30).
 
 ## Crew
 
-- [[EMP-0257 Sofia Hernandez]] (Server)
-- [[EMP-0260 Jaden Silva]] (Server)
-- [[EMP-0263 Priya Taylor]] (Server)
-- [[EMP-0271 Aiden Clark]] (Prep Cook)
-- [[EMP-0259 Wanda Wilson]] (Server)
-- [[EMP-0275 Maria Smith]] (Prep Cook)
-- [[EMP-0255 Abigail Singh]] (Shift Lead)
-- [[EMP-0274 Lucas Lopez]] (Busser)
-- [[EMP-0268 Yara Hernandez]] (Dishwasher)
+- [[EMP-0261 Grace Garcia]] (Line Cook)
+- [[EMP-0275 Connor Tran]] (Busser)
+- [[EMP-0257 Min Mensah]] (Line Cook)
+- [[EMP-0271 Diego Tran]] (Line Cook)
+- [[EMP-0260 Gabriela Abara]] (Line Cook)
+- [[EMP-0268 Santiago Lopez]] (Server)
+- [[EMP-0270 Noah Singh]] (Server)

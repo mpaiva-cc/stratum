@@ -7,17 +7,15 @@ date: 2026-06-11
 daypart: AM
 start: "07:00"
 end: "15:30"
-crew_size: 8
+crew_size: 6
 basis: authorization
 crew:
-  - "[[EMP-0100 Evelyn Torres]]"
-  - "[[EMP-0094 Felix Khan]]"
-  - "[[EMP-0096 Harper Torres]]"
-  - "[[EMP-0091 Henry Santos]]"
-  - "[[EMP-0097 Jin Jackson]]"
-  - "[[EMP-0085 Keira Mensah]]"
-  - "[[EMP-0084 Hana Silva]]"
-  - "[[EMP-0080 Henry Clark]]"
+  - "[[EMP-0087 Aria Ahmed]]"
+  - "[[EMP-0096 Kayla Kim]]"
+  - "[[EMP-0099 Fatima Anderson]]"
+  - "[[EMP-0088 Zayd Rossi]]"
+  - "[[EMP-0095 Evelyn Ali]]"
+  - "[[EMP-0082 Destiny White]]"
 ---
 
 AM shift at [[Store 04 - Atlanta Midtown]] on 2026-06-11 (07:00-15:30).
@@ -28,11 +26,9 @@ AM shift at [[Store 04 - Atlanta Midtown]] on 2026-06-11 (07:00-15:30).
 
 ## Crew
 
-- [[EMP-0100 Evelyn Torres]] (Busser)
-- [[EMP-0094 Felix Khan]] (Server)
-- [[EMP-0096 Harper Torres]] (Dishwasher)
-- [[EMP-0091 Henry Santos]] (Server)
-- [[EMP-0097 Jin Jackson]] (Dishwasher)
-- [[EMP-0085 Keira Mensah]] (Expo)
-- [[EMP-0084 Hana Silva]] (Line Cook)
-- [[EMP-0080 Henry Clark]] (Shift Lead)
+- [[EMP-0087 Aria Ahmed]] (Line Cook)
+- [[EMP-0096 Kayla Kim]] (Prep Cook)
+- [[EMP-0099 Fatima Anderson]] (Dishwasher)
+- [[EMP-0088 Zayd Rossi]] (Server)
+- [[EMP-0095 Evelyn Ali]] (Prep Cook)
+- [[EMP-0082 Destiny White]] (Line Cook)

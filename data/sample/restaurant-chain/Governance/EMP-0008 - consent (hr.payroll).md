@@ -1,6 +1,6 @@
 ---
 type: consent_grant
-id: CNS-0030
+id: CNS-0057
 person: "[[EMP-0008 Evelyn Moore]]"
 scope: hr.payroll
 purpose: store operations

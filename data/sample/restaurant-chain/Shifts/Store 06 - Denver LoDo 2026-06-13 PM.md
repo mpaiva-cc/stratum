@@ -7,18 +7,16 @@ date: 2026-06-13
 daypart: PM
 start: "15:00"
 end: "23:30"
-crew_size: 9
+crew_size: 7
 basis: authorization
 crew:
-  - "[[EMP-0129 Quinn Torres]]"
-  - "[[EMP-0130 Hassan Kim]]"
-  - "[[EMP-0133 Quinn Garcia]]"
-  - "[[EMP-0136 Andres White]]"
-  - "[[EMP-0146 Felix Singh]]"
-  - "[[EMP-0140 Ximena Allen]]"
-  - "[[EMP-0128 Hana Williams]]"
-  - "[[EMP-0150 Grace Sanchez]]"
-  - "[[EMP-0131 Priya Miller]]"
+  - "[[EMP-0129 Andres Clark]]"
+  - "[[EMP-0144 Priya Wilson]]"
+  - "[[EMP-0131 Ximena Hernandez]]"
+  - "[[EMP-0148 Ella Miller]]"
+  - "[[EMP-0146 Maria Garcia]]"
+  - "[[EMP-0150 Oscar Davis]]"
+  - "[[EMP-0127 Anaya Park]]"
 ---
 
 PM shift at [[Store 06 - Denver LoDo]] on 2026-06-13 (15:00-23:30).
@@ -29,12 +27,10 @@ PM shift at [[Store 06 - Denver LoDo]] on 2026-06-13 (15:00-23:30).
 
 ## Crew
 
-- [[EMP-0129 Quinn Torres]] (Shift Lead)
-- [[EMP-0130 Hassan Kim]] (Shift Lead)
-- [[EMP-0133 Quinn Garcia]] (Line Cook)
-- [[EMP-0136 Andres White]] (Line Cook)
-- [[EMP-0146 Felix Singh]] (Busser)
-- [[EMP-0140 Ximena Allen]] (Line Cook)
-- [[EMP-0128 Hana Williams]] (Head Chef)
-- [[EMP-0150 Grace Sanchez]] (Host)
-- [[EMP-0131 Priya Miller]] (Server)
+- [[EMP-0129 Andres Clark]] (Shift Lead)
+- [[EMP-0144 Priya Wilson]] (Server)
+- [[EMP-0131 Ximena Hernandez]] (Server)
+- [[EMP-0148 Ella Miller]] (Busser)
+- [[EMP-0146 Maria Garcia]] (Host)
+- [[EMP-0150 Oscar Davis]] (Dishwasher)
+- [[EMP-0127 Anaya Park]] (Assistant Manager)

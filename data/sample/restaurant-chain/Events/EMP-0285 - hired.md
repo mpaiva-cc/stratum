@@ -1,11 +1,11 @@
 ---
 type: employment_event
 id: EVT-0285
-person: "[[EMP-0285 Diego Sanchez]]"
+person: "[[EMP-0285 Carlos King]]"
 kind: hire
-date: 2023-05-02
+date: 2024-02-19
 store: "[[Store 12 - Minneapolis Uptown]]"
 basis: consent
 ---
 
-[[EMP-0285 Diego Sanchez]] hired as Line Cook at [[Store 12 - Minneapolis Uptown]] on 2023-05-02.
+[[EMP-0285 Carlos King]] hired as Bartender at [[Store 12 - Minneapolis Uptown]] on 2024-02-19.

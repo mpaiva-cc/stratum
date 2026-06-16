@@ -7,15 +7,18 @@ date: 2026-06-12
 daypart: AM
 start: "07:00"
 end: "15:30"
-crew_size: 6
+crew_size: 9
 basis: authorization
 crew:
-  - "[[EMP-0095 Ethan Scott]]"
-  - "[[EMP-0091 Henry Santos]]"
-  - "[[EMP-0080 Henry Clark]]"
-  - "[[EMP-0088 Rosa Ali]]"
-  - "[[EMP-0086 Paloma Singh]]"
-  - "[[EMP-0094 Felix Khan]]"
+  - "[[EMP-0079 Connor Moore]]"
+  - "[[EMP-0080 Aaron Wright]]"
+  - "[[EMP-0076 Sofia Bianchi]]"
+  - "[[EMP-0092 Elijah Tran]]"
+  - "[[EMP-0099 Fatima Anderson]]"
+  - "[[EMP-0088 Zayd Rossi]]"
+  - "[[EMP-0094 Bella Park]]"
+  - "[[EMP-0089 Rosa Garcia]]"
+  - "[[EMP-0078 Kayla Lopez]]"
 ---
 
 AM shift at [[Store 04 - Atlanta Midtown]] on 2026-06-12 (07:00-15:30).
@@ -26,9 +29,12 @@ AM shift at [[Store 04 - Atlanta Midtown]] on 2026-06-12 (07:00-15:30).
 
 ## Crew
 
-- [[EMP-0095 Ethan Scott]] (Server)
-- [[EMP-0091 Henry Santos]] (Server)
-- [[EMP-0080 Henry Clark]] (Shift Lead)
-- [[EMP-0088 Rosa Ali]] (Expo)
-- [[EMP-0086 Paloma Singh]] (Line Cook)
-- [[EMP-0094 Felix Khan]] (Server)
+- [[EMP-0079 Connor Moore]] (Shift Lead)
+- [[EMP-0080 Aaron Wright]] (Shift Lead)
+- [[EMP-0076 Sofia Bianchi]] (General Manager)
+- [[EMP-0092 Elijah Tran]] (Bartender)
+- [[EMP-0099 Fatima Anderson]] (Dishwasher)
+- [[EMP-0088 Zayd Rossi]] (Server)
+- [[EMP-0094 Bella Park]] (Server)
+- [[EMP-0089 Rosa Garcia]] (Line Cook)
+- [[EMP-0078 Kayla Lopez]] (Head Chef)

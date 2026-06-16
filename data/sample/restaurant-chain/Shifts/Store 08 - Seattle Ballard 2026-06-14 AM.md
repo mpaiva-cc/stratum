@@ -7,19 +7,16 @@ date: 2026-06-14
 daypart: AM
 start: "07:00"
 end: "15:30"
-crew_size: 10
+crew_size: 7
 basis: authorization
 crew:
-  - "[[EMP-0200 Liam Perez]]"
-  - "[[EMP-0183 Nadia Chen]]"
-  - "[[EMP-0193 Noah Jones]]"
-  - "[[EMP-0176 Aria Clark]]"
-  - "[[EMP-0179 Ximena Harris]]"
-  - "[[EMP-0182 Min Wright]]"
-  - "[[EMP-0197 Mateo Lewis]]"
-  - "[[EMP-0195 Elijah Johnson]]"
-  - "[[EMP-0191 Layla Pham]]"
-  - "[[EMP-0188 Paloma Bianchi]]"
+  - "[[EMP-0199 Ines Ali]]"
+  - "[[EMP-0180 Wanda Costa]]"
+  - "[[EMP-0186 Tariq Hernandez]]"
+  - "[[EMP-0191 Gabriela Kim]]"
+  - "[[EMP-0196 Leo Khan]]"
+  - "[[EMP-0178 Mason Wilson]]"
+  - "[[EMP-0188 Rosa Tran]]"
 ---
 
 AM shift at [[Store 08 - Seattle Ballard]] on 2026-06-14 (07:00-15:30).
@@ -30,13 +27,10 @@ AM shift at [[Store 08 - Seattle Ballard]] on 2026-06-14 (07:00-15:30).
 
 ## Crew
 
-- [[EMP-0200 Liam Perez]] (Dishwasher)
-- [[EMP-0183 Nadia Chen]] (Server)
-- [[EMP-0193 Noah Jones]] (Prep Cook)
-- [[EMP-0176 Aria Clark]] (General Manager)
-- [[EMP-0179 Ximena Harris]] (Shift Lead)
-- [[EMP-0182 Min Wright]] (Server)
-- [[EMP-0197 Mateo Lewis]] (Busser)
-- [[EMP-0195 Elijah Johnson]] (Prep Cook)
-- [[EMP-0191 Layla Pham]] (Bartender)
-- [[EMP-0188 Paloma Bianchi]] (Server)
+- [[EMP-0199 Ines Ali]] (Busser)
+- [[EMP-0180 Wanda Costa]] (Shift Lead)
+- [[EMP-0186 Tariq Hernandez]] (Line Cook)
+- [[EMP-0191 Gabriela Kim]] (Expo)
+- [[EMP-0196 Leo Khan]] (Prep Cook)
+- [[EMP-0178 Mason Wilson]] (Head Chef)
+- [[EMP-0188 Rosa Tran]] (Line Cook)

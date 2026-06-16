@@ -1,11 +1,11 @@
 ---
 type: employment_event
 id: EVT-0293
-person: "[[EMP-0293 Victor Davis]]"
+person: "[[EMP-0293 Mason Johnson]]"
 kind: hire
-date: 2023-04-23
+date: 2022-01-10
 store: "[[Store 12 - Minneapolis Uptown]]"
 basis: consent
 ---
 
-[[EMP-0293 Victor Davis]] hired as Server at [[Store 12 - Minneapolis Uptown]] on 2023-04-23.
+[[EMP-0293 Mason Johnson]] hired as Prep Cook at [[Store 12 - Minneapolis Uptown]] on 2022-01-10.

@@ -1,6 +1,6 @@
 ---
 type: consent_grant
-id: CNS-0096
+id: CNS-0192
 person: "[[EMP-0025 Isabella Lopez]]"
 scope: hr.payroll
 purpose: store operations

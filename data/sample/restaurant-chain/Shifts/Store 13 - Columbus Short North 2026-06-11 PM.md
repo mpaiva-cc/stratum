@@ -7,17 +7,16 @@ date: 2026-06-11
 daypart: PM
 start: "15:00"
 end: "23:30"
-crew_size: 8
+crew_size: 7
 basis: authorization
 crew:
-  - "[[EMP-0310 Mia Davis]]"
-  - "[[EMP-0325 Leo Harris]]"
-  - "[[EMP-0317 Aiden Johnson]]"
-  - "[[EMP-0319 Grace Walker]]"
-  - "[[EMP-0320 Mason Johnson]]"
-  - "[[EMP-0308 Victor Okafor]]"
-  - "[[EMP-0315 Maria Rossi]]"
-  - "[[EMP-0318 Ethan Garcia]]"
+  - "[[EMP-0308 Leo Ramirez]]"
+  - "[[EMP-0314 Emily Nguyen]]"
+  - "[[EMP-0310 Gabriela Harris]]"
+  - "[[EMP-0301 Emily Park]]"
+  - "[[EMP-0312 Ella Clark]]"
+  - "[[EMP-0311 Ella Allen]]"
+  - "[[EMP-0302 Logan Park]]"
 ---
 
 PM shift at [[Store 13 - Columbus Short North]] on 2026-06-11 (15:00-23:30).
@@ -28,11 +27,10 @@ PM shift at [[Store 13 - Columbus Short North]] on 2026-06-11 (15:00-23:30).
 
 ## Crew
 
-- [[EMP-0310 Mia Davis]] (Line Cook)
-- [[EMP-0325 Leo Harris]] (Busser)
-- [[EMP-0317 Aiden Johnson]] (Line Cook)
-- [[EMP-0319 Grace Walker]] (Server)
-- [[EMP-0320 Mason Johnson]] (Server)
-- [[EMP-0308 Victor Okafor]] (Bartender)
-- [[EMP-0315 Maria Rossi]] (Server)
-- [[EMP-0318 Ethan Garcia]] (Line Cook)
+- [[EMP-0308 Leo Ramirez]] (Server)
+- [[EMP-0314 Emily Nguyen]] (Line Cook)
+- [[EMP-0310 Gabriela Harris]] (Server)
+- [[EMP-0301 Emily Park]] (General Manager)
+- [[EMP-0312 Ella Clark]] (Server)
+- [[EMP-0311 Ella Allen]] (Server)
+- [[EMP-0302 Logan Park]] (Assistant Manager)

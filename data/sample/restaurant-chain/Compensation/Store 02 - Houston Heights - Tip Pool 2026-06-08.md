@@ -3,30 +3,32 @@ type: tip_pool
 id: TIP-0002
 store: "[[Store 02 - Houston Heights]]"
 period: Week of 2026-06-08
-amount: 2460
+amount: 2327
 basis: authorization
 distributes_to:
-  - "[[EMP-0031 Victor Lewis]]"
-  - "[[EMP-0032 Valentina Liu]]"
-  - "[[EMP-0033 Ximena Torres]]"
-  - "[[EMP-0034 Fatima Singh]]"
-  - "[[EMP-0037 Hassan Pham]]"
-  - "[[EMP-0040 Jaden Patel]]"
-  - "[[EMP-0041 Brianna Pham]]"
-  - "[[EMP-0042 Destiny Tran]]"
-  - "[[EMP-0050 Elijah Harris]]"
+  - "[[EMP-0032 Elena Harris]]"
+  - "[[EMP-0033 Elijah Harris]]"
+  - "[[EMP-0036 Samir Silva]]"
+  - "[[EMP-0037 Isabella Park]]"
+  - "[[EMP-0038 Connor Torres]]"
+  - "[[EMP-0041 Paloma Mensah]]"
+  - "[[EMP-0042 Yara Silva]]"
+  - "[[EMP-0046 Imani Singh]]"
+  - "[[EMP-0047 Samir Shah]]"
+  - "[[EMP-0049 Logan Jackson]]"
 ---
 
 Tip pool for [[Store 02 - Houston Heights]], week of 2026-06-08.
 
 ## Distributed to
 
-- [[EMP-0031 Victor Lewis]]
-- [[EMP-0032 Valentina Liu]]
-- [[EMP-0033 Ximena Torres]]
-- [[EMP-0034 Fatima Singh]]
-- [[EMP-0037 Hassan Pham]]
-- [[EMP-0040 Jaden Patel]]
-- [[EMP-0041 Brianna Pham]]
-- [[EMP-0042 Destiny Tran]]
-- [[EMP-0050 Elijah Harris]]
+- [[EMP-0032 Elena Harris]]
+- [[EMP-0033 Elijah Harris]]
+- [[EMP-0036 Samir Silva]]
+- [[EMP-0037 Isabella Park]]
+- [[EMP-0038 Connor Torres]]
+- [[EMP-0041 Paloma Mensah]]
+- [[EMP-0042 Yara Silva]]
+- [[EMP-0046 Imani Singh]]
+- [[EMP-0047 Samir Shah]]
+- [[EMP-0049 Logan Jackson]]

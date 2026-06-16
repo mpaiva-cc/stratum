@@ -7,17 +7,16 @@ date: 2026-06-11
 daypart: AM
 start: "07:00"
 end: "15:30"
-crew_size: 8
+crew_size: 7
 basis: authorization
 crew:
-  - "[[EMP-0348 Valentina Chen]]"
-  - "[[EMP-0342 Wanda Rodriguez]]"
-  - "[[EMP-0333 Zane Silva]]"
-  - "[[EMP-0339 Paloma King]]"
-  - "[[EMP-0350 Valentina Khan]]"
-  - "[[EMP-0346 Yara Davis]]"
-  - "[[EMP-0328 Jaden Okafor]]"
-  - "[[EMP-0329 Arjun Allen]]"
+  - "[[EMP-0338 Aaron Martinez]]"
+  - "[[EMP-0326 Layla Patel]]"
+  - "[[EMP-0328 Aaron Okafor]]"
+  - "[[EMP-0336 Uma Ramirez]]"
+  - "[[EMP-0330 Leo Pham]]"
+  - "[[EMP-0348 Ella Thomas]]"
+  - "[[EMP-0345 Isabella Wilson]]"
 ---
 
 AM shift at [[Store 14 - Kansas City P&L]] on 2026-06-11 (07:00-15:30).
@@ -28,11 +27,10 @@ AM shift at [[Store 14 - Kansas City P&L]] on 2026-06-11 (07:00-15:30).
 
 ## Crew
 
-- [[EMP-0348 Valentina Chen]] (Busser)
-- [[EMP-0342 Wanda Rodriguez]] (Bartender)
-- [[EMP-0333 Zane Silva]] (Line Cook)
-- [[EMP-0339 Paloma King]] (Line Cook)
-- [[EMP-0350 Valentina Khan]] (Host)
-- [[EMP-0346 Yara Davis]] (Busser)
-- [[EMP-0328 Jaden Okafor]] (Head Chef)
-- [[EMP-0329 Arjun Allen]] (Shift Lead)
+- [[EMP-0338 Aaron Martinez]] (Expo)
+- [[EMP-0326 Layla Patel]] (General Manager)
+- [[EMP-0328 Aaron Okafor]] (Head Chef)
+- [[EMP-0336 Uma Ramirez]] (Server)
+- [[EMP-0330 Leo Pham]] (Shift Lead)
+- [[EMP-0348 Ella Thomas]] (Dishwasher)
+- [[EMP-0345 Isabella Wilson]] (Line Cook)

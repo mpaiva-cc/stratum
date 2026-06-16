@@ -1,11 +1,11 @@
 ---
 type: employment_event
 id: EVT-0216
-person: "[[EMP-0216 Noah Ali]]"
+person: "[[EMP-0216 Mason Bianchi]]"
 kind: hire
-date: 2023-02-21
+date: 2025-08-24
 store: "[[Store 09 - Portland Pearl]]"
 basis: consent
 ---
 
-[[EMP-0216 Noah Ali]] hired as Line Cook at [[Store 09 - Portland Pearl]] on 2023-02-21.
+[[EMP-0216 Mason Bianchi]] hired as Server at [[Store 09 - Portland Pearl]] on 2025-08-24.

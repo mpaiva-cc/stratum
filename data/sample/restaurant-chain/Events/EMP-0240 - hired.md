@@ -1,11 +1,11 @@
 ---
 type: employment_event
 id: EVT-0240
-person: "[[EMP-0240 Andres Anderson]]"
+person: "[[EMP-0240 Mason Ahmed]]"
 kind: hire
-date: 2023-05-05
+date: 2021-09-03
 store: "[[Store 10 - San Diego Gaslamp]]"
 basis: consent
 ---
 
-[[EMP-0240 Andres Anderson]] hired as Line Cook at [[Store 10 - San Diego Gaslamp]] on 2023-05-05.
+[[EMP-0240 Mason Ahmed]] hired as Line Cook at [[Store 10 - San Diego Gaslamp]] on 2021-09-03.

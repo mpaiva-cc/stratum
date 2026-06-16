@@ -21,6 +21,11 @@ certifications:
 skills:
   - "[[Opening & Closing]]"
   - "[[Inventory & Ordering]]"
+benefits:
+  - Health PPO
+  - 401(k) Match
+  - Shift Meal
+work_authorization: citizen
 basis: consent
 ---
 
@@ -46,6 +51,16 @@ Rehire eligible: no
 
 - [[Opening & Closing]]
 - [[Inventory & Ordering]]
+
+## Benefits
+
+- Health PPO
+- 401(k) Match
+- Shift Meal
+
+## Work authorization
+
+- citizen
 
 ## Lifecycle
 

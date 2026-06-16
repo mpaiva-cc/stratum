@@ -7,18 +7,15 @@ date: 2026-06-08
 daypart: PM
 start: "15:00"
 end: "23:30"
-crew_size: 9
+crew_size: 6
 basis: authorization
 crew:
-  - "[[EMP-0450 Tariq Rodriguez]]"
-  - "[[EMP-0437 Zane Kim]]"
-  - "[[EMP-0431 Andres Shah]]"
-  - "[[EMP-0438 Anaya Moore]]"
-  - "[[EMP-0436 Aria Wright]]"
-  - "[[EMP-0443 Fatima Williams]]"
-  - "[[EMP-0428 Isabella Gonzalez]]"
-  - "[[EMP-0449 Anaya Santos]]"
-  - "[[EMP-0432 Fatima Santos]]"
+  - "[[EMP-0445 Santiago Harris]]"
+  - "[[EMP-0443 Noah Davis]]"
+  - "[[EMP-0426 Hana Hernandez]]"
+  - "[[EMP-0430 Oscar Martinez]]"
+  - "[[EMP-0428 Andres Lopez]]"
+  - "[[EMP-0432 Rohan Harris]]"
 ---
 
 PM shift at [[Store 18 - Philadelphia Fishtown]] on 2026-06-08 (15:00-23:30).
@@ -29,12 +26,9 @@ PM shift at [[Store 18 - Philadelphia Fishtown]] on 2026-06-08 (15:00-23:30).
 
 ## Crew
 
-- [[EMP-0450 Tariq Rodriguez]] (Dishwasher)
-- [[EMP-0437 Zane Kim]] (Line Cook)
-- [[EMP-0431 Andres Shah]] (Server)
-- [[EMP-0438 Anaya Moore]] (Line Cook)
-- [[EMP-0436 Aria Wright]] (Server)
-- [[EMP-0443 Fatima Williams]] (Server)
-- [[EMP-0428 Isabella Gonzalez]] (Head Chef)
-- [[EMP-0449 Anaya Santos]] (Busser)
-- [[EMP-0432 Fatima Santos]] (Bartender)
+- [[EMP-0445 Santiago Harris]] (Line Cook)
+- [[EMP-0443 Noah Davis]] (Bartender)
+- [[EMP-0426 Hana Hernandez]] (General Manager)
+- [[EMP-0430 Oscar Martinez]] (Shift Lead)
+- [[EMP-0428 Andres Lopez]] (Head Chef)
+- [[EMP-0432 Rohan Harris]] (Server)

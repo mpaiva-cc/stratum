@@ -1,0 +1,12 @@
+---
+type: consent_grant
+id: CNS-1290
+person: "[[EMP-0163 Imani Romano]]"
+scope: hr.learning
+purpose: store operations
+status: active
+valid_to: open
+basis: consent
+---
+
+[[EMP-0163 Imani Romano]] — scope `hr.learning` · status `active` · valid_to `open`. The traversal predicate reads this grant.

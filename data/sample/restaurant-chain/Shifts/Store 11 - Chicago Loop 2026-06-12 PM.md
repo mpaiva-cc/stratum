@@ -7,16 +7,17 @@ date: 2026-06-12
 daypart: PM
 start: "15:00"
 end: "23:30"
-crew_size: 7
+crew_size: 8
 basis: authorization
 crew:
-  - "[[EMP-0271 Aiden Clark]]"
-  - "[[EMP-0268 Yara Hernandez]]"
-  - "[[EMP-0261 Priya Harris]]"
-  - "[[EMP-0256 Nadia Rodriguez]]"
-  - "[[EMP-0264 Omar Santos]]"
-  - "[[EMP-0263 Priya Taylor]]"
-  - "[[EMP-0274 Lucas Lopez]]"
+  - "[[EMP-0268 Santiago Lopez]]"
+  - "[[EMP-0263 Keira Martinez]]"
+  - "[[EMP-0265 Oscar Brown]]"
+  - "[[EMP-0252 Yara Khan]]"
+  - "[[EMP-0264 Rosa Allen]]"
+  - "[[EMP-0255 Victor Garcia]]"
+  - "[[EMP-0274 Valentina Perez]]"
+  - "[[EMP-0256 Imani Chen]]"
 ---
 
 PM shift at [[Store 11 - Chicago Loop]] on 2026-06-12 (15:00-23:30).
@@ -27,10 +28,11 @@ PM shift at [[Store 11 - Chicago Loop]] on 2026-06-12 (15:00-23:30).
 
 ## Crew
 
-- [[EMP-0271 Aiden Clark]] (Prep Cook)
-- [[EMP-0268 Yara Hernandez]] (Dishwasher)
-- [[EMP-0261 Priya Harris]] (Line Cook)
-- [[EMP-0256 Nadia Rodriguez]] (Bartender)
-- [[EMP-0264 Omar Santos]] (Server)
-- [[EMP-0263 Priya Taylor]] (Server)
-- [[EMP-0274 Lucas Lopez]] (Busser)
+- [[EMP-0268 Santiago Lopez]] (Server)
+- [[EMP-0263 Keira Martinez]] (Expo)
+- [[EMP-0265 Oscar Brown]] (Server)
+- [[EMP-0252 Yara Khan]] (Assistant Manager)
+- [[EMP-0264 Rosa Allen]] (Server)
+- [[EMP-0255 Victor Garcia]] (Shift Lead)
+- [[EMP-0274 Valentina Perez]] (Dishwasher)
+- [[EMP-0256 Imani Chen]] (Server)

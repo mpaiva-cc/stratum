@@ -4,28 +4,35 @@ id: EMP-0017
 name: Wei Perez
 status: active
 status_reason: active
-status_effective_date: 2026-04-18
+status_effective_date: 2026-04-21
 rehire_eligible: false
-employment_type: part_time
-hire_date: 2023-06-27
+employment_type: full_time
+hire_date: 2023-09-20
 email: "wei.perez.emp-0017@forkandflame.example"
 works_at: "[[Store 01 - Austin Domain]]"
 in_department: "[[Front of House (Department)]]"
 position: "[[Server]]"
-pay_rate: 11.7
+pay_rate: 13.45
 pay_unit: hour
 reports_to: "[[EMP-0004 Jaden Abara]]"
 certifications:
   - "[[Food Handler]]"
   - "[[TIPS Alcohol Service]]"
 skills:
+  - "[[Guest Recovery]]"
   - "[[POS Proficiency]]"
+  - "[[Opening & Closing]]"
+benefits:
+  - Health PPO
+  - 401(k) Match
+  - Shift Meal
+work_authorization: ead
 basis: consent
 ---
 
-**Server** at [[Store 01 - Austin Domain]] · Front of House · since 2023-06-27.
+**Server** at [[Store 01 - Austin Domain]] · Front of House · since 2023-09-20.
 
-Status: **active** (active) as of 2026-04-18
+Status: **active** (active) as of 2026-04-21
 Rehire eligible: no
 
 ## Works at
@@ -34,7 +41,7 @@ Rehire eligible: no
 
 ## Position
 
-- [[Server]] — paid 11.7/hour
+- [[Server]] — paid 13.45/hour
 
 ## Reports to
 
@@ -47,8 +54,20 @@ Rehire eligible: no
 
 ## Skills
 
+- [[Guest Recovery]]
 - [[POS Proficiency]]
+- [[Opening & Closing]]
+
+## Benefits
+
+- Health PPO
+- 401(k) Match
+- Shift Meal
+
+## Work authorization
+
+- ead
 
 ## Lifecycle
 
-- [[EMP-0017 - hired]] on 2023-06-27
+- [[EMP-0017 - hired]] on 2023-09-20

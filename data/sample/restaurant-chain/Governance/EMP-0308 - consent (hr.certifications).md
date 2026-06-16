@@ -1,12 +1,12 @@
 ---
 type: consent_grant
-id: CNS-1199
-person: "[[EMP-0308 Victor Okafor]]"
+id: CNS-2426
+person: "[[EMP-0308 Leo Ramirez]]"
 scope: hr.certifications
 purpose: store operations
 status: active
-valid_to: open
+valid_to: 2026-05-01
 basis: consent
 ---
 
-[[EMP-0308 Victor Okafor]] — scope `hr.certifications` · status `active` · valid_to `open`. The traversal predicate reads this grant.
+[[EMP-0308 Leo Ramirez]] — scope `hr.certifications` · status `active` · valid_to `2026-05-01`. The traversal predicate reads this grant.

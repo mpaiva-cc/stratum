@@ -7,16 +7,18 @@ date: 2026-06-11
 daypart: PM
 start: "15:00"
 end: "23:30"
-crew_size: 7
+crew_size: 9
 basis: authorization
 crew:
-  - "[[EMP-0349 Wei King]]"
-  - "[[EMP-0340 Caleb Young]]"
-  - "[[EMP-0344 Jin Jackson]]"
-  - "[[EMP-0337 Leo Singh]]"
-  - "[[EMP-0333 Zane Silva]]"
-  - "[[EMP-0346 Yara Davis]]"
-  - "[[EMP-0327 Yara Hernandez]]"
+  - "[[EMP-0326 Layla Patel]]"
+  - "[[EMP-0341 Hassan Silva]]"
+  - "[[EMP-0336 Uma Ramirez]]"
+  - "[[EMP-0346 Gabriela Tran]]"
+  - "[[EMP-0331 Brianna Taylor]]"
+  - "[[EMP-0342 Aaron Le]]"
+  - "[[EMP-0338 Aaron Martinez]]"
+  - "[[EMP-0334 Connor Smith]]"
+  - "[[EMP-0327 Anaya Williams]]"
 ---
 
 PM shift at [[Store 14 - Kansas City P&L]] on 2026-06-11 (15:00-23:30).
@@ -27,10 +29,12 @@ PM shift at [[Store 14 - Kansas City P&L]] on 2026-06-11 (15:00-23:30).
 
 ## Crew
 
-- [[EMP-0349 Wei King]] (Busser)
-- [[EMP-0340 Caleb Young]] (Line Cook)
-- [[EMP-0344 Jin Jackson]] (Prep Cook)
-- [[EMP-0337 Leo Singh]] (Server)
-- [[EMP-0333 Zane Silva]] (Line Cook)
-- [[EMP-0346 Yara Davis]] (Busser)
-- [[EMP-0327 Yara Hernandez]] (Assistant Manager)
+- [[EMP-0326 Layla Patel]] (General Manager)
+- [[EMP-0341 Hassan Silva]] (Server)
+- [[EMP-0336 Uma Ramirez]] (Server)
+- [[EMP-0346 Gabriela Tran]] (Busser)
+- [[EMP-0331 Brianna Taylor]] (Server)
+- [[EMP-0342 Aaron Le]] (Expo)
+- [[EMP-0338 Aaron Martinez]] (Expo)
+- [[EMP-0334 Connor Smith]] (Line Cook)
+- [[EMP-0327 Anaya Williams]] (Assistant Manager)

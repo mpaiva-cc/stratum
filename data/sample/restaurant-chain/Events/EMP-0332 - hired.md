@@ -1,11 +1,11 @@
 ---
 type: employment_event
 id: EVT-0332
-person: "[[EMP-0332 Amelia Nguyen]]"
+person: "[[EMP-0332 Noah Gonzalez]]"
 kind: hire
-date: 2023-10-10
+date: 2022-04-24
 store: "[[Store 14 - Kansas City P&L]]"
 basis: consent
 ---
 
-[[EMP-0332 Amelia Nguyen]] hired as Server at [[Store 14 - Kansas City P&L]] on 2023-10-10.
+[[EMP-0332 Noah Gonzalez]] hired as Bartender at [[Store 14 - Kansas City P&L]] on 2022-04-24.

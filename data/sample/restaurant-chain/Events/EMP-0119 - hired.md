@@ -1,11 +1,11 @@
 ---
 type: employment_event
 id: EVT-0119
-person: "[[EMP-0119 Yuki Smith]]"
+person: "[[EMP-0119 Rosa Khan]]"
 kind: hire
-date: 2024-01-27
+date: 2025-02-22
 store: "[[Store 05 - Nashville Gulch]]"
 basis: consent
 ---
 
-[[EMP-0119 Yuki Smith]] hired as Prep Cook at [[Store 05 - Nashville Gulch]] on 2024-01-27.
+[[EMP-0119 Rosa Khan]] hired as Dishwasher at [[Store 05 - Nashville Gulch]] on 2025-02-22.

@@ -1,6 +1,6 @@
 ---
 type: consent_grant
-id: CNS-0050
+id: CNS-0096
 person: "[[EMP-0013 Felix Abara]]"
 scope: hr.payroll
 purpose: store operations

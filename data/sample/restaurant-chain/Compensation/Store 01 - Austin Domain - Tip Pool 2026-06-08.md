@@ -3,7 +3,7 @@ type: tip_pool
 id: TIP-0001
 store: "[[Store 01 - Austin Domain]]"
 period: Week of 2026-06-08
-amount: 2540
+amount: 1985
 basis: authorization
 distributes_to:
   - "[[EMP-0007 Arjun Ramirez]]"

@@ -184,8 +184,8 @@ test('C1: anchoring a gated-target type under wrong purpose is blocked', () => {
 });
 
 test('C1: anchoring a gated-target type under the MATCHING purpose works', () => {
-  const r = FF.runSpec({ from: 'performance_review', select: ['title', 'person', 'rating'] }, db, 'employment');
-  assert.ok(r.rows.length > 0, 'performance reviews readable under employment with grants');
+  const r = FF.runSpec({ from: 'performance_review', select: ['title', 'person', 'rating'] }, db, 'performance');
+  assert.ok(r.rows.length > 0, 'performance reviews readable under performance with grants');
 });
 
 test('C1: gated-target anchor aggregate does not leak distribution under wrong purpose', () => {
@@ -311,4 +311,62 @@ test('traverse to gated record still works for authorized viewer', () => {
     select: ['title'] }, db, 'employment', FR.ROLES.chro);
   const reached = r.rows.reduce((a, x) => a + ((x.ev && x.ev.length) || 0), 0);
   assert.ok(reached > 0, 'CHRO under employment can reach events');
+});
+
+var ALL9 = ['hr.scheduling','hr.payroll','hr.certifications','hr.employment',
+            'hr.performance','hr.learning','hr.benefits','hr.work_auth','hr.recruiting'];
+function roleWith(scopes, pop) { return { id:'t', label:'t', anchor:null,
+  population: pop || { type:'all' }, scopes: scopes }; }
+
+test('re-slice: performance_review gated by hr.performance not hr.employment', () => {
+  var full = roleWith(ALL9);
+  var ok = FF.runSpec({ from:'performance_review', select:['title','person','rating'] }, db, 'performance', full);
+  assert.ok(ok.rows.length > 0, 'reviews readable under performance');
+  var no = FF.runSpec({ from:'performance_review', select:['title','person','rating'] }, db, 'employment', full);
+  assert.ok(no.rows.length === 0 && no.trace.some(t => t.reason === 'out-of-purpose'));
+});
+
+test('re-slice: training_record gated by hr.learning not hr.certifications', () => {
+  var full = roleWith(ALL9);
+  var ok = FF.runSpec({ from:'training_record', select:['title','person'] }, db, 'learning', full);
+  assert.ok(ok.rows.length > 0, 'training readable under learning');
+  var no = FF.runSpec({ from:'training_record', select:['title','person'] }, db, 'compliance', full);
+  assert.ok(no.rows.length === 0 && no.trace.some(t => t.reason === 'out-of-purpose'));
+});
+
+test('new props benefits/work_authorization gated by role+purpose', () => {
+  var noScope = roleWith([]);               // peer-like: no scopes
+  var r1 = FF.runSpec({ from:'person', select:['title','benefits','work_authorization'] }, db, 'benefits', noScope);
+  assert.ok(r1.rows.every(x => x.benefits === null && x.work_authorization === null));
+  assert.ok(r1.trace.some(t => t.layer === 'access' && t.reason === 'role-restricted'));
+  var full = roleWith(ALL9);
+  var r2 = FF.runSpec({ from:'person', select:['title','benefits'] }, db, 'benefits', full);
+  assert.ok(r2.rows.some(x => Array.isArray(x.benefits) && x.benefits.length), 'benefits shown under benefits purpose');
+  var r3 = FF.runSpec({ from:'person', select:['title','benefits'] }, db, 'payroll', full);
+  assert.ok(r3.rows.every(x => x.benefits === null) && r3.trace.some(t => t.reason === 'out-of-purpose'));
+});
+
+test('recruiting: candidate records gated by role + purpose only (institutional)', () => {
+  var rec = roleWith(ALL9);                 // has hr.recruiting
+  var ok = FF.runSpec({ from:'candidate', select:['title','stage'] }, db, 'recruiting', rec);
+  assert.ok(ok.rows.length > 0, 'candidates visible under recruiting + authority');
+  var wrongPurpose = FF.runSpec({ from:'candidate', select:['title','stage'] }, db, 'scheduling', rec);
+  assert.ok(wrongPurpose.rows.length === 0 && wrongPurpose.trace.some(t => t.layer === 'consent' && t.reason === 'out-of-purpose'));
+  var noAuth = roleWith(['hr.scheduling']); // lacks hr.recruiting
+  var blocked = FF.runSpec({ from:'candidate', select:['title','stage'] }, db, 'recruiting', noAuth);
+  assert.ok(blocked.rows.length === 0 && blocked.trace.some(t => t.layer === 'access' && t.reason === 'role-restricted'));
+});
+
+test('recruiting: no per-subject consent or population needed (candidates not row-filtered by pop)', () => {
+  var recScoped = roleWith(ALL9, { type:'self', value:'EMP-0002' }); // tight population
+  var r = FF.runSpec({ from:'candidate', select:['title','stage'] }, db, 'recruiting', recScoped);
+  assert.ok(r.rows.length > 0, 'candidates not dropped by population');
+});
+
+test('grant coverage: every non-institutional catalog scope has at least one grant', () => {
+  const institutional = new Set(Object.values(db.meta.gatedTypes || {}));
+  const need = db.meta.purposeCatalog.map(p => p.scope).filter(s => !institutional.has(s));
+  const granted = new Set();
+  Object.values(db.grants).forEach(list => list.forEach(gr => granted.add(gr.scope)));
+  need.forEach(s => assert.ok(granted.has(s), 'missing grants for scope ' + s));
 });

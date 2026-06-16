@@ -1,11 +1,11 @@
 ---
 type: employment_event
 id: EVT-0244
-person: "[[EMP-0244 Nadia Kim]]"
+person: "[[EMP-0244 Abigail Wright]]"
 kind: hire
-date: 2022-02-08
+date: 2025-06-21
 store: "[[Store 10 - San Diego Gaslamp]]"
 basis: consent
 ---
 
-[[EMP-0244 Nadia Kim]] hired as Line Cook at [[Store 10 - San Diego Gaslamp]] on 2022-02-08.
+[[EMP-0244 Abigail Wright]] hired as Dishwasher at [[Store 10 - San Diego Gaslamp]] on 2025-06-21.

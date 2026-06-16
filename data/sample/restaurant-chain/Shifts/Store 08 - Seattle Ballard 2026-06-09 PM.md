@@ -7,19 +7,16 @@ date: 2026-06-09
 daypart: PM
 start: "15:00"
 end: "23:30"
-crew_size: 10
+crew_size: 7
 basis: authorization
 crew:
-  - "[[EMP-0181 Tariq Jackson]]"
-  - "[[EMP-0180 Victor Williams]]"
-  - "[[EMP-0195 Elijah Johnson]]"
-  - "[[EMP-0179 Ximena Harris]]"
-  - "[[EMP-0188 Paloma Bianchi]]"
-  - "[[EMP-0198 Quinn Shah]]"
-  - "[[EMP-0185 Caleb Allen]]"
-  - "[[EMP-0176 Aria Clark]]"
-  - "[[EMP-0197 Mateo Lewis]]"
-  - "[[EMP-0177 Elijah Wang]]"
+  - "[[EMP-0182 Amelia Nguyen]]"
+  - "[[EMP-0187 Elijah Lewis]]"
+  - "[[EMP-0183 Zane Walker]]"
+  - "[[EMP-0191 Gabriela Kim]]"
+  - "[[EMP-0188 Rosa Tran]]"
+  - "[[EMP-0190 Diego Torres]]"
+  - "[[EMP-0197 Rosa Hernandez]]"
 ---
 
 PM shift at [[Store 08 - Seattle Ballard]] on 2026-06-09 (15:00-23:30).
@@ -30,13 +27,10 @@ PM shift at [[Store 08 - Seattle Ballard]] on 2026-06-09 (15:00-23:30).
 
 ## Crew
 
-- [[EMP-0181 Tariq Jackson]] (Line Cook)
-- [[EMP-0180 Victor Williams]] (Shift Lead)
-- [[EMP-0195 Elijah Johnson]] (Prep Cook)
-- [[EMP-0179 Ximena Harris]] (Shift Lead)
-- [[EMP-0188 Paloma Bianchi]] (Server)
-- [[EMP-0198 Quinn Shah]] (Dishwasher)
-- [[EMP-0185 Caleb Allen]] (Server)
-- [[EMP-0176 Aria Clark]] (General Manager)
-- [[EMP-0197 Mateo Lewis]] (Busser)
-- [[EMP-0177 Elijah Wang]] (Assistant Manager)
+- [[EMP-0182 Amelia Nguyen]] (Line Cook)
+- [[EMP-0187 Elijah Lewis]] (Server)
+- [[EMP-0183 Zane Walker]] (Expo)
+- [[EMP-0191 Gabriela Kim]] (Expo)
+- [[EMP-0188 Rosa Tran]] (Line Cook)
+- [[EMP-0190 Diego Torres]] (Server)
+- [[EMP-0197 Rosa Hernandez]] (Dishwasher)

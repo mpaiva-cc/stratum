@@ -7,15 +7,16 @@ date: 2026-06-12
 daypart: PM
 start: "15:00"
 end: "23:30"
-crew_size: 6
+crew_size: 7
 basis: authorization
 crew:
-  - "[[EMP-0085 Keira Mensah]]"
-  - "[[EMP-0092 Abigail Johnson]]"
-  - "[[EMP-0090 Elijah Tran]]"
-  - "[[EMP-0099 Wanda King]]"
-  - "[[EMP-0097 Jin Jackson]]"
-  - "[[EMP-0095 Ethan Scott]]"
+  - "[[EMP-0089 Rosa Garcia]]"
+  - "[[EMP-0094 Bella Park]]"
+  - "[[EMP-0079 Connor Moore]]"
+  - "[[EMP-0082 Destiny White]]"
+  - "[[EMP-0098 Aiden King]]"
+  - "[[EMP-0078 Kayla Lopez]]"
+  - "[[EMP-0083 Wei Lewis]]"
 ---
 
 PM shift at [[Store 04 - Atlanta Midtown]] on 2026-06-12 (15:00-23:30).
@@ -26,9 +27,10 @@ PM shift at [[Store 04 - Atlanta Midtown]] on 2026-06-12 (15:00-23:30).
 
 ## Crew
 
-- [[EMP-0085 Keira Mensah]] (Expo)
-- [[EMP-0092 Abigail Johnson]] (Bartender)
-- [[EMP-0090 Elijah Tran]] (Line Cook)
-- [[EMP-0099 Wanda King]] (Prep Cook)
-- [[EMP-0097 Jin Jackson]] (Dishwasher)
-- [[EMP-0095 Ethan Scott]] (Server)
+- [[EMP-0089 Rosa Garcia]] (Line Cook)
+- [[EMP-0094 Bella Park]] (Server)
+- [[EMP-0079 Connor Moore]] (Shift Lead)
+- [[EMP-0082 Destiny White]] (Line Cook)
+- [[EMP-0098 Aiden King]] (Dishwasher)
+- [[EMP-0078 Kayla Lopez]] (Head Chef)
+- [[EMP-0083 Wei Lewis]] (Server)

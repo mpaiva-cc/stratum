@@ -1,6 +1,6 @@
 ---
 type: consent_grant
-id: CNS-0013
+id: CNS-0025
 person: "[[EMP-0004 Jaden Abara]]"
 scope: hr.scheduling
 purpose: store operations

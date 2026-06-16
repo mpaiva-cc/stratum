@@ -1,6 +1,6 @@
 ---
 type: consent_grant
-id: CNS-0085
+id: CNS-0169
 person: "[[EMP-0022 Min Singh]]"
 scope: hr.certifications
 purpose: store operations

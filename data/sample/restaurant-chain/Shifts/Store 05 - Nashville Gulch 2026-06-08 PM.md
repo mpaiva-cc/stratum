@@ -10,15 +10,15 @@ end: "23:30"
 crew_size: 9
 basis: authorization
 crew:
-  - "[[EMP-0109 Diego Lewis]]"
-  - "[[EMP-0114 Brianna Perez]]"
-  - "[[EMP-0118 Henry Hernandez]]"
-  - "[[EMP-0125 Yuki Taylor]]"
-  - "[[EMP-0107 Harper Russo]]"
-  - "[[EMP-0101 Sofia Costa]]"
-  - "[[EMP-0123 Hassan Diallo]]"
-  - "[[EMP-0102 Leo Okafor]]"
-  - "[[EMP-0105 Felix Russo]]"
+  - "[[EMP-0112 Grace Miller]]"
+  - "[[EMP-0101 Grace Walker]]"
+  - "[[EMP-0110 Caleb Johnson]]"
+  - "[[EMP-0103 Ximena Wang]]"
+  - "[[EMP-0124 Diego Okafor]]"
+  - "[[EMP-0120 Felix Thomas]]"
+  - "[[EMP-0107 Emily Anderson]]"
+  - "[[EMP-0105 Rosa Gonzalez]]"
+  - "[[EMP-0118 Harper Patel]]"
 ---
 
 PM shift at [[Store 05 - Nashville Gulch]] on 2026-06-08 (15:00-23:30).
@@ -29,12 +29,12 @@ PM shift at [[Store 05 - Nashville Gulch]] on 2026-06-08 (15:00-23:30).
 
 ## Crew
 
-- [[EMP-0109 Diego Lewis]] (Server)
-- [[EMP-0114 Brianna Perez]] (Line Cook)
-- [[EMP-0118 Henry Hernandez]] (Busser)
-- [[EMP-0125 Yuki Taylor]] (Prep Cook)
-- [[EMP-0107 Harper Russo]] (Bartender)
-- [[EMP-0101 Sofia Costa]] (General Manager)
-- [[EMP-0123 Hassan Diallo]] (Prep Cook)
-- [[EMP-0102 Leo Okafor]] (Assistant Manager)
-- [[EMP-0105 Felix Russo]] (Shift Lead)
+- [[EMP-0112 Grace Miller]] (Bartender)
+- [[EMP-0101 Grace Walker]] (General Manager)
+- [[EMP-0110 Caleb Johnson]] (Bartender)
+- [[EMP-0103 Ximena Wang]] (Head Chef)
+- [[EMP-0124 Diego Okafor]] (Busser)
+- [[EMP-0120 Felix Thomas]] (Busser)
+- [[EMP-0107 Emily Anderson]] (Bartender)
+- [[EMP-0105 Rosa Gonzalez]] (Shift Lead)
+- [[EMP-0118 Harper Patel]] (Dishwasher)

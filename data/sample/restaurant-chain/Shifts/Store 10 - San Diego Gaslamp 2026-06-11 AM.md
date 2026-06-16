@@ -7,15 +7,16 @@ date: 2026-06-11
 daypart: AM
 start: "07:00"
 end: "15:30"
-crew_size: 6
+crew_size: 7
 basis: authorization
 crew:
-  - "[[EMP-0234 Emily Wang]]"
-  - "[[EMP-0228 Paloma Wilson]]"
-  - "[[EMP-0247 Destiny Bianchi]]"
-  - "[[EMP-0226 Leo Tran]]"
-  - "[[EMP-0231 Samir Abara]]"
-  - "[[EMP-0232 Bella Thomas]]"
+  - "[[EMP-0243 Jin Taylor]]"
+  - "[[EMP-0238 Ximena Russo]]"
+  - "[[EMP-0231 Elijah Martinez]]"
+  - "[[EMP-0226 Aiden Anderson]]"
+  - "[[EMP-0239 Maria Abara]]"
+  - "[[EMP-0234 Henry Brown]]"
+  - "[[EMP-0240 Mason Ahmed]]"
 ---
 
 AM shift at [[Store 10 - San Diego Gaslamp]] on 2026-06-11 (07:00-15:30).
@@ -26,9 +27,10 @@ AM shift at [[Store 10 - San Diego Gaslamp]] on 2026-06-11 (07:00-15:30).
 
 ## Crew
 
-- [[EMP-0234 Emily Wang]] (Server)
-- [[EMP-0228 Paloma Wilson]] (Head Chef)
-- [[EMP-0247 Destiny Bianchi]] (Busser)
-- [[EMP-0226 Leo Tran]] (General Manager)
-- [[EMP-0231 Samir Abara]] (Expo)
-- [[EMP-0232 Bella Thomas]] (Server)
+- [[EMP-0243 Jin Taylor]] (Line Cook)
+- [[EMP-0238 Ximena Russo]] (Line Cook)
+- [[EMP-0231 Elijah Martinez]] (Line Cook)
+- [[EMP-0226 Aiden Anderson]] (General Manager)
+- [[EMP-0239 Maria Abara]] (Bartender)
+- [[EMP-0234 Henry Brown]] (Line Cook)
+- [[EMP-0240 Mason Ahmed]] (Line Cook)

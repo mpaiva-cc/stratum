@@ -7,18 +7,16 @@ date: 2026-06-14
 daypart: AM
 start: "07:00"
 end: "15:30"
-crew_size: 9
+crew_size: 7
 basis: authorization
 crew:
-  - "[[EMP-0487 Tariq Scott]]"
-  - "[[EMP-0483 Jaden Torres]]"
-  - "[[EMP-0482 Arjun Lewis]]"
-  - "[[EMP-0484 Zane Taylor]]"
-  - "[[EMP-0497 Evelyn Jones]]"
-  - "[[EMP-0479 Hassan Gonzalez]]"
-  - "[[EMP-0490 Rosa Taylor]]"
-  - "[[EMP-0485 Valentina Wang]]"
-  - "[[EMP-0499 Jose Tran]]"
+  - "[[EMP-0482 Felix Martinez]]"
+  - "[[EMP-0495 Andres Garcia]]"
+  - "[[EMP-0500 Ava Smith]]"
+  - "[[EMP-0499 Logan Romano]]"
+  - "[[EMP-0478 Jamal Jackson]]"
+  - "[[EMP-0487 Ella Thomas]]"
+  - "[[EMP-0477 Lucas Anderson]]"
 ---
 
 AM shift at [[Store 20 - Pittsburgh Strip]] on 2026-06-14 (07:00-15:30).
@@ -29,12 +27,10 @@ AM shift at [[Store 20 - Pittsburgh Strip]] on 2026-06-14 (07:00-15:30).
 
 ## Crew
 
-- [[EMP-0487 Tariq Scott]] (Server)
-- [[EMP-0483 Jaden Torres]] (Line Cook)
-- [[EMP-0482 Arjun Lewis]] (Server)
-- [[EMP-0484 Zane Taylor]] (Line Cook)
-- [[EMP-0497 Evelyn Jones]] (Busser)
-- [[EMP-0479 Hassan Gonzalez]] (Shift Lead)
-- [[EMP-0490 Rosa Taylor]] (Server)
-- [[EMP-0485 Valentina Wang]] (Expo)
-- [[EMP-0499 Jose Tran]] (Dishwasher)
+- [[EMP-0482 Felix Martinez]] (Expo)
+- [[EMP-0495 Andres Garcia]] (Dishwasher)
+- [[EMP-0500 Ava Smith]] (Host)
+- [[EMP-0499 Logan Romano]] (Host)
+- [[EMP-0478 Jamal Jackson]] (Head Chef)
+- [[EMP-0487 Ella Thomas]] (Line Cook)
+- [[EMP-0477 Lucas Anderson]] (Assistant Manager)

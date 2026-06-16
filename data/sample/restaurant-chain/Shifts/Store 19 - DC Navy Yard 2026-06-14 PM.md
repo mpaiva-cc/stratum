@@ -10,12 +10,12 @@ end: "23:30"
 crew_size: 6
 basis: authorization
 crew:
-  - "[[EMP-0466 Evelyn Young]]"
-  - "[[EMP-0474 Arjun Moore]]"
-  - "[[EMP-0451 Min Ramirez]]"
-  - "[[EMP-0465 Wei Romano]]"
-  - "[[EMP-0458 Imani Patel]]"
-  - "[[EMP-0461 Arjun Bianchi]]"
+  - "[[EMP-0457 Grace Khan]]"
+  - "[[EMP-0466 Leo Davis]]"
+  - "[[EMP-0465 Min Wang]]"
+  - "[[EMP-0459 Nadia Lewis]]"
+  - "[[EMP-0456 Jose Anderson]]"
+  - "[[EMP-0473 Grace Khan]]"
 ---
 
 PM shift at [[Store 19 - DC Navy Yard]] on 2026-06-14 (15:00-23:30).
@@ -26,9 +26,9 @@ PM shift at [[Store 19 - DC Navy Yard]] on 2026-06-14 (15:00-23:30).
 
 ## Crew
 
-- [[EMP-0466 Evelyn Young]] (Bartender)
-- [[EMP-0474 Arjun Moore]] (Host)
-- [[EMP-0451 Min Ramirez]] (General Manager)
-- [[EMP-0465 Wei Romano]] (Line Cook)
-- [[EMP-0458 Imani Patel]] (Line Cook)
-- [[EMP-0461 Arjun Bianchi]] (Line Cook)
+- [[EMP-0457 Grace Khan]] (Server)
+- [[EMP-0466 Leo Davis]] (Server)
+- [[EMP-0465 Min Wang]] (Line Cook)
+- [[EMP-0459 Nadia Lewis]] (Server)
+- [[EMP-0456 Jose Anderson]] (Server)
+- [[EMP-0473 Grace Khan]] (Dishwasher)

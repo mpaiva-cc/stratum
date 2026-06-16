@@ -7,17 +7,19 @@ date: 2026-06-09
 daypart: AM
 start: "07:00"
 end: "15:30"
-crew_size: 8
+crew_size: 10
 basis: authorization
 crew:
-  - "[[EMP-0107 Harper Russo]]"
-  - "[[EMP-0108 Santiago Hernandez]]"
-  - "[[EMP-0117 Harper Le]]"
-  - "[[EMP-0121 Jamal Singh]]"
-  - "[[EMP-0111 Destiny Costa]]"
-  - "[[EMP-0113 Uma Le]]"
-  - "[[EMP-0119 Yuki Smith]]"
-  - "[[EMP-0110 Min Garcia]]"
+  - "[[EMP-0102 Maria King]]"
+  - "[[EMP-0118 Harper Patel]]"
+  - "[[EMP-0116 Diego Wright]]"
+  - "[[EMP-0109 Amelia White]]"
+  - "[[EMP-0122 Destiny Johnson]]"
+  - "[[EMP-0106 Amelia Silva]]"
+  - "[[EMP-0125 Ava Smith]]"
+  - "[[EMP-0105 Rosa Gonzalez]]"
+  - "[[EMP-0101 Grace Walker]]"
+  - "[[EMP-0121 Quinn Gonzalez]]"
 ---
 
 AM shift at [[Store 05 - Nashville Gulch]] on 2026-06-09 (07:00-15:30).
@@ -28,11 +30,13 @@ AM shift at [[Store 05 - Nashville Gulch]] on 2026-06-09 (07:00-15:30).
 
 ## Crew
 
-- [[EMP-0107 Harper Russo]] (Bartender)
-- [[EMP-0108 Santiago Hernandez]] (Line Cook)
-- [[EMP-0117 Harper Le]] (Prep Cook)
-- [[EMP-0121 Jamal Singh]] (Busser)
-- [[EMP-0111 Destiny Costa]] (Expo)
-- [[EMP-0113 Uma Le]] (Line Cook)
-- [[EMP-0119 Yuki Smith]] (Prep Cook)
-- [[EMP-0110 Min Garcia]] (Server)
+- [[EMP-0102 Maria King]] (Assistant Manager)
+- [[EMP-0118 Harper Patel]] (Dishwasher)
+- [[EMP-0116 Diego Wright]] (Busser)
+- [[EMP-0109 Amelia White]] (Server)
+- [[EMP-0122 Destiny Johnson]] (Busser)
+- [[EMP-0106 Amelia Silva]] (Expo)
+- [[EMP-0125 Ava Smith]] (Prep Cook)
+- [[EMP-0105 Rosa Gonzalez]] (Shift Lead)
+- [[EMP-0101 Grace Walker]] (General Manager)
+- [[EMP-0121 Quinn Gonzalez]] (Busser)
