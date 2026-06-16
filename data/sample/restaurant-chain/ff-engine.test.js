@@ -83,3 +83,63 @@ test('aggregate count (no groupBy) returns total', () => {
   const res = FF.runSpec({ from: 'store', aggregate: { op: 'count' } }, db, 'scheduling');
   assert.strictEqual(res.rows[0].value, db.nodesByType.store.length);
 });
+
+test('canRead: out-of-purpose blocks pay_rate under scheduling', () => {
+  const p = db.nodesByType.person.find(n => n.props.pay_rate);
+  const v = FF.canRead(p.title, 'pay_rate', db, 'scheduling');
+  assert.strictEqual(v.ok, false);
+  assert.strictEqual(v.reason, 'out-of-purpose');
+});
+
+test('canRead: pay_rate allowed under payroll when grant active', () => {
+  const ok = db.nodesByType.person.find(n =>
+    (db.grants[n.title] || []).some(g => g.scope === 'hr.payroll' && g.status === 'active'));
+  const v = FF.canRead(ok.title, 'pay_rate', db, 'payroll');
+  assert.strictEqual(v.ok, true);
+});
+
+test('canRead: no-grant when person declined hr.payroll', () => {
+  const declined = db.nodesByType.person.find(n =>
+    !(db.grants[n.title] || []).some(g => g.scope === 'hr.payroll'));
+  assert.ok(declined, 'fixture has a declined-payroll person');
+  const v = FF.canRead(declined.title, 'pay_rate', db, 'payroll');
+  assert.deepStrictEqual([v.ok, v.reason], [false, 'no-grant']);
+});
+
+test('canReadTarget: expired when hr.certifications grant past valid_to', () => {
+  const expired = db.nodesByType.person.find(n =>
+    (db.grants[n.title] || []).some(g => g.scope === 'hr.certifications'
+      && g.valid_to !== 'open' && g.valid_to < db.meta.generated));
+  assert.ok(expired, 'fixture has an expired-cert person');
+  const v = FF.canReadTarget(expired.title, 'certification', db, 'compliance');
+  assert.deepStrictEqual([v.ok, v.reason], [false, 'expired']);
+});
+
+test('canReadTarget: revoked when hr.scheduling grant status=revoked', () => {
+  const revoked = db.nodesByType.person.find(n =>
+    (db.grants[n.title] || []).some(g => g.scope === 'hr.scheduling' && g.status === 'revoked'));
+  assert.ok(revoked, 'fixture has a revoked-scheduling person');
+  const v = FF.canReadTarget(revoked.title, 'time_off_request', db, 'scheduling');
+  assert.deepStrictEqual([v.ok, v.reason], [false, 'revoked']);
+});
+
+test('select of pay_rate under payroll redacts declined person and traces it', () => {
+  const res = FF.runSpec({ from: 'person', select: ['title', 'pay_rate'] }, db, 'payroll');
+  const redacted = res.rows.filter(r => r.pay_rate === null);
+  assert.ok(redacted.length >= 1, 'some pay_rate redacted');
+  assert.ok(res.trace.some(t => t.reason === 'no-grant' && t.field === 'pay_rate'));
+});
+
+test('aggregate avg pay_rate under scheduling is wholly out-of-purpose (no leak)', () => {
+  const res = FF.runSpec({ from: 'person',
+    aggregate: { op: 'avg', field: 'pay_rate', groupBy: 'in_department' } }, db, 'scheduling');
+  res.rows.forEach(r => assert.strictEqual(r.value, null));
+  assert.ok(res.trace.length > 0 && res.trace.every(t => t.reason === 'out-of-purpose'));
+});
+
+test('aggregate avg pay_rate under payroll excludes declined from the mean', () => {
+  const res = FF.runSpec({ from: 'person',
+    aggregate: { op: 'avg', field: 'pay_rate', groupBy: 'in_department' } }, db, 'payroll');
+  assert.ok(res.rows.some(r => r.value !== null), 'most pay visible');
+  assert.ok(res.trace.some(t => t.reason === 'no-grant'));
+});
