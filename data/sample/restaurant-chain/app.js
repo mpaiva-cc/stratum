@@ -5,6 +5,17 @@
 
   function esc(s) { return String(s == null ? '' : s).replace(/[&<>]/g,
     function (c) { return ({ '&':'&amp;', '<':'&lt;', '>':'&gt;' })[c]; }); }
+  function escAttr(s) { return String(s == null ? '' : s).replace(/[&<>"]/g,
+    function (c) { return ({ '&':'&amp;', '<':'&lt;', '>':'&gt;', '"':'&quot;' })[c]; }); }
+
+  // Render a value: if it is a person's title, make it a profile link; otherwise plain text.
+  function personLink(title) {
+    var n = db.nodesByTitle[title];
+    if (n && n.type === 'person')
+      return '<button type="button" class="namelink" data-person="' + escAttr(title) + '">'
+        + esc(title) + '</button>';
+    return esc(title);
+  }
 
   var ROLES = window.FFRoles.ROLES;
   var ALL_SCOPES = window.FFRoles.ALL_SCOPES;
@@ -24,8 +35,10 @@
     var who = pop.all ? 'everyone (' + total + ')'
       : (role.population.type === 'self' ? 'just yourself (1)' : 'your population (' + seen + ' of ' + total + ')');
     var anchorTitle = role.anchor ? (db.idToTitle[role.anchor] || role.anchor) : null;
-    var anchor = anchorTitle ? (anchorTitle + ' (' + role.anchorDesc + ')') : role.anchorDesc;
-    var html = '<strong>Viewing as ' + esc(role.label) + '</strong> — ' + esc(anchor);
+    var anchorHtml = anchorTitle
+      ? (personLink(anchorTitle) + ' (' + esc(role.anchorDesc) + ')')
+      : esc(role.anchorDesc);
+    var html = '<strong>Viewing as ' + esc(role.label) + '</strong> — ' + anchorHtml;
     html += '<br><strong>Sees:</strong> directory for <strong>everyone (' + total + ')</strong>';
     if (sens.length) html += '; ' + sens.map(esc).join(' · ') + ' for <strong>' + esc(who) + '</strong>';
     var bits = [];
@@ -53,8 +66,12 @@
       html += '<tr>' + Object.keys(r).map(function (k) {
         var v = r[k];
         if (v === null) return '<td class="redacted">redacted</td>';
-        if (Array.isArray(v)) v = v.length;
-        return '<td>' + esc(v) + '</td>';
+        if (Array.isArray(v)) {
+          if (!v.length) return '<td>—</td>';
+          return '<td>' + v.slice(0, 8).map(personLink).join(', ')
+            + (v.length > 8 ? ' +' + (v.length - 8) + ' more' : '') + '</td>';
+        }
+        return '<td>' + personLink(v) + '</td>';
       }).join('') + '</tr>';
     });
     html += '</tbody></table></div>';
@@ -274,7 +291,96 @@
   renderPermPanel();
   loadKey();
 
-  window.FFApp = { db: db, renderResult: renderResult, esc: esc,
+  // ── Person profile drawer (governance-aware: same gates as the rest of the app) ──
+  var drawerReturnFocus = null;
+
+  function fieldRow(dt, ddHtml) { return '<dt>' + esc(dt) + '</dt><dd>' + ddHtml + '</dd>'; }
+
+  // Render a sensitive value through the engine gate so the drawer matches the panel exactly.
+  function gatedRow(label, subjectTitle, scope, rawVal, role, purpose, pop) {
+    var v = window.FFEngine.readField(subjectTitle, scope, db, purpose, role, pop);
+    if (v.ok) return fieldRow(label, esc(rawVal == null || rawVal === '' ? '—' : rawVal));
+    return fieldRow(label, '<span class="hiddenval">hidden — ' + esc(v.layer) + ': '
+      + esc(v.reason) + '</span>');
+  }
+
+  function buildProfile(node) {
+    var p = node.props || {};
+    var html = '<h2 id="drawerName">' + esc(p.name || node.title) + '</h2>';
+    html += '<p class="muted">' + esc(node.type) + (node.id ? ' · ' + esc(node.id) : '') + '</p>';
+    if (node.type !== 'person') {
+      html += '<dl>';
+      Object.keys(p).forEach(function (k) {
+        if (Array.isArray(p[k])) html += fieldRow(k, p[k].map(personLink).join(', '));
+        else html += fieldRow(k, personLink(p[k]));
+      });
+      return html + '</dl>';
+    }
+    var role = currentRole(), purpose = $('purpose').value;
+    var pop = window.FFEngine.computePopulation(role, db);
+    // Directory (always visible)
+    html += '<dl>';
+    html += fieldRow('Status', esc((p.status || '—') + (p.status_reason ? ' (' + p.status_reason + ')' : '')));
+    html += fieldRow('Position', esc(p.position || '—'));
+    html += fieldRow('Store', esc(p.works_at || '—'));
+    html += fieldRow('Department', esc(p.in_department || '—'));
+    html += fieldRow('Employment', esc(p.employment_type || '—'));
+    html += fieldRow('Hired', esc(p.hire_date || '—'));
+    html += fieldRow('Reports to', p.reports_to ? personLink(p.reports_to) : '—');
+    html += '</dl>';
+    if (p.skills && p.skills.length)
+      html += '<div class="sect"><strong>Skills</strong> <span class="muted">(directory)</span><div>'
+        + p.skills.map(esc).join(' · ') + '</div></div>';
+    var reports = (db.rev['reports_to'] && db.rev['reports_to'][node.title]) || [];
+    if (reports.length)
+      html += '<div class="sect"><strong>Direct reports (' + reports.length + ')</strong><div>'
+        + reports.slice(0, 12).map(personLink).join('<br>')
+        + (reports.length > 12 ? '<br>+' + (reports.length - 12) + ' more' : '') + '</div></div>';
+    // Sensitive sections — gated identically to the engine
+    html += '<div class="sect"><strong>Compensation</strong><dl>'
+      + gatedRow('Pay', node.title, 'hr.payroll',
+          (p.pay_rate != null ? p.pay_rate + ' / ' + (p.pay_unit || '') : '—'), role, purpose, pop)
+      + '</dl></div>';
+    html += '<div class="sect"><strong>Compliance</strong><dl>'
+      + gatedRow('Certifications', node.title, 'hr.certifications',
+          (p.certifications && p.certifications.length ? p.certifications.join(', ') : 'none'),
+          role, purpose, pop)
+      + '</dl></div>';
+    return html;
+  }
+
+  function openDrawer(title, trigger) {
+    var node = db.nodesByTitle[title];
+    if (!node) return;
+    if ($('drawer').hidden) drawerReturnFocus = trigger || document.activeElement;
+    $('drawerBody').innerHTML = buildProfile(node);
+    $('drawerBackdrop').hidden = false;
+    $('drawer').hidden = false;
+    $('drawerClose').focus();
+  }
+  function closeDrawer() {
+    $('drawer').hidden = true;
+    $('drawerBackdrop').hidden = true;
+    if (drawerReturnFocus && drawerReturnFocus.focus) drawerReturnFocus.focus();
+  }
+  $('drawerClose').addEventListener('click', closeDrawer);
+  $('drawerBackdrop').addEventListener('click', closeDrawer);
+  $('drawer').addEventListener('keydown', function (e) {
+    if (e.key === 'Escape') { closeDrawer(); return; }
+    if (e.key !== 'Tab') return;
+    var f = $('drawer').querySelectorAll('button, [href], input, [tabindex]:not([tabindex="-1"])');
+    if (!f.length) return;
+    var first = f[0], last = f[f.length - 1];
+    if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
+    else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
+  });
+  document.addEventListener('click', function (e) {
+    var b = e.target.closest && e.target.closest('.namelink');
+    if (b && b.getAttribute('data-person')) { e.preventDefault(); openDrawer(b.getAttribute('data-person'), b); }
+  });
+
+  window.FFApp = { db: db, renderResult: renderResult, esc: esc, personLink: personLink,
+                   openDrawer: openDrawer, closeDrawer: closeDrawer,
                    edgeDirectory: edgeDirectory, systemPrompt: systemPrompt,
                    validateSpec: validateSpec, SPEC_TOOL: SPEC_TOOL, narrate: narrate,
                    translateValid: translateValid, currentRole: currentRole,

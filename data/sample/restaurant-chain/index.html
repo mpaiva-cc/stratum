@@ -48,6 +48,24 @@
     .popactions { display:flex; gap:.5rem; }
     .sr-only { position:absolute; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden;
       clip:rect(0 0 0 0); white-space:nowrap; border:0; }
+    /* name links + person profile drawer */
+    .namelink { background:none; border:0; padding:0; margin:0; font:inherit; color:#1f5673;
+      text-decoration:underline; cursor:pointer; }
+    .namelink:hover { color:#0d3a52; }
+    .drawer-backdrop { position:fixed; inset:0; background:rgba(0,0,0,.35); }
+    .drawer-backdrop[hidden] { display:none; }
+    .drawer { position:fixed; top:0; right:0; height:100vh; width:380px; max-width:92vw; background:#fff;
+      border-left:1px solid var(--line); box-shadow:-8px 0 28px rgba(0,0,0,.18);
+      padding:1.1rem 1.2rem 2rem; overflow:auto; }
+    .drawer[hidden] { display:none; }
+    .drawer h2 { margin:.2rem 2rem .1rem 0; font-size:1.2rem; }
+    .drawer .close { position:absolute; top:.6rem; right:.7rem; background:#fff; color:var(--ink);
+      border:1px solid var(--line); border-radius:6px; }
+    .drawer dl { display:grid; grid-template-columns:max-content 1fr; gap:.3rem .8rem; margin:.7rem 0; }
+    .drawer dt { font-weight:600; color:var(--muted); }
+    .drawer dd { margin:0; }
+    .drawer .sect { margin-top:1rem; border-top:1px solid var(--line); padding-top:.7rem; }
+    .drawer .hiddenval { color:var(--plum); font-style:italic; }
   </style>
 </head>
 <body>
@@ -114,6 +132,12 @@
   </form>
 
   <div id="answer" aria-live="polite"></div>
+
+  <div id="drawerBackdrop" class="drawer-backdrop" hidden></div>
+  <aside id="drawer" class="drawer" role="dialog" aria-modal="true" aria-labelledby="drawerName" hidden>
+    <button type="button" id="drawerClose" class="close" aria-label="Close profile">✕</button>
+    <div id="drawerBody"></div>
+  </aside>
 
   <script src="forkandflame.graph.js"></script>
   <script src="ff-engine.js"></script>
