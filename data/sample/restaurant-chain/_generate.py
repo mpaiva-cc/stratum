@@ -690,15 +690,36 @@ for ptitle, store_title, position, dept, eid, name, hire in recent[:18]:
           "task": task, "status": random.choice(["done", "done", "pending"]),
           "basis": "authorization"},
          f"Onboarding task for {link(ptitle)}: {task}.")
-# consent grants (the traversal predicate's source)
-for ptitle, store_title, position, dept, eid, name, hire in random.sample(all_people, 15):
-    scope = random.choice(["hr.employment", "hr.scheduling", "hr.payroll", "hr.certifications"])
-    note("Governance", f"{eid} - consent ({scope})",
-         {"type": "consent_grant", "id": nid("CNS"), "person": link(ptitle),
-          "scope": scope, "purpose": "store operations", "valid_to": "open",
-          "basis": "consent"},
-         f"{link(ptitle)} granted scope `{scope}` for store operations. The traversal "
-         f"predicate reads this grant.")
+# consent grants (the traversal predicate's source).
+# Every person gets a baseline grant for ALL FOUR scopes, EXCEPT a deliberate
+# minority engineered so each refusal reason is reachable by a realistic query:
+#   - declined:  no hr.payroll grant at all            -> reason "no-grant"
+#   - expired:   hr.certifications grant past valid_to  -> reason "expired"
+#   - revoked:   hr.scheduling grant status=revoked     -> reason "revoked"
+# Seeded RNG keeps this deterministic.
+SCOPES = ["hr.scheduling", "hr.payroll", "hr.certifications", "hr.employment"]
+people_pool = list(all_people)
+random.shuffle(people_pool)
+declined_payroll = set(p[4] for p in people_pool[:60])              # ~12% no payroll grant
+expired_certs    = set(p[4] for p in people_pool[60:100])           # ~8% expired cert grant
+revoked_sched    = set(p[4] for p in people_pool[100:130])          # ~6% revoked scheduling grant
+past_date = d(today - datetime.timedelta(days=45))
+
+for ptitle, store_title, position, dept, eid, name, hire in all_people:
+    for scope in SCOPES:
+        if scope == "hr.payroll" and eid in declined_payroll:
+            continue  # declined -> grant simply absent
+        status, valid_to = "active", "open"
+        if scope == "hr.certifications" and eid in expired_certs:
+            valid_to = past_date
+        if scope == "hr.scheduling" and eid in revoked_sched:
+            status = "revoked"
+        note("Governance", f"{eid} - consent ({scope})",
+             {"type": "consent_grant", "id": nid("CNS"), "person": link(ptitle),
+              "scope": scope, "purpose": "store operations", "status": status,
+              "valid_to": valid_to, "basis": "consent"},
+             f"{link(ptitle)} — scope `{scope}` · status `{status}` · valid_to `{valid_to}`. "
+             f"The traversal predicate reads this grant.")
 
 # ---------------------------------------------------------------------------
 # 4. schema notes, index, readme, obsidian config
