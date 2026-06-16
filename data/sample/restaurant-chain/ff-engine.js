@@ -145,12 +145,6 @@
   }
 
   function neighbors(db, title, hop, purpose, trace, role, pop) {
-    var src = db.nodesByTitle[title];
-    var tscope = db.meta.gatedTargets[hop.to];
-    if (src && src.type === 'person' && tscope) {
-      var tr = readField(title, tscope, db, purpose, role);
-      if (!tr.ok) { refuse(trace, title, hop.to, tscope, tr.reason, tr.layer); return []; }
-    }
     var map = hop.direction === 'in' ? db.rev[hop.on] : db.fwd[hop.on];
     var titles = (map && map[title]) || [];
     var result = titles.map(function (t) { return db.nodesByTitle[t]; }).filter(Boolean)
@@ -165,6 +159,13 @@
           return matchFilter(n, f);
         });
       });
+    // Gated-record targets: gate by SUBJECT (population + role + consent), regardless of
+    // anchor type. nodeReadable returns true for non-gated-record types.
+    result = result.filter(function (n) {
+      if (!db.meta.gatedTargets[n.type]) return true;
+      return nodeReadable(n, db, purpose, trace, role, pop);
+    });
+    // Person targets: population row filter.
     if (pop && !pop.all) {
       result = result.filter(function (n) {
         if (n.type !== 'person') return true;
@@ -173,6 +174,7 @@
         return false;
       });
     }
+    // Gated edge (e.g. distributes_to): gate by the neighbor person.
     var eScope = db.meta.gatedEdges[hop.on];
     if (eScope) {
       result = result.filter(function (n) {

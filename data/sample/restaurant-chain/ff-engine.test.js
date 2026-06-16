@@ -262,3 +262,30 @@ test('backward-compat: omitting role reproduces prior behavior', () => {
   assert.ok(r.rows.length >= 400, 'all people visible without a role');
   assert.ok(r.trace.every(t => t.layer === 'consent'), 'no access-layer refusals without a role');
 });
+
+test('NO BYPASS (role): peer reaches 0 employment_events via a store anchor', () => {
+  const r = FF.runSpec({ from: 'store',
+    traverse: [{ to: 'employment_event', on: 'store', direction: 'in', as: 'ev' }],
+    select: ['title'] }, db, 'employment', FR.ROLES.peer);
+  const reached = r.rows.reduce((a, x) => a + ((x.ev && x.ev.length) || 0), 0);
+  assert.strictEqual(reached, 0, 'peer (no employment scope) reaches no events through a store');
+  assert.ok(r.trace.some(t => t.layer === 'access' && t.reason === 'role-restricted'));
+});
+
+test('NO BYPASS (consent): employment_event via store anchor stays consent-gated under wrong purpose', () => {
+  const r = FF.runSpec({ from: 'store',
+    traverse: [{ to: 'employment_event', on: 'store', direction: 'in', as: 'ev' }],
+    select: ['title'] }, db, 'scheduling');   // no role; wrong purpose for employment data
+  const reached = r.rows.reduce((a, x) => a + ((x.ev && x.ev.length) || 0), 0);
+  assert.strictEqual(reached, 0, 'no role: events still out-of-purpose under scheduling');
+  assert.ok(r.trace.some(t => t.reason === 'out-of-purpose'));
+});
+
+test('traverse to gated record still works for authorized viewer', () => {
+  // chro under employment purpose: events reachable from a store (subject consents to hr.employment)
+  const r = FF.runSpec({ from: 'store',
+    traverse: [{ to: 'employment_event', on: 'store', direction: 'in', as: 'ev' }],
+    select: ['title'] }, db, 'employment', FR.ROLES.chro);
+  const reached = r.rows.reduce((a, x) => a + ((x.ev && x.ev.length) || 0), 0);
+  assert.ok(reached > 0, 'CHRO under employment can reach events');
+});
