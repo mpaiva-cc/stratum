@@ -132,7 +132,10 @@
       return true;
     }
     var yscope = (db.meta.gatedTypes || {})[node.type];
-    if (yscope) {                                  // institutional record: role + purpose only
+    if (yscope) {                                  // institutional record (e.g. candidate): role + purpose
+      // Inlined (NOT readField) by design: institutional records have no data-subject
+      // employee, so they skip the population + per-person consent checks (consent is
+      // implied by application). Do not route this through readField/gate.
       if (!roleAllowsScope(role, yscope)) {
         refuse(trace, node.title, node.type, yscope, 'role-restricted', 'access'); return false;
       }
