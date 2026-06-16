@@ -10,12 +10,12 @@ end: "15:30"
 crew_size: 6
 basis: authorization
 crew:
-  - "[[EMP-0413 Felix Allen]]"
-  - "[[EMP-0404 Camila King]]"
-  - "[[EMP-0408 Hana Santos]]"
-  - "[[EMP-0420 Maria Torres]]"
-  - "[[EMP-0401 Nadia Ali]]"
-  - "[[EMP-0421 Uma Khan]]"
+  - "[[EMP-0405 Henry Taylor]]"
+  - "[[EMP-0408 Elena Young]]"
+  - "[[EMP-0401 Jamal Perez]]"
+  - "[[EMP-0424 Emily Le]]"
+  - "[[EMP-0404 Daniela Miller]]"
+  - "[[EMP-0416 Wei Shah]]"
 ---
 
 AM shift at [[Store 17 - Brooklyn Williamsburg]] on 2026-06-08 (07:00-15:30).
@@ -26,9 +26,9 @@ AM shift at [[Store 17 - Brooklyn Williamsburg]] on 2026-06-08 (07:00-15:30).
 
 ## Crew
 
-- [[EMP-0413 Felix Allen]] (Line Cook)
-- [[EMP-0404 Camila King]] (Shift Lead)
-- [[EMP-0408 Hana Santos]] (Server)
-- [[EMP-0420 Maria Torres]] (Busser)
-- [[EMP-0401 Nadia Ali]] (General Manager)
-- [[EMP-0421 Uma Khan]] (Dishwasher)
+- [[EMP-0405 Henry Taylor]] (Shift Lead)
+- [[EMP-0408 Elena Young]] (Server)
+- [[EMP-0401 Jamal Perez]] (General Manager)
+- [[EMP-0424 Emily Le]] (Dishwasher)
+- [[EMP-0404 Daniela Miller]] (Shift Lead)
+- [[EMP-0416 Wei Shah]] (Server)

@@ -1,11 +1,11 @@
 ---
 type: employment_event
 id: EVT-0206
-person: "[[EMP-0206 Elijah Miller]]"
+person: "[[EMP-0206 Maria Anderson]]"
 kind: hire
-date: 2024-03-25
+date: 2022-04-04
 store: "[[Store 09 - Portland Pearl]]"
 basis: consent
 ---
 
-[[EMP-0206 Elijah Miller]] hired as Line Cook at [[Store 09 - Portland Pearl]] on 2024-03-25.
+[[EMP-0206 Maria Anderson]] hired as Bartender at [[Store 09 - Portland Pearl]] on 2022-04-04.

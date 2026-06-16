@@ -7,17 +7,18 @@ date: 2026-06-13
 daypart: AM
 start: "07:00"
 end: "15:30"
-crew_size: 8
+crew_size: 9
 basis: authorization
 crew:
-  - "[[EMP-0191 Fatima Jones]]"
-  - "[[EMP-0194 Santiago Anderson]]"
-  - "[[EMP-0195 Rohan Pham]]"
-  - "[[EMP-0198 Aiden Patel]]"
-  - "[[EMP-0184 Jaden Shah]]"
-  - "[[EMP-0199 Elena Ali]]"
-  - "[[EMP-0188 Connor Martinez]]"
-  - "[[EMP-0190 Priya Diallo]]"
+  - "[[EMP-0179 Ximena Harris]]"
+  - "[[EMP-0180 Victor Williams]]"
+  - "[[EMP-0176 Aria Clark]]"
+  - "[[EMP-0192 Carlos Scott]]"
+  - "[[EMP-0199 Logan Wright]]"
+  - "[[EMP-0188 Paloma Bianchi]]"
+  - "[[EMP-0194 Layla Johnson]]"
+  - "[[EMP-0189 Min Anderson]]"
+  - "[[EMP-0178 Abigail Mensah]]"
 ---
 
 AM shift at [[Store 08 - Seattle Ballard]] on 2026-06-13 (07:00-15:30).
@@ -28,11 +29,12 @@ AM shift at [[Store 08 - Seattle Ballard]] on 2026-06-13 (07:00-15:30).
 
 ## Crew
 
-- [[EMP-0191 Fatima Jones]] (Server)
-- [[EMP-0194 Santiago Anderson]] (Busser)
-- [[EMP-0195 Rohan Pham]] (Busser)
-- [[EMP-0198 Aiden Patel]] (Busser)
-- [[EMP-0184 Jaden Shah]] (Line Cook)
-- [[EMP-0199 Elena Ali]] (Dishwasher)
-- [[EMP-0188 Connor Martinez]] (Expo)
-- [[EMP-0190 Priya Diallo]] (Line Cook)
+- [[EMP-0179 Ximena Harris]] (Shift Lead)
+- [[EMP-0180 Victor Williams]] (Shift Lead)
+- [[EMP-0176 Aria Clark]] (General Manager)
+- [[EMP-0192 Carlos Scott]] (Busser)
+- [[EMP-0199 Logan Wright]] (Host)
+- [[EMP-0188 Paloma Bianchi]] (Server)
+- [[EMP-0194 Layla Johnson]] (Host)
+- [[EMP-0189 Min Anderson]] (Server)
+- [[EMP-0178 Abigail Mensah]] (Head Chef)

@@ -7,16 +7,17 @@ date: 2026-06-08
 daypart: AM
 start: "07:00"
 end: "15:30"
-crew_size: 7
+crew_size: 8
 basis: authorization
 crew:
-  - "[[EMP-0072 Henry White]]"
-  - "[[EMP-0073 Henry Le]]"
-  - "[[EMP-0060 Destiny Russo]]"
-  - "[[EMP-0056 Diego Wang]]"
-  - "[[EMP-0075 Connor Perez]]"
-  - "[[EMP-0069 Bella Allen]]"
-  - "[[EMP-0070 Priya Bianchi]]"
+  - "[[EMP-0065 Ines Wilson]]"
+  - "[[EMP-0063 Elena Thomas]]"
+  - "[[EMP-0071 Destiny Anderson]]"
+  - "[[EMP-0059 Keira Williams]]"
+  - "[[EMP-0075 Ella Romano]]"
+  - "[[EMP-0064 Keira Smith]]"
+  - "[[EMP-0055 Liam Khan]]"
+  - "[[EMP-0072 Nadia Romano]]"
 ---
 
 AM shift at [[Store 03 - Dallas Knox]] on 2026-06-08 (07:00-15:30).
@@ -27,10 +28,11 @@ AM shift at [[Store 03 - Dallas Knox]] on 2026-06-08 (07:00-15:30).
 
 ## Crew
 
-- [[EMP-0072 Henry White]] (Host)
-- [[EMP-0073 Henry Le]] (Busser)
-- [[EMP-0060 Destiny Russo]] (Line Cook)
-- [[EMP-0056 Diego Wang]] (Server)
-- [[EMP-0075 Connor Perez]] (Busser)
-- [[EMP-0069 Bella Allen]] (Busser)
-- [[EMP-0070 Priya Bianchi]] (Busser)
+- [[EMP-0065 Ines Wilson]] (Dishwasher)
+- [[EMP-0063 Elena Thomas]] (Server)
+- [[EMP-0071 Destiny Anderson]] (Prep Cook)
+- [[EMP-0059 Keira Williams]] (Bartender)
+- [[EMP-0075 Ella Romano]] (Prep Cook)
+- [[EMP-0064 Keira Smith]] (Server)
+- [[EMP-0055 Liam Khan]] (Shift Lead)
+- [[EMP-0072 Nadia Romano]] (Prep Cook)

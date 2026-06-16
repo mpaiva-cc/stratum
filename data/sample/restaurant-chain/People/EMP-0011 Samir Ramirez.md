@@ -3,26 +3,30 @@ type: person
 id: EMP-0011
 name: Samir Ramirez
 status: active
-employment_type: part_time
-hire_date: 2024-11-25
-email: "samir.ramirez@forkandflame.example"
+status_reason: active
+status_effective_date: 2026-04-03
+rehire_eligible: false
+employment_type: full_time
+hire_date: 2026-04-30
+email: "samir.ramirez.emp-0011@forkandflame.example"
 works_at: "[[Store 01 - Austin Domain]]"
 in_department: "[[Front of House (Department)]]"
 position: "[[Server]]"
-pay_rate: 9.83
+pay_rate: 10.02
 pay_unit: hour
-reports_to: "[[EMP-0005 Keira Perez]]"
+reports_to: "[[EMP-0004 Jaden Abara]]"
 certifications:
   - "[[Food Handler]]"
   - "[[TIPS Alcohol Service]]"
 skills:
   - "[[POS Proficiency]]"
-  - "[[Opening & Closing]]"
-  - "[[Guest Recovery]]"
 basis: consent
 ---
 
-**Server** at [[Store 01 - Austin Domain]] · Front of House · since 2024-11-25.
+**Server** at [[Store 01 - Austin Domain]] · Front of House · since 2026-04-30.
+
+Status: **active** (active) as of 2026-04-03
+Rehire eligible: no
 
 ## Works at
 
@@ -30,11 +34,11 @@ basis: consent
 
 ## Position
 
-- [[Server]] — paid 9.83/hour
+- [[Server]] — paid 10.02/hour
 
 ## Reports to
 
-- [[EMP-0005 Keira Perez]]
+- [[EMP-0004 Jaden Abara]]
 
 ## Certifications
 
@@ -44,9 +48,7 @@ basis: consent
 ## Skills
 
 - [[POS Proficiency]]
-- [[Opening & Closing]]
-- [[Guest Recovery]]
 
 ## Lifecycle
 
-- [[EMP-0011 - hired]] on 2024-11-25
+- [[EMP-0011 - hired]] on 2026-04-30

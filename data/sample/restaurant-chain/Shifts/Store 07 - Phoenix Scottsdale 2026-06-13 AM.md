@@ -10,14 +10,14 @@ end: "15:30"
 crew_size: 8
 basis: authorization
 crew:
-  - "[[EMP-0175 Andres White]]"
-  - "[[EMP-0165 Yara Silva]]"
-  - "[[EMP-0167 Hana Williams]]"
-  - "[[EMP-0156 Destiny Ramirez]]"
-  - "[[EMP-0163 Caleb Hernandez]]"
-  - "[[EMP-0152 Valentina Ali]]"
-  - "[[EMP-0168 Quinn Torres]]"
-  - "[[EMP-0160 Imani Davis]]"
+  - "[[EMP-0174 Tariq Okafor]]"
+  - "[[EMP-0171 Imani Johnson]]"
+  - "[[EMP-0161 Noah Shah]]"
+  - "[[EMP-0156 Tariq Rossi]]"
+  - "[[EMP-0167 Santiago Bianchi]]"
+  - "[[EMP-0170 Ella Shah]]"
+  - "[[EMP-0175 Connor Mensah]]"
+  - "[[EMP-0151 Santiago Ahmed]]"
 ---
 
 AM shift at [[Store 07 - Phoenix Scottsdale]] on 2026-06-13 (07:00-15:30).
@@ -28,11 +28,11 @@ AM shift at [[Store 07 - Phoenix Scottsdale]] on 2026-06-13 (07:00-15:30).
 
 ## Crew
 
-- [[EMP-0175 Andres White]] (Host)
-- [[EMP-0165 Yara Silva]] (Dishwasher)
-- [[EMP-0167 Hana Williams]] (Host)
-- [[EMP-0156 Destiny Ramirez]] (Bartender)
-- [[EMP-0163 Caleb Hernandez]] (Expo)
-- [[EMP-0152 Valentina Ali]] (Assistant Manager)
-- [[EMP-0168 Quinn Torres]] (Prep Cook)
-- [[EMP-0160 Imani Davis]] (Server)
+- [[EMP-0174 Tariq Okafor]] (Prep Cook)
+- [[EMP-0171 Imani Johnson]] (Busser)
+- [[EMP-0161 Noah Shah]] (Expo)
+- [[EMP-0156 Tariq Rossi]] (Bartender)
+- [[EMP-0167 Santiago Bianchi]] (Server)
+- [[EMP-0170 Ella Shah]] (Server)
+- [[EMP-0175 Connor Mensah]] (Prep Cook)
+- [[EMP-0151 Santiago Ahmed]] (General Manager)

@@ -7,19 +7,17 @@ date: 2026-06-08
 daypart: PM
 start: "15:00"
 end: "23:30"
-crew_size: 10
+crew_size: 8
 basis: authorization
 crew:
-  - "[[EMP-0282 Layla Wilson]]"
-  - "[[EMP-0292 Bella Smith]]"
-  - "[[EMP-0280 Tariq Patel]]"
-  - "[[EMP-0277 Zayd Walker]]"
-  - "[[EMP-0284 Wei King]]"
-  - "[[EMP-0299 Yuki Davis]]"
-  - "[[EMP-0290 Jaden Jones]]"
-  - "[[EMP-0281 Zane Wang]]"
-  - "[[EMP-0283 Andres Williams]]"
-  - "[[EMP-0295 Aaron Santos]]"
+  - "[[EMP-0299 Elijah Johnson]]"
+  - "[[EMP-0279 Abigail Abara]]"
+  - "[[EMP-0296 Abigail Wang]]"
+  - "[[EMP-0297 Samir Romano]]"
+  - "[[EMP-0292 Maria Diallo]]"
+  - "[[EMP-0298 Nadia Nguyen]]"
+  - "[[EMP-0289 Yuki Walker]]"
+  - "[[EMP-0293 Victor Davis]]"
 ---
 
 PM shift at [[Store 12 - Minneapolis Uptown]] on 2026-06-08 (15:00-23:30).
@@ -30,13 +28,11 @@ PM shift at [[Store 12 - Minneapolis Uptown]] on 2026-06-08 (15:00-23:30).
 
 ## Crew
 
-- [[EMP-0282 Layla Wilson]] (Line Cook)
-- [[EMP-0292 Bella Smith]] (Dishwasher)
-- [[EMP-0280 Tariq Patel]] (Shift Lead)
-- [[EMP-0277 Zayd Walker]] (Assistant Manager)
-- [[EMP-0284 Wei King]] (Line Cook)
-- [[EMP-0299 Yuki Davis]] (Dishwasher)
-- [[EMP-0290 Jaden Jones]] (Line Cook)
-- [[EMP-0281 Zane Wang]] (Server)
-- [[EMP-0283 Andres Williams]] (Line Cook)
-- [[EMP-0295 Aaron Santos]] (Prep Cook)
+- [[EMP-0299 Elijah Johnson]] (Host)
+- [[EMP-0279 Abigail Abara]] (Shift Lead)
+- [[EMP-0296 Abigail Wang]] (Prep Cook)
+- [[EMP-0297 Samir Romano]] (Dishwasher)
+- [[EMP-0292 Maria Diallo]] (Line Cook)
+- [[EMP-0298 Nadia Nguyen]] (Dishwasher)
+- [[EMP-0289 Yuki Walker]] (Line Cook)
+- [[EMP-0293 Victor Davis]] (Server)

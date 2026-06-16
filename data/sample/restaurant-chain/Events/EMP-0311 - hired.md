@@ -1,11 +1,11 @@
 ---
 type: employment_event
 id: EVT-0311
-person: "[[EMP-0311 Jin Park]]"
+person: "[[EMP-0311 Harper Williams]]"
 kind: hire
-date: 2023-09-08
+date: 2024-11-05
 store: "[[Store 13 - Columbus Short North]]"
 basis: consent
 ---
 
-[[EMP-0311 Jin Park]] hired as Server at [[Store 13 - Columbus Short North]] on 2023-09-08.
+[[EMP-0311 Harper Williams]] hired as Server at [[Store 13 - Columbus Short North]] on 2024-11-05.

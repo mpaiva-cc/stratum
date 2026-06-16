@@ -10,15 +10,15 @@ end: "23:30"
 crew_size: 9
 basis: authorization
 crew:
-  - "[[EMP-0404 Camila King]]"
-  - "[[EMP-0405 Jaden Gonzalez]]"
-  - "[[EMP-0401 Nadia Ali]]"
-  - "[[EMP-0417 Valentina Jones]]"
-  - "[[EMP-0424 Ella Wilson]]"
-  - "[[EMP-0413 Felix Allen]]"
-  - "[[EMP-0419 Jose Johnson]]"
-  - "[[EMP-0414 Aria Le]]"
-  - "[[EMP-0403 Elena Ali]]"
+  - "[[EMP-0404 Daniela Miller]]"
+  - "[[EMP-0422 Sofia Miller]]"
+  - "[[EMP-0423 Rohan Singh]]"
+  - "[[EMP-0408 Elena Young]]"
+  - "[[EMP-0412 Leo Russo]]"
+  - "[[EMP-0414 Ava Park]]"
+  - "[[EMP-0415 Kayla Williams]]"
+  - "[[EMP-0405 Henry Taylor]]"
+  - "[[EMP-0418 Aaron Santos]]"
 ---
 
 PM shift at [[Store 17 - Brooklyn Williamsburg]] on 2026-06-14 (15:00-23:30).
@@ -29,12 +29,12 @@ PM shift at [[Store 17 - Brooklyn Williamsburg]] on 2026-06-14 (15:00-23:30).
 
 ## Crew
 
-- [[EMP-0404 Camila King]] (Shift Lead)
-- [[EMP-0405 Jaden Gonzalez]] (Shift Lead)
-- [[EMP-0401 Nadia Ali]] (General Manager)
-- [[EMP-0417 Valentina Jones]] (Line Cook)
-- [[EMP-0424 Ella Wilson]] (Busser)
-- [[EMP-0413 Felix Allen]] (Line Cook)
-- [[EMP-0419 Jose Johnson]] (Server)
-- [[EMP-0414 Aria Le]] (Line Cook)
-- [[EMP-0403 Elena Ali]] (Head Chef)
+- [[EMP-0404 Daniela Miller]] (Shift Lead)
+- [[EMP-0422 Sofia Miller]] (Busser)
+- [[EMP-0423 Rohan Singh]] (Prep Cook)
+- [[EMP-0408 Elena Young]] (Server)
+- [[EMP-0412 Leo Russo]] (Bartender)
+- [[EMP-0414 Ava Park]] (Server)
+- [[EMP-0415 Kayla Williams]] (Server)
+- [[EMP-0405 Henry Taylor]] (Shift Lead)
+- [[EMP-0418 Aaron Santos]] (Line Cook)

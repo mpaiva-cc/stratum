@@ -7,19 +7,16 @@ date: 2026-06-14
 daypart: AM
 start: "07:00"
 end: "15:30"
-crew_size: 10
+crew_size: 7
 basis: authorization
 crew:
-  - "[[EMP-0209 Liam Shah]]"
-  - "[[EMP-0208 Arjun Smith]]"
-  - "[[EMP-0202 Carlos Lewis]]"
-  - "[[EMP-0210 Sofia Abara]]"
-  - "[[EMP-0211 Samir Pham]]"
-  - "[[EMP-0206 Elijah Miller]]"
-  - "[[EMP-0213 Hana Romano]]"
-  - "[[EMP-0217 Henry Harris]]"
-  - "[[EMP-0207 Ella Harris]]"
-  - "[[EMP-0214 Rohan Williams]]"
+  - "[[EMP-0222 Oscar Smith]]"
+  - "[[EMP-0216 Noah Ali]]"
+  - "[[EMP-0211 Valentina Liu]]"
+  - "[[EMP-0223 Hassan Harris]]"
+  - "[[EMP-0204 Santiago Perez]]"
+  - "[[EMP-0206 Maria Anderson]]"
+  - "[[EMP-0224 Gabriela Khan]]"
 ---
 
 AM shift at [[Store 09 - Portland Pearl]] on 2026-06-14 (07:00-15:30).
@@ -30,13 +27,10 @@ AM shift at [[Store 09 - Portland Pearl]] on 2026-06-14 (07:00-15:30).
 
 ## Crew
 
-- [[EMP-0209 Liam Shah]] (Server)
-- [[EMP-0208 Arjun Smith]] (Server)
-- [[EMP-0202 Carlos Lewis]] (Assistant Manager)
-- [[EMP-0210 Sofia Abara]] (Bartender)
-- [[EMP-0211 Samir Pham]] (Server)
-- [[EMP-0206 Elijah Miller]] (Line Cook)
-- [[EMP-0213 Hana Romano]] (Server)
-- [[EMP-0217 Henry Harris]] (Line Cook)
-- [[EMP-0207 Ella Harris]] (Line Cook)
-- [[EMP-0214 Rohan Williams]] (Line Cook)
+- [[EMP-0222 Oscar Smith]] (Prep Cook)
+- [[EMP-0216 Noah Ali]] (Line Cook)
+- [[EMP-0211 Valentina Liu]] (Line Cook)
+- [[EMP-0223 Hassan Harris]] (Host)
+- [[EMP-0204 Santiago Perez]] (Shift Lead)
+- [[EMP-0206 Maria Anderson]] (Bartender)
+- [[EMP-0224 Gabriela Khan]] (Busser)

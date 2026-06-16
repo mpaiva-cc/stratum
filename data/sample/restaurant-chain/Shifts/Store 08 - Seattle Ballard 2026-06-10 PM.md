@@ -7,16 +7,17 @@ date: 2026-06-10
 daypart: PM
 start: "15:00"
 end: "23:30"
-crew_size: 7
+crew_size: 8
 basis: authorization
 crew:
-  - "[[EMP-0186 Anaya Bianchi]]"
-  - "[[EMP-0192 Priya Garcia]]"
-  - "[[EMP-0189 Jaden King]]"
-  - "[[EMP-0195 Rohan Pham]]"
-  - "[[EMP-0181 Wei Lopez]]"
-  - "[[EMP-0198 Aiden Patel]]"
-  - "[[EMP-0194 Santiago Anderson]]"
+  - "[[EMP-0180 Victor Williams]]"
+  - "[[EMP-0185 Caleb Allen]]"
+  - "[[EMP-0178 Abigail Mensah]]"
+  - "[[EMP-0199 Logan Wright]]"
+  - "[[EMP-0200 Liam Perez]]"
+  - "[[EMP-0191 Layla Pham]]"
+  - "[[EMP-0186 Ella Nguyen]]"
+  - "[[EMP-0192 Carlos Scott]]"
 ---
 
 PM shift at [[Store 08 - Seattle Ballard]] on 2026-06-10 (15:00-23:30).
@@ -27,10 +28,11 @@ PM shift at [[Store 08 - Seattle Ballard]] on 2026-06-10 (15:00-23:30).
 
 ## Crew
 
-- [[EMP-0186 Anaya Bianchi]] (Line Cook)
-- [[EMP-0192 Priya Garcia]] (Server)
-- [[EMP-0189 Jaden King]] (Server)
-- [[EMP-0195 Rohan Pham]] (Busser)
-- [[EMP-0181 Wei Lopez]] (Line Cook)
-- [[EMP-0198 Aiden Patel]] (Busser)
-- [[EMP-0194 Santiago Anderson]] (Busser)
+- [[EMP-0180 Victor Williams]] (Shift Lead)
+- [[EMP-0185 Caleb Allen]] (Server)
+- [[EMP-0178 Abigail Mensah]] (Head Chef)
+- [[EMP-0199 Logan Wright]] (Host)
+- [[EMP-0200 Liam Perez]] (Dishwasher)
+- [[EMP-0191 Layla Pham]] (Bartender)
+- [[EMP-0186 Ella Nguyen]] (Server)
+- [[EMP-0192 Carlos Scott]] (Busser)

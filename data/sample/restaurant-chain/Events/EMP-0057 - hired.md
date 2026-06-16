@@ -1,11 +1,11 @@
 ---
 type: employment_event
 id: EVT-0057
-person: "[[EMP-0057 Sofia Ramirez]]"
+person: "[[EMP-0057 Leo Johnson]]"
 kind: hire
-date: 2022-01-26
+date: 2024-03-25
 store: "[[Store 03 - Dallas Knox]]"
 basis: consent
 ---
 
-[[EMP-0057 Sofia Ramirez]] hired as Expo at [[Store 03 - Dallas Knox]] on 2022-01-26.
+[[EMP-0057 Leo Johnson]] hired as Line Cook at [[Store 03 - Dallas Knox]] on 2024-03-25.

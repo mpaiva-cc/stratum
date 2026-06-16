@@ -7,16 +7,17 @@ date: 2026-06-09
 daypart: AM
 start: "07:00"
 end: "15:30"
-crew_size: 7
+crew_size: 8
 basis: authorization
 crew:
-  - "[[EMP-0061 Diego Jackson]]"
-  - "[[EMP-0075 Connor Perez]]"
-  - "[[EMP-0070 Priya Bianchi]]"
-  - "[[EMP-0055 Wanda Santos]]"
-  - "[[EMP-0068 Mason Taylor]]"
-  - "[[EMP-0067 Ximena Wilson]]"
-  - "[[EMP-0069 Bella Allen]]"
+  - "[[EMP-0071 Destiny Anderson]]"
+  - "[[EMP-0067 Anaya Santos]]"
+  - "[[EMP-0065 Ines Wilson]]"
+  - "[[EMP-0073 Jaden Jackson]]"
+  - "[[EMP-0069 Uma Rossi]]"
+  - "[[EMP-0054 Nadia Costa]]"
+  - "[[EMP-0070 Amelia Davis]]"
+  - "[[EMP-0068 Maria Walker]]"
 ---
 
 AM shift at [[Store 03 - Dallas Knox]] on 2026-06-09 (07:00-15:30).
@@ -27,10 +28,11 @@ AM shift at [[Store 03 - Dallas Knox]] on 2026-06-09 (07:00-15:30).
 
 ## Crew
 
-- [[EMP-0061 Diego Jackson]] (Expo)
-- [[EMP-0075 Connor Perez]] (Busser)
-- [[EMP-0070 Priya Bianchi]] (Busser)
-- [[EMP-0055 Wanda Santos]] (Shift Lead)
-- [[EMP-0068 Mason Taylor]] (Server)
-- [[EMP-0067 Ximena Wilson]] (Line Cook)
-- [[EMP-0069 Bella Allen]] (Busser)
+- [[EMP-0071 Destiny Anderson]] (Prep Cook)
+- [[EMP-0067 Anaya Santos]] (Prep Cook)
+- [[EMP-0065 Ines Wilson]] (Dishwasher)
+- [[EMP-0073 Jaden Jackson]] (Dishwasher)
+- [[EMP-0069 Uma Rossi]] (Busser)
+- [[EMP-0054 Nadia Costa]] (Shift Lead)
+- [[EMP-0070 Amelia Davis]] (Dishwasher)
+- [[EMP-0068 Maria Walker]] (Busser)

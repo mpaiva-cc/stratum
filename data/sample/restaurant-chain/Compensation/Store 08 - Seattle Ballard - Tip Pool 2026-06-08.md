@@ -3,34 +3,34 @@ type: tip_pool
 id: TIP-0008
 store: "[[Store 08 - Seattle Ballard]]"
 period: Week of 2026-06-08
-amount: 3473
+amount: 3020
 basis: authorization
 distributes_to:
-  - "[[EMP-0182 Liam Liu]]"
-  - "[[EMP-0185 Jaden Thomas]]"
-  - "[[EMP-0189 Jaden King]]"
-  - "[[EMP-0191 Fatima Jones]]"
-  - "[[EMP-0192 Priya Garcia]]"
-  - "[[EMP-0193 Jaden Jones]]"
-  - "[[EMP-0194 Santiago Anderson]]"
-  - "[[EMP-0195 Rohan Pham]]"
-  - "[[EMP-0196 Omar Gonzalez]]"
-  - "[[EMP-0198 Aiden Patel]]"
-  - "[[EMP-0200 Omar Ali]]"
+  - "[[EMP-0182 Min Wright]]"
+  - "[[EMP-0183 Nadia Chen]]"
+  - "[[EMP-0185 Caleb Allen]]"
+  - "[[EMP-0186 Ella Nguyen]]"
+  - "[[EMP-0187 Valentina King]]"
+  - "[[EMP-0188 Paloma Bianchi]]"
+  - "[[EMP-0189 Min Anderson]]"
+  - "[[EMP-0190 Jose Wilson]]"
+  - "[[EMP-0191 Layla Pham]]"
+  - "[[EMP-0192 Carlos Scott]]"
+  - "[[EMP-0197 Mateo Lewis]]"
 ---
 
 Tip pool for [[Store 08 - Seattle Ballard]], week of 2026-06-08.
 
 ## Distributed to
 
-- [[EMP-0182 Liam Liu]]
-- [[EMP-0185 Jaden Thomas]]
-- [[EMP-0189 Jaden King]]
-- [[EMP-0191 Fatima Jones]]
-- [[EMP-0192 Priya Garcia]]
-- [[EMP-0193 Jaden Jones]]
-- [[EMP-0194 Santiago Anderson]]
-- [[EMP-0195 Rohan Pham]]
-- [[EMP-0196 Omar Gonzalez]]
-- [[EMP-0198 Aiden Patel]]
-- [[EMP-0200 Omar Ali]]
+- [[EMP-0182 Min Wright]]
+- [[EMP-0183 Nadia Chen]]
+- [[EMP-0185 Caleb Allen]]
+- [[EMP-0186 Ella Nguyen]]
+- [[EMP-0187 Valentina King]]
+- [[EMP-0188 Paloma Bianchi]]
+- [[EMP-0189 Min Anderson]]
+- [[EMP-0190 Jose Wilson]]
+- [[EMP-0191 Layla Pham]]
+- [[EMP-0192 Carlos Scott]]
+- [[EMP-0197 Mateo Lewis]]

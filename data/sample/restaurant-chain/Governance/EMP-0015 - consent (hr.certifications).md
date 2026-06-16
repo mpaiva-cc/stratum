@@ -1,6 +1,6 @@
 ---
 type: consent_grant
-id: CNS-0058
+id: CNS-0059
 person: "[[EMP-0015 Mia Williams]]"
 scope: hr.certifications
 purpose: store operations

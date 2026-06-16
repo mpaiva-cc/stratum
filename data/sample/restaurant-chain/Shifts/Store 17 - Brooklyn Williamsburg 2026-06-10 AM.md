@@ -10,15 +10,15 @@ end: "15:30"
 crew_size: 9
 basis: authorization
 crew:
-  - "[[EMP-0407 Henry Ahmed]]"
-  - "[[EMP-0420 Maria Torres]]"
-  - "[[EMP-0409 Liam Silva]]"
-  - "[[EMP-0424 Ella Wilson]]"
-  - "[[EMP-0412 Logan Jones]]"
-  - "[[EMP-0410 Yuki Martinez]]"
-  - "[[EMP-0403 Elena Ali]]"
-  - "[[EMP-0411 Quinn Jones]]"
-  - "[[EMP-0419 Jose Johnson]]"
+  - "[[EMP-0402 Emily King]]"
+  - "[[EMP-0419 Santiago Wright]]"
+  - "[[EMP-0418 Aaron Santos]]"
+  - "[[EMP-0414 Ava Park]]"
+  - "[[EMP-0409 Emily Sanchez]]"
+  - "[[EMP-0413 Aiden Allen]]"
+  - "[[EMP-0423 Rohan Singh]]"
+  - "[[EMP-0401 Jamal Perez]]"
+  - "[[EMP-0417 Jose Kim]]"
 ---
 
 AM shift at [[Store 17 - Brooklyn Williamsburg]] on 2026-06-10 (07:00-15:30).
@@ -29,12 +29,12 @@ AM shift at [[Store 17 - Brooklyn Williamsburg]] on 2026-06-10 (07:00-15:30).
 
 ## Crew
 
-- [[EMP-0407 Henry Ahmed]] (Line Cook)
-- [[EMP-0420 Maria Torres]] (Busser)
-- [[EMP-0409 Liam Silva]] (Line Cook)
-- [[EMP-0424 Ella Wilson]] (Busser)
-- [[EMP-0412 Logan Jones]] (Line Cook)
-- [[EMP-0410 Yuki Martinez]] (Line Cook)
-- [[EMP-0403 Elena Ali]] (Head Chef)
-- [[EMP-0411 Quinn Jones]] (Server)
-- [[EMP-0419 Jose Johnson]] (Server)
+- [[EMP-0402 Emily King]] (Assistant Manager)
+- [[EMP-0419 Santiago Wright]] (Dishwasher)
+- [[EMP-0418 Aaron Santos]] (Line Cook)
+- [[EMP-0414 Ava Park]] (Server)
+- [[EMP-0409 Emily Sanchez]] (Expo)
+- [[EMP-0413 Aiden Allen]] (Line Cook)
+- [[EMP-0423 Rohan Singh]] (Prep Cook)
+- [[EMP-0401 Jamal Perez]] (General Manager)
+- [[EMP-0417 Jose Kim]] (Bartender)

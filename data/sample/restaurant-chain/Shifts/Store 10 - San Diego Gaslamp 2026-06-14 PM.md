@@ -10,13 +10,13 @@ end: "23:30"
 crew_size: 7
 basis: authorization
 crew:
-  - "[[EMP-0227 Isabella Jackson]]"
-  - "[[EMP-0244 Gabriela Clark]]"
-  - "[[EMP-0240 Wanda Costa]]"
-  - "[[EMP-0232 Ines Tran]]"
-  - "[[EMP-0230 Emily Ali]]"
-  - "[[EMP-0238 Mason Wilson]]"
-  - "[[EMP-0250 Diego Torres]]"
+  - "[[EMP-0229 Hana Perez]]"
+  - "[[EMP-0244 Nadia Kim]]"
+  - "[[EMP-0231 Samir Abara]]"
+  - "[[EMP-0248 Zayd Walker]]"
+  - "[[EMP-0246 Wanda Young]]"
+  - "[[EMP-0250 Daniela White]]"
+  - "[[EMP-0227 Jamal Sanchez]]"
 ---
 
 PM shift at [[Store 10 - San Diego Gaslamp]] on 2026-06-14 (15:00-23:30).
@@ -27,10 +27,10 @@ PM shift at [[Store 10 - San Diego Gaslamp]] on 2026-06-14 (15:00-23:30).
 
 ## Crew
 
-- [[EMP-0227 Isabella Jackson]] (Assistant Manager)
-- [[EMP-0244 Gabriela Clark]] (Prep Cook)
-- [[EMP-0240 Wanda Costa]] (Line Cook)
-- [[EMP-0232 Ines Tran]] (Server)
-- [[EMP-0230 Emily Ali]] (Shift Lead)
-- [[EMP-0238 Mason Wilson]] (Line Cook)
-- [[EMP-0250 Diego Torres]] (Dishwasher)
+- [[EMP-0229 Hana Perez]] (Shift Lead)
+- [[EMP-0244 Nadia Kim]] (Line Cook)
+- [[EMP-0231 Samir Abara]] (Expo)
+- [[EMP-0248 Zayd Walker]] (Dishwasher)
+- [[EMP-0246 Wanda Young]] (Busser)
+- [[EMP-0250 Daniela White]] (Busser)
+- [[EMP-0227 Jamal Sanchez]] (Assistant Manager)

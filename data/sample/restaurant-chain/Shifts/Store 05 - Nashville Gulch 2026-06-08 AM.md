@@ -7,16 +7,19 @@ date: 2026-06-08
 daypart: AM
 start: "07:00"
 end: "15:30"
-crew_size: 7
+crew_size: 10
 basis: authorization
 crew:
-  - "[[EMP-0111 Zayd Rossi]]"
-  - "[[EMP-0102 Connor Moore]]"
-  - "[[EMP-0124 Aria Silva]]"
-  - "[[EMP-0112 Rosa Garcia]]"
-  - "[[EMP-0113 Keira Liu]]"
-  - "[[EMP-0101 Kayla Lopez]]"
-  - "[[EMP-0117 Bella Park]]"
+  - "[[EMP-0111 Destiny Costa]]"
+  - "[[EMP-0121 Jamal Singh]]"
+  - "[[EMP-0116 Valentina Wilson]]"
+  - "[[EMP-0103 Sofia Bianchi]]"
+  - "[[EMP-0102 Leo Okafor]]"
+  - "[[EMP-0118 Henry Hernandez]]"
+  - "[[EMP-0115 Quinn King]]"
+  - "[[EMP-0108 Santiago Hernandez]]"
+  - "[[EMP-0104 Gabriela Singh]]"
+  - "[[EMP-0117 Harper Le]]"
 ---
 
 AM shift at [[Store 05 - Nashville Gulch]] on 2026-06-08 (07:00-15:30).
@@ -27,10 +30,13 @@ AM shift at [[Store 05 - Nashville Gulch]] on 2026-06-08 (07:00-15:30).
 
 ## Crew
 
-- [[EMP-0111 Zayd Rossi]] (Line Cook)
-- [[EMP-0102 Connor Moore]] (Assistant Manager)
-- [[EMP-0124 Aria Silva]] (Dishwasher)
-- [[EMP-0112 Rosa Garcia]] (Server)
-- [[EMP-0113 Keira Liu]] (Line Cook)
-- [[EMP-0101 Kayla Lopez]] (General Manager)
-- [[EMP-0117 Bella Park]] (Line Cook)
+- [[EMP-0111 Destiny Costa]] (Expo)
+- [[EMP-0121 Jamal Singh]] (Busser)
+- [[EMP-0116 Valentina Wilson]] (Server)
+- [[EMP-0103 Sofia Bianchi]] (Head Chef)
+- [[EMP-0102 Leo Okafor]] (Assistant Manager)
+- [[EMP-0118 Henry Hernandez]] (Busser)
+- [[EMP-0115 Quinn King]] (Server)
+- [[EMP-0108 Santiago Hernandez]] (Line Cook)
+- [[EMP-0104 Gabriela Singh]] (Shift Lead)
+- [[EMP-0117 Harper Le]] (Prep Cook)

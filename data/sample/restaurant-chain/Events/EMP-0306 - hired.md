@@ -1,11 +1,11 @@
 ---
 type: employment_event
 id: EVT-0306
-person: "[[EMP-0306 Ella Tran]]"
+person: "[[EMP-0306 Rohan Ramirez]]"
 kind: hire
-date: 2023-11-21
+date: 2024-06-18
 store: "[[Store 13 - Columbus Short North]]"
 basis: consent
 ---
 
-[[EMP-0306 Ella Tran]] hired as Server at [[Store 13 - Columbus Short North]] on 2023-11-21.
+[[EMP-0306 Rohan Ramirez]] hired as Line Cook at [[Store 13 - Columbus Short North]] on 2024-06-18.

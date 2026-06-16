@@ -7,18 +7,15 @@ date: 2026-06-11
 daypart: AM
 start: "07:00"
 end: "15:30"
-crew_size: 9
+crew_size: 6
 basis: authorization
 crew:
-  - "[[EMP-0437 Fatima Chen]]"
-  - "[[EMP-0426 Felix Wright]]"
-  - "[[EMP-0435 Amelia Scott]]"
-  - "[[EMP-0428 Aaron Shah]]"
-  - "[[EMP-0449 Yara Williams]]"
-  - "[[EMP-0445 Isabella Ramirez]]"
-  - "[[EMP-0432 Harper Mensah]]"
-  - "[[EMP-0430 Connor Wang]]"
-  - "[[EMP-0443 Keira Silva]]"
+  - "[[EMP-0439 Kayla Abara]]"
+  - "[[EMP-0443 Fatima Williams]]"
+  - "[[EMP-0429 Abigail Singh]]"
+  - "[[EMP-0440 Mason Jackson]]"
+  - "[[EMP-0447 Santiago Ali]]"
+  - "[[EMP-0426 Uma Patel]]"
 ---
 
 AM shift at [[Store 18 - Philadelphia Fishtown]] on 2026-06-11 (07:00-15:30).
@@ -29,12 +26,9 @@ AM shift at [[Store 18 - Philadelphia Fishtown]] on 2026-06-11 (07:00-15:30).
 
 ## Crew
 
-- [[EMP-0437 Fatima Chen]] (Server)
-- [[EMP-0426 Felix Wright]] (General Manager)
-- [[EMP-0435 Amelia Scott]] (Server)
-- [[EMP-0428 Aaron Shah]] (Head Chef)
-- [[EMP-0449 Yara Williams]] (Busser)
-- [[EMP-0445 Isabella Ramirez]] (Busser)
-- [[EMP-0432 Harper Mensah]] (Line Cook)
-- [[EMP-0430 Connor Wang]] (Shift Lead)
-- [[EMP-0443 Keira Silva]] (Expo)
+- [[EMP-0439 Kayla Abara]] (Server)
+- [[EMP-0443 Fatima Williams]] (Server)
+- [[EMP-0429 Abigail Singh]] (Shift Lead)
+- [[EMP-0440 Mason Jackson]] (Server)
+- [[EMP-0447 Santiago Ali]] (Host)
+- [[EMP-0426 Uma Patel]] (General Manager)

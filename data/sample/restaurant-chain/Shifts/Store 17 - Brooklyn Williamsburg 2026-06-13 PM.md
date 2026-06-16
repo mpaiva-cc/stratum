@@ -10,12 +10,12 @@ end: "23:30"
 crew_size: 6
 basis: authorization
 crew:
-  - "[[EMP-0412 Logan Jones]]"
-  - "[[EMP-0421 Uma Khan]]"
-  - "[[EMP-0424 Ella Wilson]]"
-  - "[[EMP-0413 Felix Allen]]"
-  - "[[EMP-0420 Maria Torres]]"
-  - "[[EMP-0407 Henry Ahmed]]"
+  - "[[EMP-0412 Leo Russo]]"
+  - "[[EMP-0413 Aiden Allen]]"
+  - "[[EMP-0423 Rohan Singh]]"
+  - "[[EMP-0408 Elena Young]]"
+  - "[[EMP-0415 Kayla Williams]]"
+  - "[[EMP-0414 Ava Park]]"
 ---
 
 PM shift at [[Store 17 - Brooklyn Williamsburg]] on 2026-06-13 (15:00-23:30).
@@ -26,9 +26,9 @@ PM shift at [[Store 17 - Brooklyn Williamsburg]] on 2026-06-13 (15:00-23:30).
 
 ## Crew
 
-- [[EMP-0412 Logan Jones]] (Line Cook)
-- [[EMP-0421 Uma Khan]] (Dishwasher)
-- [[EMP-0424 Ella Wilson]] (Busser)
-- [[EMP-0413 Felix Allen]] (Line Cook)
-- [[EMP-0420 Maria Torres]] (Busser)
-- [[EMP-0407 Henry Ahmed]] (Line Cook)
+- [[EMP-0412 Leo Russo]] (Bartender)
+- [[EMP-0413 Aiden Allen]] (Line Cook)
+- [[EMP-0423 Rohan Singh]] (Prep Cook)
+- [[EMP-0408 Elena Young]] (Server)
+- [[EMP-0415 Kayla Williams]] (Server)
+- [[EMP-0414 Ava Park]] (Server)

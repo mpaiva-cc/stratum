@@ -1,11 +1,11 @@
 ---
 type: employment_event
 id: EVT-0409
-person: "[[EMP-0409 Liam Silva]]"
+person: "[[EMP-0409 Emily Sanchez]]"
 kind: hire
-date: 2025-02-19
+date: 2023-10-27
 store: "[[Store 17 - Brooklyn Williamsburg]]"
 basis: consent
 ---
 
-[[EMP-0409 Liam Silva]] hired as Line Cook at [[Store 17 - Brooklyn Williamsburg]] on 2025-02-19.
+[[EMP-0409 Emily Sanchez]] hired as Expo at [[Store 17 - Brooklyn Williamsburg]] on 2023-10-27.

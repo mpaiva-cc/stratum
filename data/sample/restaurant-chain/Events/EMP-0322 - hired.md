@@ -1,11 +1,11 @@
 ---
 type: employment_event
 id: EVT-0322
-person: "[[EMP-0322 Yuki Smith]]"
+person: "[[EMP-0322 Rosa King]]"
 kind: hire
-date: 2025-02-25
+date: 2025-03-10
 store: "[[Store 13 - Columbus Short North]]"
 basis: consent
 ---
 
-[[EMP-0322 Yuki Smith]] hired as Dishwasher at [[Store 13 - Columbus Short North]] on 2025-02-25.
+[[EMP-0322 Rosa King]] hired as Busser at [[Store 13 - Columbus Short North]] on 2025-03-10.

@@ -3,9 +3,12 @@ type: person
 id: EMP-0003
 name: Rohan Ramirez
 status: active
+status_reason: active
+status_effective_date: 2026-05-04
+rehire_eligible: false
 employment_type: full_time
 hire_date: 2024-08-22
-email: "rohan.ramirez@forkandflame.example"
+email: "rohan.ramirez.emp-0003@forkandflame.example"
 works_at: "[[Store 01 - Austin Domain]]"
 in_department: "[[Kitchen (Department)]]"
 position: "[[Head Chef]]"
@@ -18,11 +21,14 @@ certifications:
   - "[[Allergen Awareness]]"
 skills:
   - "[[Saute Station]]"
-  - "[[Grill Station]]"
+  - "[[Knife Skills]]"
 basis: consent
 ---
 
 **Head Chef** at [[Store 01 - Austin Domain]] · Kitchen · since 2024-08-22.
+
+Status: **active** (active) as of 2026-05-04
+Rehire eligible: no
 
 ## Works at
 
@@ -45,7 +51,7 @@ basis: consent
 ## Skills
 
 - [[Saute Station]]
-- [[Grill Station]]
+- [[Knife Skills]]
 
 ## Lifecycle
 

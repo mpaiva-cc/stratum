@@ -5,8 +5,8 @@ name: Austin Domain
 region: "[[South Region]]"
 at_location: "[[Austin Domain (TX-01)]]"
 part_of: "[[South Region]]"
-opened: 2024-02-20
-seats: 180
+opened: 2025-01-25
+seats: 140
 headcount: 25
 basis: authorization
 general_manager: "[[EMP-0001 Mateo Thomas]]"

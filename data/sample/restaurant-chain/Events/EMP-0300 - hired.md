@@ -1,11 +1,11 @@
 ---
 type: employment_event
 id: EVT-0300
-person: "[[EMP-0300 Mia King]]"
+person: "[[EMP-0300 Layla Shah]]"
 kind: hire
-date: 2025-02-22
+date: 2021-09-10
 store: "[[Store 12 - Minneapolis Uptown]]"
 basis: consent
 ---
 
-[[EMP-0300 Mia King]] hired as Host at [[Store 12 - Minneapolis Uptown]] on 2025-02-22.
+[[EMP-0300 Layla Shah]] hired as Prep Cook at [[Store 12 - Minneapolis Uptown]] on 2021-09-10.

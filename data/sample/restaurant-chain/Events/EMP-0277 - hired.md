@@ -1,11 +1,11 @@
 ---
 type: employment_event
 id: EVT-0277
-person: "[[EMP-0277 Zayd Walker]]"
+person: "[[EMP-0277 Valentina Clark]]"
 kind: hire
-date: 2023-03-13
+date: 2025-07-28
 store: "[[Store 12 - Minneapolis Uptown]]"
 basis: consent
 ---
 
-[[EMP-0277 Zayd Walker]] hired as Assistant Manager at [[Store 12 - Minneapolis Uptown]] on 2023-03-13.
+[[EMP-0277 Valentina Clark]] hired as Assistant Manager at [[Store 12 - Minneapolis Uptown]] on 2025-07-28.

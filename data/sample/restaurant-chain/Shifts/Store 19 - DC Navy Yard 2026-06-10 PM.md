@@ -7,16 +7,19 @@ date: 2026-06-10
 daypart: PM
 start: "15:00"
 end: "23:30"
-crew_size: 7
+crew_size: 10
 basis: authorization
 crew:
-  - "[[EMP-0473 Bella Abara]]"
-  - "[[EMP-0461 Liam Thomas]]"
-  - "[[EMP-0472 Zayd Allen]]"
-  - "[[EMP-0470 Diego Jones]]"
-  - "[[EMP-0474 Victor Nguyen]]"
-  - "[[EMP-0458 Elena Johnson]]"
-  - "[[EMP-0465 Henry Nguyen]]"
+  - "[[EMP-0464 Omar Jones]]"
+  - "[[EMP-0454 Carlos Garcia]]"
+  - "[[EMP-0466 Evelyn Young]]"
+  - "[[EMP-0473 Victor Nguyen]]"
+  - "[[EMP-0467 Andres Perez]]"
+  - "[[EMP-0455 Jose Anderson]]"
+  - "[[EMP-0461 Arjun Bianchi]]"
+  - "[[EMP-0456 Fatima Lopez]]"
+  - "[[EMP-0462 Quinn Ahmed]]"
+  - "[[EMP-0475 Ximena Torres]]"
 ---
 
 PM shift at [[Store 19 - DC Navy Yard]] on 2026-06-10 (15:00-23:30).
@@ -27,10 +30,13 @@ PM shift at [[Store 19 - DC Navy Yard]] on 2026-06-10 (15:00-23:30).
 
 ## Crew
 
-- [[EMP-0473 Bella Abara]] (Busser)
-- [[EMP-0461 Liam Thomas]] (Bartender)
-- [[EMP-0472 Zayd Allen]] (Dishwasher)
-- [[EMP-0470 Diego Jones]] (Busser)
-- [[EMP-0474 Victor Nguyen]] (Dishwasher)
-- [[EMP-0458 Elena Johnson]] (Server)
-- [[EMP-0465 Henry Nguyen]] (Server)
+- [[EMP-0464 Omar Jones]] (Server)
+- [[EMP-0454 Carlos Garcia]] (Shift Lead)
+- [[EMP-0466 Evelyn Young]] (Bartender)
+- [[EMP-0473 Victor Nguyen]] (Dishwasher)
+- [[EMP-0467 Andres Perez]] (Line Cook)
+- [[EMP-0455 Jose Anderson]] (Shift Lead)
+- [[EMP-0461 Arjun Bianchi]] (Line Cook)
+- [[EMP-0456 Fatima Lopez]] (Line Cook)
+- [[EMP-0462 Quinn Ahmed]] (Line Cook)
+- [[EMP-0475 Ximena Torres]] (Dishwasher)

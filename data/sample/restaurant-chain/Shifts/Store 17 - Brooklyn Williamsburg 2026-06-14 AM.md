@@ -7,16 +7,17 @@ date: 2026-06-14
 daypart: AM
 start: "07:00"
 end: "15:30"
-crew_size: 7
+crew_size: 8
 basis: authorization
 crew:
-  - "[[EMP-0408 Hana Santos]]"
-  - "[[EMP-0411 Quinn Jones]]"
-  - "[[EMP-0410 Yuki Martinez]]"
-  - "[[EMP-0407 Henry Ahmed]]"
-  - "[[EMP-0424 Ella Wilson]]"
-  - "[[EMP-0425 Isabella Gonzalez]]"
-  - "[[EMP-0401 Nadia Ali]]"
+  - "[[EMP-0413 Aiden Allen]]"
+  - "[[EMP-0403 Diego Torres]]"
+  - "[[EMP-0402 Emily King]]"
+  - "[[EMP-0405 Henry Taylor]]"
+  - "[[EMP-0401 Jamal Perez]]"
+  - "[[EMP-0424 Emily Le]]"
+  - "[[EMP-0420 Keira Park]]"
+  - "[[EMP-0422 Sofia Miller]]"
 ---
 
 AM shift at [[Store 17 - Brooklyn Williamsburg]] on 2026-06-14 (07:00-15:30).
@@ -27,10 +28,11 @@ AM shift at [[Store 17 - Brooklyn Williamsburg]] on 2026-06-14 (07:00-15:30).
 
 ## Crew
 
-- [[EMP-0408 Hana Santos]] (Server)
-- [[EMP-0411 Quinn Jones]] (Server)
-- [[EMP-0410 Yuki Martinez]] (Line Cook)
-- [[EMP-0407 Henry Ahmed]] (Line Cook)
-- [[EMP-0424 Ella Wilson]] (Busser)
-- [[EMP-0425 Isabella Gonzalez]] (Prep Cook)
-- [[EMP-0401 Nadia Ali]] (General Manager)
+- [[EMP-0413 Aiden Allen]] (Line Cook)
+- [[EMP-0403 Diego Torres]] (Head Chef)
+- [[EMP-0402 Emily King]] (Assistant Manager)
+- [[EMP-0405 Henry Taylor]] (Shift Lead)
+- [[EMP-0401 Jamal Perez]] (General Manager)
+- [[EMP-0424 Emily Le]] (Dishwasher)
+- [[EMP-0420 Keira Park]] (Host)
+- [[EMP-0422 Sofia Miller]] (Busser)

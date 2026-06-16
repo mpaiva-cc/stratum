@@ -7,19 +7,17 @@ date: 2026-06-08
 daypart: PM
 start: "15:00"
 end: "23:30"
-crew_size: 10
+crew_size: 8
 basis: authorization
 crew:
-  - "[[EMP-0349 Aiden Anderson]]"
-  - "[[EMP-0329 Grace Garcia]]"
-  - "[[EMP-0347 Daniela Okafor]]"
-  - "[[EMP-0344 Carlos Wright]]"
-  - "[[EMP-0346 Uma Ramirez]]"
-  - "[[EMP-0335 Jamal Bianchi]]"
-  - "[[EMP-0326 Felix Allen]]"
-  - "[[EMP-0338 Noah Singh]]"
-  - "[[EMP-0331 Keira Martinez]]"
-  - "[[EMP-0336 Santiago Lopez]]"
+  - "[[EMP-0344 Jin Jackson]]"
+  - "[[EMP-0326 Henry Rodriguez]]"
+  - "[[EMP-0348 Valentina Chen]]"
+  - "[[EMP-0330 Connor Martinez]]"
+  - "[[EMP-0339 Paloma King]]"
+  - "[[EMP-0340 Caleb Young]]"
+  - "[[EMP-0341 Oscar Shah]]"
+  - "[[EMP-0328 Jaden Okafor]]"
 ---
 
 PM shift at [[Store 14 - Kansas City P&L]] on 2026-06-08 (15:00-23:30).
@@ -30,13 +28,11 @@ PM shift at [[Store 14 - Kansas City P&L]] on 2026-06-08 (15:00-23:30).
 
 ## Crew
 
-- [[EMP-0349 Aiden Anderson]] (Dishwasher)
-- [[EMP-0329 Grace Garcia]] (Shift Lead)
-- [[EMP-0347 Daniela Okafor]] (Dishwasher)
-- [[EMP-0344 Carlos Wright]] (Prep Cook)
-- [[EMP-0346 Uma Ramirez]] (Dishwasher)
-- [[EMP-0335 Jamal Bianchi]] (Line Cook)
-- [[EMP-0326 Felix Allen]] (General Manager)
-- [[EMP-0338 Noah Singh]] (Bartender)
-- [[EMP-0331 Keira Martinez]] (Line Cook)
-- [[EMP-0336 Santiago Lopez]] (Bartender)
+- [[EMP-0344 Jin Jackson]] (Prep Cook)
+- [[EMP-0326 Henry Rodriguez]] (General Manager)
+- [[EMP-0348 Valentina Chen]] (Busser)
+- [[EMP-0330 Connor Martinez]] (Shift Lead)
+- [[EMP-0339 Paloma King]] (Line Cook)
+- [[EMP-0340 Caleb Young]] (Line Cook)
+- [[EMP-0341 Oscar Shah]] (Server)
+- [[EMP-0328 Jaden Okafor]] (Head Chef)

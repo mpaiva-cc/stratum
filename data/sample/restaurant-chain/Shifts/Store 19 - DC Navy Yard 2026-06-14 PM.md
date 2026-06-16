@@ -7,18 +7,15 @@ date: 2026-06-14
 daypart: PM
 start: "15:00"
 end: "23:30"
-crew_size: 9
+crew_size: 6
 basis: authorization
 crew:
-  - "[[EMP-0471 Rohan Torres]]"
-  - "[[EMP-0453 Arjun Thomas]]"
-  - "[[EMP-0465 Henry Nguyen]]"
-  - "[[EMP-0457 Santiago Sanchez]]"
-  - "[[EMP-0473 Bella Abara]]"
-  - "[[EMP-0470 Diego Jones]]"
-  - "[[EMP-0464 Fatima Chen]]"
-  - "[[EMP-0460 Min Romano]]"
-  - "[[EMP-0467 Ximena Williams]]"
+  - "[[EMP-0466 Evelyn Young]]"
+  - "[[EMP-0474 Arjun Moore]]"
+  - "[[EMP-0451 Min Ramirez]]"
+  - "[[EMP-0465 Wei Romano]]"
+  - "[[EMP-0458 Imani Patel]]"
+  - "[[EMP-0461 Arjun Bianchi]]"
 ---
 
 PM shift at [[Store 19 - DC Navy Yard]] on 2026-06-14 (15:00-23:30).
@@ -29,12 +26,9 @@ PM shift at [[Store 19 - DC Navy Yard]] on 2026-06-14 (15:00-23:30).
 
 ## Crew
 
-- [[EMP-0471 Rohan Torres]] (Dishwasher)
-- [[EMP-0453 Arjun Thomas]] (Head Chef)
-- [[EMP-0465 Henry Nguyen]] (Server)
-- [[EMP-0457 Santiago Sanchez]] (Line Cook)
-- [[EMP-0473 Bella Abara]] (Busser)
-- [[EMP-0470 Diego Jones]] (Busser)
-- [[EMP-0464 Fatima Chen]] (Line Cook)
-- [[EMP-0460 Min Romano]] (Bartender)
-- [[EMP-0467 Ximena Williams]] (Busser)
+- [[EMP-0466 Evelyn Young]] (Bartender)
+- [[EMP-0474 Arjun Moore]] (Host)
+- [[EMP-0451 Min Ramirez]] (General Manager)
+- [[EMP-0465 Wei Romano]] (Line Cook)
+- [[EMP-0458 Imani Patel]] (Line Cook)
+- [[EMP-0461 Arjun Bianchi]] (Line Cook)

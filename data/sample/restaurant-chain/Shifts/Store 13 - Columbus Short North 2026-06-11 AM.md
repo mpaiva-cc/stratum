@@ -7,15 +7,16 @@ date: 2026-06-11
 daypart: AM
 start: "07:00"
 end: "15:30"
-crew_size: 6
+crew_size: 7
 basis: authorization
 crew:
-  - "[[EMP-0307 Aaron Wang]]"
-  - "[[EMP-0304 Fatima Allen]]"
-  - "[[EMP-0303 Quinn Wang]]"
-  - "[[EMP-0310 Hassan Tran]]"
-  - "[[EMP-0312 Abigail Singh]]"
-  - "[[EMP-0308 Arjun Khan]]"
+  - "[[EMP-0304 Grace Lewis]]"
+  - "[[EMP-0321 Rohan Ali]]"
+  - "[[EMP-0318 Ethan Garcia]]"
+  - "[[EMP-0325 Leo Harris]]"
+  - "[[EMP-0319 Grace Walker]]"
+  - "[[EMP-0320 Mason Johnson]]"
+  - "[[EMP-0301 Oscar Smith]]"
 ---
 
 AM shift at [[Store 13 - Columbus Short North]] on 2026-06-11 (07:00-15:30).
@@ -26,9 +27,10 @@ AM shift at [[Store 13 - Columbus Short North]] on 2026-06-11 (07:00-15:30).
 
 ## Crew
 
-- [[EMP-0307 Aaron Wang]] (Server)
-- [[EMP-0304 Fatima Allen]] (Shift Lead)
-- [[EMP-0303 Quinn Wang]] (Head Chef)
-- [[EMP-0310 Hassan Tran]] (Line Cook)
-- [[EMP-0312 Abigail Singh]] (Line Cook)
-- [[EMP-0308 Arjun Khan]] (Line Cook)
+- [[EMP-0304 Grace Lewis]] (Shift Lead)
+- [[EMP-0321 Rohan Ali]] (Server)
+- [[EMP-0318 Ethan Garcia]] (Line Cook)
+- [[EMP-0325 Leo Harris]] (Busser)
+- [[EMP-0319 Grace Walker]] (Server)
+- [[EMP-0320 Mason Johnson]] (Server)
+- [[EMP-0301 Oscar Smith]] (General Manager)

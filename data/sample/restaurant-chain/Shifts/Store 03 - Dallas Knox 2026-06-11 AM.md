@@ -7,18 +7,15 @@ date: 2026-06-11
 daypart: AM
 start: "07:00"
 end: "15:30"
-crew_size: 9
+crew_size: 6
 basis: authorization
 crew:
-  - "[[EMP-0056 Diego Wang]]"
-  - "[[EMP-0059 Victor Jackson]]"
-  - "[[EMP-0069 Bella Allen]]"
-  - "[[EMP-0062 Yara Taylor]]"
-  - "[[EMP-0063 Keira Garcia]]"
-  - "[[EMP-0066 Rohan Liu]]"
-  - "[[EMP-0061 Diego Jackson]]"
-  - "[[EMP-0058 Caleb Brown]]"
-  - "[[EMP-0068 Mason Taylor]]"
+  - "[[EMP-0068 Maria Walker]]"
+  - "[[EMP-0061 Amelia Wilson]]"
+  - "[[EMP-0055 Liam Khan]]"
+  - "[[EMP-0066 Jaden Martinez]]"
+  - "[[EMP-0069 Uma Rossi]]"
+  - "[[EMP-0059 Keira Williams]]"
 ---
 
 AM shift at [[Store 03 - Dallas Knox]] on 2026-06-11 (07:00-15:30).
@@ -29,12 +26,9 @@ AM shift at [[Store 03 - Dallas Knox]] on 2026-06-11 (07:00-15:30).
 
 ## Crew
 
-- [[EMP-0056 Diego Wang]] (Server)
-- [[EMP-0059 Victor Jackson]] (Server)
-- [[EMP-0069 Bella Allen]] (Busser)
-- [[EMP-0062 Yara Taylor]] (Line Cook)
-- [[EMP-0063 Keira Garcia]] (Server)
-- [[EMP-0066 Rohan Liu]] (Server)
-- [[EMP-0061 Diego Jackson]] (Expo)
-- [[EMP-0058 Caleb Brown]] (Line Cook)
-- [[EMP-0068 Mason Taylor]] (Server)
+- [[EMP-0068 Maria Walker]] (Busser)
+- [[EMP-0061 Amelia Wilson]] (Bartender)
+- [[EMP-0055 Liam Khan]] (Shift Lead)
+- [[EMP-0066 Jaden Martinez]] (Busser)
+- [[EMP-0069 Uma Rossi]] (Busser)
+- [[EMP-0059 Keira Williams]] (Bartender)

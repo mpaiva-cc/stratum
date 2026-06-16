@@ -1,11 +1,11 @@
 ---
 type: employment_event
 id: EVT-0033
-person: "[[EMP-0033 Jin Lopez]]"
+person: "[[EMP-0033 Ximena Torres]]"
 kind: hire
-date: 2024-10-20
+date: 2021-11-22
 store: "[[Store 02 - Houston Heights]]"
 basis: consent
 ---
 
-[[EMP-0033 Jin Lopez]] hired as Line Cook at [[Store 02 - Houston Heights]] on 2024-10-20.
+[[EMP-0033 Ximena Torres]] hired as Server at [[Store 02 - Houston Heights]] on 2021-11-22.

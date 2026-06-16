@@ -7,16 +7,17 @@ date: 2026-06-10
 daypart: AM
 start: "07:00"
 end: "15:30"
-crew_size: 7
+crew_size: 8
 basis: authorization
 crew:
-  - "[[EMP-0291 Imani Le]]"
-  - "[[EMP-0287 Paloma Silva]]"
-  - "[[EMP-0282 Layla Wilson]]"
-  - "[[EMP-0280 Tariq Patel]]"
-  - "[[EMP-0276 Destiny Bianchi]]"
-  - "[[EMP-0279 Daniela White]]"
-  - "[[EMP-0286 Ella Abara]]"
+  - "[[EMP-0291 Brianna Taylor]]"
+  - "[[EMP-0289 Yuki Walker]]"
+  - "[[EMP-0284 Imani Silva]]"
+  - "[[EMP-0295 Ines Davis]]"
+  - "[[EMP-0286 Oscar Bianchi]]"
+  - "[[EMP-0287 Samir Patel]]"
+  - "[[EMP-0278 Aaron Pham]]"
+  - "[[EMP-0279 Abigail Abara]]"
 ---
 
 AM shift at [[Store 12 - Minneapolis Uptown]] on 2026-06-10 (07:00-15:30).
@@ -27,10 +28,11 @@ AM shift at [[Store 12 - Minneapolis Uptown]] on 2026-06-10 (07:00-15:30).
 
 ## Crew
 
-- [[EMP-0291 Imani Le]] (Prep Cook)
-- [[EMP-0287 Paloma Silva]] (Bartender)
-- [[EMP-0282 Layla Wilson]] (Line Cook)
-- [[EMP-0280 Tariq Patel]] (Shift Lead)
-- [[EMP-0276 Destiny Bianchi]] (General Manager)
-- [[EMP-0279 Daniela White]] (Shift Lead)
-- [[EMP-0286 Ella Abara]] (Line Cook)
+- [[EMP-0291 Brianna Taylor]] (Line Cook)
+- [[EMP-0289 Yuki Walker]] (Line Cook)
+- [[EMP-0284 Imani Silva]] (Bartender)
+- [[EMP-0295 Ines Davis]] (Busser)
+- [[EMP-0286 Oscar Bianchi]] (Server)
+- [[EMP-0287 Samir Patel]] (Expo)
+- [[EMP-0278 Aaron Pham]] (Head Chef)
+- [[EMP-0279 Abigail Abara]] (Shift Lead)

@@ -10,15 +10,15 @@ end: "15:30"
 crew_size: 9
 basis: authorization
 crew:
-  - "[[EMP-0126 Valentina Wilson]]"
-  - "[[EMP-0145 Kayla Silva]]"
-  - "[[EMP-0134 Jin Santos]]"
-  - "[[EMP-0136 Sofia Moore]]"
-  - "[[EMP-0144 Gabriela Smith]]"
-  - "[[EMP-0131 Jamal Singh]]"
-  - "[[EMP-0150 Carlos White]]"
-  - "[[EMP-0138 Gabriela Smith]]"
-  - "[[EMP-0143 Rosa Rodriguez]]"
+  - "[[EMP-0132 Isabella Shah]]"
+  - "[[EMP-0128 Hana Williams]]"
+  - "[[EMP-0127 Abigail Scott]]"
+  - "[[EMP-0134 Yara Torres]]"
+  - "[[EMP-0137 Carlos Mensah]]"
+  - "[[EMP-0148 Liam Abara]]"
+  - "[[EMP-0144 Victor Pham]]"
+  - "[[EMP-0130 Hassan Kim]]"
+  - "[[EMP-0150 Grace Sanchez]]"
 ---
 
 AM shift at [[Store 06 - Denver LoDo]] on 2026-06-09 (07:00-15:30).
@@ -29,12 +29,12 @@ AM shift at [[Store 06 - Denver LoDo]] on 2026-06-09 (07:00-15:30).
 
 ## Crew
 
-- [[EMP-0126 Valentina Wilson]] (General Manager)
-- [[EMP-0145 Kayla Silva]] (Dishwasher)
-- [[EMP-0134 Jin Santos]] (Line Cook)
-- [[EMP-0136 Sofia Moore]] (Bartender)
-- [[EMP-0144 Gabriela Smith]] (Prep Cook)
-- [[EMP-0131 Jamal Singh]] (Server)
-- [[EMP-0150 Carlos White]] (Busser)
-- [[EMP-0138 Gabriela Smith]] (Server)
-- [[EMP-0143 Rosa Rodriguez]] (Busser)
+- [[EMP-0132 Isabella Shah]] (Server)
+- [[EMP-0128 Hana Williams]] (Head Chef)
+- [[EMP-0127 Abigail Scott]] (Assistant Manager)
+- [[EMP-0134 Yara Torres]] (Line Cook)
+- [[EMP-0137 Carlos Mensah]] (Server)
+- [[EMP-0148 Liam Abara]] (Host)
+- [[EMP-0144 Victor Pham]] (Busser)
+- [[EMP-0130 Hassan Kim]] (Shift Lead)
+- [[EMP-0150 Grace Sanchez]] (Host)

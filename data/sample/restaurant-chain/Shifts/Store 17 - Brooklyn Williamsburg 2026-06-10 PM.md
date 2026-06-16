@@ -7,15 +7,18 @@ date: 2026-06-10
 daypart: PM
 start: "15:00"
 end: "23:30"
-crew_size: 6
+crew_size: 9
 basis: authorization
 crew:
-  - "[[EMP-0401 Nadia Ali]]"
-  - "[[EMP-0411 Quinn Jones]]"
-  - "[[EMP-0413 Felix Allen]]"
-  - "[[EMP-0404 Camila King]]"
-  - "[[EMP-0408 Hana Santos]]"
-  - "[[EMP-0417 Valentina Jones]]"
+  - "[[EMP-0419 Santiago Wright]]"
+  - "[[EMP-0411 Valentina Smith]]"
+  - "[[EMP-0413 Aiden Allen]]"
+  - "[[EMP-0410 Wei Tran]]"
+  - "[[EMP-0402 Emily King]]"
+  - "[[EMP-0408 Elena Young]]"
+  - "[[EMP-0412 Leo Russo]]"
+  - "[[EMP-0422 Sofia Miller]]"
+  - "[[EMP-0409 Emily Sanchez]]"
 ---
 
 PM shift at [[Store 17 - Brooklyn Williamsburg]] on 2026-06-10 (15:00-23:30).
@@ -26,9 +29,12 @@ PM shift at [[Store 17 - Brooklyn Williamsburg]] on 2026-06-10 (15:00-23:30).
 
 ## Crew
 
-- [[EMP-0401 Nadia Ali]] (General Manager)
-- [[EMP-0411 Quinn Jones]] (Server)
-- [[EMP-0413 Felix Allen]] (Line Cook)
-- [[EMP-0404 Camila King]] (Shift Lead)
-- [[EMP-0408 Hana Santos]] (Server)
-- [[EMP-0417 Valentina Jones]] (Line Cook)
+- [[EMP-0419 Santiago Wright]] (Dishwasher)
+- [[EMP-0411 Valentina Smith]] (Line Cook)
+- [[EMP-0413 Aiden Allen]] (Line Cook)
+- [[EMP-0410 Wei Tran]] (Line Cook)
+- [[EMP-0402 Emily King]] (Assistant Manager)
+- [[EMP-0408 Elena Young]] (Server)
+- [[EMP-0412 Leo Russo]] (Bartender)
+- [[EMP-0422 Sofia Miller]] (Busser)
+- [[EMP-0409 Emily Sanchez]] (Expo)

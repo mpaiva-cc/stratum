@@ -7,17 +7,18 @@ date: 2026-06-13
 daypart: AM
 start: "07:00"
 end: "15:30"
-crew_size: 8
+crew_size: 9
 basis: authorization
 crew:
-  - "[[EMP-0046 Mason Patel]]"
-  - "[[EMP-0035 Ximena Diallo]]"
-  - "[[EMP-0048 Omar Walker]]"
-  - "[[EMP-0043 Andres Silva]]"
-  - "[[EMP-0047 Harper Costa]]"
-  - "[[EMP-0049 Arjun Moore]]"
-  - "[[EMP-0034 Elijah Diallo]]"
-  - "[[EMP-0030 Santiago Ramirez]]"
+  - "[[EMP-0050 Elijah Harris]]"
+  - "[[EMP-0039 Aiden Brown]]"
+  - "[[EMP-0048 Hana Nguyen]]"
+  - "[[EMP-0043 Liam Hernandez]]"
+  - "[[EMP-0028 Mia Gonzalez]]"
+  - "[[EMP-0049 Elena Harris]]"
+  - "[[EMP-0046 Arjun Young]]"
+  - "[[EMP-0037 Hassan Pham]]"
+  - "[[EMP-0047 Elena Chen]]"
 ---
 
 AM shift at [[Store 02 - Houston Heights]] on 2026-06-13 (07:00-15:30).
@@ -28,11 +29,12 @@ AM shift at [[Store 02 - Houston Heights]] on 2026-06-13 (07:00-15:30).
 
 ## Crew
 
-- [[EMP-0046 Mason Patel]] (Server)
-- [[EMP-0035 Ximena Diallo]] (Bartender)
-- [[EMP-0048 Omar Walker]] (Prep Cook)
-- [[EMP-0043 Andres Silva]] (Server)
-- [[EMP-0047 Harper Costa]] (Line Cook)
-- [[EMP-0049 Arjun Moore]] (Host)
-- [[EMP-0034 Elijah Diallo]] (Line Cook)
-- [[EMP-0030 Santiago Ramirez]] (Shift Lead)
+- [[EMP-0050 Elijah Harris]] (Busser)
+- [[EMP-0039 Aiden Brown]] (Expo)
+- [[EMP-0048 Hana Nguyen]] (Prep Cook)
+- [[EMP-0043 Liam Hernandez]] (Prep Cook)
+- [[EMP-0028 Mia Gonzalez]] (Head Chef)
+- [[EMP-0049 Elena Harris]] (Host)
+- [[EMP-0046 Arjun Young]] (Dishwasher)
+- [[EMP-0037 Hassan Pham]] (Server)
+- [[EMP-0047 Elena Chen]] (Prep Cook)

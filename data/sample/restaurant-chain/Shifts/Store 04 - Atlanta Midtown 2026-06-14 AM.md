@@ -7,16 +7,19 @@ date: 2026-06-14
 daypart: AM
 start: "07:00"
 end: "15:30"
-crew_size: 7
+crew_size: 10
 basis: authorization
 crew:
-  - "[[EMP-0077 Hassan Russo]]"
-  - "[[EMP-0080 Min Costa]]"
-  - "[[EMP-0088 Kayla Clark]]"
-  - "[[EMP-0097 Caleb Moore]]"
-  - "[[EMP-0092 Isabella Mensah]]"
-  - "[[EMP-0081 Paloma White]]"
-  - "[[EMP-0095 Felix Allen]]"
+  - "[[EMP-0099 Wanda King]]"
+  - "[[EMP-0079 Diego Anderson]]"
+  - "[[EMP-0097 Jin Jackson]]"
+  - "[[EMP-0094 Felix Khan]]"
+  - "[[EMP-0096 Harper Torres]]"
+  - "[[EMP-0085 Keira Mensah]]"
+  - "[[EMP-0076 Noah Wilson]]"
+  - "[[EMP-0088 Rosa Ali]]"
+  - "[[EMP-0081 Ella Smith]]"
+  - "[[EMP-0086 Paloma Singh]]"
 ---
 
 AM shift at [[Store 04 - Atlanta Midtown]] on 2026-06-14 (07:00-15:30).
@@ -27,10 +30,13 @@ AM shift at [[Store 04 - Atlanta Midtown]] on 2026-06-14 (07:00-15:30).
 
 ## Crew
 
-- [[EMP-0077 Hassan Russo]] (Assistant Manager)
-- [[EMP-0080 Min Costa]] (Shift Lead)
-- [[EMP-0088 Kayla Clark]] (Server)
-- [[EMP-0097 Caleb Moore]] (Expo)
-- [[EMP-0092 Isabella Mensah]] (Server)
-- [[EMP-0081 Paloma White]] (Server)
-- [[EMP-0095 Felix Allen]] (Server)
+- [[EMP-0099 Wanda King]] (Prep Cook)
+- [[EMP-0079 Diego Anderson]] (Shift Lead)
+- [[EMP-0097 Jin Jackson]] (Dishwasher)
+- [[EMP-0094 Felix Khan]] (Server)
+- [[EMP-0096 Harper Torres]] (Dishwasher)
+- [[EMP-0085 Keira Mensah]] (Expo)
+- [[EMP-0076 Noah Wilson]] (General Manager)
+- [[EMP-0088 Rosa Ali]] (Expo)
+- [[EMP-0081 Ella Smith]] (Server)
+- [[EMP-0086 Paloma Singh]] (Line Cook)

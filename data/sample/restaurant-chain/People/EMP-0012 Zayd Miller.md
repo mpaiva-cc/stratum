@@ -3,24 +3,31 @@ type: person
 id: EMP-0012
 name: Zayd Miller
 status: active
-employment_type: full_time
-hire_date: 2025-04-27
-email: "zayd.miller@forkandflame.example"
+status_reason: active
+status_effective_date: 2026-05-29
+rehire_eligible: false
+employment_type: part_time
+hire_date: 2026-04-10
+email: "zayd.miller.emp-0012@forkandflame.example"
 works_at: "[[Store 01 - Austin Domain]]"
 in_department: "[[Front of House (Department)]]"
 position: "[[Expo]]"
-pay_rate: 16.02
+pay_rate: 17.26
 pay_unit: hour
-reports_to: "[[EMP-0004 Jaden Abara]]"
+reports_to: "[[EMP-0005 Keira Perez]]"
 certifications:
   - "[[Food Handler]]"
 skills:
+  - "[[POS Proficiency]]"
   - "[[Opening & Closing]]"
   - "[[Guest Recovery]]"
 basis: consent
 ---
 
-**Expo** at [[Store 01 - Austin Domain]] · Front of House · since 2025-04-27.
+**Expo** at [[Store 01 - Austin Domain]] · Front of House · since 2026-04-10.
+
+Status: **active** (active) as of 2026-05-29
+Rehire eligible: no
 
 ## Works at
 
@@ -28,11 +35,11 @@ basis: consent
 
 ## Position
 
-- [[Expo]] — paid 16.02/hour
+- [[Expo]] — paid 17.26/hour
 
 ## Reports to
 
-- [[EMP-0004 Jaden Abara]]
+- [[EMP-0005 Keira Perez]]
 
 ## Certifications
 
@@ -40,9 +47,10 @@ basis: consent
 
 ## Skills
 
+- [[POS Proficiency]]
 - [[Opening & Closing]]
 - [[Guest Recovery]]
 
 ## Lifecycle
 
-- [[EMP-0012 - hired]] on 2025-04-27
+- [[EMP-0012 - hired]] on 2026-04-10

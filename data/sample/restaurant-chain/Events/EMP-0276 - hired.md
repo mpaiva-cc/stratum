@@ -1,11 +1,11 @@
 ---
 type: employment_event
 id: EVT-0276
-person: "[[EMP-0276 Destiny Bianchi]]"
+person: "[[EMP-0276 Brianna Hernandez]]"
 kind: hire
-date: 2025-08-24
+date: 2022-10-06
 store: "[[Store 12 - Minneapolis Uptown]]"
 basis: consent
 ---
 
-[[EMP-0276 Destiny Bianchi]] hired as General Manager at [[Store 12 - Minneapolis Uptown]] on 2025-08-24.
+[[EMP-0276 Brianna Hernandez]] hired as General Manager at [[Store 12 - Minneapolis Uptown]] on 2022-10-06.

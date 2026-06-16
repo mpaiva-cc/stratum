@@ -5,11 +5,11 @@ name: "Kansas City P&L"
 region: "[[Midwest Region]]"
 at_location: "[[Kansas City P&L (MO-14)]]"
 part_of: "[[Midwest Region]]"
-opened: 2020-01-21
-seats: 110
+opened: 2022-09-14
+seats: 180
 headcount: 25
 basis: authorization
-general_manager: "[[EMP-0326 Felix Allen]]"
+general_manager: "[[EMP-0326 Henry Rodriguez]]"
 ---
 
 Store in the [[Midwest Region]] · 25 staff.
@@ -28,28 +28,28 @@ Store in the [[Midwest Region]] · 25 staff.
 
 ## Roster (25)
 
-- [[EMP-0326 Felix Allen]] — General Manager
-- [[EMP-0327 Yara Jones]] — Assistant Manager
-- [[EMP-0328 Gabriela Abara]] — Head Chef
-- [[EMP-0329 Grace Garcia]] — Shift Lead
-- [[EMP-0330 Ava Abara]] — Shift Lead
-- [[EMP-0331 Keira Martinez]] — Line Cook
-- [[EMP-0332 Rosa Allen]] — Server
-- [[EMP-0333 Oscar Brown]] — Bartender
-- [[EMP-0334 Jin Abara]] — Server
-- [[EMP-0335 Jamal Bianchi]] — Line Cook
-- [[EMP-0336 Santiago Lopez]] — Bartender
-- [[EMP-0337 Jaden Abara]] — Line Cook
-- [[EMP-0338 Noah Singh]] — Bartender
-- [[EMP-0339 Diego Tran]] — Server
-- [[EMP-0340 Harper Russo]] — Server
-- [[EMP-0341 Ximena Rossi]] — Server
-- [[EMP-0342 Valentina Perez]] — Line Cook
-- [[EMP-0343 Connor Tran]] — Busser
-- [[EMP-0344 Carlos Wright]] — Prep Cook
-- [[EMP-0345 Aria Shah]] — Host
-- [[EMP-0346 Uma Ramirez]] — Dishwasher
-- [[EMP-0347 Daniela Okafor]] — Dishwasher
-- [[EMP-0348 Harper Wright]] — Busser
-- [[EMP-0349 Aiden Anderson]] — Dishwasher
-- [[EMP-0350 Connor Jackson]] — Dishwasher
+- [[EMP-0326 Henry Rodriguez]] — General Manager
+- [[EMP-0327 Yara Hernandez]] — Assistant Manager
+- [[EMP-0328 Jaden Okafor]] — Head Chef
+- [[EMP-0329 Arjun Allen]] — Shift Lead
+- [[EMP-0330 Connor Martinez]] — Shift Lead
+- [[EMP-0331 Jose Scott]] — Line Cook
+- [[EMP-0332 Amelia Nguyen]] — Server
+- [[EMP-0333 Zane Silva]] — Line Cook
+- [[EMP-0334 Aria Santos]] — Line Cook
+- [[EMP-0335 Mason Russo]] — Server
+- [[EMP-0336 Caleb Gonzalez]] — Server
+- [[EMP-0337 Leo Singh]] — Server
+- [[EMP-0338 Anaya Wilson]] — Server
+- [[EMP-0339 Paloma King]] — Line Cook
+- [[EMP-0340 Caleb Young]] — Line Cook
+- [[EMP-0341 Oscar Shah]] — Server
+- [[EMP-0342 Wanda Rodriguez]] — Bartender
+- [[EMP-0343 Wanda Harris]] — Expo
+- [[EMP-0344 Jin Jackson]] — Prep Cook
+- [[EMP-0345 Zayd Liu]] — Busser
+- [[EMP-0346 Yara Davis]] — Busser
+- [[EMP-0347 Ines Jones]] — Busser
+- [[EMP-0348 Valentina Chen]] — Busser
+- [[EMP-0349 Wei King]] — Busser
+- [[EMP-0350 Valentina Khan]] — Host

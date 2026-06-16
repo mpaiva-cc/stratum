@@ -1,11 +1,11 @@
 ---
 type: employment_event
 id: EVT-0222
-person: "[[EMP-0222 Paloma Santos]]"
+person: "[[EMP-0222 Oscar Smith]]"
 kind: hire
-date: 2021-07-03
+date: 2022-09-17
 store: "[[Store 09 - Portland Pearl]]"
 basis: consent
 ---
 
-[[EMP-0222 Paloma Santos]] hired as Host at [[Store 09 - Portland Pearl]] on 2021-07-03.
+[[EMP-0222 Oscar Smith]] hired as Prep Cook at [[Store 09 - Portland Pearl]] on 2022-09-17.

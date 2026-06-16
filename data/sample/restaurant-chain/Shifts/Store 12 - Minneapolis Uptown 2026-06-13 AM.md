@@ -7,17 +7,15 @@ date: 2026-06-13
 daypart: AM
 start: "07:00"
 end: "15:30"
-crew_size: 8
+crew_size: 6
 basis: authorization
 crew:
-  - "[[EMP-0285 Zayd Nguyen]]"
-  - "[[EMP-0298 Samir Patel]]"
-  - "[[EMP-0295 Aaron Santos]]"
-  - "[[EMP-0278 Samir Singh]]"
-  - "[[EMP-0281 Zane Wang]]"
-  - "[[EMP-0290 Jaden Jones]]"
-  - "[[EMP-0286 Ella Abara]]"
-  - "[[EMP-0287 Paloma Silva]]"
+  - "[[EMP-0282 Sofia Mensah]]"
+  - "[[EMP-0289 Yuki Walker]]"
+  - "[[EMP-0276 Brianna Hernandez]]"
+  - "[[EMP-0298 Nadia Nguyen]]"
+  - "[[EMP-0280 Imani Ali]]"
+  - "[[EMP-0295 Ines Davis]]"
 ---
 
 AM shift at [[Store 12 - Minneapolis Uptown]] on 2026-06-13 (07:00-15:30).
@@ -28,11 +26,9 @@ AM shift at [[Store 12 - Minneapolis Uptown]] on 2026-06-13 (07:00-15:30).
 
 ## Crew
 
-- [[EMP-0285 Zayd Nguyen]] (Line Cook)
-- [[EMP-0298 Samir Patel]] (Dishwasher)
-- [[EMP-0295 Aaron Santos]] (Prep Cook)
-- [[EMP-0278 Samir Singh]] (Head Chef)
-- [[EMP-0281 Zane Wang]] (Server)
-- [[EMP-0290 Jaden Jones]] (Line Cook)
-- [[EMP-0286 Ella Abara]] (Line Cook)
-- [[EMP-0287 Paloma Silva]] (Bartender)
+- [[EMP-0282 Sofia Mensah]] (Server)
+- [[EMP-0289 Yuki Walker]] (Line Cook)
+- [[EMP-0276 Brianna Hernandez]] (General Manager)
+- [[EMP-0298 Nadia Nguyen]] (Dishwasher)
+- [[EMP-0280 Imani Ali]] (Shift Lead)
+- [[EMP-0295 Ines Davis]] (Busser)

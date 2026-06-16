@@ -7,17 +7,18 @@ date: 2026-06-08
 daypart: PM
 start: "15:00"
 end: "23:30"
-crew_size: 8
+crew_size: 9
 basis: authorization
 crew:
-  - "[[EMP-0356 Maria Ahmed]]"
-  - "[[EMP-0374 Caleb Wright]]"
-  - "[[EMP-0360 Amelia Walker]]"
-  - "[[EMP-0364 Wei Davis]]"
-  - "[[EMP-0361 Paloma Tran]]"
-  - "[[EMP-0362 Jose Torres]]"
-  - "[[EMP-0353 Lucas Silva]]"
-  - "[[EMP-0352 Ximena Ahmed]]"
+  - "[[EMP-0369 Layla Harris]]"
+  - "[[EMP-0357 Daniela Moore]]"
+  - "[[EMP-0365 Zayd Torres]]"
+  - "[[EMP-0368 Yuki Ahmed]]"
+  - "[[EMP-0355 Ella Thomas]]"
+  - "[[EMP-0363 Abigail Okafor]]"
+  - "[[EMP-0354 Ines Williams]]"
+  - "[[EMP-0366 Uma Kim]]"
+  - "[[EMP-0364 Elijah Khan]]"
 ---
 
 PM shift at [[Store 15 - Detroit Corktown]] on 2026-06-08 (15:00-23:30).
@@ -28,11 +29,12 @@ PM shift at [[Store 15 - Detroit Corktown]] on 2026-06-08 (15:00-23:30).
 
 ## Crew
 
-- [[EMP-0356 Maria Ahmed]] (Bartender)
-- [[EMP-0374 Caleb Wright]] (Host)
-- [[EMP-0360 Amelia Walker]] (Line Cook)
-- [[EMP-0364 Wei Davis]] (Server)
-- [[EMP-0361 Paloma Tran]] (Line Cook)
-- [[EMP-0362 Jose Torres]] (Bartender)
-- [[EMP-0353 Lucas Silva]] (Head Chef)
-- [[EMP-0352 Ximena Ahmed]] (Assistant Manager)
+- [[EMP-0369 Layla Harris]] (Server)
+- [[EMP-0357 Daniela Moore]] (Line Cook)
+- [[EMP-0365 Zayd Torres]] (Bartender)
+- [[EMP-0368 Yuki Ahmed]] (Server)
+- [[EMP-0355 Ella Thomas]] (Shift Lead)
+- [[EMP-0363 Abigail Okafor]] (Line Cook)
+- [[EMP-0354 Ines Williams]] (Shift Lead)
+- [[EMP-0366 Uma Kim]] (Line Cook)
+- [[EMP-0364 Elijah Khan]] (Line Cook)

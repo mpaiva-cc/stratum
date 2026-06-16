@@ -7,19 +7,15 @@ date: 2026-06-11
 daypart: AM
 start: "07:00"
 end: "15:30"
-crew_size: 10
+crew_size: 6
 basis: authorization
 crew:
-  - "[[EMP-0500 Diego Martinez]]"
-  - "[[EMP-0480 Mason Williams]]"
-  - "[[EMP-0497 Lucas Ali]]"
-  - "[[EMP-0492 Mateo Anderson]]"
-  - "[[EMP-0489 Zane Clark]]"
-  - "[[EMP-0483 Uma Sanchez]]"
-  - "[[EMP-0476 Ines Santos]]"
-  - "[[EMP-0479 Santiago Okafor]]"
-  - "[[EMP-0481 Min Chen]]"
-  - "[[EMP-0488 Rosa Lopez]]"
+  - "[[EMP-0476 Quinn Chen]]"
+  - "[[EMP-0488 Victor Ahmed]]"
+  - "[[EMP-0499 Jose Tran]]"
+  - "[[EMP-0482 Arjun Lewis]]"
+  - "[[EMP-0479 Hassan Gonzalez]]"
+  - "[[EMP-0491 Bella Wang]]"
 ---
 
 AM shift at [[Store 20 - Pittsburgh Strip]] on 2026-06-11 (07:00-15:30).
@@ -30,13 +26,9 @@ AM shift at [[Store 20 - Pittsburgh Strip]] on 2026-06-11 (07:00-15:30).
 
 ## Crew
 
-- [[EMP-0500 Diego Martinez]] (Prep Cook)
-- [[EMP-0480 Mason Williams]] (Shift Lead)
-- [[EMP-0497 Lucas Ali]] (Prep Cook)
-- [[EMP-0492 Mateo Anderson]] (Dishwasher)
-- [[EMP-0489 Zane Clark]] (Server)
-- [[EMP-0483 Uma Sanchez]] (Server)
-- [[EMP-0476 Ines Santos]] (General Manager)
-- [[EMP-0479 Santiago Okafor]] (Shift Lead)
-- [[EMP-0481 Min Chen]] (Bartender)
-- [[EMP-0488 Rosa Lopez]] (Line Cook)
+- [[EMP-0476 Quinn Chen]] (General Manager)
+- [[EMP-0488 Victor Ahmed]] (Server)
+- [[EMP-0499 Jose Tran]] (Dishwasher)
+- [[EMP-0482 Arjun Lewis]] (Server)
+- [[EMP-0479 Hassan Gonzalez]] (Shift Lead)
+- [[EMP-0491 Bella Wang]] (Server)

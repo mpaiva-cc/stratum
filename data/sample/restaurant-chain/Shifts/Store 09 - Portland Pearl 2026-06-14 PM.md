@@ -7,17 +7,18 @@ date: 2026-06-14
 daypart: PM
 start: "15:00"
 end: "23:30"
-crew_size: 8
+crew_size: 9
 basis: authorization
 crew:
-  - "[[EMP-0217 Henry Harris]]"
-  - "[[EMP-0213 Hana Romano]]"
-  - "[[EMP-0201 Sofia Jackson]]"
-  - "[[EMP-0225 Camila Rossi]]"
-  - "[[EMP-0211 Samir Pham]]"
-  - "[[EMP-0218 Mateo Young]]"
-  - "[[EMP-0207 Ella Harris]]"
-  - "[[EMP-0224 Destiny White]]"
+  - "[[EMP-0204 Santiago Perez]]"
+  - "[[EMP-0216 Noah Ali]]"
+  - "[[EMP-0221 Wei Williams]]"
+  - "[[EMP-0224 Gabriela Khan]]"
+  - "[[EMP-0208 Victor Davis]]"
+  - "[[EMP-0207 Daniela Santos]]"
+  - "[[EMP-0202 Lucas Garcia]]"
+  - "[[EMP-0219 Liam Park]]"
+  - "[[EMP-0210 Evelyn Rossi]]"
 ---
 
 PM shift at [[Store 09 - Portland Pearl]] on 2026-06-14 (15:00-23:30).
@@ -28,11 +29,12 @@ PM shift at [[Store 09 - Portland Pearl]] on 2026-06-14 (15:00-23:30).
 
 ## Crew
 
-- [[EMP-0217 Henry Harris]] (Line Cook)
-- [[EMP-0213 Hana Romano]] (Server)
-- [[EMP-0201 Sofia Jackson]] (General Manager)
-- [[EMP-0225 Camila Rossi]] (Prep Cook)
-- [[EMP-0211 Samir Pham]] (Server)
-- [[EMP-0218 Mateo Young]] (Busser)
-- [[EMP-0207 Ella Harris]] (Line Cook)
-- [[EMP-0224 Destiny White]] (Prep Cook)
+- [[EMP-0204 Santiago Perez]] (Shift Lead)
+- [[EMP-0216 Noah Ali]] (Line Cook)
+- [[EMP-0221 Wei Williams]] (Prep Cook)
+- [[EMP-0224 Gabriela Khan]] (Busser)
+- [[EMP-0208 Victor Davis]] (Line Cook)
+- [[EMP-0207 Daniela Santos]] (Server)
+- [[EMP-0202 Lucas Garcia]] (Assistant Manager)
+- [[EMP-0219 Liam Park]] (Dishwasher)
+- [[EMP-0210 Evelyn Rossi]] (Server)

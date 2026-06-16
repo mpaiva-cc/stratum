@@ -7,16 +7,18 @@ date: 2026-06-14
 daypart: AM
 start: "07:00"
 end: "15:30"
-crew_size: 7
+crew_size: 9
 basis: authorization
 crew:
-  - "[[EMP-0279 Daniela White]]"
-  - "[[EMP-0296 Henry Wang]]"
-  - "[[EMP-0277 Zayd Walker]]"
-  - "[[EMP-0297 Mia Jones]]"
-  - "[[EMP-0295 Aaron Santos]]"
-  - "[[EMP-0288 Camila Santos]]"
-  - "[[EMP-0280 Tariq Patel]]"
+  - "[[EMP-0296 Abigail Wang]]"
+  - "[[EMP-0299 Elijah Johnson]]"
+  - "[[EMP-0280 Imani Ali]]"
+  - "[[EMP-0282 Sofia Mensah]]"
+  - "[[EMP-0285 Diego Sanchez]]"
+  - "[[EMP-0281 Caleb Mensah]]"
+  - "[[EMP-0295 Ines Davis]]"
+  - "[[EMP-0291 Brianna Taylor]]"
+  - "[[EMP-0294 Logan Davis]]"
 ---
 
 AM shift at [[Store 12 - Minneapolis Uptown]] on 2026-06-14 (07:00-15:30).
@@ -27,10 +29,12 @@ AM shift at [[Store 12 - Minneapolis Uptown]] on 2026-06-14 (07:00-15:30).
 
 ## Crew
 
-- [[EMP-0279 Daniela White]] (Shift Lead)
-- [[EMP-0296 Henry Wang]] (Busser)
-- [[EMP-0277 Zayd Walker]] (Assistant Manager)
-- [[EMP-0297 Mia Jones]] (Dishwasher)
-- [[EMP-0295 Aaron Santos]] (Prep Cook)
-- [[EMP-0288 Camila Santos]] (Server)
-- [[EMP-0280 Tariq Patel]] (Shift Lead)
+- [[EMP-0296 Abigail Wang]] (Prep Cook)
+- [[EMP-0299 Elijah Johnson]] (Host)
+- [[EMP-0280 Imani Ali]] (Shift Lead)
+- [[EMP-0282 Sofia Mensah]] (Server)
+- [[EMP-0285 Diego Sanchez]] (Line Cook)
+- [[EMP-0281 Caleb Mensah]] (Server)
+- [[EMP-0295 Ines Davis]] (Busser)
+- [[EMP-0291 Brianna Taylor]] (Line Cook)
+- [[EMP-0294 Logan Davis]] (Server)

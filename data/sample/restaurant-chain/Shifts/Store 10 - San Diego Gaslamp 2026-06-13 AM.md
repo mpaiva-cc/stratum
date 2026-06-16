@@ -10,15 +10,15 @@ end: "15:30"
 crew_size: 9
 basis: authorization
 crew:
-  - "[[EMP-0226 Jaden Walker]]"
-  - "[[EMP-0229 Quinn Russo]]"
-  - "[[EMP-0230 Emily Ali]]"
-  - "[[EMP-0240 Wanda Costa]]"
-  - "[[EMP-0247 Elijah Lewis]]"
-  - "[[EMP-0228 Rohan Young]]"
-  - "[[EMP-0236 Isabella Bianchi]]"
-  - "[[EMP-0235 Keira Jackson]]"
-  - "[[EMP-0246 Tariq Hernandez]]"
+  - "[[EMP-0246 Wanda Young]]"
+  - "[[EMP-0228 Paloma Wilson]]"
+  - "[[EMP-0240 Andres Anderson]]"
+  - "[[EMP-0232 Bella Thomas]]"
+  - "[[EMP-0248 Zayd Walker]]"
+  - "[[EMP-0245 Layla Lopez]]"
+  - "[[EMP-0239 Gabriela Walker]]"
+  - "[[EMP-0235 Bella Walker]]"
+  - "[[EMP-0242 Wei Abara]]"
 ---
 
 AM shift at [[Store 10 - San Diego Gaslamp]] on 2026-06-13 (07:00-15:30).
@@ -29,12 +29,12 @@ AM shift at [[Store 10 - San Diego Gaslamp]] on 2026-06-13 (07:00-15:30).
 
 ## Crew
 
-- [[EMP-0226 Jaden Walker]] (General Manager)
-- [[EMP-0229 Quinn Russo]] (Shift Lead)
-- [[EMP-0230 Emily Ali]] (Shift Lead)
-- [[EMP-0240 Wanda Costa]] (Line Cook)
-- [[EMP-0247 Elijah Lewis]] (Busser)
-- [[EMP-0228 Rohan Young]] (Head Chef)
-- [[EMP-0236 Isabella Bianchi]] (Server)
-- [[EMP-0235 Keira Jackson]] (Expo)
-- [[EMP-0246 Tariq Hernandez]] (Busser)
+- [[EMP-0246 Wanda Young]] (Busser)
+- [[EMP-0228 Paloma Wilson]] (Head Chef)
+- [[EMP-0240 Andres Anderson]] (Line Cook)
+- [[EMP-0232 Bella Thomas]] (Server)
+- [[EMP-0248 Zayd Walker]] (Dishwasher)
+- [[EMP-0245 Layla Lopez]] (Line Cook)
+- [[EMP-0239 Gabriela Walker]] (Bartender)
+- [[EMP-0235 Bella Walker]] (Bartender)
+- [[EMP-0242 Wei Abara]] (Expo)

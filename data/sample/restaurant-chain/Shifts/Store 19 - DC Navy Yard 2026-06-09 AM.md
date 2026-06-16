@@ -7,18 +7,16 @@ date: 2026-06-09
 daypart: AM
 start: "07:00"
 end: "15:30"
-crew_size: 9
+crew_size: 7
 basis: authorization
 crew:
-  - "[[EMP-0454 Isabella Abara]]"
-  - "[[EMP-0466 Diego Smith]]"
-  - "[[EMP-0471 Rohan Torres]]"
-  - "[[EMP-0474 Victor Nguyen]]"
-  - "[[EMP-0458 Elena Johnson]]"
-  - "[[EMP-0457 Santiago Sanchez]]"
-  - "[[EMP-0452 Nadia Costa]]"
-  - "[[EMP-0469 Oscar Abara]]"
-  - "[[EMP-0460 Min Romano]]"
+  - "[[EMP-0452 Camila Anderson]]"
+  - "[[EMP-0472 Liam Mensah]]"
+  - "[[EMP-0457 Lucas Moore]]"
+  - "[[EMP-0458 Imani Patel]]"
+  - "[[EMP-0461 Arjun Bianchi]]"
+  - "[[EMP-0454 Carlos Garcia]]"
+  - "[[EMP-0475 Ximena Torres]]"
 ---
 
 AM shift at [[Store 19 - DC Navy Yard]] on 2026-06-09 (07:00-15:30).
@@ -29,12 +27,10 @@ AM shift at [[Store 19 - DC Navy Yard]] on 2026-06-09 (07:00-15:30).
 
 ## Crew
 
-- [[EMP-0454 Isabella Abara]] (Shift Lead)
-- [[EMP-0466 Diego Smith]] (Busser)
-- [[EMP-0471 Rohan Torres]] (Dishwasher)
-- [[EMP-0474 Victor Nguyen]] (Dishwasher)
-- [[EMP-0458 Elena Johnson]] (Server)
-- [[EMP-0457 Santiago Sanchez]] (Line Cook)
-- [[EMP-0452 Nadia Costa]] (Assistant Manager)
-- [[EMP-0469 Oscar Abara]] (Busser)
-- [[EMP-0460 Min Romano]] (Bartender)
+- [[EMP-0452 Camila Anderson]] (Assistant Manager)
+- [[EMP-0472 Liam Mensah]] (Busser)
+- [[EMP-0457 Lucas Moore]] (Bartender)
+- [[EMP-0458 Imani Patel]] (Line Cook)
+- [[EMP-0461 Arjun Bianchi]] (Line Cook)
+- [[EMP-0454 Carlos Garcia]] (Shift Lead)
+- [[EMP-0475 Ximena Torres]] (Dishwasher)

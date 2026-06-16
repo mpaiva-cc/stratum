@@ -10,14 +10,14 @@ end: "15:30"
 crew_size: 8
 basis: authorization
 crew:
-  - "[[EMP-0186 Anaya Bianchi]]"
-  - "[[EMP-0182 Liam Liu]]"
-  - "[[EMP-0176 Imani Shah]]"
-  - "[[EMP-0196 Omar Gonzalez]]"
-  - "[[EMP-0197 Wanda Taylor]]"
-  - "[[EMP-0184 Jaden Shah]]"
-  - "[[EMP-0191 Fatima Jones]]"
-  - "[[EMP-0178 Maria Romano]]"
+  - "[[EMP-0197 Mateo Lewis]]"
+  - "[[EMP-0183 Nadia Chen]]"
+  - "[[EMP-0181 Tariq Jackson]]"
+  - "[[EMP-0194 Layla Johnson]]"
+  - "[[EMP-0184 Jose Gonzalez]]"
+  - "[[EMP-0199 Logan Wright]]"
+  - "[[EMP-0195 Elijah Johnson]]"
+  - "[[EMP-0177 Elijah Wang]]"
 ---
 
 AM shift at [[Store 08 - Seattle Ballard]] on 2026-06-11 (07:00-15:30).
@@ -28,11 +28,11 @@ AM shift at [[Store 08 - Seattle Ballard]] on 2026-06-11 (07:00-15:30).
 
 ## Crew
 
-- [[EMP-0186 Anaya Bianchi]] (Line Cook)
-- [[EMP-0182 Liam Liu]] (Server)
-- [[EMP-0176 Imani Shah]] (General Manager)
-- [[EMP-0196 Omar Gonzalez]] (Busser)
-- [[EMP-0197 Wanda Taylor]] (Host)
-- [[EMP-0184 Jaden Shah]] (Line Cook)
-- [[EMP-0191 Fatima Jones]] (Server)
-- [[EMP-0178 Maria Romano]] (Head Chef)
+- [[EMP-0197 Mateo Lewis]] (Busser)
+- [[EMP-0183 Nadia Chen]] (Server)
+- [[EMP-0181 Tariq Jackson]] (Line Cook)
+- [[EMP-0194 Layla Johnson]] (Host)
+- [[EMP-0184 Jose Gonzalez]] (Line Cook)
+- [[EMP-0199 Logan Wright]] (Host)
+- [[EMP-0195 Elijah Johnson]] (Prep Cook)
+- [[EMP-0177 Elijah Wang]] (Assistant Manager)

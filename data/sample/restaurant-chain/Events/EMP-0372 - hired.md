@@ -1,11 +1,11 @@
 ---
 type: employment_event
 id: EVT-0372
-person: "[[EMP-0372 Santiago Kim]]"
+person: "[[EMP-0372 Felix Wright]]"
 kind: hire
-date: 2022-06-02
+date: 2026-05-08
 store: "[[Store 15 - Detroit Corktown]]"
 basis: consent
 ---
 
-[[EMP-0372 Santiago Kim]] hired as Prep Cook at [[Store 15 - Detroit Corktown]] on 2022-06-02.
+[[EMP-0372 Felix Wright]] hired as Dishwasher at [[Store 15 - Detroit Corktown]] on 2026-05-08.

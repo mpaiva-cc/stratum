@@ -10,13 +10,13 @@ end: "15:30"
 crew_size: 7
 basis: authorization
 crew:
-  - "[[EMP-0244 Gabriela Clark]]"
-  - "[[EMP-0248 Rosa Tran]]"
-  - "[[EMP-0250 Diego Torres]]"
-  - "[[EMP-0233 Elijah Abara]]"
-  - "[[EMP-0227 Isabella Jackson]]"
-  - "[[EMP-0235 Keira Jackson]]"
-  - "[[EMP-0226 Jaden Walker]]"
+  - "[[EMP-0248 Zayd Walker]]"
+  - "[[EMP-0236 Mateo Liu]]"
+  - "[[EMP-0247 Destiny Bianchi]]"
+  - "[[EMP-0245 Layla Lopez]]"
+  - "[[EMP-0249 Samir Singh]]"
+  - "[[EMP-0233 Paloma Wright]]"
+  - "[[EMP-0240 Andres Anderson]]"
 ---
 
 AM shift at [[Store 10 - San Diego Gaslamp]] on 2026-06-09 (07:00-15:30).
@@ -27,10 +27,10 @@ AM shift at [[Store 10 - San Diego Gaslamp]] on 2026-06-09 (07:00-15:30).
 
 ## Crew
 
-- [[EMP-0244 Gabriela Clark]] (Prep Cook)
-- [[EMP-0248 Rosa Tran]] (Dishwasher)
-- [[EMP-0250 Diego Torres]] (Dishwasher)
-- [[EMP-0233 Elijah Abara]] (Line Cook)
-- [[EMP-0227 Isabella Jackson]] (Assistant Manager)
-- [[EMP-0235 Keira Jackson]] (Expo)
-- [[EMP-0226 Jaden Walker]] (General Manager)
+- [[EMP-0248 Zayd Walker]] (Dishwasher)
+- [[EMP-0236 Mateo Liu]] (Server)
+- [[EMP-0247 Destiny Bianchi]] (Busser)
+- [[EMP-0245 Layla Lopez]] (Line Cook)
+- [[EMP-0249 Samir Singh]] (Busser)
+- [[EMP-0233 Paloma Wright]] (Server)
+- [[EMP-0240 Andres Anderson]] (Line Cook)

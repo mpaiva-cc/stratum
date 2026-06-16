@@ -7,19 +7,15 @@ date: 2026-06-10
 daypart: PM
 start: "15:00"
 end: "23:30"
-crew_size: 10
+crew_size: 6
 basis: authorization
 crew:
-  - "[[EMP-0105 Destiny White]]"
-  - "[[EMP-0111 Zayd Rossi]]"
-  - "[[EMP-0102 Connor Moore]]"
-  - "[[EMP-0103 Aaron Wright]]"
-  - "[[EMP-0121 Aiden King]]"
-  - "[[EMP-0114 Mia Scott]]"
-  - "[[EMP-0118 Evelyn Ali]]"
-  - "[[EMP-0115 Elijah Tran]]"
-  - "[[EMP-0101 Kayla Lopez]]"
-  - "[[EMP-0112 Rosa Garcia]]"
+  - "[[EMP-0101 Sofia Costa]]"
+  - "[[EMP-0111 Destiny Costa]]"
+  - "[[EMP-0121 Jamal Singh]]"
+  - "[[EMP-0124 Jin Santos]]"
+  - "[[EMP-0114 Brianna Perez]]"
+  - "[[EMP-0106 Wanda Wilson]]"
 ---
 
 PM shift at [[Store 05 - Nashville Gulch]] on 2026-06-10 (15:00-23:30).
@@ -30,13 +26,9 @@ PM shift at [[Store 05 - Nashville Gulch]] on 2026-06-10 (15:00-23:30).
 
 ## Crew
 
-- [[EMP-0105 Destiny White]] (Shift Lead)
-- [[EMP-0111 Zayd Rossi]] (Line Cook)
-- [[EMP-0102 Connor Moore]] (Assistant Manager)
-- [[EMP-0103 Aaron Wright]] (Head Chef)
-- [[EMP-0121 Aiden King]] (Prep Cook)
-- [[EMP-0114 Mia Scott]] (Bartender)
-- [[EMP-0118 Evelyn Ali]] (Bartender)
-- [[EMP-0115 Elijah Tran]] (Server)
-- [[EMP-0101 Kayla Lopez]] (General Manager)
-- [[EMP-0112 Rosa Garcia]] (Server)
+- [[EMP-0101 Sofia Costa]] (General Manager)
+- [[EMP-0111 Destiny Costa]] (Expo)
+- [[EMP-0121 Jamal Singh]] (Busser)
+- [[EMP-0124 Jin Santos]] (Host)
+- [[EMP-0114 Brianna Perez]] (Line Cook)
+- [[EMP-0106 Wanda Wilson]] (Bartender)

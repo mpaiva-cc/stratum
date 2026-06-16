@@ -7,19 +7,16 @@ date: 2026-06-11
 daypart: AM
 start: "07:00"
 end: "15:30"
-crew_size: 10
+crew_size: 7
 basis: authorization
 crew:
-  - "[[EMP-0368 Noah Anderson]]"
-  - "[[EMP-0361 Paloma Tran]]"
-  - "[[EMP-0373 Carlos Lewis]]"
-  - "[[EMP-0374 Caleb Wright]]"
-  - "[[EMP-0358 Destiny Jackson]]"
-  - "[[EMP-0375 Oscar Torres]]"
-  - "[[EMP-0363 Maria Wright]]"
-  - "[[EMP-0367 Elijah Brown]]"
-  - "[[EMP-0360 Amelia Walker]]"
-  - "[[EMP-0353 Lucas Silva]]"
+  - "[[EMP-0356 Sofia Moore]]"
+  - "[[EMP-0353 Gabriela Tran]]"
+  - "[[EMP-0369 Layla Harris]]"
+  - "[[EMP-0361 Jamal Rossi]]"
+  - "[[EMP-0368 Yuki Ahmed]]"
+  - "[[EMP-0373 Wanda Wang]]"
+  - "[[EMP-0355 Ella Thomas]]"
 ---
 
 AM shift at [[Store 15 - Detroit Corktown]] on 2026-06-11 (07:00-15:30).
@@ -30,13 +27,10 @@ AM shift at [[Store 15 - Detroit Corktown]] on 2026-06-11 (07:00-15:30).
 
 ## Crew
 
-- [[EMP-0368 Noah Anderson]] (Line Cook)
-- [[EMP-0361 Paloma Tran]] (Line Cook)
-- [[EMP-0373 Carlos Lewis]] (Busser)
-- [[EMP-0374 Caleb Wright]] (Host)
-- [[EMP-0358 Destiny Jackson]] (Server)
-- [[EMP-0375 Oscar Torres]] (Busser)
-- [[EMP-0363 Maria Wright]] (Expo)
-- [[EMP-0367 Elijah Brown]] (Line Cook)
-- [[EMP-0360 Amelia Walker]] (Line Cook)
-- [[EMP-0353 Lucas Silva]] (Head Chef)
+- [[EMP-0356 Sofia Moore]] (Server)
+- [[EMP-0353 Gabriela Tran]] (Head Chef)
+- [[EMP-0369 Layla Harris]] (Server)
+- [[EMP-0361 Jamal Rossi]] (Line Cook)
+- [[EMP-0368 Yuki Ahmed]] (Server)
+- [[EMP-0373 Wanda Wang]] (Busser)
+- [[EMP-0355 Ella Thomas]] (Shift Lead)

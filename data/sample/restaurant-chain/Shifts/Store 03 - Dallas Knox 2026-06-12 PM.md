@@ -7,17 +7,16 @@ date: 2026-06-12
 daypart: PM
 start: "15:00"
 end: "23:30"
-crew_size: 8
+crew_size: 7
 basis: authorization
 crew:
-  - "[[EMP-0053 Noah Miller]]"
-  - "[[EMP-0065 Ella Liu]]"
-  - "[[EMP-0070 Priya Bianchi]]"
-  - "[[EMP-0062 Yara Taylor]]"
-  - "[[EMP-0075 Connor Perez]]"
-  - "[[EMP-0069 Bella Allen]]"
-  - "[[EMP-0060 Destiny Russo]]"
-  - "[[EMP-0066 Rohan Liu]]"
+  - "[[EMP-0054 Nadia Costa]]"
+  - "[[EMP-0071 Destiny Anderson]]"
+  - "[[EMP-0052 Layla Costa]]"
+  - "[[EMP-0072 Nadia Romano]]"
+  - "[[EMP-0070 Amelia Davis]]"
+  - "[[EMP-0063 Elena Thomas]]"
+  - "[[EMP-0055 Liam Khan]]"
 ---
 
 PM shift at [[Store 03 - Dallas Knox]] on 2026-06-12 (15:00-23:30).
@@ -28,11 +27,10 @@ PM shift at [[Store 03 - Dallas Knox]] on 2026-06-12 (15:00-23:30).
 
 ## Crew
 
-- [[EMP-0053 Noah Miller]] (Head Chef)
-- [[EMP-0065 Ella Liu]] (Server)
-- [[EMP-0070 Priya Bianchi]] (Busser)
-- [[EMP-0062 Yara Taylor]] (Line Cook)
-- [[EMP-0075 Connor Perez]] (Busser)
-- [[EMP-0069 Bella Allen]] (Busser)
-- [[EMP-0060 Destiny Russo]] (Line Cook)
-- [[EMP-0066 Rohan Liu]] (Server)
+- [[EMP-0054 Nadia Costa]] (Shift Lead)
+- [[EMP-0071 Destiny Anderson]] (Prep Cook)
+- [[EMP-0052 Layla Costa]] (Assistant Manager)
+- [[EMP-0072 Nadia Romano]] (Prep Cook)
+- [[EMP-0070 Amelia Davis]] (Dishwasher)
+- [[EMP-0063 Elena Thomas]] (Server)
+- [[EMP-0055 Liam Khan]] (Shift Lead)

@@ -7,19 +7,16 @@ date: 2026-06-11
 daypart: PM
 start: "15:00"
 end: "23:30"
-crew_size: 10
+crew_size: 7
 basis: authorization
 crew:
-  - "[[EMP-0327 Yara Jones]]"
-  - "[[EMP-0331 Keira Martinez]]"
-  - "[[EMP-0344 Carlos Wright]]"
-  - "[[EMP-0350 Connor Jackson]]"
-  - "[[EMP-0330 Ava Abara]]"
-  - "[[EMP-0333 Oscar Brown]]"
-  - "[[EMP-0345 Aria Shah]]"
-  - "[[EMP-0337 Jaden Abara]]"
-  - "[[EMP-0326 Felix Allen]]"
-  - "[[EMP-0340 Harper Russo]]"
+  - "[[EMP-0349 Wei King]]"
+  - "[[EMP-0340 Caleb Young]]"
+  - "[[EMP-0344 Jin Jackson]]"
+  - "[[EMP-0337 Leo Singh]]"
+  - "[[EMP-0333 Zane Silva]]"
+  - "[[EMP-0346 Yara Davis]]"
+  - "[[EMP-0327 Yara Hernandez]]"
 ---
 
 PM shift at [[Store 14 - Kansas City P&L]] on 2026-06-11 (15:00-23:30).
@@ -30,13 +27,10 @@ PM shift at [[Store 14 - Kansas City P&L]] on 2026-06-11 (15:00-23:30).
 
 ## Crew
 
-- [[EMP-0327 Yara Jones]] (Assistant Manager)
-- [[EMP-0331 Keira Martinez]] (Line Cook)
-- [[EMP-0344 Carlos Wright]] (Prep Cook)
-- [[EMP-0350 Connor Jackson]] (Dishwasher)
-- [[EMP-0330 Ava Abara]] (Shift Lead)
-- [[EMP-0333 Oscar Brown]] (Bartender)
-- [[EMP-0345 Aria Shah]] (Host)
-- [[EMP-0337 Jaden Abara]] (Line Cook)
-- [[EMP-0326 Felix Allen]] (General Manager)
-- [[EMP-0340 Harper Russo]] (Server)
+- [[EMP-0349 Wei King]] (Busser)
+- [[EMP-0340 Caleb Young]] (Line Cook)
+- [[EMP-0344 Jin Jackson]] (Prep Cook)
+- [[EMP-0337 Leo Singh]] (Server)
+- [[EMP-0333 Zane Silva]] (Line Cook)
+- [[EMP-0346 Yara Davis]] (Busser)
+- [[EMP-0327 Yara Hernandez]] (Assistant Manager)

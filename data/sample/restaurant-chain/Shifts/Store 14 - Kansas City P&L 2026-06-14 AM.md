@@ -7,18 +7,19 @@ date: 2026-06-14
 daypart: AM
 start: "07:00"
 end: "15:30"
-crew_size: 9
+crew_size: 10
 basis: authorization
 crew:
-  - "[[EMP-0334 Jin Abara]]"
-  - "[[EMP-0328 Gabriela Abara]]"
-  - "[[EMP-0342 Valentina Perez]]"
-  - "[[EMP-0336 Santiago Lopez]]"
-  - "[[EMP-0348 Harper Wright]]"
-  - "[[EMP-0343 Connor Tran]]"
-  - "[[EMP-0345 Aria Shah]]"
-  - "[[EMP-0332 Rosa Allen]]"
-  - "[[EMP-0326 Felix Allen]]"
+  - "[[EMP-0346 Yara Davis]]"
+  - "[[EMP-0339 Paloma King]]"
+  - "[[EMP-0349 Wei King]]"
+  - "[[EMP-0330 Connor Martinez]]"
+  - "[[EMP-0347 Ines Jones]]"
+  - "[[EMP-0348 Valentina Chen]]"
+  - "[[EMP-0350 Valentina Khan]]"
+  - "[[EMP-0344 Jin Jackson]]"
+  - "[[EMP-0338 Anaya Wilson]]"
+  - "[[EMP-0332 Amelia Nguyen]]"
 ---
 
 AM shift at [[Store 14 - Kansas City P&L]] on 2026-06-14 (07:00-15:30).
@@ -29,12 +30,13 @@ AM shift at [[Store 14 - Kansas City P&L]] on 2026-06-14 (07:00-15:30).
 
 ## Crew
 
-- [[EMP-0334 Jin Abara]] (Server)
-- [[EMP-0328 Gabriela Abara]] (Head Chef)
-- [[EMP-0342 Valentina Perez]] (Line Cook)
-- [[EMP-0336 Santiago Lopez]] (Bartender)
-- [[EMP-0348 Harper Wright]] (Busser)
-- [[EMP-0343 Connor Tran]] (Busser)
-- [[EMP-0345 Aria Shah]] (Host)
-- [[EMP-0332 Rosa Allen]] (Server)
-- [[EMP-0326 Felix Allen]] (General Manager)
+- [[EMP-0346 Yara Davis]] (Busser)
+- [[EMP-0339 Paloma King]] (Line Cook)
+- [[EMP-0349 Wei King]] (Busser)
+- [[EMP-0330 Connor Martinez]] (Shift Lead)
+- [[EMP-0347 Ines Jones]] (Busser)
+- [[EMP-0348 Valentina Chen]] (Busser)
+- [[EMP-0350 Valentina Khan]] (Host)
+- [[EMP-0344 Jin Jackson]] (Prep Cook)
+- [[EMP-0338 Anaya Wilson]] (Server)
+- [[EMP-0332 Amelia Nguyen]] (Server)

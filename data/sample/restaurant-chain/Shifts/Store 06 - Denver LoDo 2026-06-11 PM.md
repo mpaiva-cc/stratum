@@ -7,19 +7,15 @@ date: 2026-06-11
 daypart: PM
 start: "15:00"
 end: "23:30"
-crew_size: 10
+crew_size: 6
 basis: authorization
 crew:
-  - "[[EMP-0132 Felix Johnson]]"
-  - "[[EMP-0136 Sofia Moore]]"
-  - "[[EMP-0150 Carlos White]]"
-  - "[[EMP-0134 Jin Santos]]"
-  - "[[EMP-0130 Zane Liu]]"
-  - "[[EMP-0129 Yuki Smith]]"
-  - "[[EMP-0131 Jamal Singh]]"
-  - "[[EMP-0143 Rosa Rodriguez]]"
-  - "[[EMP-0142 Omar Chen]]"
-  - "[[EMP-0144 Gabriela Smith]]"
+  - "[[EMP-0126 Yara Silva]]"
+  - "[[EMP-0137 Carlos Mensah]]"
+  - "[[EMP-0133 Quinn Garcia]]"
+  - "[[EMP-0136 Andres White]]"
+  - "[[EMP-0142 Mason Brown]]"
+  - "[[EMP-0135 Aaron Silva]]"
 ---
 
 PM shift at [[Store 06 - Denver LoDo]] on 2026-06-11 (15:00-23:30).
@@ -30,13 +26,9 @@ PM shift at [[Store 06 - Denver LoDo]] on 2026-06-11 (15:00-23:30).
 
 ## Crew
 
-- [[EMP-0132 Felix Johnson]] (Server)
-- [[EMP-0136 Sofia Moore]] (Bartender)
-- [[EMP-0150 Carlos White]] (Busser)
-- [[EMP-0134 Jin Santos]] (Line Cook)
-- [[EMP-0130 Zane Liu]] (Shift Lead)
-- [[EMP-0129 Yuki Smith]] (Shift Lead)
-- [[EMP-0131 Jamal Singh]] (Server)
-- [[EMP-0143 Rosa Rodriguez]] (Busser)
-- [[EMP-0142 Omar Chen]] (Host)
-- [[EMP-0144 Gabriela Smith]] (Prep Cook)
+- [[EMP-0126 Yara Silva]] (General Manager)
+- [[EMP-0137 Carlos Mensah]] (Server)
+- [[EMP-0133 Quinn Garcia]] (Line Cook)
+- [[EMP-0136 Andres White]] (Line Cook)
+- [[EMP-0142 Mason Brown]] (Dishwasher)
+- [[EMP-0135 Aaron Silva]] (Server)

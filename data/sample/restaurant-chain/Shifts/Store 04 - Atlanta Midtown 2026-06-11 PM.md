@@ -7,19 +7,18 @@ date: 2026-06-11
 daypart: PM
 start: "15:00"
 end: "23:30"
-crew_size: 10
+crew_size: 9
 basis: authorization
 crew:
-  - "[[EMP-0081 Paloma White]]"
-  - "[[EMP-0087 Zayd Harris]]"
-  - "[[EMP-0078 Wei Moore]]"
-  - "[[EMP-0091 Mason Diallo]]"
-  - "[[EMP-0089 Zayd King]]"
-  - "[[EMP-0079 Mia Lopez]]"
-  - "[[EMP-0093 Henry Gonzalez]]"
-  - "[[EMP-0082 Bella Shah]]"
-  - "[[EMP-0080 Min Costa]]"
-  - "[[EMP-0097 Caleb Moore]]"
+  - "[[EMP-0092 Abigail Johnson]]"
+  - "[[EMP-0085 Keira Mensah]]"
+  - "[[EMP-0088 Rosa Ali]]"
+  - "[[EMP-0076 Noah Wilson]]"
+  - "[[EMP-0093 Caleb Lewis]]"
+  - "[[EMP-0078 Valentina Clark]]"
+  - "[[EMP-0094 Felix Khan]]"
+  - "[[EMP-0086 Paloma Singh]]"
+  - "[[EMP-0077 Omar Ramirez]]"
 ---
 
 PM shift at [[Store 04 - Atlanta Midtown]] on 2026-06-11 (15:00-23:30).
@@ -30,13 +29,12 @@ PM shift at [[Store 04 - Atlanta Midtown]] on 2026-06-11 (15:00-23:30).
 
 ## Crew
 
-- [[EMP-0081 Paloma White]] (Server)
-- [[EMP-0087 Zayd Harris]] (Line Cook)
-- [[EMP-0078 Wei Moore]] (Head Chef)
-- [[EMP-0091 Mason Diallo]] (Server)
-- [[EMP-0089 Zayd King]] (Server)
-- [[EMP-0079 Mia Lopez]] (Shift Lead)
-- [[EMP-0093 Henry Gonzalez]] (Server)
-- [[EMP-0082 Bella Shah]] (Server)
-- [[EMP-0080 Min Costa]] (Shift Lead)
-- [[EMP-0097 Caleb Moore]] (Expo)
+- [[EMP-0092 Abigail Johnson]] (Bartender)
+- [[EMP-0085 Keira Mensah]] (Expo)
+- [[EMP-0088 Rosa Ali]] (Expo)
+- [[EMP-0076 Noah Wilson]] (General Manager)
+- [[EMP-0093 Caleb Lewis]] (Line Cook)
+- [[EMP-0078 Valentina Clark]] (Head Chef)
+- [[EMP-0094 Felix Khan]] (Server)
+- [[EMP-0086 Paloma Singh]] (Line Cook)
+- [[EMP-0077 Omar Ramirez]] (Assistant Manager)

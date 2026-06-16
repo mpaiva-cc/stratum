@@ -7,18 +7,15 @@ date: 2026-06-13
 daypart: AM
 start: "07:00"
 end: "15:30"
-crew_size: 9
+crew_size: 6
 basis: authorization
 crew:
-  - "[[EMP-0079 Mia Lopez]]"
-  - "[[EMP-0090 Samir Martinez]]"
-  - "[[EMP-0078 Wei Moore]]"
-  - "[[EMP-0086 Mateo Costa]]"
-  - "[[EMP-0076 Valentina Sanchez]]"
-  - "[[EMP-0081 Paloma White]]"
-  - "[[EMP-0092 Isabella Mensah]]"
-  - "[[EMP-0089 Zayd King]]"
-  - "[[EMP-0083 Isabella Okafor]]"
+  - "[[EMP-0094 Felix Khan]]"
+  - "[[EMP-0098 Destiny Liu]]"
+  - "[[EMP-0084 Hana Silva]]"
+  - "[[EMP-0093 Caleb Lewis]]"
+  - "[[EMP-0092 Abigail Johnson]]"
+  - "[[EMP-0077 Omar Ramirez]]"
 ---
 
 AM shift at [[Store 04 - Atlanta Midtown]] on 2026-06-13 (07:00-15:30).
@@ -29,12 +26,9 @@ AM shift at [[Store 04 - Atlanta Midtown]] on 2026-06-13 (07:00-15:30).
 
 ## Crew
 
-- [[EMP-0079 Mia Lopez]] (Shift Lead)
-- [[EMP-0090 Samir Martinez]] (Line Cook)
-- [[EMP-0078 Wei Moore]] (Head Chef)
-- [[EMP-0086 Mateo Costa]] (Line Cook)
-- [[EMP-0076 Valentina Sanchez]] (General Manager)
-- [[EMP-0081 Paloma White]] (Server)
-- [[EMP-0092 Isabella Mensah]] (Server)
-- [[EMP-0089 Zayd King]] (Server)
-- [[EMP-0083 Isabella Okafor]] (Server)
+- [[EMP-0094 Felix Khan]] (Server)
+- [[EMP-0098 Destiny Liu]] (Dishwasher)
+- [[EMP-0084 Hana Silva]] (Line Cook)
+- [[EMP-0093 Caleb Lewis]] (Line Cook)
+- [[EMP-0092 Abigail Johnson]] (Bartender)
+- [[EMP-0077 Omar Ramirez]] (Assistant Manager)

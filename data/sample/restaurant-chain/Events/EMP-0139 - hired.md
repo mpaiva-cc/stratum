@@ -1,11 +1,11 @@
 ---
 type: employment_event
 id: EVT-0139
-person: "[[EMP-0139 Wei Jones]]"
+person: "[[EMP-0139 Liam Perez]]"
 kind: hire
-date: 2022-08-03
+date: 2025-12-26
 store: "[[Store 06 - Denver LoDo]]"
 basis: consent
 ---
 
-[[EMP-0139 Wei Jones]] hired as Expo at [[Store 06 - Denver LoDo]] on 2022-08-03.
+[[EMP-0139 Liam Perez]] hired as Line Cook at [[Store 06 - Denver LoDo]] on 2025-12-26.

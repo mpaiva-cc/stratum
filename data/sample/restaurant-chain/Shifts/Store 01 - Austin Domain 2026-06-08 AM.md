@@ -10,12 +10,12 @@ end: "15:30"
 crew_size: 6
 basis: authorization
 crew:
-  - "[[EMP-0017 Wei Perez]]"
-  - "[[EMP-0019 Gabriela Miller]]"
-  - "[[EMP-0007 Arjun Ramirez]]"
+  - "[[EMP-0013 Felix Abara]]"
+  - "[[EMP-0018 Logan Liu]]"
   - "[[EMP-0006 Layla Jackson]]"
-  - "[[EMP-0005 Keira Perez]]"
-  - "[[EMP-0009 Ximena Mensah]]"
+  - "[[EMP-0015 Mia Williams]]"
+  - "[[EMP-0012 Zayd Miller]]"
+  - "[[EMP-0001 Mateo Thomas]]"
 ---
 
 AM shift at [[Store 01 - Austin Domain]] on 2026-06-08 (07:00-15:30).
@@ -26,9 +26,9 @@ AM shift at [[Store 01 - Austin Domain]] on 2026-06-08 (07:00-15:30).
 
 ## Crew
 
-- [[EMP-0017 Wei Perez]] (Server)
-- [[EMP-0019 Gabriela Miller]] (Server)
-- [[EMP-0007 Arjun Ramirez]] (Server)
+- [[EMP-0013 Felix Abara]] (Server)
+- [[EMP-0018 Logan Liu]] (Line Cook)
 - [[EMP-0006 Layla Jackson]] (Line Cook)
-- [[EMP-0005 Keira Perez]] (Shift Lead)
-- [[EMP-0009 Ximena Mensah]] (Server)
+- [[EMP-0015 Mia Williams]] (Line Cook)
+- [[EMP-0012 Zayd Miller]] (Expo)
+- [[EMP-0001 Mateo Thomas]] (General Manager)

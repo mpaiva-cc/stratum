@@ -10,16 +10,16 @@ end: "23:30"
 crew_size: 10
 basis: authorization
 crew:
-  - "[[EMP-0027 Anaya Romano]]"
-  - "[[EMP-0047 Harper Costa]]"
-  - "[[EMP-0034 Elijah Diallo]]"
-  - "[[EMP-0037 Bella Brown]]"
-  - "[[EMP-0031 Omar Shah]]"
-  - "[[EMP-0048 Omar Walker]]"
-  - "[[EMP-0026 Imani Shah]]"
-  - "[[EMP-0039 Gabriela Romano]]"
-  - "[[EMP-0029 Aaron Pham]]"
-  - "[[EMP-0028 Quinn Garcia]]"
+  - "[[EMP-0042 Destiny Tran]]"
+  - "[[EMP-0041 Brianna Pham]]"
+  - "[[EMP-0040 Jaden Patel]]"
+  - "[[EMP-0037 Hassan Pham]]"
+  - "[[EMP-0034 Fatima Singh]]"
+  - "[[EMP-0050 Elijah Harris]]"
+  - "[[EMP-0030 Kayla Liu]]"
+  - "[[EMP-0035 Noah Perez]]"
+  - "[[EMP-0044 Henry Rossi]]"
+  - "[[EMP-0032 Valentina Liu]]"
 ---
 
 PM shift at [[Store 02 - Houston Heights]] on 2026-06-14 (15:00-23:30).
@@ -30,13 +30,13 @@ PM shift at [[Store 02 - Houston Heights]] on 2026-06-14 (15:00-23:30).
 
 ## Crew
 
-- [[EMP-0027 Anaya Romano]] (Assistant Manager)
-- [[EMP-0047 Harper Costa]] (Line Cook)
-- [[EMP-0034 Elijah Diallo]] (Line Cook)
-- [[EMP-0037 Bella Brown]] (Server)
-- [[EMP-0031 Omar Shah]] (Line Cook)
-- [[EMP-0048 Omar Walker]] (Prep Cook)
-- [[EMP-0026 Imani Shah]] (General Manager)
-- [[EMP-0039 Gabriela Romano]] (Server)
-- [[EMP-0029 Aaron Pham]] (Shift Lead)
-- [[EMP-0028 Quinn Garcia]] (Head Chef)
+- [[EMP-0042 Destiny Tran]] (Busser)
+- [[EMP-0041 Brianna Pham]] (Busser)
+- [[EMP-0040 Jaden Patel]] (Busser)
+- [[EMP-0037 Hassan Pham]] (Server)
+- [[EMP-0034 Fatima Singh]] (Server)
+- [[EMP-0050 Elijah Harris]] (Busser)
+- [[EMP-0030 Kayla Liu]] (Shift Lead)
+- [[EMP-0035 Noah Perez]] (Line Cook)
+- [[EMP-0044 Henry Rossi]] (Prep Cook)
+- [[EMP-0032 Valentina Liu]] (Server)

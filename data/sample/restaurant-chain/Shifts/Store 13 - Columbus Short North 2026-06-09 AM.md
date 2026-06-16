@@ -7,19 +7,15 @@ date: 2026-06-09
 daypart: AM
 start: "07:00"
 end: "15:30"
-crew_size: 10
+crew_size: 6
 basis: authorization
 crew:
-  - "[[EMP-0314 Sofia Hernandez]]"
-  - "[[EMP-0312 Abigail Singh]]"
-  - "[[EMP-0307 Aaron Wang]]"
-  - "[[EMP-0311 Jin Park]]"
-  - "[[EMP-0323 Jamal Chen]]"
-  - "[[EMP-0316 Wanda Wilson]]"
-  - "[[EMP-0319 Yara Tran]]"
-  - "[[EMP-0318 Priya Harris]]"
-  - "[[EMP-0324 Kayla Moore]]"
-  - "[[EMP-0302 Destiny Garcia]]"
+  - "[[EMP-0323 Daniela Clark]]"
+  - "[[EMP-0318 Ethan Garcia]]"
+  - "[[EMP-0309 Evelyn King]]"
+  - "[[EMP-0305 Layla Mensah]]"
+  - "[[EMP-0314 Wei Russo]]"
+  - "[[EMP-0311 Harper Williams]]"
 ---
 
 AM shift at [[Store 13 - Columbus Short North]] on 2026-06-09 (07:00-15:30).
@@ -30,13 +26,9 @@ AM shift at [[Store 13 - Columbus Short North]] on 2026-06-09 (07:00-15:30).
 
 ## Crew
 
-- [[EMP-0314 Sofia Hernandez]] (Bartender)
-- [[EMP-0312 Abigail Singh]] (Line Cook)
-- [[EMP-0307 Aaron Wang]] (Server)
-- [[EMP-0311 Jin Park]] (Server)
-- [[EMP-0323 Jamal Chen]] (Prep Cook)
-- [[EMP-0316 Wanda Wilson]] (Line Cook)
-- [[EMP-0319 Yara Tran]] (Busser)
-- [[EMP-0318 Priya Harris]] (Dishwasher)
-- [[EMP-0324 Kayla Moore]] (Dishwasher)
-- [[EMP-0302 Destiny Garcia]] (Assistant Manager)
+- [[EMP-0323 Daniela Clark]] (Host)
+- [[EMP-0318 Ethan Garcia]] (Line Cook)
+- [[EMP-0309 Evelyn King]] (Server)
+- [[EMP-0305 Layla Mensah]] (Shift Lead)
+- [[EMP-0314 Wei Russo]] (Server)
+- [[EMP-0311 Harper Williams]] (Server)

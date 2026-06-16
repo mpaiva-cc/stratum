@@ -1,11 +1,11 @@
 ---
 type: employment_event
 id: EVT-0106
-person: "[[EMP-0106 Wei Lewis]]"
+person: "[[EMP-0106 Wanda Wilson]]"
 kind: hire
-date: 2025-05-22
+date: 2022-10-21
 store: "[[Store 05 - Nashville Gulch]]"
 basis: consent
 ---
 
-[[EMP-0106 Wei Lewis]] hired as Server at [[Store 05 - Nashville Gulch]] on 2025-05-22.
+[[EMP-0106 Wanda Wilson]] hired as Bartender at [[Store 05 - Nashville Gulch]] on 2022-10-21.

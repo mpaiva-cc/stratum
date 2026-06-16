@@ -10,12 +10,12 @@ end: "23:30"
 crew_size: 6
 basis: authorization
 crew:
-  - "[[EMP-0039 Gabriela Romano]]"
-  - "[[EMP-0034 Elijah Diallo]]"
-  - "[[EMP-0036 Elena Garcia]]"
-  - "[[EMP-0044 Camila Costa]]"
-  - "[[EMP-0031 Omar Shah]]"
-  - "[[EMP-0050 Arjun Davis]]"
+  - "[[EMP-0046 Arjun Young]]"
+  - "[[EMP-0043 Liam Hernandez]]"
+  - "[[EMP-0032 Valentina Liu]]"
+  - "[[EMP-0049 Elena Harris]]"
+  - "[[EMP-0033 Ximena Torres]]"
+  - "[[EMP-0040 Jaden Patel]]"
 ---
 
 PM shift at [[Store 02 - Houston Heights]] on 2026-06-12 (15:00-23:30).
@@ -26,9 +26,9 @@ PM shift at [[Store 02 - Houston Heights]] on 2026-06-12 (15:00-23:30).
 
 ## Crew
 
-- [[EMP-0039 Gabriela Romano]] (Server)
-- [[EMP-0034 Elijah Diallo]] (Line Cook)
-- [[EMP-0036 Elena Garcia]] (Server)
-- [[EMP-0044 Camila Costa]] (Server)
-- [[EMP-0031 Omar Shah]] (Line Cook)
-- [[EMP-0050 Arjun Davis]] (Busser)
+- [[EMP-0046 Arjun Young]] (Dishwasher)
+- [[EMP-0043 Liam Hernandez]] (Prep Cook)
+- [[EMP-0032 Valentina Liu]] (Server)
+- [[EMP-0049 Elena Harris]] (Host)
+- [[EMP-0033 Ximena Torres]] (Server)
+- [[EMP-0040 Jaden Patel]] (Busser)

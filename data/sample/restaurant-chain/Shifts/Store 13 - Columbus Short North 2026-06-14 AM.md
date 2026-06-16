@@ -10,12 +10,12 @@ end: "15:30"
 crew_size: 6
 basis: authorization
 crew:
-  - "[[EMP-0310 Hassan Tran]]"
-  - "[[EMP-0317 Jaden Silva]]"
-  - "[[EMP-0315 Aaron Singh]]"
-  - "[[EMP-0324 Kayla Moore]]"
-  - "[[EMP-0322 Yuki Smith]]"
-  - "[[EMP-0320 Priya Taylor]]"
+  - "[[EMP-0310 Mia Davis]]"
+  - "[[EMP-0306 Rohan Ramirez]]"
+  - "[[EMP-0302 Tariq Smith]]"
+  - "[[EMP-0321 Rohan Ali]]"
+  - "[[EMP-0314 Wei Russo]]"
+  - "[[EMP-0324 Quinn Costa]]"
 ---
 
 AM shift at [[Store 13 - Columbus Short North]] on 2026-06-14 (07:00-15:30).
@@ -26,9 +26,9 @@ AM shift at [[Store 13 - Columbus Short North]] on 2026-06-14 (07:00-15:30).
 
 ## Crew
 
-- [[EMP-0310 Hassan Tran]] (Line Cook)
-- [[EMP-0317 Jaden Silva]] (Prep Cook)
-- [[EMP-0315 Aaron Singh]] (Server)
-- [[EMP-0324 Kayla Moore]] (Dishwasher)
-- [[EMP-0322 Yuki Smith]] (Dishwasher)
-- [[EMP-0320 Priya Taylor]] (Host)
+- [[EMP-0310 Mia Davis]] (Line Cook)
+- [[EMP-0306 Rohan Ramirez]] (Line Cook)
+- [[EMP-0302 Tariq Smith]] (Assistant Manager)
+- [[EMP-0321 Rohan Ali]] (Server)
+- [[EMP-0314 Wei Russo]] (Server)
+- [[EMP-0324 Quinn Costa]] (Busser)

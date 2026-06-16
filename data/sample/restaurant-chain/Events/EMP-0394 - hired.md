@@ -1,11 +1,11 @@
 ---
 type: employment_event
 id: EVT-0394
-person: "[[EMP-0394 Wanda Martinez]]"
+person: "[[EMP-0394 Victor Nguyen]]"
 kind: hire
-date: 2022-07-14
+date: 2026-03-25
 store: "[[Store 16 - Boston Seaport]]"
 basis: consent
 ---
 
-[[EMP-0394 Wanda Martinez]] hired as Line Cook at [[Store 16 - Boston Seaport]] on 2022-07-14.
+[[EMP-0394 Victor Nguyen]] hired as Dishwasher at [[Store 16 - Boston Seaport]] on 2026-03-25.

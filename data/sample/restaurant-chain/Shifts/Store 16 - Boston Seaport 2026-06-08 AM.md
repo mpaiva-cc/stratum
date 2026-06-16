@@ -7,18 +7,16 @@ date: 2026-06-08
 daypart: AM
 start: "07:00"
 end: "15:30"
-crew_size: 9
+crew_size: 7
 basis: authorization
 crew:
-  - "[[EMP-0379 Zane Diallo]]"
-  - "[[EMP-0380 Zayd Kim]]"
-  - "[[EMP-0383 Noah Wright]]"
-  - "[[EMP-0386 Omar Harris]]"
-  - "[[EMP-0396 Kayla Davis]]"
-  - "[[EMP-0390 Felix Singh]]"
-  - "[[EMP-0378 Imani Hernandez]]"
-  - "[[EMP-0400 Harper Mensah]]"
-  - "[[EMP-0381 Jaden Singh]]"
+  - "[[EMP-0386 Diego Smith]]"
+  - "[[EMP-0400 Jaden Rodriguez]]"
+  - "[[EMP-0382 Gabriela Santos]]"
+  - "[[EMP-0396 Mateo Kim]]"
+  - "[[EMP-0385 Henry Nguyen]]"
+  - "[[EMP-0393 Bella Abara]]"
+  - "[[EMP-0395 Carlos Jackson]]"
 ---
 
 AM shift at [[Store 16 - Boston Seaport]] on 2026-06-08 (07:00-15:30).
@@ -29,12 +27,10 @@ AM shift at [[Store 16 - Boston Seaport]] on 2026-06-08 (07:00-15:30).
 
 ## Crew
 
-- [[EMP-0379 Zane Diallo]] (Shift Lead)
-- [[EMP-0380 Zayd Kim]] (Shift Lead)
-- [[EMP-0383 Noah Wright]] (Line Cook)
-- [[EMP-0386 Omar Harris]] (Expo)
-- [[EMP-0396 Kayla Davis]] (Busser)
-- [[EMP-0390 Felix Singh]] (Server)
-- [[EMP-0378 Imani Hernandez]] (Head Chef)
-- [[EMP-0400 Harper Mensah]] (Prep Cook)
-- [[EMP-0381 Jaden Singh]] (Line Cook)
+- [[EMP-0386 Diego Smith]] (Server)
+- [[EMP-0400 Jaden Rodriguez]] (Dishwasher)
+- [[EMP-0382 Gabriela Santos]] (Bartender)
+- [[EMP-0396 Mateo Kim]] (Host)
+- [[EMP-0385 Henry Nguyen]] (Line Cook)
+- [[EMP-0393 Bella Abara]] (Busser)
+- [[EMP-0395 Carlos Jackson]] (Busser)

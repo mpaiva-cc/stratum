@@ -7,15 +7,16 @@ date: 2026-06-12
 daypart: PM
 start: "15:00"
 end: "23:30"
-crew_size: 6
+crew_size: 7
 basis: authorization
 crew:
-  - "[[EMP-0139 Wei Jones]]"
-  - "[[EMP-0136 Sofia Moore]]"
-  - "[[EMP-0137 Hassan Ramirez]]"
-  - "[[EMP-0129 Yuki Smith]]"
-  - "[[EMP-0142 Omar Chen]]"
-  - "[[EMP-0133 Hassan Diallo]]"
+  - "[[EMP-0144 Victor Pham]]"
+  - "[[EMP-0138 Bella Brown]]"
+  - "[[EMP-0126 Yara Silva]]"
+  - "[[EMP-0129 Quinn Torres]]"
+  - "[[EMP-0128 Hana Williams]]"
+  - "[[EMP-0131 Priya Miller]]"
+  - "[[EMP-0145 Zayd Chen]]"
 ---
 
 PM shift at [[Store 06 - Denver LoDo]] on 2026-06-12 (15:00-23:30).
@@ -26,9 +27,10 @@ PM shift at [[Store 06 - Denver LoDo]] on 2026-06-12 (15:00-23:30).
 
 ## Crew
 
-- [[EMP-0139 Wei Jones]] (Expo)
-- [[EMP-0136 Sofia Moore]] (Bartender)
-- [[EMP-0137 Hassan Ramirez]] (Line Cook)
-- [[EMP-0129 Yuki Smith]] (Shift Lead)
-- [[EMP-0142 Omar Chen]] (Host)
-- [[EMP-0133 Hassan Diallo]] (Line Cook)
+- [[EMP-0144 Victor Pham]] (Busser)
+- [[EMP-0138 Bella Brown]] (Server)
+- [[EMP-0126 Yara Silva]] (General Manager)
+- [[EMP-0129 Quinn Torres]] (Shift Lead)
+- [[EMP-0128 Hana Williams]] (Head Chef)
+- [[EMP-0131 Priya Miller]] (Server)
+- [[EMP-0145 Zayd Chen]] (Busser)

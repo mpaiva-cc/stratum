@@ -7,19 +7,15 @@ date: 2026-06-11
 daypart: AM
 start: "07:00"
 end: "15:30"
-crew_size: 10
+crew_size: 6
 basis: authorization
 crew:
-  - "[[EMP-0275 Yara Wilson]]"
-  - "[[EMP-0273 Jamal Jones]]"
-  - "[[EMP-0257 Nadia Ali]]"
-  - "[[EMP-0253 Nadia Ahmed]]"
-  - "[[EMP-0262 Keira Bianchi]]"
-  - "[[EMP-0258 Connor Abara]]"
-  - "[[EMP-0269 Gabriela Walker]]"
-  - "[[EMP-0267 Zayd Anderson]]"
-  - "[[EMP-0270 Zayd Garcia]]"
-  - "[[EMP-0255 Kayla Harris]]"
+  - "[[EMP-0273 Bella Wang]]"
+  - "[[EMP-0264 Omar Santos]]"
+  - "[[EMP-0251 Wei Pham]]"
+  - "[[EMP-0255 Abigail Singh]]"
+  - "[[EMP-0257 Sofia Hernandez]]"
+  - "[[EMP-0260 Jaden Silva]]"
 ---
 
 AM shift at [[Store 11 - Chicago Loop]] on 2026-06-11 (07:00-15:30).
@@ -30,13 +26,9 @@ AM shift at [[Store 11 - Chicago Loop]] on 2026-06-11 (07:00-15:30).
 
 ## Crew
 
-- [[EMP-0275 Yara Wilson]] (Prep Cook)
-- [[EMP-0273 Jamal Jones]] (Prep Cook)
-- [[EMP-0257 Nadia Ali]] (Server)
-- [[EMP-0253 Nadia Ahmed]] (Head Chef)
-- [[EMP-0262 Keira Bianchi]] (Bartender)
-- [[EMP-0258 Connor Abara]] (Line Cook)
-- [[EMP-0269 Gabriela Walker]] (Server)
-- [[EMP-0267 Zayd Anderson]] (Server)
-- [[EMP-0270 Zayd Garcia]] (Host)
-- [[EMP-0255 Kayla Harris]] (Shift Lead)
+- [[EMP-0273 Bella Wang]] (Dishwasher)
+- [[EMP-0264 Omar Santos]] (Server)
+- [[EMP-0251 Wei Pham]] (General Manager)
+- [[EMP-0255 Abigail Singh]] (Shift Lead)
+- [[EMP-0257 Sofia Hernandez]] (Server)
+- [[EMP-0260 Jaden Silva]] (Server)

@@ -7,18 +7,17 @@ date: 2026-06-08
 daypart: AM
 start: "07:00"
 end: "15:30"
-crew_size: 9
+crew_size: 8
 basis: authorization
 crew:
-  - "[[EMP-0455 Ella Liu]]"
-  - "[[EMP-0469 Oscar Abara]]"
-  - "[[EMP-0459 Jamal Scott]]"
-  - "[[EMP-0461 Liam Thomas]]"
-  - "[[EMP-0473 Bella Abara]]"
-  - "[[EMP-0462 Gabriela Santos]]"
-  - "[[EMP-0466 Diego Smith]]"
-  - "[[EMP-0474 Victor Nguyen]]"
-  - "[[EMP-0452 Nadia Costa]]"
+  - "[[EMP-0458 Imani Patel]]"
+  - "[[EMP-0473 Victor Nguyen]]"
+  - "[[EMP-0470 Gabriela Russo]]"
+  - "[[EMP-0467 Andres Perez]]"
+  - "[[EMP-0465 Wei Romano]]"
+  - "[[EMP-0453 Samir King]]"
+  - "[[EMP-0461 Arjun Bianchi]]"
+  - "[[EMP-0474 Arjun Moore]]"
 ---
 
 AM shift at [[Store 19 - DC Navy Yard]] on 2026-06-08 (07:00-15:30).
@@ -29,12 +28,11 @@ AM shift at [[Store 19 - DC Navy Yard]] on 2026-06-08 (07:00-15:30).
 
 ## Crew
 
-- [[EMP-0455 Ella Liu]] (Shift Lead)
-- [[EMP-0469 Oscar Abara]] (Busser)
-- [[EMP-0459 Jamal Scott]] (Line Cook)
-- [[EMP-0461 Liam Thomas]] (Bartender)
-- [[EMP-0473 Bella Abara]] (Busser)
-- [[EMP-0462 Gabriela Santos]] (Line Cook)
-- [[EMP-0466 Diego Smith]] (Busser)
-- [[EMP-0474 Victor Nguyen]] (Dishwasher)
-- [[EMP-0452 Nadia Costa]] (Assistant Manager)
+- [[EMP-0458 Imani Patel]] (Line Cook)
+- [[EMP-0473 Victor Nguyen]] (Dishwasher)
+- [[EMP-0470 Gabriela Russo]] (Host)
+- [[EMP-0467 Andres Perez]] (Line Cook)
+- [[EMP-0465 Wei Romano]] (Line Cook)
+- [[EMP-0453 Samir King]] (Head Chef)
+- [[EMP-0461 Arjun Bianchi]] (Line Cook)
+- [[EMP-0474 Arjun Moore]] (Host)

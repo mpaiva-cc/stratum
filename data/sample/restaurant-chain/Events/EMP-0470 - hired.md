@@ -1,11 +1,11 @@
 ---
 type: employment_event
 id: EVT-0470
-person: "[[EMP-0470 Diego Jones]]"
+person: "[[EMP-0470 Gabriela Russo]]"
 kind: hire
-date: 2022-03-05
+date: 2023-09-11
 store: "[[Store 19 - DC Navy Yard]]"
 basis: consent
 ---
 
-[[EMP-0470 Diego Jones]] hired as Busser at [[Store 19 - DC Navy Yard]] on 2022-03-05.
+[[EMP-0470 Gabriela Russo]] hired as Host at [[Store 19 - DC Navy Yard]] on 2023-09-11.

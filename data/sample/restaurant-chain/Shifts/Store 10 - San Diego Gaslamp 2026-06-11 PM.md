@@ -7,16 +7,18 @@ date: 2026-06-11
 daypart: PM
 start: "15:00"
 end: "23:30"
-crew_size: 7
+crew_size: 9
 basis: authorization
 crew:
-  - "[[EMP-0227 Isabella Jackson]]"
-  - "[[EMP-0235 Keira Jackson]]"
-  - "[[EMP-0231 Sofia Lewis]]"
-  - "[[EMP-0245 Bella Garcia]]"
-  - "[[EMP-0246 Tariq Hernandez]]"
-  - "[[EMP-0240 Wanda Costa]]"
-  - "[[EMP-0228 Rohan Young]]"
+  - "[[EMP-0232 Bella Thomas]]"
+  - "[[EMP-0233 Paloma Wright]]"
+  - "[[EMP-0249 Samir Singh]]"
+  - "[[EMP-0244 Nadia Kim]]"
+  - "[[EMP-0243 Mason Harris]]"
+  - "[[EMP-0228 Paloma Wilson]]"
+  - "[[EMP-0247 Destiny Bianchi]]"
+  - "[[EMP-0236 Mateo Liu]]"
+  - "[[EMP-0248 Zayd Walker]]"
 ---
 
 PM shift at [[Store 10 - San Diego Gaslamp]] on 2026-06-11 (15:00-23:30).
@@ -27,10 +29,12 @@ PM shift at [[Store 10 - San Diego Gaslamp]] on 2026-06-11 (15:00-23:30).
 
 ## Crew
 
-- [[EMP-0227 Isabella Jackson]] (Assistant Manager)
-- [[EMP-0235 Keira Jackson]] (Expo)
-- [[EMP-0231 Sofia Lewis]] (Line Cook)
-- [[EMP-0245 Bella Garcia]] (Busser)
-- [[EMP-0246 Tariq Hernandez]] (Busser)
-- [[EMP-0240 Wanda Costa]] (Line Cook)
-- [[EMP-0228 Rohan Young]] (Head Chef)
+- [[EMP-0232 Bella Thomas]] (Server)
+- [[EMP-0233 Paloma Wright]] (Server)
+- [[EMP-0249 Samir Singh]] (Busser)
+- [[EMP-0244 Nadia Kim]] (Line Cook)
+- [[EMP-0243 Mason Harris]] (Line Cook)
+- [[EMP-0228 Paloma Wilson]] (Head Chef)
+- [[EMP-0247 Destiny Bianchi]] (Busser)
+- [[EMP-0236 Mateo Liu]] (Server)
+- [[EMP-0248 Zayd Walker]] (Dishwasher)

@@ -7,18 +7,19 @@ date: 2026-06-13
 daypart: AM
 start: "07:00"
 end: "15:30"
-crew_size: 9
+crew_size: 10
 basis: authorization
 crew:
-  - "[[EMP-0104 Yuki Scott]]"
-  - "[[EMP-0115 Elijah Tran]]"
-  - "[[EMP-0112 Rosa Garcia]]"
-  - "[[EMP-0123 Evelyn Johnson]]"
-  - "[[EMP-0116 Sofia Diallo]]"
-  - "[[EMP-0106 Wei Lewis]]"
-  - "[[EMP-0109 Liam Wilson]]"
-  - "[[EMP-0113 Keira Liu]]"
-  - "[[EMP-0107 Zane Garcia]]"
+  - "[[EMP-0124 Jin Santos]]"
+  - "[[EMP-0111 Destiny Costa]]"
+  - "[[EMP-0101 Sofia Costa]]"
+  - "[[EMP-0109 Diego Lewis]]"
+  - "[[EMP-0103 Sofia Bianchi]]"
+  - "[[EMP-0125 Yuki Taylor]]"
+  - "[[EMP-0108 Santiago Hernandez]]"
+  - "[[EMP-0113 Uma Le]]"
+  - "[[EMP-0105 Felix Russo]]"
+  - "[[EMP-0120 Zane Liu]]"
 ---
 
 AM shift at [[Store 05 - Nashville Gulch]] on 2026-06-13 (07:00-15:30).
@@ -29,12 +30,13 @@ AM shift at [[Store 05 - Nashville Gulch]] on 2026-06-13 (07:00-15:30).
 
 ## Crew
 
-- [[EMP-0104 Yuki Scott]] (Shift Lead)
-- [[EMP-0115 Elijah Tran]] (Server)
-- [[EMP-0112 Rosa Garcia]] (Server)
-- [[EMP-0123 Evelyn Johnson]] (Dishwasher)
-- [[EMP-0116 Sofia Diallo]] (Server)
-- [[EMP-0106 Wei Lewis]] (Server)
-- [[EMP-0109 Liam Wilson]] (Line Cook)
-- [[EMP-0113 Keira Liu]] (Line Cook)
-- [[EMP-0107 Zane Garcia]] (Server)
+- [[EMP-0124 Jin Santos]] (Host)
+- [[EMP-0111 Destiny Costa]] (Expo)
+- [[EMP-0101 Sofia Costa]] (General Manager)
+- [[EMP-0109 Diego Lewis]] (Server)
+- [[EMP-0103 Sofia Bianchi]] (Head Chef)
+- [[EMP-0125 Yuki Taylor]] (Prep Cook)
+- [[EMP-0108 Santiago Hernandez]] (Line Cook)
+- [[EMP-0113 Uma Le]] (Line Cook)
+- [[EMP-0105 Felix Russo]] (Shift Lead)
+- [[EMP-0120 Zane Liu]] (Host)

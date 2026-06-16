@@ -10,13 +10,13 @@ end: "15:30"
 crew_size: 7
 basis: authorization
 crew:
-  - "[[EMP-0399 Wei Scott]]"
-  - "[[EMP-0387 Sofia Chen]]"
-  - "[[EMP-0385 Logan Sanchez]]"
-  - "[[EMP-0394 Wanda Martinez]]"
-  - "[[EMP-0391 Uma Gonzalez]]"
-  - "[[EMP-0398 Noah Taylor]]"
-  - "[[EMP-0376 Min Wilson]]"
+  - "[[EMP-0380 Min Romano]]"
+  - "[[EMP-0386 Diego Smith]]"
+  - "[[EMP-0383 Kayla Taylor]]"
+  - "[[EMP-0378 Elena Johnson]]"
+  - "[[EMP-0396 Mateo Kim]]"
+  - "[[EMP-0379 Jamal Scott]]"
+  - "[[EMP-0389 Oscar Abara]]"
 ---
 
 AM shift at [[Store 16 - Boston Seaport]] on 2026-06-10 (07:00-15:30).
@@ -27,10 +27,10 @@ AM shift at [[Store 16 - Boston Seaport]] on 2026-06-10 (07:00-15:30).
 
 ## Crew
 
-- [[EMP-0399 Wei Scott]] (Prep Cook)
-- [[EMP-0387 Sofia Chen]] (Server)
-- [[EMP-0385 Logan Sanchez]] (Line Cook)
-- [[EMP-0394 Wanda Martinez]] (Line Cook)
-- [[EMP-0391 Uma Gonzalez]] (Line Cook)
-- [[EMP-0398 Noah Taylor]] (Host)
-- [[EMP-0376 Min Wilson]] (General Manager)
+- [[EMP-0380 Min Romano]] (Shift Lead)
+- [[EMP-0386 Diego Smith]] (Server)
+- [[EMP-0383 Kayla Taylor]] (Line Cook)
+- [[EMP-0378 Elena Johnson]] (Head Chef)
+- [[EMP-0396 Mateo Kim]] (Host)
+- [[EMP-0379 Jamal Scott]] (Shift Lead)
+- [[EMP-0389 Oscar Abara]] (Line Cook)

@@ -10,14 +10,14 @@ end: "15:30"
 crew_size: 8
 basis: authorization
 crew:
-  - "[[EMP-0145 Kayla Silva]]"
-  - "[[EMP-0140 Diego King]]"
-  - "[[EMP-0146 Tariq Chen]]"
-  - "[[EMP-0150 Carlos White]]"
-  - "[[EMP-0136 Sofia Moore]]"
-  - "[[EMP-0144 Gabriela Smith]]"
-  - "[[EMP-0143 Rosa Rodriguez]]"
-  - "[[EMP-0142 Omar Chen]]"
+  - "[[EMP-0140 Ximena Allen]]"
+  - "[[EMP-0134 Yara Torres]]"
+  - "[[EMP-0146 Felix Singh]]"
+  - "[[EMP-0145 Zayd Chen]]"
+  - "[[EMP-0129 Quinn Torres]]"
+  - "[[EMP-0143 Emily Costa]]"
+  - "[[EMP-0126 Yara Silva]]"
+  - "[[EMP-0136 Andres White]]"
 ---
 
 AM shift at [[Store 06 - Denver LoDo]] on 2026-06-11 (07:00-15:30).
@@ -28,11 +28,11 @@ AM shift at [[Store 06 - Denver LoDo]] on 2026-06-11 (07:00-15:30).
 
 ## Crew
 
-- [[EMP-0145 Kayla Silva]] (Dishwasher)
-- [[EMP-0140 Diego King]] (Line Cook)
-- [[EMP-0146 Tariq Chen]] (Busser)
-- [[EMP-0150 Carlos White]] (Busser)
-- [[EMP-0136 Sofia Moore]] (Bartender)
-- [[EMP-0144 Gabriela Smith]] (Prep Cook)
-- [[EMP-0143 Rosa Rodriguez]] (Busser)
-- [[EMP-0142 Omar Chen]] (Host)
+- [[EMP-0140 Ximena Allen]] (Line Cook)
+- [[EMP-0134 Yara Torres]] (Line Cook)
+- [[EMP-0146 Felix Singh]] (Busser)
+- [[EMP-0145 Zayd Chen]] (Busser)
+- [[EMP-0129 Quinn Torres]] (Shift Lead)
+- [[EMP-0143 Emily Costa]] (Prep Cook)
+- [[EMP-0126 Yara Silva]] (General Manager)
+- [[EMP-0136 Andres White]] (Line Cook)

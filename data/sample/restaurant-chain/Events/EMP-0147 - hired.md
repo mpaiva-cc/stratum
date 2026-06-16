@@ -1,11 +1,11 @@
 ---
 type: employment_event
 id: EVT-0147
-person: "[[EMP-0147 Evelyn Harris]]"
+person: "[[EMP-0147 Bella Walker]]"
 kind: hire
-date: 2021-07-03
+date: 2025-03-23
 store: "[[Store 06 - Denver LoDo]]"
 basis: consent
 ---
 
-[[EMP-0147 Evelyn Harris]] hired as Prep Cook at [[Store 06 - Denver LoDo]] on 2021-07-03.
+[[EMP-0147 Bella Walker]] hired as Busser at [[Store 06 - Denver LoDo]] on 2025-03-23.

@@ -7,16 +7,15 @@ date: 2026-06-08
 daypart: AM
 start: "07:00"
 end: "15:30"
-crew_size: 7
+crew_size: 6
 basis: authorization
 crew:
-  - "[[EMP-0138 Gabriela Smith]]"
-  - "[[EMP-0143 Rosa Rodriguez]]"
-  - "[[EMP-0140 Diego King]]"
-  - "[[EMP-0137 Hassan Ramirez]]"
-  - "[[EMP-0139 Wei Jones]]"
-  - "[[EMP-0144 Gabriela Smith]]"
-  - "[[EMP-0142 Omar Chen]]"
+  - "[[EMP-0143 Emily Costa]]"
+  - "[[EMP-0145 Zayd Chen]]"
+  - "[[EMP-0139 Liam Perez]]"
+  - "[[EMP-0148 Liam Abara]]"
+  - "[[EMP-0133 Quinn Garcia]]"
+  - "[[EMP-0134 Yara Torres]]"
 ---
 
 AM shift at [[Store 06 - Denver LoDo]] on 2026-06-08 (07:00-15:30).
@@ -27,10 +26,9 @@ AM shift at [[Store 06 - Denver LoDo]] on 2026-06-08 (07:00-15:30).
 
 ## Crew
 
-- [[EMP-0138 Gabriela Smith]] (Server)
-- [[EMP-0143 Rosa Rodriguez]] (Busser)
-- [[EMP-0140 Diego King]] (Line Cook)
-- [[EMP-0137 Hassan Ramirez]] (Line Cook)
-- [[EMP-0139 Wei Jones]] (Expo)
-- [[EMP-0144 Gabriela Smith]] (Prep Cook)
-- [[EMP-0142 Omar Chen]] (Host)
+- [[EMP-0143 Emily Costa]] (Prep Cook)
+- [[EMP-0145 Zayd Chen]] (Busser)
+- [[EMP-0139 Liam Perez]] (Line Cook)
+- [[EMP-0148 Liam Abara]] (Host)
+- [[EMP-0133 Quinn Garcia]] (Line Cook)
+- [[EMP-0134 Yara Torres]] (Line Cook)

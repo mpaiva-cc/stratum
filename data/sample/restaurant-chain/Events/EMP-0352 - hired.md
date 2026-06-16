@@ -1,11 +1,11 @@
 ---
 type: employment_event
 id: EVT-0352
-person: "[[EMP-0352 Ximena Ahmed]]"
+person: "[[EMP-0352 Isabella Wilson]]"
 kind: hire
-date: 2024-12-15
+date: 2026-03-10
 store: "[[Store 15 - Detroit Corktown]]"
 basis: consent
 ---
 
-[[EMP-0352 Ximena Ahmed]] hired as Assistant Manager at [[Store 15 - Detroit Corktown]] on 2024-12-15.
+[[EMP-0352 Isabella Wilson]] hired as Assistant Manager at [[Store 15 - Detroit Corktown]] on 2026-03-10.

@@ -7,18 +7,17 @@ date: 2026-06-12
 daypart: AM
 start: "07:00"
 end: "15:30"
-crew_size: 9
+crew_size: 8
 basis: authorization
 crew:
-  - "[[EMP-0453 Arjun Thomas]]"
-  - "[[EMP-0475 Carlos Jackson]]"
-  - "[[EMP-0469 Oscar Abara]]"
-  - "[[EMP-0474 Victor Nguyen]]"
-  - "[[EMP-0457 Santiago Sanchez]]"
-  - "[[EMP-0463 Kayla Taylor]]"
-  - "[[EMP-0459 Jamal Scott]]"
-  - "[[EMP-0456 Hassan Ahmed]]"
-  - "[[EMP-0471 Rohan Torres]]"
+  - "[[EMP-0466 Evelyn Young]]"
+  - "[[EMP-0472 Liam Mensah]]"
+  - "[[EMP-0475 Ximena Torres]]"
+  - "[[EMP-0465 Wei Romano]]"
+  - "[[EMP-0456 Fatima Lopez]]"
+  - "[[EMP-0455 Jose Anderson]]"
+  - "[[EMP-0468 Rosa Rodriguez]]"
+  - "[[EMP-0470 Gabriela Russo]]"
 ---
 
 AM shift at [[Store 19 - DC Navy Yard]] on 2026-06-12 (07:00-15:30).
@@ -29,12 +28,11 @@ AM shift at [[Store 19 - DC Navy Yard]] on 2026-06-12 (07:00-15:30).
 
 ## Crew
 
-- [[EMP-0453 Arjun Thomas]] (Head Chef)
-- [[EMP-0475 Carlos Jackson]] (Busser)
-- [[EMP-0469 Oscar Abara]] (Busser)
-- [[EMP-0474 Victor Nguyen]] (Dishwasher)
-- [[EMP-0457 Santiago Sanchez]] (Line Cook)
-- [[EMP-0463 Kayla Taylor]] (Line Cook)
-- [[EMP-0459 Jamal Scott]] (Line Cook)
-- [[EMP-0456 Hassan Ahmed]] (Bartender)
-- [[EMP-0471 Rohan Torres]] (Dishwasher)
+- [[EMP-0466 Evelyn Young]] (Bartender)
+- [[EMP-0472 Liam Mensah]] (Busser)
+- [[EMP-0475 Ximena Torres]] (Dishwasher)
+- [[EMP-0465 Wei Romano]] (Line Cook)
+- [[EMP-0456 Fatima Lopez]] (Line Cook)
+- [[EMP-0455 Jose Anderson]] (Shift Lead)
+- [[EMP-0468 Rosa Rodriguez]] (Prep Cook)
+- [[EMP-0470 Gabriela Russo]] (Host)

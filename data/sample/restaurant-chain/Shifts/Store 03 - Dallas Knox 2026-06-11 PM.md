@@ -7,16 +7,17 @@ date: 2026-06-11
 daypart: PM
 start: "15:00"
 end: "23:30"
-crew_size: 7
+crew_size: 8
 basis: authorization
 crew:
-  - "[[EMP-0054 Sofia Lopez]]"
-  - "[[EMP-0061 Diego Jackson]]"
-  - "[[EMP-0053 Noah Miller]]"
-  - "[[EMP-0075 Connor Perez]]"
-  - "[[EMP-0070 Priya Bianchi]]"
-  - "[[EMP-0069 Bella Allen]]"
-  - "[[EMP-0067 Ximena Wilson]]"
+  - "[[EMP-0060 Layla Miller]]"
+  - "[[EMP-0073 Jaden Jackson]]"
+  - "[[EMP-0070 Amelia Davis]]"
+  - "[[EMP-0053 Connor Jones]]"
+  - "[[EMP-0056 Hassan Lopez]]"
+  - "[[EMP-0065 Ines Wilson]]"
+  - "[[EMP-0061 Amelia Wilson]]"
+  - "[[EMP-0062 Aria Liu]]"
 ---
 
 PM shift at [[Store 03 - Dallas Knox]] on 2026-06-11 (15:00-23:30).
@@ -27,10 +28,11 @@ PM shift at [[Store 03 - Dallas Knox]] on 2026-06-11 (15:00-23:30).
 
 ## Crew
 
-- [[EMP-0054 Sofia Lopez]] (Shift Lead)
-- [[EMP-0061 Diego Jackson]] (Expo)
-- [[EMP-0053 Noah Miller]] (Head Chef)
-- [[EMP-0075 Connor Perez]] (Busser)
-- [[EMP-0070 Priya Bianchi]] (Busser)
-- [[EMP-0069 Bella Allen]] (Busser)
-- [[EMP-0067 Ximena Wilson]] (Line Cook)
+- [[EMP-0060 Layla Miller]] (Line Cook)
+- [[EMP-0073 Jaden Jackson]] (Dishwasher)
+- [[EMP-0070 Amelia Davis]] (Dishwasher)
+- [[EMP-0053 Connor Jones]] (Head Chef)
+- [[EMP-0056 Hassan Lopez]] (Line Cook)
+- [[EMP-0065 Ines Wilson]] (Dishwasher)
+- [[EMP-0061 Amelia Wilson]] (Bartender)
+- [[EMP-0062 Aria Liu]] (Server)

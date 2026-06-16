@@ -7,18 +7,16 @@ date: 2026-06-14
 daypart: PM
 start: "15:00"
 end: "23:30"
-crew_size: 9
+crew_size: 7
 basis: authorization
 crew:
-  - "[[EMP-0275 Yara Wilson]]"
-  - "[[EMP-0264 Elena Nguyen]]"
-  - "[[EMP-0273 Jamal Jones]]"
-  - "[[EMP-0268 Daniela Ramirez]]"
-  - "[[EMP-0253 Nadia Ahmed]]"
-  - "[[EMP-0274 Destiny Shah]]"
-  - "[[EMP-0271 Noah Okafor]]"
-  - "[[EMP-0262 Keira Bianchi]]"
-  - "[[EMP-0272 Kayla Russo]]"
+  - "[[EMP-0265 Yuki Smith]]"
+  - "[[EMP-0253 Hassan Tran]]"
+  - "[[EMP-0251 Wei Pham]]"
+  - "[[EMP-0269 Hassan Gonzalez]]"
+  - "[[EMP-0264 Omar Santos]]"
+  - "[[EMP-0255 Abigail Singh]]"
+  - "[[EMP-0260 Jaden Silva]]"
 ---
 
 PM shift at [[Store 11 - Chicago Loop]] on 2026-06-14 (15:00-23:30).
@@ -29,12 +27,10 @@ PM shift at [[Store 11 - Chicago Loop]] on 2026-06-14 (15:00-23:30).
 
 ## Crew
 
-- [[EMP-0275 Yara Wilson]] (Prep Cook)
-- [[EMP-0264 Elena Nguyen]] (Server)
-- [[EMP-0273 Jamal Jones]] (Prep Cook)
-- [[EMP-0268 Daniela Ramirez]] (Bartender)
-- [[EMP-0253 Nadia Ahmed]] (Head Chef)
-- [[EMP-0274 Destiny Shah]] (Busser)
-- [[EMP-0271 Noah Okafor]] (Prep Cook)
-- [[EMP-0262 Keira Bianchi]] (Bartender)
-- [[EMP-0272 Kayla Russo]] (Prep Cook)
+- [[EMP-0265 Yuki Smith]] (Server)
+- [[EMP-0253 Hassan Tran]] (Head Chef)
+- [[EMP-0251 Wei Pham]] (General Manager)
+- [[EMP-0269 Hassan Gonzalez]] (Prep Cook)
+- [[EMP-0264 Omar Santos]] (Server)
+- [[EMP-0255 Abigail Singh]] (Shift Lead)
+- [[EMP-0260 Jaden Silva]] (Server)

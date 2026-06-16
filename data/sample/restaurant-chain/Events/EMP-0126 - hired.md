@@ -1,11 +1,11 @@
 ---
 type: employment_event
 id: EVT-0126
-person: "[[EMP-0126 Valentina Wilson]]"
+person: "[[EMP-0126 Yara Silva]]"
 kind: hire
-date: 2025-10-20
+date: 2022-05-10
 store: "[[Store 06 - Denver LoDo]]"
 basis: consent
 ---
 
-[[EMP-0126 Valentina Wilson]] hired as General Manager at [[Store 06 - Denver LoDo]] on 2025-10-20.
+[[EMP-0126 Yara Silva]] hired as General Manager at [[Store 06 - Denver LoDo]] on 2022-05-10.

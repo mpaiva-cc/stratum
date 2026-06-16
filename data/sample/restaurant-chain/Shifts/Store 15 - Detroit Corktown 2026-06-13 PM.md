@@ -7,19 +7,17 @@ date: 2026-06-13
 daypart: PM
 start: "15:00"
 end: "23:30"
-crew_size: 10
+crew_size: 8
 basis: authorization
 crew:
-  - "[[EMP-0362 Jose Torres]]"
-  - "[[EMP-0364 Wei Davis]]"
-  - "[[EMP-0352 Ximena Ahmed]]"
-  - "[[EMP-0357 Isabella King]]"
-  - "[[EMP-0369 Henry Taylor]]"
-  - "[[EMP-0366 Nadia Okafor]]"
-  - "[[EMP-0374 Caleb Wright]]"
-  - "[[EMP-0358 Destiny Jackson]]"
-  - "[[EMP-0370 Ella Hernandez]]"
-  - "[[EMP-0360 Amelia Walker]]"
+  - "[[EMP-0368 Yuki Ahmed]]"
+  - "[[EMP-0363 Abigail Okafor]]"
+  - "[[EMP-0365 Zayd Torres]]"
+  - "[[EMP-0352 Isabella Wilson]]"
+  - "[[EMP-0364 Elijah Khan]]"
+  - "[[EMP-0355 Ella Thomas]]"
+  - "[[EMP-0374 Aaron Shah]]"
+  - "[[EMP-0356 Sofia Moore]]"
 ---
 
 PM shift at [[Store 15 - Detroit Corktown]] on 2026-06-13 (15:00-23:30).
@@ -30,13 +28,11 @@ PM shift at [[Store 15 - Detroit Corktown]] on 2026-06-13 (15:00-23:30).
 
 ## Crew
 
-- [[EMP-0362 Jose Torres]] (Bartender)
-- [[EMP-0364 Wei Davis]] (Server)
-- [[EMP-0352 Ximena Ahmed]] (Assistant Manager)
-- [[EMP-0357 Isabella King]] (Line Cook)
-- [[EMP-0369 Henry Taylor]] (Dishwasher)
-- [[EMP-0366 Nadia Okafor]] (Server)
-- [[EMP-0374 Caleb Wright]] (Host)
-- [[EMP-0358 Destiny Jackson]] (Server)
-- [[EMP-0370 Ella Hernandez]] (Busser)
-- [[EMP-0360 Amelia Walker]] (Line Cook)
+- [[EMP-0368 Yuki Ahmed]] (Server)
+- [[EMP-0363 Abigail Okafor]] (Line Cook)
+- [[EMP-0365 Zayd Torres]] (Bartender)
+- [[EMP-0352 Isabella Wilson]] (Assistant Manager)
+- [[EMP-0364 Elijah Khan]] (Line Cook)
+- [[EMP-0355 Ella Thomas]] (Shift Lead)
+- [[EMP-0374 Aaron Shah]] (Busser)
+- [[EMP-0356 Sofia Moore]] (Server)

@@ -7,15 +7,18 @@ date: 2026-06-13
 daypart: AM
 start: "07:00"
 end: "15:30"
-crew_size: 6
+crew_size: 9
 basis: authorization
 crew:
-  - "[[EMP-0066 Rohan Liu]]"
-  - "[[EMP-0064 Camila Young]]"
-  - "[[EMP-0062 Yara Taylor]]"
-  - "[[EMP-0063 Keira Garcia]]"
-  - "[[EMP-0061 Diego Jackson]]"
-  - "[[EMP-0052 Paloma King]]"
+  - "[[EMP-0066 Jaden Martinez]]"
+  - "[[EMP-0072 Nadia Romano]]"
+  - "[[EMP-0065 Ines Wilson]]"
+  - "[[EMP-0071 Destiny Anderson]]"
+  - "[[EMP-0075 Ella Romano]]"
+  - "[[EMP-0059 Keira Williams]]"
+  - "[[EMP-0063 Elena Thomas]]"
+  - "[[EMP-0060 Layla Miller]]"
+  - "[[EMP-0067 Anaya Santos]]"
 ---
 
 AM shift at [[Store 03 - Dallas Knox]] on 2026-06-13 (07:00-15:30).
@@ -26,9 +29,12 @@ AM shift at [[Store 03 - Dallas Knox]] on 2026-06-13 (07:00-15:30).
 
 ## Crew
 
-- [[EMP-0066 Rohan Liu]] (Server)
-- [[EMP-0064 Camila Young]] (Line Cook)
-- [[EMP-0062 Yara Taylor]] (Line Cook)
-- [[EMP-0063 Keira Garcia]] (Server)
-- [[EMP-0061 Diego Jackson]] (Expo)
-- [[EMP-0052 Paloma King]] (Assistant Manager)
+- [[EMP-0066 Jaden Martinez]] (Busser)
+- [[EMP-0072 Nadia Romano]] (Prep Cook)
+- [[EMP-0065 Ines Wilson]] (Dishwasher)
+- [[EMP-0071 Destiny Anderson]] (Prep Cook)
+- [[EMP-0075 Ella Romano]] (Prep Cook)
+- [[EMP-0059 Keira Williams]] (Bartender)
+- [[EMP-0063 Elena Thomas]] (Server)
+- [[EMP-0060 Layla Miller]] (Line Cook)
+- [[EMP-0067 Anaya Santos]] (Prep Cook)

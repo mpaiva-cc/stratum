@@ -5,11 +5,11 @@ name: Pittsburgh Strip
 region: "[[Northeast Region]]"
 at_location: "[[Pittsburgh Strip (PA-20)]]"
 part_of: "[[Northeast Region]]"
-opened: 2021-05-26
-seats: 120
+opened: 2024-07-04
+seats: 90
 headcount: 25
 basis: authorization
-general_manager: "[[EMP-0476 Ines Santos]]"
+general_manager: "[[EMP-0476 Quinn Chen]]"
 ---
 
 Store in the [[Northeast Region]] · 25 staff.
@@ -28,28 +28,28 @@ Store in the [[Northeast Region]] · 25 staff.
 
 ## Roster (25)
 
-- [[EMP-0476 Ines Santos]] — General Manager
-- [[EMP-0477 Daniela Shah]] — Assistant Manager
-- [[EMP-0478 Caleb Gonzalez]] — Head Chef
-- [[EMP-0479 Santiago Okafor]] — Shift Lead
-- [[EMP-0480 Mason Williams]] — Shift Lead
-- [[EMP-0481 Min Chen]] — Bartender
-- [[EMP-0482 Caleb Costa]] — Server
-- [[EMP-0483 Uma Sanchez]] — Server
-- [[EMP-0484 Ethan King]] — Line Cook
-- [[EMP-0485 Victor Chen]] — Bartender
-- [[EMP-0486 Wei Jackson]] — Server
-- [[EMP-0487 Mateo Costa]] — Line Cook
-- [[EMP-0488 Rosa Lopez]] — Line Cook
-- [[EMP-0489 Zane Clark]] — Server
-- [[EMP-0490 Wanda Young]] — Server
-- [[EMP-0491 Oscar Tran]] — Prep Cook
-- [[EMP-0492 Mateo Anderson]] — Dishwasher
-- [[EMP-0493 Yara Wang]] — Busser
-- [[EMP-0494 Noah Ramirez]] — Dishwasher
-- [[EMP-0495 Rosa Liu]] — Host
-- [[EMP-0496 Yara Ali]] — Busser
-- [[EMP-0497 Lucas Ali]] — Prep Cook
-- [[EMP-0498 Ava Kim]] — Host
-- [[EMP-0499 Harper Khan]] — Dishwasher
-- [[EMP-0500 Diego Martinez]] — Prep Cook
+- [[EMP-0476 Quinn Chen]] — General Manager
+- [[EMP-0477 Henry Rossi]] — Assistant Manager
+- [[EMP-0478 Henry Tran]] — Head Chef
+- [[EMP-0479 Hassan Gonzalez]] — Shift Lead
+- [[EMP-0480 Zane Williams]] — Shift Lead
+- [[EMP-0481 Emily Thomas]] — Line Cook
+- [[EMP-0482 Arjun Lewis]] — Server
+- [[EMP-0483 Jaden Torres]] — Line Cook
+- [[EMP-0484 Zane Taylor]] — Line Cook
+- [[EMP-0485 Valentina Wang]] — Expo
+- [[EMP-0486 Wei Silva]] — Line Cook
+- [[EMP-0487 Tariq Scott]] — Server
+- [[EMP-0488 Victor Ahmed]] — Server
+- [[EMP-0489 Amelia Ahmed]] — Server
+- [[EMP-0490 Rosa Taylor]] — Server
+- [[EMP-0491 Bella Wang]] — Server
+- [[EMP-0492 Liam Santos]] — Server
+- [[EMP-0493 Bella Jackson]] — Server
+- [[EMP-0494 Gabriela Jackson]] — Line Cook
+- [[EMP-0495 Destiny Lopez]] — Dishwasher
+- [[EMP-0496 Layla Williams]] — Prep Cook
+- [[EMP-0497 Evelyn Jones]] — Busser
+- [[EMP-0498 Ethan Patel]] — Busser
+- [[EMP-0499 Jose Tran]] — Dishwasher
+- [[EMP-0500 Destiny Johnson]] — Prep Cook

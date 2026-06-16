@@ -7,15 +7,18 @@ date: 2026-06-12
 daypart: AM
 start: "07:00"
 end: "15:30"
-crew_size: 6
+crew_size: 9
 basis: authorization
 crew:
-  - "[[EMP-0034 Elijah Diallo]]"
-  - "[[EMP-0037 Bella Brown]]"
-  - "[[EMP-0028 Quinn Garcia]]"
-  - "[[EMP-0027 Anaya Romano]]"
-  - "[[EMP-0046 Mason Patel]]"
-  - "[[EMP-0031 Omar Shah]]"
+  - "[[EMP-0049 Elena Harris]]"
+  - "[[EMP-0046 Arjun Young]]"
+  - "[[EMP-0043 Liam Hernandez]]"
+  - "[[EMP-0026 Fatima Bianchi]]"
+  - "[[EMP-0042 Destiny Tran]]"
+  - "[[EMP-0039 Aiden Brown]]"
+  - "[[EMP-0032 Valentina Liu]]"
+  - "[[EMP-0047 Elena Chen]]"
+  - "[[EMP-0031 Victor Lewis]]"
 ---
 
 AM shift at [[Store 02 - Houston Heights]] on 2026-06-12 (07:00-15:30).
@@ -26,9 +29,12 @@ AM shift at [[Store 02 - Houston Heights]] on 2026-06-12 (07:00-15:30).
 
 ## Crew
 
-- [[EMP-0034 Elijah Diallo]] (Line Cook)
-- [[EMP-0037 Bella Brown]] (Server)
-- [[EMP-0028 Quinn Garcia]] (Head Chef)
-- [[EMP-0027 Anaya Romano]] (Assistant Manager)
-- [[EMP-0046 Mason Patel]] (Server)
-- [[EMP-0031 Omar Shah]] (Line Cook)
+- [[EMP-0049 Elena Harris]] (Host)
+- [[EMP-0046 Arjun Young]] (Dishwasher)
+- [[EMP-0043 Liam Hernandez]] (Prep Cook)
+- [[EMP-0026 Fatima Bianchi]] (General Manager)
+- [[EMP-0042 Destiny Tran]] (Busser)
+- [[EMP-0039 Aiden Brown]] (Expo)
+- [[EMP-0032 Valentina Liu]] (Server)
+- [[EMP-0047 Elena Chen]] (Prep Cook)
+- [[EMP-0031 Victor Lewis]] (Server)

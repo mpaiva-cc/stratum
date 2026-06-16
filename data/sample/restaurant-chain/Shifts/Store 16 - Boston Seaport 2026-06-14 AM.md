@@ -10,14 +10,14 @@ end: "15:30"
 crew_size: 8
 basis: authorization
 crew:
-  - "[[EMP-0383 Noah Wright]]"
-  - "[[EMP-0389 Anaya King]]"
-  - "[[EMP-0390 Felix Singh]]"
-  - "[[EMP-0376 Min Wilson]]"
-  - "[[EMP-0380 Zayd Kim]]"
-  - "[[EMP-0400 Harper Mensah]]"
-  - "[[EMP-0396 Kayla Davis]]"
-  - "[[EMP-0382 Rohan Kim]]"
+  - "[[EMP-0400 Jaden Rodriguez]]"
+  - "[[EMP-0384 Fatima Chen]]"
+  - "[[EMP-0393 Bella Abara]]"
+  - "[[EMP-0383 Kayla Taylor]]"
+  - "[[EMP-0385 Henry Nguyen]]"
+  - "[[EMP-0389 Oscar Abara]]"
+  - "[[EMP-0376 Hassan Ahmed]]"
+  - "[[EMP-0381 Liam Thomas]]"
 ---
 
 AM shift at [[Store 16 - Boston Seaport]] on 2026-06-14 (07:00-15:30).
@@ -28,11 +28,11 @@ AM shift at [[Store 16 - Boston Seaport]] on 2026-06-14 (07:00-15:30).
 
 ## Crew
 
-- [[EMP-0383 Noah Wright]] (Line Cook)
-- [[EMP-0389 Anaya King]] (Bartender)
-- [[EMP-0390 Felix Singh]] (Server)
-- [[EMP-0376 Min Wilson]] (General Manager)
-- [[EMP-0380 Zayd Kim]] (Shift Lead)
-- [[EMP-0400 Harper Mensah]] (Prep Cook)
-- [[EMP-0396 Kayla Davis]] (Busser)
-- [[EMP-0382 Rohan Kim]] (Line Cook)
+- [[EMP-0400 Jaden Rodriguez]] (Dishwasher)
+- [[EMP-0384 Fatima Chen]] (Line Cook)
+- [[EMP-0393 Bella Abara]] (Busser)
+- [[EMP-0383 Kayla Taylor]] (Line Cook)
+- [[EMP-0385 Henry Nguyen]] (Line Cook)
+- [[EMP-0389 Oscar Abara]] (Line Cook)
+- [[EMP-0376 Hassan Ahmed]] (General Manager)
+- [[EMP-0381 Liam Thomas]] (Bartender)

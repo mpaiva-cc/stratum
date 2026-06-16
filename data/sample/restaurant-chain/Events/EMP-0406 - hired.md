@@ -1,11 +1,11 @@
 ---
 type: employment_event
 id: EVT-0406
-person: "[[EMP-0406 Maria King]]"
+person: "[[EMP-0406 Elijah Harris]]"
 kind: hire
-date: 2022-03-01
+date: 2025-11-23
 store: "[[Store 17 - Brooklyn Williamsburg]]"
 basis: consent
 ---
 
-[[EMP-0406 Maria King]] hired as Line Cook at [[Store 17 - Brooklyn Williamsburg]] on 2022-03-01.
+[[EMP-0406 Elijah Harris]] hired as Line Cook at [[Store 17 - Brooklyn Williamsburg]] on 2025-11-23.

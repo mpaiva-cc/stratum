@@ -7,17 +7,18 @@ date: 2026-06-11
 daypart: PM
 start: "15:00"
 end: "23:30"
-crew_size: 8
+crew_size: 9
 basis: authorization
 crew:
-  - "[[EMP-0286 Ella Abara]]"
-  - "[[EMP-0285 Zayd Nguyen]]"
-  - "[[EMP-0284 Wei King]]"
-  - "[[EMP-0295 Aaron Santos]]"
-  - "[[EMP-0293 Caleb Thomas]]"
-  - "[[EMP-0280 Tariq Patel]]"
-  - "[[EMP-0296 Henry Wang]]"
-  - "[[EMP-0291 Imani Le]]"
+  - "[[EMP-0291 Brianna Taylor]]"
+  - "[[EMP-0292 Maria Diallo]]"
+  - "[[EMP-0282 Sofia Mensah]]"
+  - "[[EMP-0285 Diego Sanchez]]"
+  - "[[EMP-0279 Abigail Abara]]"
+  - "[[EMP-0295 Ines Davis]]"
+  - "[[EMP-0288 Quinn Wilson]]"
+  - "[[EMP-0294 Logan Davis]]"
+  - "[[EMP-0286 Oscar Bianchi]]"
 ---
 
 PM shift at [[Store 12 - Minneapolis Uptown]] on 2026-06-11 (15:00-23:30).
@@ -28,11 +29,12 @@ PM shift at [[Store 12 - Minneapolis Uptown]] on 2026-06-11 (15:00-23:30).
 
 ## Crew
 
-- [[EMP-0286 Ella Abara]] (Line Cook)
-- [[EMP-0285 Zayd Nguyen]] (Line Cook)
-- [[EMP-0284 Wei King]] (Line Cook)
-- [[EMP-0295 Aaron Santos]] (Prep Cook)
-- [[EMP-0293 Caleb Thomas]] (Dishwasher)
-- [[EMP-0280 Tariq Patel]] (Shift Lead)
-- [[EMP-0296 Henry Wang]] (Busser)
-- [[EMP-0291 Imani Le]] (Prep Cook)
+- [[EMP-0291 Brianna Taylor]] (Line Cook)
+- [[EMP-0292 Maria Diallo]] (Line Cook)
+- [[EMP-0282 Sofia Mensah]] (Server)
+- [[EMP-0285 Diego Sanchez]] (Line Cook)
+- [[EMP-0279 Abigail Abara]] (Shift Lead)
+- [[EMP-0295 Ines Davis]] (Busser)
+- [[EMP-0288 Quinn Wilson]] (Server)
+- [[EMP-0294 Logan Davis]] (Server)
+- [[EMP-0286 Oscar Bianchi]] (Server)

@@ -10,15 +10,15 @@ end: "23:30"
 crew_size: 9
 basis: authorization
 crew:
-  - "[[EMP-0380 Zayd Kim]]"
-  - "[[EMP-0395 Mia Okafor]]"
-  - "[[EMP-0384 Lucas Gonzalez]]"
-  - "[[EMP-0394 Wanda Martinez]]"
-  - "[[EMP-0393 Noah Mensah]]"
-  - "[[EMP-0392 Ines Mensah]]"
-  - "[[EMP-0376 Min Wilson]]"
-  - "[[EMP-0388 Jose Kim]]"
-  - "[[EMP-0378 Imani Hernandez]]"
+  - "[[EMP-0378 Elena Johnson]]"
+  - "[[EMP-0384 Fatima Chen]]"
+  - "[[EMP-0377 Santiago Sanchez]]"
+  - "[[EMP-0393 Bella Abara]]"
+  - "[[EMP-0376 Hassan Ahmed]]"
+  - "[[EMP-0390 Diego Jones]]"
+  - "[[EMP-0382 Gabriela Santos]]"
+  - "[[EMP-0385 Henry Nguyen]]"
+  - "[[EMP-0400 Jaden Rodriguez]]"
 ---
 
 PM shift at [[Store 16 - Boston Seaport]] on 2026-06-12 (15:00-23:30).
@@ -29,12 +29,12 @@ PM shift at [[Store 16 - Boston Seaport]] on 2026-06-12 (15:00-23:30).
 
 ## Crew
 
-- [[EMP-0380 Zayd Kim]] (Shift Lead)
-- [[EMP-0395 Mia Okafor]] (Host)
-- [[EMP-0384 Lucas Gonzalez]] (Line Cook)
-- [[EMP-0394 Wanda Martinez]] (Line Cook)
-- [[EMP-0393 Noah Mensah]] (Line Cook)
-- [[EMP-0392 Ines Mensah]] (Line Cook)
-- [[EMP-0376 Min Wilson]] (General Manager)
-- [[EMP-0388 Jose Kim]] (Server)
-- [[EMP-0378 Imani Hernandez]] (Head Chef)
+- [[EMP-0378 Elena Johnson]] (Head Chef)
+- [[EMP-0384 Fatima Chen]] (Line Cook)
+- [[EMP-0377 Santiago Sanchez]] (Assistant Manager)
+- [[EMP-0393 Bella Abara]] (Busser)
+- [[EMP-0376 Hassan Ahmed]] (General Manager)
+- [[EMP-0390 Diego Jones]] (Busser)
+- [[EMP-0382 Gabriela Santos]] (Bartender)
+- [[EMP-0385 Henry Nguyen]] (Line Cook)
+- [[EMP-0400 Jaden Rodriguez]] (Dishwasher)

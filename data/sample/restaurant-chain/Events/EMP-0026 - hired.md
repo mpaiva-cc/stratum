@@ -1,11 +1,11 @@
 ---
 type: employment_event
 id: EVT-0026
-person: "[[EMP-0026 Imani Shah]]"
+person: "[[EMP-0026 Fatima Bianchi]]"
 kind: hire
-date: 2021-08-14
+date: 2025-09-02
 store: "[[Store 02 - Houston Heights]]"
 basis: consent
 ---
 
-[[EMP-0026 Imani Shah]] hired as General Manager at [[Store 02 - Houston Heights]] on 2021-08-14.
+[[EMP-0026 Fatima Bianchi]] hired as General Manager at [[Store 02 - Houston Heights]] on 2025-09-02.

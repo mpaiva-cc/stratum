@@ -7,15 +7,16 @@ date: 2026-06-12
 daypart: AM
 start: "07:00"
 end: "15:30"
-crew_size: 6
+crew_size: 7
 basis: authorization
 crew:
-  - "[[EMP-0326 Felix Allen]]"
-  - "[[EMP-0336 Santiago Lopez]]"
-  - "[[EMP-0346 Uma Ramirez]]"
-  - "[[EMP-0349 Aiden Anderson]]"
-  - "[[EMP-0339 Diego Tran]]"
-  - "[[EMP-0331 Keira Martinez]]"
+  - "[[EMP-0343 Wanda Harris]]"
+  - "[[EMP-0338 Anaya Wilson]]"
+  - "[[EMP-0331 Jose Scott]]"
+  - "[[EMP-0326 Henry Rodriguez]]"
+  - "[[EMP-0339 Paloma King]]"
+  - "[[EMP-0334 Aria Santos]]"
+  - "[[EMP-0340 Caleb Young]]"
 ---
 
 AM shift at [[Store 14 - Kansas City P&L]] on 2026-06-12 (07:00-15:30).
@@ -26,9 +27,10 @@ AM shift at [[Store 14 - Kansas City P&L]] on 2026-06-12 (07:00-15:30).
 
 ## Crew
 
-- [[EMP-0326 Felix Allen]] (General Manager)
-- [[EMP-0336 Santiago Lopez]] (Bartender)
-- [[EMP-0346 Uma Ramirez]] (Dishwasher)
-- [[EMP-0349 Aiden Anderson]] (Dishwasher)
-- [[EMP-0339 Diego Tran]] (Server)
-- [[EMP-0331 Keira Martinez]] (Line Cook)
+- [[EMP-0343 Wanda Harris]] (Expo)
+- [[EMP-0338 Anaya Wilson]] (Server)
+- [[EMP-0331 Jose Scott]] (Line Cook)
+- [[EMP-0326 Henry Rodriguez]] (General Manager)
+- [[EMP-0339 Paloma King]] (Line Cook)
+- [[EMP-0334 Aria Santos]] (Line Cook)
+- [[EMP-0340 Caleb Young]] (Line Cook)

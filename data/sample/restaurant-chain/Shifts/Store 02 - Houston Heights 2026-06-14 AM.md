@@ -7,17 +7,19 @@ date: 2026-06-14
 daypart: AM
 start: "07:00"
 end: "15:30"
-crew_size: 8
+crew_size: 10
 basis: authorization
 crew:
-  - "[[EMP-0043 Andres Silva]]"
-  - "[[EMP-0048 Omar Walker]]"
-  - "[[EMP-0044 Camila Costa]]"
-  - "[[EMP-0050 Arjun Davis]]"
-  - "[[EMP-0030 Santiago Ramirez]]"
-  - "[[EMP-0042 Nadia Shah]]"
-  - "[[EMP-0047 Harper Costa]]"
-  - "[[EMP-0037 Bella Brown]]"
+  - "[[EMP-0032 Valentina Liu]]"
+  - "[[EMP-0042 Destiny Tran]]"
+  - "[[EMP-0030 Kayla Liu]]"
+  - "[[EMP-0027 Santiago Santos]]"
+  - "[[EMP-0034 Fatima Singh]]"
+  - "[[EMP-0049 Elena Harris]]"
+  - "[[EMP-0040 Jaden Patel]]"
+  - "[[EMP-0031 Victor Lewis]]"
+  - "[[EMP-0033 Ximena Torres]]"
+  - "[[EMP-0045 Camila Anderson]]"
 ---
 
 AM shift at [[Store 02 - Houston Heights]] on 2026-06-14 (07:00-15:30).
@@ -28,11 +30,13 @@ AM shift at [[Store 02 - Houston Heights]] on 2026-06-14 (07:00-15:30).
 
 ## Crew
 
-- [[EMP-0043 Andres Silva]] (Server)
-- [[EMP-0048 Omar Walker]] (Prep Cook)
-- [[EMP-0044 Camila Costa]] (Server)
-- [[EMP-0050 Arjun Davis]] (Busser)
-- [[EMP-0030 Santiago Ramirez]] (Shift Lead)
-- [[EMP-0042 Nadia Shah]] (Line Cook)
-- [[EMP-0047 Harper Costa]] (Line Cook)
-- [[EMP-0037 Bella Brown]] (Server)
+- [[EMP-0032 Valentina Liu]] (Server)
+- [[EMP-0042 Destiny Tran]] (Busser)
+- [[EMP-0030 Kayla Liu]] (Shift Lead)
+- [[EMP-0027 Santiago Santos]] (Assistant Manager)
+- [[EMP-0034 Fatima Singh]] (Server)
+- [[EMP-0049 Elena Harris]] (Host)
+- [[EMP-0040 Jaden Patel]] (Busser)
+- [[EMP-0031 Victor Lewis]] (Server)
+- [[EMP-0033 Ximena Torres]] (Server)
+- [[EMP-0045 Camila Anderson]] (Dishwasher)

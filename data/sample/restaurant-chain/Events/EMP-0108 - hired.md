@@ -1,11 +1,11 @@
 ---
 type: employment_event
 id: EVT-0108
-person: "[[EMP-0108 Diego Moore]]"
+person: "[[EMP-0108 Santiago Hernandez]]"
 kind: hire
-date: 2023-12-28
+date: 2024-01-17
 store: "[[Store 05 - Nashville Gulch]]"
 basis: consent
 ---
 
-[[EMP-0108 Diego Moore]] hired as Line Cook at [[Store 05 - Nashville Gulch]] on 2023-12-28.
+[[EMP-0108 Santiago Hernandez]] hired as Line Cook at [[Store 05 - Nashville Gulch]] on 2024-01-17.

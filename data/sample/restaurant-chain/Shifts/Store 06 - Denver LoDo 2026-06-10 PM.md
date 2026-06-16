@@ -10,12 +10,12 @@ end: "23:30"
 crew_size: 6
 basis: authorization
 crew:
-  - "[[EMP-0134 Jin Santos]]"
-  - "[[EMP-0129 Yuki Smith]]"
-  - "[[EMP-0130 Zane Liu]]"
-  - "[[EMP-0132 Felix Johnson]]"
-  - "[[EMP-0137 Hassan Ramirez]]"
-  - "[[EMP-0136 Sofia Moore]]"
+  - "[[EMP-0141 Nadia Scott]]"
+  - "[[EMP-0150 Grace Sanchez]]"
+  - "[[EMP-0137 Carlos Mensah]]"
+  - "[[EMP-0140 Ximena Allen]]"
+  - "[[EMP-0143 Emily Costa]]"
+  - "[[EMP-0139 Liam Perez]]"
 ---
 
 PM shift at [[Store 06 - Denver LoDo]] on 2026-06-10 (15:00-23:30).
@@ -26,9 +26,9 @@ PM shift at [[Store 06 - Denver LoDo]] on 2026-06-10 (15:00-23:30).
 
 ## Crew
 
-- [[EMP-0134 Jin Santos]] (Line Cook)
-- [[EMP-0129 Yuki Smith]] (Shift Lead)
-- [[EMP-0130 Zane Liu]] (Shift Lead)
-- [[EMP-0132 Felix Johnson]] (Server)
-- [[EMP-0137 Hassan Ramirez]] (Line Cook)
-- [[EMP-0136 Sofia Moore]] (Bartender)
+- [[EMP-0141 Nadia Scott]] (Server)
+- [[EMP-0150 Grace Sanchez]] (Host)
+- [[EMP-0137 Carlos Mensah]] (Server)
+- [[EMP-0140 Ximena Allen]] (Line Cook)
+- [[EMP-0143 Emily Costa]] (Prep Cook)
+- [[EMP-0139 Liam Perez]] (Line Cook)

@@ -7,17 +7,16 @@ date: 2026-06-10
 daypart: PM
 start: "15:00"
 end: "23:30"
-crew_size: 8
+crew_size: 7
 basis: authorization
 crew:
-  - "[[EMP-0166 Abigail Scott]]"
-  - "[[EMP-0155 Uma Brown]]"
-  - "[[EMP-0152 Valentina Ali]]"
-  - "[[EMP-0157 Emily Young]]"
-  - "[[EMP-0168 Quinn Torres]]"
-  - "[[EMP-0170 Priya Miller]]"
-  - "[[EMP-0169 Hassan Kim]]"
-  - "[[EMP-0158 Brianna Thomas]]"
+  - "[[EMP-0167 Santiago Bianchi]]"
+  - "[[EMP-0175 Connor Mensah]]"
+  - "[[EMP-0156 Tariq Rossi]]"
+  - "[[EMP-0173 Tariq Singh]]"
+  - "[[EMP-0169 Aaron Abara]]"
+  - "[[EMP-0171 Imani Johnson]]"
+  - "[[EMP-0165 Rohan Davis]]"
 ---
 
 PM shift at [[Store 07 - Phoenix Scottsdale]] on 2026-06-10 (15:00-23:30).
@@ -28,11 +27,10 @@ PM shift at [[Store 07 - Phoenix Scottsdale]] on 2026-06-10 (15:00-23:30).
 
 ## Crew
 
-- [[EMP-0166 Abigail Scott]] (Prep Cook)
-- [[EMP-0155 Uma Brown]] (Shift Lead)
-- [[EMP-0152 Valentina Ali]] (Assistant Manager)
-- [[EMP-0157 Emily Young]] (Server)
-- [[EMP-0168 Quinn Torres]] (Prep Cook)
-- [[EMP-0170 Priya Miller]] (Dishwasher)
-- [[EMP-0169 Hassan Kim]] (Busser)
-- [[EMP-0158 Brianna Thomas]] (Line Cook)
+- [[EMP-0167 Santiago Bianchi]] (Server)
+- [[EMP-0175 Connor Mensah]] (Prep Cook)
+- [[EMP-0156 Tariq Rossi]] (Bartender)
+- [[EMP-0173 Tariq Singh]] (Prep Cook)
+- [[EMP-0169 Aaron Abara]] (Server)
+- [[EMP-0171 Imani Johnson]] (Busser)
+- [[EMP-0165 Rohan Davis]] (Bartender)

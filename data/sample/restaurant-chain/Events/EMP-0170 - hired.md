@@ -1,11 +1,11 @@
 ---
 type: employment_event
 id: EVT-0170
-person: "[[EMP-0170 Priya Miller]]"
+person: "[[EMP-0170 Ella Shah]]"
 kind: hire
-date: 2021-09-15
+date: 2023-03-09
 store: "[[Store 07 - Phoenix Scottsdale]]"
 basis: consent
 ---
 
-[[EMP-0170 Priya Miller]] hired as Dishwasher at [[Store 07 - Phoenix Scottsdale]] on 2021-09-15.
+[[EMP-0170 Ella Shah]] hired as Server at [[Store 07 - Phoenix Scottsdale]] on 2023-03-09.

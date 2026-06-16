@@ -1,11 +1,11 @@
 ---
 type: employment_event
 id: EVT-0089
-person: "[[EMP-0089 Zayd King]]"
+person: "[[EMP-0089 Omar Perez]]"
 kind: hire
-date: 2024-11-24
+date: 2025-05-22
 store: "[[Store 04 - Atlanta Midtown]]"
 basis: consent
 ---
 
-[[EMP-0089 Zayd King]] hired as Server at [[Store 04 - Atlanta Midtown]] on 2024-11-24.
+[[EMP-0089 Omar Perez]] hired as Bartender at [[Store 04 - Atlanta Midtown]] on 2025-05-22.

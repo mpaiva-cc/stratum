@@ -1,6 +1,6 @@
 ---
 type: consent_grant
-id: CNS-0065
+id: CNS-0066
 person: "[[EMP-0017 Wei Perez]]"
 scope: hr.certifications
 purpose: store operations

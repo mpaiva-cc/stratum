@@ -7,17 +7,15 @@ date: 2026-06-08
 daypart: PM
 start: "15:00"
 end: "23:30"
-crew_size: 8
+crew_size: 6
 basis: authorization
 crew:
-  - "[[EMP-0495 Rosa Liu]]"
-  - "[[EMP-0479 Santiago Okafor]]"
-  - "[[EMP-0491 Oscar Tran]]"
-  - "[[EMP-0484 Ethan King]]"
-  - "[[EMP-0483 Uma Sanchez]]"
-  - "[[EMP-0490 Wanda Young]]"
-  - "[[EMP-0496 Yara Ali]]"
-  - "[[EMP-0480 Mason Williams]]"
+  - "[[EMP-0478 Henry Tran]]"
+  - "[[EMP-0498 Ethan Patel]]"
+  - "[[EMP-0481 Emily Thomas]]"
+  - "[[EMP-0476 Quinn Chen]]"
+  - "[[EMP-0487 Tariq Scott]]"
+  - "[[EMP-0482 Arjun Lewis]]"
 ---
 
 PM shift at [[Store 20 - Pittsburgh Strip]] on 2026-06-08 (15:00-23:30).
@@ -28,11 +26,9 @@ PM shift at [[Store 20 - Pittsburgh Strip]] on 2026-06-08 (15:00-23:30).
 
 ## Crew
 
-- [[EMP-0495 Rosa Liu]] (Host)
-- [[EMP-0479 Santiago Okafor]] (Shift Lead)
-- [[EMP-0491 Oscar Tran]] (Prep Cook)
-- [[EMP-0484 Ethan King]] (Line Cook)
-- [[EMP-0483 Uma Sanchez]] (Server)
-- [[EMP-0490 Wanda Young]] (Server)
-- [[EMP-0496 Yara Ali]] (Busser)
-- [[EMP-0480 Mason Williams]] (Shift Lead)
+- [[EMP-0478 Henry Tran]] (Head Chef)
+- [[EMP-0498 Ethan Patel]] (Busser)
+- [[EMP-0481 Emily Thomas]] (Line Cook)
+- [[EMP-0476 Quinn Chen]] (General Manager)
+- [[EMP-0487 Tariq Scott]] (Server)
+- [[EMP-0482 Arjun Lewis]] (Server)

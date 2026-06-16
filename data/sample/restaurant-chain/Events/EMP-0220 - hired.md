@@ -1,11 +1,11 @@
 ---
 type: employment_event
 id: EVT-0220
-person: "[[EMP-0220 Emily Brown]]"
+person: "[[EMP-0220 Tariq Moore]]"
 kind: hire
-date: 2023-01-03
+date: 2023-05-06
 store: "[[Store 09 - Portland Pearl]]"
 basis: consent
 ---
 
-[[EMP-0220 Emily Brown]] hired as Dishwasher at [[Store 09 - Portland Pearl]] on 2023-01-03.
+[[EMP-0220 Tariq Moore]] hired as Busser at [[Store 09 - Portland Pearl]] on 2023-05-06.

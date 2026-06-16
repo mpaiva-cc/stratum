@@ -5,11 +5,11 @@ name: Nashville Gulch
 region: "[[South Region]]"
 at_location: "[[Nashville Gulch (TN-05)]]"
 part_of: "[[South Region]]"
-opened: 2020-03-14
-seats: 160
+opened: 2022-01-30
+seats: 140
 headcount: 25
 basis: authorization
-general_manager: "[[EMP-0101 Kayla Lopez]]"
+general_manager: "[[EMP-0101 Sofia Costa]]"
 ---
 
 Store in the [[South Region]] · 25 staff.
@@ -28,28 +28,28 @@ Store in the [[South Region]] · 25 staff.
 
 ## Roster (25)
 
-- [[EMP-0101 Kayla Lopez]] — General Manager
-- [[EMP-0102 Connor Moore]] — Assistant Manager
-- [[EMP-0103 Aaron Wright]] — Head Chef
-- [[EMP-0104 Yuki Scott]] — Shift Lead
-- [[EMP-0105 Destiny White]] — Shift Lead
-- [[EMP-0106 Wei Lewis]] — Server
-- [[EMP-0107 Zane Garcia]] — Server
-- [[EMP-0108 Diego Moore]] — Line Cook
-- [[EMP-0109 Liam Wilson]] — Line Cook
-- [[EMP-0110 Aria Ahmed]] — Server
-- [[EMP-0111 Zayd Rossi]] — Line Cook
-- [[EMP-0112 Rosa Garcia]] — Server
-- [[EMP-0113 Keira Liu]] — Line Cook
-- [[EMP-0114 Mia Scott]] — Bartender
-- [[EMP-0115 Elijah Tran]] — Server
-- [[EMP-0116 Sofia Diallo]] — Server
-- [[EMP-0117 Bella Park]] — Line Cook
-- [[EMP-0118 Evelyn Ali]] — Bartender
-- [[EMP-0119 Kayla Kim]] — Line Cook
-- [[EMP-0120 Omar Chen]] — Bartender
-- [[EMP-0121 Aiden King]] — Prep Cook
-- [[EMP-0122 Fatima Anderson]] — Dishwasher
-- [[EMP-0123 Evelyn Johnson]] — Dishwasher
-- [[EMP-0124 Aria Silva]] — Dishwasher
-- [[EMP-0125 Jamal Scott]] — Busser
+- [[EMP-0101 Sofia Costa]] — General Manager
+- [[EMP-0102 Leo Okafor]] — Assistant Manager
+- [[EMP-0103 Sofia Bianchi]] — Head Chef
+- [[EMP-0104 Gabriela Singh]] — Shift Lead
+- [[EMP-0105 Felix Russo]] — Shift Lead
+- [[EMP-0106 Wanda Wilson]] — Bartender
+- [[EMP-0107 Harper Russo]] — Bartender
+- [[EMP-0108 Santiago Hernandez]] — Line Cook
+- [[EMP-0109 Diego Lewis]] — Server
+- [[EMP-0110 Min Garcia]] — Server
+- [[EMP-0111 Destiny Costa]] — Expo
+- [[EMP-0112 Andres Miller]] — Bartender
+- [[EMP-0113 Uma Le]] — Line Cook
+- [[EMP-0114 Brianna Perez]] — Line Cook
+- [[EMP-0115 Quinn King]] — Server
+- [[EMP-0116 Valentina Wilson]] — Server
+- [[EMP-0117 Harper Le]] — Prep Cook
+- [[EMP-0118 Henry Hernandez]] — Busser
+- [[EMP-0119 Yuki Smith]] — Prep Cook
+- [[EMP-0120 Zane Liu]] — Host
+- [[EMP-0121 Jamal Singh]] — Busser
+- [[EMP-0122 Felix Johnson]] — Dishwasher
+- [[EMP-0123 Hassan Diallo]] — Prep Cook
+- [[EMP-0124 Jin Santos]] — Host
+- [[EMP-0125 Yuki Taylor]] — Prep Cook

@@ -7,16 +7,17 @@ date: 2026-06-12
 daypart: AM
 start: "07:00"
 end: "15:30"
-crew_size: 7
+crew_size: 8
 basis: authorization
 crew:
-  - "[[EMP-0323 Jamal Chen]]"
-  - "[[EMP-0322 Yuki Smith]]"
-  - "[[EMP-0317 Jaden Silva]]"
-  - "[[EMP-0315 Aaron Singh]]"
-  - "[[EMP-0306 Ella Tran]]"
-  - "[[EMP-0301 Hassan Jones]]"
-  - "[[EMP-0320 Priya Taylor]]"
+  - "[[EMP-0324 Quinn Costa]]"
+  - "[[EMP-0320 Mason Johnson]]"
+  - "[[EMP-0308 Victor Okafor]]"
+  - "[[EMP-0317 Aiden Johnson]]"
+  - "[[EMP-0323 Daniela Clark]]"
+  - "[[EMP-0309 Evelyn King]]"
+  - "[[EMP-0325 Leo Harris]]"
+  - "[[EMP-0319 Grace Walker]]"
 ---
 
 AM shift at [[Store 13 - Columbus Short North]] on 2026-06-12 (07:00-15:30).
@@ -27,10 +28,11 @@ AM shift at [[Store 13 - Columbus Short North]] on 2026-06-12 (07:00-15:30).
 
 ## Crew
 
-- [[EMP-0323 Jamal Chen]] (Prep Cook)
-- [[EMP-0322 Yuki Smith]] (Dishwasher)
-- [[EMP-0317 Jaden Silva]] (Prep Cook)
-- [[EMP-0315 Aaron Singh]] (Server)
-- [[EMP-0306 Ella Tran]] (Server)
-- [[EMP-0301 Hassan Jones]] (General Manager)
-- [[EMP-0320 Priya Taylor]] (Host)
+- [[EMP-0324 Quinn Costa]] (Busser)
+- [[EMP-0320 Mason Johnson]] (Server)
+- [[EMP-0308 Victor Okafor]] (Bartender)
+- [[EMP-0317 Aiden Johnson]] (Line Cook)
+- [[EMP-0323 Daniela Clark]] (Host)
+- [[EMP-0309 Evelyn King]] (Server)
+- [[EMP-0325 Leo Harris]] (Busser)
+- [[EMP-0319 Grace Walker]] (Server)

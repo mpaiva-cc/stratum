@@ -7,18 +7,15 @@ date: 2026-06-10
 daypart: PM
 start: "15:00"
 end: "23:30"
-crew_size: 9
+crew_size: 6
 basis: authorization
 crew:
-  - "[[EMP-0357 Isabella King]]"
-  - "[[EMP-0353 Lucas Silva]]"
-  - "[[EMP-0352 Ximena Ahmed]]"
-  - "[[EMP-0359 Aaron Singh]]"
-  - "[[EMP-0362 Jose Torres]]"
-  - "[[EMP-0373 Carlos Lewis]]"
-  - "[[EMP-0369 Henry Taylor]]"
-  - "[[EMP-0355 Ella Diallo]]"
-  - "[[EMP-0375 Oscar Torres]]"
+  - "[[EMP-0371 Zayd Johnson]]"
+  - "[[EMP-0354 Ines Williams]]"
+  - "[[EMP-0351 Diego Torres]]"
+  - "[[EMP-0374 Aaron Shah]]"
+  - "[[EMP-0352 Isabella Wilson]]"
+  - "[[EMP-0368 Yuki Ahmed]]"
 ---
 
 PM shift at [[Store 15 - Detroit Corktown]] on 2026-06-10 (15:00-23:30).
@@ -29,12 +26,9 @@ PM shift at [[Store 15 - Detroit Corktown]] on 2026-06-10 (15:00-23:30).
 
 ## Crew
 
-- [[EMP-0357 Isabella King]] (Line Cook)
-- [[EMP-0353 Lucas Silva]] (Head Chef)
-- [[EMP-0352 Ximena Ahmed]] (Assistant Manager)
-- [[EMP-0359 Aaron Singh]] (Server)
-- [[EMP-0362 Jose Torres]] (Bartender)
-- [[EMP-0373 Carlos Lewis]] (Busser)
-- [[EMP-0369 Henry Taylor]] (Dishwasher)
-- [[EMP-0355 Ella Diallo]] (Shift Lead)
-- [[EMP-0375 Oscar Torres]] (Busser)
+- [[EMP-0371 Zayd Johnson]] (Line Cook)
+- [[EMP-0354 Ines Williams]] (Shift Lead)
+- [[EMP-0351 Diego Torres]] (General Manager)
+- [[EMP-0374 Aaron Shah]] (Busser)
+- [[EMP-0352 Isabella Wilson]] (Assistant Manager)
+- [[EMP-0368 Yuki Ahmed]] (Server)

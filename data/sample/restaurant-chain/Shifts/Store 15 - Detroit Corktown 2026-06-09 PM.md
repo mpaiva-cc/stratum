@@ -10,12 +10,12 @@ end: "23:30"
 crew_size: 6
 basis: authorization
 crew:
-  - "[[EMP-0368 Noah Anderson]]"
-  - "[[EMP-0370 Ella Hernandez]]"
-  - "[[EMP-0364 Wei Davis]]"
-  - "[[EMP-0373 Carlos Lewis]]"
-  - "[[EMP-0358 Destiny Jackson]]"
-  - "[[EMP-0359 Aaron Singh]]"
+  - "[[EMP-0374 Aaron Shah]]"
+  - "[[EMP-0375 Valentina Sanchez]]"
+  - "[[EMP-0370 Brianna Nguyen]]"
+  - "[[EMP-0352 Isabella Wilson]]"
+  - "[[EMP-0361 Jamal Rossi]]"
+  - "[[EMP-0360 Leo Ali]]"
 ---
 
 PM shift at [[Store 15 - Detroit Corktown]] on 2026-06-09 (15:00-23:30).
@@ -26,9 +26,9 @@ PM shift at [[Store 15 - Detroit Corktown]] on 2026-06-09 (15:00-23:30).
 
 ## Crew
 
-- [[EMP-0368 Noah Anderson]] (Line Cook)
-- [[EMP-0370 Ella Hernandez]] (Busser)
-- [[EMP-0364 Wei Davis]] (Server)
-- [[EMP-0373 Carlos Lewis]] (Busser)
-- [[EMP-0358 Destiny Jackson]] (Server)
-- [[EMP-0359 Aaron Singh]] (Server)
+- [[EMP-0374 Aaron Shah]] (Busser)
+- [[EMP-0375 Valentina Sanchez]] (Prep Cook)
+- [[EMP-0370 Brianna Nguyen]] (Server)
+- [[EMP-0352 Isabella Wilson]] (Assistant Manager)
+- [[EMP-0361 Jamal Rossi]] (Line Cook)
+- [[EMP-0360 Leo Ali]] (Line Cook)

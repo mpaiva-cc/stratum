@@ -1,11 +1,11 @@
 ---
 type: employment_event
 id: EVT-0488
-person: "[[EMP-0488 Rosa Lopez]]"
+person: "[[EMP-0488 Victor Ahmed]]"
 kind: hire
-date: 2022-02-22
+date: 2025-05-16
 store: "[[Store 20 - Pittsburgh Strip]]"
 basis: consent
 ---
 
-[[EMP-0488 Rosa Lopez]] hired as Line Cook at [[Store 20 - Pittsburgh Strip]] on 2022-02-22.
+[[EMP-0488 Victor Ahmed]] hired as Server at [[Store 20 - Pittsburgh Strip]] on 2025-05-16.

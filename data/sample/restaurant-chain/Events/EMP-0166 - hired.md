@@ -1,11 +1,11 @@
 ---
 type: employment_event
 id: EVT-0166
-person: "[[EMP-0166 Abigail Scott]]"
+person: "[[EMP-0166 Amelia Taylor]]"
 kind: hire
-date: 2023-01-15
+date: 2024-01-28
 store: "[[Store 07 - Phoenix Scottsdale]]"
 basis: consent
 ---
 
-[[EMP-0166 Abigail Scott]] hired as Prep Cook at [[Store 07 - Phoenix Scottsdale]] on 2023-01-15.
+[[EMP-0166 Amelia Taylor]] hired as Server at [[Store 07 - Phoenix Scottsdale]] on 2024-01-28.

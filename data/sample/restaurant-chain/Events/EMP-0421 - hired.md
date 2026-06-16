@@ -1,11 +1,11 @@
 ---
 type: employment_event
 id: EVT-0421
-person: "[[EMP-0421 Uma Khan]]"
+person: "[[EMP-0421 Brianna Perez]]"
 kind: hire
-date: 2025-11-24
+date: 2025-05-19
 store: "[[Store 17 - Brooklyn Williamsburg]]"
 basis: consent
 ---
 
-[[EMP-0421 Uma Khan]] hired as Dishwasher at [[Store 17 - Brooklyn Williamsburg]] on 2025-11-24.
+[[EMP-0421 Brianna Perez]] hired as Prep Cook at [[Store 17 - Brooklyn Williamsburg]] on 2025-05-19.

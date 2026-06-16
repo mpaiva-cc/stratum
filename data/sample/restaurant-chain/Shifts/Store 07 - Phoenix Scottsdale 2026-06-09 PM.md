@@ -7,19 +7,17 @@ date: 2026-06-09
 daypart: PM
 start: "15:00"
 end: "23:30"
-crew_size: 10
+crew_size: 8
 basis: authorization
 crew:
-  - "[[EMP-0153 Ella Sanchez]]"
-  - "[[EMP-0154 Anaya Le]]"
-  - "[[EMP-0175 Andres White]]"
-  - "[[EMP-0172 Quinn Garcia]]"
-  - "[[EMP-0174 Aaron Silva]]"
-  - "[[EMP-0169 Hassan Kim]]"
-  - "[[EMP-0156 Destiny Ramirez]]"
-  - "[[EMP-0165 Yara Silva]]"
-  - "[[EMP-0166 Abigail Scott]]"
-  - "[[EMP-0158 Brianna Thomas]]"
+  - "[[EMP-0160 Nadia Rossi]]"
+  - "[[EMP-0169 Aaron Abara]]"
+  - "[[EMP-0173 Tariq Singh]]"
+  - "[[EMP-0164 Hana Miller]]"
+  - "[[EMP-0158 Liam Jones]]"
+  - "[[EMP-0157 Samir Wilson]]"
+  - "[[EMP-0161 Noah Shah]]"
+  - "[[EMP-0151 Santiago Ahmed]]"
 ---
 
 PM shift at [[Store 07 - Phoenix Scottsdale]] on 2026-06-09 (15:00-23:30).
@@ -30,13 +28,11 @@ PM shift at [[Store 07 - Phoenix Scottsdale]] on 2026-06-09 (15:00-23:30).
 
 ## Crew
 
-- [[EMP-0153 Ella Sanchez]] (Head Chef)
-- [[EMP-0154 Anaya Le]] (Shift Lead)
-- [[EMP-0175 Andres White]] (Host)
-- [[EMP-0172 Quinn Garcia]] (Busser)
-- [[EMP-0174 Aaron Silva]] (Busser)
-- [[EMP-0169 Hassan Kim]] (Busser)
-- [[EMP-0156 Destiny Ramirez]] (Bartender)
-- [[EMP-0165 Yara Silva]] (Dishwasher)
-- [[EMP-0166 Abigail Scott]] (Prep Cook)
-- [[EMP-0158 Brianna Thomas]] (Line Cook)
+- [[EMP-0160 Nadia Rossi]] (Line Cook)
+- [[EMP-0169 Aaron Abara]] (Server)
+- [[EMP-0173 Tariq Singh]] (Prep Cook)
+- [[EMP-0164 Hana Miller]] (Line Cook)
+- [[EMP-0158 Liam Jones]] (Server)
+- [[EMP-0157 Samir Wilson]] (Line Cook)
+- [[EMP-0161 Noah Shah]] (Expo)
+- [[EMP-0151 Santiago Ahmed]] (General Manager)

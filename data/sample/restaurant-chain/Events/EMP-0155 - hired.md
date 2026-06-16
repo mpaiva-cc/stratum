@@ -1,11 +1,11 @@
 ---
 type: employment_event
 id: EVT-0155
-person: "[[EMP-0155 Uma Brown]]"
+person: "[[EMP-0155 Wei Walker]]"
 kind: hire
-date: 2025-01-15
+date: 2024-12-19
 store: "[[Store 07 - Phoenix Scottsdale]]"
 basis: consent
 ---
 
-[[EMP-0155 Uma Brown]] hired as Shift Lead at [[Store 07 - Phoenix Scottsdale]] on 2025-01-15.
+[[EMP-0155 Wei Walker]] hired as Shift Lead at [[Store 07 - Phoenix Scottsdale]] on 2024-12-19.

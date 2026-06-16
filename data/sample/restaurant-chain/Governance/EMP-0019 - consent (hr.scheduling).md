@@ -1,6 +1,6 @@
 ---
 type: consent_grant
-id: CNS-0071
+id: CNS-0072
 person: "[[EMP-0019 Gabriela Miller]]"
 scope: hr.scheduling
 purpose: store operations

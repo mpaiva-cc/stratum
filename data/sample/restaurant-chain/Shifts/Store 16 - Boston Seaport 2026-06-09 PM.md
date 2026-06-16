@@ -7,16 +7,17 @@ date: 2026-06-09
 daypart: PM
 start: "15:00"
 end: "23:30"
-crew_size: 7
+crew_size: 8
 basis: authorization
 crew:
-  - "[[EMP-0377 Logan Taylor]]"
-  - "[[EMP-0395 Mia Okafor]]"
-  - "[[EMP-0393 Noah Mensah]]"
-  - "[[EMP-0388 Jose Kim]]"
-  - "[[EMP-0379 Zane Diallo]]"
-  - "[[EMP-0385 Logan Sanchez]]"
-  - "[[EMP-0382 Rohan Kim]]"
+  - "[[EMP-0388 Wanda Ali]]"
+  - "[[EMP-0396 Mateo Kim]]"
+  - "[[EMP-0390 Diego Jones]]"
+  - "[[EMP-0397 Fatima Ali]]"
+  - "[[EMP-0391 Rohan Torres]]"
+  - "[[EMP-0387 Ximena Williams]]"
+  - "[[EMP-0384 Fatima Chen]]"
+  - "[[EMP-0398 Henry Sanchez]]"
 ---
 
 PM shift at [[Store 16 - Boston Seaport]] on 2026-06-09 (15:00-23:30).
@@ -27,10 +28,11 @@ PM shift at [[Store 16 - Boston Seaport]] on 2026-06-09 (15:00-23:30).
 
 ## Crew
 
-- [[EMP-0377 Logan Taylor]] (Assistant Manager)
-- [[EMP-0395 Mia Okafor]] (Host)
-- [[EMP-0393 Noah Mensah]] (Line Cook)
-- [[EMP-0388 Jose Kim]] (Server)
-- [[EMP-0379 Zane Diallo]] (Shift Lead)
-- [[EMP-0385 Logan Sanchez]] (Line Cook)
-- [[EMP-0382 Rohan Kim]] (Line Cook)
+- [[EMP-0388 Wanda Ali]] (Server)
+- [[EMP-0396 Mateo Kim]] (Host)
+- [[EMP-0390 Diego Jones]] (Busser)
+- [[EMP-0397 Fatima Ali]] (Prep Cook)
+- [[EMP-0391 Rohan Torres]] (Dishwasher)
+- [[EMP-0387 Ximena Williams]] (Server)
+- [[EMP-0384 Fatima Chen]] (Line Cook)
+- [[EMP-0398 Henry Sanchez]] (Busser)

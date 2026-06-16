@@ -7,18 +7,15 @@ date: 2026-06-10
 daypart: AM
 start: "07:00"
 end: "15:30"
-crew_size: 9
+crew_size: 6
 basis: authorization
 crew:
-  - "[[EMP-0334 Jin Abara]]"
-  - "[[EMP-0339 Diego Tran]]"
-  - "[[EMP-0343 Connor Tran]]"
-  - "[[EMP-0350 Connor Jackson]]"
-  - "[[EMP-0332 Rosa Allen]]"
-  - "[[EMP-0326 Felix Allen]]"
-  - "[[EMP-0348 Harper Wright]]"
-  - "[[EMP-0327 Yara Jones]]"
-  - "[[EMP-0330 Ava Abara]]"
+  - "[[EMP-0332 Amelia Nguyen]]"
+  - "[[EMP-0335 Mason Russo]]"
+  - "[[EMP-0337 Leo Singh]]"
+  - "[[EMP-0333 Zane Silva]]"
+  - "[[EMP-0338 Anaya Wilson]]"
+  - "[[EMP-0326 Henry Rodriguez]]"
 ---
 
 AM shift at [[Store 14 - Kansas City P&L]] on 2026-06-10 (07:00-15:30).
@@ -29,12 +26,9 @@ AM shift at [[Store 14 - Kansas City P&L]] on 2026-06-10 (07:00-15:30).
 
 ## Crew
 
-- [[EMP-0334 Jin Abara]] (Server)
-- [[EMP-0339 Diego Tran]] (Server)
-- [[EMP-0343 Connor Tran]] (Busser)
-- [[EMP-0350 Connor Jackson]] (Dishwasher)
-- [[EMP-0332 Rosa Allen]] (Server)
-- [[EMP-0326 Felix Allen]] (General Manager)
-- [[EMP-0348 Harper Wright]] (Busser)
-- [[EMP-0327 Yara Jones]] (Assistant Manager)
-- [[EMP-0330 Ava Abara]] (Shift Lead)
+- [[EMP-0332 Amelia Nguyen]] (Server)
+- [[EMP-0335 Mason Russo]] (Server)
+- [[EMP-0337 Leo Singh]] (Server)
+- [[EMP-0333 Zane Silva]] (Line Cook)
+- [[EMP-0338 Anaya Wilson]] (Server)
+- [[EMP-0326 Henry Rodriguez]] (General Manager)

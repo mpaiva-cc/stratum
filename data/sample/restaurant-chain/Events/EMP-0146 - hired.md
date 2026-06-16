@@ -1,11 +1,11 @@
 ---
 type: employment_event
 id: EVT-0146
-person: "[[EMP-0146 Tariq Chen]]"
+person: "[[EMP-0146 Felix Singh]]"
 kind: hire
-date: 2025-02-07
+date: 2021-06-21
 store: "[[Store 06 - Denver LoDo]]"
 basis: consent
 ---
 
-[[EMP-0146 Tariq Chen]] hired as Busser at [[Store 06 - Denver LoDo]] on 2025-02-07.
+[[EMP-0146 Felix Singh]] hired as Busser at [[Store 06 - Denver LoDo]] on 2021-06-21.

@@ -10,14 +10,14 @@ end: "15:30"
 crew_size: 8
 basis: authorization
 crew:
-  - "[[EMP-0405 Jaden Gonzalez]]"
-  - "[[EMP-0410 Yuki Martinez]]"
-  - "[[EMP-0403 Elena Ali]]"
-  - "[[EMP-0424 Ella Wilson]]"
-  - "[[EMP-0425 Isabella Gonzalez]]"
-  - "[[EMP-0416 Elena Nguyen]]"
-  - "[[EMP-0411 Quinn Jones]]"
-  - "[[EMP-0417 Valentina Jones]]"
+  - "[[EMP-0410 Wei Tran]]"
+  - "[[EMP-0425 Fatima Shah]]"
+  - "[[EMP-0416 Wei Shah]]"
+  - "[[EMP-0405 Henry Taylor]]"
+  - "[[EMP-0419 Santiago Wright]]"
+  - "[[EMP-0414 Ava Park]]"
+  - "[[EMP-0406 Elijah Harris]]"
+  - "[[EMP-0409 Emily Sanchez]]"
 ---
 
 AM shift at [[Store 17 - Brooklyn Williamsburg]] on 2026-06-12 (07:00-15:30).
@@ -28,11 +28,11 @@ AM shift at [[Store 17 - Brooklyn Williamsburg]] on 2026-06-12 (07:00-15:30).
 
 ## Crew
 
-- [[EMP-0405 Jaden Gonzalez]] (Shift Lead)
-- [[EMP-0410 Yuki Martinez]] (Line Cook)
-- [[EMP-0403 Elena Ali]] (Head Chef)
-- [[EMP-0424 Ella Wilson]] (Busser)
-- [[EMP-0425 Isabella Gonzalez]] (Prep Cook)
-- [[EMP-0416 Elena Nguyen]] (Server)
-- [[EMP-0411 Quinn Jones]] (Server)
-- [[EMP-0417 Valentina Jones]] (Line Cook)
+- [[EMP-0410 Wei Tran]] (Line Cook)
+- [[EMP-0425 Fatima Shah]] (Busser)
+- [[EMP-0416 Wei Shah]] (Server)
+- [[EMP-0405 Henry Taylor]] (Shift Lead)
+- [[EMP-0419 Santiago Wright]] (Dishwasher)
+- [[EMP-0414 Ava Park]] (Server)
+- [[EMP-0406 Elijah Harris]] (Line Cook)
+- [[EMP-0409 Emily Sanchez]] (Expo)
