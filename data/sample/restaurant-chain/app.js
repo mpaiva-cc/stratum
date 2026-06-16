@@ -108,13 +108,29 @@
     }
   };
 
-  function systemPrompt(db, purpose) {
+  function systemPrompt(db, purpose, role) {
+    var viewer;
+    if (role && role.anchor) {
+      var vt = db.idToTitle[role.anchor] || role.anchor;
+      viewer = 'You are answering AS this employee: ' + vt + ' (id ' + role.anchor + ', '
+        + role.anchorDesc + '). First-person words ("I", "me", "my") refer to THIS person — '
+        + 'filter by their id: {from:"person", filters:[{field:"id", op:"eq", value:"'
+        + role.anchor + '"}], ...}.';
+    } else {
+      viewer = 'You are an org-wide viewer (role ' + (role ? role.label : 'none')
+        + '); there is no single "me".';
+    }
     return [
       'You translate an HCM question into ONE run_query tool call over a graph.',
+      viewer,
       'Node types: ' + Object.keys(db.nodesByType).join(', ') + '.',
       'Edge directory (fromType -> {verb: toType}): ' + JSON.stringify(edgeDirectory(db)) + '.',
       'Person props you may filter/select: title, name, status, employment_type,',
       'hire_date, position, works_at, in_department, reports_to, skills, pay_rate, pay_unit.',
+      'reports_to / works_at / in_department / position are DIRECTORY fields on the person’s',
+      'own record (directory is visible for everyone): for "who do I report to / who is my',
+      'manager" select reports_to (or traverse reports_to direction:"out"); for "where do I',
+      'work" select works_at.',
       'pay_rate has a companion pay_unit (year vs hour) — do NOT average pay_rate across mixed',
       'units; restrict to one position (e.g. Server) or note the caveat. Reverse traversals use',
       'direction:"in" on the verb that points at the person (e.g. time_off_request/',
@@ -124,13 +140,13 @@
     ].join(' ');
   }
 
-  async function translate(question, db, purpose, key) {
+  async function translate(question, db, purpose, key, role) {
     var res = await fetch('https://api.anthropic.com/v1/messages', {
       method: 'POST',
       headers: { 'content-type': 'application/json', 'x-api-key': key,
         'anthropic-version': '2023-06-01', 'anthropic-dangerous-direct-browser-access': 'true' },
       body: JSON.stringify({ model: 'claude-sonnet-4-6', max_tokens: 1024,
-        system: systemPrompt(db, purpose), tools: [SPEC_TOOL],
+        system: systemPrompt(db, purpose, role), tools: [SPEC_TOOL],
         tool_choice: { type: 'tool', name: 'run_query' },
         messages: [{ role: 'user', content: question }] })
     });
@@ -168,9 +184,9 @@
     return block ? block.text : '';
   }
 
-  async function translateValid(question, db, purpose, key) {
+  async function translateValid(question, db, purpose, key, role) {
     for (var attempt = 0; attempt < 2; attempt++) {
-      try { return validateSpec(await translate(question, db, purpose, key), db); }
+      try { return validateSpec(await translate(question, db, purpose, key, role), db); }
       catch (e) { if (attempt === 1) throw e; }
     }
   }
@@ -181,7 +197,7 @@
     if (!question) { $('status').textContent = 'type a question'; return; }
     $('status').textContent = 'translating…';
     try {
-      var spec = await translateValid(question, db, purpose, key);
+      var spec = await translateValid(question, db, purpose, key, currentRole());
       var result = window.FFEngine.runSpec(spec, db, purpose, currentRole());
       $('status').textContent = 'answering…';
       var narrative = await narrate(question, spec, result, purpose, key);
