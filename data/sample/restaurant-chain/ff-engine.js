@@ -74,6 +74,17 @@
     return gate(personTitle, scope, db, purpose);
   }
 
+  // A node of a gated TYPE (its whole record is consent-bearing) is readable only
+  // under the matching purpose AND with a valid grant from its SUBJECT person.
+  function nodeReadable(node, db, purpose, trace) {
+    var scope = db.meta.gatedTargets[node.type];
+    if (!scope) return true;
+    var subject = node.props.person;
+    var v = gate(subject, scope, db, purpose);
+    if (!v.ok) { refuse(trace, subject || node.title, node.type, scope, v.reason); return false; }
+    return true;
+  }
+
   function refuse(trace, person, field, scope, reason) {
     if (trace) trace.push({ person: person, field: field, scope: scope, reason: reason });
   }
@@ -107,7 +118,16 @@
     var titles = (map && map[title]) || [];
     var result = titles.map(function (t) { return db.nodesByTitle[t]; }).filter(Boolean)
       .filter(function (n) { return !hop.to || n.type === hop.to; })
-      .filter(function (n) { return (hop.filters || []).every(function (f) { return matchFilter(n, f); }); });
+      .filter(function (n) {
+        return (hop.filters || []).every(function (f) {
+          var scope = db.meta.gatedProps[f.field];
+          if (scope && n.type === 'person') {
+            var v = gate(n.title, scope, db, purpose);
+            if (!v.ok) { refuse(trace, n.title, f.field, scope, v.reason); return false; }
+          }
+          return matchFilter(n, f);
+        });
+      });
     var eScope = db.meta.gatedEdges[hop.on];
     if (eScope) {
       result = result.filter(function (n) {
@@ -176,6 +196,7 @@
         return matchFilter(n, f);
       });
     });
+    nodes = nodes.filter(function (n) { return nodeReadable(n, db, purpose, trace); });
     var hops = spec.traverse || [];
     var enriched = nodes.map(function (n) {
       var ctx = { node: n, hops: {} };
@@ -209,7 +230,8 @@
   var api = { buildDb: buildDb, runSpec: runSpec, matchFilter: matchFilter,
               neighbors: neighbors, aggregate: aggregate,
               canRead: canRead, canReadTarget: canReadTarget,
-              canReadEdge: canReadEdge, checkGrant: checkGrant };
+              canReadEdge: canReadEdge, checkGrant: checkGrant,
+              nodeReadable: nodeReadable };
   if (typeof module !== 'undefined' && module.exports) module.exports = api;
   else global.FFEngine = api;
 })(typeof window !== 'undefined' ? window : globalThis);

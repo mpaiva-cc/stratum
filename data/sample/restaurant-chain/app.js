@@ -131,13 +131,20 @@
     return block ? block.text : '';
   }
 
+  async function translateValid(question, db, purpose, key) {
+    for (var attempt = 0; attempt < 2; attempt++) {
+      try { return validateSpec(await translate(question, db, purpose, key), db); }
+      catch (e) { if (attempt === 1) throw e; }
+    }
+  }
+
   $('ask').addEventListener('click', async function () {
     var purpose = $('purpose').value, key = $('key').value.trim(), question = $('q').value.trim();
     if (!key) { $('status').textContent = 'enter an API key'; return; }
     if (!question) { $('status').textContent = 'type a question'; return; }
     $('status').textContent = 'translating…';
     try {
-      var spec = validateSpec(await translate(question, db, purpose, key), db);
+      var spec = await translateValid(question, db, purpose, key);
       var result = window.FFEngine.runSpec(spec, db, purpose);
       $('status').textContent = 'answering…';
       var narrative = await narrate(question, spec, result, purpose, key);
@@ -148,5 +155,6 @@
 
   window.FFApp = { db: db, renderResult: renderResult, esc: esc,
                    edgeDirectory: edgeDirectory, systemPrompt: systemPrompt,
-                   validateSpec: validateSpec, SPEC_TOOL: SPEC_TOOL, narrate: narrate };
+                   validateSpec: validateSpec, SPEC_TOOL: SPEC_TOOL, narrate: narrate,
+                   translateValid: translateValid };
 })();

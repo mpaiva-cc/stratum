@@ -175,3 +175,31 @@ test('LEAK C closed: distributes_to traversal under scheduling is gated', () => 
   assert.strictEqual(totalRecipients, 0, 'no recipients revealed under scheduling');
   assert.ok(res.trace.some(t => t.reason === 'out-of-purpose'));
 });
+
+test('C1: anchoring a gated-target type under wrong purpose is blocked', () => {
+  const r = FF.runSpec({ from: 'employment_event', select: ['title', 'person', 'kind'] }, db, 'scheduling');
+  assert.strictEqual(r.rows.length, 0, 'no employment_event rows under scheduling');
+  assert.ok(r.trace.length > 0 && r.trace.every(t => t.reason === 'out-of-purpose'));
+});
+
+test('C1: anchoring a gated-target type under the MATCHING purpose works', () => {
+  const r = FF.runSpec({ from: 'performance_review', select: ['title', 'person', 'rating'] }, db, 'employment');
+  assert.ok(r.rows.length > 0, 'performance reviews readable under employment with grants');
+});
+
+test('C1: gated-target anchor aggregate does not leak distribution under wrong purpose', () => {
+  const r = FF.runSpec({ from: 'performance_review', aggregate: { op: 'count', groupBy: 'rating' } }, db, 'scheduling');
+  // all anchor nodes excluded -> the only group (if any) is empty; no real rating distribution
+  const total = r.rows.reduce((a, x) => a + (x.value || 0), 0);
+  assert.strictEqual(total, 0, 'no ratings counted under scheduling');
+  assert.ok(r.trace.length > 0 && r.trace.every(t => t.reason === 'out-of-purpose'));
+});
+
+test('C2: hop.filters on a gated prop are gated (no traverse oracle)', () => {
+  const r = FF.runSpec({ from: 'store',
+    traverse: [{ to: 'person', on: 'works_at', direction: 'in', as: 'staff',
+                 filters: [{ field: 'pay_rate', op: 'gt', value: 1 }] }],
+    require: ['staff'], select: ['title'] }, db, 'scheduling');
+  assert.strictEqual(r.rows.length, 0, 'no store yields pay-filtered staff under scheduling');
+  assert.ok(r.trace.some(t => t.reason === 'out-of-purpose'));
+});
