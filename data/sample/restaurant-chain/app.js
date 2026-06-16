@@ -201,7 +201,7 @@
     }
   }
 
-  // ── API key: stored in localStorage, surfaced through a key icon + existence badge ──
+  // ── API key: stored in sessionStorage, surfaced through a key icon + existence badge ──
   var KEY_STORAGE = 'ff_anthropic_key';
   function getKey() { return ($('key').value || '').trim(); }
 
@@ -213,16 +213,16 @@
       : 'API key not set. Activate to add one.';
   }
   function loadKey() {
-    try { $('key').value = window.localStorage.getItem(KEY_STORAGE) || ''; } catch (e) {}
+    try { $('key').value = window.sessionStorage.getItem(KEY_STORAGE) || ''; } catch (e) {}
     updateKeyBadge();
   }
   function saveKey() {
-    try { window.localStorage.setItem(KEY_STORAGE, getKey()); } catch (e) {}
+    try { window.sessionStorage.setItem(KEY_STORAGE, getKey()); } catch (e) {}
     updateKeyBadge(); closeKeyPop();
     $('status').textContent = getKey() ? 'API key saved in this browser.' : 'API key empty.';
   }
   function clearKey() {
-    try { window.localStorage.removeItem(KEY_STORAGE); } catch (e) {}
+    try { window.sessionStorage.removeItem(KEY_STORAGE); } catch (e) {}
     $('key').value = ''; updateKeyBadge();
     $('status').textContent = 'API key cleared.';
   }
