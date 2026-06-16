@@ -230,6 +230,7 @@ test('ROLE population: manager sees only their subtree as person anchors', () =>
   const r = FF.runSpec({ from: 'person', select: ['title'] }, db, 'employment', FR.ROLES.manager);
   assert.strictEqual(r.rows.length, sub.set.size, 'rows == subtree size');
   assert.ok(r.trace.some(t => t.layer === 'access' && t.reason === 'out-of-population'));
+  assert.ok(r.rows.every(x => sub.set.has(x.title)), 'all returned rows are within the subtree');
 });
 
 test('ROLE class: manager cannot read pay even under payroll + consent (role-restricted)', () => {
@@ -243,7 +244,8 @@ test('ROLE peer: directory visible for store coworkers, sensitive role-restricte
   assert.strictEqual(dir.rows.length, 25, 'store coworkers visible');
   assert.ok(dir.rows.every(x => x.position), 'directory field shown');
   const pay = FF.runSpec({ from: 'person', select: ['title', 'pay_rate'] }, db, 'payroll', FR.ROLES.peer);
-  assert.ok(pay.rows.every(x => x.pay_rate === null) && pay.trace.some(t => t.reason === 'role-restricted'));
+  assert.ok(pay.rows.every(x => x.pay_rate === null) &&
+            pay.trace.some(t => t.layer === 'access' && t.reason === 'role-restricted'));
 });
 
 test('ROLE ic: sees only self', () => {

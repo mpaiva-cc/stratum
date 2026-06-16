@@ -56,6 +56,7 @@
     return checkGrant(personTitle, requiredScope, db);
   }
 
+  // --- consent-only public predicates (not used internally; see readField) ---
   function canRead(personTitle, field, db, purpose) {
     var scope = db.meta.gatedProps[field];
     if (!scope) return { ok: true };
@@ -98,10 +99,25 @@
 
   function inPopulation(pop, title) { return pop.all || (pop.set && pop.set.has(title)); }
 
+  function filterToPopulation(nodes, pop, trace) {
+    if (!pop || pop.all) return nodes;
+    return nodes.filter(function (n) {
+      if (n.type !== 'person') return true;
+      if (inPopulation(pop, n.title)) return true;
+      refuse(trace, n.title, '(record)', null, 'out-of-population', 'access');
+      return false;
+    });
+  }
+
   function roleAllowsScope(role, scope) {
     return !role || (role.scopes && role.scopes.indexOf(scope) !== -1);
   }
 
+  // readField is the CANONICAL field-level enforcement predicate: role authority
+  // (access layer) AND consent (consent layer), access reported first on conflict.
+  // All internal field gating MUST go through readField (and nodeReadable for whole
+  // gated-record nodes). canRead/canReadTarget/canReadEdge below are consent-only
+  // public predicates, NOT used on the enforcement path — do not add gating to them.
   // Combined field predicate: role authority first (access layer), then consent.
   function readField(subjectTitle, scope, db, purpose, role) {
     if (!roleAllowsScope(role, scope)) return { ok: false, layer: 'access', reason: 'role-restricted' };
@@ -166,14 +182,7 @@
       return nodeReadable(n, db, purpose, trace, role, pop);
     });
     // Person targets: population row filter.
-    if (pop && !pop.all) {
-      result = result.filter(function (n) {
-        if (n.type !== 'person') return true;
-        if (inPopulation(pop, n.title)) return true;
-        refuse(trace, n.title, '(record)', null, 'out-of-population', 'access');
-        return false;
-      });
-    }
+    result = filterToPopulation(result, pop, trace);
     // Gated edge (e.g. distributes_to): gate by the neighbor person.
     var eScope = db.meta.gatedEdges[hop.on];
     if (eScope) {
@@ -244,14 +253,7 @@
       });
     });
     nodes = nodes.filter(function (n) { return nodeReadable(n, db, purpose, trace, role, pop); });
-    if (!pop.all) {
-      nodes = nodes.filter(function (n) {
-        if (n.type !== 'person') return true;
-        if (inPopulation(pop, n.title)) return true;
-        refuse(trace, n.title, '(record)', null, 'out-of-population', 'access');
-        return false;
-      });
-    }
+    nodes = filterToPopulation(nodes, pop, trace);
     var hops = spec.traverse || [];
     var enriched = nodes.map(function (n) {
       var ctx = { node: n, hops: {} };
@@ -286,6 +288,7 @@
               canReadEdge: canReadEdge, checkGrant: checkGrant,
               nodeReadable: nodeReadable,
               computePopulation: computePopulation, inPopulation: inPopulation,
+              filterToPopulation: filterToPopulation,
               roleAllowsScope: roleAllowsScope, readField: readField };
   if (typeof module !== 'undefined' && module.exports) module.exports = api;
   else global.FFEngine = api;
