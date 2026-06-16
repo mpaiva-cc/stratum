@@ -22,7 +22,38 @@
   var SCOPE_LABEL = { 'hr.scheduling': 'scheduling', 'hr.payroll': 'compensation',
     'hr.certifications': 'compliance', 'hr.employment': 'employment' };
 
-  function currentRole() { return ROLES[$('role').value]; }
+  // Active viewing identity: a fixed persona, or a dynamic "impersonate this employee" role.
+  var impersonated = null;
+  function currentRole() {
+    if (impersonated && $('role').value === '__imp') return impersonated;
+    return ROLES[$('role').value];
+  }
+
+  // Impersonate a specific employee: self-service view (directory company-wide, like all
+  // roles; sensitive = their own data, plus their reports' if they manage anyone).
+  function setImpersonation(title) {
+    var n = db.nodesByTitle[title];
+    if (!n || n.type !== 'person') return;
+    var id = n.props.id || title.split(' ')[0];
+    var reports = (db.rev['reports_to'] && db.rev['reports_to'][title]) || [];
+    var store = (n.props.works_at || '').replace(/ - .*/, '');
+    impersonated = {
+      id: '__imp', label: (n.props.name || title), anchor: id,
+      anchorDesc: (n.props.position || 'employee') + (store ? ' · ' + store : ''),
+      population: reports.length ? { type: 'subtree', value: id } : { type: 'self', value: id },
+      scopes: ALL_SCOPES.slice()
+    };
+    var sel = $('role'), opt = sel.querySelector('option[value="__imp"]');
+    if (!opt) { opt = document.createElement('option'); opt.value = '__imp'; sel.appendChild(opt); }
+    opt.textContent = 'Impersonating: ' + impersonated.label;
+    sel.value = '__imp';
+    renderPermPanel();
+    var pop = window.FFEngine.computePopulation(impersonated, db);
+    var seen = pop.all ? db.nodesByType.person.length : pop.set.size;
+    $('status').textContent = 'Now impersonating ' + impersonated.label
+      + ' — sees sensitive data for ' + seen + (seen > 1 ? ' people (self + reports)' : ' (self only)')
+      + '. Ask a question.';
+  }
 
   function renderPermPanel() {
     var role = currentRole();
@@ -287,7 +318,14 @@
   }
   $('qform').addEventListener('submit', function (e) { e.preventDefault(); runAsk(); });
 
-  $('role').addEventListener('change', renderPermPanel);
+  $('role').addEventListener('change', function () {
+    if ($('role').value !== '__imp') {
+      impersonated = null;
+      var o = $('role').querySelector('option[value="__imp"]');
+      if (o) o.remove();
+    }
+    renderPermPanel();
+  });
   renderPermPanel();
   loadKey();
 
@@ -316,6 +354,8 @@
       });
       return html + '</dl>';
     }
+    html += '<p><button type="button" class="btn imp-btn" data-person="' + escAttr(node.title)
+      + '">Impersonate ' + esc(p.name || node.title) + '</button></p>';
     var role = currentRole(), purpose = $('purpose').value;
     var pop = window.FFEngine.computePopulation(role, db);
     // Directory (always visible)
@@ -375,12 +415,16 @@
     else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
   });
   document.addEventListener('click', function (e) {
+    var imp = e.target.closest && e.target.closest('.imp-btn');
+    if (imp && imp.getAttribute('data-person')) {
+      e.preventDefault(); setImpersonation(imp.getAttribute('data-person')); closeDrawer(); return;
+    }
     var b = e.target.closest && e.target.closest('.namelink');
     if (b && b.getAttribute('data-person')) { e.preventDefault(); openDrawer(b.getAttribute('data-person'), b); }
   });
 
   window.FFApp = { db: db, renderResult: renderResult, esc: esc, personLink: personLink,
-                   openDrawer: openDrawer, closeDrawer: closeDrawer,
+                   openDrawer: openDrawer, closeDrawer: closeDrawer, setImpersonation: setImpersonation,
                    edgeDirectory: edgeDirectory, systemPrompt: systemPrompt,
                    validateSpec: validateSpec, SPEC_TOOL: SPEC_TOOL, narrate: narrate,
                    translateValid: translateValid, currentRole: currentRole,
