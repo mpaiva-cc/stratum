@@ -143,3 +143,34 @@ test('aggregate avg pay_rate under payroll excludes declined from the mean', () 
   assert.ok(res.rows.some(r => r.value !== null), 'most pay visible');
   assert.ok(res.trace.some(t => t.reason === 'no-grant'));
 });
+
+test('LEAK A closed: filter on pay_rate under scheduling returns nothing (no oracle)', () => {
+  const res = FF.runSpec({ from: 'person',
+    filters: [{ field: 'pay_rate', op: 'gt', value: 1 }], select: ['title'] }, db, 'scheduling');
+  assert.strictEqual(res.rows.length, 0, 'gated filter must exclude all under wrong purpose');
+  assert.ok(res.trace.length > 0 && res.trace.every(t => t.reason === 'out-of-purpose'));
+});
+
+test('LEAK A closed: filter on pay_rate under payroll excludes declined persons', () => {
+  const all = FF.runSpec({ from: 'person',
+    filters: [{ field: 'pay_rate', op: 'gt', value: 1 }], select: ['title'] }, db, 'payroll');
+  assert.ok(all.rows.length > 0, 'payroll filter returns consented people');
+  assert.ok(all.trace.some(t => t.reason === 'no-grant'), 'declined persons excluded + traced');
+});
+
+test('LEAK B closed: groupBy pay_rate under scheduling never leaks real values as keys', () => {
+  const res = FF.runSpec({ from: 'person',
+    aggregate: { op: 'count', groupBy: 'pay_rate' } }, db, 'scheduling');
+  assert.ok(res.rows.every(r => r.group === '(redacted)'),
+    'all group keys redacted under wrong purpose');
+  assert.ok(res.trace.length > 0 && res.trace.every(t => t.reason === 'out-of-purpose'));
+});
+
+test('LEAK C closed: distributes_to traversal under scheduling is gated', () => {
+  const res = FF.runSpec({ from: 'tip_pool',
+    traverse: [{ to: 'person', on: 'distributes_to', direction: 'out', as: 'recipients' }],
+    select: ['title'] }, db, 'scheduling');
+  const totalRecipients = res.rows.reduce((a, r) => a + (r.recipients ? r.recipients.length : 0), 0);
+  assert.strictEqual(totalRecipients, 0, 'no recipients revealed under scheduling');
+  assert.ok(res.trace.some(t => t.reason === 'out-of-purpose'));
+});

@@ -100,15 +100,33 @@
     }
     var map = hop.direction === 'in' ? db.rev[hop.on] : db.fwd[hop.on];
     var titles = (map && map[title]) || [];
-    return titles.map(function (t) { return db.nodesByTitle[t]; }).filter(Boolean)
+    var result = titles.map(function (t) { return db.nodesByTitle[t]; }).filter(Boolean)
       .filter(function (n) { return !hop.to || n.type === hop.to; })
       .filter(function (n) { return (hop.filters || []).every(function (f) { return matchFilter(n, f); }); });
+    var eScope = db.meta.gatedEdges[hop.on];
+    if (eScope) {
+      result = result.filter(function (n) {
+        if (n.type !== 'person') return true;
+        var ev = canReadEdge(n.title, hop.on, db, purpose);
+        if (!ev.ok) { if (trace) trace.push({ person: n.title, field: hop.on, scope: eScope, reason: ev.reason }); return false; }
+        return true;
+      });
+    }
+    return result;
   }
 
   function aggregate(nodes, spec, db, purpose, trace) {
     var groups = {};
     nodes.forEach(function (n) {
-      var key = spec.groupBy ? n.props[spec.groupBy] : '__all__';
+      var key;
+      if (spec.groupBy) {
+        var gscope = db.meta.gatedProps[spec.groupBy];
+        if (gscope && n.type === 'person') {
+          var gv = gate(n.title, gscope, db, purpose);
+          if (!gv.ok) { if (trace) trace.push({ person: n.title, field: spec.groupBy, scope: gscope, reason: gv.reason }); key = '(redacted)'; }
+          else key = n.props[spec.groupBy];
+        } else { key = n.props[spec.groupBy]; }
+      } else { key = '__all__'; }
       (groups[key] = groups[key] || []).push(n);
     });
     return Object.keys(groups).map(function (key) {
@@ -145,7 +163,14 @@
     var trace = [], citations = {};
     var nodes = (db.nodesByType[spec.from] || []).slice();
     (spec.filters || []).forEach(function (f) {
-      nodes = nodes.filter(function (n) { return matchFilter(n, f); });
+      var scope = db.meta.gatedProps[f.field];
+      nodes = nodes.filter(function (n) {
+        if (scope && n.type === 'person') {
+          var v = gate(n.title, scope, db, purpose);
+          if (!v.ok) { trace.push({ person: n.title, field: f.field, scope: scope, reason: v.reason }); return false; }
+        }
+        return matchFilter(n, f);
+      });
     });
     var hops = spec.traverse || [];
     var enriched = nodes.map(function (n) {
