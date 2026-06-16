@@ -38,8 +38,18 @@
   function renderResult(spec, result, narrative) {
     var html = '';
     if (narrative) html += '<div class="panel"><p>' + esc(narrative) + '</p></div>';
-    html += '<div class="panel"><strong>Result (' + result.rows.length + ' rows)</strong><table><tbody>';
-    result.rows.slice(0, 50).forEach(function (r) {
+    html += '<div class="panel">';
+    var shown = result.rows.slice(0, 50);
+    var cols = shown.length ? Object.keys(shown[0]) : [];
+    html += '<table><caption>Result — ' + result.rows.length + ' row' +
+            (result.rows.length === 1 ? '' : 's') +
+            (result.rows.length > 50 ? ' (showing first 50)' : '') + '</caption>';
+    if (cols.length) {
+      html += '<thead><tr>' + cols.map(function (c) {
+        return '<th scope="col">' + esc(c) + '</th>'; }).join('') + '</tr></thead>';
+    }
+    html += '<tbody>';
+    shown.forEach(function (r) {
       html += '<tr>' + Object.keys(r).map(function (k) {
         var v = r[k];
         if (v === null) return '<td class="redacted">redacted</td>';
@@ -191,27 +201,76 @@
     }
   }
 
-  $('ask').addEventListener('click', async function () {
-    var purpose = $('purpose').value, key = $('key').value.trim(), question = $('q').value.trim();
-    if (!key) { $('status').textContent = 'enter an API key'; return; }
-    if (!question) { $('status').textContent = 'type a question'; return; }
-    $('status').textContent = 'translating…';
+  // ── API key: stored in localStorage, surfaced through a key icon + existence badge ──
+  var KEY_STORAGE = 'ff_anthropic_key';
+  function getKey() { return ($('key').value || '').trim(); }
+
+  function updateKeyBadge() {
+    var has = !!getKey();
+    $('keybtn').setAttribute('data-haskey', has ? 'yes' : 'no');
+    $('keystate').textContent = has
+      ? 'API key saved. Activate to edit or clear.'
+      : 'API key not set. Activate to add one.';
+  }
+  function loadKey() {
+    try { $('key').value = window.localStorage.getItem(KEY_STORAGE) || ''; } catch (e) {}
+    updateKeyBadge();
+  }
+  function saveKey() {
+    try { window.localStorage.setItem(KEY_STORAGE, getKey()); } catch (e) {}
+    updateKeyBadge(); closeKeyPop();
+    $('status').textContent = getKey() ? 'API key saved in this browser.' : 'API key empty.';
+  }
+  function clearKey() {
+    try { window.localStorage.removeItem(KEY_STORAGE); } catch (e) {}
+    $('key').value = ''; updateKeyBadge();
+    $('status').textContent = 'API key cleared.';
+  }
+  function openKeyPop() {
+    $('keypop').hidden = false; $('keybtn').setAttribute('aria-expanded', 'true');
+    $('key').focus();
+  }
+  function closeKeyPop(returnFocus) {
+    $('keypop').hidden = true; $('keybtn').setAttribute('aria-expanded', 'false');
+    if (returnFocus) $('keybtn').focus();
+  }
+  $('keybtn').addEventListener('click', function () {
+    if ($('keypop').hidden) openKeyPop(); else closeKeyPop(true);
+  });
+  $('keysave').addEventListener('click', saveKey);
+  $('keyclear').addEventListener('click', clearKey);
+  $('keypop').addEventListener('keydown', function (e) {
+    if (e.key === 'Escape') { e.stopPropagation(); closeKeyPop(true); }
+  });
+  document.addEventListener('click', function (e) {
+    var wrap = $('keybtn').parentNode;
+    if (!$('keypop').hidden && !wrap.contains(e.target)) closeKeyPop(false);
+  });
+
+  async function runAsk() {
+    var purpose = $('purpose').value, key = getKey(), question = $('q').value.trim();
+    if (!key) { $('status').textContent = 'Add your Anthropic API key first (the 🔑 button).'; openKeyPop(); return; }
+    if (!question) { $('status').textContent = 'Type a question.'; $('q').focus(); return; }
+    $('status').textContent = 'Translating…';
     try {
       var spec = await translateValid(question, db, purpose, key, currentRole());
       var result = window.FFEngine.runSpec(spec, db, purpose, currentRole());
-      $('status').textContent = 'answering…';
+      $('status').textContent = 'Answering…';
       var narrative = await narrate(question, spec, result, purpose, key);
       renderResult(spec, result, narrative);
       $('status').textContent = '';
     } catch (e) { $('status').textContent = String(e.message); }
-  });
+  }
+  $('qform').addEventListener('submit', function (e) { e.preventDefault(); runAsk(); });
 
   $('role').addEventListener('change', renderPermPanel);
   renderPermPanel();
+  loadKey();
 
   window.FFApp = { db: db, renderResult: renderResult, esc: esc,
                    edgeDirectory: edgeDirectory, systemPrompt: systemPrompt,
                    validateSpec: validateSpec, SPEC_TOOL: SPEC_TOOL, narrate: narrate,
                    translateValid: translateValid, currentRole: currentRole,
-                   renderPermPanel: renderPermPanel };
+                   renderPermPanel: renderPermPanel, getKey: getKey,
+                   updateKeyBadge: updateKeyBadge, runAsk: runAsk };
 })();
