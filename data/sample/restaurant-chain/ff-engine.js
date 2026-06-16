@@ -22,7 +22,45 @@
              nodesByTitle: nodesByTitle, nodesByType: nodesByType, fwd: fwd, rev: rev };
   }
 
-  var api = { buildDb: buildDb };
+  function matchFilter(node, f) {
+    var v = node.props[f.field];
+    switch (f.op) {
+      case 'eq': return v === f.value;
+      case 'neq': return v !== f.value;
+      case 'in': return Array.isArray(f.value) && f.value.indexOf(v) !== -1;
+      case 'contains':
+        return Array.isArray(v) ? v.indexOf(f.value) !== -1
+                                : typeof v === 'string' && v.indexOf(f.value) !== -1;
+      case 'gt': return Number(v) > Number(f.value);
+      case 'lt': return Number(v) < Number(f.value);
+      case 'exists': return v !== undefined && v !== null && v !== '';
+      default: return false;
+    }
+  }
+
+  function project(node, select) {
+    var row = {}, fields = select || ['title'];
+    fields.forEach(function (field) {
+      row[field] = field === 'title' ? node.title : node.props[field];
+    });
+    if (fields.indexOf('title') === -1) row.title = node.title;
+    return row;
+  }
+
+  function runSpec(spec, db, purpose) {
+    var trace = [], citations = {};
+    var nodes = (db.nodesByType[spec.from] || []).slice();
+    (spec.filters || []).forEach(function (f) {
+      nodes = nodes.filter(function (n) { return matchFilter(n, f); });
+    });
+    nodes.forEach(function (n) { citations[n.title] = n.type; });
+    var rows = nodes.map(function (n) { return project(n, spec.select); });
+    return { rows: rows, trace: trace,
+             citations: Object.keys(citations).map(function (t) {
+               return { title: t, type: citations[t] }; }) };
+  }
+
+  var api = { buildDb: buildDb, runSpec: runSpec, matchFilter: matchFilter };
   if (typeof module !== 'undefined' && module.exports) module.exports = api;
   else global.FFEngine = api;
 })(typeof window !== 'undefined' ? window : globalThis);

@@ -22,3 +22,25 @@ test('buildDb builds forward and reverse adjacency', () => {
   assert.ok(db.fwd.works_at[person.title].includes(store), 'forward works_at');
   assert.ok(db.rev.works_at[store].includes(person.title), 'reverse works_at');
 });
+
+test('from+filters: bartenders at Store 11 are found by position', () => {
+  const res = FF.runSpec({
+    from: 'person',
+    filters: [
+      { field: 'works_at', op: 'eq', value: 'Store 11 - Chicago Loop' },
+      { field: 'position', op: 'eq', value: 'Bartender' }
+    ],
+    select: ['title', 'position']
+  }, db, 'scheduling');
+  assert.ok(res.rows.length >= 1, 'at least one bartender');
+  res.rows.forEach(r => assert.strictEqual(r.position, 'Bartender'));
+});
+
+test('filter op "contains" works on list props (skills)', () => {
+  const res = FF.runSpec({
+    from: 'person',
+    filters: [{ field: 'skills', op: 'contains', value: 'Guest Recovery' }],
+    select: ['title']
+  }, db, 'scheduling');
+  assert.ok(res.rows.length > 0);
+});
