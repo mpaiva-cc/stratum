@@ -32,9 +32,9 @@ test('persona scope authority matches the design matrix', () => {
 
 test('non-null anchors and population values exist in the fixture', () => {
   Object.values(FR.ROLES).forEach(r => {
-    if (r.anchor) assert.ok(db.nodesByTitle[r.anchor], r.id + ' anchor exists: ' + r.anchor);
+    if (r.anchor) assert.ok(db.idToTitle[r.anchor], r.id + ' anchor id exists: ' + r.anchor);
     if (r.population.type === 'self' || r.population.type === 'subtree')
-      assert.ok(db.nodesByTitle[r.population.value], r.id + ' pop person exists');
+      assert.ok(db.idToTitle[r.population.value], r.id + ' pop id exists: ' + r.population.value);
     if (r.population.type === 'store')
       assert.ok(db.nodesByTitle[r.population.value], r.id + ' pop store exists');
     if (r.population.type === 'region')

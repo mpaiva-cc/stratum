@@ -11,13 +11,13 @@
             population: { type: 'all' }, scopes: ALL.slice() },
     hrbp: { id: 'hrbp', label: 'HRBP', anchor: null, anchorDesc: 'West Region',
             population: { type: 'region', value: 'West Region' }, scopes: ALL.slice() },
-    manager: { id: 'manager', label: 'Manager', anchor: 'EMP-0001 Mateo Thomas',
+    manager: { id: 'manager', label: 'Manager', anchor: 'EMP-0001',
             anchorDesc: 'GM, Store 01',
-            population: { type: 'subtree', value: 'EMP-0001 Mateo Thomas' },
+            population: { type: 'subtree', value: 'EMP-0001' },
             scopes: ['hr.scheduling', 'hr.certifications', 'hr.employment'] },
-    ic: { id: 'ic', label: 'IC', anchor: 'EMP-0002 Samir Abara', anchorDesc: 'Store 01',
-            population: { type: 'self', value: 'EMP-0002 Samir Abara' }, scopes: ALL.slice() },
-    peer: { id: 'peer', label: 'Peer', anchor: 'EMP-0002 Samir Abara', anchorDesc: 'Store 01',
+    ic: { id: 'ic', label: 'IC', anchor: 'EMP-0002', anchorDesc: 'Store 01',
+            population: { type: 'self', value: 'EMP-0002' }, scopes: ALL.slice() },
+    peer: { id: 'peer', label: 'Peer', anchor: 'EMP-0002', anchorDesc: 'Store 01',
             population: { type: 'store', value: 'Store 01 - Austin Domain' }, scopes: [] },
   };
   var api = { ROLES: ROLES, ALL_SCOPES: ALL };

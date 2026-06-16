@@ -208,12 +208,12 @@ test('C2: hop.filters on a gated prop are gated (no traverse oracle)', () => {
 test('computePopulation: all -> {all:true}; self -> single; store/subtree/region sized', () => {
   assert.strictEqual(FF.computePopulation({ population: { type: 'all' } }, db).all, true);
   assert.strictEqual(FF.computePopulation(null, db).all, true);
-  const self = FF.computePopulation({ population: { type: 'self', value: 'EMP-0002 Samir Abara' } }, db);
-  assert.deepStrictEqual([...self.set], ['EMP-0002 Samir Abara']);
+  const self = FF.computePopulation({ population: { type: 'self', value: 'EMP-0002' } }, db);
+  assert.deepStrictEqual([...self.set], [db.idToTitle['EMP-0002']]);
   const store = FF.computePopulation({ population: { type: 'store', value: 'Store 01 - Austin Domain' } }, db);
   assert.strictEqual(store.set.size, 25);
-  const sub = FF.computePopulation({ population: { type: 'subtree', value: 'EMP-0001 Mateo Thomas' } }, db);
-  assert.ok(sub.set.has('EMP-0001 Mateo Thomas') && sub.set.size >= 2 && sub.set.size <= 30);
+  const sub = FF.computePopulation({ population: { type: 'subtree', value: 'EMP-0001' } }, db);
+  assert.ok(sub.set.has(db.idToTitle['EMP-0001']) && sub.set.size >= 2 && sub.set.size <= 30);
   const region = FF.computePopulation({ population: { type: 'region', value: 'West Region' } }, db);
   assert.strictEqual(region.set.size, 125);
 });
@@ -240,8 +240,9 @@ test('ROLE class: manager cannot read pay even under payroll + consent (role-res
 });
 
 test('ROLE peer: directory visible for store coworkers, sensitive role-restricted', () => {
+  const store01 = (db.rev['works_at']['Store 01 - Austin Domain'] || []).length;
   const dir = FF.runSpec({ from: 'person', select: ['title', 'position'] }, db, 'scheduling', FR.ROLES.peer);
-  assert.strictEqual(dir.rows.length, 25, 'store coworkers visible');
+  assert.strictEqual(dir.rows.length, store01, 'store coworkers visible');
   assert.ok(dir.rows.every(x => x.position), 'directory field shown');
   const pay = FF.runSpec({ from: 'person', select: ['title', 'pay_rate'] }, db, 'payroll', FR.ROLES.peer);
   assert.ok(pay.rows.every(x => x.pay_rate === null) &&
@@ -249,8 +250,9 @@ test('ROLE peer: directory visible for store coworkers, sensitive role-restricte
 });
 
 test('ROLE ic: sees only self', () => {
+  const icTitle = db.idToTitle['EMP-0002'];
   const r = FF.runSpec({ from: 'person', select: ['title'] }, db, 'employment', FR.ROLES.ic);
-  assert.deepStrictEqual(r.rows.map(x => x.title), ['EMP-0002 Samir Abara']);
+  assert.deepStrictEqual(r.rows.map(x => x.title), [icTitle]);
 });
 
 test('AND with consent: CHRO (all authority) still blocked by consent purpose mismatch', () => {

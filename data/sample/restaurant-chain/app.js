@@ -24,7 +24,8 @@
     var who = pop.all ? 'everyone (' + total + ' people)'
       : (role.population.type === 'self' ? 'just yourself (1)'
          : 'your population (' + seen + ' of ' + total + ')');
-    var anchor = role.anchor ? (role.anchor + ' (' + role.anchorDesc + ')') : role.anchorDesc;
+    var anchorTitle = role.anchor ? (db.idToTitle[role.anchor] || role.anchor) : null;
+    var anchor = anchorTitle ? (anchorTitle + ' (' + role.anchorDesc + ')') : role.anchorDesc;
     var html = '<strong>Viewing as ' + esc(role.label) + '</strong> — ' + esc(anchor) +
       '<br><strong>Sees:</strong> ' + classes.map(esc).join(' · ') +
       ', for <strong>' + esc(who) + '</strong>';

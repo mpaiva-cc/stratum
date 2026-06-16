@@ -6,10 +6,11 @@
   'use strict';
 
   function buildDb(graph) {
-    var nodesByTitle = {}, nodesByType = {};
+    var nodesByTitle = {}, nodesByType = {}, idToTitle = {};
     graph.nodes.forEach(function (n) {
       nodesByTitle[n.title] = n;
       (nodesByType[n.type] = nodesByType[n.type] || []).push(n);
+      if (n.id) idToTitle[n.id] = n.title;
     });
     var fwd = {}, rev = {};
     graph.edges.forEach(function (e) {
@@ -19,7 +20,8 @@
       (rev[e.verb][e.dst] = rev[e.verb][e.dst] || []).push(e.src);
     });
     return { graph: graph, meta: graph.meta, grants: graph.grants,
-             nodesByTitle: nodesByTitle, nodesByType: nodesByType, fwd: fwd, rev: rev };
+             nodesByTitle: nodesByTitle, nodesByType: nodesByType, fwd: fwd, rev: rev,
+             idToTitle: idToTitle };
   }
 
   function matchFilter(node, f) {
@@ -78,7 +80,7 @@
   function computePopulation(role, db) {
     if (!role || !role.population || role.population.type === 'all') return { all: true };
     var t = role.population.type, v = role.population.value, set = new Set();
-    if (t === 'self') { set.add(v); }
+    if (t === 'self') { set.add((db.idToTitle && db.idToTitle[v]) || v); }
     else if (t === 'store') { ((db.rev['works_at'] || {})[v] || []).forEach(function (p) { set.add(p); }); }
     else if (t === 'region') {
       db.nodesByType.person.forEach(function (pn) {
@@ -86,7 +88,8 @@
         if (st && st.props.region === v) set.add(pn.title);
       });
     } else if (t === 'subtree') {
-      var stack = [v]; set.add(v);
+      var root = (db.idToTitle && db.idToTitle[v]) || v;
+      var stack = [root]; set.add(root);
       while (stack.length) {
         var cur = stack.pop();
         ((db.rev['reports_to'] || {})[cur] || []).forEach(function (k) {
@@ -289,7 +292,8 @@
               nodeReadable: nodeReadable,
               computePopulation: computePopulation, inPopulation: inPopulation,
               filterToPopulation: filterToPopulation,
-              roleAllowsScope: roleAllowsScope, readField: readField };
+              roleAllowsScope: roleAllowsScope, readField: readField,
+              idToTitle: function (db, id) { return db.idToTitle && db.idToTitle[id]; } };
   if (typeof module !== 'undefined' && module.exports) module.exports = api;
   else global.FFEngine = api;
 })(typeof window !== 'undefined' ? window : globalThis);
