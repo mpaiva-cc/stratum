@@ -79,6 +79,12 @@
       enriched = enriched.filter(function (c) { return (c.hops[asName] || []).length > 0; });
     });
     enriched.forEach(function (c) { citations[c.node.title] = c.node.type; });
+    if (spec.aggregate) {
+      var agg = aggregate(enriched.map(function (c) { return c.node; }), spec.aggregate);
+      return { rows: agg, trace: trace,
+               citations: Object.keys(citations).map(function (t) {
+                 return { title: t, type: citations[t] }; }) };
+    }
     var rows = enriched.map(function (c) {
       var row = project(c.node, spec.select);
       Object.keys(c.hops).forEach(function (k) { row[k] = c.hops[k]; });
@@ -89,7 +95,32 @@
                return { title: t, type: citations[t] }; }) };
   }
 
-  var api = { buildDb: buildDb, runSpec: runSpec, matchFilter: matchFilter, neighbors: neighbors };
+  function aggregate(nodes, spec) {
+    var groups = {};
+    nodes.forEach(function (n) {
+      var key = spec.groupBy ? n.props[spec.groupBy] : '__all__';
+      (groups[key] = groups[key] || []).push(n);
+    });
+    return Object.keys(groups).map(function (key) {
+      var vals = groups[key].map(function (n) { return Number(n.props[spec.field]); })
+        .filter(function (x) { return !isNaN(x); });
+      var value;
+      switch (spec.op) {
+        case 'count': value = groups[key].length; break;
+        case 'sum': value = vals.reduce(function (a, b) { return a + b; }, 0); break;
+        case 'avg': value = vals.length ? vals.reduce(function (a, b) { return a + b; }, 0) / vals.length : null; break;
+        case 'min': value = vals.length ? Math.min.apply(null, vals) : null; break;
+        case 'max': value = vals.length ? Math.max.apply(null, vals) : null; break;
+        default: value = null;
+      }
+      var row = { value: value, n: groups[key].length };
+      if (spec.groupBy) row.group = key;
+      return row;
+    });
+  }
+
+  var api = { buildDb: buildDb, runSpec: runSpec, matchFilter: matchFilter,
+              neighbors: neighbors, aggregate: aggregate };
   if (typeof module !== 'undefined' && module.exports) module.exports = api;
   else global.FFEngine = api;
 })(typeof window !== 'undefined' ? window : globalThis);

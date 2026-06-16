@@ -65,3 +65,21 @@ test('traverse in: person <- time_off_request via person edge', () => {
   }, db, 'scheduling');
   assert.ok(withTOR.rows.length >= 1, 'someone has a time-off request');
 });
+
+test('aggregate count groupBy in_department matches per-dept node counts', () => {
+  const res = FF.runSpec({
+    from: 'person',
+    aggregate: { op: 'count', groupBy: 'in_department' }
+  }, db, 'scheduling');
+  const expected = {};
+  db.nodesByType.person.forEach(p => {
+    const k = p.props.in_department; expected[k] = (expected[k] || 0) + 1;
+  });
+  res.rows.forEach(r => assert.strictEqual(r.value, expected[r.group], 'dept ' + r.group));
+  assert.strictEqual(res.rows.length, Object.keys(expected).length);
+});
+
+test('aggregate count (no groupBy) returns total', () => {
+  const res = FF.runSpec({ from: 'store', aggregate: { op: 'count' } }, db, 'scheduling');
+  assert.strictEqual(res.rows[0].value, db.nodesByType.store.length);
+});
