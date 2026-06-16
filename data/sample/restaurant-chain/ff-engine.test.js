@@ -5,6 +5,7 @@ const assert = require('node:assert');
 const fs = require('node:fs');
 const path = require('node:path');
 const FF = require('./ff-engine.js');
+const FR = require('./ff-roles.js');
 
 const graph = JSON.parse(
   fs.readFileSync(path.join(__dirname, 'forkandflame.graph.json'), 'utf8'));
@@ -222,4 +223,42 @@ test('roleAllowsScope: null role allows all; empty scopes allows none', () => {
   assert.strictEqual(FF.roleAllowsScope({ scopes: [] }, 'hr.payroll'), false);
   assert.strictEqual(FF.roleAllowsScope({ scopes: ['hr.payroll'] }, 'hr.payroll'), true);
   assert.strictEqual(FF.roleAllowsScope({ scopes: ['hr.scheduling'] }, 'hr.payroll'), false);
+});
+
+test('ROLE population: manager sees only their subtree as person anchors', () => {
+  const sub = FF.computePopulation(FR.ROLES.manager, db);
+  const r = FF.runSpec({ from: 'person', select: ['title'] }, db, 'employment', FR.ROLES.manager);
+  assert.strictEqual(r.rows.length, sub.set.size, 'rows == subtree size');
+  assert.ok(r.trace.some(t => t.layer === 'access' && t.reason === 'out-of-population'));
+});
+
+test('ROLE class: manager cannot read pay even under payroll + consent (role-restricted)', () => {
+  const r = FF.runSpec({ from: 'person', select: ['title', 'pay_rate'] }, db, 'payroll', FR.ROLES.manager);
+  assert.ok(r.rows.length > 0 && r.rows.every(x => x.pay_rate === null), 'all pay redacted');
+  assert.ok(r.trace.some(t => t.layer === 'access' && t.reason === 'role-restricted' && t.field === 'pay_rate'));
+});
+
+test('ROLE peer: directory visible for store coworkers, sensitive role-restricted', () => {
+  const dir = FF.runSpec({ from: 'person', select: ['title', 'position'] }, db, 'scheduling', FR.ROLES.peer);
+  assert.strictEqual(dir.rows.length, 25, 'store coworkers visible');
+  assert.ok(dir.rows.every(x => x.position), 'directory field shown');
+  const pay = FF.runSpec({ from: 'person', select: ['title', 'pay_rate'] }, db, 'payroll', FR.ROLES.peer);
+  assert.ok(pay.rows.every(x => x.pay_rate === null) && pay.trace.some(t => t.reason === 'role-restricted'));
+});
+
+test('ROLE ic: sees only self', () => {
+  const r = FF.runSpec({ from: 'person', select: ['title'] }, db, 'employment', FR.ROLES.ic);
+  assert.deepStrictEqual(r.rows.map(x => x.title), ['EMP-0002 Samir Abara']);
+});
+
+test('AND with consent: CHRO (all authority) still blocked by consent purpose mismatch', () => {
+  const r = FF.runSpec({ from: 'person', select: ['title', 'pay_rate'] }, db, 'scheduling', FR.ROLES.chro);
+  assert.ok(r.rows.every(x => x.pay_rate === null), 'pay redacted under scheduling');
+  assert.ok(r.trace.some(t => t.layer === 'consent' && t.reason === 'out-of-purpose'));
+});
+
+test('backward-compat: omitting role reproduces prior behavior', () => {
+  const r = FF.runSpec({ from: 'person', select: ['title', 'pay_rate'] }, db, 'payroll');
+  assert.ok(r.rows.length >= 400, 'all people visible without a role');
+  assert.ok(r.trace.every(t => t.layer === 'consent'), 'no access-layer refusals without a role');
 });

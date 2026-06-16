@@ -112,12 +112,16 @@
 
   // A node of a gated TYPE (its whole record is consent-bearing) is readable only
   // under the matching purpose AND with a valid grant from its SUBJECT person.
-  function nodeReadable(node, db, purpose, trace) {
+  function nodeReadable(node, db, purpose, trace, role, pop) {
     var scope = db.meta.gatedTargets[node.type];
     if (!scope) return true;
     var subject = node.props.person;
-    var v = gate(subject, scope, db, purpose);
-    if (!v.ok) { refuse(trace, subject || node.title, node.type, scope, v.reason); return false; }
+    if (pop && !pop.all && !inPopulation(pop, subject)) {
+      refuse(trace, subject || node.title, node.type, null, 'out-of-population', 'access');
+      return false;
+    }
+    var r = readField(subject, scope, db, purpose, role);
+    if (!r.ok) { refuse(trace, subject || node.title, node.type, scope, r.reason, r.layer); return false; }
     return true;
   }
 
@@ -126,30 +130,26 @@
                             reason: reason, layer: layer || 'consent' });
   }
 
-  function project(node, select, db, purpose, trace) {
+  function project(node, select, db, purpose, trace, role) {
     var row = {}, fields = select || ['title'];
     fields.forEach(function (field) {
       if (field === 'title') { row.title = node.title; return; }
-      var verdict = node.type === 'person'
-        ? canRead(node.title, field, db, purpose) : { ok: true };
-      if (verdict.ok) { row[field] = node.props[field]; }
-      else {
-        row[field] = null;
-        refuse(trace, node.title, field, db.meta.gatedProps[field], verdict.reason);
-      }
+      var scope = node.type === 'person' ? db.meta.gatedProps[field] : null;
+      if (!scope) { row[field] = node.props[field]; return; }
+      var r = readField(node.title, scope, db, purpose, role);
+      if (r.ok) { row[field] = node.props[field]; }
+      else { row[field] = null; refuse(trace, node.title, field, scope, r.reason, r.layer); }
     });
     if (fields.indexOf('title') === -1) row.title = node.title;
     return row;
   }
 
-  function neighbors(db, title, hop, purpose, trace) {
+  function neighbors(db, title, hop, purpose, trace, role, pop) {
     var src = db.nodesByTitle[title];
-    if (src && src.type === 'person') {
-      var verdict = canReadTarget(title, hop.to, db, purpose);
-      if (!verdict.ok) {
-        refuse(trace, title, hop.to, db.meta.gatedTargets[hop.to], verdict.reason);
-        return [];
-      }
+    var tscope = db.meta.gatedTargets[hop.to];
+    if (src && src.type === 'person' && tscope) {
+      var tr = readField(title, tscope, db, purpose, role);
+      if (!tr.ok) { refuse(trace, title, hop.to, tscope, tr.reason, tr.layer); return []; }
     }
     var map = hop.direction === 'in' ? db.rev[hop.on] : db.fwd[hop.on];
     var titles = (map && map[title]) || [];
@@ -157,35 +157,43 @@
       .filter(function (n) { return !hop.to || n.type === hop.to; })
       .filter(function (n) {
         return (hop.filters || []).every(function (f) {
-          var scope = db.meta.gatedProps[f.field];
-          if (scope && n.type === 'person') {
-            var v = gate(n.title, scope, db, purpose);
-            if (!v.ok) { refuse(trace, n.title, f.field, scope, v.reason); return false; }
+          var s = db.meta.gatedProps[f.field];
+          if (s && n.type === 'person') {
+            var rf = readField(n.title, s, db, purpose, role);
+            if (!rf.ok) { refuse(trace, n.title, f.field, s, rf.reason, rf.layer); return false; }
           }
           return matchFilter(n, f);
         });
       });
+    if (pop && !pop.all) {
+      result = result.filter(function (n) {
+        if (n.type !== 'person') return true;
+        if (inPopulation(pop, n.title)) return true;
+        refuse(trace, n.title, '(record)', null, 'out-of-population', 'access');
+        return false;
+      });
+    }
     var eScope = db.meta.gatedEdges[hop.on];
     if (eScope) {
       result = result.filter(function (n) {
         if (n.type !== 'person') return true;
-        var ev = canReadEdge(n.title, hop.on, db, purpose);
-        if (!ev.ok) { refuse(trace, n.title, hop.on, eScope, ev.reason); return false; }
+        var er = readField(n.title, eScope, db, purpose, role);
+        if (!er.ok) { refuse(trace, n.title, hop.on, eScope, er.reason, er.layer); return false; }
         return true;
       });
     }
     return result;
   }
 
-  function aggregate(nodes, spec, db, purpose, trace) {
+  function aggregate(nodes, spec, db, purpose, trace, role) {
     var groups = {};
     nodes.forEach(function (n) {
       var key;
       if (spec.groupBy) {
         var gscope = db.meta.gatedProps[spec.groupBy];
         if (gscope && n.type === 'person') {
-          var gv = gate(n.title, gscope, db, purpose);
-          if (!gv.ok) { refuse(trace, n.title, spec.groupBy, gscope, gv.reason); key = '(redacted)'; }
+          var gr = readField(n.title, gscope, db, purpose, role);
+          if (!gr.ok) { refuse(trace, n.title, spec.groupBy, gscope, gr.reason, gr.layer); key = '(redacted)'; }
           else key = n.props[spec.groupBy];
         } else { key = n.props[spec.groupBy]; }
       } else { key = '__all__'; }
@@ -195,11 +203,10 @@
       var members = groups[key], vals = [];
       if (spec.field) {
         members.forEach(function (n) {
-          var verdict = n.type === 'person'
-            ? canRead(n.title, spec.field, db, purpose) : { ok: true };
-          if (!verdict.ok) {
-            refuse(trace, n.title, spec.field, db.meta.gatedProps[spec.field], verdict.reason);
-            return;
+          var scope = db.meta.gatedProps[spec.field];
+          if (scope && n.type === 'person') {
+            var r = readField(n.title, scope, db, purpose, role);
+            if (!r.ok) { refuse(trace, n.title, spec.field, scope, r.reason, r.layer); return; }
           }
           var x = Number(n.props[spec.field]);
           if (!isNaN(x)) vals.push(x);
@@ -220,27 +227,35 @@
     });
   }
 
-  function runSpec(spec, db, purpose) {
+  function runSpec(spec, db, purpose, role) {
     var trace = [], citations = {};
+    var pop = computePopulation(role, db);
     var nodes = (db.nodesByType[spec.from] || []).slice();
     (spec.filters || []).forEach(function (f) {
       var scope = db.meta.gatedProps[f.field];
       nodes = nodes.filter(function (n) {
         if (scope && n.type === 'person') {
-          var v = gate(n.title, scope, db, purpose);
-          if (!v.ok) { refuse(trace, n.title, f.field, scope, v.reason); return false; }
+          var r = readField(n.title, scope, db, purpose, role);
+          if (!r.ok) { refuse(trace, n.title, f.field, scope, r.reason, r.layer); return false; }
         }
         return matchFilter(n, f);
       });
     });
-    nodes = nodes.filter(function (n) { return nodeReadable(n, db, purpose, trace); });
+    nodes = nodes.filter(function (n) { return nodeReadable(n, db, purpose, trace, role, pop); });
+    if (!pop.all) {
+      nodes = nodes.filter(function (n) {
+        if (n.type !== 'person') return true;
+        if (inPopulation(pop, n.title)) return true;
+        refuse(trace, n.title, '(record)', null, 'out-of-population', 'access');
+        return false;
+      });
+    }
     var hops = spec.traverse || [];
     var enriched = nodes.map(function (n) {
       var ctx = { node: n, hops: {} };
       hops.forEach(function (hop) {
-        ctx.hops[hop.as || hop.to] = neighbors(db, n.title, hop, purpose, trace).map(function (m) {
-          citations[m.title] = m.type; return m.title;
-        });
+        ctx.hops[hop.as || hop.to] = neighbors(db, n.title, hop, purpose, trace, role, pop)
+          .map(function (m) { citations[m.title] = m.type; return m.title; });
       });
       return ctx;
     });
@@ -248,20 +263,19 @@
       enriched = enriched.filter(function (c) { return (c.hops[asName] || []).length > 0; });
     });
     enriched.forEach(function (c) { citations[c.node.title] = c.node.type; });
+    var citeArr = function () {
+      return Object.keys(citations).map(function (t) { return { title: t, type: citations[t] }; });
+    };
     if (spec.aggregate) {
-      var agg = aggregate(enriched.map(function (c) { return c.node; }), spec.aggregate, db, purpose, trace);
-      return { rows: agg, trace: trace,
-               citations: Object.keys(citations).map(function (t) {
-                 return { title: t, type: citations[t] }; }) };
+      var agg = aggregate(enriched.map(function (c) { return c.node; }), spec.aggregate, db, purpose, trace, role);
+      return { rows: agg, trace: trace, citations: citeArr() };
     }
     var rows = enriched.map(function (c) {
-      var row = project(c.node, spec.select, db, purpose, trace);
+      var row = project(c.node, spec.select, db, purpose, trace, role);
       Object.keys(c.hops).forEach(function (k) { row[k] = c.hops[k]; });
       return row;
     });
-    return { rows: rows, trace: trace,
-             citations: Object.keys(citations).map(function (t) {
-               return { title: t, type: citations[t] }; }) };
+    return { rows: rows, trace: trace, citations: citeArr() };
   }
 
   var api = { buildDb: buildDb, runSpec: runSpec, matchFilter: matchFilter,
