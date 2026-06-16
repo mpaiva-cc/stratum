@@ -122,10 +122,17 @@
     var viewer;
     if (role && role.anchor) {
       var vt = db.idToTitle[role.anchor] || role.anchor;
+      var vp = (db.nodesByTitle[vt] && db.nodesByTitle[vt].props) || {};
       viewer = 'You are answering AS this employee: ' + vt + ' (id ' + role.anchor + ', '
         + role.anchorDesc + '). First-person words ("I", "me", "my") refer to THIS person — '
         + 'filter by their id: {from:"person", filters:[{field:"id", op:"eq", value:"'
-        + role.anchor + '"}], ...}.';
+        + role.anchor + '"}], ...}. '
+        + 'Your directory context: works_at="' + (vp.works_at || '') + '", in_department="'
+        + (vp.in_department || '') + '", position="' + (vp.position || '') + '", reports_to="'
+        + (vp.reports_to || '') + '". So "my team" / "my store" = {from:"person", filters:['
+        + '{field:"works_at", op:"eq", value:"' + (vp.works_at || '') + '"}]}; "my department" '
+        + 'filters in_department="' + (vp.in_department || '') + '"; "my manager / who do I report '
+        + 'to" = reports_to ("' + (vp.reports_to || '') + '").';
     } else {
       viewer = 'You are an org-wide viewer (role ' + (role ? role.label : 'none')
         + '); there is no single "me".';
