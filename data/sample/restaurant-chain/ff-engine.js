@@ -74,6 +74,10 @@
     return gate(personTitle, scope, db, purpose);
   }
 
+  function refuse(trace, person, field, scope, reason) {
+    if (trace) trace.push({ person: person, field: field, scope: scope, reason: reason });
+  }
+
   function project(node, select, db, purpose, trace) {
     var row = {}, fields = select || ['title'];
     fields.forEach(function (field) {
@@ -83,8 +87,7 @@
       if (verdict.ok) { row[field] = node.props[field]; }
       else {
         row[field] = null;
-        trace.push({ person: node.title, field: field,
-                     scope: db.meta.gatedProps[field], reason: verdict.reason });
+        refuse(trace, node.title, field, db.meta.gatedProps[field], verdict.reason);
       }
     });
     if (fields.indexOf('title') === -1) row.title = node.title;
@@ -92,11 +95,13 @@
   }
 
   function neighbors(db, title, hop, purpose, trace) {
-    var verdict = canReadTarget(title, hop.to, db, purpose);
-    if (!verdict.ok) {
-      if (trace) trace.push({ person: title, field: hop.to,
-                              scope: db.meta.gatedTargets[hop.to], reason: verdict.reason });
-      return [];
+    var src = db.nodesByTitle[title];
+    if (src && src.type === 'person') {
+      var verdict = canReadTarget(title, hop.to, db, purpose);
+      if (!verdict.ok) {
+        refuse(trace, title, hop.to, db.meta.gatedTargets[hop.to], verdict.reason);
+        return [];
+      }
     }
     var map = hop.direction === 'in' ? db.rev[hop.on] : db.fwd[hop.on];
     var titles = (map && map[title]) || [];
@@ -108,7 +113,7 @@
       result = result.filter(function (n) {
         if (n.type !== 'person') return true;
         var ev = canReadEdge(n.title, hop.on, db, purpose);
-        if (!ev.ok) { if (trace) trace.push({ person: n.title, field: hop.on, scope: eScope, reason: ev.reason }); return false; }
+        if (!ev.ok) { refuse(trace, n.title, hop.on, eScope, ev.reason); return false; }
         return true;
       });
     }
@@ -123,7 +128,7 @@
         var gscope = db.meta.gatedProps[spec.groupBy];
         if (gscope && n.type === 'person') {
           var gv = gate(n.title, gscope, db, purpose);
-          if (!gv.ok) { if (trace) trace.push({ person: n.title, field: spec.groupBy, scope: gscope, reason: gv.reason }); key = '(redacted)'; }
+          if (!gv.ok) { refuse(trace, n.title, spec.groupBy, gscope, gv.reason); key = '(redacted)'; }
           else key = n.props[spec.groupBy];
         } else { key = n.props[spec.groupBy]; }
       } else { key = '__all__'; }
@@ -136,8 +141,7 @@
           var verdict = n.type === 'person'
             ? canRead(n.title, spec.field, db, purpose) : { ok: true };
           if (!verdict.ok) {
-            if (trace) trace.push({ person: n.title, field: spec.field,
-                                    scope: db.meta.gatedProps[spec.field], reason: verdict.reason });
+            refuse(trace, n.title, spec.field, db.meta.gatedProps[spec.field], verdict.reason);
             return;
           }
           var x = Number(n.props[spec.field]);
@@ -167,7 +171,7 @@
       nodes = nodes.filter(function (n) {
         if (scope && n.type === 'person') {
           var v = gate(n.title, scope, db, purpose);
-          if (!v.ok) { trace.push({ person: n.title, field: f.field, scope: scope, reason: v.reason }); return false; }
+          if (!v.ok) { refuse(trace, n.title, f.field, scope, v.reason); return false; }
         }
         return matchFilter(n, f);
       });

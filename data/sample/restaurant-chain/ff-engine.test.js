@@ -142,6 +142,7 @@ test('aggregate avg pay_rate under payroll excludes declined from the mean', () 
     aggregate: { op: 'avg', field: 'pay_rate', groupBy: 'in_department' } }, db, 'payroll');
   assert.ok(res.rows.some(r => r.value !== null), 'most pay visible');
   assert.ok(res.trace.some(t => t.reason === 'no-grant'));
+  assert.ok(res.rows.some(r => r.included < r.n), 'a declined person was excluded from some group mean');
 });
 
 test('LEAK A closed: filter on pay_rate under scheduling returns nothing (no oracle)', () => {
