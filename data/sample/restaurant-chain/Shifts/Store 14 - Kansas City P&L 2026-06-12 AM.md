@@ -10,13 +10,13 @@ end: "15:30"
 crew_size: 7
 basis: authorization
 crew:
-  - "[[EMP-0343 Wanda Harris]]"
-  - "[[EMP-0338 Anaya Wilson]]"
-  - "[[EMP-0331 Jose Scott]]"
-  - "[[EMP-0326 Henry Rodriguez]]"
-  - "[[EMP-0339 Paloma King]]"
-  - "[[EMP-0334 Aria Santos]]"
-  - "[[EMP-0340 Caleb Young]]"
+  - "[[EMP-0338 Aaron Martinez]]"
+  - "[[EMP-0334 Connor Smith]]"
+  - "[[EMP-0330 Leo Pham]]"
+  - "[[EMP-0340 Liam Khan]]"
+  - "[[EMP-0348 Ella Thomas]]"
+  - "[[EMP-0339 Noah Harris]]"
+  - "[[EMP-0335 Brianna Rodriguez]]"
 ---
 
 AM shift at [[Store 14 - Kansas City P&L]] on 2026-06-12 (07:00-15:30).
@@ -27,10 +27,10 @@ AM shift at [[Store 14 - Kansas City P&L]] on 2026-06-12 (07:00-15:30).
 
 ## Crew
 
-- [[EMP-0343 Wanda Harris]] (Expo)
-- [[EMP-0338 Anaya Wilson]] (Server)
-- [[EMP-0331 Jose Scott]] (Line Cook)
-- [[EMP-0326 Henry Rodriguez]] (General Manager)
-- [[EMP-0339 Paloma King]] (Line Cook)
-- [[EMP-0334 Aria Santos]] (Line Cook)
-- [[EMP-0340 Caleb Young]] (Line Cook)
+- [[EMP-0338 Aaron Martinez]] (Expo)
+- [[EMP-0334 Connor Smith]] (Line Cook)
+- [[EMP-0330 Leo Pham]] (Shift Lead)
+- [[EMP-0340 Liam Khan]] (Bartender)
+- [[EMP-0348 Ella Thomas]] (Dishwasher)
+- [[EMP-0339 Noah Harris]] (Line Cook)
+- [[EMP-0335 Brianna Rodriguez]] (Bartender)

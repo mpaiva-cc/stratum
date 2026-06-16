@@ -3,34 +3,34 @@ type: tip_pool
 id: TIP-0011
 store: "[[Store 11 - Chicago Loop]]"
 period: Week of 2026-06-08
-amount: 4030
+amount: 3449
 basis: authorization
 distributes_to:
-  - "[[EMP-0256 Nadia Rodriguez]]"
-  - "[[EMP-0257 Sofia Hernandez]]"
-  - "[[EMP-0259 Wanda Wilson]]"
-  - "[[EMP-0260 Jaden Silva]]"
-  - "[[EMP-0262 Yara Tran]]"
-  - "[[EMP-0263 Priya Taylor]]"
-  - "[[EMP-0264 Omar Santos]]"
-  - "[[EMP-0265 Yuki Smith]]"
-  - "[[EMP-0267 Kayla Moore]]"
-  - "[[EMP-0272 Gabriela Costa]]"
-  - "[[EMP-0274 Lucas Lopez]]"
+  - "[[EMP-0256 Imani Chen]]"
+  - "[[EMP-0259 Yara Jones]]"
+  - "[[EMP-0264 Rosa Allen]]"
+  - "[[EMP-0265 Oscar Brown]]"
+  - "[[EMP-0266 Jin Abara]]"
+  - "[[EMP-0268 Santiago Lopez]]"
+  - "[[EMP-0269 Jaden Abara]]"
+  - "[[EMP-0270 Noah Singh]]"
+  - "[[EMP-0272 Harper Russo]]"
+  - "[[EMP-0273 Ximena Rossi]]"
+  - "[[EMP-0275 Connor Tran]]"
 ---
 
 Tip pool for [[Store 11 - Chicago Loop]], week of 2026-06-08.
 
 ## Distributed to
 
-- [[EMP-0256 Nadia Rodriguez]]
-- [[EMP-0257 Sofia Hernandez]]
-- [[EMP-0259 Wanda Wilson]]
-- [[EMP-0260 Jaden Silva]]
-- [[EMP-0262 Yara Tran]]
-- [[EMP-0263 Priya Taylor]]
-- [[EMP-0264 Omar Santos]]
-- [[EMP-0265 Yuki Smith]]
-- [[EMP-0267 Kayla Moore]]
-- [[EMP-0272 Gabriela Costa]]
-- [[EMP-0274 Lucas Lopez]]
+- [[EMP-0256 Imani Chen]]
+- [[EMP-0259 Yara Jones]]
+- [[EMP-0264 Rosa Allen]]
+- [[EMP-0265 Oscar Brown]]
+- [[EMP-0266 Jin Abara]]
+- [[EMP-0268 Santiago Lopez]]
+- [[EMP-0269 Jaden Abara]]
+- [[EMP-0270 Noah Singh]]
+- [[EMP-0272 Harper Russo]]
+- [[EMP-0273 Ximena Rossi]]
+- [[EMP-0275 Connor Tran]]

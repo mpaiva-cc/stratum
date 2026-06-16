@@ -7,19 +7,15 @@ date: 2026-06-10
 daypart: AM
 start: "07:00"
 end: "15:30"
-crew_size: 10
+crew_size: 6
 basis: authorization
 crew:
-  - "[[EMP-0175 Connor Mensah]]"
-  - "[[EMP-0155 Wei Walker]]"
-  - "[[EMP-0151 Santiago Ahmed]]"
-  - "[[EMP-0169 Aaron Abara]]"
-  - "[[EMP-0172 Arjun Hernandez]]"
-  - "[[EMP-0160 Nadia Rossi]]"
-  - "[[EMP-0167 Santiago Bianchi]]"
-  - "[[EMP-0152 Wei Smith]]"
-  - "[[EMP-0156 Tariq Rossi]]"
-  - "[[EMP-0153 Abigail Wang]]"
+  - "[[EMP-0173 Harper Nguyen]]"
+  - "[[EMP-0164 Anaya Young]]"
+  - "[[EMP-0151 Victor Hernandez]]"
+  - "[[EMP-0155 Mia Williams]]"
+  - "[[EMP-0157 Rosa Perez]]"
+  - "[[EMP-0160 Elena King]]"
 ---
 
 AM shift at [[Store 07 - Phoenix Scottsdale]] on 2026-06-10 (07:00-15:30).
@@ -30,13 +26,9 @@ AM shift at [[Store 07 - Phoenix Scottsdale]] on 2026-06-10 (07:00-15:30).
 
 ## Crew
 
-- [[EMP-0175 Connor Mensah]] (Prep Cook)
-- [[EMP-0155 Wei Walker]] (Shift Lead)
-- [[EMP-0151 Santiago Ahmed]] (General Manager)
-- [[EMP-0169 Aaron Abara]] (Server)
-- [[EMP-0172 Arjun Hernandez]] (Dishwasher)
-- [[EMP-0160 Nadia Rossi]] (Line Cook)
-- [[EMP-0167 Santiago Bianchi]] (Server)
-- [[EMP-0152 Wei Smith]] (Assistant Manager)
-- [[EMP-0156 Tariq Rossi]] (Bartender)
-- [[EMP-0153 Abigail Wang]] (Head Chef)
+- [[EMP-0173 Harper Nguyen]] (Busser)
+- [[EMP-0164 Anaya Young]] (Server)
+- [[EMP-0151 Victor Hernandez]] (General Manager)
+- [[EMP-0155 Mia Williams]] (Shift Lead)
+- [[EMP-0157 Rosa Perez]] (Line Cook)
+- [[EMP-0160 Elena King]] (Line Cook)

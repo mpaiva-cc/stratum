@@ -1,11 +1,11 @@
 ---
 type: employment_event
 id: EVT-0477
-person: "[[EMP-0477 Henry Rossi]]"
+person: "[[EMP-0477 Lucas Anderson]]"
 kind: hire
-date: 2022-06-15
+date: 2025-07-09
 store: "[[Store 20 - Pittsburgh Strip]]"
 basis: consent
 ---
 
-[[EMP-0477 Henry Rossi]] hired as Assistant Manager at [[Store 20 - Pittsburgh Strip]] on 2022-06-15.
+[[EMP-0477 Lucas Anderson]] hired as Assistant Manager at [[Store 20 - Pittsburgh Strip]] on 2025-07-09.

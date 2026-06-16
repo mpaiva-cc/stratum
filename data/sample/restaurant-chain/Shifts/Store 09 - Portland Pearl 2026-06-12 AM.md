@@ -7,18 +7,17 @@ date: 2026-06-12
 daypart: AM
 start: "07:00"
 end: "15:30"
-crew_size: 9
+crew_size: 8
 basis: authorization
 crew:
-  - "[[EMP-0221 Wei Williams]]"
-  - "[[EMP-0211 Valentina Liu]]"
-  - "[[EMP-0205 Keira Okafor]]"
-  - "[[EMP-0204 Santiago Perez]]"
-  - "[[EMP-0218 Brianna Wright]]"
-  - "[[EMP-0220 Tariq Moore]]"
-  - "[[EMP-0217 Abigail Park]]"
-  - "[[EMP-0203 Ines Wilson]]"
-  - "[[EMP-0208 Victor Davis]]"
+  - "[[EMP-0214 Leo Allen]]"
+  - "[[EMP-0223 Abigail Smith]]"
+  - "[[EMP-0209 Anaya Kim]]"
+  - "[[EMP-0207 Rosa Le]]"
+  - "[[EMP-0216 Mason Bianchi]]"
+  - "[[EMP-0210 Elena Perez]]"
+  - "[[EMP-0220 Sofia Mensah]]"
+  - "[[EMP-0201 Emily Abara]]"
 ---
 
 AM shift at [[Store 09 - Portland Pearl]] on 2026-06-12 (07:00-15:30).
@@ -29,12 +28,11 @@ AM shift at [[Store 09 - Portland Pearl]] on 2026-06-12 (07:00-15:30).
 
 ## Crew
 
-- [[EMP-0221 Wei Williams]] (Prep Cook)
-- [[EMP-0211 Valentina Liu]] (Line Cook)
-- [[EMP-0205 Keira Okafor]] (Shift Lead)
-- [[EMP-0204 Santiago Perez]] (Shift Lead)
-- [[EMP-0218 Brianna Wright]] (Server)
-- [[EMP-0220 Tariq Moore]] (Busser)
-- [[EMP-0217 Abigail Park]] (Server)
-- [[EMP-0203 Ines Wilson]] (Head Chef)
-- [[EMP-0208 Victor Davis]] (Line Cook)
+- [[EMP-0214 Leo Allen]] (Bartender)
+- [[EMP-0223 Abigail Smith]] (Busser)
+- [[EMP-0209 Anaya Kim]] (Line Cook)
+- [[EMP-0207 Rosa Le]] (Line Cook)
+- [[EMP-0216 Mason Bianchi]] (Server)
+- [[EMP-0210 Elena Perez]] (Bartender)
+- [[EMP-0220 Sofia Mensah]] (Busser)
+- [[EMP-0201 Emily Abara]] (General Manager)

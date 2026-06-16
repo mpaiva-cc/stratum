@@ -7,17 +7,19 @@ date: 2026-06-12
 daypart: AM
 start: "07:00"
 end: "15:30"
-crew_size: 8
+crew_size: 10
 basis: authorization
 crew:
-  - "[[EMP-0300 Layla Shah]]"
-  - "[[EMP-0292 Maria Diallo]]"
-  - "[[EMP-0287 Samir Patel]]"
-  - "[[EMP-0296 Abigail Wang]]"
-  - "[[EMP-0279 Abigail Abara]]"
-  - "[[EMP-0284 Imani Silva]]"
-  - "[[EMP-0289 Yuki Walker]]"
-  - "[[EMP-0285 Diego Sanchez]]"
+  - "[[EMP-0289 Layla Wang]]"
+  - "[[EMP-0283 Santiago Jackson]]"
+  - "[[EMP-0284 Gabriela Shah]]"
+  - "[[EMP-0277 Zayd Ramirez]]"
+  - "[[EMP-0297 Valentina Chen]]"
+  - "[[EMP-0276 Carlos Silva]]"
+  - "[[EMP-0282 Oscar Hernandez]]"
+  - "[[EMP-0299 Imani Miller]]"
+  - "[[EMP-0295 Grace Silva]]"
+  - "[[EMP-0300 Abigail Martinez]]"
 ---
 
 AM shift at [[Store 12 - Minneapolis Uptown]] on 2026-06-12 (07:00-15:30).
@@ -28,11 +30,13 @@ AM shift at [[Store 12 - Minneapolis Uptown]] on 2026-06-12 (07:00-15:30).
 
 ## Crew
 
-- [[EMP-0300 Layla Shah]] (Prep Cook)
-- [[EMP-0292 Maria Diallo]] (Line Cook)
-- [[EMP-0287 Samir Patel]] (Expo)
-- [[EMP-0296 Abigail Wang]] (Prep Cook)
-- [[EMP-0279 Abigail Abara]] (Shift Lead)
-- [[EMP-0284 Imani Silva]] (Bartender)
-- [[EMP-0289 Yuki Walker]] (Line Cook)
-- [[EMP-0285 Diego Sanchez]] (Line Cook)
+- [[EMP-0289 Layla Wang]] (Line Cook)
+- [[EMP-0283 Santiago Jackson]] (Bartender)
+- [[EMP-0284 Gabriela Shah]] (Line Cook)
+- [[EMP-0277 Zayd Ramirez]] (Assistant Manager)
+- [[EMP-0297 Valentina Chen]] (Dishwasher)
+- [[EMP-0276 Carlos Silva]] (General Manager)
+- [[EMP-0282 Oscar Hernandez]] (Line Cook)
+- [[EMP-0299 Imani Miller]] (Prep Cook)
+- [[EMP-0295 Grace Silva]] (Host)
+- [[EMP-0300 Abigail Martinez]] (Busser)

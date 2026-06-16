@@ -7,16 +7,19 @@ date: 2026-06-14
 daypart: AM
 start: "07:00"
 end: "15:30"
-crew_size: 7
+crew_size: 10
 basis: authorization
 crew:
-  - "[[EMP-0375 Valentina Sanchez]]"
-  - "[[EMP-0369 Layla Harris]]"
-  - "[[EMP-0370 Brianna Nguyen]]"
-  - "[[EMP-0368 Yuki Ahmed]]"
-  - "[[EMP-0360 Leo Ali]]"
-  - "[[EMP-0352 Isabella Wilson]]"
-  - "[[EMP-0371 Zayd Johnson]]"
+  - "[[EMP-0366 Oscar Abara]]"
+  - "[[EMP-0363 Diego Smith]]"
+  - "[[EMP-0352 Ella Liu]]"
+  - "[[EMP-0351 Isabella Abara]]"
+  - "[[EMP-0370 Bella Abara]]"
+  - "[[EMP-0367 Diego Jones]]"
+  - "[[EMP-0361 Fatima Chen]]"
+  - "[[EMP-0365 Wanda Ali]]"
+  - "[[EMP-0360 Kayla Taylor]]"
+  - "[[EMP-0369 Zayd Allen]]"
 ---
 
 AM shift at [[Store 15 - Detroit Corktown]] on 2026-06-14 (07:00-15:30).
@@ -27,10 +30,13 @@ AM shift at [[Store 15 - Detroit Corktown]] on 2026-06-14 (07:00-15:30).
 
 ## Crew
 
-- [[EMP-0375 Valentina Sanchez]] (Prep Cook)
-- [[EMP-0369 Layla Harris]] (Server)
-- [[EMP-0370 Brianna Nguyen]] (Server)
-- [[EMP-0368 Yuki Ahmed]] (Server)
-- [[EMP-0360 Leo Ali]] (Line Cook)
-- [[EMP-0352 Isabella Wilson]] (Assistant Manager)
-- [[EMP-0371 Zayd Johnson]] (Line Cook)
+- [[EMP-0366 Oscar Abara]] (Busser)
+- [[EMP-0363 Diego Smith]] (Server)
+- [[EMP-0352 Ella Liu]] (Assistant Manager)
+- [[EMP-0351 Isabella Abara]] (General Manager)
+- [[EMP-0370 Bella Abara]] (Busser)
+- [[EMP-0367 Diego Jones]] (Busser)
+- [[EMP-0361 Fatima Chen]] (Line Cook)
+- [[EMP-0365 Wanda Ali]] (Dishwasher)
+- [[EMP-0360 Kayla Taylor]] (Line Cook)
+- [[EMP-0369 Zayd Allen]] (Dishwasher)

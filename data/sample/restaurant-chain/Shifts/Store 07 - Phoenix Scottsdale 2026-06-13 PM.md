@@ -7,15 +7,16 @@ date: 2026-06-13
 daypart: PM
 start: "15:00"
 end: "23:30"
-crew_size: 6
+crew_size: 7
 basis: authorization
 crew:
-  - "[[EMP-0163 Amelia Lewis]]"
-  - "[[EMP-0154 Yara Kim]]"
-  - "[[EMP-0158 Liam Jones]]"
-  - "[[EMP-0170 Ella Shah]]"
-  - "[[EMP-0151 Santiago Ahmed]]"
-  - "[[EMP-0171 Imani Johnson]]"
+  - "[[EMP-0165 Ximena Mensah]]"
+  - "[[EMP-0153 Zane Johnson]]"
+  - "[[EMP-0151 Victor Hernandez]]"
+  - "[[EMP-0169 Jamal Young]]"
+  - "[[EMP-0164 Anaya Young]]"
+  - "[[EMP-0155 Mia Williams]]"
+  - "[[EMP-0160 Elena King]]"
 ---
 
 PM shift at [[Store 07 - Phoenix Scottsdale]] on 2026-06-13 (15:00-23:30).
@@ -26,9 +27,10 @@ PM shift at [[Store 07 - Phoenix Scottsdale]] on 2026-06-13 (15:00-23:30).
 
 ## Crew
 
-- [[EMP-0163 Amelia Lewis]] (Server)
-- [[EMP-0154 Yara Kim]] (Shift Lead)
-- [[EMP-0158 Liam Jones]] (Server)
-- [[EMP-0170 Ella Shah]] (Server)
-- [[EMP-0151 Santiago Ahmed]] (General Manager)
-- [[EMP-0171 Imani Johnson]] (Busser)
+- [[EMP-0165 Ximena Mensah]] (Line Cook)
+- [[EMP-0153 Zane Johnson]] (Head Chef)
+- [[EMP-0151 Victor Hernandez]] (General Manager)
+- [[EMP-0169 Jamal Young]] (Line Cook)
+- [[EMP-0164 Anaya Young]] (Server)
+- [[EMP-0155 Mia Williams]] (Shift Lead)
+- [[EMP-0160 Elena King]] (Line Cook)

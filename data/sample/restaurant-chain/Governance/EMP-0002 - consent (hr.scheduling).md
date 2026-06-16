@@ -1,6 +1,6 @@
 ---
 type: consent_grant
-id: CNS-0005
+id: CNS-0009
 person: "[[EMP-0002 Samir Abara]]"
 scope: hr.scheduling
 purpose: store operations

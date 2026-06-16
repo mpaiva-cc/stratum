@@ -7,17 +7,19 @@ date: 2026-06-09
 daypart: AM
 start: "07:00"
 end: "15:30"
-crew_size: 8
+crew_size: 10
 basis: authorization
 crew:
-  - "[[EMP-0071 Destiny Anderson]]"
-  - "[[EMP-0067 Anaya Santos]]"
-  - "[[EMP-0065 Ines Wilson]]"
-  - "[[EMP-0073 Jaden Jackson]]"
-  - "[[EMP-0069 Uma Rossi]]"
-  - "[[EMP-0054 Nadia Costa]]"
-  - "[[EMP-0070 Amelia Davis]]"
-  - "[[EMP-0068 Maria Walker]]"
+  - "[[EMP-0075 Evelyn Miller]]"
+  - "[[EMP-0055 Samir Taylor]]"
+  - "[[EMP-0051 Jose Okafor]]"
+  - "[[EMP-0069 Ethan Russo]]"
+  - "[[EMP-0072 Quinn Abara]]"
+  - "[[EMP-0060 Elijah Liu]]"
+  - "[[EMP-0067 Zayd Chen]]"
+  - "[[EMP-0052 Oscar Kim]]"
+  - "[[EMP-0056 Wei Khan]]"
+  - "[[EMP-0053 Yuki Chen]]"
 ---
 
 AM shift at [[Store 03 - Dallas Knox]] on 2026-06-09 (07:00-15:30).
@@ -28,11 +30,13 @@ AM shift at [[Store 03 - Dallas Knox]] on 2026-06-09 (07:00-15:30).
 
 ## Crew
 
-- [[EMP-0071 Destiny Anderson]] (Prep Cook)
-- [[EMP-0067 Anaya Santos]] (Prep Cook)
-- [[EMP-0065 Ines Wilson]] (Dishwasher)
-- [[EMP-0073 Jaden Jackson]] (Dishwasher)
-- [[EMP-0069 Uma Rossi]] (Busser)
-- [[EMP-0054 Nadia Costa]] (Shift Lead)
-- [[EMP-0070 Amelia Davis]] (Dishwasher)
-- [[EMP-0068 Maria Walker]] (Busser)
+- [[EMP-0075 Evelyn Miller]] (Prep Cook)
+- [[EMP-0055 Samir Taylor]] (Shift Lead)
+- [[EMP-0051 Jose Okafor]] (General Manager)
+- [[EMP-0069 Ethan Russo]] (Prep Cook)
+- [[EMP-0072 Quinn Abara]] (Dishwasher)
+- [[EMP-0060 Elijah Liu]] (Bartender)
+- [[EMP-0067 Zayd Chen]] (Server)
+- [[EMP-0052 Oscar Kim]] (Assistant Manager)
+- [[EMP-0056 Wei Khan]] (Server)
+- [[EMP-0053 Yuki Chen]] (Head Chef)

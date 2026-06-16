@@ -7,18 +7,19 @@ date: 2026-06-13
 daypart: AM
 start: "07:00"
 end: "15:30"
-crew_size: 9
+crew_size: 10
 basis: authorization
 crew:
-  - "[[EMP-0246 Wanda Young]]"
-  - "[[EMP-0228 Paloma Wilson]]"
-  - "[[EMP-0240 Andres Anderson]]"
-  - "[[EMP-0232 Bella Thomas]]"
-  - "[[EMP-0248 Zayd Walker]]"
-  - "[[EMP-0245 Layla Lopez]]"
-  - "[[EMP-0239 Gabriela Walker]]"
-  - "[[EMP-0235 Bella Walker]]"
-  - "[[EMP-0242 Wei Abara]]"
+  - "[[EMP-0246 Evelyn Diallo]]"
+  - "[[EMP-0239 Maria Abara]]"
+  - "[[EMP-0249 Aria Harris]]"
+  - "[[EMP-0230 Ines Perez]]"
+  - "[[EMP-0247 Aaron Park]]"
+  - "[[EMP-0248 Aiden Taylor]]"
+  - "[[EMP-0250 Ava Walker]]"
+  - "[[EMP-0244 Abigail Wright]]"
+  - "[[EMP-0238 Ximena Russo]]"
+  - "[[EMP-0232 Paloma Bianchi]]"
 ---
 
 AM shift at [[Store 10 - San Diego Gaslamp]] on 2026-06-13 (07:00-15:30).
@@ -29,12 +30,13 @@ AM shift at [[Store 10 - San Diego Gaslamp]] on 2026-06-13 (07:00-15:30).
 
 ## Crew
 
-- [[EMP-0246 Wanda Young]] (Busser)
-- [[EMP-0228 Paloma Wilson]] (Head Chef)
-- [[EMP-0240 Andres Anderson]] (Line Cook)
-- [[EMP-0232 Bella Thomas]] (Server)
-- [[EMP-0248 Zayd Walker]] (Dishwasher)
-- [[EMP-0245 Layla Lopez]] (Line Cook)
-- [[EMP-0239 Gabriela Walker]] (Bartender)
-- [[EMP-0235 Bella Walker]] (Bartender)
-- [[EMP-0242 Wei Abara]] (Expo)
+- [[EMP-0246 Evelyn Diallo]] (Host)
+- [[EMP-0239 Maria Abara]] (Bartender)
+- [[EMP-0249 Aria Harris]] (Prep Cook)
+- [[EMP-0230 Ines Perez]] (Shift Lead)
+- [[EMP-0247 Aaron Park]] (Busser)
+- [[EMP-0248 Aiden Taylor]] (Busser)
+- [[EMP-0250 Ava Walker]] (Dishwasher)
+- [[EMP-0244 Abigail Wright]] (Dishwasher)
+- [[EMP-0238 Ximena Russo]] (Line Cook)
+- [[EMP-0232 Paloma Bianchi]] (Line Cook)

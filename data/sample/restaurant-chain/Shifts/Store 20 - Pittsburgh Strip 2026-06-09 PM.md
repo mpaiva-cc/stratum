@@ -10,13 +10,13 @@ end: "23:30"
 crew_size: 7
 basis: authorization
 crew:
-  - "[[EMP-0481 Emily Thomas]]"
-  - "[[EMP-0492 Liam Santos]]"
-  - "[[EMP-0489 Amelia Ahmed]]"
-  - "[[EMP-0496 Layla Williams]]"
-  - "[[EMP-0483 Jaden Torres]]"
-  - "[[EMP-0477 Henry Rossi]]"
-  - "[[EMP-0485 Valentina Wang]]"
+  - "[[EMP-0476 Henry Young]]"
+  - "[[EMP-0478 Jamal Jackson]]"
+  - "[[EMP-0484 Min Anderson]]"
+  - "[[EMP-0499 Logan Romano]]"
+  - "[[EMP-0482 Felix Martinez]]"
+  - "[[EMP-0483 Abigail Perez]]"
+  - "[[EMP-0487 Ella Thomas]]"
 ---
 
 PM shift at [[Store 20 - Pittsburgh Strip]] on 2026-06-09 (15:00-23:30).
@@ -27,10 +27,10 @@ PM shift at [[Store 20 - Pittsburgh Strip]] on 2026-06-09 (15:00-23:30).
 
 ## Crew
 
-- [[EMP-0481 Emily Thomas]] (Line Cook)
-- [[EMP-0492 Liam Santos]] (Server)
-- [[EMP-0489 Amelia Ahmed]] (Server)
-- [[EMP-0496 Layla Williams]] (Prep Cook)
-- [[EMP-0483 Jaden Torres]] (Line Cook)
-- [[EMP-0477 Henry Rossi]] (Assistant Manager)
-- [[EMP-0485 Valentina Wang]] (Expo)
+- [[EMP-0476 Henry Young]] (General Manager)
+- [[EMP-0478 Jamal Jackson]] (Head Chef)
+- [[EMP-0484 Min Anderson]] (Server)
+- [[EMP-0499 Logan Romano]] (Host)
+- [[EMP-0482 Felix Martinez]] (Expo)
+- [[EMP-0483 Abigail Perez]] (Server)
+- [[EMP-0487 Ella Thomas]] (Line Cook)

@@ -4,15 +4,15 @@ id: EMP-0003
 name: Rohan Ramirez
 status: active
 status_reason: active
-status_effective_date: 2026-05-04
+status_effective_date: 2026-04-26
 rehire_eligible: false
 employment_type: full_time
-hire_date: 2024-08-22
+hire_date: 2024-06-27
 email: "rohan.ramirez.emp-0003@forkandflame.example"
 works_at: "[[Store 01 - Austin Domain]]"
 in_department: "[[Kitchen (Department)]]"
 position: "[[Head Chef]]"
-pay_rate: 66000
+pay_rate: 62000
 pay_unit: year
 reports_to: "[[EMP-0001 Mateo Thomas]]"
 certifications:
@@ -20,14 +20,20 @@ certifications:
   - "[[ServSafe Manager]]"
   - "[[Allergen Awareness]]"
 skills:
-  - "[[Saute Station]]"
+  - "[[Inventory & Ordering]]"
   - "[[Knife Skills]]"
+  - "[[Saute Station]]"
+benefits:
+  - Health PPO
+  - 401(k) Match
+  - Shift Meal
+work_authorization: citizen
 basis: consent
 ---
 
-**Head Chef** at [[Store 01 - Austin Domain]] · Kitchen · since 2024-08-22.
+**Head Chef** at [[Store 01 - Austin Domain]] · Kitchen · since 2024-06-27.
 
-Status: **active** (active) as of 2026-05-04
+Status: **active** (active) as of 2026-04-26
 Rehire eligible: no
 
 ## Works at
@@ -36,7 +42,7 @@ Rehire eligible: no
 
 ## Position
 
-- [[Head Chef]] — paid 66000/year
+- [[Head Chef]] — paid 62000/year
 
 ## Reports to
 
@@ -50,9 +56,20 @@ Rehire eligible: no
 
 ## Skills
 
-- [[Saute Station]]
+- [[Inventory & Ordering]]
 - [[Knife Skills]]
+- [[Saute Station]]
+
+## Benefits
+
+- Health PPO
+- 401(k) Match
+- Shift Meal
+
+## Work authorization
+
+- citizen
 
 ## Lifecycle
 
-- [[EMP-0003 - hired]] on 2024-08-22
+- [[EMP-0003 - hired]] on 2024-06-27

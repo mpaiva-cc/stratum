@@ -7,16 +7,17 @@ date: 2026-06-08
 daypart: PM
 start: "15:00"
 end: "23:30"
-crew_size: 7
+crew_size: 8
 basis: authorization
 crew:
-  - "[[EMP-0066 Jaden Martinez]]"
-  - "[[EMP-0062 Aria Liu]]"
-  - "[[EMP-0057 Leo Johnson]]"
-  - "[[EMP-0055 Liam Khan]]"
-  - "[[EMP-0051 Fatima Costa]]"
-  - "[[EMP-0054 Nadia Costa]]"
-  - "[[EMP-0061 Amelia Wilson]]"
+  - "[[EMP-0060 Elijah Liu]]"
+  - "[[EMP-0069 Ethan Russo]]"
+  - "[[EMP-0073 Wanda Rossi]]"
+  - "[[EMP-0064 Keira Miller]]"
+  - "[[EMP-0058 Liam Taylor]]"
+  - "[[EMP-0057 Imani Hernandez]]"
+  - "[[EMP-0061 Bella Gonzalez]]"
+  - "[[EMP-0051 Jose Okafor]]"
 ---
 
 PM shift at [[Store 03 - Dallas Knox]] on 2026-06-08 (15:00-23:30).
@@ -27,10 +28,11 @@ PM shift at [[Store 03 - Dallas Knox]] on 2026-06-08 (15:00-23:30).
 
 ## Crew
 
-- [[EMP-0066 Jaden Martinez]] (Busser)
-- [[EMP-0062 Aria Liu]] (Server)
-- [[EMP-0057 Leo Johnson]] (Line Cook)
-- [[EMP-0055 Liam Khan]] (Shift Lead)
-- [[EMP-0051 Fatima Costa]] (General Manager)
-- [[EMP-0054 Nadia Costa]] (Shift Lead)
-- [[EMP-0061 Amelia Wilson]] (Bartender)
+- [[EMP-0060 Elijah Liu]] (Bartender)
+- [[EMP-0069 Ethan Russo]] (Prep Cook)
+- [[EMP-0073 Wanda Rossi]] (Host)
+- [[EMP-0064 Keira Miller]] (Server)
+- [[EMP-0058 Liam Taylor]] (Bartender)
+- [[EMP-0057 Imani Hernandez]] (Server)
+- [[EMP-0061 Bella Gonzalez]] (Bartender)
+- [[EMP-0051 Jose Okafor]] (General Manager)

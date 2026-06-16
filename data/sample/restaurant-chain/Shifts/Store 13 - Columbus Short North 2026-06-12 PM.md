@@ -10,12 +10,12 @@ end: "23:30"
 crew_size: 6
 basis: authorization
 crew:
-  - "[[EMP-0313 Wei Nguyen]]"
-  - "[[EMP-0317 Aiden Johnson]]"
-  - "[[EMP-0302 Tariq Smith]]"
-  - "[[EMP-0310 Mia Davis]]"
-  - "[[EMP-0321 Rohan Ali]]"
-  - "[[EMP-0325 Leo Harris]]"
+  - "[[EMP-0312 Ella Clark]]"
+  - "[[EMP-0313 Logan Smith]]"
+  - "[[EMP-0323 Imani Ramirez]]"
+  - "[[EMP-0308 Leo Ramirez]]"
+  - "[[EMP-0315 Keira Brown]]"
+  - "[[EMP-0314 Emily Nguyen]]"
 ---
 
 PM shift at [[Store 13 - Columbus Short North]] on 2026-06-12 (15:00-23:30).
@@ -26,9 +26,9 @@ PM shift at [[Store 13 - Columbus Short North]] on 2026-06-12 (15:00-23:30).
 
 ## Crew
 
-- [[EMP-0313 Wei Nguyen]] (Bartender)
-- [[EMP-0317 Aiden Johnson]] (Line Cook)
-- [[EMP-0302 Tariq Smith]] (Assistant Manager)
-- [[EMP-0310 Mia Davis]] (Line Cook)
-- [[EMP-0321 Rohan Ali]] (Server)
-- [[EMP-0325 Leo Harris]] (Busser)
+- [[EMP-0312 Ella Clark]] (Server)
+- [[EMP-0313 Logan Smith]] (Line Cook)
+- [[EMP-0323 Imani Ramirez]] (Dishwasher)
+- [[EMP-0308 Leo Ramirez]] (Server)
+- [[EMP-0315 Keira Brown]] (Line Cook)
+- [[EMP-0314 Emily Nguyen]] (Line Cook)

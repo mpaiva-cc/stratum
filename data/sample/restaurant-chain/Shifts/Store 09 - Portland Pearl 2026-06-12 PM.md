@@ -7,17 +7,15 @@ date: 2026-06-12
 daypart: PM
 start: "15:00"
 end: "23:30"
-crew_size: 8
+crew_size: 6
 basis: authorization
 crew:
-  - "[[EMP-0218 Brianna Wright]]"
-  - "[[EMP-0225 Kayla Taylor]]"
-  - "[[EMP-0224 Gabriela Khan]]"
-  - "[[EMP-0208 Victor Davis]]"
-  - "[[EMP-0214 Aiden Martinez]]"
-  - "[[EMP-0223 Hassan Harris]]"
-  - "[[EMP-0206 Maria Anderson]]"
-  - "[[EMP-0212 Kayla Singh]]"
+  - "[[EMP-0221 Samir Davis]]"
+  - "[[EMP-0201 Emily Abara]]"
+  - "[[EMP-0212 Connor Brown]]"
+  - "[[EMP-0205 Felix Park]]"
+  - "[[EMP-0203 Valentina Diallo]]"
+  - "[[EMP-0202 Valentina Williams]]"
 ---
 
 PM shift at [[Store 09 - Portland Pearl]] on 2026-06-12 (15:00-23:30).
@@ -28,11 +26,9 @@ PM shift at [[Store 09 - Portland Pearl]] on 2026-06-12 (15:00-23:30).
 
 ## Crew
 
-- [[EMP-0218 Brianna Wright]] (Server)
-- [[EMP-0225 Kayla Taylor]] (Host)
-- [[EMP-0224 Gabriela Khan]] (Busser)
-- [[EMP-0208 Victor Davis]] (Line Cook)
-- [[EMP-0214 Aiden Martinez]] (Line Cook)
-- [[EMP-0223 Hassan Harris]] (Host)
-- [[EMP-0206 Maria Anderson]] (Bartender)
-- [[EMP-0212 Kayla Singh]] (Expo)
+- [[EMP-0221 Samir Davis]] (Dishwasher)
+- [[EMP-0201 Emily Abara]] (General Manager)
+- [[EMP-0212 Connor Brown]] (Line Cook)
+- [[EMP-0205 Felix Park]] (Shift Lead)
+- [[EMP-0203 Valentina Diallo]] (Head Chef)
+- [[EMP-0202 Valentina Williams]] (Assistant Manager)

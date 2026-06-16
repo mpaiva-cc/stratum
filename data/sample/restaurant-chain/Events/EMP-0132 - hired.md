@@ -1,11 +1,11 @@
 ---
 type: employment_event
 id: EVT-0132
-person: "[[EMP-0132 Isabella Shah]]"
+person: "[[EMP-0132 Grace Rossi]]"
 kind: hire
-date: 2025-10-25
+date: 2022-04-17
 store: "[[Store 06 - Denver LoDo]]"
 basis: consent
 ---
 
-[[EMP-0132 Isabella Shah]] hired as Server at [[Store 06 - Denver LoDo]] on 2025-10-25.
+[[EMP-0132 Grace Rossi]] hired as Server at [[Store 06 - Denver LoDo]] on 2022-04-17.

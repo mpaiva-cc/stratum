@@ -10,15 +10,15 @@ end: "23:30"
 crew_size: 9
 basis: authorization
 crew:
-  - "[[EMP-0291 Brianna Taylor]]"
-  - "[[EMP-0292 Maria Diallo]]"
-  - "[[EMP-0282 Sofia Mensah]]"
-  - "[[EMP-0285 Diego Sanchez]]"
-  - "[[EMP-0279 Abigail Abara]]"
-  - "[[EMP-0295 Ines Davis]]"
-  - "[[EMP-0288 Quinn Wilson]]"
-  - "[[EMP-0294 Logan Davis]]"
-  - "[[EMP-0286 Oscar Bianchi]]"
+  - "[[EMP-0278 Bella Jones]]"
+  - "[[EMP-0284 Gabriela Shah]]"
+  - "[[EMP-0277 Zayd Ramirez]]"
+  - "[[EMP-0293 Mason Johnson]]"
+  - "[[EMP-0276 Carlos Silva]]"
+  - "[[EMP-0290 Samir Johnson]]"
+  - "[[EMP-0282 Oscar Hernandez]]"
+  - "[[EMP-0285 Carlos King]]"
+  - "[[EMP-0300 Abigail Martinez]]"
 ---
 
 PM shift at [[Store 12 - Minneapolis Uptown]] on 2026-06-11 (15:00-23:30).
@@ -29,12 +29,12 @@ PM shift at [[Store 12 - Minneapolis Uptown]] on 2026-06-11 (15:00-23:30).
 
 ## Crew
 
-- [[EMP-0291 Brianna Taylor]] (Line Cook)
-- [[EMP-0292 Maria Diallo]] (Line Cook)
-- [[EMP-0282 Sofia Mensah]] (Server)
-- [[EMP-0285 Diego Sanchez]] (Line Cook)
-- [[EMP-0279 Abigail Abara]] (Shift Lead)
-- [[EMP-0295 Ines Davis]] (Busser)
-- [[EMP-0288 Quinn Wilson]] (Server)
-- [[EMP-0294 Logan Davis]] (Server)
-- [[EMP-0286 Oscar Bianchi]] (Server)
+- [[EMP-0278 Bella Jones]] (Head Chef)
+- [[EMP-0284 Gabriela Shah]] (Line Cook)
+- [[EMP-0277 Zayd Ramirez]] (Assistant Manager)
+- [[EMP-0293 Mason Johnson]] (Prep Cook)
+- [[EMP-0276 Carlos Silva]] (General Manager)
+- [[EMP-0290 Samir Johnson]] (Server)
+- [[EMP-0282 Oscar Hernandez]] (Line Cook)
+- [[EMP-0285 Carlos King]] (Bartender)
+- [[EMP-0300 Abigail Martinez]] (Busser)

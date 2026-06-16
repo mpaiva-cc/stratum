@@ -7,16 +7,19 @@ date: 2026-06-08
 daypart: PM
 start: "15:00"
 end: "23:30"
-crew_size: 7
+crew_size: 10
 basis: authorization
 crew:
-  - "[[EMP-0174 Tariq Okafor]]"
-  - "[[EMP-0162 Uma Wang]]"
-  - "[[EMP-0160 Nadia Rossi]]"
-  - "[[EMP-0169 Aaron Abara]]"
-  - "[[EMP-0166 Amelia Taylor]]"
-  - "[[EMP-0173 Tariq Singh]]"
-  - "[[EMP-0151 Santiago Ahmed]]"
+  - "[[EMP-0175 Amelia Thomas]]"
+  - "[[EMP-0155 Mia Williams]]"
+  - "[[EMP-0172 Amelia Wilson]]"
+  - "[[EMP-0167 Omar Patel]]"
+  - "[[EMP-0164 Anaya Young]]"
+  - "[[EMP-0158 Bella Martinez]]"
+  - "[[EMP-0151 Victor Hernandez]]"
+  - "[[EMP-0154 Amelia Le]]"
+  - "[[EMP-0156 Jamal Hernandez]]"
+  - "[[EMP-0163 Imani Romano]]"
 ---
 
 PM shift at [[Store 07 - Phoenix Scottsdale]] on 2026-06-08 (15:00-23:30).
@@ -27,10 +30,13 @@ PM shift at [[Store 07 - Phoenix Scottsdale]] on 2026-06-08 (15:00-23:30).
 
 ## Crew
 
-- [[EMP-0174 Tariq Okafor]] (Prep Cook)
-- [[EMP-0162 Uma Wang]] (Line Cook)
-- [[EMP-0160 Nadia Rossi]] (Line Cook)
-- [[EMP-0169 Aaron Abara]] (Server)
-- [[EMP-0166 Amelia Taylor]] (Server)
-- [[EMP-0173 Tariq Singh]] (Prep Cook)
-- [[EMP-0151 Santiago Ahmed]] (General Manager)
+- [[EMP-0175 Amelia Thomas]] (Prep Cook)
+- [[EMP-0155 Mia Williams]] (Shift Lead)
+- [[EMP-0172 Amelia Wilson]] (Prep Cook)
+- [[EMP-0167 Omar Patel]] (Expo)
+- [[EMP-0164 Anaya Young]] (Server)
+- [[EMP-0158 Bella Martinez]] (Expo)
+- [[EMP-0151 Victor Hernandez]] (General Manager)
+- [[EMP-0154 Amelia Le]] (Shift Lead)
+- [[EMP-0156 Jamal Hernandez]] (Line Cook)
+- [[EMP-0163 Imani Romano]] (Line Cook)

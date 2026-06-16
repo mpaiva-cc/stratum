@@ -10,13 +10,13 @@ end: "15:30"
 crew_size: 7
 basis: authorization
 crew:
-  - "[[EMP-0452 Camila Anderson]]"
-  - "[[EMP-0472 Liam Mensah]]"
-  - "[[EMP-0457 Lucas Moore]]"
-  - "[[EMP-0458 Imani Patel]]"
-  - "[[EMP-0461 Arjun Bianchi]]"
-  - "[[EMP-0454 Carlos Garcia]]"
-  - "[[EMP-0475 Ximena Torres]]"
+  - "[[EMP-0458 Zayd Anderson]]"
+  - "[[EMP-0474 Aaron White]]"
+  - "[[EMP-0452 Uma Ahmed]]"
+  - "[[EMP-0461 Victor Lewis]]"
+  - "[[EMP-0454 Emily Le]]"
+  - "[[EMP-0459 Nadia Lewis]]"
+  - "[[EMP-0460 Diego Lopez]]"
 ---
 
 AM shift at [[Store 19 - DC Navy Yard]] on 2026-06-09 (07:00-15:30).
@@ -27,10 +27,10 @@ AM shift at [[Store 19 - DC Navy Yard]] on 2026-06-09 (07:00-15:30).
 
 ## Crew
 
-- [[EMP-0452 Camila Anderson]] (Assistant Manager)
-- [[EMP-0472 Liam Mensah]] (Busser)
-- [[EMP-0457 Lucas Moore]] (Bartender)
-- [[EMP-0458 Imani Patel]] (Line Cook)
-- [[EMP-0461 Arjun Bianchi]] (Line Cook)
-- [[EMP-0454 Carlos Garcia]] (Shift Lead)
-- [[EMP-0475 Ximena Torres]] (Dishwasher)
+- [[EMP-0458 Zayd Anderson]] (Line Cook)
+- [[EMP-0474 Aaron White]] (Prep Cook)
+- [[EMP-0452 Uma Ahmed]] (Assistant Manager)
+- [[EMP-0461 Victor Lewis]] (Line Cook)
+- [[EMP-0454 Emily Le]] (Shift Lead)
+- [[EMP-0459 Nadia Lewis]] (Server)
+- [[EMP-0460 Diego Lopez]] (Server)

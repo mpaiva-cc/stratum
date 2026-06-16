@@ -7,17 +7,16 @@ date: 2026-06-11
 daypart: PM
 start: "15:00"
 end: "23:30"
-crew_size: 8
+crew_size: 7
 basis: authorization
 crew:
-  - "[[EMP-0452 Camila Anderson]]"
-  - "[[EMP-0468 Rosa Rodriguez]]"
-  - "[[EMP-0472 Liam Mensah]]"
-  - "[[EMP-0475 Ximena Torres]]"
-  - "[[EMP-0464 Omar Jones]]"
-  - "[[EMP-0459 Keira Williams]]"
-  - "[[EMP-0466 Evelyn Young]]"
-  - "[[EMP-0453 Samir King]]"
+  - "[[EMP-0471 Uma Russo]]"
+  - "[[EMP-0458 Zayd Anderson]]"
+  - "[[EMP-0451 Arjun Rossi]]"
+  - "[[EMP-0453 Gabriela Jones]]"
+  - "[[EMP-0474 Aaron White]]"
+  - "[[EMP-0462 Zane King]]"
+  - "[[EMP-0475 Grace Walker]]"
 ---
 
 PM shift at [[Store 19 - DC Navy Yard]] on 2026-06-11 (15:00-23:30).
@@ -28,11 +27,10 @@ PM shift at [[Store 19 - DC Navy Yard]] on 2026-06-11 (15:00-23:30).
 
 ## Crew
 
-- [[EMP-0452 Camila Anderson]] (Assistant Manager)
-- [[EMP-0468 Rosa Rodriguez]] (Prep Cook)
-- [[EMP-0472 Liam Mensah]] (Busser)
-- [[EMP-0475 Ximena Torres]] (Dishwasher)
-- [[EMP-0464 Omar Jones]] (Server)
-- [[EMP-0459 Keira Williams]] (Line Cook)
-- [[EMP-0466 Evelyn Young]] (Bartender)
-- [[EMP-0453 Samir King]] (Head Chef)
+- [[EMP-0471 Uma Russo]] (Server)
+- [[EMP-0458 Zayd Anderson]] (Line Cook)
+- [[EMP-0451 Arjun Rossi]] (General Manager)
+- [[EMP-0453 Gabriela Jones]] (Head Chef)
+- [[EMP-0474 Aaron White]] (Prep Cook)
+- [[EMP-0462 Zane King]] (Line Cook)
+- [[EMP-0475 Grace Walker]] (Busser)

@@ -1,7 +1,7 @@
 ---
 type: consent_grant
-id: CNS-0139
-person: "[[EMP-0036 Aaron Kim]]"
+id: CNS-0280
+person: "[[EMP-0036 Samir Silva]]"
 scope: hr.certifications
 purpose: store operations
 status: active
@@ -9,4 +9,4 @@ valid_to: open
 basis: consent
 ---
 
-[[EMP-0036 Aaron Kim]] — scope `hr.certifications` · status `active` · valid_to `open`. The traversal predicate reads this grant.
+[[EMP-0036 Samir Silva]] — scope `hr.certifications` · status `active` · valid_to `open`. The traversal predicate reads this grant.

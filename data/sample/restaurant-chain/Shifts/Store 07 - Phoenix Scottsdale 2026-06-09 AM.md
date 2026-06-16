@@ -7,16 +7,15 @@ date: 2026-06-09
 daypart: AM
 start: "07:00"
 end: "15:30"
-crew_size: 7
+crew_size: 6
 basis: authorization
 crew:
-  - "[[EMP-0152 Wei Smith]]"
-  - "[[EMP-0164 Hana Miller]]"
-  - "[[EMP-0165 Rohan Davis]]"
-  - "[[EMP-0157 Samir Wilson]]"
-  - "[[EMP-0167 Santiago Bianchi]]"
-  - "[[EMP-0168 Sofia Martinez]]"
-  - "[[EMP-0161 Noah Shah]]"
+  - "[[EMP-0163 Imani Romano]]"
+  - "[[EMP-0159 Layla Wilson]]"
+  - "[[EMP-0164 Anaya Young]]"
+  - "[[EMP-0154 Amelia Le]]"
+  - "[[EMP-0151 Victor Hernandez]]"
+  - "[[EMP-0172 Amelia Wilson]]"
 ---
 
 AM shift at [[Store 07 - Phoenix Scottsdale]] on 2026-06-09 (07:00-15:30).
@@ -27,10 +26,9 @@ AM shift at [[Store 07 - Phoenix Scottsdale]] on 2026-06-09 (07:00-15:30).
 
 ## Crew
 
-- [[EMP-0152 Wei Smith]] (Assistant Manager)
-- [[EMP-0164 Hana Miller]] (Line Cook)
-- [[EMP-0165 Rohan Davis]] (Bartender)
-- [[EMP-0157 Samir Wilson]] (Line Cook)
-- [[EMP-0167 Santiago Bianchi]] (Server)
-- [[EMP-0168 Sofia Martinez]] (Server)
-- [[EMP-0161 Noah Shah]] (Expo)
+- [[EMP-0163 Imani Romano]] (Line Cook)
+- [[EMP-0159 Layla Wilson]] (Server)
+- [[EMP-0164 Anaya Young]] (Server)
+- [[EMP-0154 Amelia Le]] (Shift Lead)
+- [[EMP-0151 Victor Hernandez]] (General Manager)
+- [[EMP-0172 Amelia Wilson]] (Prep Cook)

@@ -1,11 +1,11 @@
 ---
 type: employment_event
 id: EVT-0469
-person: "[[EMP-0469 Wei Hernandez]]"
+person: "[[EMP-0469 Lucas Clark]]"
 kind: hire
-date: 2021-09-28
+date: 2023-04-06
 store: "[[Store 19 - DC Navy Yard]]"
 basis: consent
 ---
 
-[[EMP-0469 Wei Hernandez]] hired as Dishwasher at [[Store 19 - DC Navy Yard]] on 2021-09-28.
+[[EMP-0469 Lucas Clark]] hired as Bartender at [[Store 19 - DC Navy Yard]] on 2023-04-06.

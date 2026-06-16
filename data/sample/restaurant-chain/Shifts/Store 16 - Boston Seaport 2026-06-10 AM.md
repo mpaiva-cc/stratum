@@ -7,16 +7,15 @@ date: 2026-06-10
 daypart: AM
 start: "07:00"
 end: "15:30"
-crew_size: 7
+crew_size: 6
 basis: authorization
 crew:
-  - "[[EMP-0380 Min Romano]]"
-  - "[[EMP-0386 Diego Smith]]"
-  - "[[EMP-0383 Kayla Taylor]]"
-  - "[[EMP-0378 Elena Johnson]]"
-  - "[[EMP-0396 Mateo Kim]]"
-  - "[[EMP-0379 Jamal Scott]]"
-  - "[[EMP-0389 Oscar Abara]]"
+  - "[[EMP-0376 Zayd Sanchez]]"
+  - "[[EMP-0388 Layla Pham]]"
+  - "[[EMP-0399 Camila Romano]]"
+  - "[[EMP-0382 Jin Moore]]"
+  - "[[EMP-0379 Caleb Hernandez]]"
+  - "[[EMP-0391 Felix Jackson]]"
 ---
 
 AM shift at [[Store 16 - Boston Seaport]] on 2026-06-10 (07:00-15:30).
@@ -27,10 +26,9 @@ AM shift at [[Store 16 - Boston Seaport]] on 2026-06-10 (07:00-15:30).
 
 ## Crew
 
-- [[EMP-0380 Min Romano]] (Shift Lead)
-- [[EMP-0386 Diego Smith]] (Server)
-- [[EMP-0383 Kayla Taylor]] (Line Cook)
-- [[EMP-0378 Elena Johnson]] (Head Chef)
-- [[EMP-0396 Mateo Kim]] (Host)
-- [[EMP-0379 Jamal Scott]] (Shift Lead)
-- [[EMP-0389 Oscar Abara]] (Line Cook)
+- [[EMP-0376 Zayd Sanchez]] (General Manager)
+- [[EMP-0388 Layla Pham]] (Bartender)
+- [[EMP-0399 Camila Romano]] (Host)
+- [[EMP-0382 Jin Moore]] (Line Cook)
+- [[EMP-0379 Caleb Hernandez]] (Shift Lead)
+- [[EMP-0391 Felix Jackson]] (Server)

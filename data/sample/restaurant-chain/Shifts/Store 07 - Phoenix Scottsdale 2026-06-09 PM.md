@@ -7,17 +7,19 @@ date: 2026-06-09
 daypart: PM
 start: "15:00"
 end: "23:30"
-crew_size: 8
+crew_size: 10
 basis: authorization
 crew:
-  - "[[EMP-0160 Nadia Rossi]]"
-  - "[[EMP-0169 Aaron Abara]]"
-  - "[[EMP-0173 Tariq Singh]]"
-  - "[[EMP-0164 Hana Miller]]"
-  - "[[EMP-0158 Liam Jones]]"
-  - "[[EMP-0157 Samir Wilson]]"
-  - "[[EMP-0161 Noah Shah]]"
-  - "[[EMP-0151 Santiago Ahmed]]"
+  - "[[EMP-0162 Ines Abara]]"
+  - "[[EMP-0157 Rosa Perez]]"
+  - "[[EMP-0174 Brianna Romano]]"
+  - "[[EMP-0164 Anaya Young]]"
+  - "[[EMP-0169 Jamal Young]]"
+  - "[[EMP-0175 Amelia Thomas]]"
+  - "[[EMP-0170 Mateo Perez]]"
+  - "[[EMP-0154 Amelia Le]]"
+  - "[[EMP-0173 Harper Nguyen]]"
+  - "[[EMP-0158 Bella Martinez]]"
 ---
 
 PM shift at [[Store 07 - Phoenix Scottsdale]] on 2026-06-09 (15:00-23:30).
@@ -28,11 +30,13 @@ PM shift at [[Store 07 - Phoenix Scottsdale]] on 2026-06-09 (15:00-23:30).
 
 ## Crew
 
-- [[EMP-0160 Nadia Rossi]] (Line Cook)
-- [[EMP-0169 Aaron Abara]] (Server)
-- [[EMP-0173 Tariq Singh]] (Prep Cook)
-- [[EMP-0164 Hana Miller]] (Line Cook)
-- [[EMP-0158 Liam Jones]] (Server)
-- [[EMP-0157 Samir Wilson]] (Line Cook)
-- [[EMP-0161 Noah Shah]] (Expo)
-- [[EMP-0151 Santiago Ahmed]] (General Manager)
+- [[EMP-0162 Ines Abara]] (Server)
+- [[EMP-0157 Rosa Perez]] (Line Cook)
+- [[EMP-0174 Brianna Romano]] (Dishwasher)
+- [[EMP-0164 Anaya Young]] (Server)
+- [[EMP-0169 Jamal Young]] (Line Cook)
+- [[EMP-0175 Amelia Thomas]] (Prep Cook)
+- [[EMP-0170 Mateo Perez]] (Dishwasher)
+- [[EMP-0154 Amelia Le]] (Shift Lead)
+- [[EMP-0173 Harper Nguyen]] (Busser)
+- [[EMP-0158 Bella Martinez]] (Expo)

@@ -7,19 +7,18 @@ date: 2026-06-09
 daypart: PM
 start: "15:00"
 end: "23:30"
-crew_size: 10
+crew_size: 9
 basis: authorization
 crew:
-  - "[[EMP-0143 Emily Costa]]"
-  - "[[EMP-0136 Andres White]]"
-  - "[[EMP-0148 Liam Abara]]"
-  - "[[EMP-0149 Hassan Rodriguez]]"
-  - "[[EMP-0133 Quinn Garcia]]"
-  - "[[EMP-0150 Grace Sanchez]]"
-  - "[[EMP-0138 Bella Brown]]"
-  - "[[EMP-0142 Mason Brown]]"
-  - "[[EMP-0135 Aaron Silva]]"
-  - "[[EMP-0128 Hana Williams]]"
+  - "[[EMP-0128 Aaron Santos]]"
+  - "[[EMP-0150 Oscar Davis]]"
+  - "[[EMP-0144 Priya Wilson]]"
+  - "[[EMP-0149 Kayla Brown]]"
+  - "[[EMP-0132 Grace Rossi]]"
+  - "[[EMP-0138 Rohan Clark]]"
+  - "[[EMP-0134 Hana Russo]]"
+  - "[[EMP-0131 Ximena Hernandez]]"
+  - "[[EMP-0146 Maria Garcia]]"
 ---
 
 PM shift at [[Store 06 - Denver LoDo]] on 2026-06-09 (15:00-23:30).
@@ -30,13 +29,12 @@ PM shift at [[Store 06 - Denver LoDo]] on 2026-06-09 (15:00-23:30).
 
 ## Crew
 
-- [[EMP-0143 Emily Costa]] (Prep Cook)
-- [[EMP-0136 Andres White]] (Line Cook)
-- [[EMP-0148 Liam Abara]] (Host)
-- [[EMP-0149 Hassan Rodriguez]] (Busser)
-- [[EMP-0133 Quinn Garcia]] (Line Cook)
-- [[EMP-0150 Grace Sanchez]] (Host)
-- [[EMP-0138 Bella Brown]] (Server)
-- [[EMP-0142 Mason Brown]] (Dishwasher)
-- [[EMP-0135 Aaron Silva]] (Server)
-- [[EMP-0128 Hana Williams]] (Head Chef)
+- [[EMP-0128 Aaron Santos]] (Head Chef)
+- [[EMP-0150 Oscar Davis]] (Dishwasher)
+- [[EMP-0144 Priya Wilson]] (Server)
+- [[EMP-0149 Kayla Brown]] (Busser)
+- [[EMP-0132 Grace Rossi]] (Server)
+- [[EMP-0138 Rohan Clark]] (Expo)
+- [[EMP-0134 Hana Russo]] (Server)
+- [[EMP-0131 Ximena Hernandez]] (Server)
+- [[EMP-0146 Maria Garcia]] (Host)

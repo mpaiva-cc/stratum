@@ -1,6 +1,6 @@
 ---
 type: consent_grant
-id: CNS-0055
+id: CNS-0105
 person: "[[EMP-0014 Oscar Romano]]"
 scope: hr.certifications
 purpose: store operations

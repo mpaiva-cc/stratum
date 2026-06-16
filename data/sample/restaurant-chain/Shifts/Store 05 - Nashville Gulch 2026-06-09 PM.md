@@ -7,17 +7,15 @@ date: 2026-06-09
 daypart: PM
 start: "15:00"
 end: "23:30"
-crew_size: 8
+crew_size: 6
 basis: authorization
 crew:
-  - "[[EMP-0106 Wanda Wilson]]"
-  - "[[EMP-0114 Brianna Perez]]"
-  - "[[EMP-0110 Min Garcia]]"
-  - "[[EMP-0112 Andres Miller]]"
-  - "[[EMP-0122 Felix Johnson]]"
-  - "[[EMP-0103 Sofia Bianchi]]"
-  - "[[EMP-0108 Santiago Hernandez]]"
-  - "[[EMP-0118 Henry Hernandez]]"
+  - "[[EMP-0102 Maria King]]"
+  - "[[EMP-0104 Amelia Allen]]"
+  - "[[EMP-0123 Felix Wright]]"
+  - "[[EMP-0122 Destiny Johnson]]"
+  - "[[EMP-0114 Fatima Scott]]"
+  - "[[EMP-0107 Emily Anderson]]"
 ---
 
 PM shift at [[Store 05 - Nashville Gulch]] on 2026-06-09 (15:00-23:30).
@@ -28,11 +26,9 @@ PM shift at [[Store 05 - Nashville Gulch]] on 2026-06-09 (15:00-23:30).
 
 ## Crew
 
-- [[EMP-0106 Wanda Wilson]] (Bartender)
-- [[EMP-0114 Brianna Perez]] (Line Cook)
-- [[EMP-0110 Min Garcia]] (Server)
-- [[EMP-0112 Andres Miller]] (Bartender)
-- [[EMP-0122 Felix Johnson]] (Dishwasher)
-- [[EMP-0103 Sofia Bianchi]] (Head Chef)
-- [[EMP-0108 Santiago Hernandez]] (Line Cook)
-- [[EMP-0118 Henry Hernandez]] (Busser)
+- [[EMP-0102 Maria King]] (Assistant Manager)
+- [[EMP-0104 Amelia Allen]] (Shift Lead)
+- [[EMP-0123 Felix Wright]] (Busser)
+- [[EMP-0122 Destiny Johnson]] (Busser)
+- [[EMP-0114 Fatima Scott]] (Expo)
+- [[EMP-0107 Emily Anderson]] (Bartender)

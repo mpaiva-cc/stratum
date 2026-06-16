@@ -7,17 +7,18 @@ date: 2026-06-12
 daypart: AM
 start: "07:00"
 end: "15:30"
-crew_size: 8
+crew_size: 9
 basis: authorization
 crew:
-  - "[[EMP-0372 Felix Wright]]"
-  - "[[EMP-0371 Zayd Johnson]]"
-  - "[[EMP-0361 Jamal Rossi]]"
-  - "[[EMP-0367 Anaya Allen]]"
-  - "[[EMP-0368 Yuki Ahmed]]"
-  - "[[EMP-0354 Ines Williams]]"
-  - "[[EMP-0374 Aaron Shah]]"
-  - "[[EMP-0353 Gabriela Tran]]"
+  - "[[EMP-0366 Oscar Abara]]"
+  - "[[EMP-0360 Kayla Taylor]]"
+  - "[[EMP-0365 Wanda Ali]]"
+  - "[[EMP-0354 Santiago Sanchez]]"
+  - "[[EMP-0374 Fatima Ali]]"
+  - "[[EMP-0363 Diego Smith]]"
+  - "[[EMP-0351 Isabella Abara]]"
+  - "[[EMP-0373 Mateo Kim]]"
+  - "[[EMP-0358 Liam Thomas]]"
 ---
 
 AM shift at [[Store 15 - Detroit Corktown]] on 2026-06-12 (07:00-15:30).
@@ -28,11 +29,12 @@ AM shift at [[Store 15 - Detroit Corktown]] on 2026-06-12 (07:00-15:30).
 
 ## Crew
 
-- [[EMP-0372 Felix Wright]] (Dishwasher)
-- [[EMP-0371 Zayd Johnson]] (Line Cook)
-- [[EMP-0361 Jamal Rossi]] (Line Cook)
-- [[EMP-0367 Anaya Allen]] (Server)
-- [[EMP-0368 Yuki Ahmed]] (Server)
-- [[EMP-0354 Ines Williams]] (Shift Lead)
-- [[EMP-0374 Aaron Shah]] (Busser)
-- [[EMP-0353 Gabriela Tran]] (Head Chef)
+- [[EMP-0366 Oscar Abara]] (Busser)
+- [[EMP-0360 Kayla Taylor]] (Line Cook)
+- [[EMP-0365 Wanda Ali]] (Dishwasher)
+- [[EMP-0354 Santiago Sanchez]] (Shift Lead)
+- [[EMP-0374 Fatima Ali]] (Prep Cook)
+- [[EMP-0363 Diego Smith]] (Server)
+- [[EMP-0351 Isabella Abara]] (General Manager)
+- [[EMP-0373 Mateo Kim]] (Host)
+- [[EMP-0358 Liam Thomas]] (Bartender)

@@ -10,16 +10,16 @@ end: "15:30"
 crew_size: 10
 basis: authorization
 crew:
-  - "[[EMP-0221 Wei Williams]]"
-  - "[[EMP-0225 Kayla Taylor]]"
-  - "[[EMP-0213 Diego Pham]]"
-  - "[[EMP-0208 Victor Davis]]"
-  - "[[EMP-0203 Ines Wilson]]"
-  - "[[EMP-0220 Tariq Moore]]"
-  - "[[EMP-0211 Valentina Liu]]"
-  - "[[EMP-0218 Brianna Wright]]"
-  - "[[EMP-0217 Abigail Park]]"
-  - "[[EMP-0223 Hassan Harris]]"
+  - "[[EMP-0218 Liam Pham]]"
+  - "[[EMP-0214 Leo Allen]]"
+  - "[[EMP-0217 Felix Johnson]]"
+  - "[[EMP-0202 Valentina Williams]]"
+  - "[[EMP-0204 Harper Lewis]]"
+  - "[[EMP-0212 Connor Brown]]"
+  - "[[EMP-0219 Hana Wang]]"
+  - "[[EMP-0224 Caleb Sanchez]]"
+  - "[[EMP-0208 Jamal Walker]]"
+  - "[[EMP-0206 Jaden Diallo]]"
 ---
 
 AM shift at [[Store 09 - Portland Pearl]] on 2026-06-09 (07:00-15:30).
@@ -30,13 +30,13 @@ AM shift at [[Store 09 - Portland Pearl]] on 2026-06-09 (07:00-15:30).
 
 ## Crew
 
-- [[EMP-0221 Wei Williams]] (Prep Cook)
-- [[EMP-0225 Kayla Taylor]] (Host)
-- [[EMP-0213 Diego Pham]] (Server)
-- [[EMP-0208 Victor Davis]] (Line Cook)
-- [[EMP-0203 Ines Wilson]] (Head Chef)
-- [[EMP-0220 Tariq Moore]] (Busser)
-- [[EMP-0211 Valentina Liu]] (Line Cook)
-- [[EMP-0218 Brianna Wright]] (Server)
-- [[EMP-0217 Abigail Park]] (Server)
-- [[EMP-0223 Hassan Harris]] (Host)
+- [[EMP-0218 Liam Pham]] (Prep Cook)
+- [[EMP-0214 Leo Allen]] (Bartender)
+- [[EMP-0217 Felix Johnson]] (Line Cook)
+- [[EMP-0202 Valentina Williams]] (Assistant Manager)
+- [[EMP-0204 Harper Lewis]] (Shift Lead)
+- [[EMP-0212 Connor Brown]] (Line Cook)
+- [[EMP-0219 Hana Wang]] (Busser)
+- [[EMP-0224 Caleb Sanchez]] (Prep Cook)
+- [[EMP-0208 Jamal Walker]] (Server)
+- [[EMP-0206 Jaden Diallo]] (Server)

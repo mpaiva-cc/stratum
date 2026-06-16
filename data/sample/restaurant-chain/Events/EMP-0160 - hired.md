@@ -1,11 +1,11 @@
 ---
 type: employment_event
 id: EVT-0160
-person: "[[EMP-0160 Nadia Rossi]]"
+person: "[[EMP-0160 Elena King]]"
 kind: hire
-date: 2023-11-27
+date: 2023-03-07
 store: "[[Store 07 - Phoenix Scottsdale]]"
 basis: consent
 ---
 
-[[EMP-0160 Nadia Rossi]] hired as Line Cook at [[Store 07 - Phoenix Scottsdale]] on 2023-11-27.
+[[EMP-0160 Elena King]] hired as Line Cook at [[Store 07 - Phoenix Scottsdale]] on 2023-03-07.

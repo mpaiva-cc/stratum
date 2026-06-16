@@ -7,16 +7,15 @@ date: 2026-06-09
 daypart: AM
 start: "07:00"
 end: "15:30"
-crew_size: 7
+crew_size: 6
 basis: authorization
 crew:
-  - "[[EMP-0248 Zayd Walker]]"
-  - "[[EMP-0236 Mateo Liu]]"
-  - "[[EMP-0247 Destiny Bianchi]]"
-  - "[[EMP-0245 Layla Lopez]]"
-  - "[[EMP-0249 Samir Singh]]"
-  - "[[EMP-0233 Paloma Wright]]"
-  - "[[EMP-0240 Andres Anderson]]"
+  - "[[EMP-0232 Paloma Bianchi]]"
+  - "[[EMP-0235 Hana Thomas]]"
+  - "[[EMP-0237 Yuki Tran]]"
+  - "[[EMP-0233 Jose Pham]]"
+  - "[[EMP-0238 Ximena Russo]]"
+  - "[[EMP-0226 Aiden Anderson]]"
 ---
 
 AM shift at [[Store 10 - San Diego Gaslamp]] on 2026-06-09 (07:00-15:30).
@@ -27,10 +26,9 @@ AM shift at [[Store 10 - San Diego Gaslamp]] on 2026-06-09 (07:00-15:30).
 
 ## Crew
 
-- [[EMP-0248 Zayd Walker]] (Dishwasher)
-- [[EMP-0236 Mateo Liu]] (Server)
-- [[EMP-0247 Destiny Bianchi]] (Busser)
-- [[EMP-0245 Layla Lopez]] (Line Cook)
-- [[EMP-0249 Samir Singh]] (Busser)
-- [[EMP-0233 Paloma Wright]] (Server)
-- [[EMP-0240 Andres Anderson]] (Line Cook)
+- [[EMP-0232 Paloma Bianchi]] (Line Cook)
+- [[EMP-0235 Hana Thomas]] (Server)
+- [[EMP-0237 Yuki Tran]] (Server)
+- [[EMP-0233 Jose Pham]] (Server)
+- [[EMP-0238 Ximena Russo]] (Line Cook)
+- [[EMP-0226 Aiden Anderson]] (General Manager)

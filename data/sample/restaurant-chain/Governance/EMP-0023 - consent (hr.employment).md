@@ -1,6 +1,6 @@
 ---
 type: consent_grant
-id: CNS-0090
+id: CNS-0178
 person: "[[EMP-0023 Emily Miller]]"
 scope: hr.employment
 purpose: store operations

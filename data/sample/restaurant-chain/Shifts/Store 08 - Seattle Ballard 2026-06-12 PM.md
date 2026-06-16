@@ -7,16 +7,18 @@ date: 2026-06-12
 daypart: PM
 start: "15:00"
 end: "23:30"
-crew_size: 7
+crew_size: 9
 basis: authorization
 crew:
-  - "[[EMP-0183 Nadia Chen]]"
-  - "[[EMP-0186 Ella Nguyen]]"
-  - "[[EMP-0185 Caleb Allen]]"
-  - "[[EMP-0182 Min Wright]]"
-  - "[[EMP-0199 Logan Wright]]"
-  - "[[EMP-0200 Liam Perez]]"
-  - "[[EMP-0176 Aria Clark]]"
+  - "[[EMP-0197 Rosa Hernandez]]"
+  - "[[EMP-0185 Bella Garcia]]"
+  - "[[EMP-0187 Elijah Lewis]]"
+  - "[[EMP-0193 Noah Wilson]]"
+  - "[[EMP-0177 Uma Pham]]"
+  - "[[EMP-0200 Maria Davis]]"
+  - "[[EMP-0180 Wanda Costa]]"
+  - "[[EMP-0192 Daniela Lewis]]"
+  - "[[EMP-0184 Gabriela Clark]]"
 ---
 
 PM shift at [[Store 08 - Seattle Ballard]] on 2026-06-12 (15:00-23:30).
@@ -27,10 +29,12 @@ PM shift at [[Store 08 - Seattle Ballard]] on 2026-06-12 (15:00-23:30).
 
 ## Crew
 
-- [[EMP-0183 Nadia Chen]] (Server)
-- [[EMP-0186 Ella Nguyen]] (Server)
-- [[EMP-0185 Caleb Allen]] (Server)
-- [[EMP-0182 Min Wright]] (Server)
-- [[EMP-0199 Logan Wright]] (Host)
-- [[EMP-0200 Liam Perez]] (Dishwasher)
-- [[EMP-0176 Aria Clark]] (General Manager)
+- [[EMP-0197 Rosa Hernandez]] (Dishwasher)
+- [[EMP-0185 Bella Garcia]] (Server)
+- [[EMP-0187 Elijah Lewis]] (Server)
+- [[EMP-0193 Noah Wilson]] (Server)
+- [[EMP-0177 Uma Pham]] (Assistant Manager)
+- [[EMP-0200 Maria Davis]] (Prep Cook)
+- [[EMP-0180 Wanda Costa]] (Shift Lead)
+- [[EMP-0192 Daniela Lewis]] (Bartender)
+- [[EMP-0184 Gabriela Clark]] (Bartender)

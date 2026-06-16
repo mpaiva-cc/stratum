@@ -7,16 +7,15 @@ date: 2026-06-08
 daypart: AM
 start: "07:00"
 end: "15:30"
-crew_size: 7
+crew_size: 6
 basis: authorization
 crew:
-  - "[[EMP-0326 Henry Rodriguez]]"
-  - "[[EMP-0345 Zayd Liu]]"
-  - "[[EMP-0344 Jin Jackson]]"
-  - "[[EMP-0350 Valentina Khan]]"
-  - "[[EMP-0341 Oscar Shah]]"
-  - "[[EMP-0342 Wanda Rodriguez]]"
-  - "[[EMP-0335 Mason Russo]]"
+  - "[[EMP-0326 Layla Patel]]"
+  - "[[EMP-0335 Brianna Rodriguez]]"
+  - "[[EMP-0350 Daniela Moore]]"
+  - "[[EMP-0345 Isabella Wilson]]"
+  - "[[EMP-0331 Brianna Taylor]]"
+  - "[[EMP-0336 Uma Ramirez]]"
 ---
 
 AM shift at [[Store 14 - Kansas City P&L]] on 2026-06-08 (07:00-15:30).
@@ -27,10 +26,9 @@ AM shift at [[Store 14 - Kansas City P&L]] on 2026-06-08 (07:00-15:30).
 
 ## Crew
 
-- [[EMP-0326 Henry Rodriguez]] (General Manager)
-- [[EMP-0345 Zayd Liu]] (Busser)
-- [[EMP-0344 Jin Jackson]] (Prep Cook)
-- [[EMP-0350 Valentina Khan]] (Host)
-- [[EMP-0341 Oscar Shah]] (Server)
-- [[EMP-0342 Wanda Rodriguez]] (Bartender)
-- [[EMP-0335 Mason Russo]] (Server)
+- [[EMP-0326 Layla Patel]] (General Manager)
+- [[EMP-0335 Brianna Rodriguez]] (Bartender)
+- [[EMP-0350 Daniela Moore]] (Busser)
+- [[EMP-0345 Isabella Wilson]] (Line Cook)
+- [[EMP-0331 Brianna Taylor]] (Server)
+- [[EMP-0336 Uma Ramirez]] (Server)

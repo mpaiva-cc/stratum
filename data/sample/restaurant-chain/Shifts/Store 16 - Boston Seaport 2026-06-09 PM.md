@@ -7,17 +7,15 @@ date: 2026-06-09
 daypart: PM
 start: "15:00"
 end: "23:30"
-crew_size: 8
+crew_size: 6
 basis: authorization
 crew:
-  - "[[EMP-0388 Wanda Ali]]"
-  - "[[EMP-0396 Mateo Kim]]"
-  - "[[EMP-0390 Diego Jones]]"
-  - "[[EMP-0397 Fatima Ali]]"
-  - "[[EMP-0391 Rohan Torres]]"
-  - "[[EMP-0387 Ximena Williams]]"
-  - "[[EMP-0384 Fatima Chen]]"
-  - "[[EMP-0398 Henry Sanchez]]"
+  - "[[EMP-0399 Camila Romano]]"
+  - "[[EMP-0386 Mason Nguyen]]"
+  - "[[EMP-0377 Carlos Park]]"
+  - "[[EMP-0387 Victor Hernandez]]"
+  - "[[EMP-0400 Camila Ali]]"
+  - "[[EMP-0393 Zane Gonzalez]]"
 ---
 
 PM shift at [[Store 16 - Boston Seaport]] on 2026-06-09 (15:00-23:30).
@@ -28,11 +26,9 @@ PM shift at [[Store 16 - Boston Seaport]] on 2026-06-09 (15:00-23:30).
 
 ## Crew
 
-- [[EMP-0388 Wanda Ali]] (Server)
-- [[EMP-0396 Mateo Kim]] (Host)
-- [[EMP-0390 Diego Jones]] (Busser)
-- [[EMP-0397 Fatima Ali]] (Prep Cook)
-- [[EMP-0391 Rohan Torres]] (Dishwasher)
-- [[EMP-0387 Ximena Williams]] (Server)
-- [[EMP-0384 Fatima Chen]] (Line Cook)
-- [[EMP-0398 Henry Sanchez]] (Busser)
+- [[EMP-0399 Camila Romano]] (Host)
+- [[EMP-0386 Mason Nguyen]] (Server)
+- [[EMP-0377 Carlos Park]] (Assistant Manager)
+- [[EMP-0387 Victor Hernandez]] (Server)
+- [[EMP-0400 Camila Ali]] (Dishwasher)
+- [[EMP-0393 Zane Gonzalez]] (Line Cook)

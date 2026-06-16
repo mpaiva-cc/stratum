@@ -1,11 +1,11 @@
 ---
 type: employment_event
 id: EVT-0230
-person: "[[EMP-0230 Harper Romano]]"
+person: "[[EMP-0230 Ines Perez]]"
 kind: hire
-date: 2025-08-24
+date: 2022-08-12
 store: "[[Store 10 - San Diego Gaslamp]]"
 basis: consent
 ---
 
-[[EMP-0230 Harper Romano]] hired as Shift Lead at [[Store 10 - San Diego Gaslamp]] on 2025-08-24.
+[[EMP-0230 Ines Perez]] hired as Shift Lead at [[Store 10 - San Diego Gaslamp]] on 2022-08-12.

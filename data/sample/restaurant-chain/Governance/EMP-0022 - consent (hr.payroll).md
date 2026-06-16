@@ -1,6 +1,6 @@
 ---
 type: consent_grant
-id: CNS-0084
+id: CNS-0168
 person: "[[EMP-0022 Min Singh]]"
 scope: hr.payroll
 purpose: store operations

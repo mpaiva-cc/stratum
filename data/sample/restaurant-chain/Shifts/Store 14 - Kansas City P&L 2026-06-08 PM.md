@@ -7,17 +7,18 @@ date: 2026-06-08
 daypart: PM
 start: "15:00"
 end: "23:30"
-crew_size: 8
+crew_size: 9
 basis: authorization
 crew:
-  - "[[EMP-0344 Jin Jackson]]"
-  - "[[EMP-0326 Henry Rodriguez]]"
-  - "[[EMP-0348 Valentina Chen]]"
-  - "[[EMP-0330 Connor Martinez]]"
-  - "[[EMP-0339 Paloma King]]"
-  - "[[EMP-0340 Caleb Young]]"
-  - "[[EMP-0341 Oscar Shah]]"
-  - "[[EMP-0328 Jaden Okafor]]"
+  - "[[EMP-0348 Ella Thomas]]"
+  - "[[EMP-0326 Layla Patel]]"
+  - "[[EMP-0347 Ines Williams]]"
+  - "[[EMP-0344 Diego Torres]]"
+  - "[[EMP-0346 Gabriela Tran]]"
+  - "[[EMP-0345 Isabella Wilson]]"
+  - "[[EMP-0336 Uma Ramirez]]"
+  - "[[EMP-0331 Brianna Taylor]]"
+  - "[[EMP-0343 Elena Martinez]]"
 ---
 
 PM shift at [[Store 14 - Kansas City P&L]] on 2026-06-08 (15:00-23:30).
@@ -28,11 +29,12 @@ PM shift at [[Store 14 - Kansas City P&L]] on 2026-06-08 (15:00-23:30).
 
 ## Crew
 
-- [[EMP-0344 Jin Jackson]] (Prep Cook)
-- [[EMP-0326 Henry Rodriguez]] (General Manager)
-- [[EMP-0348 Valentina Chen]] (Busser)
-- [[EMP-0330 Connor Martinez]] (Shift Lead)
-- [[EMP-0339 Paloma King]] (Line Cook)
-- [[EMP-0340 Caleb Young]] (Line Cook)
-- [[EMP-0341 Oscar Shah]] (Server)
-- [[EMP-0328 Jaden Okafor]] (Head Chef)
+- [[EMP-0348 Ella Thomas]] (Dishwasher)
+- [[EMP-0326 Layla Patel]] (General Manager)
+- [[EMP-0347 Ines Williams]] (Busser)
+- [[EMP-0344 Diego Torres]] (Expo)
+- [[EMP-0346 Gabriela Tran]] (Busser)
+- [[EMP-0345 Isabella Wilson]] (Line Cook)
+- [[EMP-0336 Uma Ramirez]] (Server)
+- [[EMP-0331 Brianna Taylor]] (Server)
+- [[EMP-0343 Elena Martinez]] (Server)

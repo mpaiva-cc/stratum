@@ -10,14 +10,14 @@ end: "15:30"
 crew_size: 8
 basis: authorization
 crew:
-  - "[[EMP-0474 Arjun Moore]]"
-  - "[[EMP-0462 Quinn Ahmed]]"
-  - "[[EMP-0467 Andres Perez]]"
-  - "[[EMP-0472 Liam Mensah]]"
-  - "[[EMP-0458 Imani Patel]]"
-  - "[[EMP-0453 Samir King]]"
-  - "[[EMP-0471 Daniela Thomas]]"
-  - "[[EMP-0466 Evelyn Young]]"
+  - "[[EMP-0471 Uma Russo]]"
+  - "[[EMP-0453 Gabriela Jones]]"
+  - "[[EMP-0461 Victor Lewis]]"
+  - "[[EMP-0454 Emily Le]]"
+  - "[[EMP-0455 Brianna Davis]]"
+  - "[[EMP-0473 Grace Khan]]"
+  - "[[EMP-0452 Uma Ahmed]]"
+  - "[[EMP-0474 Aaron White]]"
 ---
 
 AM shift at [[Store 19 - DC Navy Yard]] on 2026-06-10 (07:00-15:30).
@@ -28,11 +28,11 @@ AM shift at [[Store 19 - DC Navy Yard]] on 2026-06-10 (07:00-15:30).
 
 ## Crew
 
-- [[EMP-0474 Arjun Moore]] (Host)
-- [[EMP-0462 Quinn Ahmed]] (Line Cook)
-- [[EMP-0467 Andres Perez]] (Line Cook)
-- [[EMP-0472 Liam Mensah]] (Busser)
-- [[EMP-0458 Imani Patel]] (Line Cook)
-- [[EMP-0453 Samir King]] (Head Chef)
-- [[EMP-0471 Daniela Thomas]] (Dishwasher)
-- [[EMP-0466 Evelyn Young]] (Bartender)
+- [[EMP-0471 Uma Russo]] (Server)
+- [[EMP-0453 Gabriela Jones]] (Head Chef)
+- [[EMP-0461 Victor Lewis]] (Line Cook)
+- [[EMP-0454 Emily Le]] (Shift Lead)
+- [[EMP-0455 Brianna Davis]] (Shift Lead)
+- [[EMP-0473 Grace Khan]] (Dishwasher)
+- [[EMP-0452 Uma Ahmed]] (Assistant Manager)
+- [[EMP-0474 Aaron White]] (Prep Cook)

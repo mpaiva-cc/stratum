@@ -1,11 +1,11 @@
 ---
 type: employment_event
 id: EVT-0263
-person: "[[EMP-0263 Priya Taylor]]"
+person: "[[EMP-0263 Keira Martinez]]"
 kind: hire
-date: 2023-04-06
+date: 2021-12-31
 store: "[[Store 11 - Chicago Loop]]"
 basis: consent
 ---
 
-[[EMP-0263 Priya Taylor]] hired as Server at [[Store 11 - Chicago Loop]] on 2023-04-06.
+[[EMP-0263 Keira Martinez]] hired as Expo at [[Store 11 - Chicago Loop]] on 2021-12-31.

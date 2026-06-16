@@ -7,18 +7,17 @@ date: 2026-06-11
 daypart: PM
 start: "15:00"
 end: "23:30"
-crew_size: 9
+crew_size: 8
 basis: authorization
 crew:
-  - "[[EMP-0104 Gabriela Singh]]"
-  - "[[EMP-0123 Hassan Diallo]]"
-  - "[[EMP-0122 Felix Johnson]]"
-  - "[[EMP-0119 Yuki Smith]]"
-  - "[[EMP-0111 Destiny Costa]]"
-  - "[[EMP-0107 Harper Russo]]"
-  - "[[EMP-0117 Harper Le]]"
-  - "[[EMP-0120 Zane Liu]]"
-  - "[[EMP-0103 Sofia Bianchi]]"
+  - "[[EMP-0118 Harper Patel]]"
+  - "[[EMP-0125 Ava Smith]]"
+  - "[[EMP-0124 Diego Okafor]]"
+  - "[[EMP-0108 Amelia Sanchez]]"
+  - "[[EMP-0114 Fatima Scott]]"
+  - "[[EMP-0123 Felix Wright]]"
+  - "[[EMP-0106 Amelia Silva]]"
+  - "[[EMP-0112 Grace Miller]]"
 ---
 
 PM shift at [[Store 05 - Nashville Gulch]] on 2026-06-11 (15:00-23:30).
@@ -29,12 +28,11 @@ PM shift at [[Store 05 - Nashville Gulch]] on 2026-06-11 (15:00-23:30).
 
 ## Crew
 
-- [[EMP-0104 Gabriela Singh]] (Shift Lead)
-- [[EMP-0123 Hassan Diallo]] (Prep Cook)
-- [[EMP-0122 Felix Johnson]] (Dishwasher)
-- [[EMP-0119 Yuki Smith]] (Prep Cook)
-- [[EMP-0111 Destiny Costa]] (Expo)
-- [[EMP-0107 Harper Russo]] (Bartender)
-- [[EMP-0117 Harper Le]] (Prep Cook)
-- [[EMP-0120 Zane Liu]] (Host)
-- [[EMP-0103 Sofia Bianchi]] (Head Chef)
+- [[EMP-0118 Harper Patel]] (Dishwasher)
+- [[EMP-0125 Ava Smith]] (Prep Cook)
+- [[EMP-0124 Diego Okafor]] (Busser)
+- [[EMP-0108 Amelia Sanchez]] (Bartender)
+- [[EMP-0114 Fatima Scott]] (Expo)
+- [[EMP-0123 Felix Wright]] (Busser)
+- [[EMP-0106 Amelia Silva]] (Expo)
+- [[EMP-0112 Grace Miller]] (Bartender)

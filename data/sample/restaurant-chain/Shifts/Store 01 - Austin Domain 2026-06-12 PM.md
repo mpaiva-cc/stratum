@@ -7,16 +7,17 @@ date: 2026-06-12
 daypart: PM
 start: "15:00"
 end: "23:30"
-crew_size: 7
+crew_size: 8
 basis: authorization
 crew:
-  - "[[EMP-0015 Mia Williams]]"
-  - "[[EMP-0017 Wei Perez]]"
-  - "[[EMP-0010 Harper Liu]]"
+  - "[[EMP-0005 Keira Perez]]"
+  - "[[EMP-0013 Felix Abara]]"
   - "[[EMP-0012 Zayd Miller]]"
-  - "[[EMP-0019 Gabriela Miller]]"
-  - "[[EMP-0014 Oscar Romano]]"
-  - "[[EMP-0008 Evelyn Moore]]"
+  - "[[EMP-0004 Jaden Abara]]"
+  - "[[EMP-0003 Rohan Ramirez]]"
+  - "[[EMP-0001 Mateo Thomas]]"
+  - "[[EMP-0015 Mia Williams]]"
+  - "[[EMP-0020 Tariq Bianchi]]"
 ---
 
 PM shift at [[Store 01 - Austin Domain]] on 2026-06-12 (15:00-23:30).
@@ -27,10 +28,11 @@ PM shift at [[Store 01 - Austin Domain]] on 2026-06-12 (15:00-23:30).
 
 ## Crew
 
-- [[EMP-0015 Mia Williams]] (Line Cook)
-- [[EMP-0017 Wei Perez]] (Server)
-- [[EMP-0010 Harper Liu]] (Line Cook)
+- [[EMP-0005 Keira Perez]] (Shift Lead)
+- [[EMP-0013 Felix Abara]] (Server)
 - [[EMP-0012 Zayd Miller]] (Expo)
-- [[EMP-0019 Gabriela Miller]] (Server)
-- [[EMP-0014 Oscar Romano]] (Server)
-- [[EMP-0008 Evelyn Moore]] (Line Cook)
+- [[EMP-0004 Jaden Abara]] (Shift Lead)
+- [[EMP-0003 Rohan Ramirez]] (Head Chef)
+- [[EMP-0001 Mateo Thomas]] (General Manager)
+- [[EMP-0015 Mia Williams]] (Line Cook)
+- [[EMP-0020 Tariq Bianchi]] (Line Cook)

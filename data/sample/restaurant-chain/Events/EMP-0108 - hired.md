@@ -1,11 +1,11 @@
 ---
 type: employment_event
 id: EVT-0108
-person: "[[EMP-0108 Santiago Hernandez]]"
+person: "[[EMP-0108 Amelia Sanchez]]"
 kind: hire
-date: 2024-01-17
+date: 2022-10-10
 store: "[[Store 05 - Nashville Gulch]]"
 basis: consent
 ---
 
-[[EMP-0108 Santiago Hernandez]] hired as Line Cook at [[Store 05 - Nashville Gulch]] on 2024-01-17.
+[[EMP-0108 Amelia Sanchez]] hired as Bartender at [[Store 05 - Nashville Gulch]] on 2022-10-10.

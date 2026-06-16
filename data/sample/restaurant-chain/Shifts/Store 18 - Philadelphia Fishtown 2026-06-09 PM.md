@@ -7,18 +7,17 @@ date: 2026-06-09
 daypart: PM
 start: "15:00"
 end: "23:30"
-crew_size: 9
+crew_size: 8
 basis: authorization
 crew:
-  - "[[EMP-0448 Carlos White]]"
-  - "[[EMP-0426 Uma Patel]]"
-  - "[[EMP-0447 Santiago Ali]]"
-  - "[[EMP-0444 Felix Anderson]]"
-  - "[[EMP-0446 Hana Clark]]"
-  - "[[EMP-0445 Tariq Abara]]"
-  - "[[EMP-0436 Aria Wright]]"
-  - "[[EMP-0431 Andres Shah]]"
-  - "[[EMP-0443 Fatima Williams]]"
+  - "[[EMP-0436 Omar Brown]]"
+  - "[[EMP-0434 Aria Santos]]"
+  - "[[EMP-0450 Amelia Okafor]]"
+  - "[[EMP-0445 Santiago Harris]]"
+  - "[[EMP-0442 Paloma King]]"
+  - "[[EMP-0446 Bella Williams]]"
+  - "[[EMP-0433 Jamal Taylor]]"
+  - "[[EMP-0447 Henry Sanchez]]"
 ---
 
 PM shift at [[Store 18 - Philadelphia Fishtown]] on 2026-06-09 (15:00-23:30).
@@ -29,12 +28,11 @@ PM shift at [[Store 18 - Philadelphia Fishtown]] on 2026-06-09 (15:00-23:30).
 
 ## Crew
 
-- [[EMP-0448 Carlos White]] (Dishwasher)
-- [[EMP-0426 Uma Patel]] (General Manager)
-- [[EMP-0447 Santiago Ali]] (Host)
-- [[EMP-0444 Felix Anderson]] (Host)
-- [[EMP-0446 Hana Clark]] (Dishwasher)
-- [[EMP-0445 Tariq Abara]] (Host)
-- [[EMP-0436 Aria Wright]] (Server)
-- [[EMP-0431 Andres Shah]] (Server)
-- [[EMP-0443 Fatima Williams]] (Server)
+- [[EMP-0436 Omar Brown]] (Server)
+- [[EMP-0434 Aria Santos]] (Line Cook)
+- [[EMP-0450 Amelia Okafor]] (Prep Cook)
+- [[EMP-0445 Santiago Harris]] (Line Cook)
+- [[EMP-0442 Paloma King]] (Line Cook)
+- [[EMP-0446 Bella Williams]] (Dishwasher)
+- [[EMP-0433 Jamal Taylor]] (Server)
+- [[EMP-0447 Henry Sanchez]] (Prep Cook)

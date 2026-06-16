@@ -10,15 +10,15 @@ end: "15:30"
 crew_size: 9
 basis: authorization
 crew:
-  - "[[EMP-0179 Ximena Harris]]"
-  - "[[EMP-0180 Victor Williams]]"
-  - "[[EMP-0176 Aria Clark]]"
-  - "[[EMP-0192 Carlos Scott]]"
-  - "[[EMP-0199 Logan Wright]]"
-  - "[[EMP-0188 Paloma Bianchi]]"
-  - "[[EMP-0194 Layla Johnson]]"
-  - "[[EMP-0189 Min Anderson]]"
-  - "[[EMP-0178 Abigail Mensah]]"
+  - "[[EMP-0196 Leo Khan]]"
+  - "[[EMP-0199 Ines Ali]]"
+  - "[[EMP-0180 Wanda Costa]]"
+  - "[[EMP-0182 Amelia Nguyen]]"
+  - "[[EMP-0185 Bella Garcia]]"
+  - "[[EMP-0181 Gabriela Davis]]"
+  - "[[EMP-0195 Evelyn Perez]]"
+  - "[[EMP-0191 Gabriela Kim]]"
+  - "[[EMP-0194 Grace Anderson]]"
 ---
 
 AM shift at [[Store 08 - Seattle Ballard]] on 2026-06-13 (07:00-15:30).
@@ -29,12 +29,12 @@ AM shift at [[Store 08 - Seattle Ballard]] on 2026-06-13 (07:00-15:30).
 
 ## Crew
 
-- [[EMP-0179 Ximena Harris]] (Shift Lead)
-- [[EMP-0180 Victor Williams]] (Shift Lead)
-- [[EMP-0176 Aria Clark]] (General Manager)
-- [[EMP-0192 Carlos Scott]] (Busser)
-- [[EMP-0199 Logan Wright]] (Host)
-- [[EMP-0188 Paloma Bianchi]] (Server)
-- [[EMP-0194 Layla Johnson]] (Host)
-- [[EMP-0189 Min Anderson]] (Server)
-- [[EMP-0178 Abigail Mensah]] (Head Chef)
+- [[EMP-0196 Leo Khan]] (Prep Cook)
+- [[EMP-0199 Ines Ali]] (Busser)
+- [[EMP-0180 Wanda Costa]] (Shift Lead)
+- [[EMP-0182 Amelia Nguyen]] (Line Cook)
+- [[EMP-0185 Bella Garcia]] (Server)
+- [[EMP-0181 Gabriela Davis]] (Server)
+- [[EMP-0195 Evelyn Perez]] (Busser)
+- [[EMP-0191 Gabriela Kim]] (Expo)
+- [[EMP-0194 Grace Anderson]] (Expo)

@@ -1,11 +1,11 @@
 ---
 type: employment_event
 id: EVT-0086
-person: "[[EMP-0086 Paloma Singh]]"
+person: "[[EMP-0086 Liam Wilson]]"
 kind: hire
-date: 2023-08-16
+date: 2026-03-30
 store: "[[Store 04 - Atlanta Midtown]]"
 basis: consent
 ---
 
-[[EMP-0086 Paloma Singh]] hired as Line Cook at [[Store 04 - Atlanta Midtown]] on 2023-08-16.
+[[EMP-0086 Liam Wilson]] hired as Line Cook at [[Store 04 - Atlanta Midtown]] on 2026-03-30.

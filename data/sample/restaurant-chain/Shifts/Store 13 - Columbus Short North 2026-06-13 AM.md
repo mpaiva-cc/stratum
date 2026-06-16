@@ -10,14 +10,14 @@ end: "15:30"
 crew_size: 8
 basis: authorization
 crew:
-  - "[[EMP-0314 Wei Russo]]"
-  - "[[EMP-0323 Daniela Clark]]"
-  - "[[EMP-0309 Evelyn King]]"
-  - "[[EMP-0307 Abigail Silva]]"
-  - "[[EMP-0316 Yuki Garcia]]"
-  - "[[EMP-0310 Mia Davis]]"
-  - "[[EMP-0320 Mason Johnson]]"
-  - "[[EMP-0301 Oscar Smith]]"
+  - "[[EMP-0313 Logan Smith]]"
+  - "[[EMP-0303 Liam Mensah]]"
+  - "[[EMP-0302 Logan Park]]"
+  - "[[EMP-0305 Logan Abara]]"
+  - "[[EMP-0301 Emily Park]]"
+  - "[[EMP-0324 Victor Santos]]"
+  - "[[EMP-0320 Ines Wilson]]"
+  - "[[EMP-0322 Uma Sanchez]]"
 ---
 
 AM shift at [[Store 13 - Columbus Short North]] on 2026-06-13 (07:00-15:30).
@@ -28,11 +28,11 @@ AM shift at [[Store 13 - Columbus Short North]] on 2026-06-13 (07:00-15:30).
 
 ## Crew
 
-- [[EMP-0314 Wei Russo]] (Server)
-- [[EMP-0323 Daniela Clark]] (Host)
-- [[EMP-0309 Evelyn King]] (Server)
-- [[EMP-0307 Abigail Silva]] (Line Cook)
-- [[EMP-0316 Yuki Garcia]] (Server)
-- [[EMP-0310 Mia Davis]] (Line Cook)
-- [[EMP-0320 Mason Johnson]] (Server)
-- [[EMP-0301 Oscar Smith]] (General Manager)
+- [[EMP-0313 Logan Smith]] (Line Cook)
+- [[EMP-0303 Liam Mensah]] (Head Chef)
+- [[EMP-0302 Logan Park]] (Assistant Manager)
+- [[EMP-0305 Logan Abara]] (Shift Lead)
+- [[EMP-0301 Emily Park]] (General Manager)
+- [[EMP-0324 Victor Santos]] (Busser)
+- [[EMP-0320 Ines Wilson]] (Busser)
+- [[EMP-0322 Uma Sanchez]] (Busser)

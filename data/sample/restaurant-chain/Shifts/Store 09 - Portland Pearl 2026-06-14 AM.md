@@ -10,13 +10,13 @@ end: "15:30"
 crew_size: 7
 basis: authorization
 crew:
-  - "[[EMP-0222 Oscar Smith]]"
-  - "[[EMP-0216 Noah Ali]]"
-  - "[[EMP-0211 Valentina Liu]]"
-  - "[[EMP-0223 Hassan Harris]]"
-  - "[[EMP-0204 Santiago Perez]]"
-  - "[[EMP-0206 Maria Anderson]]"
-  - "[[EMP-0224 Gabriela Khan]]"
+  - "[[EMP-0201 Emily Abara]]"
+  - "[[EMP-0220 Sofia Mensah]]"
+  - "[[EMP-0219 Hana Wang]]"
+  - "[[EMP-0225 Abigail Ahmed]]"
+  - "[[EMP-0216 Mason Bianchi]]"
+  - "[[EMP-0217 Felix Johnson]]"
+  - "[[EMP-0210 Elena Perez]]"
 ---
 
 AM shift at [[Store 09 - Portland Pearl]] on 2026-06-14 (07:00-15:30).
@@ -27,10 +27,10 @@ AM shift at [[Store 09 - Portland Pearl]] on 2026-06-14 (07:00-15:30).
 
 ## Crew
 
-- [[EMP-0222 Oscar Smith]] (Prep Cook)
-- [[EMP-0216 Noah Ali]] (Line Cook)
-- [[EMP-0211 Valentina Liu]] (Line Cook)
-- [[EMP-0223 Hassan Harris]] (Host)
-- [[EMP-0204 Santiago Perez]] (Shift Lead)
-- [[EMP-0206 Maria Anderson]] (Bartender)
-- [[EMP-0224 Gabriela Khan]] (Busser)
+- [[EMP-0201 Emily Abara]] (General Manager)
+- [[EMP-0220 Sofia Mensah]] (Busser)
+- [[EMP-0219 Hana Wang]] (Busser)
+- [[EMP-0225 Abigail Ahmed]] (Prep Cook)
+- [[EMP-0216 Mason Bianchi]] (Server)
+- [[EMP-0217 Felix Johnson]] (Line Cook)
+- [[EMP-0210 Elena Perez]] (Bartender)

@@ -4,27 +4,30 @@ id: EMP-0005
 name: Keira Perez
 status: active
 status_reason: active
-status_effective_date: 2026-04-02
+status_effective_date: 2026-05-27
 rehire_eligible: false
 employment_type: part_time
-hire_date: 2022-12-23
+hire_date: 2025-02-07
 email: "keira.perez.emp-0005@forkandflame.example"
 works_at: "[[Store 01 - Austin Domain]]"
 in_department: "[[Management (Department)]]"
 position: "[[Shift Lead]]"
-pay_rate: 22.98
+pay_rate: 19.66
 pay_unit: hour
 reports_to: "[[EMP-0002 Samir Abara]]"
 certifications:
   - "[[ServSafe Manager]]"
 skills:
   - "[[Guest Recovery]]"
+benefits:
+  - Shift Meal
+work_authorization: visa_h1b
 basis: consent
 ---
 
-**Shift Lead** at [[Store 01 - Austin Domain]] · Management · since 2022-12-23.
+**Shift Lead** at [[Store 01 - Austin Domain]] · Management · since 2025-02-07.
 
-Status: **active** (active) as of 2026-04-02
+Status: **active** (active) as of 2026-05-27
 Rehire eligible: no
 
 ## Works at
@@ -33,7 +36,7 @@ Rehire eligible: no
 
 ## Position
 
-- [[Shift Lead]] — paid 22.98/hour
+- [[Shift Lead]] — paid 19.66/hour
 
 ## Reports to
 
@@ -47,6 +50,14 @@ Rehire eligible: no
 
 - [[Guest Recovery]]
 
+## Benefits
+
+- Shift Meal
+
+## Work authorization
+
+- visa_h1b
+
 ## Lifecycle
 
-- [[EMP-0005 - hired]] on 2022-12-23
+- [[EMP-0005 - hired]] on 2025-02-07

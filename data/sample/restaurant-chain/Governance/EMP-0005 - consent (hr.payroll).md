@@ -1,6 +1,6 @@
 ---
 type: consent_grant
-id: CNS-0018
+id: CNS-0033
 person: "[[EMP-0005 Keira Perez]]"
 scope: hr.payroll
 purpose: store operations

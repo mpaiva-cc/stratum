@@ -1,11 +1,11 @@
 ---
 type: employment_event
 id: EVT-0369
-person: "[[EMP-0369 Layla Harris]]"
+person: "[[EMP-0369 Zayd Allen]]"
 kind: hire
-date: 2022-09-03
+date: 2025-08-30
 store: "[[Store 15 - Detroit Corktown]]"
 basis: consent
 ---
 
-[[EMP-0369 Layla Harris]] hired as Server at [[Store 15 - Detroit Corktown]] on 2022-09-03.
+[[EMP-0369 Zayd Allen]] hired as Dishwasher at [[Store 15 - Detroit Corktown]] on 2025-08-30.

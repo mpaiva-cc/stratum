@@ -1,11 +1,11 @@
 ---
 type: employment_event
 id: EVT-0162
-person: "[[EMP-0162 Uma Wang]]"
+person: "[[EMP-0162 Ines Abara]]"
 kind: hire
-date: 2023-12-19
+date: 2024-09-01
 store: "[[Store 07 - Phoenix Scottsdale]]"
 basis: consent
 ---
 
-[[EMP-0162 Uma Wang]] hired as Line Cook at [[Store 07 - Phoenix Scottsdale]] on 2023-12-19.
+[[EMP-0162 Ines Abara]] hired as Server at [[Store 07 - Phoenix Scottsdale]] on 2024-09-01.

@@ -1,6 +1,6 @@
 ---
 type: consent_grant
-id: CNS-0070
+id: CNS-0137
 person: "[[EMP-0018 Logan Liu]]"
 scope: hr.certifications
 purpose: store operations

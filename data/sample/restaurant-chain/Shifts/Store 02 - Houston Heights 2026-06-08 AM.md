@@ -7,19 +7,18 @@ date: 2026-06-08
 daypart: AM
 start: "07:00"
 end: "15:30"
-crew_size: 10
+crew_size: 9
 basis: authorization
 crew:
-  - "[[EMP-0049 Elena Harris]]"
-  - "[[EMP-0041 Brianna Pham]]"
-  - "[[EMP-0037 Hassan Pham]]"
-  - "[[EMP-0033 Ximena Torres]]"
-  - "[[EMP-0044 Henry Rossi]]"
-  - "[[EMP-0050 Elijah Harris]]"
-  - "[[EMP-0039 Aiden Brown]]"
-  - "[[EMP-0043 Liam Hernandez]]"
-  - "[[EMP-0038 Victor Ramirez]]"
-  - "[[EMP-0045 Camila Anderson]]"
+  - "[[EMP-0032 Elena Harris]]"
+  - "[[EMP-0028 Camila Anderson]]"
+  - "[[EMP-0027 Henry Rossi]]"
+  - "[[EMP-0034 Ella Pham]]"
+  - "[[EMP-0037 Isabella Park]]"
+  - "[[EMP-0048 Logan Silva]]"
+  - "[[EMP-0044 Aria Jackson]]"
+  - "[[EMP-0030 Elena Chen]]"
+  - "[[EMP-0050 Daniela Wilson]]"
 ---
 
 AM shift at [[Store 02 - Houston Heights]] on 2026-06-08 (07:00-15:30).
@@ -30,13 +29,12 @@ AM shift at [[Store 02 - Houston Heights]] on 2026-06-08 (07:00-15:30).
 
 ## Crew
 
-- [[EMP-0049 Elena Harris]] (Host)
-- [[EMP-0041 Brianna Pham]] (Busser)
-- [[EMP-0037 Hassan Pham]] (Server)
-- [[EMP-0033 Ximena Torres]] (Server)
-- [[EMP-0044 Henry Rossi]] (Prep Cook)
-- [[EMP-0050 Elijah Harris]] (Busser)
-- [[EMP-0039 Aiden Brown]] (Expo)
-- [[EMP-0043 Liam Hernandez]] (Prep Cook)
-- [[EMP-0038 Victor Ramirez]] (Line Cook)
-- [[EMP-0045 Camila Anderson]] (Dishwasher)
+- [[EMP-0032 Elena Harris]] (Server)
+- [[EMP-0028 Camila Anderson]] (Head Chef)
+- [[EMP-0027 Henry Rossi]] (Assistant Manager)
+- [[EMP-0034 Ella Pham]] (Line Cook)
+- [[EMP-0037 Isabella Park]] (Server)
+- [[EMP-0048 Logan Silva]] (Prep Cook)
+- [[EMP-0044 Aria Jackson]] (Dishwasher)
+- [[EMP-0030 Elena Chen]] (Shift Lead)
+- [[EMP-0050 Daniela Wilson]] (Prep Cook)

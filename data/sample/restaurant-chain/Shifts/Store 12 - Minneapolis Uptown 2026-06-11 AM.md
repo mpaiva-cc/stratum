@@ -7,16 +7,19 @@ date: 2026-06-11
 daypart: AM
 start: "07:00"
 end: "15:30"
-crew_size: 7
+crew_size: 10
 basis: authorization
 crew:
-  - "[[EMP-0279 Abigail Abara]]"
-  - "[[EMP-0295 Ines Davis]]"
-  - "[[EMP-0289 Yuki Walker]]"
-  - "[[EMP-0277 Valentina Clark]]"
-  - "[[EMP-0290 Destiny Wang]]"
-  - "[[EMP-0296 Abigail Wang]]"
-  - "[[EMP-0292 Maria Diallo]]"
+  - "[[EMP-0300 Abigail Martinez]]"
+  - "[[EMP-0289 Layla Wang]]"
+  - "[[EMP-0278 Bella Jones]]"
+  - "[[EMP-0293 Mason Johnson]]"
+  - "[[EMP-0282 Oscar Hernandez]]"
+  - "[[EMP-0277 Zayd Ramirez]]"
+  - "[[EMP-0292 Grace Wright]]"
+  - "[[EMP-0298 Zane Rodriguez]]"
+  - "[[EMP-0284 Gabriela Shah]]"
+  - "[[EMP-0291 Ava Rossi]]"
 ---
 
 AM shift at [[Store 12 - Minneapolis Uptown]] on 2026-06-11 (07:00-15:30).
@@ -27,10 +30,13 @@ AM shift at [[Store 12 - Minneapolis Uptown]] on 2026-06-11 (07:00-15:30).
 
 ## Crew
 
-- [[EMP-0279 Abigail Abara]] (Shift Lead)
-- [[EMP-0295 Ines Davis]] (Busser)
-- [[EMP-0289 Yuki Walker]] (Line Cook)
-- [[EMP-0277 Valentina Clark]] (Assistant Manager)
-- [[EMP-0290 Destiny Wang]] (Server)
-- [[EMP-0296 Abigail Wang]] (Prep Cook)
-- [[EMP-0292 Maria Diallo]] (Line Cook)
+- [[EMP-0300 Abigail Martinez]] (Busser)
+- [[EMP-0289 Layla Wang]] (Line Cook)
+- [[EMP-0278 Bella Jones]] (Head Chef)
+- [[EMP-0293 Mason Johnson]] (Prep Cook)
+- [[EMP-0282 Oscar Hernandez]] (Line Cook)
+- [[EMP-0277 Zayd Ramirez]] (Assistant Manager)
+- [[EMP-0292 Grace Wright]] (Dishwasher)
+- [[EMP-0298 Zane Rodriguez]] (Host)
+- [[EMP-0284 Gabriela Shah]] (Line Cook)
+- [[EMP-0291 Ava Rossi]] (Server)

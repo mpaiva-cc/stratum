@@ -4,15 +4,15 @@ id: EMP-0010
 name: Harper Liu
 status: active
 status_reason: active
-status_effective_date: 2026-04-01
+status_effective_date: 2026-05-29
 rehire_eligible: false
-employment_type: full_time
-hire_date: 2025-04-21
+employment_type: part_time
+hire_date: 2026-04-10
 email: "harper.liu.emp-0010@forkandflame.example"
 works_at: "[[Store 01 - Austin Domain]]"
 in_department: "[[Kitchen (Department)]]"
 position: "[[Line Cook]]"
-pay_rate: 21.53
+pay_rate: 18.93
 pay_unit: hour
 reports_to: "[[EMP-0005 Keira Perez]]"
 certifications:
@@ -20,12 +20,17 @@ certifications:
   - "[[Allergen Awareness]]"
 skills:
   - "[[Knife Skills]]"
+  - "[[Inventory & Ordering]]"
+  - "[[Saute Station]]"
+benefits:
+  - Shift Meal
+work_authorization: ead
 basis: consent
 ---
 
-**Line Cook** at [[Store 01 - Austin Domain]] · Kitchen · since 2025-04-21.
+**Line Cook** at [[Store 01 - Austin Domain]] · Kitchen · since 2026-04-10.
 
-Status: **active** (active) as of 2026-04-01
+Status: **active** (active) as of 2026-05-29
 Rehire eligible: no
 
 ## Works at
@@ -34,7 +39,7 @@ Rehire eligible: no
 
 ## Position
 
-- [[Line Cook]] — paid 21.53/hour
+- [[Line Cook]] — paid 18.93/hour
 
 ## Reports to
 
@@ -48,7 +53,17 @@ Rehire eligible: no
 ## Skills
 
 - [[Knife Skills]]
+- [[Inventory & Ordering]]
+- [[Saute Station]]
+
+## Benefits
+
+- Shift Meal
+
+## Work authorization
+
+- ead
 
 ## Lifecycle
 
-- [[EMP-0010 - hired]] on 2025-04-21
+- [[EMP-0010 - hired]] on 2026-04-10

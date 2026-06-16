@@ -1,11 +1,11 @@
 ---
 type: employment_event
 id: EVT-0256
-person: "[[EMP-0256 Nadia Rodriguez]]"
+person: "[[EMP-0256 Imani Chen]]"
 kind: hire
-date: 2026-04-22
+date: 2025-07-13
 store: "[[Store 11 - Chicago Loop]]"
 basis: consent
 ---
 
-[[EMP-0256 Nadia Rodriguez]] hired as Bartender at [[Store 11 - Chicago Loop]] on 2026-04-22.
+[[EMP-0256 Imani Chen]] hired as Server at [[Store 11 - Chicago Loop]] on 2025-07-13.

@@ -1,11 +1,11 @@
 ---
 type: employment_event
 id: EVT-0268
-person: "[[EMP-0268 Yara Hernandez]]"
+person: "[[EMP-0268 Santiago Lopez]]"
 kind: hire
-date: 2021-10-02
+date: 2022-10-03
 store: "[[Store 11 - Chicago Loop]]"
 basis: consent
 ---
 
-[[EMP-0268 Yara Hernandez]] hired as Dishwasher at [[Store 11 - Chicago Loop]] on 2021-10-02.
+[[EMP-0268 Santiago Lopez]] hired as Server at [[Store 11 - Chicago Loop]] on 2022-10-03.

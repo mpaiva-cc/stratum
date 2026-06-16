@@ -1,11 +1,11 @@
 ---
 type: employment_event
 id: EVT-0198
-person: "[[EMP-0198 Quinn Shah]]"
+person: "[[EMP-0198 Aria Wright]]"
 kind: hire
-date: 2024-07-01
+date: 2021-12-13
 store: "[[Store 08 - Seattle Ballard]]"
 basis: consent
 ---
 
-[[EMP-0198 Quinn Shah]] hired as Dishwasher at [[Store 08 - Seattle Ballard]] on 2024-07-01.
+[[EMP-0198 Aria Wright]] hired as Prep Cook at [[Store 08 - Seattle Ballard]] on 2021-12-13.

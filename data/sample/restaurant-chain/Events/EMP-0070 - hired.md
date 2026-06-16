@@ -1,11 +1,11 @@
 ---
 type: employment_event
 id: EVT-0070
-person: "[[EMP-0070 Amelia Davis]]"
+person: "[[EMP-0070 Omar Jackson]]"
 kind: hire
-date: 2022-05-15
+date: 2021-09-28
 store: "[[Store 03 - Dallas Knox]]"
 basis: consent
 ---
 
-[[EMP-0070 Amelia Davis]] hired as Dishwasher at [[Store 03 - Dallas Knox]] on 2022-05-15.
+[[EMP-0070 Omar Jackson]] hired as Busser at [[Store 03 - Dallas Knox]] on 2021-09-28.

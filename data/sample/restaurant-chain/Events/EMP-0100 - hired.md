@@ -1,11 +1,11 @@
 ---
 type: employment_event
 id: EVT-0100
-person: "[[EMP-0100 Evelyn Torres]]"
+person: "[[EMP-0100 Evelyn Johnson]]"
 kind: hire
-date: 2021-12-27
+date: 2022-05-09
 store: "[[Store 04 - Atlanta Midtown]]"
 basis: consent
 ---
 
-[[EMP-0100 Evelyn Torres]] hired as Busser at [[Store 04 - Atlanta Midtown]] on 2021-12-27.
+[[EMP-0100 Evelyn Johnson]] hired as Busser at [[Store 04 - Atlanta Midtown]] on 2022-05-09.

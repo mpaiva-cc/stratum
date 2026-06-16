@@ -1,11 +1,11 @@
 ---
 type: employment_event
 id: EVT-0087
-person: "[[EMP-0087 Mason Patel]]"
+person: "[[EMP-0087 Aria Ahmed]]"
 kind: hire
-date: 2024-03-06
+date: 2022-03-02
 store: "[[Store 04 - Atlanta Midtown]]"
 basis: consent
 ---
 
-[[EMP-0087 Mason Patel]] hired as Server at [[Store 04 - Atlanta Midtown]] on 2024-03-06.
+[[EMP-0087 Aria Ahmed]] hired as Line Cook at [[Store 04 - Atlanta Midtown]] on 2022-03-02.

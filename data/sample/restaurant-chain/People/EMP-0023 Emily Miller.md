@@ -2,17 +2,17 @@
 type: person
 id: EMP-0023
 name: Emily Miller
-status: active
-status_reason: active
-status_effective_date: 2026-04-28
-rehire_eligible: false
+status: terminated
+status_reason: voluntary
+status_effective_date: 2023-11-24
+rehire_eligible: true
 employment_type: full_time
-hire_date: 2023-10-08
+hire_date: 2023-11-24
 email: "emily.miller.emp-0023@forkandflame.example"
 works_at: "[[Store 01 - Austin Domain]]"
 in_department: "[[Kitchen (Department)]]"
 position: "[[Prep Cook]]"
-pay_rate: 17.77
+pay_rate: 17.66
 pay_unit: hour
 reports_to: "[[EMP-0004 Jaden Abara]]"
 certifications:
@@ -20,15 +20,19 @@ certifications:
   - "[[Allergen Awareness]]"
 skills:
   - "[[Saute Station]]"
-  - "[[Inventory & Ordering]]"
   - "[[Knife Skills]]"
+benefits:
+  - Health PPO
+  - 401(k) Match
+  - Shift Meal
+work_authorization: citizen
 basis: consent
 ---
 
-**Prep Cook** at [[Store 01 - Austin Domain]] · Kitchen · since 2023-10-08.
+**Prep Cook** at [[Store 01 - Austin Domain]] · Kitchen · since 2023-11-24.
 
-Status: **active** (active) as of 2026-04-28
-Rehire eligible: no
+Status: **terminated** (voluntary) as of 2023-11-24
+Rehire eligible: yes
 
 ## Works at
 
@@ -36,7 +40,7 @@ Rehire eligible: no
 
 ## Position
 
-- [[Prep Cook]] — paid 17.77/hour
+- [[Prep Cook]] — paid 17.66/hour
 
 ## Reports to
 
@@ -50,9 +54,18 @@ Rehire eligible: no
 ## Skills
 
 - [[Saute Station]]
-- [[Inventory & Ordering]]
 - [[Knife Skills]]
+
+## Benefits
+
+- Health PPO
+- 401(k) Match
+- Shift Meal
+
+## Work authorization
+
+- citizen
 
 ## Lifecycle
 
-- [[EMP-0023 - hired]] on 2023-10-08
+- [[EMP-0023 - hired]] on 2023-11-24

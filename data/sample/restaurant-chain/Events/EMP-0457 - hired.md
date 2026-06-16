@@ -1,11 +1,11 @@
 ---
 type: employment_event
 id: EVT-0457
-person: "[[EMP-0457 Lucas Moore]]"
+person: "[[EMP-0457 Grace Khan]]"
 kind: hire
-date: 2021-09-28
+date: 2025-02-02
 store: "[[Store 19 - DC Navy Yard]]"
 basis: consent
 ---
 
-[[EMP-0457 Lucas Moore]] hired as Bartender at [[Store 19 - DC Navy Yard]] on 2021-09-28.
+[[EMP-0457 Grace Khan]] hired as Server at [[Store 19 - DC Navy Yard]] on 2025-02-02.

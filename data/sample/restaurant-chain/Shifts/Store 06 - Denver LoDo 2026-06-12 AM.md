@@ -7,19 +7,18 @@ date: 2026-06-12
 daypart: AM
 start: "07:00"
 end: "15:30"
-crew_size: 10
+crew_size: 9
 basis: authorization
 crew:
-  - "[[EMP-0137 Carlos Mensah]]"
-  - "[[EMP-0139 Liam Perez]]"
-  - "[[EMP-0127 Abigail Scott]]"
-  - "[[EMP-0132 Isabella Shah]]"
-  - "[[EMP-0144 Victor Pham]]"
-  - "[[EMP-0141 Nadia Scott]]"
-  - "[[EMP-0149 Hassan Rodriguez]]"
-  - "[[EMP-0133 Quinn Garcia]]"
-  - "[[EMP-0145 Zayd Chen]]"
-  - "[[EMP-0135 Aaron Silva]]"
+  - "[[EMP-0146 Maria Garcia]]"
+  - "[[EMP-0128 Aaron Santos]]"
+  - "[[EMP-0140 Emily Ali]]"
+  - "[[EMP-0132 Grace Rossi]]"
+  - "[[EMP-0148 Ella Miller]]"
+  - "[[EMP-0145 Min Wang]]"
+  - "[[EMP-0139 Liam Russo]]"
+  - "[[EMP-0135 Rosa Garcia]]"
+  - "[[EMP-0142 Isabella Williams]]"
 ---
 
 AM shift at [[Store 06 - Denver LoDo]] on 2026-06-12 (07:00-15:30).
@@ -30,13 +29,12 @@ AM shift at [[Store 06 - Denver LoDo]] on 2026-06-12 (07:00-15:30).
 
 ## Crew
 
-- [[EMP-0137 Carlos Mensah]] (Server)
-- [[EMP-0139 Liam Perez]] (Line Cook)
-- [[EMP-0127 Abigail Scott]] (Assistant Manager)
-- [[EMP-0132 Isabella Shah]] (Server)
-- [[EMP-0144 Victor Pham]] (Busser)
-- [[EMP-0141 Nadia Scott]] (Server)
-- [[EMP-0149 Hassan Rodriguez]] (Busser)
-- [[EMP-0133 Quinn Garcia]] (Line Cook)
-- [[EMP-0145 Zayd Chen]] (Busser)
-- [[EMP-0135 Aaron Silva]] (Server)
+- [[EMP-0146 Maria Garcia]] (Host)
+- [[EMP-0128 Aaron Santos]] (Head Chef)
+- [[EMP-0140 Emily Ali]] (Line Cook)
+- [[EMP-0132 Grace Rossi]] (Server)
+- [[EMP-0148 Ella Miller]] (Busser)
+- [[EMP-0145 Min Wang]] (Server)
+- [[EMP-0139 Liam Russo]] (Server)
+- [[EMP-0135 Rosa Garcia]] (Line Cook)
+- [[EMP-0142 Isabella Williams]] (Server)

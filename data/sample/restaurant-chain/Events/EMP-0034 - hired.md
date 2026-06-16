@@ -1,11 +1,11 @@
 ---
 type: employment_event
 id: EVT-0034
-person: "[[EMP-0034 Fatima Singh]]"
+person: "[[EMP-0034 Ella Pham]]"
 kind: hire
-date: 2025-06-27
+date: 2023-04-18
 store: "[[Store 02 - Houston Heights]]"
 basis: consent
 ---
 
-[[EMP-0034 Fatima Singh]] hired as Server at [[Store 02 - Houston Heights]] on 2025-06-27.
+[[EMP-0034 Ella Pham]] hired as Line Cook at [[Store 02 - Houston Heights]] on 2023-04-18.

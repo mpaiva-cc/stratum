@@ -7,17 +7,18 @@ date: 2026-06-13
 daypart: AM
 start: "07:00"
 end: "15:30"
-crew_size: 8
+crew_size: 9
 basis: authorization
 crew:
-  - "[[EMP-0174 Tariq Okafor]]"
-  - "[[EMP-0171 Imani Johnson]]"
-  - "[[EMP-0161 Noah Shah]]"
-  - "[[EMP-0156 Tariq Rossi]]"
-  - "[[EMP-0167 Santiago Bianchi]]"
-  - "[[EMP-0170 Ella Shah]]"
-  - "[[EMP-0175 Connor Mensah]]"
-  - "[[EMP-0151 Santiago Ahmed]]"
+  - "[[EMP-0157 Rosa Perez]]"
+  - "[[EMP-0160 Elena King]]"
+  - "[[EMP-0163 Imani Romano]]"
+  - "[[EMP-0171 Keira Harris]]"
+  - "[[EMP-0159 Layla Wilson]]"
+  - "[[EMP-0175 Amelia Thomas]]"
+  - "[[EMP-0155 Mia Williams]]"
+  - "[[EMP-0174 Brianna Romano]]"
+  - "[[EMP-0168 Jamal Park]]"
 ---
 
 AM shift at [[Store 07 - Phoenix Scottsdale]] on 2026-06-13 (07:00-15:30).
@@ -28,11 +29,12 @@ AM shift at [[Store 07 - Phoenix Scottsdale]] on 2026-06-13 (07:00-15:30).
 
 ## Crew
 
-- [[EMP-0174 Tariq Okafor]] (Prep Cook)
-- [[EMP-0171 Imani Johnson]] (Busser)
-- [[EMP-0161 Noah Shah]] (Expo)
-- [[EMP-0156 Tariq Rossi]] (Bartender)
-- [[EMP-0167 Santiago Bianchi]] (Server)
-- [[EMP-0170 Ella Shah]] (Server)
-- [[EMP-0175 Connor Mensah]] (Prep Cook)
-- [[EMP-0151 Santiago Ahmed]] (General Manager)
+- [[EMP-0157 Rosa Perez]] (Line Cook)
+- [[EMP-0160 Elena King]] (Line Cook)
+- [[EMP-0163 Imani Romano]] (Line Cook)
+- [[EMP-0171 Keira Harris]] (Dishwasher)
+- [[EMP-0159 Layla Wilson]] (Server)
+- [[EMP-0175 Amelia Thomas]] (Prep Cook)
+- [[EMP-0155 Mia Williams]] (Shift Lead)
+- [[EMP-0174 Brianna Romano]] (Dishwasher)
+- [[EMP-0168 Jamal Park]] (Server)

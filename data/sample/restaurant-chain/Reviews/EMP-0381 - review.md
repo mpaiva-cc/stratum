@@ -1,10 +1,10 @@
 ---
 type: performance_review
-id: PRV-0005
-person: "[[EMP-0381 Liam Thomas]]"
+id: PRV-0017
+person: "[[EMP-0381 Yuki Gonzalez]]"
 period: 2026-Q1
-rating: meets
+rating: developing
 basis: consent
 ---
 
-Q1 2026 performance review for [[EMP-0381 Liam Thomas]].
+Q1 2026 performance review for [[EMP-0381 Yuki Gonzalez]].

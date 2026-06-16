@@ -7,19 +7,18 @@ date: 2026-06-14
 daypart: PM
 start: "15:00"
 end: "23:30"
-crew_size: 10
+crew_size: 9
 basis: authorization
 crew:
-  - "[[EMP-0064 Keira Smith]]"
-  - "[[EMP-0062 Aria Liu]]"
-  - "[[EMP-0057 Leo Johnson]]"
-  - "[[EMP-0061 Amelia Wilson]]"
-  - "[[EMP-0073 Jaden Jackson]]"
-  - "[[EMP-0066 Jaden Martinez]]"
-  - "[[EMP-0069 Uma Rossi]]"
-  - "[[EMP-0068 Maria Walker]]"
-  - "[[EMP-0074 Tariq Bianchi]]"
-  - "[[EMP-0052 Layla Costa]]"
+  - "[[EMP-0057 Imani Hernandez]]"
+  - "[[EMP-0070 Omar Jackson]]"
+  - "[[EMP-0059 Kayla Brown]]"
+  - "[[EMP-0074 Ava Hernandez]]"
+  - "[[EMP-0062 Diego Shah]]"
+  - "[[EMP-0060 Elijah Liu]]"
+  - "[[EMP-0053 Yuki Chen]]"
+  - "[[EMP-0061 Bella Gonzalez]]"
+  - "[[EMP-0069 Ethan Russo]]"
 ---
 
 PM shift at [[Store 03 - Dallas Knox]] on 2026-06-14 (15:00-23:30).
@@ -30,13 +29,12 @@ PM shift at [[Store 03 - Dallas Knox]] on 2026-06-14 (15:00-23:30).
 
 ## Crew
 
-- [[EMP-0064 Keira Smith]] (Server)
-- [[EMP-0062 Aria Liu]] (Server)
-- [[EMP-0057 Leo Johnson]] (Line Cook)
-- [[EMP-0061 Amelia Wilson]] (Bartender)
-- [[EMP-0073 Jaden Jackson]] (Dishwasher)
-- [[EMP-0066 Jaden Martinez]] (Busser)
-- [[EMP-0069 Uma Rossi]] (Busser)
-- [[EMP-0068 Maria Walker]] (Busser)
-- [[EMP-0074 Tariq Bianchi]] (Host)
-- [[EMP-0052 Layla Costa]] (Assistant Manager)
+- [[EMP-0057 Imani Hernandez]] (Server)
+- [[EMP-0070 Omar Jackson]] (Busser)
+- [[EMP-0059 Kayla Brown]] (Line Cook)
+- [[EMP-0074 Ava Hernandez]] (Dishwasher)
+- [[EMP-0062 Diego Shah]] (Server)
+- [[EMP-0060 Elijah Liu]] (Bartender)
+- [[EMP-0053 Yuki Chen]] (Head Chef)
+- [[EMP-0061 Bella Gonzalez]] (Bartender)
+- [[EMP-0069 Ethan Russo]] (Prep Cook)

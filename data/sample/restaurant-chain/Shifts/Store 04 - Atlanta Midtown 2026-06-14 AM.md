@@ -7,19 +7,18 @@ date: 2026-06-14
 daypart: AM
 start: "07:00"
 end: "15:30"
-crew_size: 10
+crew_size: 9
 basis: authorization
 crew:
-  - "[[EMP-0099 Wanda King]]"
-  - "[[EMP-0079 Diego Anderson]]"
-  - "[[EMP-0097 Jin Jackson]]"
-  - "[[EMP-0094 Felix Khan]]"
-  - "[[EMP-0096 Harper Torres]]"
-  - "[[EMP-0085 Keira Mensah]]"
-  - "[[EMP-0076 Noah Wilson]]"
-  - "[[EMP-0088 Rosa Ali]]"
-  - "[[EMP-0081 Ella Smith]]"
-  - "[[EMP-0086 Paloma Singh]]"
+  - "[[EMP-0097 Omar Chen]]"
+  - "[[EMP-0095 Evelyn Ali]]"
+  - "[[EMP-0085 Diego Moore]]"
+  - "[[EMP-0081 Yuki Scott]]"
+  - "[[EMP-0091 Mia Scott]]"
+  - "[[EMP-0087 Aria Ahmed]]"
+  - "[[EMP-0077 Maria Lewis]]"
+  - "[[EMP-0079 Connor Moore]]"
+  - "[[EMP-0086 Liam Wilson]]"
 ---
 
 AM shift at [[Store 04 - Atlanta Midtown]] on 2026-06-14 (07:00-15:30).
@@ -30,13 +29,12 @@ AM shift at [[Store 04 - Atlanta Midtown]] on 2026-06-14 (07:00-15:30).
 
 ## Crew
 
-- [[EMP-0099 Wanda King]] (Prep Cook)
-- [[EMP-0079 Diego Anderson]] (Shift Lead)
-- [[EMP-0097 Jin Jackson]] (Dishwasher)
-- [[EMP-0094 Felix Khan]] (Server)
-- [[EMP-0096 Harper Torres]] (Dishwasher)
-- [[EMP-0085 Keira Mensah]] (Expo)
-- [[EMP-0076 Noah Wilson]] (General Manager)
-- [[EMP-0088 Rosa Ali]] (Expo)
-- [[EMP-0081 Ella Smith]] (Server)
-- [[EMP-0086 Paloma Singh]] (Line Cook)
+- [[EMP-0097 Omar Chen]] (Dishwasher)
+- [[EMP-0095 Evelyn Ali]] (Prep Cook)
+- [[EMP-0085 Diego Moore]] (Server)
+- [[EMP-0081 Yuki Scott]] (Server)
+- [[EMP-0091 Mia Scott]] (Line Cook)
+- [[EMP-0087 Aria Ahmed]] (Line Cook)
+- [[EMP-0077 Maria Lewis]] (Assistant Manager)
+- [[EMP-0079 Connor Moore]] (Shift Lead)
+- [[EMP-0086 Liam Wilson]] (Line Cook)

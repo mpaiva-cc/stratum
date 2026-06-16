@@ -7,15 +7,16 @@ date: 2026-06-09
 daypart: AM
 start: "07:00"
 end: "15:30"
-crew_size: 6
+crew_size: 7
 basis: authorization
 crew:
-  - "[[EMP-0426 Uma Patel]]"
-  - "[[EMP-0435 Aiden Santos]]"
-  - "[[EMP-0450 Tariq Rodriguez]]"
-  - "[[EMP-0445 Tariq Abara]]"
-  - "[[EMP-0431 Andres Shah]]"
-  - "[[EMP-0436 Aria Wright]]"
+  - "[[EMP-0440 Victor Rodriguez]]"
+  - "[[EMP-0445 Santiago Harris]]"
+  - "[[EMP-0449 Grace Wright]]"
+  - "[[EMP-0448 Yuki Costa]]"
+  - "[[EMP-0435 Hassan Martinez]]"
+  - "[[EMP-0442 Paloma King]]"
+  - "[[EMP-0438 Keira Abara]]"
 ---
 
 AM shift at [[Store 18 - Philadelphia Fishtown]] on 2026-06-09 (07:00-15:30).
@@ -26,9 +27,10 @@ AM shift at [[Store 18 - Philadelphia Fishtown]] on 2026-06-09 (07:00-15:30).
 
 ## Crew
 
-- [[EMP-0426 Uma Patel]] (General Manager)
-- [[EMP-0435 Aiden Santos]] (Line Cook)
-- [[EMP-0450 Tariq Rodriguez]] (Dishwasher)
-- [[EMP-0445 Tariq Abara]] (Host)
-- [[EMP-0431 Andres Shah]] (Server)
-- [[EMP-0436 Aria Wright]] (Server)
+- [[EMP-0440 Victor Rodriguez]] (Server)
+- [[EMP-0445 Santiago Harris]] (Line Cook)
+- [[EMP-0449 Grace Wright]] (Prep Cook)
+- [[EMP-0448 Yuki Costa]] (Host)
+- [[EMP-0435 Hassan Martinez]] (Server)
+- [[EMP-0442 Paloma King]] (Line Cook)
+- [[EMP-0438 Keira Abara]] (Line Cook)

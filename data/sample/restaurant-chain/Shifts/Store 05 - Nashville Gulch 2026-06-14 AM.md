@@ -7,17 +7,16 @@ date: 2026-06-14
 daypart: AM
 start: "07:00"
 end: "15:30"
-crew_size: 8
+crew_size: 7
 basis: authorization
 crew:
-  - "[[EMP-0106 Wanda Wilson]]"
-  - "[[EMP-0124 Jin Santos]]"
-  - "[[EMP-0110 Min Garcia]]"
-  - "[[EMP-0114 Brianna Perez]]"
-  - "[[EMP-0111 Destiny Costa]]"
-  - "[[EMP-0112 Andres Miller]]"
-  - "[[EMP-0103 Sofia Bianchi]]"
-  - "[[EMP-0102 Leo Okafor]]"
+  - "[[EMP-0121 Quinn Gonzalez]]"
+  - "[[EMP-0105 Rosa Gonzalez]]"
+  - "[[EMP-0115 Camila Russo]]"
+  - "[[EMP-0101 Grace Walker]]"
+  - "[[EMP-0122 Destiny Johnson]]"
+  - "[[EMP-0117 Daniela Tran]]"
+  - "[[EMP-0109 Amelia White]]"
 ---
 
 AM shift at [[Store 05 - Nashville Gulch]] on 2026-06-14 (07:00-15:30).
@@ -28,11 +27,10 @@ AM shift at [[Store 05 - Nashville Gulch]] on 2026-06-14 (07:00-15:30).
 
 ## Crew
 
-- [[EMP-0106 Wanda Wilson]] (Bartender)
-- [[EMP-0124 Jin Santos]] (Host)
-- [[EMP-0110 Min Garcia]] (Server)
-- [[EMP-0114 Brianna Perez]] (Line Cook)
-- [[EMP-0111 Destiny Costa]] (Expo)
-- [[EMP-0112 Andres Miller]] (Bartender)
-- [[EMP-0103 Sofia Bianchi]] (Head Chef)
-- [[EMP-0102 Leo Okafor]] (Assistant Manager)
+- [[EMP-0121 Quinn Gonzalez]] (Busser)
+- [[EMP-0105 Rosa Gonzalez]] (Shift Lead)
+- [[EMP-0115 Camila Russo]] (Line Cook)
+- [[EMP-0101 Grace Walker]] (General Manager)
+- [[EMP-0122 Destiny Johnson]] (Busser)
+- [[EMP-0117 Daniela Tran]] (Prep Cook)
+- [[EMP-0109 Amelia White]] (Server)

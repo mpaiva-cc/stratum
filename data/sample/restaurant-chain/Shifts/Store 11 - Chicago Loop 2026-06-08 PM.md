@@ -10,12 +10,12 @@ end: "23:30"
 crew_size: 6
 basis: authorization
 crew:
-  - "[[EMP-0258 Aaron Singh]]"
-  - "[[EMP-0259 Wanda Wilson]]"
-  - "[[EMP-0273 Bella Wang]]"
-  - "[[EMP-0261 Priya Harris]]"
-  - "[[EMP-0274 Lucas Lopez]]"
-  - "[[EMP-0268 Yara Hernandez]]"
+  - "[[EMP-0274 Valentina Perez]]"
+  - "[[EMP-0275 Connor Tran]]"
+  - "[[EMP-0270 Noah Singh]]"
+  - "[[EMP-0252 Yara Khan]]"
+  - "[[EMP-0261 Grace Garcia]]"
+  - "[[EMP-0260 Gabriela Abara]]"
 ---
 
 PM shift at [[Store 11 - Chicago Loop]] on 2026-06-08 (15:00-23:30).
@@ -26,9 +26,9 @@ PM shift at [[Store 11 - Chicago Loop]] on 2026-06-08 (15:00-23:30).
 
 ## Crew
 
-- [[EMP-0258 Aaron Singh]] (Line Cook)
-- [[EMP-0259 Wanda Wilson]] (Server)
-- [[EMP-0273 Bella Wang]] (Dishwasher)
-- [[EMP-0261 Priya Harris]] (Line Cook)
-- [[EMP-0274 Lucas Lopez]] (Busser)
-- [[EMP-0268 Yara Hernandez]] (Dishwasher)
+- [[EMP-0274 Valentina Perez]] (Dishwasher)
+- [[EMP-0275 Connor Tran]] (Busser)
+- [[EMP-0270 Noah Singh]] (Server)
+- [[EMP-0252 Yara Khan]] (Assistant Manager)
+- [[EMP-0261 Grace Garcia]] (Line Cook)
+- [[EMP-0260 Gabriela Abara]] (Line Cook)

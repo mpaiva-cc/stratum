@@ -1,6 +1,6 @@
 ---
 type: consent_grant
-id: CNS-0040
+id: CNS-0074
 person: "[[EMP-0010 Harper Liu]]"
 scope: hr.employment
 purpose: store operations

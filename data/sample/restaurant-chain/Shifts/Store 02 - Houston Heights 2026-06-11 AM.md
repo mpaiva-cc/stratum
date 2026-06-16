@@ -10,16 +10,16 @@ end: "15:30"
 crew_size: 10
 basis: authorization
 crew:
-  - "[[EMP-0027 Santiago Santos]]"
-  - "[[EMP-0046 Arjun Young]]"
-  - "[[EMP-0036 Aaron Kim]]"
-  - "[[EMP-0042 Destiny Tran]]"
-  - "[[EMP-0049 Elena Harris]]"
-  - "[[EMP-0033 Ximena Torres]]"
-  - "[[EMP-0045 Camila Anderson]]"
-  - "[[EMP-0032 Valentina Liu]]"
-  - "[[EMP-0029 Yara Hernandez]]"
-  - "[[EMP-0034 Fatima Singh]]"
+  - "[[EMP-0037 Isabella Park]]"
+  - "[[EMP-0039 Zayd Thomas]]"
+  - "[[EMP-0027 Henry Rossi]]"
+  - "[[EMP-0032 Elena Harris]]"
+  - "[[EMP-0044 Aria Jackson]]"
+  - "[[EMP-0041 Paloma Mensah]]"
+  - "[[EMP-0049 Logan Jackson]]"
+  - "[[EMP-0033 Elijah Harris]]"
+  - "[[EMP-0045 Arjun Garcia]]"
+  - "[[EMP-0035 Priya Wright]]"
 ---
 
 AM shift at [[Store 02 - Houston Heights]] on 2026-06-11 (07:00-15:30).
@@ -30,13 +30,13 @@ AM shift at [[Store 02 - Houston Heights]] on 2026-06-11 (07:00-15:30).
 
 ## Crew
 
-- [[EMP-0027 Santiago Santos]] (Assistant Manager)
-- [[EMP-0046 Arjun Young]] (Dishwasher)
-- [[EMP-0036 Aaron Kim]] (Line Cook)
-- [[EMP-0042 Destiny Tran]] (Busser)
-- [[EMP-0049 Elena Harris]] (Host)
-- [[EMP-0033 Ximena Torres]] (Server)
-- [[EMP-0045 Camila Anderson]] (Dishwasher)
-- [[EMP-0032 Valentina Liu]] (Server)
-- [[EMP-0029 Yara Hernandez]] (Shift Lead)
-- [[EMP-0034 Fatima Singh]] (Server)
+- [[EMP-0037 Isabella Park]] (Server)
+- [[EMP-0039 Zayd Thomas]] (Line Cook)
+- [[EMP-0027 Henry Rossi]] (Assistant Manager)
+- [[EMP-0032 Elena Harris]] (Server)
+- [[EMP-0044 Aria Jackson]] (Dishwasher)
+- [[EMP-0041 Paloma Mensah]] (Server)
+- [[EMP-0049 Logan Jackson]] (Busser)
+- [[EMP-0033 Elijah Harris]] (Server)
+- [[EMP-0045 Arjun Garcia]] (Prep Cook)
+- [[EMP-0035 Priya Wright]] (Line Cook)

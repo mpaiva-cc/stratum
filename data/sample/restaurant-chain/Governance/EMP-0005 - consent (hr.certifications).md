@@ -1,6 +1,6 @@
 ---
 type: consent_grant
-id: CNS-0019
+id: CNS-0034
 person: "[[EMP-0005 Keira Perez]]"
 scope: hr.certifications
 purpose: store operations

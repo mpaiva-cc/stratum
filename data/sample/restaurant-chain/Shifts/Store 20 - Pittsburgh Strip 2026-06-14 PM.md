@@ -7,16 +7,18 @@ date: 2026-06-14
 daypart: PM
 start: "15:00"
 end: "23:30"
-crew_size: 7
+crew_size: 9
 basis: authorization
 crew:
-  - "[[EMP-0482 Arjun Lewis]]"
-  - "[[EMP-0494 Gabriela Jackson]]"
-  - "[[EMP-0484 Zane Taylor]]"
-  - "[[EMP-0483 Jaden Torres]]"
-  - "[[EMP-0496 Layla Williams]]"
-  - "[[EMP-0478 Henry Tran]]"
-  - "[[EMP-0487 Tariq Scott]]"
+  - "[[EMP-0476 Henry Young]]"
+  - "[[EMP-0491 Destiny Johnson]]"
+  - "[[EMP-0495 Andres Garcia]]"
+  - "[[EMP-0490 Camila Patel]]"
+  - "[[EMP-0497 Amelia Okafor]]"
+  - "[[EMP-0483 Abigail Perez]]"
+  - "[[EMP-0481 Mason Davis]]"
+  - "[[EMP-0480 Aiden Tran]]"
+  - "[[EMP-0493 Quinn Moore]]"
 ---
 
 PM shift at [[Store 20 - Pittsburgh Strip]] on 2026-06-14 (15:00-23:30).
@@ -27,10 +29,12 @@ PM shift at [[Store 20 - Pittsburgh Strip]] on 2026-06-14 (15:00-23:30).
 
 ## Crew
 
-- [[EMP-0482 Arjun Lewis]] (Server)
-- [[EMP-0494 Gabriela Jackson]] (Line Cook)
-- [[EMP-0484 Zane Taylor]] (Line Cook)
-- [[EMP-0483 Jaden Torres]] (Line Cook)
-- [[EMP-0496 Layla Williams]] (Prep Cook)
-- [[EMP-0478 Henry Tran]] (Head Chef)
-- [[EMP-0487 Tariq Scott]] (Server)
+- [[EMP-0476 Henry Young]] (General Manager)
+- [[EMP-0491 Destiny Johnson]] (Line Cook)
+- [[EMP-0495 Andres Garcia]] (Dishwasher)
+- [[EMP-0490 Camila Patel]] (Line Cook)
+- [[EMP-0497 Amelia Okafor]] (Prep Cook)
+- [[EMP-0483 Abigail Perez]] (Server)
+- [[EMP-0481 Mason Davis]] (Server)
+- [[EMP-0480 Aiden Tran]] (Shift Lead)
+- [[EMP-0493 Quinn Moore]] (Prep Cook)

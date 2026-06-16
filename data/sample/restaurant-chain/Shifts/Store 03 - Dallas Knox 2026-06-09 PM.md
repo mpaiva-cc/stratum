@@ -10,13 +10,13 @@ end: "23:30"
 crew_size: 7
 basis: authorization
 crew:
-  - "[[EMP-0061 Amelia Wilson]]"
-  - "[[EMP-0060 Layla Miller]]"
-  - "[[EMP-0067 Anaya Santos]]"
-  - "[[EMP-0068 Maria Walker]]"
-  - "[[EMP-0063 Elena Thomas]]"
-  - "[[EMP-0071 Destiny Anderson]]"
-  - "[[EMP-0056 Hassan Lopez]]"
+  - "[[EMP-0067 Zayd Chen]]"
+  - "[[EMP-0075 Evelyn Miller]]"
+  - "[[EMP-0056 Wei Khan]]"
+  - "[[EMP-0073 Wanda Rossi]]"
+  - "[[EMP-0069 Ethan Russo]]"
+  - "[[EMP-0071 Gabriela Romano]]"
+  - "[[EMP-0065 Zayd Taylor]]"
 ---
 
 PM shift at [[Store 03 - Dallas Knox]] on 2026-06-09 (15:00-23:30).
@@ -27,10 +27,10 @@ PM shift at [[Store 03 - Dallas Knox]] on 2026-06-09 (15:00-23:30).
 
 ## Crew
 
-- [[EMP-0061 Amelia Wilson]] (Bartender)
-- [[EMP-0060 Layla Miller]] (Line Cook)
-- [[EMP-0067 Anaya Santos]] (Prep Cook)
-- [[EMP-0068 Maria Walker]] (Busser)
-- [[EMP-0063 Elena Thomas]] (Server)
-- [[EMP-0071 Destiny Anderson]] (Prep Cook)
-- [[EMP-0056 Hassan Lopez]] (Line Cook)
+- [[EMP-0067 Zayd Chen]] (Server)
+- [[EMP-0075 Evelyn Miller]] (Prep Cook)
+- [[EMP-0056 Wei Khan]] (Server)
+- [[EMP-0073 Wanda Rossi]] (Host)
+- [[EMP-0069 Ethan Russo]] (Prep Cook)
+- [[EMP-0071 Gabriela Romano]] (Prep Cook)
+- [[EMP-0065 Zayd Taylor]] (Server)

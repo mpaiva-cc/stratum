@@ -1,11 +1,11 @@
 ---
 type: employment_event
 id: EVT-0193
-person: "[[EMP-0193 Noah Jones]]"
+person: "[[EMP-0193 Noah Wilson]]"
 kind: hire
-date: 2022-12-15
+date: 2022-04-04
 store: "[[Store 08 - Seattle Ballard]]"
 basis: consent
 ---
 
-[[EMP-0193 Noah Jones]] hired as Prep Cook at [[Store 08 - Seattle Ballard]] on 2022-12-15.
+[[EMP-0193 Noah Wilson]] hired as Server at [[Store 08 - Seattle Ballard]] on 2022-04-04.

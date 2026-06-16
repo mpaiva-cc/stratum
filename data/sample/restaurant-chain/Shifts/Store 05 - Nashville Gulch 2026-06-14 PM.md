@@ -7,18 +7,15 @@ date: 2026-06-14
 daypart: PM
 start: "15:00"
 end: "23:30"
-crew_size: 9
+crew_size: 6
 basis: authorization
 crew:
-  - "[[EMP-0111 Destiny Costa]]"
-  - "[[EMP-0105 Felix Russo]]"
-  - "[[EMP-0116 Valentina Wilson]]"
-  - "[[EMP-0104 Gabriela Singh]]"
-  - "[[EMP-0107 Harper Russo]]"
-  - "[[EMP-0110 Min Garcia]]"
-  - "[[EMP-0118 Henry Hernandez]]"
-  - "[[EMP-0123 Hassan Diallo]]"
-  - "[[EMP-0124 Jin Santos]]"
+  - "[[EMP-0110 Caleb Johnson]]"
+  - "[[EMP-0104 Amelia Allen]]"
+  - "[[EMP-0101 Grace Walker]]"
+  - "[[EMP-0103 Ximena Wang]]"
+  - "[[EMP-0117 Daniela Tran]]"
+  - "[[EMP-0115 Camila Russo]]"
 ---
 
 PM shift at [[Store 05 - Nashville Gulch]] on 2026-06-14 (15:00-23:30).
@@ -29,12 +26,9 @@ PM shift at [[Store 05 - Nashville Gulch]] on 2026-06-14 (15:00-23:30).
 
 ## Crew
 
-- [[EMP-0111 Destiny Costa]] (Expo)
-- [[EMP-0105 Felix Russo]] (Shift Lead)
-- [[EMP-0116 Valentina Wilson]] (Server)
-- [[EMP-0104 Gabriela Singh]] (Shift Lead)
-- [[EMP-0107 Harper Russo]] (Bartender)
-- [[EMP-0110 Min Garcia]] (Server)
-- [[EMP-0118 Henry Hernandez]] (Busser)
-- [[EMP-0123 Hassan Diallo]] (Prep Cook)
-- [[EMP-0124 Jin Santos]] (Host)
+- [[EMP-0110 Caleb Johnson]] (Bartender)
+- [[EMP-0104 Amelia Allen]] (Shift Lead)
+- [[EMP-0101 Grace Walker]] (General Manager)
+- [[EMP-0103 Ximena Wang]] (Head Chef)
+- [[EMP-0117 Daniela Tran]] (Prep Cook)
+- [[EMP-0115 Camila Russo]] (Line Cook)

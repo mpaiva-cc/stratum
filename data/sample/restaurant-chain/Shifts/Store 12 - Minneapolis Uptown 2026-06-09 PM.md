@@ -7,18 +7,16 @@ date: 2026-06-09
 daypart: PM
 start: "15:00"
 end: "23:30"
-crew_size: 9
+crew_size: 7
 basis: authorization
 crew:
-  - "[[EMP-0297 Samir Romano]]"
-  - "[[EMP-0293 Victor Davis]]"
-  - "[[EMP-0283 Jaden Taylor]]"
-  - "[[EMP-0300 Layla Shah]]"
-  - "[[EMP-0288 Quinn Wilson]]"
-  - "[[EMP-0277 Valentina Clark]]"
-  - "[[EMP-0276 Brianna Hernandez]]"
-  - "[[EMP-0296 Abigail Wang]]"
-  - "[[EMP-0299 Elijah Johnson]]"
+  - "[[EMP-0289 Layla Wang]]"
+  - "[[EMP-0291 Ava Rossi]]"
+  - "[[EMP-0277 Zayd Ramirez]]"
+  - "[[EMP-0283 Santiago Jackson]]"
+  - "[[EMP-0287 Caleb Ahmed]]"
+  - "[[EMP-0292 Grace Wright]]"
+  - "[[EMP-0299 Imani Miller]]"
 ---
 
 PM shift at [[Store 12 - Minneapolis Uptown]] on 2026-06-09 (15:00-23:30).
@@ -29,12 +27,10 @@ PM shift at [[Store 12 - Minneapolis Uptown]] on 2026-06-09 (15:00-23:30).
 
 ## Crew
 
-- [[EMP-0297 Samir Romano]] (Dishwasher)
-- [[EMP-0293 Victor Davis]] (Server)
-- [[EMP-0283 Jaden Taylor]] (Line Cook)
-- [[EMP-0300 Layla Shah]] (Prep Cook)
-- [[EMP-0288 Quinn Wilson]] (Server)
-- [[EMP-0277 Valentina Clark]] (Assistant Manager)
-- [[EMP-0276 Brianna Hernandez]] (General Manager)
-- [[EMP-0296 Abigail Wang]] (Prep Cook)
-- [[EMP-0299 Elijah Johnson]] (Host)
+- [[EMP-0289 Layla Wang]] (Line Cook)
+- [[EMP-0291 Ava Rossi]] (Server)
+- [[EMP-0277 Zayd Ramirez]] (Assistant Manager)
+- [[EMP-0283 Santiago Jackson]] (Bartender)
+- [[EMP-0287 Caleb Ahmed]] (Line Cook)
+- [[EMP-0292 Grace Wright]] (Dishwasher)
+- [[EMP-0299 Imani Miller]] (Prep Cook)

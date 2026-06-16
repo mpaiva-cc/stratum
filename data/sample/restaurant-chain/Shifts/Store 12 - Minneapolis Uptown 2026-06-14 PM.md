@@ -7,16 +7,17 @@ date: 2026-06-14
 daypart: PM
 start: "15:00"
 end: "23:30"
-crew_size: 7
+crew_size: 8
 basis: authorization
 crew:
-  - "[[EMP-0278 Aaron Pham]]"
-  - "[[EMP-0283 Jaden Taylor]]"
-  - "[[EMP-0287 Samir Patel]]"
-  - "[[EMP-0296 Abigail Wang]]"
-  - "[[EMP-0288 Quinn Wilson]]"
-  - "[[EMP-0282 Sofia Mensah]]"
-  - "[[EMP-0300 Layla Shah]]"
+  - "[[EMP-0278 Bella Jones]]"
+  - "[[EMP-0281 Ella Taylor]]"
+  - "[[EMP-0300 Abigail Martinez]]"
+  - "[[EMP-0277 Zayd Ramirez]]"
+  - "[[EMP-0299 Imani Miller]]"
+  - "[[EMP-0293 Mason Johnson]]"
+  - "[[EMP-0284 Gabriela Shah]]"
+  - "[[EMP-0298 Zane Rodriguez]]"
 ---
 
 PM shift at [[Store 12 - Minneapolis Uptown]] on 2026-06-14 (15:00-23:30).
@@ -27,10 +28,11 @@ PM shift at [[Store 12 - Minneapolis Uptown]] on 2026-06-14 (15:00-23:30).
 
 ## Crew
 
-- [[EMP-0278 Aaron Pham]] (Head Chef)
-- [[EMP-0283 Jaden Taylor]] (Line Cook)
-- [[EMP-0287 Samir Patel]] (Expo)
-- [[EMP-0296 Abigail Wang]] (Prep Cook)
-- [[EMP-0288 Quinn Wilson]] (Server)
-- [[EMP-0282 Sofia Mensah]] (Server)
-- [[EMP-0300 Layla Shah]] (Prep Cook)
+- [[EMP-0278 Bella Jones]] (Head Chef)
+- [[EMP-0281 Ella Taylor]] (Line Cook)
+- [[EMP-0300 Abigail Martinez]] (Busser)
+- [[EMP-0277 Zayd Ramirez]] (Assistant Manager)
+- [[EMP-0299 Imani Miller]] (Prep Cook)
+- [[EMP-0293 Mason Johnson]] (Prep Cook)
+- [[EMP-0284 Gabriela Shah]] (Line Cook)
+- [[EMP-0298 Zane Rodriguez]] (Host)

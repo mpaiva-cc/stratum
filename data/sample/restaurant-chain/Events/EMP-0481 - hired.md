@@ -1,11 +1,11 @@
 ---
 type: employment_event
 id: EVT-0481
-person: "[[EMP-0481 Emily Thomas]]"
+person: "[[EMP-0481 Mason Davis]]"
 kind: hire
-date: 2023-11-04
+date: 2025-12-27
 store: "[[Store 20 - Pittsburgh Strip]]"
 basis: consent
 ---
 
-[[EMP-0481 Emily Thomas]] hired as Line Cook at [[Store 20 - Pittsburgh Strip]] on 2023-11-04.
+[[EMP-0481 Mason Davis]] hired as Server at [[Store 20 - Pittsburgh Strip]] on 2025-12-27.

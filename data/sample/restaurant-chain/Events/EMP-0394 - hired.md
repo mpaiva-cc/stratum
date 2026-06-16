@@ -1,11 +1,11 @@
 ---
 type: employment_event
 id: EVT-0394
-person: "[[EMP-0394 Victor Nguyen]]"
+person: "[[EMP-0394 Emily Romano]]"
 kind: hire
-date: 2026-03-25
+date: 2025-06-23
 store: "[[Store 16 - Boston Seaport]]"
 basis: consent
 ---
 
-[[EMP-0394 Victor Nguyen]] hired as Dishwasher at [[Store 16 - Boston Seaport]] on 2026-03-25.
+[[EMP-0394 Emily Romano]] hired as Line Cook at [[Store 16 - Boston Seaport]] on 2025-06-23.

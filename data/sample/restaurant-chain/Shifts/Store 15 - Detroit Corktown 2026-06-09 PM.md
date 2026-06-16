@@ -7,15 +7,19 @@ date: 2026-06-09
 daypart: PM
 start: "15:00"
 end: "23:30"
-crew_size: 6
+crew_size: 10
 basis: authorization
 crew:
-  - "[[EMP-0374 Aaron Shah]]"
-  - "[[EMP-0375 Valentina Sanchez]]"
-  - "[[EMP-0370 Brianna Nguyen]]"
-  - "[[EMP-0352 Isabella Wilson]]"
-  - "[[EMP-0361 Jamal Rossi]]"
-  - "[[EMP-0360 Leo Ali]]"
+  - "[[EMP-0364 Ximena Williams]]"
+  - "[[EMP-0354 Santiago Sanchez]]"
+  - "[[EMP-0366 Oscar Abara]]"
+  - "[[EMP-0373 Mateo Kim]]"
+  - "[[EMP-0367 Diego Jones]]"
+  - "[[EMP-0355 Elena Johnson]]"
+  - "[[EMP-0361 Fatima Chen]]"
+  - "[[EMP-0356 Jamal Scott]]"
+  - "[[EMP-0362 Henry Nguyen]]"
+  - "[[EMP-0375 Henry Sanchez]]"
 ---
 
 PM shift at [[Store 15 - Detroit Corktown]] on 2026-06-09 (15:00-23:30).
@@ -26,9 +30,13 @@ PM shift at [[Store 15 - Detroit Corktown]] on 2026-06-09 (15:00-23:30).
 
 ## Crew
 
-- [[EMP-0374 Aaron Shah]] (Busser)
-- [[EMP-0375 Valentina Sanchez]] (Prep Cook)
-- [[EMP-0370 Brianna Nguyen]] (Server)
-- [[EMP-0352 Isabella Wilson]] (Assistant Manager)
-- [[EMP-0361 Jamal Rossi]] (Line Cook)
-- [[EMP-0360 Leo Ali]] (Line Cook)
+- [[EMP-0364 Ximena Williams]] (Server)
+- [[EMP-0354 Santiago Sanchez]] (Shift Lead)
+- [[EMP-0366 Oscar Abara]] (Busser)
+- [[EMP-0373 Mateo Kim]] (Host)
+- [[EMP-0367 Diego Jones]] (Busser)
+- [[EMP-0355 Elena Johnson]] (Shift Lead)
+- [[EMP-0361 Fatima Chen]] (Line Cook)
+- [[EMP-0356 Jamal Scott]] (Line Cook)
+- [[EMP-0362 Henry Nguyen]] (Server)
+- [[EMP-0375 Henry Sanchez]] (Busser)

@@ -5,7 +5,7 @@ name: Austin Domain
 region: "[[South Region]]"
 at_location: "[[Austin Domain (TX-01)]]"
 part_of: "[[South Region]]"
-opened: 2025-01-25
+opened: 2023-01-11
 seats: 140
 headcount: 25
 basis: authorization

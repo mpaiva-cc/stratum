@@ -1,0 +1,12 @@
+---
+type: consent_grant
+id: CNS-1893
+person: "[[EMP-0240 Mason Ahmed]]"
+scope: hr.learning
+purpose: store operations
+status: active
+valid_to: open
+basis: consent
+---
+
+[[EMP-0240 Mason Ahmed]] — scope `hr.learning` · status `active` · valid_to `open`. The traversal predicate reads this grant.

@@ -7,15 +7,16 @@ date: 2026-06-14
 daypart: AM
 start: "07:00"
 end: "15:30"
-crew_size: 6
+crew_size: 7
 basis: authorization
 crew:
-  - "[[EMP-0436 Aria Wright]]"
-  - "[[EMP-0433 Ximena Santos]]"
-  - "[[EMP-0442 Mateo Torres]]"
-  - "[[EMP-0437 Zane Kim]]"
-  - "[[EMP-0441 Zane Ali]]"
-  - "[[EMP-0438 Anaya Moore]]"
+  - "[[EMP-0446 Bella Williams]]"
+  - "[[EMP-0435 Hassan Martinez]]"
+  - "[[EMP-0450 Amelia Okafor]]"
+  - "[[EMP-0427 Oscar Okafor]]"
+  - "[[EMP-0445 Santiago Harris]]"
+  - "[[EMP-0434 Aria Santos]]"
+  - "[[EMP-0447 Henry Sanchez]]"
 ---
 
 AM shift at [[Store 18 - Philadelphia Fishtown]] on 2026-06-14 (07:00-15:30).
@@ -26,9 +27,10 @@ AM shift at [[Store 18 - Philadelphia Fishtown]] on 2026-06-14 (07:00-15:30).
 
 ## Crew
 
-- [[EMP-0436 Aria Wright]] (Server)
-- [[EMP-0433 Ximena Santos]] (Line Cook)
-- [[EMP-0442 Mateo Torres]] (Line Cook)
-- [[EMP-0437 Zane Kim]] (Line Cook)
-- [[EMP-0441 Zane Ali]] (Server)
-- [[EMP-0438 Anaya Moore]] (Line Cook)
+- [[EMP-0446 Bella Williams]] (Dishwasher)
+- [[EMP-0435 Hassan Martinez]] (Server)
+- [[EMP-0450 Amelia Okafor]] (Prep Cook)
+- [[EMP-0427 Oscar Okafor]] (Assistant Manager)
+- [[EMP-0445 Santiago Harris]] (Line Cook)
+- [[EMP-0434 Aria Santos]] (Line Cook)
+- [[EMP-0447 Henry Sanchez]] (Prep Cook)

@@ -7,17 +7,18 @@ date: 2026-06-10
 daypart: PM
 start: "15:00"
 end: "23:30"
-crew_size: 8
+crew_size: 9
 basis: authorization
 crew:
-  - "[[EMP-0180 Victor Williams]]"
-  - "[[EMP-0185 Caleb Allen]]"
-  - "[[EMP-0178 Abigail Mensah]]"
-  - "[[EMP-0199 Logan Wright]]"
-  - "[[EMP-0200 Liam Perez]]"
-  - "[[EMP-0191 Layla Pham]]"
-  - "[[EMP-0186 Ella Nguyen]]"
-  - "[[EMP-0192 Carlos Scott]]"
+  - "[[EMP-0191 Gabriela Kim]]"
+  - "[[EMP-0192 Daniela Lewis]]"
+  - "[[EMP-0182 Amelia Nguyen]]"
+  - "[[EMP-0185 Bella Garcia]]"
+  - "[[EMP-0179 Ines Diallo]]"
+  - "[[EMP-0195 Evelyn Perez]]"
+  - "[[EMP-0188 Rosa Tran]]"
+  - "[[EMP-0194 Grace Anderson]]"
+  - "[[EMP-0186 Tariq Hernandez]]"
 ---
 
 PM shift at [[Store 08 - Seattle Ballard]] on 2026-06-10 (15:00-23:30).
@@ -28,11 +29,12 @@ PM shift at [[Store 08 - Seattle Ballard]] on 2026-06-10 (15:00-23:30).
 
 ## Crew
 
-- [[EMP-0180 Victor Williams]] (Shift Lead)
-- [[EMP-0185 Caleb Allen]] (Server)
-- [[EMP-0178 Abigail Mensah]] (Head Chef)
-- [[EMP-0199 Logan Wright]] (Host)
-- [[EMP-0200 Liam Perez]] (Dishwasher)
-- [[EMP-0191 Layla Pham]] (Bartender)
-- [[EMP-0186 Ella Nguyen]] (Server)
-- [[EMP-0192 Carlos Scott]] (Busser)
+- [[EMP-0191 Gabriela Kim]] (Expo)
+- [[EMP-0192 Daniela Lewis]] (Bartender)
+- [[EMP-0182 Amelia Nguyen]] (Line Cook)
+- [[EMP-0185 Bella Garcia]] (Server)
+- [[EMP-0179 Ines Diallo]] (Shift Lead)
+- [[EMP-0195 Evelyn Perez]] (Busser)
+- [[EMP-0188 Rosa Tran]] (Line Cook)
+- [[EMP-0194 Grace Anderson]] (Expo)
+- [[EMP-0186 Tariq Hernandez]] (Line Cook)

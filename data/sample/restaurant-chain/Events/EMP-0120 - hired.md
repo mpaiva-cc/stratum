@@ -1,11 +1,11 @@
 ---
 type: employment_event
 id: EVT-0120
-person: "[[EMP-0120 Zane Liu]]"
+person: "[[EMP-0120 Felix Thomas]]"
 kind: hire
-date: 2025-07-11
+date: 2025-08-31
 store: "[[Store 05 - Nashville Gulch]]"
 basis: consent
 ---
 
-[[EMP-0120 Zane Liu]] hired as Host at [[Store 05 - Nashville Gulch]] on 2025-07-11.
+[[EMP-0120 Felix Thomas]] hired as Busser at [[Store 05 - Nashville Gulch]] on 2025-08-31.

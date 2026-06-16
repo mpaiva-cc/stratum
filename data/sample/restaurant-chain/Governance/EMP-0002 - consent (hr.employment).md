@@ -1,6 +1,6 @@
 ---
 type: consent_grant
-id: CNS-0008
+id: CNS-0012
 person: "[[EMP-0002 Samir Abara]]"
 scope: hr.employment
 purpose: store operations

@@ -7,18 +7,17 @@ date: 2026-06-12
 daypart: AM
 start: "07:00"
 end: "15:30"
-crew_size: 9
+crew_size: 8
 basis: authorization
 crew:
-  - "[[EMP-0240 Andres Anderson]]"
-  - "[[EMP-0227 Jamal Sanchez]]"
-  - "[[EMP-0244 Nadia Kim]]"
-  - "[[EMP-0232 Bella Thomas]]"
-  - "[[EMP-0236 Mateo Liu]]"
-  - "[[EMP-0237 Evelyn Chen]]"
-  - "[[EMP-0239 Gabriela Walker]]"
-  - "[[EMP-0226 Leo Tran]]"
-  - "[[EMP-0242 Wei Abara]]"
+  - "[[EMP-0244 Abigail Wright]]"
+  - "[[EMP-0234 Henry Brown]]"
+  - "[[EMP-0248 Aiden Taylor]]"
+  - "[[EMP-0233 Jose Pham]]"
+  - "[[EMP-0228 Abigail Young]]"
+  - "[[EMP-0231 Elijah Martinez]]"
+  - "[[EMP-0250 Ava Walker]]"
+  - "[[EMP-0236 Wei Brown]]"
 ---
 
 AM shift at [[Store 10 - San Diego Gaslamp]] on 2026-06-12 (07:00-15:30).
@@ -29,12 +28,11 @@ AM shift at [[Store 10 - San Diego Gaslamp]] on 2026-06-12 (07:00-15:30).
 
 ## Crew
 
-- [[EMP-0240 Andres Anderson]] (Line Cook)
-- [[EMP-0227 Jamal Sanchez]] (Assistant Manager)
-- [[EMP-0244 Nadia Kim]] (Line Cook)
-- [[EMP-0232 Bella Thomas]] (Server)
-- [[EMP-0236 Mateo Liu]] (Server)
-- [[EMP-0237 Evelyn Chen]] (Server)
-- [[EMP-0239 Gabriela Walker]] (Bartender)
-- [[EMP-0226 Leo Tran]] (General Manager)
-- [[EMP-0242 Wei Abara]] (Expo)
+- [[EMP-0244 Abigail Wright]] (Dishwasher)
+- [[EMP-0234 Henry Brown]] (Line Cook)
+- [[EMP-0248 Aiden Taylor]] (Busser)
+- [[EMP-0233 Jose Pham]] (Server)
+- [[EMP-0228 Abigail Young]] (Head Chef)
+- [[EMP-0231 Elijah Martinez]] (Line Cook)
+- [[EMP-0250 Ava Walker]] (Dishwasher)
+- [[EMP-0236 Wei Brown]] (Server)

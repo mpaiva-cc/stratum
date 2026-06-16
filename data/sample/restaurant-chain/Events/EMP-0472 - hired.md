@@ -1,11 +1,11 @@
 ---
 type: employment_event
 id: EVT-0472
-person: "[[EMP-0472 Liam Mensah]]"
+person: "[[EMP-0472 Noah Mensah]]"
 kind: hire
-date: 2026-05-11
+date: 2022-04-21
 store: "[[Store 19 - DC Navy Yard]]"
 basis: consent
 ---
 
-[[EMP-0472 Liam Mensah]] hired as Busser at [[Store 19 - DC Navy Yard]] on 2026-05-11.
+[[EMP-0472 Noah Mensah]] hired as Server at [[Store 19 - DC Navy Yard]] on 2022-04-21.

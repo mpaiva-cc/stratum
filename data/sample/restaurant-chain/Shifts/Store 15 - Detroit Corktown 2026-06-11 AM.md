@@ -7,16 +7,17 @@ date: 2026-06-11
 daypart: AM
 start: "07:00"
 end: "15:30"
-crew_size: 7
+crew_size: 8
 basis: authorization
 crew:
-  - "[[EMP-0356 Sofia Moore]]"
-  - "[[EMP-0353 Gabriela Tran]]"
-  - "[[EMP-0369 Layla Harris]]"
-  - "[[EMP-0361 Jamal Rossi]]"
-  - "[[EMP-0368 Yuki Ahmed]]"
-  - "[[EMP-0373 Wanda Wang]]"
-  - "[[EMP-0355 Ella Thomas]]"
+  - "[[EMP-0366 Oscar Abara]]"
+  - "[[EMP-0372 Carlos Jackson]]"
+  - "[[EMP-0375 Henry Sanchez]]"
+  - "[[EMP-0365 Wanda Ali]]"
+  - "[[EMP-0356 Jamal Scott]]"
+  - "[[EMP-0355 Elena Johnson]]"
+  - "[[EMP-0368 Rohan Torres]]"
+  - "[[EMP-0370 Bella Abara]]"
 ---
 
 AM shift at [[Store 15 - Detroit Corktown]] on 2026-06-11 (07:00-15:30).
@@ -27,10 +28,11 @@ AM shift at [[Store 15 - Detroit Corktown]] on 2026-06-11 (07:00-15:30).
 
 ## Crew
 
-- [[EMP-0356 Sofia Moore]] (Server)
-- [[EMP-0353 Gabriela Tran]] (Head Chef)
-- [[EMP-0369 Layla Harris]] (Server)
-- [[EMP-0361 Jamal Rossi]] (Line Cook)
-- [[EMP-0368 Yuki Ahmed]] (Server)
-- [[EMP-0373 Wanda Wang]] (Busser)
-- [[EMP-0355 Ella Thomas]] (Shift Lead)
+- [[EMP-0366 Oscar Abara]] (Busser)
+- [[EMP-0372 Carlos Jackson]] (Busser)
+- [[EMP-0375 Henry Sanchez]] (Busser)
+- [[EMP-0365 Wanda Ali]] (Dishwasher)
+- [[EMP-0356 Jamal Scott]] (Line Cook)
+- [[EMP-0355 Elena Johnson]] (Shift Lead)
+- [[EMP-0368 Rohan Torres]] (Dishwasher)
+- [[EMP-0370 Bella Abara]] (Busser)

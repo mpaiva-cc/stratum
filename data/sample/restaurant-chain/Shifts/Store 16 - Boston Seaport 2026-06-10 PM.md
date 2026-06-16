@@ -7,16 +7,18 @@ date: 2026-06-10
 daypart: PM
 start: "15:00"
 end: "23:30"
-crew_size: 7
+crew_size: 9
 basis: authorization
 crew:
-  - "[[EMP-0389 Oscar Abara]]"
-  - "[[EMP-0391 Rohan Torres]]"
-  - "[[EMP-0377 Santiago Sanchez]]"
-  - "[[EMP-0383 Kayla Taylor]]"
-  - "[[EMP-0387 Ximena Williams]]"
-  - "[[EMP-0392 Zayd Allen]]"
-  - "[[EMP-0399 Omar Diallo]]"
+  - "[[EMP-0381 Yuki Gonzalez]]"
+  - "[[EMP-0387 Victor Hernandez]]"
+  - "[[EMP-0388 Layla Pham]]"
+  - "[[EMP-0380 Ximena Martinez]]"
+  - "[[EMP-0395 Hana Young]]"
+  - "[[EMP-0383 Ethan Okafor]]"
+  - "[[EMP-0384 Arjun Costa]]"
+  - "[[EMP-0386 Mason Nguyen]]"
+  - "[[EMP-0392 Rohan King]]"
 ---
 
 PM shift at [[Store 16 - Boston Seaport]] on 2026-06-10 (15:00-23:30).
@@ -27,10 +29,12 @@ PM shift at [[Store 16 - Boston Seaport]] on 2026-06-10 (15:00-23:30).
 
 ## Crew
 
-- [[EMP-0389 Oscar Abara]] (Line Cook)
-- [[EMP-0391 Rohan Torres]] (Dishwasher)
-- [[EMP-0377 Santiago Sanchez]] (Assistant Manager)
-- [[EMP-0383 Kayla Taylor]] (Line Cook)
-- [[EMP-0387 Ximena Williams]] (Server)
-- [[EMP-0392 Zayd Allen]] (Dishwasher)
-- [[EMP-0399 Omar Diallo]] (Prep Cook)
+- [[EMP-0381 Yuki Gonzalez]] (Server)
+- [[EMP-0387 Victor Hernandez]] (Server)
+- [[EMP-0388 Layla Pham]] (Bartender)
+- [[EMP-0380 Ximena Martinez]] (Shift Lead)
+- [[EMP-0395 Hana Young]] (Dishwasher)
+- [[EMP-0383 Ethan Okafor]] (Line Cook)
+- [[EMP-0384 Arjun Costa]] (Server)
+- [[EMP-0386 Mason Nguyen]] (Server)
+- [[EMP-0392 Rohan King]] (Server)

@@ -1,7 +1,7 @@
 ---
 type: consent_grant
-id: CNS-1664
-person: "[[EMP-0427 Aria Wilson]]"
+id: CNS-3365
+person: "[[EMP-0427 Oscar Okafor]]"
 scope: hr.employment
 purpose: store operations
 status: active
@@ -9,4 +9,4 @@ valid_to: open
 basis: consent
 ---
 
-[[EMP-0427 Aria Wilson]] — scope `hr.employment` · status `active` · valid_to `open`. The traversal predicate reads this grant.
+[[EMP-0427 Oscar Okafor]] — scope `hr.employment` · status `active` · valid_to `open`. The traversal predicate reads this grant.

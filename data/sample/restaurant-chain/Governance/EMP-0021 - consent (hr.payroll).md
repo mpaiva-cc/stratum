@@ -1,6 +1,6 @@
 ---
 type: consent_grant
-id: CNS-0080
+id: CNS-0160
 person: "[[EMP-0021 Valentina Young]]"
 scope: hr.payroll
 purpose: store operations

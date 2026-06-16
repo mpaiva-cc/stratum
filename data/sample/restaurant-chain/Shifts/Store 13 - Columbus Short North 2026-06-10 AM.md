@@ -7,19 +7,16 @@ date: 2026-06-10
 daypart: AM
 start: "07:00"
 end: "15:30"
-crew_size: 10
+crew_size: 7
 basis: authorization
 crew:
-  - "[[EMP-0318 Ethan Garcia]]"
-  - "[[EMP-0314 Wei Russo]]"
-  - "[[EMP-0317 Aiden Johnson]]"
-  - "[[EMP-0302 Tariq Smith]]"
-  - "[[EMP-0304 Grace Lewis]]"
-  - "[[EMP-0312 Imani Bianchi]]"
-  - "[[EMP-0319 Grace Walker]]"
-  - "[[EMP-0324 Quinn Costa]]"
-  - "[[EMP-0308 Victor Okafor]]"
-  - "[[EMP-0306 Rohan Ramirez]]"
+  - "[[EMP-0310 Gabriela Harris]]"
+  - "[[EMP-0309 Imani Wright]]"
+  - "[[EMP-0306 Tariq Wilson]]"
+  - "[[EMP-0301 Emily Park]]"
+  - "[[EMP-0313 Logan Smith]]"
+  - "[[EMP-0320 Ines Wilson]]"
+  - "[[EMP-0316 Ella Silva]]"
 ---
 
 AM shift at [[Store 13 - Columbus Short North]] on 2026-06-10 (07:00-15:30).
@@ -30,13 +27,10 @@ AM shift at [[Store 13 - Columbus Short North]] on 2026-06-10 (07:00-15:30).
 
 ## Crew
 
-- [[EMP-0318 Ethan Garcia]] (Line Cook)
-- [[EMP-0314 Wei Russo]] (Server)
-- [[EMP-0317 Aiden Johnson]] (Line Cook)
-- [[EMP-0302 Tariq Smith]] (Assistant Manager)
-- [[EMP-0304 Grace Lewis]] (Shift Lead)
-- [[EMP-0312 Imani Bianchi]] (Line Cook)
-- [[EMP-0319 Grace Walker]] (Server)
-- [[EMP-0324 Quinn Costa]] (Busser)
-- [[EMP-0308 Victor Okafor]] (Bartender)
-- [[EMP-0306 Rohan Ramirez]] (Line Cook)
+- [[EMP-0310 Gabriela Harris]] (Server)
+- [[EMP-0309 Imani Wright]] (Server)
+- [[EMP-0306 Tariq Wilson]] (Line Cook)
+- [[EMP-0301 Emily Park]] (General Manager)
+- [[EMP-0313 Logan Smith]] (Line Cook)
+- [[EMP-0320 Ines Wilson]] (Busser)
+- [[EMP-0316 Ella Silva]] (Server)

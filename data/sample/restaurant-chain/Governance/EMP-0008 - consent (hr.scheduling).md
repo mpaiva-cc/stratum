@@ -1,6 +1,6 @@
 ---
 type: consent_grant
-id: CNS-0029
+id: CNS-0056
 person: "[[EMP-0008 Evelyn Moore]]"
 scope: hr.scheduling
 purpose: store operations

@@ -5,11 +5,11 @@ name: Philadelphia Fishtown
 region: "[[Northeast Region]]"
 at_location: "[[Philadelphia Fishtown (PA-18)]]"
 part_of: "[[Northeast Region]]"
-opened: 2019-07-16
-seats: 90
+opened: 2024-05-02
+seats: 140
 headcount: 25
 basis: authorization
-general_manager: "[[EMP-0426 Uma Patel]]"
+general_manager: "[[EMP-0426 Hana Hernandez]]"
 ---
 
 Store in the [[Northeast Region]] · 25 staff.
@@ -28,28 +28,28 @@ Store in the [[Northeast Region]] · 25 staff.
 
 ## Roster (25)
 
-- [[EMP-0426 Uma Patel]] — General Manager
-- [[EMP-0427 Aria Wilson]] — Assistant Manager
-- [[EMP-0428 Isabella Gonzalez]] — Head Chef
-- [[EMP-0429 Abigail Singh]] — Shift Lead
-- [[EMP-0430 Uma Costa]] — Shift Lead
-- [[EMP-0431 Andres Shah]] — Server
-- [[EMP-0432 Fatima Santos]] — Bartender
-- [[EMP-0433 Ximena Santos]] — Line Cook
-- [[EMP-0434 Paloma Garcia]] — Server
-- [[EMP-0435 Aiden Santos]] — Line Cook
-- [[EMP-0436 Aria Wright]] — Server
-- [[EMP-0437 Zane Kim]] — Line Cook
-- [[EMP-0438 Anaya Moore]] — Line Cook
-- [[EMP-0439 Kayla Abara]] — Server
-- [[EMP-0440 Mason Jackson]] — Server
-- [[EMP-0441 Zane Ali]] — Server
-- [[EMP-0442 Mateo Torres]] — Line Cook
-- [[EMP-0443 Fatima Williams]] — Server
-- [[EMP-0444 Felix Anderson]] — Host
-- [[EMP-0445 Tariq Abara]] — Host
-- [[EMP-0446 Hana Clark]] — Dishwasher
-- [[EMP-0447 Santiago Ali]] — Host
-- [[EMP-0448 Carlos White]] — Dishwasher
-- [[EMP-0449 Anaya Santos]] — Busser
-- [[EMP-0450 Tariq Rodriguez]] — Dishwasher
+- [[EMP-0426 Hana Hernandez]] — General Manager
+- [[EMP-0427 Oscar Okafor]] — Assistant Manager
+- [[EMP-0428 Andres Lopez]] — Head Chef
+- [[EMP-0429 Santiago Williams]] — Shift Lead
+- [[EMP-0430 Oscar Martinez]] — Shift Lead
+- [[EMP-0431 Leo Romano]] — Bartender
+- [[EMP-0432 Rohan Harris]] — Server
+- [[EMP-0433 Jamal Taylor]] — Server
+- [[EMP-0434 Aria Santos]] — Line Cook
+- [[EMP-0435 Hassan Martinez]] — Server
+- [[EMP-0436 Omar Brown]] — Server
+- [[EMP-0437 Harper Gonzalez]] — Bartender
+- [[EMP-0438 Keira Abara]] — Line Cook
+- [[EMP-0439 Mateo Taylor]] — Server
+- [[EMP-0440 Victor Rodriguez]] — Server
+- [[EMP-0441 Destiny Kim]] — Line Cook
+- [[EMP-0442 Paloma King]] — Line Cook
+- [[EMP-0443 Noah Davis]] — Bartender
+- [[EMP-0444 Liam Taylor]] — Line Cook
+- [[EMP-0445 Santiago Harris]] — Line Cook
+- [[EMP-0446 Bella Williams]] — Dishwasher
+- [[EMP-0447 Henry Sanchez]] — Prep Cook
+- [[EMP-0448 Yuki Costa]] — Host
+- [[EMP-0449 Grace Wright]] — Prep Cook
+- [[EMP-0450 Amelia Okafor]] — Prep Cook

@@ -1,11 +1,11 @@
 ---
 type: employment_event
 id: EVT-0269
-person: "[[EMP-0269 Hassan Gonzalez]]"
+person: "[[EMP-0269 Jaden Abara]]"
 kind: hire
-date: 2023-11-19
+date: 2024-10-23
 store: "[[Store 11 - Chicago Loop]]"
 basis: consent
 ---
 
-[[EMP-0269 Hassan Gonzalez]] hired as Prep Cook at [[Store 11 - Chicago Loop]] on 2023-11-19.
+[[EMP-0269 Jaden Abara]] hired as Bartender at [[Store 11 - Chicago Loop]] on 2024-10-23.

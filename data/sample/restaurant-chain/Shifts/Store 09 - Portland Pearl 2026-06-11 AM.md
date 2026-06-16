@@ -7,16 +7,17 @@ date: 2026-06-11
 daypart: AM
 start: "07:00"
 end: "15:30"
-crew_size: 7
+crew_size: 8
 basis: authorization
 crew:
-  - "[[EMP-0221 Wei Williams]]"
-  - "[[EMP-0224 Gabriela Khan]]"
-  - "[[EMP-0209 Santiago Patel]]"
-  - "[[EMP-0204 Santiago Perez]]"
-  - "[[EMP-0225 Kayla Taylor]]"
-  - "[[EMP-0203 Ines Wilson]]"
-  - "[[EMP-0212 Kayla Singh]]"
+  - "[[EMP-0224 Caleb Sanchez]]"
+  - "[[EMP-0220 Sofia Mensah]]"
+  - "[[EMP-0208 Jamal Walker]]"
+  - "[[EMP-0217 Felix Johnson]]"
+  - "[[EMP-0223 Abigail Smith]]"
+  - "[[EMP-0209 Anaya Kim]]"
+  - "[[EMP-0225 Abigail Ahmed]]"
+  - "[[EMP-0219 Hana Wang]]"
 ---
 
 AM shift at [[Store 09 - Portland Pearl]] on 2026-06-11 (07:00-15:30).
@@ -27,10 +28,11 @@ AM shift at [[Store 09 - Portland Pearl]] on 2026-06-11 (07:00-15:30).
 
 ## Crew
 
-- [[EMP-0221 Wei Williams]] (Prep Cook)
-- [[EMP-0224 Gabriela Khan]] (Busser)
-- [[EMP-0209 Santiago Patel]] (Server)
-- [[EMP-0204 Santiago Perez]] (Shift Lead)
-- [[EMP-0225 Kayla Taylor]] (Host)
-- [[EMP-0203 Ines Wilson]] (Head Chef)
-- [[EMP-0212 Kayla Singh]] (Expo)
+- [[EMP-0224 Caleb Sanchez]] (Prep Cook)
+- [[EMP-0220 Sofia Mensah]] (Busser)
+- [[EMP-0208 Jamal Walker]] (Server)
+- [[EMP-0217 Felix Johnson]] (Line Cook)
+- [[EMP-0223 Abigail Smith]] (Busser)
+- [[EMP-0209 Anaya Kim]] (Line Cook)
+- [[EMP-0225 Abigail Ahmed]] (Prep Cook)
+- [[EMP-0219 Hana Wang]] (Busser)

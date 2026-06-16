@@ -7,19 +7,16 @@ date: 2026-06-13
 daypart: PM
 start: "15:00"
 end: "23:30"
-crew_size: 10
+crew_size: 7
 basis: authorization
 crew:
-  - "[[EMP-0443 Fatima Williams]]"
-  - "[[EMP-0441 Zane Ali]]"
-  - "[[EMP-0446 Hana Clark]]"
-  - "[[EMP-0429 Abigail Singh]]"
-  - "[[EMP-0433 Ximena Santos]]"
-  - "[[EMP-0440 Mason Jackson]]"
-  - "[[EMP-0427 Aria Wilson]]"
-  - "[[EMP-0432 Fatima Santos]]"
-  - "[[EMP-0445 Tariq Abara]]"
-  - "[[EMP-0435 Aiden Santos]]"
+  - "[[EMP-0449 Grace Wright]]"
+  - "[[EMP-0447 Henry Sanchez]]"
+  - "[[EMP-0437 Harper Gonzalez]]"
+  - "[[EMP-0434 Aria Santos]]"
+  - "[[EMP-0443 Noah Davis]]"
+  - "[[EMP-0436 Omar Brown]]"
+  - "[[EMP-0428 Andres Lopez]]"
 ---
 
 PM shift at [[Store 18 - Philadelphia Fishtown]] on 2026-06-13 (15:00-23:30).
@@ -30,13 +27,10 @@ PM shift at [[Store 18 - Philadelphia Fishtown]] on 2026-06-13 (15:00-23:30).
 
 ## Crew
 
-- [[EMP-0443 Fatima Williams]] (Server)
-- [[EMP-0441 Zane Ali]] (Server)
-- [[EMP-0446 Hana Clark]] (Dishwasher)
-- [[EMP-0429 Abigail Singh]] (Shift Lead)
-- [[EMP-0433 Ximena Santos]] (Line Cook)
-- [[EMP-0440 Mason Jackson]] (Server)
-- [[EMP-0427 Aria Wilson]] (Assistant Manager)
-- [[EMP-0432 Fatima Santos]] (Bartender)
-- [[EMP-0445 Tariq Abara]] (Host)
-- [[EMP-0435 Aiden Santos]] (Line Cook)
+- [[EMP-0449 Grace Wright]] (Prep Cook)
+- [[EMP-0447 Henry Sanchez]] (Prep Cook)
+- [[EMP-0437 Harper Gonzalez]] (Bartender)
+- [[EMP-0434 Aria Santos]] (Line Cook)
+- [[EMP-0443 Noah Davis]] (Bartender)
+- [[EMP-0436 Omar Brown]] (Server)
+- [[EMP-0428 Andres Lopez]] (Head Chef)

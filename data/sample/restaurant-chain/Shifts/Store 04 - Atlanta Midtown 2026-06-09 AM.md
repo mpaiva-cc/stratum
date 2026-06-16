@@ -7,18 +7,17 @@ date: 2026-06-09
 daypart: AM
 start: "07:00"
 end: "15:30"
-crew_size: 9
+crew_size: 8
 basis: authorization
 crew:
-  - "[[EMP-0086 Paloma Singh]]"
-  - "[[EMP-0096 Harper Torres]]"
-  - "[[EMP-0079 Diego Anderson]]"
-  - "[[EMP-0097 Jin Jackson]]"
-  - "[[EMP-0093 Caleb Lewis]]"
-  - "[[EMP-0080 Henry Clark]]"
-  - "[[EMP-0084 Hana Silva]]"
-  - "[[EMP-0095 Ethan Scott]]"
-  - "[[EMP-0076 Noah Wilson]]"
+  - "[[EMP-0092 Elijah Tran]]"
+  - "[[EMP-0095 Evelyn Ali]]"
+  - "[[EMP-0084 Zane Garcia]]"
+  - "[[EMP-0093 Sofia Diallo]]"
+  - "[[EMP-0087 Aria Ahmed]]"
+  - "[[EMP-0081 Yuki Scott]]"
+  - "[[EMP-0078 Kayla Lopez]]"
+  - "[[EMP-0079 Connor Moore]]"
 ---
 
 AM shift at [[Store 04 - Atlanta Midtown]] on 2026-06-09 (07:00-15:30).
@@ -29,12 +28,11 @@ AM shift at [[Store 04 - Atlanta Midtown]] on 2026-06-09 (07:00-15:30).
 
 ## Crew
 
-- [[EMP-0086 Paloma Singh]] (Line Cook)
-- [[EMP-0096 Harper Torres]] (Dishwasher)
-- [[EMP-0079 Diego Anderson]] (Shift Lead)
-- [[EMP-0097 Jin Jackson]] (Dishwasher)
-- [[EMP-0093 Caleb Lewis]] (Line Cook)
-- [[EMP-0080 Henry Clark]] (Shift Lead)
-- [[EMP-0084 Hana Silva]] (Line Cook)
-- [[EMP-0095 Ethan Scott]] (Server)
-- [[EMP-0076 Noah Wilson]] (General Manager)
+- [[EMP-0092 Elijah Tran]] (Bartender)
+- [[EMP-0095 Evelyn Ali]] (Prep Cook)
+- [[EMP-0084 Zane Garcia]] (Server)
+- [[EMP-0093 Sofia Diallo]] (Server)
+- [[EMP-0087 Aria Ahmed]] (Line Cook)
+- [[EMP-0081 Yuki Scott]] (Server)
+- [[EMP-0078 Kayla Lopez]] (Head Chef)
+- [[EMP-0079 Connor Moore]] (Shift Lead)

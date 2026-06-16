@@ -3,32 +3,24 @@ type: tip_pool
 id: TIP-0020
 store: "[[Store 20 - Pittsburgh Strip]]"
 period: Week of 2026-06-08
-amount: 2800
+amount: 1972
 basis: authorization
 distributes_to:
-  - "[[EMP-0482 Arjun Lewis]]"
-  - "[[EMP-0487 Tariq Scott]]"
-  - "[[EMP-0488 Victor Ahmed]]"
-  - "[[EMP-0489 Amelia Ahmed]]"
-  - "[[EMP-0490 Rosa Taylor]]"
-  - "[[EMP-0491 Bella Wang]]"
-  - "[[EMP-0492 Liam Santos]]"
-  - "[[EMP-0493 Bella Jackson]]"
-  - "[[EMP-0497 Evelyn Jones]]"
-  - "[[EMP-0498 Ethan Patel]]"
+  - "[[EMP-0481 Mason Davis]]"
+  - "[[EMP-0483 Abigail Perez]]"
+  - "[[EMP-0484 Min Anderson]]"
+  - "[[EMP-0486 Andres Torres]]"
+  - "[[EMP-0492 Mateo Bianchi]]"
+  - "[[EMP-0498 Omar Costa]]"
 ---
 
 Tip pool for [[Store 20 - Pittsburgh Strip]], week of 2026-06-08.
 
 ## Distributed to
 
-- [[EMP-0482 Arjun Lewis]]
-- [[EMP-0487 Tariq Scott]]
-- [[EMP-0488 Victor Ahmed]]
-- [[EMP-0489 Amelia Ahmed]]
-- [[EMP-0490 Rosa Taylor]]
-- [[EMP-0491 Bella Wang]]
-- [[EMP-0492 Liam Santos]]
-- [[EMP-0493 Bella Jackson]]
-- [[EMP-0497 Evelyn Jones]]
-- [[EMP-0498 Ethan Patel]]
+- [[EMP-0481 Mason Davis]]
+- [[EMP-0483 Abigail Perez]]
+- [[EMP-0484 Min Anderson]]
+- [[EMP-0486 Andres Torres]]
+- [[EMP-0492 Mateo Bianchi]]
+- [[EMP-0498 Omar Costa]]

@@ -7,16 +7,17 @@ date: 2026-06-08
 daypart: AM
 start: "07:00"
 end: "15:30"
-crew_size: 7
+crew_size: 8
 basis: authorization
 crew:
-  - "[[EMP-0386 Diego Smith]]"
-  - "[[EMP-0400 Jaden Rodriguez]]"
-  - "[[EMP-0382 Gabriela Santos]]"
-  - "[[EMP-0396 Mateo Kim]]"
-  - "[[EMP-0385 Henry Nguyen]]"
-  - "[[EMP-0393 Bella Abara]]"
-  - "[[EMP-0395 Carlos Jackson]]"
+  - "[[EMP-0393 Zane Gonzalez]]"
+  - "[[EMP-0379 Caleb Hernandez]]"
+  - "[[EMP-0385 Felix Wright]]"
+  - "[[EMP-0380 Ximena Martinez]]"
+  - "[[EMP-0386 Mason Nguyen]]"
+  - "[[EMP-0377 Carlos Park]]"
+  - "[[EMP-0392 Rohan King]]"
+  - "[[EMP-0389 Victor King]]"
 ---
 
 AM shift at [[Store 16 - Boston Seaport]] on 2026-06-08 (07:00-15:30).
@@ -27,10 +28,11 @@ AM shift at [[Store 16 - Boston Seaport]] on 2026-06-08 (07:00-15:30).
 
 ## Crew
 
-- [[EMP-0386 Diego Smith]] (Server)
-- [[EMP-0400 Jaden Rodriguez]] (Dishwasher)
-- [[EMP-0382 Gabriela Santos]] (Bartender)
-- [[EMP-0396 Mateo Kim]] (Host)
-- [[EMP-0385 Henry Nguyen]] (Line Cook)
-- [[EMP-0393 Bella Abara]] (Busser)
-- [[EMP-0395 Carlos Jackson]] (Busser)
+- [[EMP-0393 Zane Gonzalez]] (Line Cook)
+- [[EMP-0379 Caleb Hernandez]] (Shift Lead)
+- [[EMP-0385 Felix Wright]] (Expo)
+- [[EMP-0380 Ximena Martinez]] (Shift Lead)
+- [[EMP-0386 Mason Nguyen]] (Server)
+- [[EMP-0377 Carlos Park]] (Assistant Manager)
+- [[EMP-0392 Rohan King]] (Server)
+- [[EMP-0389 Victor King]] (Line Cook)

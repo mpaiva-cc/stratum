@@ -5,11 +5,11 @@ name: Columbus Short North
 region: "[[Midwest Region]]"
 at_location: "[[Columbus Short North (OH-13)]]"
 part_of: "[[Midwest Region]]"
-opened: 2021-01-01
-seats: 90
+opened: 2020-01-28
+seats: 140
 headcount: 25
 basis: authorization
-general_manager: "[[EMP-0301 Oscar Smith]]"
+general_manager: "[[EMP-0301 Emily Park]]"
 ---
 
 Store in the [[Midwest Region]] · 25 staff.
@@ -28,28 +28,28 @@ Store in the [[Midwest Region]] · 25 staff.
 
 ## Roster (25)
 
-- [[EMP-0301 Oscar Smith]] — General Manager
-- [[EMP-0302 Tariq Smith]] — Assistant Manager
-- [[EMP-0303 Daniela Jones]] — Head Chef
-- [[EMP-0304 Grace Lewis]] — Shift Lead
-- [[EMP-0305 Layla Mensah]] — Shift Lead
-- [[EMP-0306 Rohan Ramirez]] — Line Cook
-- [[EMP-0307 Abigail Silva]] — Line Cook
-- [[EMP-0308 Victor Okafor]] — Bartender
-- [[EMP-0309 Evelyn King]] — Server
-- [[EMP-0310 Mia Davis]] — Line Cook
-- [[EMP-0311 Harper Williams]] — Server
-- [[EMP-0312 Imani Bianchi]] — Line Cook
-- [[EMP-0313 Wei Nguyen]] — Bartender
-- [[EMP-0314 Wei Russo]] — Server
-- [[EMP-0315 Maria Rossi]] — Server
-- [[EMP-0316 Yuki Garcia]] — Server
-- [[EMP-0317 Aiden Johnson]] — Line Cook
-- [[EMP-0318 Ethan Garcia]] — Line Cook
-- [[EMP-0319 Grace Walker]] — Server
-- [[EMP-0320 Mason Johnson]] — Server
-- [[EMP-0321 Rohan Ali]] — Server
-- [[EMP-0322 Rosa King]] — Busser
-- [[EMP-0323 Daniela Clark]] — Host
-- [[EMP-0324 Quinn Costa]] — Busser
-- [[EMP-0325 Leo Harris]] — Busser
+- [[EMP-0301 Emily Park]] — General Manager
+- [[EMP-0302 Logan Park]] — Assistant Manager
+- [[EMP-0303 Liam Mensah]] — Head Chef
+- [[EMP-0304 Harper Russo]] — Shift Lead
+- [[EMP-0305 Logan Abara]] — Shift Lead
+- [[EMP-0306 Tariq Wilson]] — Line Cook
+- [[EMP-0307 Aria Davis]] — Server
+- [[EMP-0308 Leo Ramirez]] — Server
+- [[EMP-0309 Imani Wright]] — Server
+- [[EMP-0310 Gabriela Harris]] — Server
+- [[EMP-0311 Ella Allen]] — Server
+- [[EMP-0312 Ella Clark]] — Server
+- [[EMP-0313 Logan Smith]] — Line Cook
+- [[EMP-0314 Emily Nguyen]] — Line Cook
+- [[EMP-0315 Keira Brown]] — Line Cook
+- [[EMP-0316 Ella Silva]] — Server
+- [[EMP-0317 Leo Sanchez]] — Server
+- [[EMP-0318 Noah Patel]] — Prep Cook
+- [[EMP-0319 Hassan Nguyen]] — Busser
+- [[EMP-0320 Ines Wilson]] — Busser
+- [[EMP-0321 Destiny Costa]] — Dishwasher
+- [[EMP-0322 Uma Sanchez]] — Busser
+- [[EMP-0323 Imani Ramirez]] — Dishwasher
+- [[EMP-0324 Victor Santos]] — Busser
+- [[EMP-0325 Connor Bianchi]] — Busser

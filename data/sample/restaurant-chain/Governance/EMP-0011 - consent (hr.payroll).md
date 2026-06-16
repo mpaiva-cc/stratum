@@ -1,6 +1,6 @@
 ---
 type: consent_grant
-id: CNS-0042
+id: CNS-0080
 person: "[[EMP-0011 Samir Ramirez]]"
 scope: hr.payroll
 purpose: store operations

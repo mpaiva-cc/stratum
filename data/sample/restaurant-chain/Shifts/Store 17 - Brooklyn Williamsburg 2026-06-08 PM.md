@@ -7,17 +7,15 @@ date: 2026-06-08
 daypart: PM
 start: "15:00"
 end: "23:30"
-crew_size: 8
+crew_size: 6
 basis: authorization
 crew:
-  - "[[EMP-0403 Diego Torres]]"
-  - "[[EMP-0406 Elijah Harris]]"
-  - "[[EMP-0425 Fatima Shah]]"
-  - "[[EMP-0402 Emily King]]"
-  - "[[EMP-0424 Emily Le]]"
-  - "[[EMP-0418 Aaron Santos]]"
-  - "[[EMP-0409 Emily Sanchez]]"
-  - "[[EMP-0423 Rohan Singh]]"
+  - "[[EMP-0407 Tariq Bianchi]]"
+  - "[[EMP-0404 Rohan Park]]"
+  - "[[EMP-0423 Min Sanchez]]"
+  - "[[EMP-0401 Kayla Garcia]]"
+  - "[[EMP-0411 Valentina Le]]"
+  - "[[EMP-0425 Anaya Patel]]"
 ---
 
 PM shift at [[Store 17 - Brooklyn Williamsburg]] on 2026-06-08 (15:00-23:30).
@@ -28,11 +26,9 @@ PM shift at [[Store 17 - Brooklyn Williamsburg]] on 2026-06-08 (15:00-23:30).
 
 ## Crew
 
-- [[EMP-0403 Diego Torres]] (Head Chef)
-- [[EMP-0406 Elijah Harris]] (Line Cook)
-- [[EMP-0425 Fatima Shah]] (Busser)
-- [[EMP-0402 Emily King]] (Assistant Manager)
-- [[EMP-0424 Emily Le]] (Dishwasher)
-- [[EMP-0418 Aaron Santos]] (Line Cook)
-- [[EMP-0409 Emily Sanchez]] (Expo)
-- [[EMP-0423 Rohan Singh]] (Prep Cook)
+- [[EMP-0407 Tariq Bianchi]] (Server)
+- [[EMP-0404 Rohan Park]] (Shift Lead)
+- [[EMP-0423 Min Sanchez]] (Prep Cook)
+- [[EMP-0401 Kayla Garcia]] (General Manager)
+- [[EMP-0411 Valentina Le]] (Line Cook)
+- [[EMP-0425 Anaya Patel]] (Dishwasher)

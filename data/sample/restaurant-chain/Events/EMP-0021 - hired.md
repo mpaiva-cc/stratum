@@ -3,9 +3,9 @@ type: employment_event
 id: EVT-0021
 person: "[[EMP-0021 Valentina Young]]"
 kind: hire
-date: 2025-09-15
+date: 2026-01-05
 store: "[[Store 01 - Austin Domain]]"
 basis: consent
 ---
 
-[[EMP-0021 Valentina Young]] hired as Prep Cook at [[Store 01 - Austin Domain]] on 2025-09-15.
+[[EMP-0021 Valentina Young]] hired as Prep Cook at [[Store 01 - Austin Domain]] on 2026-01-05.

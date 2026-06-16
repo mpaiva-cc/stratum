@@ -7,16 +7,18 @@ date: 2026-06-14
 daypart: PM
 start: "15:00"
 end: "23:30"
-crew_size: 7
+crew_size: 9
 basis: authorization
 crew:
-  - "[[EMP-0096 Harper Torres]]"
-  - "[[EMP-0092 Abigail Johnson]]"
-  - "[[EMP-0078 Valentina Clark]]"
-  - "[[EMP-0098 Destiny Liu]]"
-  - "[[EMP-0079 Diego Anderson]]"
-  - "[[EMP-0082 Isabella King]]"
-  - "[[EMP-0093 Caleb Lewis]]"
+  - "[[EMP-0089 Rosa Garcia]]"
+  - "[[EMP-0080 Aaron Wright]]"
+  - "[[EMP-0096 Kayla Kim]]"
+  - "[[EMP-0083 Wei Lewis]]"
+  - "[[EMP-0079 Connor Moore]]"
+  - "[[EMP-0081 Yuki Scott]]"
+  - "[[EMP-0095 Evelyn Ali]]"
+  - "[[EMP-0078 Kayla Lopez]]"
+  - "[[EMP-0082 Destiny White]]"
 ---
 
 PM shift at [[Store 04 - Atlanta Midtown]] on 2026-06-14 (15:00-23:30).
@@ -27,10 +29,12 @@ PM shift at [[Store 04 - Atlanta Midtown]] on 2026-06-14 (15:00-23:30).
 
 ## Crew
 
-- [[EMP-0096 Harper Torres]] (Dishwasher)
-- [[EMP-0092 Abigail Johnson]] (Bartender)
-- [[EMP-0078 Valentina Clark]] (Head Chef)
-- [[EMP-0098 Destiny Liu]] (Dishwasher)
-- [[EMP-0079 Diego Anderson]] (Shift Lead)
-- [[EMP-0082 Isabella King]] (Line Cook)
-- [[EMP-0093 Caleb Lewis]] (Line Cook)
+- [[EMP-0089 Rosa Garcia]] (Line Cook)
+- [[EMP-0080 Aaron Wright]] (Shift Lead)
+- [[EMP-0096 Kayla Kim]] (Prep Cook)
+- [[EMP-0083 Wei Lewis]] (Server)
+- [[EMP-0079 Connor Moore]] (Shift Lead)
+- [[EMP-0081 Yuki Scott]] (Server)
+- [[EMP-0095 Evelyn Ali]] (Prep Cook)
+- [[EMP-0078 Kayla Lopez]] (Head Chef)
+- [[EMP-0082 Destiny White]] (Line Cook)

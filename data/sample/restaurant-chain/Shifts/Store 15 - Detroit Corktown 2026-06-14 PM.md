@@ -7,18 +7,15 @@ date: 2026-06-14
 daypart: PM
 start: "15:00"
 end: "23:30"
-crew_size: 9
+crew_size: 6
 basis: authorization
 crew:
-  - "[[EMP-0363 Abigail Okafor]]"
-  - "[[EMP-0355 Ella Thomas]]"
-  - "[[EMP-0358 Mason Davis]]"
-  - "[[EMP-0367 Anaya Allen]]"
-  - "[[EMP-0373 Wanda Wang]]"
-  - "[[EMP-0362 Yara King]]"
-  - "[[EMP-0366 Uma Kim]]"
-  - "[[EMP-0359 Camila Khan]]"
-  - "[[EMP-0365 Zayd Torres]]"
+  - "[[EMP-0353 Hassan Ahmed]]"
+  - "[[EMP-0373 Mateo Kim]]"
+  - "[[EMP-0356 Jamal Scott]]"
+  - "[[EMP-0351 Isabella Abara]]"
+  - "[[EMP-0362 Henry Nguyen]]"
+  - "[[EMP-0357 Min Romano]]"
 ---
 
 PM shift at [[Store 15 - Detroit Corktown]] on 2026-06-14 (15:00-23:30).
@@ -29,12 +26,9 @@ PM shift at [[Store 15 - Detroit Corktown]] on 2026-06-14 (15:00-23:30).
 
 ## Crew
 
-- [[EMP-0363 Abigail Okafor]] (Line Cook)
-- [[EMP-0355 Ella Thomas]] (Shift Lead)
-- [[EMP-0358 Mason Davis]] (Bartender)
-- [[EMP-0367 Anaya Allen]] (Server)
-- [[EMP-0373 Wanda Wang]] (Busser)
-- [[EMP-0362 Yara King]] (Server)
-- [[EMP-0366 Uma Kim]] (Line Cook)
-- [[EMP-0359 Camila Khan]] (Server)
-- [[EMP-0365 Zayd Torres]] (Bartender)
+- [[EMP-0353 Hassan Ahmed]] (Head Chef)
+- [[EMP-0373 Mateo Kim]] (Host)
+- [[EMP-0356 Jamal Scott]] (Line Cook)
+- [[EMP-0351 Isabella Abara]] (General Manager)
+- [[EMP-0362 Henry Nguyen]] (Server)
+- [[EMP-0357 Min Romano]] (Bartender)

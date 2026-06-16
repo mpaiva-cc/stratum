@@ -1,6 +1,6 @@
 ---
 type: consent_grant
-id: CNS-0016
+id: CNS-0027
 person: "[[EMP-0004 Jaden Abara]]"
 scope: hr.employment
 purpose: store operations

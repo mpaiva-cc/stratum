@@ -1,12 +1,12 @@
 ---
 type: consent_grant
-id: CNS-1010
-person: "[[EMP-0260 Jaden Silva]]"
+id: CNS-2045
+person: "[[EMP-0260 Gabriela Abara]]"
 scope: hr.scheduling
 purpose: store operations
-status: revoked
+status: active
 valid_to: open
 basis: consent
 ---
 
-[[EMP-0260 Jaden Silva]] — scope `hr.scheduling` · status `revoked` · valid_to `open`. The traversal predicate reads this grant.
+[[EMP-0260 Gabriela Abara]] — scope `hr.scheduling` · status `active` · valid_to `open`. The traversal predicate reads this grant.

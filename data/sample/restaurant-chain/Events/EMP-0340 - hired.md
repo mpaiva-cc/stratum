@@ -1,11 +1,11 @@
 ---
 type: employment_event
 id: EVT-0340
-person: "[[EMP-0340 Caleb Young]]"
+person: "[[EMP-0340 Liam Khan]]"
 kind: hire
-date: 2021-07-03
+date: 2025-10-17
 store: "[[Store 14 - Kansas City P&L]]"
 basis: consent
 ---
 
-[[EMP-0340 Caleb Young]] hired as Line Cook at [[Store 14 - Kansas City P&L]] on 2021-07-03.
+[[EMP-0340 Liam Khan]] hired as Bartender at [[Store 14 - Kansas City P&L]] on 2025-10-17.

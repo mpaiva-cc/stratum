@@ -7,17 +7,18 @@ date: 2026-06-08
 daypart: PM
 start: "15:00"
 end: "23:30"
-crew_size: 8
+crew_size: 9
 basis: authorization
 crew:
-  - "[[EMP-0458 Imani Patel]]"
-  - "[[EMP-0469 Wei Hernandez]]"
-  - "[[EMP-0470 Gabriela Russo]]"
-  - "[[EMP-0471 Daniela Thomas]]"
-  - "[[EMP-0467 Andres Perez]]"
-  - "[[EMP-0455 Jose Anderson]]"
-  - "[[EMP-0465 Wei Romano]]"
-  - "[[EMP-0453 Samir King]]"
+  - "[[EMP-0464 Destiny Ahmed]]"
+  - "[[EMP-0468 Caleb Martinez]]"
+  - "[[EMP-0457 Grace Khan]]"
+  - "[[EMP-0453 Gabriela Jones]]"
+  - "[[EMP-0466 Leo Davis]]"
+  - "[[EMP-0455 Brianna Davis]]"
+  - "[[EMP-0471 Uma Russo]]"
+  - "[[EMP-0460 Diego Lopez]]"
+  - "[[EMP-0461 Victor Lewis]]"
 ---
 
 PM shift at [[Store 19 - DC Navy Yard]] on 2026-06-08 (15:00-23:30).
@@ -28,11 +29,12 @@ PM shift at [[Store 19 - DC Navy Yard]] on 2026-06-08 (15:00-23:30).
 
 ## Crew
 
-- [[EMP-0458 Imani Patel]] (Line Cook)
-- [[EMP-0469 Wei Hernandez]] (Dishwasher)
-- [[EMP-0470 Gabriela Russo]] (Host)
-- [[EMP-0471 Daniela Thomas]] (Dishwasher)
-- [[EMP-0467 Andres Perez]] (Line Cook)
-- [[EMP-0455 Jose Anderson]] (Shift Lead)
-- [[EMP-0465 Wei Romano]] (Line Cook)
-- [[EMP-0453 Samir King]] (Head Chef)
+- [[EMP-0464 Destiny Ahmed]] (Server)
+- [[EMP-0468 Caleb Martinez]] (Server)
+- [[EMP-0457 Grace Khan]] (Server)
+- [[EMP-0453 Gabriela Jones]] (Head Chef)
+- [[EMP-0466 Leo Davis]] (Server)
+- [[EMP-0455 Brianna Davis]] (Shift Lead)
+- [[EMP-0471 Uma Russo]] (Server)
+- [[EMP-0460 Diego Lopez]] (Server)
+- [[EMP-0461 Victor Lewis]] (Line Cook)

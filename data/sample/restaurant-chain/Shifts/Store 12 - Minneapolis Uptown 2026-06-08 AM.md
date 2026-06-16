@@ -7,19 +7,18 @@ date: 2026-06-08
 daypart: AM
 start: "07:00"
 end: "15:30"
-crew_size: 10
+crew_size: 9
 basis: authorization
 crew:
-  - "[[EMP-0283 Jaden Taylor]]"
-  - "[[EMP-0294 Logan Davis]]"
-  - "[[EMP-0296 Abigail Wang]]"
-  - "[[EMP-0292 Maria Diallo]]"
-  - "[[EMP-0297 Samir Romano]]"
-  - "[[EMP-0284 Imani Silva]]"
-  - "[[EMP-0287 Samir Patel]]"
-  - "[[EMP-0300 Layla Shah]]"
-  - "[[EMP-0278 Aaron Pham]]"
-  - "[[EMP-0281 Caleb Mensah]]"
+  - "[[EMP-0298 Zane Rodriguez]]"
+  - "[[EMP-0300 Abigail Martinez]]"
+  - "[[EMP-0284 Gabriela Shah]]"
+  - "[[EMP-0299 Imani Miller]]"
+  - "[[EMP-0292 Grace Wright]]"
+  - "[[EMP-0293 Mason Johnson]]"
+  - "[[EMP-0295 Grace Silva]]"
+  - "[[EMP-0280 Lucas Wilson]]"
+  - "[[EMP-0289 Layla Wang]]"
 ---
 
 AM shift at [[Store 12 - Minneapolis Uptown]] on 2026-06-08 (07:00-15:30).
@@ -30,13 +29,12 @@ AM shift at [[Store 12 - Minneapolis Uptown]] on 2026-06-08 (07:00-15:30).
 
 ## Crew
 
-- [[EMP-0283 Jaden Taylor]] (Line Cook)
-- [[EMP-0294 Logan Davis]] (Server)
-- [[EMP-0296 Abigail Wang]] (Prep Cook)
-- [[EMP-0292 Maria Diallo]] (Line Cook)
-- [[EMP-0297 Samir Romano]] (Dishwasher)
-- [[EMP-0284 Imani Silva]] (Bartender)
-- [[EMP-0287 Samir Patel]] (Expo)
-- [[EMP-0300 Layla Shah]] (Prep Cook)
-- [[EMP-0278 Aaron Pham]] (Head Chef)
-- [[EMP-0281 Caleb Mensah]] (Server)
+- [[EMP-0298 Zane Rodriguez]] (Host)
+- [[EMP-0300 Abigail Martinez]] (Busser)
+- [[EMP-0284 Gabriela Shah]] (Line Cook)
+- [[EMP-0299 Imani Miller]] (Prep Cook)
+- [[EMP-0292 Grace Wright]] (Dishwasher)
+- [[EMP-0293 Mason Johnson]] (Prep Cook)
+- [[EMP-0295 Grace Silva]] (Host)
+- [[EMP-0280 Lucas Wilson]] (Shift Lead)
+- [[EMP-0289 Layla Wang]] (Line Cook)

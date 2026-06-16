@@ -2,32 +2,35 @@
 type: person
 id: EMP-0008
 name: Evelyn Moore
-status: leave_of_absence
-status_reason: leave_of_absence
-status_effective_date: 2025-04-26
+status: active
+status_reason: active
+status_effective_date: 2026-04-15
 rehire_eligible: false
 employment_type: part_time
-hire_date: 2025-04-26
+hire_date: 2021-10-25
 email: "evelyn.moore.emp-0008@forkandflame.example"
 works_at: "[[Store 01 - Austin Domain]]"
 in_department: "[[Kitchen (Department)]]"
 position: "[[Line Cook]]"
-pay_rate: 22.48
+pay_rate: 18.21
 pay_unit: hour
 reports_to: "[[EMP-0004 Jaden Abara]]"
 certifications:
   - "[[Food Handler]]"
   - "[[Allergen Awareness]]"
 skills:
-  - "[[Knife Skills]]"
-  - "[[Saute Station]]"
   - "[[Grill Station]]"
+  - "[[Saute Station]]"
+  - "[[Inventory & Ordering]]"
+benefits:
+  - Shift Meal
+work_authorization: citizen
 basis: consent
 ---
 
-**Line Cook** at [[Store 01 - Austin Domain]] · Kitchen · since 2025-04-26.
+**Line Cook** at [[Store 01 - Austin Domain]] · Kitchen · since 2021-10-25.
 
-Status: **leave_of_absence** (leave_of_absence) as of 2025-04-26
+Status: **active** (active) as of 2026-04-15
 Rehire eligible: no
 
 ## Works at
@@ -36,7 +39,7 @@ Rehire eligible: no
 
 ## Position
 
-- [[Line Cook]] — paid 22.48/hour
+- [[Line Cook]] — paid 18.21/hour
 
 ## Reports to
 
@@ -49,10 +52,18 @@ Rehire eligible: no
 
 ## Skills
 
-- [[Knife Skills]]
-- [[Saute Station]]
 - [[Grill Station]]
+- [[Saute Station]]
+- [[Inventory & Ordering]]
+
+## Benefits
+
+- Shift Meal
+
+## Work authorization
+
+- citizen
 
 ## Lifecycle
 
-- [[EMP-0008 - hired]] on 2025-04-26
+- [[EMP-0008 - hired]] on 2021-10-25

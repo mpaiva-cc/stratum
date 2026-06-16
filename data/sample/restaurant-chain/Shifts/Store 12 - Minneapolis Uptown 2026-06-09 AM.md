@@ -7,15 +7,16 @@ date: 2026-06-09
 daypart: AM
 start: "07:00"
 end: "15:30"
-crew_size: 6
+crew_size: 7
 basis: authorization
 crew:
-  - "[[EMP-0285 Diego Sanchez]]"
-  - "[[EMP-0281 Caleb Mensah]]"
-  - "[[EMP-0296 Abigail Wang]]"
-  - "[[EMP-0289 Yuki Walker]]"
-  - "[[EMP-0294 Logan Davis]]"
-  - "[[EMP-0282 Sofia Mensah]]"
+  - "[[EMP-0280 Lucas Wilson]]"
+  - "[[EMP-0286 Aaron Thomas]]"
+  - "[[EMP-0283 Santiago Jackson]]"
+  - "[[EMP-0278 Bella Jones]]"
+  - "[[EMP-0296 Jamal Torres]]"
+  - "[[EMP-0279 Uma Garcia]]"
+  - "[[EMP-0289 Layla Wang]]"
 ---
 
 AM shift at [[Store 12 - Minneapolis Uptown]] on 2026-06-09 (07:00-15:30).
@@ -26,9 +27,10 @@ AM shift at [[Store 12 - Minneapolis Uptown]] on 2026-06-09 (07:00-15:30).
 
 ## Crew
 
-- [[EMP-0285 Diego Sanchez]] (Line Cook)
-- [[EMP-0281 Caleb Mensah]] (Server)
-- [[EMP-0296 Abigail Wang]] (Prep Cook)
-- [[EMP-0289 Yuki Walker]] (Line Cook)
-- [[EMP-0294 Logan Davis]] (Server)
-- [[EMP-0282 Sofia Mensah]] (Server)
+- [[EMP-0280 Lucas Wilson]] (Shift Lead)
+- [[EMP-0286 Aaron Thomas]] (Server)
+- [[EMP-0283 Santiago Jackson]] (Bartender)
+- [[EMP-0278 Bella Jones]] (Head Chef)
+- [[EMP-0296 Jamal Torres]] (Host)
+- [[EMP-0279 Uma Garcia]] (Shift Lead)
+- [[EMP-0289 Layla Wang]] (Line Cook)
