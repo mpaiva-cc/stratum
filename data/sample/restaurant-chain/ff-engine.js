@@ -47,20 +47,49 @@
     return row;
   }
 
+  function neighbors(db, title, hop) {
+    var map = hop.direction === 'in' ? db.rev[hop.on] : db.fwd[hop.on];
+    var titles = (map && map[title]) || [];
+    return titles
+      .map(function (t) { return db.nodesByTitle[t]; })
+      .filter(Boolean)
+      .filter(function (n) { return !hop.to || n.type === hop.to; })
+      .filter(function (n) {
+        return (hop.filters || []).every(function (f) { return matchFilter(n, f); });
+      });
+  }
+
   function runSpec(spec, db, purpose) {
     var trace = [], citations = {};
     var nodes = (db.nodesByType[spec.from] || []).slice();
     (spec.filters || []).forEach(function (f) {
       nodes = nodes.filter(function (n) { return matchFilter(n, f); });
     });
-    nodes.forEach(function (n) { citations[n.title] = n.type; });
-    var rows = nodes.map(function (n) { return project(n, spec.select); });
+    var hops = spec.traverse || [];
+    var enriched = nodes.map(function (n) {
+      var ctx = { node: n, hops: {} };
+      hops.forEach(function (hop) {
+        ctx.hops[hop.as || hop.to] = neighbors(db, n.title, hop).map(function (m) {
+          citations[m.title] = m.type; return m.title;
+        });
+      });
+      return ctx;
+    });
+    (spec.require || []).forEach(function (asName) {
+      enriched = enriched.filter(function (c) { return (c.hops[asName] || []).length > 0; });
+    });
+    enriched.forEach(function (c) { citations[c.node.title] = c.node.type; });
+    var rows = enriched.map(function (c) {
+      var row = project(c.node, spec.select);
+      Object.keys(c.hops).forEach(function (k) { row[k] = c.hops[k]; });
+      return row;
+    });
     return { rows: rows, trace: trace,
              citations: Object.keys(citations).map(function (t) {
                return { title: t, type: citations[t] }; }) };
   }
 
-  var api = { buildDb: buildDb, runSpec: runSpec, matchFilter: matchFilter };
+  var api = { buildDb: buildDb, runSpec: runSpec, matchFilter: matchFilter, neighbors: neighbors };
   if (typeof module !== 'undefined' && module.exports) module.exports = api;
   else global.FFEngine = api;
 })(typeof window !== 'undefined' ? window : globalThis);

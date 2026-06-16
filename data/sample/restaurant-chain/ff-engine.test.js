@@ -44,3 +44,24 @@ test('filter op "contains" works on list props (skills)', () => {
   }, db, 'scheduling');
   assert.ok(res.rows.length > 0);
 });
+
+test('traverse out: person -> store name via works_at', () => {
+  const res = FF.runSpec({
+    from: 'person',
+    filters: [{ field: 'position', op: 'eq', value: 'General Manager' }],
+    traverse: [{ to: 'store', on: 'works_at', direction: 'out', as: 'store' }],
+    select: ['title']
+  }, db, 'scheduling');
+  assert.ok(res.rows.length >= 1);
+  assert.ok(res.rows.every(r => r.store && r.store.length));
+});
+
+test('traverse in: person <- time_off_request via person edge', () => {
+  const withTOR = FF.runSpec({
+    from: 'person',
+    traverse: [{ to: 'time_off_request', on: 'person', direction: 'in', as: 'timeoff' }],
+    select: ['title'],
+    require: ['timeoff']
+  }, db, 'scheduling');
+  assert.ok(withTOR.rows.length >= 1, 'someone has a time-off request');
+});
