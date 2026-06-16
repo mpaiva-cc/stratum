@@ -997,18 +997,33 @@ def build_grant_index():
         })
     return idx
 
+# Single source of truth for purpose categories (id, label, consent scope). 1:1 today.
+PURPOSES = [
+    ("scheduling", "scheduling", "hr.scheduling"),
+    ("payroll", "payroll", "hr.payroll"),
+    ("compliance", "compliance", "hr.certifications"),
+    ("employment", "employment", "hr.employment"),
+    ("performance", "performance", "hr.performance"),
+    ("learning", "learning", "hr.learning"),
+    ("benefits", "benefits", "hr.benefits"),
+    ("work_authorization", "work authorization", "hr.work_auth"),
+    ("recruiting", "recruiting", "hr.recruiting"),
+]
+
 def emit_fixture():
     meta = {
         "generated": d(today),
-        "purposes": {"scheduling": "hr.scheduling", "payroll": "hr.payroll",
-                     "compliance": "hr.certifications", "employment": "hr.employment"},
-        "gatedProps": {"pay_rate": "hr.payroll", "pay_unit": "hr.payroll"},
+        "purposeCatalog": [{"id": pid, "label": lbl, "scope": sc} for pid, lbl, sc in PURPOSES],
+        "purposes": {pid: sc for pid, lbl, sc in PURPOSES},
+        "gatedProps": {"pay_rate": "hr.payroll", "pay_unit": "hr.payroll",
+                       "benefits": "hr.benefits", "work_authorization": "hr.work_auth"},
         "gatedTargets": {"time_off_request": "hr.scheduling",
                          "certification": "hr.certifications",
-                         "training_record": "hr.certifications",
-                         "performance_review": "hr.employment",
+                         "training_record": "hr.learning",
+                         "performance_review": "hr.performance",
                          "employment_event": "hr.employment"},
         "gatedEdges": {"distributes_to": "hr.payroll"},
+        "gatedTypes": {"candidate": "hr.recruiting"},
     }
     graph = {"meta": meta, "nodes": NODES, "edges": EDGES, "grants": build_grant_index()}
     payload = json.dumps(graph, ensure_ascii=False, separators=(",", ":"))
