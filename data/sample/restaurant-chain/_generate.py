@@ -327,7 +327,7 @@ emitted = {"schema": 0, "stores": 0, "people": 0, "shifts": 0, "other": 0}
 # ff-engine.test.js, CLAUDE.md). The graph fixture is generated, so it is NOT
 # preserved here — it gets rebuilt every run.
 KEEP = {os.path.basename(__file__), "index.html", "app.js", "ff-engine.js",
-        "ff-engine.test.js", "CLAUDE.md"}
+        "ff-engine.test.js", "ff-starters.test.js", "CLAUDE.md"}
 for name in os.listdir(VAULT):
     if name in KEEP:
         continue
