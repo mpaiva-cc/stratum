@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Fork &amp; Flame — System of Understanding</title>
+  <style>
+    :root { --ink:#1a1a1a; --paper:#faf8f3; --ochre:#b8860b; --moss:#4a5d3a;
+            --plum:#6b4e71; --line:#e0dccf; }
+    body { font:16px/1.55 -apple-system,Segoe UI,Roboto,sans-serif; color:var(--ink);
+           background:var(--paper); max-width:760px; margin:2rem auto; padding:0 1rem; }
+    h1 { font-weight:700; } .muted { color:#777; }
+    select,input,button { font:inherit; padding:.5rem .6rem; border:1px solid var(--line); border-radius:6px; }
+    #q { width:100%; box-sizing:border-box; }
+    button { background:var(--ink); color:var(--paper); cursor:pointer; border:none; }
+    .panel { border:1px solid var(--line); border-radius:8px; padding:1rem; margin:1rem 0; background:#fff; }
+    .trace { border-left:3px solid var(--plum); background:#f7f3f8; }
+    .spec { font:13px/1.4 ui-monospace,Menlo,monospace; white-space:pre-wrap; background:#f4f2ec; padding:.75rem; border-radius:6px; }
+    .badge { font-size:12px; padding:1px 7px; border-radius:10px; background:#eee; }
+    .redacted { color:var(--plum); font-style:italic; }
+    table { border-collapse:collapse; width:100%; } td,th { border-bottom:1px solid var(--line); padding:.35rem .5rem; text-align:left; }
+  </style>
+</head>
+<body>
+  <h1>Fork &amp; Flame · System of Understanding</h1>
+  <p class="muted">Ask the contextual map a question. Governance is enforced — answers
+     that a purpose can't satisfy are refused, in code.</p>
+
+  <div class="panel">
+    <label>Purpose
+      <select id="purpose">
+        <option value="scheduling">scheduling</option>
+        <option value="payroll">payroll</option>
+        <option value="compliance">compliance</option>
+        <option value="employment">employment</option>
+      </select>
+    </label>
+    <p><input id="q" placeholder="e.g. average pay by department"></p>
+    <p>
+      <input id="key" type="password" placeholder="Anthropic API key (kept in this browser only)" size="40">
+      <button id="ask">Ask</button>
+    </p>
+    <p class="muted" id="status"></p>
+  </div>
+
+  <div id="answer"></div>
+
+  <script src="forkandflame.graph.js"></script>
+  <script src="ff-engine.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
