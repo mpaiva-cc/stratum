@@ -101,13 +101,13 @@ def note(folder, title, frontmatter, body):
 VAULT = ROOT  # the vault IS this folder
 
 # ---------------------------------------------------------------------------
-# 1. ENTITY CATALOG — the full HCM universe (schema notes)
+# 4. ENTITY CATALOG — the full HCM universe (schema notes)
 # ---------------------------------------------------------------------------
 # Each entry: (type, group, basis, one-line, [properties], [edges as (verb,target)])
 ENTITY_CATALOG = [
     # People & identity
     ("person", "People & identity", "consent", "A worker — the data subject at the center of HCM.",
-     ["id", "name", "status", "employment_type", "hire_date", "email"],
+     ["id", "name", "status", "status_reason", "status_effective_date", "rehire_eligible", "employment_type", "hire_date", "email"],
      [("located_at", "location"), ("works_at", "store"), ("in_department", "department"),
       ("holds", "role"), ("reports_to", "person"), ("certified_in", "certification"),
       ("skilled_in", "skill"), ("assigned_to", "shift"), ("paid_at", "pay_rate")]),
@@ -217,6 +217,20 @@ def emit_schema():
         body += "## Relationships (edges)\n\n"
         for verb, target in edges:
             body += f"- `{verb}` → {link('type-' + target)}\n"
+
+        # Special section for person type: canonical statuses
+        if typ == "person":
+            body += "\n## Canonical Statuses\n\n"
+            body += "The `status` field carries one of ten canonical employment lifecycle states (HRIS superset + beyond):\n\n"
+            body += "| Status | Meaning | Rehire Eligible? |\n"
+            body += "|--------|---------|------------------|\n"
+            for status, desc in CANONICAL_STATUSES.items():
+                body += f"| `{status}` | {desc} | Conditional |\n"
+            body += "\n**Supporting fields:**\n"
+            body += "- `status_reason` — granular reason code for the status (e.g., `parental`, `performance`, `age_based`)\n"
+            body += "- `status_effective_date` — when the status became current (bitemporal support)\n"
+            body += "- `rehire_eligible` — boolean flag indicating rehire eligibility (conditional for `terminated`, `retired`)\n"
+
         body += "\n## Governance\n\n"
         body += {
             "consent": "Edges from this type are gated by **consent** — the data subject grants scope. The traversal predicate refuses paths a purpose token cannot satisfy.",
@@ -227,7 +241,91 @@ def emit_schema():
         note("_schema", "type-" + typ, fm, body)
 
 # ---------------------------------------------------------------------------
-# 2. data pools
+# 2. canonical status model (HRIS superset + beyond)
+# ---------------------------------------------------------------------------
+# Status ontology for the system of understanding:
+#   active          — currently employed, actively working
+#   on_leave        — temporary absence (maternity, medical, sabbatical, unpaid)
+#   inactive        — not currently working but employed (reduced hours, between roles)
+#   suspended       — disciplinary hold, investigation, legal hold
+#   terminated      — employment ended involuntarily (reduction, performance, conduct)
+#   retired         — employment ended voluntarily after career (eligible for rehire: false)
+#   deceased        — data subject deceased (governance implications)
+#   leave_of_absence— long-term, structured leave with anticipated return date
+#   contract_ending — fixed-term contract in final 30-60 days
+#   rehire_eligible — terminated but eligible for rehire (with reason tracking)
+#
+# Distribution (realistic restaurant-chain snapshot):
+#   80% active
+#   7%  on_leave (PTO, medical, sabbatical)
+#   3%  inactive (reduced schedule, between roles)
+#   2%  leave_of_absence (maternity/LOA)
+#   4%  terminated (recent departures)
+#   2%  retired (career-long tenured staff)
+#   1%  suspended (disciplinary)
+#   1%  rehire_eligible (terminated but could return)
+#   <1% deceased, contract_ending (rare)
+
+CANONICAL_STATUSES = {
+    "active": "Currently employed and actively working",
+    "on_leave": "Temporary absence (PTO, medical, sabbatical, unpaid)",
+    "inactive": "Employed but not actively working (reduced hours, between roles)",
+    "leave_of_absence": "Long-term structured leave with anticipated return",
+    "suspended": "Disciplinary hold, investigation, or legal hold",
+    "terminated": "Employment ended involuntarily",
+    "retired": "Employment ended voluntarily after career",
+    "deceased": "Data subject deceased",
+    "contract_ending": "Fixed-term contract in final 30-60 days",
+    "rehire_eligible": "Terminated but eligible for rehire",
+}
+
+def assign_status(hire_date, today):
+    """
+    Assign canonical status based on tenure and probabilistic distribution.
+    Ensures realistic lifecycle: early tenure -> active, long tenure -> some retire,
+    recent -> some terminate.
+    """
+    tenure_days = (today - hire_date).days
+    tenure_years = tenure_days / 365.25
+    r = random.random()
+
+    # Long tenure (5+ yrs): retirement eligibility increases
+    if tenure_years >= 5 and r < 0.05:
+        return "retired"
+    # Early tenure (< 1 year): low termination, mostly active
+    if tenure_years < 1 and r < 0.85:
+        return "active"
+
+    # General distribution
+    if r < 0.80:
+        return "active"
+    elif r < 0.87:
+        return "on_leave"
+    elif r < 0.90:
+        return "inactive"
+    elif r < 0.92:
+        return "leave_of_absence"
+    elif r < 0.96:
+        return "terminated"
+    elif r < 0.98:
+        return "retired"
+    elif r < 0.99:
+        return "suspended"
+    else:
+        return "rehire_eligible"
+
+STATUS_REASONS = {
+    "on_leave": ["pto", "medical", "sabbatical", "unpaid", "parental"],
+    "inactive": ["reduced_schedule", "between_roles", "light_duty"],
+    "suspended": ["investigation", "disciplinary", "legal_hold"],
+    "terminated": ["reduction", "performance", "conduct", "resignation_accepted", "voluntary"],
+    "retired": ["career_end", "age_based", "voluntary"],
+    "rehire_eligible": ["terminated_eligible", "previous_good_standing"],
+    "contract_ending": ["contract_expiry"],
+}
+
+# ---------------------------------------------------------------------------
+# 3. data pools
 # ---------------------------------------------------------------------------
 FIRST = ("Maria Jose Liam Noah Ava Sofia Mia Aiden Ethan Lucas Mason Amelia Harper "
          "Evelyn Abigail Emily Ella Camila Aria Diego Mateo Santiago Valentina Isabella "
@@ -310,7 +408,7 @@ BENEFITS = [
 ]
 
 # ---------------------------------------------------------------------------
-# 3. generate
+# 5. generate
 # ---------------------------------------------------------------------------
 counters = {}
 def nid(prefix):
@@ -540,7 +638,14 @@ for si, store_title in enumerate(store_titles):
             rate = round(random.uniform(low, high), 2)
         # tenure
         hire = today - datetime.timedelta(days=random.randint(20, 365 * 5))
-        status = "active" if random.random() > 0.06 else "on_leave"
+        status = assign_status(hire, today)
+        status_reason = random.choice(STATUS_REASONS.get(status, [status]))
+        # status became effective 0-90 days ago (for active/on_leave), or on hire for others
+        if status in ("active", "on_leave"):
+            status_eff = today - datetime.timedelta(days=random.randint(0, 90))
+        else:
+            status_eff = hire
+        rehire = status in ("terminated", "retired") and random.random() > 0.4
         mgr = manager_for(position)
         certs = CERT_FOR_POS.get(position, [])
         skills = random.sample(SKILL_FOR_DEPT.get(dept, ["POS Proficiency"]),
@@ -548,8 +653,10 @@ for si, store_title in enumerate(store_titles):
         et = "full_time" if position in ("General Manager", "Assistant Manager", "Head Chef") or random.random() > 0.45 else "part_time"
         fm = {
             "type": "person", "id": eid, "name": name, "status": status,
+            "status_reason": status_reason, "status_effective_date": d(status_eff),
+            "rehire_eligible": "true" if rehire else "false",
             "employment_type": et, "hire_date": d(hire),
-            "email": f"{name.lower().replace(' ', '.')}@forkandflame.example",
+            "email": f"{name.lower().replace(' ', '.')}.{eid.lower()}@forkandflame.example",
             "works_at": link(store_title),
             "in_department": link(dept_titles[dept]),
             "position": link(position),
@@ -560,6 +667,8 @@ for si, store_title in enumerate(store_titles):
             "basis": "consent",
         }
         body = (f"**{position}** at {link(store_title)} · {dept} · since {d(hire)}.\n\n"
+                f"Status: **{status}** ({status_reason}) as of {d(status_eff)}\n"
+                f"Rehire eligible: {('yes' if rehire else 'no')}\n\n"
                 f"## Works at\n\n- {link(store_title)} ({link(dept_titles[dept])})\n\n"
                 f"## Position\n\n- {link(position)} — paid {rate}/{unit}\n\n")
         if mgr:
@@ -747,7 +856,7 @@ for ptitle, store_title, position, dept, eid, name, hire in all_people:
              f"The traversal predicate reads this grant.")
 
 # ---------------------------------------------------------------------------
-# 4. schema notes, index, readme, obsidian config
+# 6. schema notes, index, readme, obsidian config
 # ---------------------------------------------------------------------------
 emit_schema()
 emitted["schema"] = len(ENTITY_CATALOG)
@@ -851,7 +960,7 @@ with open(os.path.join(VAULT, ".obsidian", "core-plugins.json"), "w") as f:
     f.write('["graph", "backlink", "outgoing-link", "properties-view", "page-preview", "file-explorer", "search"]\n')
 
 # ---------------------------------------------------------------------------
-# 5. report
+# 7. report
 # ---------------------------------------------------------------------------
 def count_md():
     n = 0
@@ -869,7 +978,7 @@ print(f"  shifts:                {emitted['shifts']}")
 print(f"  total .md notes:       {count_md()}")
 
 # ---------------------------------------------------------------------------
-# 6. fixture — the served graph the "system of understanding" reads
+# 8. fixture — the served graph the "system of understanding" reads
 # ---------------------------------------------------------------------------
 
 # NODES/EDGES are append-only; emit_fixture() is expected to run once per process.
