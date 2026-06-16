@@ -84,7 +84,27 @@
     if (narrative) html += '<div class="panel"><p>' + esc(narrative) + '</p></div>';
     html += '<div class="panel">';
     var shown = result.rows.slice(0, 50);
-    var cols = shown.length ? Object.keys(shown[0]) : [];
+    // Column set = union of keys, dropping columns that are empty for EVERY row
+    // (e.g. dotted neighbour fields the engine can't project). null = redacted, kept.
+    var keep = function (v) {
+      return !(v === undefined || v === '' || (Array.isArray(v) && v.length === 0));
+    };
+    var seenCols = {}, cols = [];
+    shown.forEach(function (r) { Object.keys(r).forEach(function (k) {
+      if (!(k in seenCols)) { seenCols[k] = true; cols.push(k); } }); });
+    cols = cols.filter(function (c) { return shown.some(function (r) { return keep(r[c]); }); });
+    var cell = function (v) {
+      if (v === null) return '<td class="redacted">redacted</td>';
+      if (v === undefined || v === '') return '<td>—</td>';
+      if (Array.isArray(v)) {
+        if (!v.length) return '<td>—</td>';
+        return '<td><ul class="cells">' + v.slice(0, 12).map(function (x) {
+          return '<li>' + personLink(x) + '</li>'; }).join('')
+          + (v.length > 12 ? '<li class="muted">+' + (v.length - 12) + ' more</li>' : '')
+          + '</ul></td>';
+      }
+      return '<td>' + personLink(v) + '</td>';
+    };
     html += '<table><caption>Result — ' + result.rows.length + ' row' +
             (result.rows.length === 1 ? '' : 's') +
             (result.rows.length > 50 ? ' (showing first 50)' : '') + '</caption>';
@@ -94,16 +114,7 @@
     }
     html += '<tbody>';
     shown.forEach(function (r) {
-      html += '<tr>' + Object.keys(r).map(function (k) {
-        var v = r[k];
-        if (v === null) return '<td class="redacted">redacted</td>';
-        if (Array.isArray(v)) {
-          if (!v.length) return '<td>—</td>';
-          return '<td>' + v.slice(0, 8).map(personLink).join(', ')
-            + (v.length > 8 ? ' +' + (v.length - 8) + ' more' : '') + '</td>';
-        }
-        return '<td>' + personLink(v) + '</td>';
-      }).join('') + '</tr>';
+      html += '<tr>' + cols.map(function (c) { return cell(r[c]); }).join('') + '</tr>';
     });
     html += '</tbody></table></div>';
     if (result.trace.length) {
@@ -180,7 +191,12 @@
         + (vp.reports_to || '') + '". So "my team" / "my store" = {from:"person", filters:['
         + '{field:"works_at", op:"eq", value:"' + (vp.works_at || '') + '"}]}; "my department" '
         + 'filters in_department="' + (vp.in_department || '') + '"; "my manager / who do I report '
-        + 'to" = reports_to ("' + (vp.reports_to || '') + '").';
+        + 'to" = reports_to ("' + (vp.reports_to || '') + '"). '
+        + 'For SCHEDULE questions ("which days/shifts do I work", "my schedule", "am I working '
+        + 'Friday"): anchor from:"shift" so each shift is its OWN row — '
+        + '{from:"shift", filters:[{field:"crew", op:"contains", value:"' + vt + '"}], '
+        + 'select:["date","daypart","start","end","store"]}. (The sampled week is '
+        + '2026-06-08 to 2026-06-14.)';
     } else {
       viewer = 'You are an org-wide viewer (role ' + (role ? role.label : 'none')
         + '); there is no single "me".';
@@ -190,6 +206,10 @@
       viewer,
       'Node types: ' + Object.keys(db.nodesByType).join(', ') + '.',
       'Edge directory (fromType -> {verb: toType}): ' + JSON.stringify(edgeDirectory(db)) + '.',
+      'SELECT only lists fields of the FROM node type. A traverse hop returns the related',
+      'nodes’ titles under its "as" name — you CANNOT select sub-fields of a neighbour',
+      '(no dotted names like "shifts.date"). To show a record’s own fields as columns,',
+      'anchor FROM that record type instead of traversing to it.',
       'Person props you may filter/select: title, name, status, employment_type,',
       'hire_date, position, works_at, in_department, reports_to, skills, pay_rate, pay_unit.',
       'reports_to / works_at / in_department / position are DIRECTORY fields on the person’s',
