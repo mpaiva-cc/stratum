@@ -225,34 +225,53 @@ test('roleAllowsScope: null role allows all; empty scopes allows none', () => {
   assert.strictEqual(FF.roleAllowsScope({ scopes: ['hr.scheduling'] }, 'hr.payroll'), false);
 });
 
-test('ROLE population: manager sees only their subtree as person anchors', () => {
-  const sub = FF.computePopulation(FR.ROLES.manager, db);
-  const r = FF.runSpec({ from: 'person', select: ['title'] }, db, 'employment', FR.ROLES.manager);
-  assert.strictEqual(r.rows.length, sub.set.size, 'rows == subtree size');
-  assert.ok(r.trace.some(t => t.layer === 'access' && t.reason === 'out-of-population'));
-  assert.ok(r.rows.every(x => sub.set.has(x.title)), 'all returned rows are within the subtree');
+test('directory company-wide: IC sees all people as directory rows, no refusals', () => {
+  const r = FF.runSpec({ from: 'person', select: ['title', 'position'] }, db, 'employment', FR.ROLES.ic);
+  assert.strictEqual(r.rows.length, 500);
+  assert.ok(r.rows.every(x => x.position), 'directory field shown for all');
+  assert.strictEqual(r.trace.length, 0, 'directory select has no refusals');
 });
 
-test('ROLE class: manager cannot read pay even under payroll + consent (role-restricted)', () => {
-  const r = FF.runSpec({ from: 'person', select: ['title', 'pay_rate'] }, db, 'payroll', FR.ROLES.manager);
-  assert.ok(r.rows.length > 0 && r.rows.every(x => x.pay_rate === null), 'all pay redacted');
-  assert.ok(r.trace.some(t => t.layer === 'access' && t.reason === 'role-restricted' && t.field === 'pay_rate'));
-});
-
-test('ROLE peer: directory visible for store coworkers, sensitive role-restricted', () => {
-  const store01 = (db.rev['works_at']['Store 01 - Austin Domain'] || []).length;
-  const dir = FF.runSpec({ from: 'person', select: ['title', 'position'] }, db, 'scheduling', FR.ROLES.peer);
-  assert.strictEqual(dir.rows.length, store01, 'store coworkers visible');
-  assert.ok(dir.rows.every(x => x.position), 'directory field shown');
-  const pay = FF.runSpec({ from: 'person', select: ['title', 'pay_rate'] }, db, 'payroll', FR.ROLES.peer);
-  assert.ok(pay.rows.every(x => x.pay_rate === null) &&
-            pay.trace.some(t => t.layer === 'access' && t.reason === 'role-restricted'));
-});
-
-test('ROLE ic: sees only self', () => {
+test('IC sensitive: own pay visible, everyone else out-of-population', () => {
   const icTitle = db.idToTitle['EMP-0002'];
-  const r = FF.runSpec({ from: 'person', select: ['title'] }, db, 'employment', FR.ROLES.ic);
-  assert.deepStrictEqual(r.rows.map(x => x.title), [icTitle]);
+  const r = FF.runSpec({ from: 'person', select: ['title', 'pay_rate'] }, db, 'payroll', FR.ROLES.ic);
+  assert.strictEqual(r.rows.length, 500, 'all directory rows present');
+  assert.strictEqual(r.rows.filter(x => x.pay_rate !== null).length, 1, 'only own pay visible');
+  assert.ok(r.rows.find(x => x.title === icTitle).pay_rate !== null, 'own pay shown');
+  assert.ok(r.trace.some(t => t.layer === 'access' && t.reason === 'out-of-population'));
+});
+
+test('IC can resolve own manager via reports_to traversal (directory)', () => {
+  const r = FF.runSpec({ from: 'person', filters: [{ field: 'id', op: 'eq', value: 'EMP-0002' }],
+    traverse: [{ to: 'person', on: 'reports_to', direction: 'out', as: 'mgr' }], select: ['title'] },
+    db, 'employment', FR.ROLES.ic);
+  assert.strictEqual(r.rows.length, 1);
+  assert.strictEqual(r.rows[0].mgr.length, 1, 'manager resolved through directory traversal');
+});
+
+test('manager: no compensation authority -> pay role-restricted for everyone', () => {
+  const r = FF.runSpec({ from: 'person', select: ['title', 'pay_rate'] }, db, 'payroll', FR.ROLES.manager);
+  assert.strictEqual(r.rows.length, 500);
+  assert.ok(r.rows.every(x => x.pay_rate === null));
+  assert.ok(r.trace.some(t => t.layer === 'access' && t.reason === 'role-restricted'));
+});
+
+test('manager sensitive: employment events only for subtree subjects', () => {
+  const r = FF.runSpec({ from: 'store',
+    traverse: [{ to: 'employment_event', on: 'store', direction: 'in', as: 'ev' }], select: ['title'] },
+    db, 'employment', FR.ROLES.manager);
+  const reached = r.rows.reduce((a, x) => a + ((x.ev && x.ev.length) || 0), 0);
+  assert.ok(reached > 0, 'subtree events reachable');
+  assert.ok(r.trace.some(t => t.layer === 'access' && t.reason === 'out-of-population'), 'non-subtree dropped');
+});
+
+test('peer: directory company-wide, zero sensitive classes', () => {
+  const dir = FF.runSpec({ from: 'person', select: ['title', 'position'] }, db, 'scheduling', FR.ROLES.peer);
+  assert.strictEqual(dir.rows.length, 500, 'directory company-wide');
+  assert.strictEqual(dir.trace.length, 0);
+  const pay = FF.runSpec({ from: 'person', select: ['title', 'pay_rate'] }, db, 'payroll', FR.ROLES.peer);
+  assert.ok(pay.rows.every(x => x.pay_rate === null));
+  assert.ok(pay.trace.some(t => t.layer === 'access' && t.reason === 'role-restricted'));
 });
 
 test('AND with consent: CHRO (all authority) still blocked by consent purpose mismatch', () => {

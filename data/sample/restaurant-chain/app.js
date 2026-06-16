@@ -18,20 +18,20 @@
     var pop = window.FFEngine.computePopulation(role, db);
     var total = db.nodesByType.person.length;
     var seen = pop.all ? total : pop.set.size;
-    var classes = ['directory'].concat(role.scopes.map(function (s) { return SCOPE_LABEL[s]; }));
+    var sens = role.scopes.map(function (s) { return SCOPE_LABEL[s]; });
     var hidden = ALL_SCOPES.filter(function (s) { return role.scopes.indexOf(s) === -1; })
       .map(function (s) { return SCOPE_LABEL[s]; });
-    var who = pop.all ? 'everyone (' + total + ' people)'
-      : (role.population.type === 'self' ? 'just yourself (1)'
-         : 'your population (' + seen + ' of ' + total + ')');
+    var who = pop.all ? 'everyone (' + total + ')'
+      : (role.population.type === 'self' ? 'just yourself (1)' : 'your population (' + seen + ' of ' + total + ')');
     var anchorTitle = role.anchor ? (db.idToTitle[role.anchor] || role.anchor) : null;
     var anchor = anchorTitle ? (anchorTitle + ' (' + role.anchorDesc + ')') : role.anchorDesc;
-    var html = '<strong>Viewing as ' + esc(role.label) + '</strong> — ' + esc(anchor) +
-      '<br><strong>Sees:</strong> ' + classes.map(esc).join(' · ') +
-      ', for <strong>' + esc(who) + '</strong>';
-    html += '<br><span class="redacted"><strong>Hidden:</strong> ' +
-      (hidden.length ? hidden.map(esc).join(' · ') : 'no extra classes') +
-      (pop.all ? '' : ' · everyone outside your population (' + (total - seen) + ')') + '</span>';
+    var html = '<strong>Viewing as ' + esc(role.label) + '</strong> — ' + esc(anchor);
+    html += '<br><strong>Sees:</strong> directory for <strong>everyone (' + total + ')</strong>';
+    if (sens.length) html += '; ' + sens.map(esc).join(' · ') + ' for <strong>' + esc(who) + '</strong>';
+    var bits = [];
+    if (hidden.length) bits.push(hidden.map(esc).join(' · ') + ' (not permitted for this role)');
+    if (!pop.all && sens.length) bits.push('sensitive data for everyone outside your population (' + (total - seen) + ')');
+    html += '<br><span class="redacted"><strong>Hidden:</strong> ' + (bits.length ? bits.join(' · ') : 'nothing') + '</span>';
     $('permpanel').innerHTML = html;
   }
 
