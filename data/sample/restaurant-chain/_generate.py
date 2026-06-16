@@ -838,8 +838,22 @@ for ptitle, store_title, position, dept, eid, name, hire in recent[:18]:
 #   - expired:   hr.certifications grant past valid_to  -> reason "expired"
 #   - revoked:   hr.scheduling grant status=revoked     -> reason "revoked"
 # Seeded RNG keeps this deterministic.
-SCOPES = ["hr.scheduling", "hr.payroll", "hr.certifications", "hr.employment",
-          "hr.performance", "hr.learning", "hr.benefits", "hr.work_auth"]
+PURPOSES = [
+    ("scheduling", "scheduling", "hr.scheduling"),
+    ("payroll", "payroll", "hr.payroll"),
+    ("compliance", "compliance", "hr.certifications"),
+    ("employment", "employment", "hr.employment"),
+    ("performance", "performance", "hr.performance"),
+    ("learning", "learning", "hr.learning"),
+    ("benefits", "benefits", "hr.benefits"),
+    ("work_authorization", "work authorization", "hr.work_auth"),
+    ("recruiting", "recruiting", "hr.recruiting"),
+]
+# Scopes gated WITHOUT a per-employee consent grant (institutional records, e.g. candidates).
+INSTITUTIONAL_SCOPES = {"hr.recruiting"}
+# Employee consent scopes = all purpose scopes except the institutional ones. Derived
+# from PURPOSES so adding an employee purpose automatically mints its grants.
+SCOPES = [sc for _, lbl, sc in PURPOSES if sc not in INSTITUTIONAL_SCOPES]
 people_pool = list(all_people)
 random.shuffle(people_pool)
 declined_payroll = set(p[4] for p in people_pool[:60])              # ~12% no payroll grant
@@ -1004,19 +1018,6 @@ def build_grant_index():
             "valid_to": n["props"].get("valid_to", "open"),
         })
     return idx
-
-# Single source of truth for purpose categories (id, label, consent scope). 1:1 today.
-PURPOSES = [
-    ("scheduling", "scheduling", "hr.scheduling"),
-    ("payroll", "payroll", "hr.payroll"),
-    ("compliance", "compliance", "hr.certifications"),
-    ("employment", "employment", "hr.employment"),
-    ("performance", "performance", "hr.performance"),
-    ("learning", "learning", "hr.learning"),
-    ("benefits", "benefits", "hr.benefits"),
-    ("work_authorization", "work authorization", "hr.work_auth"),
-    ("recruiting", "recruiting", "hr.recruiting"),
-]
 
 def emit_fixture():
     meta = {

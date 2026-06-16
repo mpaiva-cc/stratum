@@ -362,3 +362,11 @@ test('recruiting: no per-subject consent or population needed (candidates not ro
   var r = FF.runSpec({ from:'candidate', select:['title','stage'] }, db, 'recruiting', recScoped);
   assert.ok(r.rows.length > 0, 'candidates not dropped by population');
 });
+
+test('grant coverage: every non-institutional catalog scope has at least one grant', () => {
+  const institutional = new Set(Object.values(db.meta.gatedTypes || {}));
+  const need = db.meta.purposeCatalog.map(p => p.scope).filter(s => !institutional.has(s));
+  const granted = new Set();
+  Object.values(db.grants).forEach(list => list.forEach(gr => granted.add(gr.scope)));
+  need.forEach(s => assert.ok(granted.has(s), 'missing grants for scope ' + s));
+});
