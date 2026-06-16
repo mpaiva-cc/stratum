@@ -102,16 +102,6 @@
 
   function inPopulation(pop, title) { return pop.all || (pop.set && pop.set.has(title)); }
 
-  function filterToPopulation(nodes, pop, trace) {
-    if (!pop || pop.all) return nodes;
-    return nodes.filter(function (n) {
-      if (n.type !== 'person') return true;
-      if (inPopulation(pop, n.title)) return true;
-      refuse(trace, n.title, '(record)', null, 'out-of-population', 'access');
-      return false;
-    });
-  }
-
   function roleAllowsScope(role, scope) {
     return !role || (role.scopes && role.scopes.indexOf(scope) !== -1);
   }
@@ -121,9 +111,10 @@
   // All internal field gating MUST go through readField (and nodeReadable for whole
   // gated-record nodes). canRead/canReadTarget/canReadEdge below are consent-only
   // public predicates, NOT used on the enforcement path — do not add gating to them.
-  // Combined field predicate: role authority first (access layer), then consent.
-  function readField(subjectTitle, scope, db, purpose, role) {
+  // Combined field predicate: role authority first (access layer), population second, then consent.
+  function readField(subjectTitle, scope, db, purpose, role, pop) {
     if (!roleAllowsScope(role, scope)) return { ok: false, layer: 'access', reason: 'role-restricted' };
+    if (pop && !pop.all && !inPopulation(pop, subjectTitle)) return { ok: false, layer: 'access', reason: 'out-of-population' };
     var v = gate(subjectTitle, scope, db, purpose);
     if (!v.ok) return { ok: false, layer: 'consent', reason: v.reason };
     return { ok: true };
@@ -131,15 +122,12 @@
 
   // A node of a gated TYPE (its whole record is consent-bearing) is readable only
   // under the matching purpose AND with a valid grant from its SUBJECT person.
+  // Non-gated (directory) nodes are always visible.
   function nodeReadable(node, db, purpose, trace, role, pop) {
     var scope = db.meta.gatedTargets[node.type];
-    if (!scope) return true;
+    if (!scope) return true;                       // directory / non-sensitive — always visible
     var subject = node.props.person;
-    if (pop && !pop.all && !inPopulation(pop, subject)) {
-      refuse(trace, subject || node.title, node.type, null, 'out-of-population', 'access');
-      return false;
-    }
-    var r = readField(subject, scope, db, purpose, role);
+    var r = readField(subject, scope, db, purpose, role, pop);
     if (!r.ok) { refuse(trace, subject || node.title, node.type, scope, r.reason, r.layer); return false; }
     return true;
   }
@@ -149,13 +137,13 @@
                             reason: reason, layer: layer || 'consent' });
   }
 
-  function project(node, select, db, purpose, trace, role) {
+  function project(node, select, db, purpose, trace, role, pop) {
     var row = {}, fields = select || ['title'];
     fields.forEach(function (field) {
       if (field === 'title') { row.title = node.title; return; }
       var scope = node.type === 'person' ? db.meta.gatedProps[field] : null;
       if (!scope) { row[field] = node.props[field]; return; }
-      var r = readField(node.title, scope, db, purpose, role);
+      var r = readField(node.title, scope, db, purpose, role, pop);
       if (r.ok) { row[field] = node.props[field]; }
       else { row[field] = null; refuse(trace, node.title, field, scope, r.reason, r.layer); }
     });
@@ -172,26 +160,24 @@
         return (hop.filters || []).every(function (f) {
           var s = db.meta.gatedProps[f.field];
           if (s && n.type === 'person') {
-            var rf = readField(n.title, s, db, purpose, role);
+            var rf = readField(n.title, s, db, purpose, role, pop);
             if (!rf.ok) { refuse(trace, n.title, f.field, s, rf.reason, rf.layer); return false; }
           }
           return matchFilter(n, f);
         });
       });
     // Gated-record targets: gate by SUBJECT (population + role + consent), regardless of
-    // anchor type. nodeReadable returns true for non-gated-record types.
+    // anchor type. nodeReadable returns true for non-gated-record types (directory — always visible).
     result = result.filter(function (n) {
       if (!db.meta.gatedTargets[n.type]) return true;
       return nodeReadable(n, db, purpose, trace, role, pop);
     });
-    // Person targets: population row filter.
-    result = filterToPopulation(result, pop, trace);
     // Gated edge (e.g. distributes_to): gate by the neighbor person.
     var eScope = db.meta.gatedEdges[hop.on];
     if (eScope) {
       result = result.filter(function (n) {
         if (n.type !== 'person') return true;
-        var er = readField(n.title, eScope, db, purpose, role);
+        var er = readField(n.title, eScope, db, purpose, role, pop);
         if (!er.ok) { refuse(trace, n.title, hop.on, eScope, er.reason, er.layer); return false; }
         return true;
       });
@@ -199,14 +185,14 @@
     return result;
   }
 
-  function aggregate(nodes, spec, db, purpose, trace, role) {
+  function aggregate(nodes, spec, db, purpose, trace, role, pop) {
     var groups = {};
     nodes.forEach(function (n) {
       var key;
       if (spec.groupBy) {
         var gscope = db.meta.gatedProps[spec.groupBy];
         if (gscope && n.type === 'person') {
-          var gr = readField(n.title, gscope, db, purpose, role);
+          var gr = readField(n.title, gscope, db, purpose, role, pop);
           if (!gr.ok) { refuse(trace, n.title, spec.groupBy, gscope, gr.reason, gr.layer); key = '(redacted)'; }
           else key = n.props[spec.groupBy];
         } else { key = n.props[spec.groupBy]; }
@@ -219,7 +205,7 @@
         members.forEach(function (n) {
           var scope = db.meta.gatedProps[spec.field];
           if (scope && n.type === 'person') {
-            var r = readField(n.title, scope, db, purpose, role);
+            var r = readField(n.title, scope, db, purpose, role, pop);
             if (!r.ok) { refuse(trace, n.title, spec.field, scope, r.reason, r.layer); return; }
           }
           var x = Number(n.props[spec.field]);
@@ -249,14 +235,13 @@
       var scope = db.meta.gatedProps[f.field];
       nodes = nodes.filter(function (n) {
         if (scope && n.type === 'person') {
-          var r = readField(n.title, scope, db, purpose, role);
+          var r = readField(n.title, scope, db, purpose, role, pop);
           if (!r.ok) { refuse(trace, n.title, f.field, scope, r.reason, r.layer); return false; }
         }
         return matchFilter(n, f);
       });
     });
     nodes = nodes.filter(function (n) { return nodeReadable(n, db, purpose, trace, role, pop); });
-    nodes = filterToPopulation(nodes, pop, trace);
     var hops = spec.traverse || [];
     var enriched = nodes.map(function (n) {
       var ctx = { node: n, hops: {} };
@@ -274,11 +259,11 @@
       return Object.keys(citations).map(function (t) { return { title: t, type: citations[t] }; });
     };
     if (spec.aggregate) {
-      var agg = aggregate(enriched.map(function (c) { return c.node; }), spec.aggregate, db, purpose, trace, role);
+      var agg = aggregate(enriched.map(function (c) { return c.node; }), spec.aggregate, db, purpose, trace, role, pop);
       return { rows: agg, trace: trace, citations: citeArr() };
     }
     var rows = enriched.map(function (c) {
-      var row = project(c.node, spec.select, db, purpose, trace, role);
+      var row = project(c.node, spec.select, db, purpose, trace, role, pop);
       Object.keys(c.hops).forEach(function (k) { row[k] = c.hops[k]; });
       return row;
     });
@@ -291,7 +276,6 @@
               canReadEdge: canReadEdge, checkGrant: checkGrant,
               nodeReadable: nodeReadable,
               computePopulation: computePopulation, inPopulation: inPopulation,
-              filterToPopulation: filterToPopulation,
               roleAllowsScope: roleAllowsScope, readField: readField,
               idToTitle: function (db, id) { return db.idToTitle && db.idToTitle[id]; } };
   if (typeof module !== 'undefined' && module.exports) module.exports = api;
