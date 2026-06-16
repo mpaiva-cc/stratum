@@ -110,19 +110,43 @@
     return spec;
   }
 
+  async function narrate(question, spec, result, purpose, key) {
+    var facts = { rows: result.rows.slice(0, 80),
+                  refusals: result.trace.length,
+                  refusal_reasons: result.trace.reduce(function (a, t) {
+                    a[t.reason] = (a[t.reason] || 0) + 1; return a; }, {}) };
+    var res = await fetch('https://api.anthropic.com/v1/messages', {
+      method: 'POST',
+      headers: { 'content-type': 'application/json', 'x-api-key': key,
+        'anthropic-version': '2023-06-01', 'anthropic-dangerous-direct-browser-access': 'true' },
+      body: JSON.stringify({ model: 'claude-sonnet-4-6', max_tokens: 600,
+        system: 'Answer the question in 1-3 sentences using ONLY these engine results. '
+          + 'Never invent numbers. If refusals occurred, state that some records were '
+          + 'withheld under the "' + purpose + '" purpose and why.',
+        messages: [{ role: 'user', content: 'Q: ' + question + '\nRESULTS: ' + JSON.stringify(facts) }] })
+    });
+    if (!res.ok) throw new Error('narrate failed: ' + res.status);
+    var data = await res.json();
+    var block = (data.content || []).find(function (b) { return b.type === 'text'; });
+    return block ? block.text : '';
+  }
+
   $('ask').addEventListener('click', async function () {
     var purpose = $('purpose').value, key = $('key').value.trim(), question = $('q').value.trim();
     if (!key) { $('status').textContent = 'enter an API key'; return; }
+    if (!question) { $('status').textContent = 'type a question'; return; }
     $('status').textContent = 'translating…';
     try {
       var spec = validateSpec(await translate(question, db, purpose, key), db);
       var result = window.FFEngine.runSpec(spec, db, purpose);
-      renderResult(spec, result, null);
+      $('status').textContent = 'answering…';
+      var narrative = await narrate(question, spec, result, purpose, key);
+      renderResult(spec, result, narrative);
       $('status').textContent = '';
     } catch (e) { $('status').textContent = String(e.message); }
   });
 
   window.FFApp = { db: db, renderResult: renderResult, esc: esc,
                    edgeDirectory: edgeDirectory, systemPrompt: systemPrompt,
-                   validateSpec: validateSpec, SPEC_TOOL: SPEC_TOOL };
+                   validateSpec: validateSpec, SPEC_TOOL: SPEC_TOOL, narrate: narrate };
 })();
