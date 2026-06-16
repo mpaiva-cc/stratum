@@ -74,6 +74,42 @@
     return gate(personTitle, scope, db, purpose);
   }
 
+  function computePopulation(role, db) {
+    if (!role || !role.population || role.population.type === 'all') return { all: true };
+    var t = role.population.type, v = role.population.value, set = new Set();
+    if (t === 'self') { set.add(v); }
+    else if (t === 'store') { ((db.rev['works_at'] || {})[v] || []).forEach(function (p) { set.add(p); }); }
+    else if (t === 'region') {
+      db.nodesByType.person.forEach(function (pn) {
+        var st = db.nodesByTitle[pn.props.works_at];
+        if (st && st.props.region === v) set.add(pn.title);
+      });
+    } else if (t === 'subtree') {
+      var stack = [v]; set.add(v);
+      while (stack.length) {
+        var cur = stack.pop();
+        ((db.rev['reports_to'] || {})[cur] || []).forEach(function (k) {
+          if (!set.has(k)) { set.add(k); stack.push(k); }
+        });
+      }
+    }
+    return { set: set };
+  }
+
+  function inPopulation(pop, title) { return pop.all || (pop.set && pop.set.has(title)); }
+
+  function roleAllowsScope(role, scope) {
+    return !role || (role.scopes && role.scopes.indexOf(scope) !== -1);
+  }
+
+  // Combined field predicate: role authority first (access layer), then consent.
+  function readField(subjectTitle, scope, db, purpose, role) {
+    if (!roleAllowsScope(role, scope)) return { ok: false, layer: 'access', reason: 'role-restricted' };
+    var v = gate(subjectTitle, scope, db, purpose);
+    if (!v.ok) return { ok: false, layer: 'consent', reason: v.reason };
+    return { ok: true };
+  }
+
   // A node of a gated TYPE (its whole record is consent-bearing) is readable only
   // under the matching purpose AND with a valid grant from its SUBJECT person.
   function nodeReadable(node, db, purpose, trace) {
@@ -85,8 +121,9 @@
     return true;
   }
 
-  function refuse(trace, person, field, scope, reason) {
-    if (trace) trace.push({ person: person, field: field, scope: scope, reason: reason });
+  function refuse(trace, person, field, scope, reason, layer) {
+    if (trace) trace.push({ person: person, field: field, scope: scope,
+                            reason: reason, layer: layer || 'consent' });
   }
 
   function project(node, select, db, purpose, trace) {
@@ -231,7 +268,9 @@
               neighbors: neighbors, aggregate: aggregate,
               canRead: canRead, canReadTarget: canReadTarget,
               canReadEdge: canReadEdge, checkGrant: checkGrant,
-              nodeReadable: nodeReadable };
+              nodeReadable: nodeReadable,
+              computePopulation: computePopulation, inPopulation: inPopulation,
+              roleAllowsScope: roleAllowsScope, readField: readField };
   if (typeof module !== 'undefined' && module.exports) module.exports = api;
   else global.FFEngine = api;
 })(typeof window !== 'undefined' ? window : globalThis);

@@ -203,3 +203,23 @@ test('C2: hop.filters on a gated prop are gated (no traverse oracle)', () => {
   assert.strictEqual(r.rows.length, 0, 'no store yields pay-filtered staff under scheduling');
   assert.ok(r.trace.some(t => t.reason === 'out-of-purpose'));
 });
+
+test('computePopulation: all -> {all:true}; self -> single; store/subtree/region sized', () => {
+  assert.strictEqual(FF.computePopulation({ population: { type: 'all' } }, db).all, true);
+  assert.strictEqual(FF.computePopulation(null, db).all, true);
+  const self = FF.computePopulation({ population: { type: 'self', value: 'EMP-0002 Samir Abara' } }, db);
+  assert.deepStrictEqual([...self.set], ['EMP-0002 Samir Abara']);
+  const store = FF.computePopulation({ population: { type: 'store', value: 'Store 01 - Austin Domain' } }, db);
+  assert.strictEqual(store.set.size, 25);
+  const sub = FF.computePopulation({ population: { type: 'subtree', value: 'EMP-0001 Mateo Thomas' } }, db);
+  assert.ok(sub.set.has('EMP-0001 Mateo Thomas') && sub.set.size >= 2 && sub.set.size <= 30);
+  const region = FF.computePopulation({ population: { type: 'region', value: 'West Region' } }, db);
+  assert.strictEqual(region.set.size, 125);
+});
+
+test('roleAllowsScope: null role allows all; empty scopes allows none', () => {
+  assert.strictEqual(FF.roleAllowsScope(null, 'hr.payroll'), true);
+  assert.strictEqual(FF.roleAllowsScope({ scopes: [] }, 'hr.payroll'), false);
+  assert.strictEqual(FF.roleAllowsScope({ scopes: ['hr.payroll'] }, 'hr.payroll'), true);
+  assert.strictEqual(FF.roleAllowsScope({ scopes: ['hr.scheduling'] }, 'hr.payroll'), false);
+});
