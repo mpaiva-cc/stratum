@@ -298,9 +298,14 @@ def d(date):
 
 emitted = {"schema": 0, "stores": 0, "people": 0, "shifts": 0, "other": 0}
 
-# wipe-and-rebuild: remove everything except this generator script
+# wipe-and-rebuild: remove generated content, but preserve the generator and the
+# hand-authored "system of understanding" app (index.html, app.js, ff-engine.js,
+# ff-engine.test.js, CLAUDE.md). The graph fixture is generated, so it is NOT
+# preserved here — it gets rebuilt every run.
+KEEP = {os.path.basename(__file__), "index.html", "app.js", "ff-engine.js",
+        "ff-engine.test.js", "CLAUDE.md"}
 for name in os.listdir(VAULT):
-    if name == os.path.basename(__file__):
+    if name in KEEP:
         continue
     p = os.path.join(VAULT, name)
     shutil.rmtree(p) if os.path.isdir(p) else os.remove(p)
