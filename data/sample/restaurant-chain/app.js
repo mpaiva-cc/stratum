@@ -443,6 +443,21 @@
   renderPermPanel();
   loadKey();
 
+  // ── light/dark theme toggle (initial theme set by the inline <head> script) ──
+  function applyThemeUI() {
+    var dark = document.documentElement.getAttribute('data-theme') === 'dark';
+    var b = $('themetoggle'); if (!b) return;
+    b.setAttribute('aria-label', dark ? 'Switch to light theme' : 'Switch to dark theme');
+    var icon = b.querySelector('.tticon'); if (icon) icon.textContent = dark ? '☀️' : '🌙';
+  }
+  $('themetoggle').addEventListener('click', function () {
+    var next = document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+    document.documentElement.setAttribute('data-theme', next);
+    try { window.localStorage.setItem('ff_theme', next); } catch (e) {}
+    applyThemeUI();
+  });
+  applyThemeUI();
+
   // ── Person profile column (governance-aware: same gates as the rest of the app) ──
 
   function fieldRow(dt, ddHtml) { return '<dt>' + esc(dt) + '</dt><dd>' + ddHtml + '</dd>'; }
