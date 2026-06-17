@@ -838,22 +838,41 @@ for ptitle, store_title, position, dept, eid, name, hire in recent[:18]:
 #   - expired:   hr.certifications grant past valid_to  -> reason "expired"
 #   - revoked:   hr.scheduling grant status=revoked     -> reason "revoked"
 # Seeded RNG keeps this deterministic.
+# (id, label, scope, [conversation starters]). Starters are example questions shown
+# as clickable chips when the purpose is selected; they ride in the catalog so a new
+# purpose brings its own starters in one place.
 PURPOSES = [
-    ("scheduling", "scheduling", "hr.scheduling"),
-    ("payroll", "payroll", "hr.payroll"),
-    ("compliance", "compliance", "hr.certifications"),
-    ("employment", "employment", "hr.employment"),
-    ("performance", "performance", "hr.performance"),
-    ("learning", "learning", "hr.learning"),
-    ("benefits", "benefits", "hr.benefits"),
-    ("work_authorization", "work authorization", "hr.work_auth"),
-    ("recruiting", "recruiting", "hr.recruiting"),
+    ("scheduling", "scheduling", "hr.scheduling",
+     ["which days do I work this week?", "who has a pending time-off request?",
+      "am I working this weekend?"]),
+    ("payroll", "payroll", "hr.payroll",
+     ["how much do I make?", "what's the average server pay?", "show pay by department"]),
+    ("compliance", "compliance", "hr.certifications",
+     ["which of my certifications are expiring?", "who holds a ServSafe certification?",
+      "show my certifications"]),
+    ("employment", "employment", "hr.employment",
+     ["when was I hired?", "show recent promotions", "who reports to me?"]),
+    ("performance", "performance", "hr.performance",
+     ["what's my latest performance rating?", "show performance ratings by department",
+      "who is rated 'exceeds'?"]),
+    ("learning", "learning", "hr.learning",
+     ["what training have I completed?", "who completed Food Handler training?",
+      "show my training records"]),
+    ("benefits", "benefits", "hr.benefits",
+     ["what benefits am I enrolled in?", "who is enrolled in the Health PPO?",
+      "show my benefits"]),
+    ("work_authorization", "work authorization", "hr.work_auth",
+     ["what is my work authorization status?", "who needs a work-authorization review?",
+      "show work authorization for my team"]),
+    ("recruiting", "recruiting", "hr.recruiting",
+     ["show the candidate pipeline", "who is in the interview stage?",
+      "which candidates applied for Server?"]),
 ]
 # Scopes gated WITHOUT a per-employee consent grant (institutional records, e.g. candidates).
 INSTITUTIONAL_SCOPES = {"hr.recruiting"}
 # Employee consent scopes = all purpose scopes except the institutional ones. Derived
 # from PURPOSES so adding an employee purpose automatically mints its grants.
-SCOPES = [sc for _, lbl, sc in PURPOSES if sc not in INSTITUTIONAL_SCOPES]
+SCOPES = [sc for _, lbl, sc, st in PURPOSES if sc not in INSTITUTIONAL_SCOPES]
 people_pool = list(all_people)
 random.shuffle(people_pool)
 declined_payroll = set(p[4] for p in people_pool[:60])              # ~12% no payroll grant
@@ -1022,8 +1041,9 @@ def build_grant_index():
 def emit_fixture():
     meta = {
         "generated": d(today),
-        "purposeCatalog": [{"id": pid, "label": lbl, "scope": sc} for pid, lbl, sc in PURPOSES],
-        "purposes": {pid: sc for pid, lbl, sc in PURPOSES},
+        "purposeCatalog": [{"id": pid, "label": lbl, "scope": sc, "starters": st}
+                           for pid, lbl, sc, st in PURPOSES],
+        "purposes": {pid: sc for pid, lbl, sc, st in PURPOSES},
         "gatedProps": {"pay_rate": "hr.payroll", "pay_unit": "hr.payroll",
                        "benefits": "hr.benefits", "work_authorization": "hr.work_auth"},
         "gatedTargets": {"time_off_request": "hr.scheduling",

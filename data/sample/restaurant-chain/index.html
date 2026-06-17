@@ -33,6 +33,11 @@
     td,th { border-bottom:1px solid var(--line); padding:.35rem .5rem; text-align:left; vertical-align:top; }
     ul.cells { list-style:none; margin:0; padding:0; }
     ul.cells li { padding:.08rem 0; }
+    .starters { display:flex; flex-wrap:wrap; gap:.4rem; margin-top:.5rem; }
+    .starters .chip { font-size:.85rem; padding:.3rem .6rem; border:1px solid var(--line);
+      border-radius:14px; background:#f4f2ec; color:var(--ink); cursor:pointer; }
+    .starters .chip:hover { background:#ece8dc; }
+    .starters .chip::before { content:"\201C"; } .starters .chip::after { content:"\201D"; }
     /* key icon button + existence badge */
     .keywrap { position:relative; }
     .keybtn { display:inline-flex; align-items:center; gap:.4rem; background:#fff; color:var(--ink); border:1px solid var(--line); }
@@ -123,6 +128,7 @@
         <input id="q" placeholder="e.g. who do I report to?  ·  average server pay">
         <button type="submit" id="ask" class="btn">Ask</button>
       </div>
+      <div id="starters" class="starters" role="group" aria-label="Example questions for this purpose"></div>
     </div>
 
     <p class="muted" id="status" role="status" aria-live="polite" style="margin:.6rem 0 0; min-height:1.2em;"></p>

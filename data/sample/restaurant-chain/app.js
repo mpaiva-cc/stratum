@@ -65,6 +65,16 @@
     }).join('');
   }
 
+  // Conversation starters: example questions for the selected purpose (from the catalog).
+  function renderStarters() {
+    var cat = (db.meta && db.meta.purposeCatalog) || [];
+    var entry = cat.filter(function (p) { return p.id === $('purpose').value; })[0];
+    var starters = (entry && entry.starters) || [];
+    $('starters').innerHTML = starters.map(function (q) {
+      return '<button type="button" class="chip" data-q="' + escAttr(q) + '">' + esc(q) + '</button>';
+    }).join('');
+  }
+
   function renderPermPanel() {
     var role = currentRole();
     var pop = window.FFEngine.computePopulation(role, db);
@@ -374,6 +384,12 @@
     renderPermPanel();
   });
   populatePurposes();
+  renderStarters();
+  $('purpose').addEventListener('change', renderStarters);
+  $('starters').addEventListener('click', function (e) {
+    var chip = e.target.closest && e.target.closest('.chip');
+    if (chip && chip.getAttribute('data-q')) { $('q').value = chip.getAttribute('data-q'); $('q').focus(); }
+  });
   renderPermPanel();
   loadKey();
 
