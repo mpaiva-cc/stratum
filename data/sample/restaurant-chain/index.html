@@ -8,6 +8,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@3/dist/tabler-icons.min.css" rel="stylesheet">
   <style>
     :root {
       --paper:#f3ede1; --paper-card:#fbf7ef; --paper-sunk:#ece3d2;
@@ -43,9 +44,12 @@
     :root[data-theme="dark"] body::before { mix-blend-mode:screen; opacity:.05; }
     /* ── masthead ── */
     .masthead { position:relative; padding:.5rem 0 1.1rem; border-bottom:1px solid var(--line);
-      margin-bottom:.25rem; display:flex; align-items:flex-start; justify-content:space-between; gap:1.5rem; }
-    .masthead .brand { min-width:0; }
-    .topctl { display:flex; align-items:center; gap:.5rem; flex:none; }
+      margin-bottom:.25rem; display:flex; align-items:flex-end; justify-content:space-between;
+      gap:1.25rem 1.5rem; flex-wrap:wrap; }
+    .masthead .brand { min-width:0; flex:1 1 22rem; }
+    .topctl { display:flex; align-items:flex-end; gap:.6rem; flex:none; }
+    .topfield { display:flex; flex-direction:column; }
+    .topfield select { width:auto; min-width:9rem; }
     .iconbtn { display:inline-flex; align-items:center; justify-content:center; width:2.35rem; height:2.35rem;
       padding:0; font-size:1.15rem; line-height:1; background:var(--input-bg); color:var(--ink);
       border:1px solid var(--line); border-radius:8px; cursor:pointer; }
@@ -121,7 +125,12 @@
       border:1px solid var(--line); white-space:nowrap; background:var(--chip-bg); color:var(--ink-2); }
     .classchip.on { background:var(--moss); color:var(--on-fg); border-color:var(--moss); }
     .classchip.off { color:var(--muted); text-decoration:line-through; opacity:.85; }
-    .classchip.off::before { content:"🔒\00a0"; text-decoration:none; display:inline-block; }
+    .classchip .ti { font-size:.85rem; vertical-align:-1px; margin-right:.2rem; text-decoration:none; display:inline-block; }
+    /* Tabler icons: decorative, inherit color, align to text */
+    .ti { vertical-align:-2px; }
+    .keyicon { font-size:1.15rem; }
+    .tticon { font-size:1.2rem; }
+    .drawer .close .ti { font-size:1rem; vertical-align:-1px; }
 
     /* ── conversation starters ── */
     .starters { display:flex; flex-wrap:wrap; gap:.4rem; margin-top:.6rem; }
@@ -171,9 +180,9 @@
     .keyicon { font-size:1.1rem; line-height:1; }
     .keybadge { width:1.05rem; height:1.05rem; border-radius:50%; display:inline-flex; align-items:center;
       justify-content:center; font-size:.72rem; font-weight:700; border:1px solid #a89878; color:#fff; }
-    .keybtn[data-haskey="yes"] .keybadge { background:var(--moss); border-color:var(--moss); }
-    .keybtn[data-haskey="no"]  .keybadge::before { content:"+"; color:#7a6c52; }
-    .keybtn[data-haskey="yes"] .keybadge::before { content:"\2713"; }
+    .keybtn[data-haskey="yes"] .keybadge { background:var(--moss); border-color:var(--moss); color:#fff; }
+    .keybtn[data-haskey="no"]  .keybadge { color:var(--muted); }
+    .keybadge .ti { font-size:.8rem; }
     .popover { position:absolute; right:0; top:calc(100% + .45rem); z-index:20; width:20rem; max-width:90vw;
       background:var(--paper-card); border:1px solid var(--line); border-radius:var(--radius); padding:1rem;
       box-shadow:0 12px 34px -10px rgba(45,30,12,.35); display:flex; flex-direction:column; gap:.55rem; }
@@ -215,13 +224,27 @@
         enforced in code, so answers your purpose or role can’t satisfy are refused, not hidden.</p>
     </div>
     <div class="topctl">
+      <div class="topfield">
+        <label for="purpose">Purpose</label>
+        <select id="purpose"></select>
+      </div>
+      <div class="topfield">
+        <label for="role">Viewing as</label>
+        <select id="role">
+          <option value="chro">CHRO</option>
+          <option value="hrbp">HRBP</option>
+          <option value="manager">Manager</option>
+          <option value="ic">IC</option>
+          <option value="peer">Peer</option>
+        </select>
+      </div>
       <button type="button" id="themetoggle" class="iconbtn" aria-label="Switch to dark theme">
-        <span class="tticon" aria-hidden="true">🌙</span>
+        <i class="ti ti-moon tticon" aria-hidden="true"></i>
       </button>
       <div class="keywrap">
         <button type="button" id="keybtn" class="keybtn" data-haskey="no"
                 aria-expanded="false" aria-controls="keypop">
-          <span class="keyicon" aria-hidden="true">🔑</span>
+          <i class="ti ti-key keyicon" aria-hidden="true"></i>
           <span class="keybadge" aria-hidden="true"></span>
           <span class="sr-only" id="keystate">API key not set. Activate to add one.</span>
         </button>
@@ -243,23 +266,6 @@
   <main class="layout">
   <form id="qform" class="panel col reveal d2" aria-labelledby="form-title">
     <div class="col-eyebrow"><h2 id="form-title" class="eyebrow">Ask</h2></div>
-
-    <div class="controls">
-      <div class="field">
-        <label for="purpose">Purpose <span class="hint">— what it’s used for</span></label>
-        <select id="purpose"></select>
-      </div>
-      <div class="field">
-        <label for="role">Viewing as <span class="hint">— who you are</span></label>
-        <select id="role">
-          <option value="chro">CHRO</option>
-          <option value="hrbp">HRBP</option>
-          <option value="manager">Manager</option>
-          <option value="ic">IC</option>
-          <option value="peer">Peer</option>
-        </select>
-      </div>
-    </div>
 
     <div class="access" id="permpanel" role="status" aria-live="polite"></div>
 
@@ -285,7 +291,7 @@
   <aside id="drawer" class="col drawer reveal d4" aria-labelledby="profile-title">
     <div class="col-eyebrow">
       <h2 id="profile-title" class="eyebrow">Profile</h2>
-      <button type="button" id="drawerClose" class="close" aria-label="Close profile" hidden>✕</button>
+      <button type="button" id="drawerClose" class="close" aria-label="Close profile" hidden><i class="ti ti-x" aria-hidden="true"></i></button>
     </div>
     <div id="drawerBody" aria-live="polite"><p class="muted">Click a name in the results to view their profile here.</p></div>
   </aside>

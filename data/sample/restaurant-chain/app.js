@@ -88,7 +88,8 @@
       : '<span class="muted">' + esc(role.anchorDesc) + '</span>';
     var chip = function (label, on) {
       return '<span class="classchip ' + (on ? 'on' : 'off') + '">'
-        + (on ? '' : '<span class="sr-only">hidden: </span>') + esc(label) + '</span>';
+        + (on ? '' : '<i class="ti ti-lock" aria-hidden="true"></i><span class="sr-only">hidden: </span>')
+        + esc(label) + '</span>';
     };
     var chips = chip('directory', true)
       + ALL_SCOPES.map(function (s) { return chip(SCOPE_LABEL[s], role.scopes.indexOf(s) !== -1); }).join('');
@@ -359,6 +360,8 @@
   function updateKeyBadge() {
     var has = !!getKey();
     $('keybtn').setAttribute('data-haskey', has ? 'yes' : 'no');
+    var badge = $('keybtn').querySelector('.keybadge');
+    if (badge) badge.innerHTML = '<i class="ti ' + (has ? 'ti-check' : 'ti-plus') + '" aria-hidden="true"></i>';
     $('keystate').textContent = has
       ? 'API key saved. Activate to edit or clear.'
       : 'API key not set. Activate to add one.';
@@ -448,7 +451,7 @@
     var dark = document.documentElement.getAttribute('data-theme') === 'dark';
     var b = $('themetoggle'); if (!b) return;
     b.setAttribute('aria-label', dark ? 'Switch to light theme' : 'Switch to dark theme');
-    var icon = b.querySelector('.tticon'); if (icon) icon.textContent = dark ? '☀️' : '🌙';
+    var icon = b.querySelector('.tticon'); if (icon) icon.className = 'ti tticon ' + (dark ? 'ti-sun' : 'ti-moon');
   }
   $('themetoggle').addEventListener('click', function () {
     var next = document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
