@@ -9,7 +9,7 @@
             --plum:#6b4e71; --line:#d9d4c6; --muted:#595959; --focus:#7a4f00; }
     * { box-sizing:border-box; }
     body { font:16px/1.55 -apple-system,Segoe UI,Roboto,sans-serif; color:var(--ink);
-           background:var(--paper); max-width:760px; margin:2rem auto; padding:0 1rem; }
+           background:var(--paper); max-width:1500px; margin:2rem auto; padding:0 1rem; }
     h1 { font-weight:700; font-size:1.6rem; margin:0 0 .25rem; }
     .muted { color:var(--muted); }
     select,input,button { font:inherit; padding:.5rem .6rem; border:1px solid var(--line); border-radius:6px; background:#fff; color:var(--ink); }
@@ -59,12 +59,16 @@
     .namelink { background:none; border:0; padding:0; margin:0; font:inherit; color:#1f5673;
       text-decoration:underline; cursor:pointer; }
     .namelink:hover { color:#0d3a52; }
-    .drawer-backdrop { position:fixed; inset:0; background:rgba(0,0,0,.35); }
-    .drawer-backdrop[hidden] { display:none; }
-    .drawer { position:fixed; top:0; right:0; height:100vh; width:380px; max-width:92vw; background:#fff;
-      border-left:1px solid var(--line); box-shadow:-8px 0 28px rgba(0,0,0,.18);
-      padding:1.1rem 1.2rem 2rem; overflow:auto; }
-    .drawer[hidden] { display:none; }
+    /* 3-column layout: settings/prompt | answer (streams) | profile */
+    .layout { display:grid; gap:1.25rem; align-items:start; margin-top:1rem;
+      grid-template-columns: minmax(290px,350px) minmax(0,1fr) minmax(290px,380px); }
+    .layout > .col { min-width:0; }
+    #qform.col, .drawer.col { position:sticky; top:1rem; align-self:start;
+      max-height:calc(100vh - 2rem); overflow:auto; }
+    @media (max-width:1100px) { .layout { grid-template-columns:1fr; }
+      #qform.col, .drawer.col { position:static; max-height:none; overflow:visible; } }
+    .drawer { background:#fff; border:1px solid var(--line); border-radius:8px;
+      padding:1.1rem 1.2rem 1.5rem; position:relative; }
     .drawer h2 { margin:.2rem 2rem .1rem 0; font-size:1.2rem; }
     .drawer .close { position:absolute; top:.6rem; right:.7rem; background:#fff; color:var(--ink);
       border:1px solid var(--line); border-radius:6px; }
@@ -80,8 +84,9 @@
   <p class="muted">Ask the contextual map a question. Governance is enforced — answers that a
      purpose or your role can’t satisfy are refused, in code.</p>
 
-  <form id="qform" class="panel" aria-labelledby="form-title">
-    <h2 id="form-title" class="sr-only">Ask a question</h2>
+  <main class="layout">
+  <form id="qform" class="panel col" aria-labelledby="form-title">
+    <h2 id="form-title" class="sr-only">Settings &amp; question</h2>
 
     <div class="controls">
       <div class="field">
@@ -134,13 +139,15 @@
     <p class="muted" id="status" role="status" aria-live="polite" style="margin:.6rem 0 0; min-height:1.2em;"></p>
   </form>
 
-  <div id="answer" aria-live="polite"></div>
+  <section id="answer" class="col" aria-live="polite" aria-label="Answer">
+    <p class="muted">Ask a question — the answer streams here.</p>
+  </section>
 
-  <div id="drawerBackdrop" class="drawer-backdrop" hidden></div>
-  <aside id="drawer" class="drawer" role="dialog" aria-modal="true" aria-labelledby="drawerName" hidden>
-    <button type="button" id="drawerClose" class="close" aria-label="Close profile">✕</button>
-    <div id="drawerBody"></div>
+  <aside id="drawer" class="col drawer" role="complementary" aria-label="Person profile" aria-live="polite">
+    <button type="button" id="drawerClose" class="close" aria-label="Close profile" hidden>✕</button>
+    <div id="drawerBody"><p class="muted">Click a name in the results to view their profile here.</p></div>
   </aside>
+  </main>
 
   <script src="forkandflame.graph.js"></script>
   <script src="ff-engine.js"></script>

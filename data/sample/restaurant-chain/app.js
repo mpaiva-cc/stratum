@@ -101,7 +101,9 @@
 
   function renderResult(spec, result, narrative) {
     var html = '';
-    if (narrative) html += '<div class="panel"><p>' + esc(narrative) + '</p></div>';
+    // Always include a narrative panel so the streamed answer has a target; hidden until filled.
+    html += '<div class="panel" id="narrativePanel"' + (narrative ? '' : ' hidden')
+      + '><p id="narrativeText">' + esc(narrative || '') + '</p></div>';
     html += '<div class="panel">';
     var shown = result.rows.slice(0, 50);
     // Column set = union of keys, dropping columns that are empty for EVERY row
@@ -274,8 +276,7 @@
     'hr.benefits': 'benefits', 'hr.work_auth': 'work_authorization',
     'hr.recruiting': 'recruiting' };
 
-  async function narrate(question, spec, result, purpose, key) {
-    // Summarise WHICH fields were withheld and how to unlock them (distinct by field+reason).
+  function narrateFacts(result) {
     var withheld = {}, seen = {};
     result.trace.forEach(function (t) {
       var k = (t.field || '?') + '|' + t.reason;
@@ -283,27 +284,65 @@
       withheld[t.field || '?'] = { reason: t.reason, layer: t.layer,
         unlock_purpose: (t.reason === 'out-of-purpose' && t.scope) ? SCOPE_TO_PURPOSE[t.scope] : null };
     });
-    var facts = { rows: result.rows.slice(0, 80), refusals: result.trace.length, withheld: withheld };
-    var res = await fetch('https://api.anthropic.com/v1/messages', {
-      method: 'POST',
-      headers: { 'content-type': 'application/json', 'x-api-key': key,
-        'anthropic-version': '2023-06-01', 'anthropic-dangerous-direct-browser-access': 'true' },
-      body: JSON.stringify({ model: 'claude-sonnet-4-6', max_tokens: 600,
-        system: 'Answer the question in 1-3 sentences using ONLY these engine results. '
-          + 'Never invent numbers. The active purpose is "' + purpose + '". '
-          + 'IMPORTANT: a null field that appears in "withheld" was BLOCKED by governance — '
-          + 'it is NOT missing or absent; never say the record "does not contain" it. '
-          + 'Explain it was withheld and why: for reason "out-of-purpose" tell the user to set '
-          + 'the Purpose selector to the field\'s unlock_purpose (e.g. switch Purpose to '
-          + '"payroll" to see pay); for "role-restricted" say their role isn\'t permitted that '
-          + 'data class; for "no-grant"/"revoked"/"expired" say the person hasn\'t granted '
-          + '(or revoked/expired) consent; for "out-of-population" say it\'s outside who they may see.',
-        messages: [{ role: 'user', content: 'Q: ' + question + '\nRESULTS: ' + JSON.stringify(facts) }] })
-    });
+    return { rows: result.rows.slice(0, 80), refusals: result.trace.length, withheld: withheld };
+  }
+  function narrateSystem(purpose) {
+    return 'Answer the question in 1-3 sentences using ONLY these engine results. '
+      + 'Never invent numbers. The active purpose is "' + purpose + '". '
+      + 'IMPORTANT: a null field that appears in "withheld" was BLOCKED by governance — '
+      + 'it is NOT missing or absent; never say the record "does not contain" it. '
+      + 'Explain it was withheld and why: for reason "out-of-purpose" tell the user to set '
+      + 'the Purpose selector to the field\'s unlock_purpose (e.g. switch Purpose to '
+      + '"payroll" to see pay); for "role-restricted" say their role isn\'t permitted that '
+      + 'data class; for "no-grant"/"revoked"/"expired" say the person hasn\'t granted '
+      + '(or revoked/expired) consent; for "out-of-population" say it\'s outside who they may see.';
+  }
+  function narrateBody(question, result, purpose, stream) {
+    return JSON.stringify({ model: 'claude-sonnet-4-6', max_tokens: 600, stream: !!stream,
+      system: narrateSystem(purpose),
+      messages: [{ role: 'user', content: 'Q: ' + question + '\nRESULTS: '
+        + JSON.stringify(narrateFacts(result)) }] });
+  }
+  var ANTHROPIC_HEADERS = function (key) {
+    return { 'content-type': 'application/json', 'x-api-key': key,
+      'anthropic-version': '2023-06-01', 'anthropic-dangerous-direct-browser-access': 'true' };
+  };
+
+  // Non-streaming fallback.
+  async function narrate(question, spec, result, purpose, key) {
+    var res = await fetch('https://api.anthropic.com/v1/messages', { method: 'POST',
+      headers: ANTHROPIC_HEADERS(key), body: narrateBody(question, result, purpose, false) });
     if (!res.ok) throw new Error('narrate failed: ' + res.status);
     var data = await res.json();
     var block = (data.content || []).find(function (b) { return b.type === 'text'; });
     return block ? block.text : '';
+  }
+
+  // Streaming: emits the narrative token-by-token into the answer column via onText(fullText).
+  async function streamNarrate(question, spec, result, purpose, key, onText) {
+    var res = await fetch('https://api.anthropic.com/v1/messages', { method: 'POST',
+      headers: ANTHROPIC_HEADERS(key), body: narrateBody(question, result, purpose, true) });
+    if (!res.ok || !res.body) throw new Error('stream failed: ' + res.status);
+    var reader = res.body.getReader(), dec = new TextDecoder(), buf = '', text = '';
+    while (true) {
+      var chunk = await reader.read();
+      if (chunk.done) break;
+      buf += dec.decode(chunk.value, { stream: true });
+      var lines = buf.split('\n'); buf = lines.pop();
+      lines.forEach(function (line) {
+        line = line.trim();
+        if (line.indexOf('data:') !== 0) return;
+        var d = line.slice(5).trim();
+        if (!d || d === '[DONE]') return;
+        try {
+          var j = JSON.parse(d);
+          if (j.type === 'content_block_delta' && j.delta && typeof j.delta.text === 'string') {
+            text += j.delta.text; if (onText) onText(text);
+          }
+        } catch (e) { /* ignore non-JSON keepalive lines */ }
+      });
+    }
+    return text;
   }
 
   async function translateValid(question, db, purpose, key, role) {
@@ -367,9 +406,20 @@
     try {
       var spec = await translateValid(question, db, purpose, key, currentRole());
       var result = window.FFEngine.runSpec(spec, db, purpose, currentRole());
+      // Deterministic engine result renders immediately in column 2…
+      renderResult(spec, result, null);
       $('status').textContent = 'Answering…';
-      var narrative = await narrate(question, spec, result, purpose, key);
-      renderResult(spec, result, narrative);
+      // …then the narrative streams in token-by-token above it.
+      var paint = function (txt) {
+        var panel = $('narrativePanel'), el = $('narrativeText');
+        if (panel) panel.hidden = false;
+        if (el) el.textContent = txt;
+      };
+      try {
+        await streamNarrate(question, spec, result, purpose, key, paint);
+      } catch (streamErr) {
+        paint(await narrate(question, spec, result, purpose, key));   // fallback: non-streaming
+      }
       $('status').textContent = '';
     } catch (e) { $('status').textContent = String(e.message); }
   }
@@ -393,8 +443,7 @@
   renderPermPanel();
   loadKey();
 
-  // ── Person profile drawer (governance-aware: same gates as the rest of the app) ──
-  var drawerReturnFocus = null;
+  // ── Person profile column (governance-aware: same gates as the rest of the app) ──
 
   function fieldRow(dt, ddHtml) { return '<dt>' + esc(dt) + '</dt><dd>' + ddHtml + '</dd>'; }
 
@@ -470,38 +519,26 @@
     return html;
   }
 
-  function openDrawer(title, trigger) {
+  var DRAWER_EMPTY = '<p class="muted">Click a name in the results to view their profile here.</p>';
+  function openDrawer(title) {
     var node = db.nodesByTitle[title];
     if (!node) return;
-    if ($('drawer').hidden) drawerReturnFocus = trigger || document.activeElement;
     $('drawerBody').innerHTML = buildProfile(node);
-    $('drawerBackdrop').hidden = false;
-    $('drawer').hidden = false;
-    $('drawerClose').focus();
+    $('drawerClose').hidden = false;
+    $('drawer').scrollIntoView({ block: 'nearest' });   // bring col into view when stacked
   }
   function closeDrawer() {
-    $('drawer').hidden = true;
-    $('drawerBackdrop').hidden = true;
-    if (drawerReturnFocus && drawerReturnFocus.focus) drawerReturnFocus.focus();
+    $('drawerBody').innerHTML = DRAWER_EMPTY;
+    $('drawerClose').hidden = true;
   }
   $('drawerClose').addEventListener('click', closeDrawer);
-  $('drawerBackdrop').addEventListener('click', closeDrawer);
-  $('drawer').addEventListener('keydown', function (e) {
-    if (e.key === 'Escape') { closeDrawer(); return; }
-    if (e.key !== 'Tab') return;
-    var f = $('drawer').querySelectorAll('button, [href], input, [tabindex]:not([tabindex="-1"])');
-    if (!f.length) return;
-    var first = f[0], last = f[f.length - 1];
-    if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
-    else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
-  });
   document.addEventListener('click', function (e) {
     var imp = e.target.closest && e.target.closest('.imp-btn');
     if (imp && imp.getAttribute('data-person')) {
       e.preventDefault(); setImpersonation(imp.getAttribute('data-person')); closeDrawer(); return;
     }
     var b = e.target.closest && e.target.closest('.namelink');
-    if (b && b.getAttribute('data-person')) { e.preventDefault(); openDrawer(b.getAttribute('data-person'), b); }
+    if (b && b.getAttribute('data-person')) { e.preventDefault(); openDrawer(b.getAttribute('data-person')); }
   });
 
   window.FFApp = { db: db, renderResult: renderResult, esc: esc, personLink: personLink,
