@@ -80,23 +80,23 @@
     var pop = window.FFEngine.computePopulation(role, db);
     var total = db.nodesByType.person.length;
     var seen = pop.all ? total : pop.set.size;
-    var sens = role.scopes.map(function (s) { return SCOPE_LABEL[s]; });
-    var hidden = ALL_SCOPES.filter(function (s) { return role.scopes.indexOf(s) === -1; })
-      .map(function (s) { return SCOPE_LABEL[s]; });
     var who = pop.all ? 'everyone (' + total + ')'
-      : (role.population.type === 'self' ? 'just yourself (1)' : 'your population (' + seen + ' of ' + total + ')');
+      : (role.population.type === 'self' ? 'just you (1)' : seen + ' of ' + total);
     var anchorTitle = role.anchor ? (db.idToTitle[role.anchor] || role.anchor) : null;
     var anchorHtml = anchorTitle
-      ? (personLink(anchorTitle) + ' (' + esc(role.anchorDesc) + ')')
-      : esc(role.anchorDesc);
-    var html = '<strong>Viewing as ' + esc(role.label) + '</strong> — ' + anchorHtml;
-    html += '<br><strong>Sees:</strong> directory for <strong>everyone (' + total + ')</strong>';
-    if (sens.length) html += '; ' + sens.map(esc).join(' · ') + ' for <strong>' + esc(who) + '</strong>';
-    var bits = [];
-    if (hidden.length) bits.push(hidden.map(esc).join(' · ') + ' (not permitted for this role)');
-    if (!pop.all && sens.length) bits.push('sensitive data for everyone outside your population (' + (total - seen) + ')');
-    html += '<br><span class="redacted"><strong>Hidden:</strong> ' + (bits.length ? bits.join(' · ') : 'nothing') + '</span>';
-    $('permpanel').innerHTML = html;
+      ? (personLink(anchorTitle) + ' <span class="muted">(' + esc(role.anchorDesc) + ')</span>')
+      : '<span class="muted">' + esc(role.anchorDesc) + '</span>';
+    var chip = function (label, on) {
+      return '<span class="classchip ' + (on ? 'on' : 'off') + '">'
+        + (on ? '' : '<span class="sr-only">hidden: </span>') + esc(label) + '</span>';
+    };
+    var chips = chip('directory', true)
+      + ALL_SCOPES.map(function (s) { return chip(SCOPE_LABEL[s], role.scopes.indexOf(s) !== -1); }).join('');
+    $('permpanel').innerHTML =
+      '<div class="access-head">Viewing as <strong>' + esc(role.label) + '</strong> · ' + anchorHtml + '</div>'
+      + '<div class="access-scope muted">Directory: <strong>everyone (' + total + ')</strong>'
+      + ' · Sensitive: <strong>' + esc(who) + '</strong></div>'
+      + '<div class="classchips">' + chips + '</div>';
   }
 
   function renderResult(spec, result, narrative) {

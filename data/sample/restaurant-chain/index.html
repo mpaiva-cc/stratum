@@ -4,97 +4,205 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Fork &amp; Flame — System of Understanding</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
   <style>
-    :root { --ink:#1a1a1a; --paper:#faf8f3; --ochre:#b8860b; --moss:#2f5d2f;
-            --plum:#6b4e71; --line:#d9d4c6; --muted:#595959; --focus:#7a4f00; }
+    :root {
+      --paper:#f3ede1; --paper-card:#fbf7ef; --paper-sunk:#ece3d2;
+      --ink:#1f1a15; --ink-2:#473d31; --muted:#6a5e4d; --line:#d9cdb8;
+      --ochre:#915512; --ochre-bright:#c07d2a; --moss:#355e3b; --plum:#6a4a6e;
+      --focus:#8a4b00;
+      --radius:11px;
+      --shadow:0 1px 2px rgba(45,30,12,.05), 0 10px 26px -14px rgba(45,30,12,.22);
+      --font-display:'Fraunces',Georgia,'Times New Roman',serif;
+      --font-body:'Newsreader',Georgia,serif;
+      --font-mono:'JetBrains Mono',ui-monospace,Menlo,monospace;
+    }
     * { box-sizing:border-box; }
-    body { font:16px/1.55 -apple-system,Segoe UI,Roboto,sans-serif; color:var(--ink);
-           background:var(--paper); max-width:1500px; margin:2rem auto; padding:0 1rem; }
-    h1 { font-weight:700; font-size:1.6rem; margin:0 0 .25rem; }
+    html { -webkit-text-size-adjust:100%; }
+    body { font:400 17px/1.6 var(--font-body); color:var(--ink); background:var(--paper);
+      max-width:1480px; margin:0 auto; padding:1.5rem 1.25rem 4rem; }
+    /* subtle paper grain for atmosphere (never under interactive hit-testing) */
+    body::before { content:''; position:fixed; inset:0; z-index:9999; pointer-events:none;
+      opacity:.035; mix-blend-mode:multiply;
+      background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E"); }
+
+    /* ── masthead ── */
+    .masthead { position:relative; padding:.5rem 0 1.1rem; border-bottom:1px solid var(--line); margin-bottom:.25rem; }
+    .masthead::after { content:''; position:absolute; left:0; right:0; bottom:-1px; height:1px;
+      background:linear-gradient(90deg, var(--ochre-bright), transparent 55%); }
+    .eyebrow { font:600 .72rem/1.4 var(--font-mono); letter-spacing:.16em; text-transform:uppercase;
+      color:var(--ochre); margin:0; }
+    .masthead h1 { font:600 clamp(2.4rem,5vw,3.6rem)/.98 var(--font-display);
+      font-variation-settings:'opsz' 144,'SOFT' 40,'WONK' 1; letter-spacing:-.01em;
+      margin:.25rem 0 .15rem; color:var(--ink); }
+    .masthead .tagline { font:italic 400 1.05rem/1.45 var(--font-body); color:var(--ink-2);
+      max-width:62ch; margin:0; }
+
+    /* ── 3-column layout: settings/prompt | answer (streams) | profile ── */
+    .layout { display:grid; gap:1.4rem; align-items:start; margin-top:1.4rem;
+      grid-template-columns: minmax(300px,360px) minmax(0,1fr) minmax(300px,400px); }
+    .layout > .col { min-width:0; }
+    #qform.col, .drawer.col { position:sticky; top:1.25rem; align-self:start;
+      max-height:calc(100vh - 2.5rem); overflow:auto; }
+    @media (max-width:1120px) { .layout { grid-template-columns:1fr; }
+      #qform.col, .drawer.col { position:static; max-height:none; overflow:visible; } }
+
+    /* ── surfaces ── */
+    .panel, .drawer { background:var(--paper-card); border:1px solid var(--line);
+      border-radius:var(--radius); box-shadow:var(--shadow); }
+    .panel { padding:1.15rem 1.2rem; }
+    .col-eyebrow { display:flex; align-items:center; justify-content:space-between; gap:.5rem;
+      margin:0 0 .55rem; }
+    .col-eyebrow .eyebrow { color:var(--muted); }
+
+    /* ── typography helpers ── */
+    h1,h2,h3 { font-family:var(--font-display); }
     .muted { color:var(--muted); }
-    select,input,button { font:inherit; padding:.5rem .6rem; border:1px solid var(--line); border-radius:6px; background:#fff; color:var(--ink); }
-    #q { width:100%; }
-    .btn { background:var(--ink); color:#fff; cursor:pointer; border:none; }
-    .btn.secondary { background:#fff; color:var(--ink); border:1px solid var(--line); }
-    /* visible keyboard focus everywhere (WCAG 2.4.7) */
+    .narrative { font-size:1.12rem; line-height:1.6; }
+    .narrative::first-letter { } /* hook for future drop-cap */
+
+    /* ── controls ── */
+    label, .keycap { display:block; font:600 .72rem/1.4 var(--font-mono); letter-spacing:.1em;
+      text-transform:uppercase; color:var(--ink-2); margin-bottom:.3rem; }
+    .hint { font:italic 400 .82rem/1.3 var(--font-body); letter-spacing:0; text-transform:none;
+      color:var(--muted); }
+    select,input,button,textarea { font:inherit; color:var(--ink); }
+    select,input { width:100%; padding:.55rem .7rem; border:1px solid var(--line); border-radius:8px;
+      background:#fdfaf3; }
+    select { appearance:none; background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8'%3E%3Cpath d='M1 1l5 5 5-5' fill='none' stroke='%23915512' stroke-width='1.6'/%3E%3C/svg%3E");
+      background-repeat:no-repeat; background-position:right .7rem center; padding-right:1.8rem; cursor:pointer; }
+    .btn { background:var(--ink); color:var(--paper-card); cursor:pointer; border:1px solid var(--ink);
+      border-radius:8px; padding:.55rem .95rem; font-weight:600; letter-spacing:.01em; width:auto;
+      transition:transform .12s ease, background .12s ease; }
+    .btn:hover { background:#000; }
+    .btn:active { transform:translateY(1px); }
+    .btn.secondary { background:transparent; color:var(--ink); border-color:var(--line); }
+    .btn.secondary:hover { background:var(--paper-sunk); }
+    /* strong visible keyboard focus (WCAG 2.4.7) */
     a:focus-visible, button:focus-visible, select:focus-visible, input:focus-visible {
-      outline:3px solid var(--focus); outline-offset:2px; }
-    .panel { border:1px solid var(--line); border-radius:8px; padding:1rem; margin:1rem 0; background:#fff; }
-    .controls { display:flex; flex-wrap:wrap; gap:.75rem 1rem; align-items:flex-end; }
-    .field { display:flex; flex-direction:column; gap:.25rem; }
-    .field label, .keycap { font-weight:600; font-size:.85rem; }
-    .field.grow { flex:1 1 16rem; }
-    .row { display:flex; gap:.5rem; align-items:center; width:100%; }
-    .trace { border-left:3px solid var(--plum); background:#f6f1f7; }
-    .spec { font:13px/1.4 ui-monospace,Menlo,monospace; white-space:pre-wrap; background:#f1eee6; padding:.75rem; border-radius:6px; }
-    .badge { font-size:12px; padding:1px 7px; border-radius:10px; background:#e7e3d7; color:#222; }
+      outline:3px solid var(--focus); outline-offset:2px; border-radius:6px; }
+
+    .controls { display:flex; flex-direction:column; gap:.85rem; }
+    .field { display:flex; flex-direction:column; }
+    .row { display:flex; gap:.5rem; align-items:stretch; }
+    .row #q { flex:1 1 auto; }
+
+    /* ── access summary (governance at a glance) ── */
+    .access { background:var(--paper-sunk); border:1px solid var(--line); border-radius:var(--radius);
+      padding:.85rem .9rem; margin:1.05rem 0; }
+    .access-head { font-size:1rem; }
+    .access-scope { font-size:.86rem; margin:.35rem 0 .6rem; }
+    .classchips { display:flex; flex-wrap:wrap; gap:.35rem; }
+    .classchip { font:500 .72rem/1.3 var(--font-mono); padding:.18rem .55rem; border-radius:999px;
+      border:1px solid var(--line); white-space:nowrap; background:#fdfaf3; color:var(--ink-2); }
+    .classchip.on { background:var(--moss); color:#fff; border-color:var(--moss); }
+    .classchip.off { color:var(--muted); text-decoration:line-through; opacity:.85; }
+    .classchip.off::before { content:"🔒\00a0"; text-decoration:none; display:inline-block; }
+
+    /* ── conversation starters ── */
+    .starters { display:flex; flex-wrap:wrap; gap:.4rem; margin-top:.6rem; }
+    .starters .chip { font:400 .9rem/1.3 var(--font-body); padding:.32rem .7rem; cursor:pointer;
+      border:1px solid var(--line); border-radius:999px; background:#fdfaf3; color:var(--ink);
+      transition:background .12s ease, border-color .12s ease, transform .12s ease; }
+    .starters .chip:hover { background:#f6eede; border-color:var(--ochre-bright); }
+    .starters .chip::before { content:"\201C"; color:var(--ochre); }
+    .starters .chip::after { content:"\201D"; color:var(--ochre); }
+
+    /* ── status ── */
+    #status { font:500 .85rem/1.4 var(--font-mono); color:var(--muted); margin:.7rem 0 0; min-height:1.2em; }
+
+    /* ── answer column ── */
+    #answer > .panel:first-child { margin-top:0; }
+    #answer .panel { margin:0 0 1rem; }
+    #narrativePanel { background:var(--paper-card); border-left:3px solid var(--ochre-bright); }
+    #narrativeText { margin:0; font-size:1.12rem; line-height:1.62; }
+    .trace { border-left:3px solid var(--plum); background:#f3edf4; }
+    .trace em { font-style:normal; font:600 .72rem/1.4 var(--font-mono); letter-spacing:.08em;
+      text-transform:uppercase; color:var(--plum); }
+    .spec { font:400 13px/1.5 var(--font-mono); white-space:pre-wrap; background:#2a241d; color:#efe7d6;
+      padding:.85rem; border-radius:8px; overflow:auto; }
+    .badge { font:500 12px/1.4 var(--font-mono); padding:1px 8px; border-radius:999px;
+      background:var(--paper-sunk); color:var(--ink-2); }
     .redacted { color:var(--plum); font-style:italic; }
-    table { border-collapse:collapse; width:100%; } caption { text-align:left; font-weight:600; margin-bottom:.4rem; }
-    td,th { border-bottom:1px solid var(--line); padding:.35rem .5rem; text-align:left; vertical-align:top; }
+    table { border-collapse:collapse; width:100%; }
+    caption { text-align:left; font:600 .95rem/1.3 var(--font-display); margin-bottom:.5rem; }
+    th { font:600 .68rem/1.3 var(--font-mono); letter-spacing:.08em; text-transform:uppercase;
+      color:var(--muted); border-bottom:1px solid var(--line); padding:.4rem .5rem; text-align:left; }
+    td { border-bottom:1px solid var(--line); padding:.4rem .5rem; text-align:left; vertical-align:top;
+      font-size:.95rem; }
+    tr:last-child td { border-bottom:0; }
     ul.cells { list-style:none; margin:0; padding:0; }
     ul.cells li { padding:.08rem 0; }
-    .starters { display:flex; flex-wrap:wrap; gap:.4rem; margin-top:.5rem; }
-    .starters .chip { font-size:.85rem; padding:.3rem .6rem; border:1px solid var(--line);
-      border-radius:14px; background:#f4f2ec; color:var(--ink); cursor:pointer; }
-    .starters .chip:hover { background:#ece8dc; }
-    .starters .chip::before { content:"\201C"; } .starters .chip::after { content:"\201D"; }
-    /* key icon button + existence badge */
+
+    /* ── name links ── */
+    .namelink { background:none; border:0; padding:0; margin:0; font:inherit; cursor:pointer;
+      color:var(--ochre); text-decoration:underline; text-underline-offset:2px;
+      text-decoration-thickness:1px; text-decoration-color:var(--ochre-bright); }
+    .namelink:hover { color:#6f3f0c; }
+
+    /* ── key icon button + existence badge ── */
     .keywrap { position:relative; }
-    .keybtn { display:inline-flex; align-items:center; gap:.4rem; background:#fff; color:var(--ink); border:1px solid var(--line); }
+    .keybtn { display:inline-flex; align-items:center; gap:.45rem; background:#fdfaf3; color:var(--ink);
+      border:1px solid var(--line); border-radius:8px; padding:.5rem .7rem; cursor:pointer; width:auto; }
     .keyicon { font-size:1.1rem; line-height:1; }
-    .keybadge { width:1rem; height:1rem; border-radius:50%; display:inline-flex; align-items:center;
-      justify-content:center; font-size:.7rem; font-weight:700; border:1px solid #999; color:#fff; background:transparent; }
-    .keybtn[data-haskey="yes"] .keybadge { background:var(--moss); border-color:var(--moss); }   /* set: green + check */
-    .keybtn[data-haskey="no"]  .keybadge::before { content:"+"; color:#666; }
-    .keybtn[data-haskey="yes"] .keybadge::before { content:"\2713"; }                              /* ✓ */
-    .popover { position:absolute; right:0; top:calc(100% + .4rem); z-index:5; width:20rem; max-width:90vw;
-      background:#fff; border:1px solid var(--line); border-radius:8px; padding:.9rem;
-      box-shadow:0 6px 24px rgba(0,0,0,.14); display:flex; flex-direction:column; gap:.5rem; }
+    .keybadge { width:1.05rem; height:1.05rem; border-radius:50%; display:inline-flex; align-items:center;
+      justify-content:center; font-size:.72rem; font-weight:700; border:1px solid #a89878; color:#fff; }
+    .keybtn[data-haskey="yes"] .keybadge { background:var(--moss); border-color:var(--moss); }
+    .keybtn[data-haskey="no"]  .keybadge::before { content:"+"; color:#7a6c52; }
+    .keybtn[data-haskey="yes"] .keybadge::before { content:"\2713"; }
+    .popover { position:absolute; left:0; top:calc(100% + .45rem); z-index:20; width:20rem; max-width:90vw;
+      background:var(--paper-card); border:1px solid var(--line); border-radius:var(--radius); padding:1rem;
+      box-shadow:0 12px 34px -10px rgba(45,30,12,.35); display:flex; flex-direction:column; gap:.55rem; }
     .popover[hidden] { display:none; }
-    .popover label { font-weight:600; font-size:.85rem; }
     .popactions { display:flex; gap:.5rem; }
+
+    /* ── profile column ── */
+    .drawer { padding:1.1rem 1.2rem 1.4rem; position:relative; }
+    .drawer h2 { margin:.1rem 0 .1rem; font-size:1.35rem; font-weight:600; }
+    .drawer .close { background:#fdfaf3; color:var(--ink); border:1px solid var(--line);
+      border-radius:8px; padding:.25rem .55rem; cursor:pointer; width:auto; line-height:1; }
+    .drawer dl { display:grid; grid-template-columns:max-content 1fr; gap:.35rem .85rem; margin:.7rem 0; }
+    .drawer dt { font:600 .68rem/1.5 var(--font-mono); letter-spacing:.06em; text-transform:uppercase;
+      color:var(--muted); }
+    .drawer dd { margin:0; }
+    .drawer .sect { margin-top:1rem; border-top:1px solid var(--line); padding-top:.75rem; }
+    .drawer .sect > strong:first-child { font:600 .72rem/1.4 var(--font-mono); letter-spacing:.08em;
+      text-transform:uppercase; color:var(--ochre); }
+    .drawer .hiddenval { color:var(--plum); font-style:italic; }
+
     .sr-only { position:absolute; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden;
       clip:rect(0 0 0 0); white-space:nowrap; border:0; }
-    /* name links + person profile drawer */
-    .namelink { background:none; border:0; padding:0; margin:0; font:inherit; color:#1f5673;
-      text-decoration:underline; cursor:pointer; }
-    .namelink:hover { color:#0d3a52; }
-    /* 3-column layout: settings/prompt | answer (streams) | profile */
-    .layout { display:grid; gap:1.25rem; align-items:start; margin-top:1rem;
-      grid-template-columns: minmax(290px,350px) minmax(0,1fr) minmax(290px,380px); }
-    .layout > .col { min-width:0; }
-    #qform.col, .drawer.col { position:sticky; top:1rem; align-self:start;
-      max-height:calc(100vh - 2rem); overflow:auto; }
-    @media (max-width:1100px) { .layout { grid-template-columns:1fr; }
-      #qform.col, .drawer.col { position:static; max-height:none; overflow:visible; } }
-    .drawer { background:#fff; border:1px solid var(--line); border-radius:8px;
-      padding:1.1rem 1.2rem 1.5rem; position:relative; }
-    .drawer h2 { margin:.2rem 2rem .1rem 0; font-size:1.2rem; }
-    .drawer .close { position:absolute; top:.6rem; right:.7rem; background:#fff; color:var(--ink);
-      border:1px solid var(--line); border-radius:6px; }
-    .drawer dl { display:grid; grid-template-columns:max-content 1fr; gap:.3rem .8rem; margin:.7rem 0; }
-    .drawer dt { font-weight:600; color:var(--muted); }
-    .drawer dd { margin:0; }
-    .drawer .sect { margin-top:1rem; border-top:1px solid var(--line); padding-top:.7rem; }
-    .drawer .hiddenval { color:var(--plum); font-style:italic; }
+
+    /* ── motion: one orchestrated entrance, fully reduced-motion-safe ── */
+    @media (prefers-reduced-motion: no-preference) {
+      .reveal { opacity:0; animation:rise .55s cubic-bezier(.2,.7,.2,1) forwards; }
+      .reveal.d1 { animation-delay:.05s; } .reveal.d2 { animation-delay:.13s; }
+      .reveal.d3 { animation-delay:.21s; } .reveal.d4 { animation-delay:.29s; }
+      @keyframes rise { from { opacity:0; transform:translateY(10px); } to { opacity:1; transform:none; } }
+    }
   </style>
 </head>
 <body>
-  <h1>Fork &amp; Flame · System of Understanding</h1>
-  <p class="muted">Ask the contextual map a question. Governance is enforced — answers that a
-     purpose or your role can’t satisfy are refused, in code.</p>
+  <header class="masthead reveal d1" role="banner">
+    <p class="eyebrow">Stratum · the context layer</p>
+    <h1>Fork &amp; Flame</h1>
+    <p class="tagline">A system of understanding. Ask the contextual map a question — governance is
+      enforced in code, so answers your purpose or role can’t satisfy are refused, not hidden.</p>
+  </header>
 
   <main class="layout">
-  <form id="qform" class="panel col" aria-labelledby="form-title">
-    <h2 id="form-title" class="sr-only">Settings &amp; question</h2>
+  <form id="qform" class="panel col reveal d2" aria-labelledby="form-title">
+    <div class="col-eyebrow"><h2 id="form-title" class="eyebrow">Ask</h2></div>
 
     <div class="controls">
       <div class="field">
-        <label for="purpose">Purpose</label>
+        <label for="purpose">Purpose <span class="hint">— what it’s used for</span></label>
         <select id="purpose"></select>
       </div>
       <div class="field">
-        <label for="role">Viewing as</label>
+        <label for="role">Viewing as <span class="hint">— who you are</span></label>
         <select id="role">
           <option value="chro">CHRO</option>
           <option value="hrbp">HRBP</option>
@@ -115,7 +223,7 @@
           <label for="key">Anthropic API key</label>
           <input id="key" type="password" autocomplete="off" spellcheck="false"
                  aria-describedby="keynote" placeholder="sk-ant-…">
-          <p class="muted" id="keynote" style="margin:0; font-size:.82rem;">
+          <p class="muted" id="keynote" style="margin:0; font-size:.82rem; font-family:var(--font-body); text-transform:none; letter-spacing:0;">
             Stored for this browser session only (sessionStorage); cleared when you close the tab. Sent only to Anthropic when you ask.</p>
           <div class="popactions">
             <button type="button" id="keysave" class="btn">Save</button>
@@ -125,27 +233,33 @@
       </div>
     </div>
 
-    <div class="panel" id="permpanel" role="status" aria-live="polite" style="margin:.9rem 0 0;"></div>
+    <div class="access" id="permpanel" role="status" aria-live="polite"></div>
 
-    <div class="field grow" style="margin-top:.9rem;">
+    <div class="field">
       <label for="q">Your question</label>
       <div class="row">
-        <input id="q" placeholder="e.g. who do I report to?  ·  average server pay">
+        <input id="q" placeholder="e.g. who do I report to?">
         <button type="submit" id="ask" class="btn">Ask</button>
       </div>
       <div id="starters" class="starters" role="group" aria-label="Example questions for this purpose"></div>
     </div>
 
-    <p class="muted" id="status" role="status" aria-live="polite" style="margin:.6rem 0 0; min-height:1.2em;"></p>
+    <p id="status" role="status" aria-live="polite"></p>
   </form>
 
-  <section id="answer" class="col" aria-live="polite" aria-label="Answer">
-    <p class="muted">Ask a question — the answer streams here.</p>
+  <section class="col reveal d3" aria-labelledby="answer-title">
+    <div class="col-eyebrow"><h2 id="answer-title" class="eyebrow">Answer</h2></div>
+    <div id="answer" aria-live="polite">
+      <p class="muted">Ask a question — the answer streams in here, with the query and governance trace beneath it.</p>
+    </div>
   </section>
 
-  <aside id="drawer" class="col drawer" role="complementary" aria-label="Person profile" aria-live="polite">
-    <button type="button" id="drawerClose" class="close" aria-label="Close profile" hidden>✕</button>
-    <div id="drawerBody"><p class="muted">Click a name in the results to view their profile here.</p></div>
+  <aside id="drawer" class="col drawer reveal d4" aria-labelledby="profile-title">
+    <div class="col-eyebrow">
+      <h2 id="profile-title" class="eyebrow">Profile</h2>
+      <button type="button" id="drawerClose" class="close" aria-label="Close profile" hidden>✕</button>
+    </div>
+    <div id="drawerBody" aria-live="polite"><p class="muted">Click a name in the results to view their profile here.</p></div>
   </aside>
   </main>
 
