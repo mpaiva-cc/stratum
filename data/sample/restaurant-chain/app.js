@@ -75,6 +75,9 @@
     }).join('');
   }
 
+  var accessOpen = true;
+  try { accessOpen = window.localStorage.getItem('ff_access_open') !== 'false'; } catch (e) {}
+
   function renderPermPanel() {
     var role = currentRole();
     var pop = window.FFEngine.computePopulation(role, db);
@@ -83,9 +86,10 @@
     var who = pop.all ? 'everyone (' + total + ')'
       : (role.population.type === 'self' ? 'just you (1)' : seen + ' of ' + total);
     var anchorTitle = role.anchor ? (db.idToTitle[role.anchor] || role.anchor) : null;
-    var anchorHtml = anchorTitle
-      ? (personLink(anchorTitle) + ' <span class="muted">(' + esc(role.anchorDesc) + ')</span>')
-      : '<span class="muted">' + esc(role.anchorDesc) + '</span>';
+    var name = (anchorTitle && db.nodesByTitle[anchorTitle]) ? db.nodesByTitle[anchorTitle].props.name : null;
+    var headTail = anchorTitle
+      ? ' · ' + esc(name || anchorTitle) + ' <span class="muted">(' + esc(role.anchorDesc) + ')</span>'
+      : ' <span class="muted">· ' + esc(role.anchorDesc) + '</span>';
     var chip = function (label, on) {
       return '<span class="classchip ' + (on ? 'on' : 'off') + '">'
         + (on ? '' : '<i class="ti ti-lock" aria-hidden="true"></i><span class="sr-only">hidden: </span>')
@@ -94,10 +98,16 @@
     var chips = chip('directory', true)
       + ALL_SCOPES.map(function (s) { return chip(SCOPE_LABEL[s], role.scopes.indexOf(s) !== -1); }).join('');
     $('permpanel').innerHTML =
-      '<div class="access-head">Viewing as <strong>' + esc(role.label) + '</strong> · ' + anchorHtml + '</div>'
-      + '<div class="access-scope muted">Directory: <strong>everyone (' + total + ')</strong>'
-      + ' · Sensitive: <strong>' + esc(who) + '</strong></div>'
-      + '<div class="classchips">' + chips + '</div>';
+      '<button type="button" class="access-toggle" aria-expanded="' + (accessOpen ? 'true' : 'false')
+        + '" aria-controls="accessBody">'
+        + '<span class="access-head">Viewing as <strong>' + esc(role.label) + '</strong>' + headTail + '</span>'
+        + '<i class="ti ti-chevron-down access-chevron" aria-hidden="true"></i></button>'
+      + '<div id="accessBody" class="access-body"' + (accessOpen ? '' : ' hidden') + '>'
+        + '<div class="access-scope muted">Directory: <strong>everyone (' + total + ')</strong>'
+        + ' · Sensitive: <strong>' + esc(who) + '</strong></div>'
+        + (anchorTitle ? '<div class="access-profile muted">Profile: ' + personLink(anchorTitle) + '</div>' : '')
+        + '<div class="classchips">' + chips + '</div>'
+      + '</div>';
   }
 
   function renderResult(spec, result, narrative) {
@@ -444,6 +454,14 @@
     if (chip && chip.getAttribute('data-q')) { $('q').value = chip.getAttribute('data-q'); $('q').focus(); }
   });
   renderPermPanel();
+  // accordion: toggle the access summary body (state persists; survives re-render)
+  $('permpanel').addEventListener('click', function (e) {
+    if (!(e.target.closest && e.target.closest('.access-toggle'))) return;
+    accessOpen = !accessOpen;
+    try { window.localStorage.setItem('ff_access_open', accessOpen ? 'true' : 'false'); } catch (e2) {}
+    $('permpanel').querySelector('.access-toggle').setAttribute('aria-expanded', accessOpen ? 'true' : 'false');
+    var body = $('accessBody'); if (body) body.hidden = !accessOpen;
+  });
   loadKey();
 
   // ── light/dark theme toggle (initial theme set by the inline <head> script) ──
@@ -543,9 +561,13 @@
     if (!node) return;
     $('drawerBody').innerHTML = buildProfile(node);
     $('drawerClose').hidden = false;
-    $('drawer').scrollIntoView({ block: 'nearest' });   // bring col into view when stacked
+    $('drawer').hidden = false;                          // profile column is hidden by default
+    document.querySelector('.layout').classList.remove('no-profile');
+    $('drawer').scrollIntoView({ block: 'nearest' });    // bring col into view when stacked
   }
   function closeDrawer() {
+    $('drawer').hidden = true;
+    document.querySelector('.layout').classList.add('no-profile');
     $('drawerBody').innerHTML = DRAWER_EMPTY;
     $('drawerClose').hidden = true;
   }

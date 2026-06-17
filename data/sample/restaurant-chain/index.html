@@ -68,6 +68,7 @@
     /* ── 3-column layout: settings/prompt | answer (streams) | profile ── */
     .layout { display:grid; gap:1.4rem; align-items:start; margin-top:1.4rem;
       grid-template-columns: minmax(300px,360px) minmax(0,1fr) minmax(300px,400px); }
+    .layout.no-profile { grid-template-columns: minmax(300px,360px) minmax(0,1fr); }
     .layout > .col { min-width:0; }
     #qform.col, .drawer.col { position:sticky; top:1.25rem; align-self:start;
       max-height:calc(100vh - 2.5rem); overflow:auto; }
@@ -115,9 +116,17 @@
     .row { display:flex; gap:.5rem; align-items:stretch; }
     .row #q { flex:1 1 auto; }
 
-    /* ── access summary (governance at a glance) ── */
+    /* ── access summary (governance at a glance) — collapsible accordion ── */
     .access { background:var(--paper-sunk); border:1px solid var(--line); border-radius:var(--radius);
-      padding:.85rem .9rem; margin:1.05rem 0; }
+      padding:.7rem .9rem; margin:1.05rem 0; }
+    .access-toggle { display:flex; width:100%; align-items:center; justify-content:space-between;
+      gap:.5rem; background:none; border:0; padding:0; margin:0; color:inherit; font:inherit;
+      cursor:pointer; text-align:left; }
+    .access-chevron { color:var(--muted); flex:none; transition:transform .15s ease; }
+    .access-toggle[aria-expanded="true"] .access-chevron { transform:rotate(180deg); }
+    .access-body { margin-top:.6rem; }
+    .access-body[hidden] { display:none; }
+    .access-profile { font-size:.85rem; margin:.1rem 0 .55rem; }
     .access-head { font-size:1rem; }
     .access-scope { font-size:.86rem; margin:.35rem 0 .6rem; }
     .classchips { display:flex; flex-wrap:wrap; gap:.35rem; }
@@ -263,7 +272,7 @@
     </div>
   </header>
 
-  <main class="layout">
+  <main class="layout no-profile">
   <form id="qform" class="panel col reveal d2" aria-labelledby="form-title">
     <div class="col-eyebrow"><h2 id="form-title" class="eyebrow">Ask</h2></div>
 
@@ -288,7 +297,7 @@
     </div>
   </section>
 
-  <aside id="drawer" class="col drawer reveal d4" aria-labelledby="profile-title">
+  <aside id="drawer" class="col drawer reveal d4" aria-labelledby="profile-title" hidden>
     <div class="col-eyebrow">
       <h2 id="profile-title" class="eyebrow">Profile</h2>
       <button type="button" id="drawerClose" class="close" aria-label="Close profile" hidden><i class="ti ti-x" aria-hidden="true"></i></button>
