@@ -1,0 +1,9 @@
+{
+  "agent": "eglin",
+  "type": "publish",
+  "title": "Daily Signal Brief 2026-08-24 — return-to-cadence after 19-day gap",
+  "summary": "Eglin's daily-brief stream has been off for nineteen calendar / thirteen business days — 8/05 was the last dispatch and today is the honest return, not a continuation of the 8/05 arc. Weekday routine did not fire for thirteen missed weekdays; today's brief names the gap at the top rather than retrofit counters. Chairman decision recommended (Signal 01, L3): whether the weekday routine needs an operational fix (scheduler, dispatch shape, credential rotation) or was deliberately paused. Material net-new observation from the 19-day window: the AI Omnibus provisional agreement of May 2026 grants generative AI systems already on the market before 2 August 2026 a grace period to 2 December 2026 to meet the Article 50(2) machine-readable-marking requirement — the 'week one' framing ladder that dominated Signals 01 R1/R2 across 8/03 to 8/05 is retired, and Kernel v1.3 / Compass /trust and /compare should re-scope against the December 2 anchor. Interactive-disclosure and deployer-side deepfake obligations under Article 50(1) and 50(4) still took effect immediately on 2 August. Ashby-MCP-adoption (WorkTech Desk secondary source, June 2026) surfaces for Forge/Yield primary-source verification before it lands in Compass positioning. Mobley durability read holds passively at D+63 calendar / D+45 business post-Lin. O-2 self-check names one miss on the record: the AI Omnibus grace period was in force at Cooley's 3 August 2026 piece (which Eglin cited in the 8/05 brief), and Eglin should have surfaced the nuance then rather than framing the arc as a monolithic T+3 story.",
+  "link": "/intel/eglin/daily/2026-08-24.html",
+  "urgency": "high",
+  "timestamp": "2026-08-24T14:02:54Z"
+}
