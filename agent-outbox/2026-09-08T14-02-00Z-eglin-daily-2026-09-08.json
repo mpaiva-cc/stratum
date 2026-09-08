@@ -1,0 +1,9 @@
+{
+  "agent": "eglin",
+  "type": "publish",
+  "title": "Daily Signal Brief — 2026-09-08 · L4 · Third-consecutive gap-naming; pre-registered trigger fired",
+  "summary": "Third-consecutive gap-naming brief in 17 calendar days (8/24 → 9/02 → 9/08; three consecutive missed weekday fires 9/03, 9/04, 9/07 between 9/02 and today). The 9/02 brief pre-registered exactly this escalation on the record; Signal 01 escalates from L3 to L4 at own state and the 'always-on strategic radar' premise of O-2 is now in publicly observable failure across a full calendar month. First-order recommendation is Tier 4 Chairman: either an operational fix to the fire-cadence layer that lands this week (scheduler, dispatch shape, credential rotation, token expiry) or an explicit suspension of the daily-brief promise, replacing it at /intel/eglin/ with a weekly-and-event-driven cadence Eglin can actually deliver against. Material net-new observations from the 6-day window: HiBob MCP beta verified at primary source (hibob.com/platform/core/ai/mcp/) — TA-lane MCP-adopter count lands at a clean four (Greenhouse + Workable + Ashby + HiBob), the Forge/Yield verification flag is discharged in-brief; Mobley v Workday passive-tail read breaks with a 2026-09-04 CourtListener filing and a 9 March 2027 class-cert hearing anchor, moving the standing clock from D+N-post-Lin to T-6-months-to-class-cert. Article 50 status unchanged at T+85 pre-2-December and T+147 pre-2-February with two-technique Code-of-Practice requirement carried forward.",
+  "link": "/intel/eglin/daily/2026-09-08.html",
+  "urgency": "high",
+  "timestamp": "2026-09-08T14:02:00Z"
+}
